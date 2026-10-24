@@ -1,27 +1,27 @@
 {
-  "written_at": "2026-10-24T08:19:00Z",
+  "written_at": "2026-10-24T20:47:00Z",
   "by": "Claude",
-  "headline": "CISA adds exploited Collabora Online and VeloCloud flaws to KEV as PHP2Shell exploitation and the LiteLLM compromise continue",
+  "headline": "LiteLLM breach traced to a leaked master key; exploited VeloCloud and Collabora flaws due Oct 26; PHP2Shell attacks continue",
   "bullets": [
     {
-      "text": "New since the last SITREP: CISA added two actively exploited critical flaws to KEV on Oct 23, an OS command injection in Collabora Online's built-in CODE server (CVE-2026-110447) and a SQL injection in Arista VeloCloud Orchestrator (CVE-2026-114625). The federal due date for both is Oct 26.",
+      "text": "New since the last SITREP: reporting says the LiteLLM compromise began with a leaked master key that let attackers steal GitHub tokens and hijack the release pipeline. Version 1.107.0 on PyPI and Docker shipped a credential stealer that ran through Python startup hooks.",
+      "url": "https://thehackernews.com/2026/10/leaked-litellm-master-key-let-attackers.html"
+    },
+    {
+      "text": "CISA's KEV deadline for two actively exploited flaws is Oct 26: OS command injection in Collabora Online's built-in CODE server (CVE-2026-110447) and SQL injection in Arista VeloCloud Orchestrator (CVE-2026-114625), the third exploited VCO zero-day in four months.",
       "url": "https://thehackernews.com/2026/10/cisa-flags-two-actively-exploited.html"
     },
     {
-      "text": "PHP2Shell (CVE-2026-109618, CVE-2026-109619) lets an unauthenticated attacker run code through PHP. Fixes are in 8.5.12, 8.4.27, 8.3.36 and 8.2.35. Exploit attempts are hitting millions of hosts, some trying to deploy Mirai. A third bug, CVE-2026-115560, won't get an emergency fix.",
+      "text": "PHP2Shell (CVE-2026-109618, CVE-2026-109619) allows unauthenticated code execution through PHP; fixes are in 8.5.12, 8.4.27, 8.3.36 and 8.2.35. Exploit attempts hit millions of hosts, some deploying Mirai. A third bug, CVE-2026-115560, will not get an emergency fix.",
       "url": "https://thehackernews.com/2026/10/php2shell-exploit-attempts-hit-millions.html"
     },
     {
-      "text": "LiteLLM 1.107.0 on PyPI and Docker shipped a credential stealer and backdoor after attackers got into the release pipeline. Microsoft's analysis says it stole credentials through Python startup hooks, taking cloud keys, secrets and environment variables.",
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/"
+      "text": "Microsoft 365 accounts at 79 organizations were taken over with stolen sessions and no passwords. Separately, Microsoft ties the ConnectWise cloud-backup supply-chain attack, which reached over 2,250 Microsoft 365 tenants, to Storm-0940.",
+      "url": "https://www.helpnetsecurity.com/2026/10/23/microsoft-365-accounts-stolen-sessions/"
     },
     {
-      "text": "Developer platforms remain a target: Railway says some customer environment-variable secrets were decrypted and is telling all users to rotate keys, and Microsoft attributes the ConnectWise cloud-backup supply-chain attack, which reached more than 2,250 Microsoft 365 tenants, to Storm-0940.",
+      "text": "Railway says some customer environment-variable secrets were decrypted and is telling all users to rotate keys. Ruby fixed three regex engine bugs behind four critical GitLab RCE flaws, and Pillow has a FlashPix heap overflow allowing code execution from a crafted image (CVE-2026-112398).",
       "url": "https://www.bleepingcomputer.com/news/security/railway-warns-devs-to-rotate-secrets-after-potential-breach/"
-    },
-    {
-      "text": "Ruby fixed three regex engine bugs behind four critical GitLab RCE flaws, and Pillow has a heap overflow in FlashPix JPEG decoding that allows code execution from a crafted image (CVE-2026-112398).",
-      "url": "https://thehackernews.com/2026/10/ruby-fixes-three-regex-engine-bugs.html"
     },
     {
       "text": "Breaches confirmed: Quest Diagnostics patient personal and health data, 11.7 million CAPCOM ID accounts, and a firewall and VPN campaign that exposed over 70,000 credentials.",
@@ -29,11 +29,11 @@
     }
   ],
   "actions": [
-    "Patch or take offline Collabora Online (CODE server) and Arista VeloCloud Orchestrator; check both for signs of compromise.",
+    "Search lockfiles, images and CI caches for litellm 1.107.0. If it ever ran, treat the host as compromised and rotate every credential it could read.",
+    "Patch or take offline Collabora Online (CODE server) and Arista VeloCloud Orchestrator before Oct 26 and check both for signs of compromise.",
     "Update PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35, rebuild images that bundle PHP, and restart PHP-FPM or Apache.",
-    "Search lockfiles, images and CI caches for litellm 1.107.0. If it ever ran, treat the machine as compromised and rotate every credential it could read.",
+    "Review Microsoft 365 sign-ins for session reuse, revoke suspicious sessions, and check ConnectWise cloud backup app consent.",
     "If you deploy on Railway, rotate every secret stored there and revoke the old values at each provider.",
-    "Patch self-managed GitLab and update Ruby and Pillow in your apps and images.",
-    "If ConnectWise cloud backup is connected to your Microsoft 365, review that app's consent and its sign-ins."
+    "Patch self-managed GitLab and update Ruby and Pillow in your apps and images."
   ]
 }
