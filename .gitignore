@@ -5,3 +5,4 @@ site/index.html
 __pycache__/
 site/sitemap.xml
 site/robots.txt
+*.sb-*
