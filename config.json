@@ -1,0 +1,25 @@
+{
+  "site_url": "https://theguysaccount.github.io/situation-monitor/",
+  "repo_url": "https://github.com/theguysaccount/situation-monitor",
+  "schedule_note": "Hourly, via a Claude scheduled task on the owner's Mac",
+  "level_thresholds": [
+    35,
+    80,
+    140,
+    260
+  ],
+  "alerts": {
+    "min_severity": "critical",
+    "watchlist": [],
+    "max_items_per_alert": 8,
+    "channels": {
+      "desktop": false,
+      "slack_webhook": "",
+      "discord_webhook": "",
+      "teams_webhook": "",
+      "ntfy_topic": "",
+      "ntfy_server": "https://ntfy.sh",
+      "webhook": ""
+    }
+  }
+}

@@ -1,0 +1,5 @@
+# Generated on every sweep
+state/
+site/data/
+site/index.html
+__pycache__/

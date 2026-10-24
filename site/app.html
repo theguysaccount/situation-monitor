@@ -1,0 +1,1343 @@
+<title>The Situation Monitor</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Libre+Franklin:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: a cable-news situation room. Chyron masthead, SITCON board and lower-third SITREP up top, a two-column wire desk below, a headline crawl pinned to the bottom. */
+:root {
+  --bg: #edf0f5;
+  --panel: #ffffff;
+  --panel-2: #e5e9f0;
+  --ink: #0c1a33;
+  --ink-2: #3d4b64;
+  --muted: #5f6c84;
+  --line: #d2d9e4;
+  --brand: #0a2552;
+  --brand-ink: #ffffff;
+  --brand-ink-2: #b9c7e2;
+  --alert: #c8102e;
+  --alert-ink: #ffffff;
+  --flash: #ffc426;
+  --flash-ink: #1b1400;
+  --focus: #1f6feb;
+  --bar: #23498f;
+  --grid: #e3e7ee;
+  --axis: #b6bfcd;
+  --tip-bg: #0c1a33;
+  --tip-ink: #ffffff;
+  --ok: #0f8a3c;
+  --sev-critical: #d03b3b;
+  --sev-high: #ec835a;
+  --sev-medium: #fab219;
+  --sev-low: #9aa4b5;
+  --lv5: #2f62c9;
+  --lv4: #16804a;
+  --lv3: #f2b705;
+  --lv2: #d0242c;
+  --lv1: #ffffff;
+  --font-display: "Barlow Condensed", "Roboto Condensed", "Arial Narrow", "Helvetica Neue", sans-serif;
+  --font-body: "Libre Franklin", "Franklin Gothic Medium", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #060d1b; --panel: #0d182c; --panel-2: #14223c; --ink: #edf1f7; --ink-2: #b4c0d3; --muted: #8796ae;
+    --line: #22314e; --brand: #0f2a5c; --brand-ink: #ffffff; --brand-ink-2: #a9badb; --alert: #ff4057; --alert-ink: #ffffff;
+    --flash: #ffcf40; --flash-ink: #1b1400; --focus: #7fb0ff; --bar: #7aa3ec; --grid: #1a2843; --axis: #33466b;
+    --tip-bg: #edf1f7; --tip-ink: #0c1a33; --ok: #3ccf74; --sev-low: #6f7c92;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #060d1b; --panel: #0d182c; --panel-2: #14223c; --ink: #edf1f7; --ink-2: #b4c0d3; --muted: #8796ae;
+  --line: #22314e; --brand: #0f2a5c; --brand-ink: #ffffff; --brand-ink-2: #a9badb; --alert: #ff4057; --alert-ink: #ffffff;
+  --flash: #ffcf40; --flash-ink: #1b1400; --focus: #7fb0ff; --bar: #7aa3ec; --grid: #1a2843; --axis: #33466b;
+  --tip-bg: #edf1f7; --tip-ink: #0c1a33; --ok: #3ccf74; --sev-low: #6f7c92;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 15px; line-height: 1.5;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  padding-bottom: calc(46px + env(safe-area-inset-bottom, 0px));
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 40; background: var(--brand); }
+a { color: inherit; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, summary:focus-visible, pre:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid var(--focus); outline-offset: 2px;
+}
+.wrap {
+  max-width: 1320px; margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.mono { font-family: var(--font-mono); }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Masthead */
+.mast { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30; background: var(--brand); color: var(--brand-ink); border-bottom: 3px solid var(--alert); }
+.mast .wrap { display: flex; align-items: center; gap: 10px 18px; flex-wrap: wrap; padding-block: 8px; min-height: 54px; }
+.brandmark { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+.bug { display: inline-flex; align-items: center; gap: 6px; background: var(--alert); color: var(--alert-ink); font: 700 13px/1 var(--font-display); letter-spacing: .14em; padding: 6px 8px 5px; }
+.bug i { width: 7px; height: 7px; border-radius: 50%; background: currentColor; animation: blink 1.4s steps(2, start) infinite; }
+.bug.is-snapshot, .bug.is-stale { background: var(--brand-ink-2); color: var(--brand); }
+.bug.is-snapshot i, .bug.is-stale i { animation: none; }
+@keyframes blink { to { visibility: hidden; } }
+.wordmark { font: 800 23px/1 var(--font-display); letter-spacing: .07em; text-transform: uppercase; white-space: nowrap; }
+.mast-nav { display: flex; gap: 2px; margin-left: auto; overflow-x: auto; scrollbar-width: none; }
+.mast-nav a { font: 600 14px/1 var(--font-display); letter-spacing: .1em; text-transform: uppercase; text-decoration: none; padding: 9px 10px; color: var(--brand-ink-2); white-space: nowrap; }
+.mast-nav a:hover { color: var(--brand-ink); box-shadow: inset 0 -2px 0 var(--flash); }
+.mast-status { font: 500 12px/1.25 var(--font-mono); color: var(--brand-ink-2); white-space: nowrap; text-align: right; }
+.mast-status b { color: var(--brand-ink); font-weight: 600; }
+@media (max-width: 860px) {
+  .mast-nav { order: 3; width: 100%; margin-left: -10px; }
+  .mast-status { margin-left: auto; }
+}
+@media (max-width: 480px) { .wordmark { font-size: 19px; } .mast-status .clock { display: none; } }
+
+/* Hero */
+.hero { display: grid; grid-template-columns: minmax(250px, 330px) minmax(0, 1fr); gap: 28px 36px; padding-block: 28px 22px; align-items: start; }
+@media (max-width: 880px) { .hero { grid-template-columns: minmax(0, 1fr); } }
+.board { background: var(--panel); border: 1px solid var(--line); padding: 16px 16px 18px; }
+.board-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.label { font: 700 13px/1.1 var(--font-display); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.board-since { font: 500 12px/1.2 var(--font-mono); color: var(--muted); }
+.scale { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 5px; margin-top: 12px; }
+.cell { aspect-ratio: 1 / 1.08; display: grid; place-items: center; font: 800 34px/1 var(--font-display); color: var(--muted); background: var(--panel-2); border: 2px solid transparent; }
+.cell.on { color: #ffffff; }
+.cell.lv5.on { background: var(--lv5); }
+.cell.lv4.on { background: var(--lv4); }
+.cell.lv3.on { background: var(--lv3); color: #1b1400; }
+.cell.lv2.on { background: var(--lv2); }
+.cell.lv1.on { background: var(--lv1); color: var(--lv2); border-color: var(--lv2); box-shadow: 0 0 0 4px color-mix(in srgb, var(--lv2) 35%, transparent); }
+.board-name { font: 800 46px/1 var(--font-display); letter-spacing: .02em; text-transform: uppercase; margin: 14px 0 4px; }
+.board-blurb { margin: 0; color: var(--ink-2); font-size: 14.5px; }
+.board-scale-note { margin: 12px 0 0; font-size: 12px; color: var(--muted); }
+.eyebrow { font: 600 13px/1.3 var(--font-display); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 2px 0 8px; }
+.eyebrow b { color: var(--alert); font-weight: 700; }
+h1 { font: 800 clamp(38px, 6vw, 72px)/.92 var(--font-display); text-transform: uppercase; letter-spacing: .005em; margin: 0; text-wrap: balance; }
+.reason { font-size: 16.5px; color: var(--ink-2); margin: 14px 0 0; max-width: 62ch; text-wrap: pretty; }
+.tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 20px; }
+@media (max-width: 560px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.tile { background: var(--panel); padding: 12px 14px 13px; min-width: 0; }
+.tile-label { font: 600 13px/1.15 var(--font-display); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.tile-value { font: 700 31px/1.1 var(--font-body); margin-top: 6px; letter-spacing: -.01em; }
+.tile-value.is-hot { color: var(--alert); }
+.tile-sub { font-size: 12.5px; color: var(--ink-2); margin-top: 2px; overflow-wrap: anywhere; }
+.tile-sub a { color: var(--ink); font-weight: 600; }
+
+/* SITREP lower third */
+.sitrep { padding-block: 6px 8px; }
+.lower-third { display: flex; align-items: stretch; flex-wrap: wrap; }
+.lt-tag { background: var(--flash); color: var(--flash-ink); font: 800 15px/1 var(--font-display); letter-spacing: .16em; padding: 12px 14px 10px; display: flex; align-items: center; }
+.lt-bar { background: var(--brand); color: var(--brand-ink); flex: 1 1 320px; min-width: 0; padding: 10px 16px 9px; }
+.lt-head { font: 700 clamp(19px, 2.3vw, 25px)/1.12 var(--font-display); text-transform: uppercase; letter-spacing: .02em; margin: 0; text-wrap: balance; }
+.lt-meta { font: 500 12px/1.3 var(--font-mono); color: var(--brand-ink-2); margin-top: 4px; }
+.sitrep-body { background: var(--panel); border: 1px solid var(--line); border-top: 0; display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); }
+@media (max-width: 900px) { .sitrep-body { grid-template-columns: minmax(0, 1fr); } }
+.sitrep-points { list-style: none; margin: 0; padding: 6px 20px 12px; }
+.sitrep-points li { padding: 10px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: 10px; }
+.sitrep-points li:last-child { border-bottom: 0; }
+.sitrep-points li::before { content: ""; width: 8px; height: 8px; background: var(--alert); margin-top: 8px; }
+.sitrep-points p { margin: 0; text-wrap: pretty; }
+.src-link { font: 600 12.5px/1 var(--font-display); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); text-decoration: none; white-space: nowrap; }
+.src-link:hover { color: var(--ink); text-decoration: underline; }
+.todo { background: var(--panel-2); padding: 16px 20px 18px; min-width: 0; }
+.todo h3 { font: 700 16px/1.1 var(--font-display); letter-spacing: .1em; text-transform: uppercase; margin: 0 0 6px; }
+.todo ul { list-style: none; margin: 0; padding: 0; }
+.todo li { padding: 7px 0; border-bottom: 1px solid var(--line); }
+.todo li:last-child { border-bottom: 0; }
+.todo label { display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 8px; cursor: pointer; font-size: 14px; }
+.todo input { margin: 3px 0 0; width: 16px; height: 16px; accent-color: var(--alert); }
+.todo input:checked + span { color: var(--muted); text-decoration: line-through; }
+.todo code, .sitrep code { font-family: var(--font-mono); font-size: .9em; }
+
+/* Section heads */
+.section { padding-block: 30px 6px; scroll-margin-top: 110px; }
+.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 6px 18px; flex-wrap: wrap; margin-bottom: 12px; }
+h2 { font: 800 clamp(26px, 3vw, 34px)/1 var(--font-display); text-transform: uppercase; letter-spacing: .02em; margin: 0; display: flex; align-items: center; gap: 10px; }
+h2::before { content: ""; width: 12px; height: 12px; background: var(--alert); flex: none; }
+.section-head p { margin: 0; color: var(--ink-2); font-size: 14px; max-width: 70ch; }
+
+/* Developing situations */
+.sit-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 12px; }
+.sit { background: var(--panel); border: 1px solid var(--line); padding: 14px 16px 14px; display: flex; flex-direction: column; gap: 9px; min-width: 0; }
+.sit-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.chip-dev { background: var(--flash); color: var(--flash-ink); font: 800 12px/1 var(--font-display); letter-spacing: .14em; padding: 5px 7px 4px; }
+.sit-count { font: 600 13px/1 var(--font-display); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.sit-name { font: 800 28px/1 var(--font-display); text-transform: uppercase; letter-spacing: .01em; margin: 0; overflow-wrap: anywhere; }
+.sit-lead { font-weight: 600; font-size: 14.5px; line-height: 1.35; text-decoration: none; text-wrap: pretty; }
+.sit-lead:hover { text-decoration: underline; }
+.sit-meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: auto; }
+.sit-foot { display: flex; justify-content: space-between; align-items: center; gap: 8px; border-top: 1px solid var(--line); padding-top: 9px; font-size: 12.5px; color: var(--muted); }
+.linkish { background: none; border: 0; padding: 0; font: 700 13px/1 var(--font-display); letter-spacing: .1em; text-transform: uppercase; color: var(--ink); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.linkish:hover { color: var(--alert); }
+.empty { background: var(--panel); border: 1px dashed var(--line); padding: 18px; color: var(--ink-2); }
+
+/* Severity marks */
+.sev { display: inline-flex; align-items: center; gap: 6px; font: 700 12.5px/1 var(--font-display); letter-spacing: .1em; text-transform: uppercase; color: var(--ink); white-space: nowrap; }
+.sev i { width: 10px; height: 10px; display: inline-block; flex: none; }
+.sev-critical i, i.mk-critical { background: var(--sev-critical); clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+.sev-high i, i.mk-high { background: var(--sev-high); }
+.sev-medium i, i.mk-medium { background: var(--sev-medium); border-radius: 50%; }
+.sev-low i, i.mk-low { border: 2px solid var(--sev-low); border-radius: 50%; }
+.chip { font: 500 11.5px/1 var(--font-mono); padding: 4px 6px; background: var(--panel-2); color: var(--ink-2); border: 1px solid var(--line); white-space: nowrap; text-decoration: none; }
+a.chip:hover { color: var(--ink); border-color: var(--ink-2); }
+.badge { font: 700 11.5px/1 var(--font-display); letter-spacing: .12em; text-transform: uppercase; padding: 4px 6px 3px; white-space: nowrap; }
+.badge-new { background: var(--alert); color: var(--alert-ink); }
+.badge-watch { background: var(--flash); color: var(--flash-ink); }
+
+/* Desk */
+.desk { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 380px); gap: 28px; align-items: start; }
+@media (max-width: 1060px) { .desk { grid-template-columns: minmax(0, 1fr); } }
+.toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 10px; }
+.tabs { display: flex; overflow-x: auto; border: 1px solid var(--line); background: var(--panel); max-width: 100%; scrollbar-width: thin; }
+.tab { font: 600 14px/1 var(--font-display); letter-spacing: .08em; text-transform: uppercase; padding: 10px 12px 9px; border: 0; background: transparent; color: var(--ink-2); cursor: pointer; white-space: nowrap; }
+.tab + .tab { border-left: 1px solid var(--line); }
+.tab:hover { color: var(--ink); background: var(--panel-2); }
+.tab[aria-pressed="true"] { background: var(--brand); color: var(--brand-ink); }
+.tab .n { font: 500 11px/1 var(--font-mono); margin-left: 5px; opacity: .8; }
+.search { flex: 1 1 210px; min-width: 0; display: flex; }
+.search input { width: 100%; font: 15px var(--font-body); padding: 9px 11px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); border-radius: 0; }
+.toggle { display: inline-flex; align-items: center; gap: 7px; font: 600 14px/1 var(--font-display); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); cursor: pointer; white-space: nowrap; }
+.toggle input { width: 16px; height: 16px; accent-color: var(--brand); margin: 0; }
+.active-filter { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: -2px 0 10px; font-size: 14px; color: var(--ink-2); }
+.active-filter strong { color: var(--ink); }
+.feed { list-style: none; margin: 0; padding: 0; background: var(--panel); border: 1px solid var(--line); }
+.row { display: grid; grid-template-columns: 54px minmax(0, 1fr); gap: 12px; padding: 13px 14px 13px 11px; border-left: 4px solid var(--sev-low); border-bottom: 1px solid var(--line); }
+.row:last-child { border-bottom: 0; }
+.row.s-critical { border-left-color: var(--sev-critical); }
+.row.s-high { border-left-color: var(--sev-high); }
+.row.s-medium { border-left-color: var(--sev-medium); }
+.row-time { font: 500 12px/1.35 var(--font-mono); color: var(--muted); padding-top: 2px; }
+.row-meta { display: flex; flex-wrap: wrap; gap: 5px 10px; align-items: center; font-size: 12.5px; color: var(--muted); }
+.kind { font: 600 12.5px/1 var(--font-display); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); }
+.row-title { display: block; font-weight: 600; font-size: 16px; line-height: 1.35; text-decoration: none; margin-top: 6px; color: var(--ink); text-wrap: pretty; overflow-wrap: anywhere; }
+.row-title:hover { text-decoration: underline; }
+.row-sum { margin: 4px 0 0; color: var(--ink-2); font-size: 14px; overflow-wrap: anywhere; }
+.row-chips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+.more { display: flex; justify-content: center; padding: 14px; }
+.btn { font: 700 14.5px/1 var(--font-display); letter-spacing: .1em; text-transform: uppercase; padding: 11px 16px 10px; border: 2px solid var(--brand); background: var(--brand); color: var(--brand-ink); cursor: pointer; }
+.btn:hover { background: var(--alert); border-color: var(--alert); color: var(--alert-ink); }
+.btn.secondary { background: transparent; color: var(--ink); border-color: var(--ink-2); }
+.btn.secondary:hover { background: var(--panel-2); color: var(--ink); border-color: var(--ink); }
+.btn:disabled { opacity: .55; cursor: default; }
+
+/* Rail */
+.rail { display: grid; gap: 16px; min-width: 0; }
+.panel { background: var(--panel); border: 1px solid var(--line); min-width: 0; }
+.panel-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; padding: 11px 14px 9px; border-bottom: 1px solid var(--line); }
+.panel-title { font: 700 17px/1.1 var(--font-display); letter-spacing: .08em; text-transform: uppercase; margin: 0; }
+.panel-meta { font-size: 12px; color: var(--muted); text-align: right; }
+.panel-body { padding: 10px 14px 14px; }
+.panel-foot { padding: 0 14px 12px; font-size: 12.5px; }
+.panel-foot a { color: var(--ink-2); }
+.mini { list-style: none; margin: 0; padding: 0; }
+.mini li { padding: 9px 0; border-bottom: 1px solid var(--line); min-width: 0; }
+.mini li:last-child { border-bottom: 0; }
+.mini a.t { font-weight: 600; font-size: 14px; line-height: 1.35; text-decoration: none; overflow-wrap: anywhere; }
+.mini a.t:hover { text-decoration: underline; }
+.mini .s { font-size: 12.5px; color: var(--muted); margin-top: 3px; display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: center; }
+.cve { font: 600 12.5px/1.2 var(--font-mono); color: var(--ink); }
+.pkg { font: 500 12.5px/1.3 var(--font-mono); overflow-wrap: anywhere; }
+.eco-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+
+/* Charts */
+.chart { position: relative; }
+.chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chart .gridline { stroke: var(--grid); stroke-width: 1; }
+.chart .baseline { stroke: var(--axis); stroke-width: 1; }
+.chart text { fill: var(--muted); font: 500 10.5px var(--font-mono); }
+.chart text.lbl { fill: var(--ink-2); font: 500 12px var(--font-body); }
+.chart text.val { fill: var(--ink); font: 600 11.5px var(--font-mono); }
+.seg-critical { fill: var(--sev-critical); }
+.seg-high { fill: var(--sev-high); }
+.seg-medium { fill: var(--sev-medium); }
+.bar { fill: var(--bar); }
+.is-partial { opacity: .38; }
+.hit { fill: transparent; cursor: default; }
+.tip { position: absolute; z-index: 6; pointer-events: none; background: var(--tip-bg); color: var(--tip-ink); font: 500 12px/1.4 var(--font-body); padding: 7px 9px; max-width: 230px; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+.tip b { font-weight: 700; }
+.legend { display: flex; gap: 6px 14px; flex-wrap: wrap; font-size: 12px; color: var(--ink-2); margin-top: 8px; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 10px; height: 10px; display: inline-block; }
+.chart-note { font-size: 12px; color: var(--muted); margin: 6px 0 0; }
+details.table-view { margin-top: 8px; font-size: 13px; }
+details.table-view summary { cursor: pointer; color: var(--ink-2); font: 600 13px/1.2 var(--font-display); letter-spacing: .08em; text-transform: uppercase; }
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font: 600 12.5px/1.2 var(--font-display); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; font-family: var(--font-mono); }
+
+/* Protect */
+.protect-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); gap: 16px; align-items: start; }
+@media (max-width: 960px) { .protect-grid { grid-template-columns: minmax(0, 1fr); } }
+.form { padding: 16px 18px 18px; display: grid; gap: 14px; }
+.field label, .field legend { display: block; font: 700 14px/1.2 var(--font-display); letter-spacing: .1em; text-transform: uppercase; margin-bottom: 6px; padding: 0; }
+.field input[type="text"], .field textarea { width: 100%; font: 15px/1.45 var(--font-body); padding: 9px 11px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); border-radius: 0; }
+.field textarea { resize: vertical; min-height: 110px; }
+.hint { font-size: 12.5px; color: var(--muted); margin: 6px 0 0; }
+fieldset.field { border: 0; margin: 0; padding: 0; min-width: 0; }
+.checks { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 6px; }
+.check { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 8px; align-items: start; font-size: 14px; padding: 7px 9px; border: 1px solid var(--line); background: var(--panel); cursor: pointer; }
+.check:has(input:checked) { border-color: var(--brand); background: var(--panel-2); }
+.check input { margin: 3px 0 0; width: 15px; height: 15px; accent-color: var(--brand); }
+.radios { display: grid; gap: 6px; }
+.prompt-panel { display: flex; flex-direction: column; min-width: 0; }
+.prompt-bar { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+.prompt-bar .meta { font: 500 12px/1.3 var(--font-mono); color: var(--muted); }
+.prompt-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+pre.prompt { margin: 0; padding: 14px 16px; max-height: 520px; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; font: 12.5px/1.6 var(--font-mono); background: var(--panel-2); color: var(--ink); }
+.copy-note { font-size: 12.5px; color: var(--ink-2); padding: 0 14px 10px; margin: 0; }
+.plan { border-top: 1px solid var(--line); padding: 14px 16px 16px; }
+.plan-out { margin-top: 12px; font-size: 14.5px; }
+.plan-out h3, .plan-out h4 { font: 700 18px/1.15 var(--font-display); letter-spacing: .06em; text-transform: uppercase; margin: 16px 0 6px; }
+.plan-out p { margin: 6px 0; }
+.plan-out ul, .plan-out ol { margin: 6px 0; padding-left: 20px; }
+.plan-out pre { white-space: pre-wrap; overflow-wrap: anywhere; background: var(--panel-2); padding: 10px 12px; font: 12.5px/1.5 var(--font-mono); }
+.plan-out code { font-family: var(--font-mono); font-size: .92em; background: var(--panel-2); padding: 0 3px; }
+.plan-out blockquote { margin: 8px 0; padding-left: 12px; border-left: 3px solid var(--line); color: var(--ink-2); }
+.plan-status { font: 600 13px/1.3 var(--font-display); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-top: 10px; }
+
+/* Alerts */
+.alert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; }
+.alert-card { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px; }
+.alert-card h3 { font: 700 19px/1.1 var(--font-display); letter-spacing: .06em; text-transform: uppercase; margin: 0; }
+.alert-card p { margin: 0; font-size: 14px; color: var(--ink-2); }
+pre.snippet { margin: 0; padding: 10px 12px; background: var(--panel-2); font: 12px/1.5 var(--font-mono); white-space: pre-wrap; overflow-wrap: anywhere; color: var(--ink); }
+.kv { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 12px; font-size: 13.5px; margin: 0; }
+.kv dt { color: var(--muted); }
+.kv dd { margin: 0; font-family: var(--font-mono); font-size: 12.5px; overflow-wrap: anywhere; }
+
+/* Sources */
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--ok); margin-right: 6px; }
+.dot.bad { background: var(--alert); }
+.credits { font-size: 13.5px; color: var(--ink-2); max-width: 80ch; margin: 12px 0 0; }
+
+footer { padding-block: 34px 26px; color: var(--muted); font-size: 13px; }
+footer p { margin: 0 0 6px; max-width: 90ch; }
+
+/* Crawl */
+.crawl { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; background: var(--brand); color: var(--brand-ink); border-top: 2px solid var(--alert);
+  display: flex; align-items: stretch; height: calc(44px + env(safe-area-inset-bottom, 0px)); padding-bottom: env(safe-area-inset-bottom, 0px);
+  padding-left: env(safe-area-inset-left, 0px); padding-right: env(safe-area-inset-right, 0px); }
+.crawl-tag { background: var(--alert); color: var(--alert-ink); font: 800 14px/42px var(--font-display); letter-spacing: .14em; padding: 0 12px; flex: none; }
+.crawl-track { overflow: hidden; flex: 1; min-width: 0; position: relative; }
+.crawl-items { display: inline-flex; gap: 42px; white-space: nowrap; padding-left: 24px; line-height: 42px; animation: crawl var(--crawl-dur, 120s) linear infinite; will-change: transform; }
+.crawl.paused .crawl-items, .crawl:hover .crawl-items, .crawl:focus-within .crawl-items { animation-play-state: paused; }
+.crawl a { text-decoration: none; font-size: 14px; font-weight: 500; }
+.crawl a:hover { text-decoration: underline; }
+.crawl a b { font: 700 13px/1 var(--font-display); letter-spacing: .1em; text-transform: uppercase; color: var(--flash); margin-right: 8px; }
+.crawl-btn { flex: none; background: transparent; color: var(--brand-ink-2); border: 0; border-left: 1px solid rgba(255,255,255,.18); font: 600 12px/1 var(--font-display); letter-spacing: .12em; text-transform: uppercase; padding: 0 12px; cursor: pointer; }
+.crawl-btn:hover { color: var(--brand-ink); }
+@keyframes crawl { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .crawl-items { animation: none; }
+  .crawl-track { overflow-x: auto; }
+  .bug i { animation: none; }
+}
+
+.toast { position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: calc(58px + env(safe-area-inset-bottom, 0px)); z-index: 35;
+  background: var(--ink); color: var(--panel); padding: 10px 12px; display: flex; gap: 12px; align-items: center; font-size: 14px; box-shadow: 0 6px 20px rgba(0,0,0,.25); max-width: calc(100vw - 32px); }
+.toast button { background: var(--flash); color: var(--flash-ink); border: 0; font: 700 13px/1 var(--font-display); letter-spacing: .1em; text-transform: uppercase; padding: 7px 9px; cursor: pointer; }
+</style>
+
+<header class="mast">
+  <div class="wrap">
+    <a class="brandmark" href="#situation" aria-label="The Situation Monitor, back to top">
+      <span class="bug" id="bug"><i aria-hidden="true"></i><span id="bug-text">Live</span></span>
+      <span class="wordmark">The Situation Monitor</span>
+    </a>
+    <nav class="mast-nav" aria-label="Sections">
+      <a href="#situation">Situation</a>
+      <a href="#feed">Feed</a>
+      <a href="#protect">Protect</a>
+      <a href="#alerts">Alerts</a>
+      <a href="#sources">Sources</a>
+    </nav>
+    <div class="mast-status"><span id="sweep-status">Waiting for the first sweep</span><br><span class="clock" id="clock"></span></div>
+  </div>
+</header>
+
+<main>
+  <section class="wrap hero" id="situation" aria-labelledby="hero-title">
+    <div class="board" role="group" aria-labelledby="board-label">
+      <div class="board-top"><span class="label" id="board-label">SITCON</span><span class="board-since" id="board-since"></span></div>
+      <div class="scale" id="scale" role="img" aria-label="Situation level loading">
+        <div class="cell lv5">5</div><div class="cell lv4">4</div><div class="cell lv3">3</div><div class="cell lv2">2</div><div class="cell lv1">1</div>
+      </div>
+      <p class="board-name" id="board-name">—</p>
+      <p class="board-blurb" id="board-blurb">Reading the sources.</p>
+      <p class="board-scale-note">SITCON is this monitor's situation condition, scored from the last 48 hours of reporting. 5 is quiet, 1 is an internet-scale incident.</p>
+    </div>
+    <div>
+      <p class="eyebrow" id="eyebrow">Situation report</p>
+      <h1 id="hero-title">I am monitoring the situation.</h1>
+      <p class="reason" id="reason">Hacks, breaches, exploited vulnerabilities and supply-chain attacks, pulled from public sources every hour.</p>
+      <div class="tiles" id="tiles"></div>
+    </div>
+  </section>
+
+  <section class="wrap sitrep" id="sitrep" aria-labelledby="sitrep-head" hidden>
+    <div class="lower-third">
+      <span class="lt-tag">SITREP</span>
+      <div class="lt-bar"><p class="lt-head" id="sitrep-head"></p><p class="lt-meta" id="sitrep-meta"></p></div>
+    </div>
+    <div class="sitrep-body">
+      <ul class="sitrep-points" id="sitrep-points"></ul>
+      <div class="todo"><h3>Do this today</h3><ul id="sitrep-actions"></ul></div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="situations" aria-labelledby="sit-title">
+    <div class="section-head">
+      <h2 id="sit-title">Developing situations</h2>
+      <p>Stories that at least three outlets have covered in the last 72 hours, grouped automatically.</p>
+    </div>
+    <div class="sit-grid" id="sit-grid"></div>
+  </section>
+
+  <section class="wrap section" id="feed" aria-labelledby="feed-title">
+    <div class="section-head">
+      <h2 id="feed-title">The wire</h2>
+      <p id="feed-blurb">Every report from the last 14 days, newest first.</p>
+    </div>
+    <div class="desk">
+      <div>
+        <div class="toolbar">
+          <div class="tabs" id="tabs" role="toolbar" aria-label="Filter reports"></div>
+          <label class="search" for="feed-search"><span class="visually-hidden">Search reports</span><input id="feed-search" type="search" placeholder="Search: vendor, CVE, company…" autocomplete="off"></label>
+          <label class="toggle" for="watch-only"><input id="watch-only" type="checkbox"> Your stack only</label>
+        </div>
+        <div class="active-filter" id="active-filter" hidden></div>
+        <ul class="feed" id="feed-list" aria-live="polite"></ul>
+        <div class="more" id="more-wrap" hidden><button class="btn secondary" id="more-btn" type="button">Show more</button></div>
+      </div>
+      <aside class="rail" aria-label="Trackers">
+        <section class="panel" aria-labelledby="act-title">
+          <div class="panel-head"><h3 class="panel-title" id="act-title">Activity</h3><span class="panel-meta">reports per day, 14 days</span></div>
+          <div class="panel-body">
+            <div class="chart" id="activity-chart"></div>
+            <div class="legend" aria-hidden="true"><span><i class="mk-critical"></i>Critical</span><span><i class="mk-high"></i>High</span><span><i class="mk-medium"></i>Medium</span></div>
+            <p class="chart-note" id="activity-note"></p>
+            <details class="table-view"><summary>Show as table</summary><div class="table-wrap" id="activity-table"></div></details>
+          </div>
+        </section>
+        <section class="panel" aria-labelledby="kev-title">
+          <div class="panel-head"><h3 class="panel-title" id="kev-title">Exploited in the wild</h3><span class="panel-meta" id="kev-meta"></span></div>
+          <div class="panel-body"><ul class="mini" id="kev-list"></ul></div>
+          <div class="panel-foot"><a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer">Full CISA KEV catalog</a></div>
+        </section>
+        <section class="panel" aria-labelledby="rw-title">
+          <div class="panel-head"><h3 class="panel-title" id="rw-title">Ransomware</h3><span class="panel-meta" id="rw-meta"></span></div>
+          <div class="panel-body">
+            <div class="chart" id="groups-chart"></div>
+            <p class="chart-note">Leak-site claims per group, last 7 days. Claims come from the criminals and are not confirmed breaches.</p>
+            <ul class="mini" id="rw-list"></ul>
+          </div>
+        </section>
+        <section class="panel" aria-labelledby="br-title">
+          <div class="panel-head"><h3 class="panel-title" id="br-title">Breach disclosures</h3><span class="panel-meta" id="br-meta"></span></div>
+          <div class="panel-body"><ul class="mini" id="br-list"></ul></div>
+        </section>
+        <section class="panel" aria-labelledby="pk-title">
+          <div class="panel-head"><h3 class="panel-title" id="pk-title">Malicious packages</h3><span class="panel-meta" id="pk-meta"></span></div>
+          <div class="panel-body"><div class="eco-row" id="pk-eco"></div><ul class="mini" id="pk-list"></ul></div>
+          <div class="panel-foot"><a href="https://github.com/advisories?query=type%3Amalware" target="_blank" rel="noopener noreferrer">All malware advisories on GitHub</a></div>
+        </section>
+      </aside>
+    </div>
+  </section>
+
+  <section class="wrap section" id="protect" aria-labelledby="protect-title">
+    <div class="section-head">
+      <h2 id="protect-title">Protect your team</h2>
+      <p>One master prompt turns today's situation into your team's response plan. Tell it what you run, copy it, and paste it into Claude Code inside your repo or into a chat with Claude.</p>
+    </div>
+    <div class="protect-grid">
+      <form class="panel form" id="team-form" autocomplete="off">
+        <div class="field">
+          <label for="team-name">Team or company</label>
+          <input id="team-name" type="text" placeholder="Acme Payments">
+        </div>
+        <div class="field">
+          <label for="team-stack">What you run</label>
+          <textarea id="team-stack" rows="5" placeholder="Vendors, products, platforms and packages, separated by commas. For example: Okta, AWS, Railway, Next.js, litellm, PHP 8.3, GitLab, FortiGate, Salesforce"></textarea>
+          <p class="hint">This is also your watchlist. Matching reports get a Your stack badge everywhere on the page. It stays in this browser.</p>
+        </div>
+        <fieldset class="field">
+          <legend>Your environment</legend>
+          <div class="checks" id="env-checks"></div>
+        </fieldset>
+        <fieldset class="field">
+          <legend>Where you'll run the prompt</legend>
+          <div class="radios">
+            <label class="check" for="mode-code"><input type="radio" name="mode" id="mode-code" value="code" checked><span>Claude Code in our repo or infra folder. It can read lockfiles, images and CI config itself.</span></label>
+            <label class="check" for="mode-chat"><input type="radio" name="mode" id="mode-chat" value="chat"><span>A chat with Claude. It hands you the commands to run.</span></label>
+          </div>
+        </fieldset>
+      </form>
+      <div class="panel prompt-panel">
+        <div class="prompt-bar">
+          <span class="meta" id="prompt-meta">Master prompt</span>
+          <div class="prompt-actions"><button class="btn" type="button" id="copy-prompt">Copy master prompt</button></div>
+        </div>
+        <p class="copy-note" id="copy-note" hidden></p>
+        <pre class="prompt" id="prompt-preview" tabindex="0" aria-label="Master prompt preview"></pre>
+        <div class="plan" id="plan-box" hidden>
+          <div class="prompt-actions">
+            <button class="btn secondary" type="button" id="run-plan">Draft our response plan here</button>
+            <button class="btn secondary" type="button" id="stop-plan" hidden>Stop</button>
+          </div>
+          <p class="hint">Claude drafts the plan from this page's data and what you entered. It uses your own Claude account and can't see your systems.</p>
+          <p class="plan-status" id="plan-status" hidden></p>
+          <div class="plan-out" id="plan-out"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="alerts" aria-labelledby="alerts-title">
+    <div class="section-head">
+      <h2 id="alerts-title">Get alerted</h2>
+      <p>Every sweep compares what it finds with what it has already seen. New critical reports, and anything matching your watchlist, go out to the channels you set up.</p>
+    </div>
+    <div class="alert-grid">
+      <article class="panel alert-card">
+        <h3>On this page</h3>
+        <p>New reports appear here without a reload while the page is open. Anything that arrived since your last visit is marked New.</p>
+        <button class="btn secondary" type="button" id="notify-btn" hidden>Notify me in this tab</button>
+      </article>
+      <article class="panel alert-card">
+        <h3>Slack, Teams or Discord</h3>
+        <p>Put an incoming-webhook URL in <code>config.json</code>, or set <code>SM_SLACK_WEBHOOK</code>, <code>SM_TEAMS_WEBHOOK</code> or <code>SM_DISCORD_WEBHOOK</code> as a secret on the GitHub deploy.</p>
+        <pre class="snippet" id="snippet-webhook"></pre>
+        <button class="btn secondary" type="button" data-copy="snippet-webhook">Copy config</button>
+      </article>
+      <article class="panel alert-card">
+        <h3>Phone push with ntfy</h3>
+        <p>Install the free ntfy app, subscribe to a topic name nobody would guess, and put the same name in <code>ntfy_topic</code>. No account needed.</p>
+        <pre class="snippet" id="snippet-ntfy"></pre>
+        <button class="btn secondary" type="button" data-copy="snippet-ntfy">Copy config</button>
+      </article>
+      <article class="panel alert-card">
+        <h3>RSS feed</h3>
+        <p id="rss-text"></p>
+        <pre class="snippet" id="snippet-rss" hidden></pre>
+      </article>
+      <article class="panel alert-card">
+        <h3>The schedule</h3>
+        <dl class="kv" id="schedule-kv"></dl>
+      </article>
+      <article class="panel alert-card" id="fork-card" hidden>
+        <h3>Run your own copy</h3>
+        <p>Fork the project on GitHub, add your team's Slack, Teams or ntfy channels and watchlist as repository settings, and it sweeps every 30 minutes on free GitHub Actions.</p>
+        <p id="fork-link"></p>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrap section" id="sources" aria-labelledby="sources-title">
+    <div class="section-head">
+      <h2 id="sources-title">Sources</h2>
+      <p id="sources-blurb">Public feeds and trackers checked on every sweep.</p>
+    </div>
+    <div class="panel"><div class="table-wrap" id="sources-table"></div></div>
+    <p class="credits">Built on public data from CISA's Known Exploited Vulnerabilities catalog and advisories, the NCSC, Microsoft's security blog, ransomware.live, RansomLook, Have I Been Pwned, the GitHub Advisory Database, Hacker News (through Algolia) and the newsrooms listed above. Ransomware entries are leak-site claims made by criminals, not confirmed breaches.</p>
+  </section>
+</main>
+
+<footer class="wrap">
+  <p>The Situation Monitor aggregates public reporting and can be late or wrong. Confirm with the vendor or the original source before you act.</p>
+  <p id="foot-meta"></p>
+</footer>
+
+<div class="crawl" id="crawl" role="region" aria-label="Headline crawl">
+  <span class="crawl-tag">Breaking</span>
+  <div class="crawl-track"><div class="crawl-items" id="crawl-items"></div></div>
+  <button class="crawl-btn" type="button" id="crawl-btn" aria-pressed="false">Pause</button>
+</div>
+<div class="toast" id="toast" role="status" hidden><span id="toast-text"></span><button type="button" id="toast-btn">Show</button></div>
+
+<script>
+(() => {
+  "use strict";
+
+  // ------------------------------------------------------------ helpers
+  const $ = (sel) => document.querySelector(sel);
+  const SVGNS = "http://www.w3.org/2000/svg";
+  function h(tag, attrs, ...kids) {
+    const el = document.createElement(tag);
+    setAttrs(el, attrs);
+    for (const kid of kids.flat()) if (kid != null && kid !== false) el.append(kid instanceof Node ? kid : document.createTextNode(String(kid)));
+    return el;
+  }
+  function s(tag, attrs) { const el = document.createElementNS(SVGNS, tag); setAttrs(el, attrs); return el; }
+  function setAttrs(el, attrs) {
+    if (!attrs) return;
+    for (const [k, v] of Object.entries(attrs)) {
+      if (v == null || v === false) continue;
+      if (k === "class") el.setAttribute("class", v);
+      else if (k === "text") el.textContent = v;
+      else if (k.startsWith("on") && typeof v === "function") el.addEventListener(k.slice(2), v);
+      else el.setAttribute(k, v === true ? "" : String(v));
+    }
+  }
+  const safeUrl = (u) => (typeof u === "string" && /^https?:\/\//i.test(u) ? u : null);
+  const ext = (href, cls, ...kids) => { const u = safeUrl(href); return u ? h("a", { href: u, class: cls, target: "_blank", rel: "noopener noreferrer" }, ...kids) : h("span", { class: cls }, ...kids); };
+  const store = {
+    get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } },
+    set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* storage unavailable */ } },
+  };
+  const fmtInt = (n) => (Number(n) || 0).toLocaleString("en-US");
+  const fmtCompact = (n) => (n >= 1e9 ? (n / 1e9).toFixed(1).replace(/\.0$/, "") + "B" : n >= 1e6 ? (n / 1e6).toFixed(1).replace(/\.0$/, "") + "M" : n >= 1e3 ? Math.round(n / 1e3) + "K" : String(n));
+  const DAY_FMT = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
+  const fmtDay = (iso) => { const t = Date.parse(iso); return t ? DAY_FMT.format(t) : ""; };
+  const utcTime = (iso) => { const t = Date.parse(iso); return t ? new Date(t).toISOString().slice(11, 16) + " UTC" : ""; };
+  function ago(iso) {
+    const t = Date.parse(iso); if (!t) return "";
+    const sec = Math.max(0, (Date.now() - t) / 1000);
+    if (sec < 90) return "just now";
+    if (sec < 3600) return Math.round(sec / 60) + " min ago";
+    if (sec < 86400) return Math.round(sec / 3600) + " h ago";
+    const d = Math.round(sec / 86400); return d + (d === 1 ? " day ago" : " days ago");
+  }
+  function shortAgo(it) {
+    if (it.extra && it.extra.date_only) return fmtDay(it.published);
+    const t = Date.parse(it.published); if (!t) return "";
+    const sec = Math.max(0, (Date.now() - t) / 1000);
+    if (sec < 3600) return Math.max(1, Math.round(sec / 60)) + "m";
+    if (sec < 86400) return Math.round(sec / 3600) + "h";
+    return Math.round(sec / 86400) + "d";
+  }
+  const hoursSince = (iso) => { const t = Date.parse(iso); return t ? (Date.now() - t) / 36e5 : 1e9; };
+  const use = (name) => (window.claude && typeof window.claude.use === "function") ? window.claude.use(name).catch(() => null) : Promise.resolve(null);
+  const clone = (o) => (typeof structuredClone === "function" ? structuredClone(o) : JSON.parse(JSON.stringify(o)));
+  const escapeRe = (x) => x.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+  const SEV = { critical: "Critical", high: "High", medium: "Medium", low: "Low" };
+  const SEV_RANK = { low: 0, medium: 1, high: 2, critical: 3 };
+  const KIND = { news: "News", kev: "Exploited vuln", ransomware: "Ransomware claim", breach: "Breach", "supply-chain": "Supply chain", vuln: "Vulnerability", advisory: "Advisory", community: "Hacker News" };
+  const TAGS = { "actively-exploited": "Exploited", "zero-day": "Zero-day", "supply-chain": "Supply chain", worm: "Worm", emergency: "Emergency", "nation-state": "Nation-state", ransomware: "Ransomware", rce: "RCE", credentials: "Credentials", malware: "Malware", phishing: "Phishing", ddos: "DDoS", healthcare: "Healthcare", "critical-infra": "Critical infra", crypto: "Crypto", ai: "AI", cloud: "Cloud", identity: "Identity", "law-enforcement": "Law enforcement", government: "Government", education: "Education", finance: "Finance" };
+  const SOURCE_TYPES = { news: "News", advisory: "Advisories", kev: "Exploited vulns", ransomware: "Ransomware claims", breach: "Breaches", "supply-chain": "Malicious packages", vuln: "Vulnerabilities", community: "Community" };
+  const ENV = [
+    { id: "edge", label: "Internet-facing VPNs, firewalls or gateways", terms: ["citrix", "netscaler", "ivanti", "fortinet", "fortigate", "palo alto", "pan-os", "globalprotect", "sonicwall", "cisco asa", "f5", "big-ip", "juniper", "velocloud", "check point"] },
+    { id: "code", label: "We ship code with open-source dependencies", terms: ["npm", "pypi", "github actions", "supply chain"] },
+    { id: "cloud", label: "AWS, Azure or Google Cloud", terms: ["aws", "azure", "google cloud", "kubernetes"] },
+    { id: "paas", label: "App platforms (Vercel, Railway, Render, Fly.io, Netlify)", terms: ["vercel", "railway", "render", "fly.io", "netlify", "heroku", "zeabur"] },
+    { id: "saas", label: "Business SaaS (Microsoft 365, Google Workspace, Salesforce)", terms: ["microsoft 365", "entra", "okta", "salesforce", "google workspace", "connectwise"] },
+    { id: "ai", label: "AI tooling (LLM gateways, agents, MCP servers)", terms: ["litellm", "langchain", "hugging face", "mcp", "openai", "anthropic", "ollama"] },
+    { id: "php", label: "PHP sites or a CMS (WordPress, Drupal, Laravel)", terms: ["php", "php2shell", "wordpress", "drupal", "laravel"] },
+    { id: "regulated", label: "Health, financial or other regulated data", terms: ["healthcare", "hospital", "patients", "bank"] },
+  ];
+  const FILTERS = [
+    { id: "priority", label: "Priority", test: (it) => it.severity === "critical" || it.severity === "high" },
+    { id: "all", label: "Everything", test: () => true },
+    { id: "exploited", label: "Exploited", test: (it) => it.type === "kev" || has(it, "actively-exploited") || has(it, "zero-day") },
+    { id: "breach", label: "Breaches", test: (it) => it.type === "breach" || (it.type === "news" && has(it, "breach") && it.severity !== "low") },
+    { id: "ransomware", label: "Ransomware", test: (it) => it.type === "ransomware" || has(it, "ransomware") },
+    { id: "supply", label: "Supply chain", test: (it) => it.type === "supply-chain" || has(it, "supply-chain") },
+    { id: "vulns", label: "Advisories", test: (it) => it.type === "advisory" || it.type === "vuln" },
+    { id: "community", label: "Hacker News", test: (it) => it.type === "community" || !!(it.extra && it.extra.hn) },
+  ];
+  function has(it, tag) { return Array.isArray(it.tags) && it.tags.includes(tag); }
+
+  // ------------------------------------------------------------ state
+  const S = {
+    data: null, origin: null, filter: "priority", q: "", watchOnly: false, situation: null, shown: 40,
+    prevVisit: store.get("sm:lastVisit", null),
+    team: Object.assign({ name: "", stack: "", env: [], mode: "code" }, store.get("sm:team", {})),
+    hay: new Map(), watch: new Map(), sample: null, planCtl: null, notify: store.get("sm:notify", false),
+    done: store.get("sm:done", {}),
+  };
+
+  function watchTerms() {
+    return [...new Set(S.team.stack.split(/[,\n;]+/).map((t) => t.trim().toLowerCase()).filter((t) => t.length >= 2))].slice(0, 60);
+  }
+  function impliedTerms() { return [...new Set(ENV.filter((e) => S.team.env.includes(e.id)).flatMap((e) => e.terms))]; }
+  function termMatchers() {
+    return [...new Set([...watchTerms(), ...impliedTerms()])].map((t) => ({ t, re: new RegExp("(^|[^a-z0-9])" + escapeRe(t) + "([^a-z0-9]|$)") }));
+  }
+  function itemHay(it) {
+    const ex = it.extra || {};
+    return [it.title, it.summary, it.source, (it.cves || []).join(" "), ex.vendor, ex.product, ex.victim, ex.group, (ex.packages || []).join(" ")].filter(Boolean).join(" ").toLowerCase();
+  }
+  function recomputeWatch() {
+    S.watch = new Map();
+    const ms = termMatchers();
+    if (!S.data || !ms.length) return;
+    for (const it of S.data.items) {
+      const hay = S.hay.get(it.id) || "";
+      const hits = ms.filter((m) => m.re.test(hay)).map((m) => m.t);
+      if (hits.length) S.watch.set(it.id, hits);
+    }
+  }
+
+  // ------------------------------------------------------------ data in
+  function setData(raw, origin) {
+    const d = clone(raw);
+    for (const k of ["items", "situations", "packages", "sources", "daily"]) if (!Array.isArray(d[k])) d[k] = [];
+    d.stats = d.stats || {}; d.level = d.level || { value: 5, name: "QUIET", blurb: "", reason: "" };
+    d.ransomware = d.ransomware || { groups_7d: [] };
+    const before = S.data ? new Set(S.data.items.map((it) => it.id)) : null;
+    S.data = d; S.origin = origin;
+    S.hay = new Map(d.items.map((it) => [it.id, itemHay(it)]));
+    recomputeWatch();
+    renderAll();
+    if (before) {
+      const fresh = d.items.filter((it) => !before.has(it.id) && it.type !== "ransomware");
+      if (fresh.length) announce(fresh);
+    }
+  }
+
+  async function boot() {
+    renderClock(); setInterval(renderClock, 20000);
+    setInterval(() => { if (S.data) { renderTimes(); renderStatus(); } }, 60000);
+    hydrateForm();
+    try {
+      const r = await fetch("data/situation.json", { cache: "no-store" });
+      if (r.ok) setData(await r.json(), window.claude ? "snapshot" : "file");
+    } catch (e) { /* no file: wait for the live store */ }
+    if (!S.data) renderEmpty();
+    use("db").then((db) => {
+      if (!db) return;
+      try {
+        db.doc("situation/live").onSnapshot((snap) => {
+          if (!snap.exists) return;
+          const d = snap.data();
+          if (d && d.generated_at && (!S.data || S.origin !== "live" || d.generated_at !== S.data.generated_at)) {
+            if (!S.data || d.generated_at >= S.data.generated_at) setData(d, "live");
+          }
+        }, () => { /* store went away: keep what is on screen */ });
+      } catch (e) { /* keep the snapshot */ }
+    });
+    use("sample").then((sample) => { if (sample) { S.sample = sample; $("#plan-box").hidden = false; } });
+    if (!window.claude) {
+      setInterval(async () => {
+        try {
+          const r = await fetch("data/situation.json", { cache: "no-store" });
+          if (r.ok) { const d = await r.json(); if (!S.data || d.generated_at !== S.data.generated_at) setData(d, "file"); }
+        } catch (e) { /* offline */ }
+      }, 5 * 60 * 1000);
+    }
+    const leave = () => { if (S.data) store.set("sm:lastVisit", new Date().toISOString().slice(0, 19) + "Z"); };
+    document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") leave(); });
+    window.addEventListener("pagehide", leave);
+  }
+
+  // ------------------------------------------------------------ render
+  function renderAll() {
+    renderStatus(); renderHero(); renderSitrep(); renderSituations(); renderTabs(); renderFeed();
+    renderActivity(); renderKev(); renderRansomware(); renderBreaches(); renderPackages();
+    renderPrompt(); renderAlerts(); renderSources(); renderCrawl(); renderFoot();
+  }
+
+  function renderEmpty() {
+    $("#sweep-status").textContent = "No sweep data yet";
+    $("#reason").textContent = "The monitor hasn't published a sweep yet. Run python3 monitor.py once, then reload.";
+    $("#sit-grid").replaceChildren(h("div", { class: "empty" }, "Developing situations appear here after the first sweep."));
+    $("#feed-list").replaceChildren(h("li", { class: "row" }, h("div"), h("div", { class: "row-sum" }, "Reports appear here after the first sweep.")));
+  }
+
+  function renderClock() {
+    const now = new Date();
+    $("#clock").textContent = now.toISOString().slice(11, 16) + " UTC";
+  }
+
+  function renderStatus() {
+    const d = S.data; if (!d) return;
+    const age = hoursSince(d.generated_at);
+    const bug = $("#bug");
+    let label = "Live";
+    bug.className = "bug";
+    if (age > 3) { label = "Stale"; bug.classList.add("is-stale"); }
+    else if (S.origin === "snapshot") { label = "Snapshot"; bug.classList.add("is-snapshot"); }
+    $("#bug-text").textContent = label;
+    const sweep = $("#sweep-status");
+    sweep.replaceChildren(h("b", null, "Swept " + ago(d.generated_at)), " · " + fmtInt(d.stats.sources_ok) + "/" + fmtInt(d.stats.sources_total) + " sources");
+    sweep.title = "Last sweep " + d.generated_at;
+  }
+
+  function renderHero() {
+    const d = S.data, lv = d.level;
+    document.querySelectorAll("#scale .cell").forEach((c, i) => c.classList.toggle("on", 5 - i === lv.value));
+    $("#scale").setAttribute("aria-label", "SITCON " + lv.value + " of 5: " + lv.name);
+    $("#board-name").textContent = lv.name;
+    $("#board-blurb").textContent = lv.blurb || "";
+    $("#board-since").textContent = lv.since ? "since " + fmtDay(lv.since) + " " + utcTime(lv.since) : "";
+    const eb = $("#eyebrow");
+    eb.replaceChildren(h("b", null, "Situation as of " + utcTime(d.generated_at)), " · " + fmtDay(d.generated_at) + " · " + fmtInt(d.stats.sources_ok) + " of " + fmtInt(d.stats.sources_total) + " sources reporting");
+    $("#reason").textContent = lv.reason || "";
+    const st = d.stats, eco = st.packages_ecosystems || {};
+    const watchCount = [...S.watch.keys()].length;
+    const ecoText = Object.entries(eco).sort((a, b) => b[1] - a[1]).map(([k, v]) => (k === "pip" ? "PyPI" : k) + " " + v).join(" · ") || "npm and PyPI";
+    const tiles = [
+      ["Critical · 24h", st.critical_24h, fmtInt(st.high_24h) + " high of " + fmtInt(st.reports_24h) + " reports", st.critical_24h > 0],
+      ["Exploited vulns · 7d", st.kev_7d, "added to CISA KEV" + (st.kev_ransomware_7d ? ", " + st.kev_ransomware_7d + " used by ransomware" : ""), false],
+      ["Ransomware claims · 24h", st.ransomware_24h, fmtInt(st.ransomware_7d) + " this week", false],
+      ["Breaches · 7d", st.breaches_7d, "disclosed or added to HIBP", false],
+      ["Malicious packages · 72h", st.packages_72h, ecoText, false],
+    ];
+    const box = $("#tiles");
+    box.replaceChildren(...tiles.map(([label, value, sub, hot]) => h("div", { class: "tile" },
+      h("div", { class: "tile-label" }, label), h("div", { class: "tile-value" + (hot ? " is-hot" : "") }, fmtInt(value)), h("div", { class: "tile-sub" }, sub))));
+    const hasStack = watchTerms().length || impliedTerms().length;
+    box.append(h("div", { class: "tile" }, h("div", { class: "tile-label" }, "Your stack · 14d"),
+      h("div", { class: "tile-value" + (watchCount ? " is-hot" : "") }, hasStack ? fmtInt(watchCount) : "—"),
+      h("div", { class: "tile-sub" }, hasStack ? "matching reports" : h("a", { href: "#protect" }, "Add what you run"))));
+  }
+
+  function renderSitrep() {
+    const sr = S.data.sitrep, box = $("#sitrep");
+    if (!sr || !sr.headline) { box.hidden = true; return; }
+    box.hidden = false;
+    $("#sitrep-head").textContent = sr.headline;
+    $("#sitrep-meta").textContent = "Written by " + (sr.by || "Claude") + " · " + fmtDay(sr.written_at) + " " + utcTime(sr.written_at) + (hoursSince(sr.written_at) > 12 ? " · may be out of date" : "");
+    $("#sitrep-points").replaceChildren(...(sr.bullets || []).map((b) => h("li", null, h("p", null, inlineCode(b.text), " ", b.url ? ext(b.url, "src-link", "Source ↗") : null))));
+    const key = sr.written_at || "x";
+    $("#sitrep-actions").replaceChildren(...(sr.actions || []).map((a, i) => {
+      const id = "todo-" + i;
+      const cb = h("input", { type: "checkbox", id });
+      cb.checked = !!(S.done[key] && S.done[key][i]);
+      cb.addEventListener("change", () => { S.done = { [key]: Object.assign({}, S.done[key], { [i]: cb.checked }) }; store.set("sm:done", S.done); });
+      return h("li", null, h("label", { for: id }, cb, h("span", null, inlineCode(a))));
+    }));
+  }
+
+  function inlineCode(text) {
+    const parts = String(text).split(/(`[^`]+`)/g);
+    return parts.map((p) => (p.startsWith("`") && p.endsWith("`") && p.length > 2 ? h("code", null, p.slice(1, -1)) : p));
+  }
+
+  function sevMark(sev) { return h("span", { class: "sev sev-" + sev }, h("i", { "aria-hidden": "true" }), SEV[sev] || sev); }
+
+  function renderSituations() {
+    const list = S.data.situations, grid = $("#sit-grid");
+    if (!list.length) { grid.replaceChildren(h("div", { class: "empty" }, "No story has three or more outlets on it right now. That's good news.")); return; }
+    grid.replaceChildren(...list.map((st) => {
+      const watched = st.items.some((id) => S.watch.has(id));
+      return h("article", { class: "sit" },
+        h("div", { class: "sit-top" }, h("span", { class: "chip-dev" }, "Developing"), h("span", { class: "sit-count" }, st.source_count + " outlets · " + st.count + " reports")),
+        h("h3", { class: "sit-name" }, st.name),
+        ext(st.lead.url, "sit-lead", st.lead.title),
+        h("div", { class: "sit-meta" }, sevMark(st.severity), watched ? h("span", { class: "badge badge-watch" }, "Your stack") : null,
+          ...(st.cves || []).slice(0, 3).map((c) => h("span", { class: "chip" }, c))),
+        h("div", { class: "sit-foot" }, h("span", null, "First reported " + fmtDay(st.first) + " · latest " + ago(st.last)),
+          h("button", { class: "linkish", type: "button", onclick: () => focusSituation(st) }, "Show reports")));
+    }));
+  }
+
+  function focusSituation(st) {
+    S.situation = st; S.filter = "all"; S.shown = 40;
+    renderTabs(); renderFeed();
+    $("#feed").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  }
+
+  function visibleItems(filterId) {
+    const f = FILTERS.find((x) => x.id === (filterId || S.filter)) || FILTERS[0];
+    const q = S.q.trim().toLowerCase();
+    const sit = S.situation ? new Set(S.situation.items) : null;
+    return S.data.items.filter((it) => (!sit || sit.has(it.id)) && f.test(it) && (!S.watchOnly || S.watch.has(it.id)) && (!q || (S.hay.get(it.id) || "").includes(q)));
+  }
+
+  function renderTabs() {
+    const tabs = $("#tabs");
+    tabs.replaceChildren(...FILTERS.map((f) => h("button", {
+      class: "tab", type: "button", "aria-pressed": String(S.filter === f.id),
+      onclick: () => { S.filter = f.id; S.shown = 40; renderTabs(); renderFeed(); },
+    }, f.label, h("span", { class: "n" }, S.data ? fmtInt(visibleItems(f.id).length) : ""))));
+  }
+
+  function renderFeed() {
+    const list = $("#feed-list");
+    const items = visibleItems();
+    const af = $("#active-filter");
+    if (S.situation) {
+      af.hidden = false;
+      af.replaceChildren(h("span", null, "Showing reports on ", h("strong", null, S.situation.name)),
+        h("button", { class: "linkish", type: "button", onclick: () => { S.situation = null; S.filter = "priority"; renderTabs(); renderFeed(); } }, "Clear"));
+    } else af.hidden = true;
+    if (!items.length) {
+      list.replaceChildren(h("li", { class: "row" }, h("div"), h("div", { class: "row-sum" },
+        S.watchOnly && !S.watch.size ? "Nothing matches your stack yet. Add what you run under Protect your team." : "No reports match these filters.")));
+      $("#more-wrap").hidden = true; return;
+    }
+    list.replaceChildren(...items.slice(0, S.shown).map(row));
+    $("#more-wrap").hidden = items.length <= S.shown;
+    $("#more-btn").textContent = "Show " + Math.min(40, items.length - S.shown) + " more of " + fmtInt(items.length - S.shown);
+  }
+
+  function row(it) {
+    const ex = it.extra || {};
+    const isNew = S.prevVisit && it.first_seen && it.first_seen > S.prevVisit;
+    const watch = S.watch.get(it.id);
+    const meta = [sevMark(it.severity), h("span", { class: "kind" }, KIND[it.type] || it.type), h("span", null, it.source)];
+    if (ex.also && ex.also.length) meta.push(h("span", null, "also " + ex.also.join(", ")));
+    if (isNew) meta.push(h("span", { class: "badge badge-new" }, "New"));
+    if (watch) meta.push(h("span", { class: "badge badge-watch", title: "Matches: " + watch.join(", ") }, "Your stack"));
+    const chips = [];
+    for (const c of (it.cves || []).slice(0, 4)) chips.push(ext("https://nvd.nist.gov/vuln/detail/" + c, "chip", c));
+    if (it.type === "kev") {
+      if (ex.due) chips.push(h("span", { class: "chip" }, "Federal due " + fmtDay(ex.due + "T00:00:00Z")));
+      if (ex.ransomware) chips.push(h("span", { class: "chip" }, "Used by ransomware"));
+    }
+    if (it.type === "ransomware") {
+      if (ex.country) chips.push(h("span", { class: "chip" }, ex.country));
+      if (ex.sector) chips.push(h("span", { class: "chip" }, ex.sector));
+    }
+    if (ex.accounts) chips.push(h("span", { class: "chip" }, fmtCompact(ex.accounts) + " accounts"));
+    for (const p of (ex.packages || []).slice(0, 3)) chips.push(h("span", { class: "chip" }, p));
+    if (ex.hn && ex.hn.hn_url) chips.push(ext(ex.hn.hn_url, "chip", "HN · " + fmtInt(ex.hn.points) + " pts"));
+    if (it.type === "community" && ex.hn_url) chips.push(ext(ex.hn_url, "chip", "Discussion · " + fmtInt(ex.comments) + " comments"));
+    for (const t of (it.tags || []).filter((t) => TAGS[t] && !(it.type === "ransomware" && t === "ransomware")).slice(0, 3)) chips.push(h("span", { class: "chip" }, TAGS[t]));
+    const summary = it.type === "community" ? "" : it.summary;
+    return h("li", { class: "row s-" + it.severity },
+      h("div", { class: "row-time" }, h("time", { datetime: it.published, title: it.published, "data-ts": it.published, "data-date-only": ex.date_only ? "1" : null }, shortAgo(it))),
+      h("div", { style: "min-width:0" },
+        h("div", { class: "row-meta" }, ...meta),
+        ext(it.url, "row-title", it.title),
+        summary ? h("p", { class: "row-sum" }, summary) : null,
+        chips.length ? h("div", { class: "row-chips" }, ...chips) : null));
+  }
+
+  function renderTimes() {
+    document.querySelectorAll("time[data-ts]").forEach((t) => {
+      t.textContent = shortAgo({ published: t.dataset.ts, extra: { date_only: t.dataset.dateOnly === "1" } });
+    });
+  }
+
+  // ------------------------------------------------------------ rail
+  function niceMax(v) { const p = Math.pow(10, Math.floor(Math.log10(Math.max(1, v)))); const n = v / p; return (n <= 1 ? 1 : n <= 2 ? 2 : n <= 5 ? 5 : 10) * p; }
+
+  function tooltip(container) {
+    let tip = container.querySelector(".tip");
+    if (!tip) { tip = h("div", { class: "tip", role: "presentation" }); tip.hidden = true; container.append(tip); }
+    return {
+      show(x, y, nodes) {
+        tip.replaceChildren(...nodes); tip.hidden = false;
+        const cw = container.clientWidth, tw = tip.offsetWidth, th = tip.offsetHeight;
+        tip.style.left = Math.max(0, Math.min(cw - tw, x - tw / 2)) + "px";
+        tip.style.top = Math.max(-th - 4, y - th - 10) + "px";
+      },
+      hide() { tip.hidden = true; },
+    };
+  }
+
+  function renderActivity() {
+    const box = $("#activity-chart"), daily = S.data.daily;
+    if (!daily.length) { box.replaceChildren(); return; }
+    const W = Math.max(260, Math.round(box.clientWidth || 340)), H = 160, m = { t: 10, r: 4, b: 22, l: 28 };
+    const iw = W - m.l - m.r, ih = H - m.t - m.b;
+    const max = niceMax(Math.max(1, ...daily.map((d) => d.critical + d.high + d.medium)));
+    const y = (v) => m.t + ih - (v / max) * ih;
+    const band = iw / daily.length, bw = Math.max(6, Math.min(20, band * 0.64));
+    const svg = s("svg", { viewBox: "0 0 " + W + " " + H, width: "100%", role: "img", "aria-label": "Critical, high and medium reports per day for the last 14 days" });
+    const ticks = max % 2 === 0 ? [0, max / 2, max] : [0, max];
+    for (const v of ticks) {
+      svg.append(s("line", { class: v === 0 ? "baseline" : "gridline", x1: m.l, x2: W - m.r, y1: y(v), y2: y(v) }));
+      const t = s("text", { x: m.l - 6, y: y(v) + 3.5, "text-anchor": "end" }); t.textContent = v; svg.append(t);
+    }
+    box.replaceChildren();
+    const tip = tooltip(box);
+    daily.forEach((d, i) => {
+      const x = m.l + band * i + (band - bw) / 2;
+      const g = s("g", { class: "col" + (d.partial ? " is-partial" : "") });
+      const segs = [["critical", d.critical], ["high", d.high], ["medium", d.medium]].filter((p) => p[1] > 0);
+      let acc = 0;
+      segs.forEach(([k, v], j) => {
+        const y0 = y(acc), y1 = y(acc + v); acc += v;
+        const isTop = j === segs.length - 1;
+        const top = isTop ? y1 : y1 + 2, hgt = Math.max(0.5, y0 - top);
+        if (isTop) {
+          const r = Math.min(4, hgt, bw / 2);
+          g.append(s("path", { class: "seg-" + k, d: "M" + x + "," + y0 + "V" + (top + r) + "Q" + x + "," + top + " " + (x + r) + "," + top + "H" + (x + bw - r) + "Q" + (x + bw) + "," + top + " " + (x + bw) + "," + (top + r) + "V" + y0 + "Z" }));
+        } else {
+          g.append(s("rect", { class: "seg-" + k, x, y: top, width: bw, height: hgt }));
+        }
+      });
+      svg.append(g);
+      if (i % 2 === (daily.length - 1) % 2) {
+        const lbl = s("text", { x: x + bw / 2, y: H - 6, "text-anchor": "middle" });
+        lbl.textContent = i === daily.length - 1 ? "Today" : String(Number(d.date.slice(8, 10)));
+        svg.append(lbl);
+      }
+      const hit = s("rect", { class: "hit", x: m.l + band * i, y: m.t, width: band, height: ih });
+      const show = () => tip.show(x + bw / 2, y(d.critical + d.high + d.medium), [
+        h("b", null, fmtDay(d.date + "T00:00:00Z")), h("br"),
+        d.critical + " critical · " + d.high + " high · " + d.medium + " medium",
+        d.partial ? h("div", null, "Partial: before the monitor started") : null]);
+      hit.addEventListener("pointerenter", show); hit.addEventListener("pointermove", show); hit.addEventListener("pointerleave", () => tip.hide());
+      svg.append(hit);
+    });
+    box.prepend(svg);
+    const firstPartial = daily.filter((d) => d.partial);
+    $("#activity-note").textContent = (firstPartial.length ? "Faded days are partial: the monitor started " + fmtDay(S.data.first_sweep_at) + " and feeds only keep a few days of history. " : "") + "Ransomware claims are counted separately.";
+    const tbl = h("table", null, h("thead", null, h("tr", null, h("th", null, "Day"), h("th", { class: "num" }, "Critical"), h("th", { class: "num" }, "High"), h("th", { class: "num" }, "Medium"))),
+      h("tbody", null, ...daily.slice().reverse().map((d) => h("tr", null, h("td", null, fmtDay(d.date + "T00:00:00Z") + (d.partial ? " (partial)" : "")),
+        h("td", { class: "num" }, d.critical), h("td", { class: "num" }, d.high), h("td", { class: "num" }, d.medium)))));
+    $("#activity-table").replaceChildren(tbl);
+  }
+
+  function renderKev() {
+    const kev = S.data.items.filter((it) => it.type === "kev");
+    $("#kev-meta").textContent = fmtInt(kev.length) + " added · 14 days";
+    $("#kev-list").replaceChildren(...(kev.length ? kev.slice(0, 8).map((it) => {
+      const ex = it.extra || {};
+      return h("li", null,
+        h("div", { class: "s" }, sevMark(it.severity), S.watch.has(it.id) ? h("span", { class: "badge badge-watch" }, "Your stack") : null),
+        ext(it.url, "t", h("span", { class: "cve" }, it.cves[0] || ""), " ", (ex.vendor || "") + " " + (ex.product || "")),
+        h("div", { class: "s" }, h("span", null, "Added " + fmtDay(it.published)), ex.due ? h("span", null, "Due " + fmtDay(ex.due + "T00:00:00Z")) : null, ex.ransomware ? h("span", null, "Used by ransomware") : null));
+    }) : [h("li", null, "No additions in the last 14 days.")]));
+  }
+
+  function renderRansomware() {
+    const groups = (S.data.ransomware.groups_7d || []).slice(0, 8);
+    $("#rw-meta").textContent = fmtInt(S.data.stats.ransomware_7d) + " claims · 7 days";
+    const box = $("#groups-chart");
+    if (!groups.length) { box.replaceChildren(h("p", { class: "chart-note" }, "No claims in the last 7 days.")); }
+    else {
+      const W = Math.max(240, Math.round(box.clientWidth || 340)), rowH = 24, labelW = Math.min(124, Math.round(W * 0.38)), valW = 30;
+      const H = groups.length * rowH + 2, max = Math.max(...groups.map((g) => g.count));
+      const svg = s("svg", { viewBox: "0 0 " + W + " " + H, width: "100%", role: "img", "aria-label": "Ransomware leak-site claims by group, last 7 days" });
+      box.replaceChildren();
+      const tip = tooltip(box);
+      groups.forEach((g, i) => {
+        const yy = i * rowH + 6, len = Math.max(3, (W - labelW - valW) * (g.count / max));
+        const lbl = s("text", { class: "lbl", x: labelW - 8, y: yy + 9.5, "text-anchor": "end" }); lbl.textContent = g.group.length > 18 ? g.group.slice(0, 17) + "…" : g.group;
+        const r = Math.min(4, len / 2);
+        const bar = s("path", { class: "bar", d: "M" + labelW + "," + yy + "H" + (labelW + len - r) + "Q" + (labelW + len) + "," + yy + " " + (labelW + len) + "," + (yy + r) + "V" + (yy + 12 - r) + "Q" + (labelW + len) + "," + (yy + 12) + " " + (labelW + len - r) + "," + (yy + 12) + "H" + labelW + "Z" });
+        const val = s("text", { class: "val", x: labelW + len + 6, y: yy + 10 }); val.textContent = g.count;
+        const hit = s("rect", { class: "hit", x: 0, y: i * rowH, width: W, height: rowH });
+        const show = () => tip.show(labelW + len / 2, yy, [h("b", null, g.group), h("br"), g.count + " claims in 7 days, " + g.count_24h + " in the last 24 hours"]);
+        hit.addEventListener("pointerenter", show); hit.addEventListener("pointerleave", () => tip.hide());
+        svg.append(lbl, bar, val, hit);
+      });
+      box.prepend(svg);
+    }
+    const claims = S.data.items.filter((it) => it.type === "ransomware").slice(0, 6);
+    $("#rw-list").replaceChildren(...claims.map((it) => {
+      const ex = it.extra || {};
+      return h("li", null, ext(it.url, "t", ex.victim || it.title),
+        h("div", { class: "s" }, h("span", { class: "mono" }, ex.group || ""), ex.country ? h("span", null, ex.country) : null, ex.sector ? h("span", null, ex.sector) : null, h("span", null, ago(it.published)),
+          S.watch.has(it.id) ? h("span", { class: "badge badge-watch" }, "Your stack") : null));
+    }));
+  }
+
+  function renderBreaches() {
+    const items = S.data.items.filter((it) => it.type === "breach" || (it.type === "news" && has(it, "breach") && SEV_RANK[it.severity] >= 2));
+    $("#br-meta").textContent = fmtInt(S.data.stats.breaches_7d) + " disclosures · 7 days";
+    $("#br-list").replaceChildren(...items.slice(0, 7).map((it) => {
+      const ex = it.extra || {};
+      return h("li", null, ext(it.url, "t", it.title),
+        h("div", { class: "s" }, sevMark(it.severity), h("span", null, it.source), h("span", null, ex.date_only ? fmtDay(it.published) : ago(it.published)),
+          ex.accounts ? h("span", null, fmtCompact(ex.accounts) + " accounts") : null,
+          S.watch.has(it.id) ? h("span", { class: "badge badge-watch" }, "Your stack") : null));
+    }));
+  }
+
+  function renderPackages() {
+    const pk = S.data.packages, eco = S.data.stats.packages_ecosystems || {};
+    $("#pk-meta").textContent = fmtInt(S.data.stats.packages_72h) + " flagged · 72 hours";
+    $("#pk-eco").replaceChildren(...Object.entries(eco).sort((a, b) => b[1] - a[1]).map(([k, v]) => h("span", { class: "chip" }, (k === "pip" ? "PyPI" : k) + " · " + v)));
+    const ms = termMatchers();
+    const sorted = pk.slice().sort((a, b) => (b.in_news ? 1 : 0) - (a.in_news ? 1 : 0));
+    $("#pk-list").replaceChildren(...sorted.slice(0, 10).map((p) => {
+      const hit = ms.some((m) => m.re.test(p.name.toLowerCase()));
+      return h("li", null, ext(p.url, "t pkg", (p.ecosystem === "pip" ? "pypi" : p.ecosystem) + "/" + p.name),
+        h("div", { class: "s" }, h("span", { class: "mono" }, p.versions || ""), h("span", null, ago(p.published)),
+          p.in_news ? h("span", { class: "badge badge-new" }, "In the news") : null, hit ? h("span", { class: "badge badge-watch" }, "Your stack") : null));
+    }));
+  }
+
+  // ------------------------------------------------------------ master prompt
+  function hydrateForm() {
+    $("#env-checks").replaceChildren(...ENV.map((e) => {
+      const id = "env-" + e.id;
+      const input = h("input", { type: "checkbox", id, value: e.id });
+      input.checked = S.team.env.includes(e.id);
+      return h("label", { class: "check", for: id }, input, h("span", null, e.label));
+    }));
+    $("#team-name").value = S.team.name;
+    $("#team-stack").value = S.team.stack;
+    (S.team.mode === "chat" ? $("#mode-chat") : $("#mode-code")).checked = true;
+    let timer = null;
+    $("#team-form").addEventListener("input", () => { clearTimeout(timer); timer = setTimeout(readForm, 250); });
+    $("#team-form").addEventListener("change", readForm);
+    $("#team-form").addEventListener("submit", (e) => e.preventDefault());
+  }
+
+  function readForm() {
+    S.team = {
+      name: $("#team-name").value.slice(0, 120),
+      stack: $("#team-stack").value.slice(0, 4000),
+      env: ENV.filter((e) => $("#env-" + e.id).checked).map((e) => e.id),
+      mode: $("#mode-chat").checked ? "chat" : "code",
+    };
+    store.set("sm:team", S.team);
+    if (!S.data) return;
+    recomputeWatch();
+    renderHero(); renderSituations(); renderTabs(); renderFeed(); renderKev(); renderRansomware(); renderBreaches(); renderPackages(); renderPrompt(); renderAlerts();
+  }
+
+  function matchesSection() {
+    const ms = termMatchers();
+    if (!ms.length) return "";
+    const names = [...new Set([...watchTerms(), ...impliedTerms()])];
+    const hits = S.data.items.filter((it) => S.watch.has(it.id) && it.type !== "ransomware").slice(0, 20);
+    const claims = S.data.items.filter((it) => S.watch.has(it.id) && it.type === "ransomware").slice(0, 5);
+    const pk = S.data.packages.filter((p) => ms.some((m) => m.re.test(p.name.toLowerCase()))).slice(0, 15);
+    const lines = ["Matches for what we run (watch terms: " + names.join(", ") + "):"];
+    if (!hits.length && !pk.length && !claims.length) lines.push("- None in the current data. Names vary between reports, so still check the lists below.");
+    for (const it of hits) lines.push("- [" + it.severity + "] " + it.published.slice(0, 10) + " " + it.title + " (" + it.source + ") " + (it.url || "") + " [matched: " + S.watch.get(it.id).join(", ") + "]");
+    for (const it of claims) lines.push("- [ransomware claim] " + it.title + " (" + it.source + ") " + (it.url || ""));
+    for (const p of pk) lines.push("- [malicious package] " + p.ecosystem + "/" + p.name + " " + (p.versions || "") + " " + (p.url || ""));
+    return lines.join("\n");
+  }
+
+  function buildPrompt(mode) {
+    const d = S.data, p = d.prompt || {};
+    if (!p.template) return "";
+    const terms = watchTerms();
+    const envs = ENV.filter((e) => S.team.env.includes(e.id)).map((e) => e.label);
+    const profile = [];
+    if (terms.length) profile.push("Products, vendors, platforms and packages we use: " + terms.join(", ") + ".");
+    if (envs.length) profile.push("Our environment: " + envs.join("; ") + ".");
+    const matches = matchesSection();
+    const fills = {
+      TEAM_NAME: S.team.name.trim() || "our team",
+      TEAM_PROFILE: profile.length ? profile.join("\n") : "(We haven't listed it yet.)",
+      RUN_MODE: (p.run_mode || {})[mode || S.team.mode] || "",
+      GENERATED_AT: d.generated_at,
+      LEVEL: d.level.value + " " + d.level.name,
+      SITUATION_BRIEF: (matches ? matches + "\n\n" : "") + (d.prompt_brief || ""),
+      ALERTS_HOOKUP: d.feed_url ? String((p.alerts || {}).feed || "").split("{{FEED_URL}}").join(d.feed_url) : String((p.alerts || {}).nofeed || ""),
+    };
+    let out = p.template;
+    for (const [k, v] of Object.entries(fills)) out = out.split("{{" + k + "}}").join(v);
+    return out;
+  }
+
+  function renderPrompt() {
+    const text = buildPrompt();
+    $("#prompt-preview").textContent = text || "The prompt appears here after the first sweep.";
+    $("#prompt-meta").textContent = fmtInt(text.length) + " characters · live data from " + utcTime(S.data.generated_at) + " " + fmtDay(S.data.generated_at);
+  }
+
+  async function copyText(text, button, note) {
+    const label = button.textContent;
+    try {
+      await navigator.clipboard.writeText(text);
+      button.textContent = "Copied";
+      if (note) note.hidden = true;
+    } catch (e) {
+      if (note) { note.hidden = false; note.textContent = "Your browser blocked copying. The text is selected: press ⌘C or Ctrl+C."; }
+      return false;
+    } finally {
+      setTimeout(() => { button.textContent = label; }, 1800);
+    }
+    return true;
+  }
+
+  function selectText(el) {
+    const range = document.createRange(); range.selectNodeContents(el);
+    const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+  }
+
+  $("#copy-prompt").addEventListener("click", async (e) => {
+    if (!S.data) return;
+    const ok = await copyText(buildPrompt(), e.currentTarget, $("#copy-note"));
+    if (!ok) selectText($("#prompt-preview"));
+  });
+
+  document.addEventListener("click", async (e) => {
+    const btn = e.target.closest("[data-copy]");
+    if (!btn) return;
+    const el = document.getElementById(btn.dataset.copy);
+    if (!el) return;
+    if (!(await copyText(el.textContent, btn, null))) selectText(el);
+  });
+
+  // In-page plan, when the viewer lets this page ask Claude
+  const PLAN_NOTE = "\n\n---\nYou are answering inside The Situation Monitor web page. You cannot browse, run commands or see our systems. Using only the situation data above and what we told you about our stack, write the plan now in the Output format above. Where a check needs access, give the exact command or query for us to run. Use Markdown. Keep it under 900 words.";
+  $("#run-plan").addEventListener("click", async () => {
+    if (!S.sample || !S.data) return;
+    const out = $("#plan-out"), status = $("#plan-status"), run = $("#run-plan"), stop = $("#stop-plan");
+    const ctl = new AbortController(); S.planCtl = ctl;
+    run.disabled = true; stop.hidden = false; status.hidden = false; status.textContent = "Thinking…"; out.replaceChildren();
+    try {
+      const res = await S.sample(buildPrompt("chat") + PLAN_NOTE, { signal: ctl.signal, onText: ({ text }) => { status.textContent = "Writing…"; renderMarkdown(out, text); } });
+      renderMarkdown(out, res.text);
+      status.textContent = res.truncated ? "Cut short. Narrow your stack or run the full prompt in Claude Code." : "Done. Check every step against your own systems before acting.";
+    } catch (e) {
+      if (e && typeof e.text === "string") renderMarkdown(out, e.text); else if (e && e.code === "refused") out.replaceChildren();
+      const msg = {
+        cancelled: "Stopped.", not_granted: "This page isn't allowed to ask Claude. Copy the prompt and paste it into Claude instead.",
+        sampling_disabled: "Claude isn't available for this account. Copy the prompt instead.", rate_limited: "Too many requests right now. Try again in a few minutes.",
+        session_expired: "Sign in to Claude again, then retry.", refused: "Claude declined this request. Try the copied prompt in Claude Code instead.",
+        prompt_too_large: "The prompt is too long for an in-page answer. Copy it into Claude Code instead.",
+      }[e && e.code] || "Something went wrong. Try again, or copy the prompt into Claude.";
+      status.textContent = msg;
+      if (e && ["not_granted", "sampling_disabled", "not_declared", "capability_disabled", "capability_removed"].includes(e.code)) run.hidden = true;
+    } finally {
+      run.disabled = false; stop.hidden = true; S.planCtl = null;
+    }
+  });
+  $("#stop-plan").addEventListener("click", () => { if (S.planCtl) S.planCtl.abort(); });
+
+  function renderMarkdown(target, md) {
+    const nodes = []; let list = null, listTag = null, code = null, table = null;
+    const flushList = () => { if (list) { nodes.push(list); list = null; listTag = null; } };
+    const flushTable = () => { if (table) { nodes.push(h("div", { class: "table-wrap" }, table)); table = null; } };
+    for (const raw of String(md).split("\n")) {
+      const line = raw.replace(/\s+$/, "");
+      if (code) { if (/^```/.test(line)) { nodes.push(h("pre", null, code.join("\n"))); code = null; } else code.push(raw); continue; }
+      if (/^```/.test(line)) { flushList(); flushTable(); code = []; continue; }
+      if (/^\s*\|.*\|\s*$/.test(line)) {
+        flushList();
+        const cells = line.trim().slice(1, -1).split("|").map((c) => c.trim());
+        if (cells.every((c) => /^:?-{2,}:?$/.test(c))) continue;
+        if (!table) { table = h("table", null, h("thead", null, h("tr", null, ...cells.map((c) => h("th", null, inline(c))))), h("tbody")); }
+        else table.lastChild.append(h("tr", null, ...cells.map((c) => h("td", null, inline(c)))));
+        continue;
+      }
+      flushTable();
+      let m;
+      if ((m = line.match(/^(#{1,4})\s+(.*)$/))) { flushList(); nodes.push(h(m[1].length <= 2 ? "h3" : "h4", null, inline(m[2]))); continue; }
+      if ((m = line.match(/^\s*[-*+]\s+(?:\[( |x|X)\]\s+)?(.*)$/))) {
+        if (listTag !== "ul") { flushList(); list = h("ul"); listTag = "ul"; }
+        list.append(h("li", null, m[1] ? (m[1] === " " ? "☐ " : "☑ ") : "", inline(m[2]))); continue;
+      }
+      if ((m = line.match(/^\s*\d+[.)]\s+(.*)$/))) {
+        if (listTag !== "ol") { flushList(); list = h("ol"); listTag = "ol"; }
+        list.append(h("li", null, inline(m[1]))); continue;
+      }
+      flushList();
+      if (/^\s*(---|\*\*\*)\s*$/.test(line)) { nodes.push(h("hr")); continue; }
+      if ((m = line.match(/^>\s?(.*)$/))) { nodes.push(h("blockquote", null, inline(m[1]))); continue; }
+      if (line.trim()) nodes.push(h("p", null, inline(line)));
+    }
+    if (code) nodes.push(h("pre", null, code.join("\n")));
+    flushList(); flushTable();
+    target.replaceChildren(...nodes);
+  }
+
+  function inline(text) {
+    const out = [];
+    const re = /(\*\*[^*]+\*\*|`[^`]+`|\[[^\]]+\]\((https?:\/\/[^)\s]+)\)|https?:\/\/[^\s)]+)/g;
+    let last = 0, m;
+    while ((m = re.exec(text))) {
+      if (m.index > last) out.push(text.slice(last, m.index));
+      const tok = m[0];
+      if (tok.startsWith("**")) out.push(h("strong", null, tok.slice(2, -2)));
+      else if (tok.startsWith("`")) out.push(h("code", null, tok.slice(1, -1)));
+      else if (tok.startsWith("[")) out.push(ext(m[2], null, tok.slice(1, tok.indexOf("]"))));
+      else out.push(ext(tok, null, tok));
+      last = m.index + tok.length;
+    }
+    if (last < text.length) out.push(text.slice(last));
+    return out;
+  }
+
+  // ------------------------------------------------------------ alerts, sources, crawl
+  function renderAlerts() {
+    const terms = [...new Set([...watchTerms(), ...impliedTerms()])].slice(0, 12);
+    const watch = JSON.stringify(terms.length ? terms : ["php", "litellm", "railway"]);
+    $("#snippet-webhook").textContent = '"alerts": {\n  "min_severity": "critical",\n  "watchlist": ' + watch + ',\n  "channels": {\n    "slack_webhook": "https://hooks.slack.com/services/…"\n  }\n}';
+    $("#snippet-ntfy").textContent = '"channels": {\n  "ntfy_topic": "' + ((S.team.name || "our-team").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "our-team") + '-sitmon-' + topicSuffix() + '"\n}';
+    const rss = $("#rss-text"), snip = $("#snippet-rss");
+    if (S.data.feed_url) {
+      rss.replaceChildren("Critical and high reports as RSS. In Slack, run ", h("code", null, "/feed subscribe"), " with this address.");
+      snip.hidden = false; snip.textContent = S.data.feed_url;
+    } else {
+      rss.replaceChildren("Deploy the site publicly (the README covers GitHub Pages) and every sweep publishes critical and high reports at ", h("code", null, "data/feed.xml"), ".");
+      snip.hidden = true;
+    }
+    const failed = S.data.sources.filter((x) => !x.ok).length;
+    $("#schedule-kv").replaceChildren(
+      h("dt", null, "Runs"), h("dd", null, S.data.schedule_note || "On a schedule"),
+      h("dt", null, "Last sweep"), h("dd", null, fmtDay(S.data.generated_at) + " " + utcTime(S.data.generated_at) + " (" + ago(S.data.generated_at) + ")"),
+      h("dt", null, "Sources"), h("dd", null, fmtInt(S.data.stats.sources_ok) + " of " + fmtInt(S.data.stats.sources_total) + " reporting" + (failed ? ", " + failed + " failing" : "")),
+      h("dt", null, "Alerts on"), h("dd", null, "New critical reports and watchlist matches"));
+    const repo = safeUrl(S.data.repo_url);
+    $("#fork-card").hidden = !repo;
+    if (repo) $("#fork-link").replaceChildren(ext(repo, "src-link", repo.replace(/^https?:\/\//, "") + " ↗"));
+    const nb = $("#notify-btn");
+    if ("Notification" in window && window.self === window.top) {
+      nb.hidden = false;
+      nb.textContent = S.notify && Notification.permission === "granted" ? "Tab notifications on" : "Notify me in this tab";
+    }
+  }
+  function topicSuffix() { let x = store.get("sm:topic", null); if (!x) { x = Math.random().toString(36).slice(2, 8); store.set("sm:topic", x); } return x; }
+
+  $("#notify-btn").addEventListener("click", async () => {
+    try { const p = await Notification.requestPermission(); S.notify = p === "granted"; store.set("sm:notify", S.notify); } catch (e) { S.notify = false; }
+    renderAlerts();
+  });
+
+  function announce(fresh) {
+    const n = fresh.length;
+    $("#toast-text").textContent = n + (n === 1 ? " new report" : " new reports") + " just came in";
+    $("#toast").hidden = false;
+    clearTimeout(announce.t); announce.t = setTimeout(() => { $("#toast").hidden = true; }, 12000);
+    const top = fresh.slice().sort((a, b) => SEV_RANK[b.severity] - SEV_RANK[a.severity])[0];
+    if (S.notify && "Notification" in window && Notification.permission === "granted" && top && SEV_RANK[top.severity] >= 2) {
+      try { new Notification("SITCON " + S.data.level.value + " · " + n + " new", { body: top.title }); } catch (e) { /* not allowed here */ }
+    }
+  }
+  $("#toast-btn").addEventListener("click", () => { $("#toast").hidden = true; S.filter = "all"; S.situation = null; renderTabs(); renderFeed(); $("#feed").scrollIntoView(); });
+
+  function renderSources() {
+    const rows = S.data.sources.slice().sort((a, b) => (a.ok === b.ok ? a.name.localeCompare(b.name) : a.ok ? 1 : -1));
+    const tbl = h("table", null,
+      h("thead", null, h("tr", null, h("th", null, "Source"), h("th", null, "Covers"), h("th", null, "Status"), h("th", { class: "num" }, "Items"), h("th", { class: "num" }, "Response"))),
+      h("tbody", null, ...rows.map((x) => h("tr", null,
+        h("td", null, ext(x.home, null, x.name)), h("td", null, SOURCE_TYPES[x.type] || x.type),
+        h("td", null, h("span", { class: "dot" + (x.ok ? "" : " bad"), "aria-hidden": "true" }), x.ok ? "Reporting" : "Failed: " + (x.error || "unknown error")),
+        h("td", { class: "num" }, fmtInt(x.count)), h("td", { class: "num" }, (x.ms / 1000).toFixed(1) + " s")))));
+    $("#sources-table").replaceChildren(tbl);
+    $("#sources-blurb").textContent = fmtInt(S.data.sources.length) + " public feeds and trackers, checked on every sweep. Last checked " + ago(S.data.generated_at) + ".";
+  }
+
+  function renderCrawl() {
+    const top = S.data.items.filter((it) => it.severity === "critical" || it.severity === "high").slice(0, 18);
+    const box = $("#crawl-items");
+    if (!top.length) { box.replaceChildren(h("span", null, "No critical or high reports right now. Still monitoring.")); return; }
+    const make = (hidden) => top.map((it) => {
+      const a = ext(it.url, null, h("b", null, it.source), it.title);
+      if (hidden) { a.setAttribute("tabindex", "-1"); a.setAttribute("aria-hidden", "true"); }
+      return a;
+    });
+    box.replaceChildren(...make(false), ...make(true));
+    box.style.setProperty("--crawl-dur", Math.max(60, top.length * 9) + "s");
+  }
+  $("#crawl-btn").addEventListener("click", (e) => {
+    const c = $("#crawl"), paused = !c.classList.contains("paused");
+    c.classList.toggle("paused", paused); e.currentTarget.setAttribute("aria-pressed", String(paused)); e.currentTarget.textContent = paused ? "Play" : "Pause";
+  });
+
+  function renderFoot() {
+    const repo = safeUrl(S.data.repo_url);
+    $("#foot-meta").replaceChildren("Data window: " + (S.data.window_days || 14) + " days · Sweep " + S.data.generated_at + (S.origin === "live" ? " · live" : S.origin === "snapshot" ? " · snapshot" : "") + " · Built with Claude",
+      repo ? " · " : "", repo ? ext(repo, null, "Source on GitHub") : "", ".");
+  }
+
+  // ------------------------------------------------------------ controls
+  let qTimer = null;
+  $("#feed-search").addEventListener("input", (e) => { clearTimeout(qTimer); const v = e.target.value; qTimer = setTimeout(() => { S.q = v; S.shown = 40; if (S.data) { renderTabs(); renderFeed(); } }, 180); });
+  $("#watch-only").addEventListener("change", (e) => { S.watchOnly = e.target.checked; S.shown = 40; if (S.data) { renderTabs(); renderFeed(); } });
+  $("#more-btn").addEventListener("click", () => { S.shown += 40; renderFeed(); });
+  let rTimer = null, lastW = 0;
+  const ro = new ResizeObserver(() => {
+    const w = $("#activity-chart").clientWidth;
+    if (!S.data || Math.abs(w - lastW) < 8) return;
+    lastW = w; clearTimeout(rTimer); rTimer = setTimeout(() => { renderActivity(); renderRansomware(); }, 120);
+  });
+  ro.observe($("#activity-chart"));
+
+  boot();
+})();
+</script>

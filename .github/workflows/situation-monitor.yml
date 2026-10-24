@@ -1,0 +1,74 @@
+# Sweeps every source every 30 minutes, sends alerts, and publishes the site to GitHub Pages.
+# Third-party actions are pinned to commit SHAs (the master prompt asks teams to do the same).
+name: Situation Monitor sweep
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  # A new SITREP or a code change deploys right away instead of waiting for the next sweep.
+  push:
+    branches: [main]
+    paths:
+      - "sitrep.json"
+      - "site/app.html"
+      - "monitor.py"
+      - "sources.json"
+      - "config.json"
+      - "MASTER_PROMPT.md"
+      - ".github/workflows/situation-monitor.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: situation-monitor
+  cancel-in-progress: false
+
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+
+      # The monitor's memory (what it has seen and already alerted on) lives in the Actions cache,
+      # so sweeps don't need to commit anything back to the repository.
+      - name: Restore monitor state
+        uses: actions/cache@caa296126883cff596d87d8935842f9db880ef25 # v5.1.0
+        with:
+          path: state
+          key: situation-state-${{ github.run_id }}
+          restore-keys: situation-state-
+
+      - name: Sweep sources and send alerts
+        env:
+          SM_SITE_URL: ${{ vars.SM_SITE_URL }}
+          SM_SCHEDULE_NOTE: Every 30 minutes, via GitHub Actions
+          SM_WATCHLIST: ${{ vars.SM_WATCHLIST }}
+          SM_MIN_SEVERITY: ${{ vars.SM_MIN_SEVERITY }}
+          SM_SLACK_WEBHOOK: ${{ secrets.SM_SLACK_WEBHOOK }}
+          SM_TEAMS_WEBHOOK: ${{ secrets.SM_TEAMS_WEBHOOK }}
+          SM_DISCORD_WEBHOOK: ${{ secrets.SM_DISCORD_WEBHOOK }}
+          SM_NTFY_TOPIC: ${{ secrets.SM_NTFY_TOPIC }}
+          SM_WEBHOOK_URL: ${{ secrets.SM_WEBHOOK_URL }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python monitor.py
+
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: site
+
+      - id: deploy
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

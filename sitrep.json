@@ -1,0 +1,39 @@
+{
+  "written_at": "2026-10-24T05:45:00Z",
+  "by": "Claude",
+  "headline": "Developer secrets are the target this week: LiteLLM, Railway and ConnectWise were all hit while PHP2Shell exploitation spreads",
+  "bullets": [
+    {
+      "text": "LiteLLM 1.107.0 on PyPI and Docker shipped a credential stealer and backdoor after attackers got into the project's release pipeline (Oct 21). The payload takes cloud keys, secrets and environment variables. It is LiteLLM's second supply-chain compromise this year.",
+      "url": "https://www.bleepingcomputer.com/news/security/litellm-release-pipeline-hacked-to-distribute-info-stealer-malware/"
+    },
+    {
+      "text": "Railway detected access to the systems that store customer environment variables, says some secrets were decrypted, and is telling all users to revoke and rotate keys. Zeabur is shutting down after its second breach in two months.",
+      "url": "https://www.bleepingcomputer.com/news/security/railway-warns-devs-to-rotate-secrets-after-potential-breach/"
+    },
+    {
+      "text": "PHP2Shell (CVE-2026-109618, CVE-2026-109619) lets an attacker without an account run code through PHP itself. Fixes are in 8.5.12, 8.4.27, 8.3.36 and 8.2.35; exploit attempts are being reported and CISA says patch immediately. A third issue, CVE-2026-115560, only affects unusual configurations.",
+      "url": "https://www.cisa.gov/news-events/alerts/2026/10/21/critical-vulnerabilities-php-require-immediate-patching"
+    },
+    {
+      "text": "Microsoft attributes the ConnectWise cloud-backup supply-chain attack to China-aligned Storm-0940, which used a compromised API secret and an AI pentest framework to reach more than 2,250 Microsoft 365 tenants.",
+      "url": "https://cyberscoop.com/microsoft-attributes-connectwise-supply-chain-attack-china-storm-0940/"
+    },
+    {
+      "text": "Edge devices are still the front door: a third exploited Arista VeloCloud Orchestrator zero-day in four months (CVE-2026-114625, now in CISA KEV), Qilin and INC ransomware using a PAN-OS MFA bypass (CVE-2026-0257), and a FortiGate and GlobalProtect campaign that exposed over 70,000 credentials.",
+      "url": "https://www.bleepingcomputer.com/news/security/arista-patches-new-velocloud-orchestrator-zero-day-exploited-in-attacks/"
+    },
+    {
+      "text": "Breaches confirmed: Quest Diagnostics patient records exposed through its Quanum LSM system, 11.7 million CAPCOM ID accounts, and eight compromised eMudhra intermediate CA keys that browsers are now distrusting.",
+      "url": "https://www.bleepingcomputer.com/news/security/quest-diagnostics-confirms-data-breach-exposed-patient-records/"
+    }
+  ],
+  "actions": [
+    "Search lockfiles, images and CI caches for litellm 1.107.0. If it ever ran, treat that machine as compromised and rotate every credential it could read.",
+    "If you deploy on Railway or used Zeabur, rotate every secret stored there and revoke the old values at each provider.",
+    "Update PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35, rebuild images that bundle PHP, and restart PHP-FPM or Apache.",
+    "Patch self-managed GitLab (CVSS 10 RCE back to 7.0), Next.js apps that use `use cache`, and Pillow.",
+    "Patch or isolate Arista VeloCloud Orchestrator, PAN-OS and Prisma Access, and FortiGate; look for webshells and new admin accounts.",
+    "If ConnectWise cloud backup is connected to your Microsoft 365, review that app's consent and its sign-ins."
+  ]
+}
