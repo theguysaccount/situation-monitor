@@ -36,6 +36,10 @@
   --lv3: #f2b705;
   --lv2: #d0242c;
   --lv1: #ffffff;
+  --cat-1: #2a78d6;
+  --cat-2: #eb6834;
+  --cat-3: #1baf7a;
+  --cat-4: #eda100;
   --font-display: "Barlow Condensed", "Roboto Condensed", "Arial Narrow", "Helvetica Neue", sans-serif;
   --font-body: "Libre Franklin", "Franklin Gothic Medium", "Helvetica Neue", Arial, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
@@ -46,6 +50,7 @@
     --line: #22314e; --brand: #0f2a5c; --brand-ink: #ffffff; --brand-ink-2: #a9badb; --alert: #ff4057; --alert-ink: #ffffff;
     --flash: #ffcf40; --flash-ink: #1b1400; --focus: #7fb0ff; --bar: #7aa3ec; --grid: #1a2843; --axis: #33466b;
     --tip-bg: #edf1f7; --tip-ink: #0c1a33; --ok: #3ccf74; --sev-low: #6f7c92;
+    --cat-1: #3987e5; --cat-2: #d95926; --cat-3: #199e70; --cat-4: #c98500;
     color-scheme: dark;
   }
 }
@@ -54,6 +59,7 @@
   --line: #22314e; --brand: #0f2a5c; --brand-ink: #ffffff; --brand-ink-2: #a9badb; --alert: #ff4057; --alert-ink: #ffffff;
   --flash: #ffcf40; --flash-ink: #1b1400; --focus: #7fb0ff; --bar: #7aa3ec; --grid: #1a2843; --axis: #33466b;
   --tip-bg: #edf1f7; --tip-ink: #0c1a33; --ok: #3ccf74; --sev-low: #6f7c92;
+  --cat-1: #3987e5; --cat-2: #d95926; --cat-3: #199e70; --cat-4: #c98500;
   color-scheme: dark;
 }
 
@@ -273,6 +279,35 @@ th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line
 th { font: 600 12.5px/1.2 var(--font-display); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; font-family: var(--font-mono); }
 
+/* Over time and the CVE monitor */
+.seg { display: inline-flex; border: 1px solid var(--line); background: var(--panel); max-width: 100%; overflow-x: auto; }
+.seg button { font: 600 13.5px/1 var(--font-display); letter-spacing: .08em; text-transform: uppercase; padding: 9px 11px 8px; border: 0; background: transparent; color: var(--ink-2); cursor: pointer; white-space: nowrap; }
+.seg button + button { border-left: 1px solid var(--line); }
+.seg button:hover { background: var(--panel-2); color: var(--ink); }
+.seg button[aria-pressed="true"] { background: var(--brand); color: var(--brand-ink); }
+.trend-panel { padding: 14px 16px 16px; }
+.trend-bar { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px 20px; flex-wrap: wrap; margin-bottom: 12px; }
+.trend-summary { font-size: 15.5px; color: var(--ink-2); max-width: 78ch; margin: 0; text-wrap: pretty; }
+.trend-summary b { color: var(--ink); }
+.trend-summary a { color: var(--ink); }
+.c1 { fill: var(--cat-1); } .c2 { fill: var(--cat-2); } .c3 { fill: var(--cat-3); } .c4 { fill: var(--cat-4); }
+.legend i.c1 { background: var(--cat-1); } .legend i.c2 { background: var(--cat-2); } .legend i.c3 { background: var(--cat-3); } .legend i.c4 { background: var(--cat-4); }
+.legend i.ln { height: 2px; width: 16px; background: var(--ink); }
+.legend i.rf { height: 1px; width: 16px; background: var(--muted); }
+.chart .avg-line { stroke: var(--ink); stroke-width: 2; fill: none; stroke-linejoin: round; }
+.chart .ref-line { stroke: var(--muted); stroke-width: 1; }
+.chart text.ref { fill: var(--muted); font: 500 10.5px var(--font-mono); }
+.lvf5 { fill: var(--lv5); } .lvf4 { fill: var(--lv4); } .lvf3 { fill: var(--lv3); } .lvf2 { fill: var(--lv2); } .lvf1 { fill: var(--lv1); stroke: var(--lv2); stroke-width: 1.5; }
+.strip-label { font-size: 12px; color: var(--muted); margin: 10px 0 4px; }
+.cve-tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 0; }
+@media (max-width: 760px) { .cve-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.cve-grid { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); gap: 16px; margin-top: 16px; align-items: start; }
+@media (max-width: 960px) { .cve-grid { grid-template-columns: minmax(0, 1fr); } }
+.cve-recent { margin-top: 16px; }
+.cve-recent td { font-size: 13px; }
+.cve-recent td.nowrap { white-space: nowrap; }
+.up { color: var(--alert); font-weight: 600; } .down { color: var(--ok); font-weight: 600; }
+
 /* Protect */
 .protect-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); gap: 16px; align-items: start; }
 @media (max-width: 960px) { .protect-grid { grid-template-columns: minmax(0, 1fr); } }
@@ -354,7 +389,9 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
     </a>
     <nav class="mast-nav" aria-label="Sections">
       <a href="#situation">Situation</a>
+      <a href="#trend">Over time</a>
       <a href="#feed">Feed</a>
+      <a href="#cves">CVEs</a>
       <a href="#protect">Protect</a>
       <a href="#alerts">Alerts</a>
       <a href="#sources">Sources</a>
@@ -390,6 +427,28 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
     <div class="sitrep-body">
       <ul class="sitrep-points" id="sitrep-points"></ul>
       <div class="todo"><h3>Do this today</h3><ul id="sitrep-actions"></ul></div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="trend" aria-labelledby="trend-title">
+    <div class="section-head">
+      <h2 id="trend-title">The situation over time</h2>
+      <p>A daily score rebuilt from sources that keep archives: exploited vulnerabilities, ransomware leak-site claims, breach dumps and Hacker News security stories. Every day is scored the same way, so any two days compare fairly.</p>
+    </div>
+    <div class="panel trend-panel">
+      <div class="trend-bar">
+        <p class="trend-summary" id="trend-summary">Loading the history.</p>
+        <div class="seg" role="group" aria-label="Time range" id="trend-range">
+          <button type="button" data-range="30" aria-pressed="true">30 days</button>
+          <button type="button" data-range="90" aria-pressed="false">90 days</button>
+          <button type="button" data-range="180" aria-pressed="false">6 months</button>
+        </div>
+      </div>
+      <div class="chart" id="trend-chart"></div>
+      <div class="legend" aria-hidden="true"><span><i class="c1"></i>Exploited vulnerabilities</span><span><i class="c2"></i>Ransomware claims</span><span><i class="c3"></i>Breach dumps</span><span><i class="c4"></i>Hacker News security stories</span><span><i class="ln"></i>7-day average</span><span><i class="rf"></i>90-day average</span></div>
+      <div id="strip-wrap" hidden><p class="strip-label" id="strip-label"></p><div class="chart" id="sitcon-strip"></div></div>
+      <p class="chart-note" id="trend-note"></p>
+      <details class="table-view"><summary>Show as table</summary><div class="table-wrap" id="trend-table"></div></details>
     </div>
   </section>
 
@@ -430,7 +489,7 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
         <section class="panel" aria-labelledby="kev-title">
           <div class="panel-head"><h3 class="panel-title" id="kev-title">Exploited in the wild</h3><span class="panel-meta" id="kev-meta"></span></div>
           <div class="panel-body"><ul class="mini" id="kev-list"></ul></div>
-          <div class="panel-foot"><a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer">Full CISA KEV catalog</a></div>
+          <div class="panel-foot"><a href="#cves">Open the CVE monitor</a> · <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer">Full CISA KEV catalog</a></div>
         </section>
         <section class="panel" aria-labelledby="rw-title">
           <div class="panel-head"><h3 class="panel-title" id="rw-title">Ransomware</h3><span class="panel-meta" id="rw-meta"></span></div>
@@ -451,6 +510,40 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
         </section>
       </aside>
     </div>
+  </section>
+
+  <section class="wrap section" id="cves" aria-labelledby="cves-title">
+    <div class="section-head">
+      <h2 id="cves-title">CVE monitor</h2>
+      <p>Every vulnerability CISA has confirmed attackers are exploiting, from its Known Exploited Vulnerabilities catalog, back to the catalog's start.</p>
+      <button class="btn secondary" type="button" id="cves-link">Copy link to the CVE monitor</button>
+    </div>
+    <div class="tiles cve-tiles" id="cve-tiles"></div>
+    <div class="cve-grid">
+      <section class="panel" aria-labelledby="cve-chart-title">
+        <div class="panel-head"><h3 class="panel-title" id="cve-chart-title">Added to the catalog</h3>
+          <div class="seg" role="group" aria-label="Time range" id="cve-range">
+            <button type="button" data-range="12w" aria-pressed="false">12 weeks</button>
+            <button type="button" data-range="1y" aria-pressed="true">1 year</button>
+            <button type="button" data-range="all" aria-pressed="false">All</button>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="chart" id="cve-chart"></div>
+          <div class="legend" aria-hidden="true"><span><i class="c1"></i>Other exploited vulnerabilities</span><span><i class="c2"></i>Known ransomware use</span></div>
+          <details class="table-view"><summary>Show as table</summary><div class="table-wrap" id="cve-chart-table"></div></details>
+        </div>
+      </section>
+      <section class="panel" aria-labelledby="cve-vendor-title">
+        <div class="panel-head"><h3 class="panel-title" id="cve-vendor-title">Most-exploited vendors</h3><span class="panel-meta" id="cve-vendor-meta"></span></div>
+        <div class="panel-body"><div class="chart" id="cve-vendors"></div></div>
+      </section>
+    </div>
+    <section class="panel cve-recent" aria-labelledby="cve-recent-title">
+      <div class="panel-head"><h3 class="panel-title" id="cve-recent-title">Latest additions</h3><span class="panel-meta">last 60 days, newest first</span></div>
+      <div class="table-wrap" id="cve-table"></div>
+      <div class="more" id="cve-more-wrap" hidden><button class="btn secondary" type="button" id="cve-more">Show all</button></div>
+    </section>
   </section>
 
   <section class="wrap section" id="protect" aria-labelledby="protect-title">
@@ -731,9 +824,14 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
 
   // ------------------------------------------------------------ render
   function renderAll() {
-    renderStatus(); renderHero(); renderSitrep(); renderSituations(); renderTabs(); renderFeed();
-    renderActivity(); renderKev(); renderRansomware(); renderBreaches(); renderPackages();
+    renderStatus(); renderHero(); renderSitrep(); renderTrend(); renderSituations(); renderTabs(); renderFeed();
+    renderActivity(); renderKev(); renderRansomware(); renderBreaches(); renderPackages(); renderCves();
     renderPrompt(); renderAlerts(); renderSources(); renderCrawl(); renderFoot();
+    if (!S.jumped && /^#[a-z]+$/.test(location.hash)) {
+      S.jumped = true;
+      const target = document.getElementById(location.hash.slice(1));
+      if (target) requestAnimationFrame(() => target.scrollIntoView());
+    }
   }
 
   function renderEmpty() {
@@ -1053,6 +1151,237 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
     }));
   }
 
+  // ------------------------------------------------------------ over time
+  S.trendRange = [30, 90, 180].includes(Number(store.get("sm:trendRange", 30))) ? Number(store.get("sm:trendRange", 30)) : 30;
+  S.cveRange = ["12w", "1y", "all"].includes(store.get("sm:cveRange", "1y")) ? store.get("sm:cveRange", "1y") : "1y";
+  S.cveAll = false;
+  const MONTH_FMT = new Intl.DateTimeFormat("en-US", { month: "short", year: "2-digit", timeZone: "UTC" });
+  const MONTH_LONG = new Intl.DateTimeFormat("en-US", { month: "long", year: "numeric", timeZone: "UTC" });
+  const fmtTick = (v) => (v >= 1000 ? Math.round(v / 100) / 10 + "k" : String(Math.round(v * 10) / 10));
+  const sumv = (r) => r.values.reduce((a, v) => a + (v || 0), 0);
+
+  function stackedBars(box, cfg) {
+    box.replaceChildren();
+    const rows = cfg.rows, n = rows.length;
+    if (!n) return null;
+    const tip = tooltip(box);
+    const W = Math.max(280, Math.round(box.clientWidth || 640)), H = cfg.height || 220, m = { t: 16, r: 12, b: 24, l: 36 };
+    const iw = W - m.l - m.r, ih = H - m.t - m.b;
+    const totals = rows.map(sumv);
+    const max = niceMax(Math.max(1, ...totals, cfg.ref || 0, ...(cfg.line || []).filter((v) => v != null)));
+    const y = (v) => m.t + ih - (v / max) * ih;
+    const band = iw / n, bw = Math.max(1.5, Math.min(24, band * (band > 8 ? 0.66 : 0.82))), gap = band > 8 ? 2 : 1;
+    const cx = (i) => m.l + band * i + band / 2;
+    const svg = s("svg", { viewBox: "0 0 " + W + " " + H, width: "100%", role: "img", "aria-label": cfg.label });
+    for (const v of (max % 2 === 0 ? [0, max / 2, max] : [0, max])) {
+      svg.append(s("line", { class: v === 0 ? "baseline" : "gridline", x1: m.l, x2: W - m.r, y1: y(v), y2: y(v) }));
+      const t = s("text", { x: m.l - 6, y: y(v) + 3.5, "text-anchor": "end" }); t.textContent = fmtTick(v); svg.append(t);
+    }
+    rows.forEach((r, i) => {
+      const x = cx(i) - bw / 2;
+      const g = s("g", { class: r.partial ? "is-partial" : null });
+      const segs = r.values.map((v, k) => [v || 0, cfg.classes[k]]).filter((p) => p[0] > 0);
+      let acc = 0;
+      segs.forEach(([v, cls], j) => {
+        const y0 = y(acc), y1 = y(acc + v); acc += v;
+        const isTop = j === segs.length - 1;
+        const top = isTop ? y1 : Math.min(y0 - 0.5, y1 + gap), hgt = Math.max(0.5, y0 - top);
+        if (isTop && hgt > 2) {
+          const rr = Math.min(3, hgt, bw / 2);
+          g.append(s("path", { class: cls, d: "M" + x + "," + y0 + "V" + (top + rr) + "Q" + x + "," + top + " " + (x + rr) + "," + top + "H" + (x + bw - rr) + "Q" + (x + bw) + "," + top + " " + (x + bw) + "," + (top + rr) + "V" + y0 + "Z" }));
+        } else g.append(s("rect", { class: cls, x, y: top, width: bw, height: hgt }));
+      });
+      svg.append(g);
+    });
+    if (cfg.ref) {
+      const ref = s("line", { class: "ref-line", x1: m.l, x2: W - m.r, y1: y(cfg.ref), y2: y(cfg.ref) });
+      const t = s("title"); t.textContent = cfg.refLabel + ": " + Math.round(cfg.ref * 10) / 10; ref.append(t);
+      svg.append(ref);
+    }
+    if (cfg.line) {
+      const pts = cfg.line.map((v, i) => (v == null ? null : cx(i).toFixed(1) + "," + y(v).toFixed(1))).filter(Boolean);
+      if (pts.length > 1) svg.append(s("path", { class: "avg-line", d: "M" + pts.join("L") }));
+    }
+    const step = Math.max(1, Math.ceil(52 / band));
+    for (let i = n - 1; i >= 0; i -= step) {
+      const t = s("text", { x: Math.min(cx(i), W - 16), y: H - 6, "text-anchor": "middle" }); t.textContent = cfg.xLabel(rows[i], i); svg.append(t);
+    }
+    rows.forEach((r, i) => {
+      const hit = s("rect", { class: "hit", x: m.l + band * i, y: m.t, width: band, height: ih });
+      const show = () => tip.show(cx(i), y(totals[i]), cfg.tip(r, i, totals[i]));
+      hit.addEventListener("pointerenter", show); hit.addEventListener("pointermove", show); hit.addEventListener("pointerleave", () => tip.hide());
+      svg.append(hit);
+    });
+    box.prepend(svg);
+    return { x: (i) => m.l + band * i, band, W };
+  }
+
+  function trendDays() {
+    const hs = S.data.history;
+    if (!h || !Array.isArray(hs.days)) return [];
+    return hs.days.map((r, i, all) => ({ date: r[0], values: [r[1], r[2], r[3], r[4]], kev: r[5], claims: r[6], breaches: r[7], accounts: r[8],
+      stories: r[9], top: r[10], topUrl: r[11], noClaims: r[2] == null, today: i === all.length - 1 }));
+  }
+
+  function trendRows(days) {
+    const slice = days.slice(-S.trendRange);
+    if (S.trendRange <= 90) return slice.map((d) => Object.assign({}, d, { partial: d.today || d.noClaims }));
+    const weeks = [];
+    for (let end = slice.length; end > 0; end -= 7) {
+      const grp = slice.slice(Math.max(0, end - 7), end);
+      const sum = (f) => grp.reduce((a, d) => a + (f(d) || 0), 0);
+      const best = grp.slice().sort((a, b) => sumv(b) - sumv(a))[0];
+      weeks.unshift({ date: grp[0].date, end: grp[grp.length - 1].date, week: true, values: [0, 1, 2, 3].map((k) => sum((d) => d.values[k])),
+        kev: sum((d) => d.kev), claims: sum((d) => d.claims), breaches: sum((d) => d.breaches), accounts: sum((d) => d.accounts),
+        stories: sum((d) => d.stories), top: best.top, topUrl: best.topUrl, partial: grp.some((d) => d.today || d.noClaims) || grp.length < 7 });
+    }
+    return weeks;
+  }
+
+  function renderTrend() {
+    const hs = S.data.history, days = trendDays();
+    document.querySelectorAll("#trend-range button").forEach((b) => b.setAttribute("aria-pressed", String(Number(b.dataset.range) === S.trendRange)));
+    const box = $("#trend-chart");
+    if (!days.length) { box.replaceChildren(h("p", { class: "chart-note" }, "The history appears after the next sweep.")); $("#trend-summary").textContent = ""; return; }
+    const summary = $("#trend-summary");
+    const bits = [];
+    if (hs.ratio) {
+      const pct = Math.round((hs.ratio - 1) * 100);
+      bits.push("The last 7 days are running ", h("b", null, Math.abs(pct) + "% " + (pct >= 0 ? "above" : "below")), " the 90-day average.");
+    }
+    if (hs.peak30 && hs.peak30[1] > 0) {
+      bits.push(" The busiest day of the last 30 was ", h("b", null, fmtDay(hs.peak30[0] + "T00:00:00Z")), hs.peak30[2] ? ", led by “" + hs.peak30[2] + "”." : ".");
+    }
+    summary.replaceChildren(...(bits.length ? bits : ["Not enough history yet."]));
+    const rows = trendRows(days), weekly = S.trendRange > 90;
+    const totals = days.map(sumv);
+    const offset = days.length - Math.min(days.length, S.trendRange);
+    const line = weekly ? null : rows.map((_, i) => {
+      const idx = offset + i, win = totals.slice(Math.max(0, idx - 6), idx + 1);
+      return win.length ? win.reduce((a, v) => a + v, 0) / win.length : null;
+    });
+    const geom = stackedBars(box, {
+      rows, classes: ["c1", "c2", "c3", "c4"], height: 240, line,
+      ref: weekly ? hs.avg90 * 7 : hs.avg90, refLabel: weekly ? "90-day average week" : "90-day average",
+      label: "Situation score per " + (weekly ? "week" : "day") + " for the last " + S.trendRange + " days, by source",
+      xLabel: (r) => (r.today ? "Today" : fmtDay(r.date + "T00:00:00Z")),
+      tip: (r, i, total) => [
+        h("b", null, r.week ? "Week of " + fmtDay(r.date + "T00:00:00Z") : fmtDay(r.date + "T00:00:00Z") + (r.today ? " (so far)" : "")), " · score " + (Math.round(total * 10) / 10), h("br"),
+        r.kev + " exploited vulns added · " + (r.claims == null ? "no claim data" : fmtInt(r.claims) + " ransomware claims"), h("br"),
+        r.breaches + " breach dumps" + (r.accounts ? " (" + fmtCompact(r.accounts) + " accounts)" : "") + " · " + r.stories + " HN stories",
+        r.top ? h("div", { style: "margin-top:4px" }, "Top: " + r.top) : null],
+    });
+    renderStrip(geom, rows);
+    const W = hs.weights || {};
+    $("#trend-note").textContent = "Scoring: " + (W.kev || 4) + " points per vulnerability CISA adds to KEV (" + ((W.kev || 4) + (W.kev_ransomware || 2)) + " if used by ransomware); " +
+      (W.claim || 0.25) + " per ransomware leak-site claim, up to " + (W.claims_cap || 10) + " a day; " + (W.breach || 0.6) + " per breach dump on Have I Been Pwned (" + (W.breach_1m || 2.5) + " at 1M+ accounts, " + (W.breach_10m || 6) + " at 10M+); " +
+      (W.hn || 0.6) + " per Hacker News security story (" + (W.hn_hot || 2.5) + " at " + (hs.hot_points || 300) + "+ points). Faded bars are still filling in. The live SITCON level above also counts news coverage, which has no archive, so it isn't on this scale.";
+    const tbl = h("table", null,
+      h("thead", null, h("tr", null, ...[weekly ? "Week of" : "Day", "Score", "Exploited vulns", "Ransomware claims", "Breach dumps", "HN stories", "Top story"].map((t, i) => h("th", { class: i && i < 6 ? "num" : null }, t)))),
+      h("tbody", null, ...rows.slice().reverse().map((r) => h("tr", null, h("td", null, fmtDay(r.date + "T00:00:00Z") + (r.today ? " (so far)" : "")),
+        h("td", { class: "num" }, Math.round(sumv(r) * 10) / 10), h("td", { class: "num" }, r.kev), h("td", { class: "num" }, r.claims == null ? "—" : fmtInt(r.claims)),
+        h("td", { class: "num" }, r.breaches), h("td", { class: "num" }, r.stories), h("td", null, r.topUrl ? ext(r.topUrl, null, r.top) : r.top)))));
+    $("#trend-table").replaceChildren(tbl);
+  }
+
+  function renderStrip(geom, rows) {
+    const hs = S.data.history, changes = (hs && hs.sitcon) || [], wrap = $("#strip-wrap"), box = $("#sitcon-strip");
+    if (!geom || !changes.length) { wrap.hidden = true; return; }
+    wrap.hidden = false;
+    $("#strip-label").textContent = "Live SITCON level, recorded since " + fmtDay(hs.sitcon_since) + " " + utcTime(hs.sitcon_since);
+    const svg = s("svg", { viewBox: "0 0 " + geom.W + " 14", width: "100%", role: "img", "aria-label": "Recorded SITCON levels" });
+    rows.forEach((r, i) => {
+      const start = r.date + "T00:00:00Z", end = (r.end || r.date) + "T23:59:59Z";
+      let active = null, worst = null;
+      for (const [at, lv] of changes) {
+        if (at <= start) active = lv;
+        else if (at <= end) worst = worst == null ? lv : Math.min(worst, lv);
+      }
+      const lv = active == null ? worst : worst == null ? active : Math.min(active, worst);
+      if (lv == null) return;
+      const cell = s("rect", { class: "lvf" + lv, x: geom.x(i) + 0.5, y: 1, width: Math.max(1, geom.band - 1), height: 12 });
+      const t = s("title"); t.textContent = fmtDay(r.date + "T00:00:00Z") + ": SITCON " + lv + " " + ((S.data.levels || {})[lv] || {}).name; cell.append(t);
+      svg.append(cell);
+    });
+    box.replaceChildren(svg);
+  }
+
+  document.querySelectorAll("#trend-range button").forEach((b) => b.addEventListener("click", () => {
+    S.trendRange = Number(b.dataset.range); store.set("sm:trendRange", S.trendRange); if (S.data) renderTrend();
+  }));
+
+  // ------------------------------------------------------------ CVE monitor
+  function hbars(box, rows, label) {
+    box.replaceChildren();
+    if (!rows.length) return;
+    const tip = tooltip(box);
+    const W = Math.max(240, Math.round(box.clientWidth || 340)), rowH = 24, labelW = Math.min(150, Math.round(W * 0.42)), valW = 34;
+    const H = rows.length * rowH + 2, max = Math.max(...rows.map((r) => r.value));
+    const svg = s("svg", { viewBox: "0 0 " + W + " " + H, width: "100%", role: "img", "aria-label": label });
+    rows.forEach((r, i) => {
+      const yy = i * rowH + 6, len = Math.max(3, (W - labelW - valW) * (r.value / max)), rr = Math.min(4, len / 2);
+      const lbl = s("text", { class: "lbl", x: labelW - 8, y: yy + 9.5, "text-anchor": "end" }); lbl.textContent = r.label.length > 22 ? r.label.slice(0, 21) + "…" : r.label;
+      const bar = s("path", { class: "bar", d: "M" + labelW + "," + yy + "H" + (labelW + len - rr) + "Q" + (labelW + len) + "," + yy + " " + (labelW + len) + "," + (yy + rr) + "V" + (yy + 12 - rr) + "Q" + (labelW + len) + "," + (yy + 12) + " " + (labelW + len - rr) + "," + (yy + 12) + "H" + labelW + "Z" });
+      const val = s("text", { class: "val", x: labelW + len + 6, y: yy + 10 }); val.textContent = r.value;
+      const hit = s("rect", { class: "hit", x: 0, y: i * rowH, width: W, height: rowH });
+      hit.addEventListener("pointerenter", () => tip.show(labelW + len / 2, yy, r.tip)); hit.addEventListener("pointerleave", () => tip.hide());
+      svg.append(lbl, bar, val, hit);
+    });
+    box.prepend(svg);
+  }
+
+  function renderCves() {
+    const c = S.data.cves;
+    document.querySelectorAll("#cve-range button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.range === S.cveRange)));
+    if (!c) { $("#cve-tiles").replaceChildren(h("div", { class: "tile" }, "The CVE monitor appears after the next sweep.")); return; }
+    const delta = c.added_prev_30d ? Math.round(((c.added_30d - c.added_prev_30d) / c.added_prev_30d) * 100) : null;
+    const tile = (label, value, sub) => h("div", { class: "tile" }, h("div", { class: "tile-label" }, label), h("div", { class: "tile-value" }, fmtInt(value)), h("div", { class: "tile-sub" }, ...[].concat(sub)));
+    $("#cve-tiles").replaceChildren(
+      tile("Added · 30 days", c.added_30d, delta == null ? "" : [h("span", { class: delta > 0 ? "up" : "down" }, (delta > 0 ? "▲ " : "▼ ") + Math.abs(delta) + "%"), " vs the 30 days before"]),
+      tile("Added in " + c.year, c.added_ytd, "so far this year"),
+      tile("Used by ransomware", c.ransomware, Math.round((c.ransomware / Math.max(1, c.total)) * 100) + "% of the catalog"),
+      tile("In the catalog", c.total, "since " + MONTH_LONG.format(Date.parse(c.since + "T00:00:00Z"))));
+    const monthly = S.cveRange === "all";
+    const src = monthly ? c.monthly : S.cveRange === "12w" ? c.weekly.slice(-12) : c.weekly;
+    const rows = src.map((r, i) => ({ date: r[0], values: [r[1] - r[2], r[2]], total: r[1], rw: r[2], partial: i === src.length - 1 }));
+    stackedBars($("#cve-chart"), {
+      rows, classes: ["c1", "c2"], height: 220,
+      label: "Vulnerabilities added to CISA KEV per " + (monthly ? "month since " + c.since.slice(0, 4) : "week"),
+      xLabel: (r) => (monthly ? MONTH_FMT.format(Date.parse(r.date + "-01T00:00:00Z")) : fmtDay(r.date + "T00:00:00Z")),
+      tip: (r) => [h("b", null, monthly ? MONTH_LONG.format(Date.parse(r.date + "-01T00:00:00Z")) : "Week of " + fmtDay(r.date + "T00:00:00Z")), h("br"),
+        r.total + " added · " + r.rw + " with known ransomware use", r.partial ? h("div", null, "Still filling in") : null],
+    });
+    $("#cve-chart-table").replaceChildren(h("table", null,
+      h("thead", null, h("tr", null, h("th", null, monthly ? "Month" : "Week of"), h("th", { class: "num" }, "Added"), h("th", { class: "num" }, "Ransomware use"))),
+      h("tbody", null, ...rows.slice().reverse().map((r) => h("tr", null, h("td", null, monthly ? MONTH_LONG.format(Date.parse(r.date + "-01T00:00:00Z")) : fmtDay(r.date + "T00:00:00Z")),
+        h("td", { class: "num" }, r.total), h("td", { class: "num" }, r.rw))))));
+    const vendors = (c.vendors && c.vendors[S.cveRange]) || [];
+    $("#cve-vendor-meta").textContent = { "12w": "last 12 weeks", "1y": "last year", all: "since " + c.since.slice(0, 4) }[S.cveRange];
+    hbars($("#cve-vendors"), vendors.map(([v, n]) => ({ label: v, value: n, tip: [h("b", null, v), h("br"), n + " exploited vulnerabilities added"] })), "Vendors with the most KEV additions");
+    const list = S.cveAll ? c.recent : c.recent.slice(0, 15);
+    const ms = termMatchers();
+    $("#cve-table").replaceChildren(h("table", null,
+      h("thead", null, h("tr", null, h("th", null, "Added"), h("th", null, "CVE"), h("th", null, "Vendor and product"), h("th", null, "Vulnerability"), h("th", null, "Federal due"), h("th", null, "Ransomware"))),
+      h("tbody", null, ...list.map(([cve, vendor, product, name, added, due, rw]) => {
+        const hit = ms.some((m) => m.re.test((vendor + " " + product).toLowerCase()));
+        return h("tr", null, h("td", { class: "nowrap" }, fmtDay(added + "T00:00:00Z")), h("td", { class: "nowrap" }, ext("https://nvd.nist.gov/vuln/detail/" + cve, "cve", cve)),
+          h("td", null, vendor + " " + product, hit ? " " : null, hit ? h("span", { class: "badge badge-watch" }, "Your stack") : null), h("td", null, name),
+          h("td", { class: "nowrap" }, due ? fmtDay(due + "T00:00:00Z") : ""), h("td", null, rw ? "Known" : "Unknown"));
+      }))));
+    $("#cve-more-wrap").hidden = S.cveAll || c.recent.length <= 15;
+    $("#cve-more").textContent = "Show all " + c.recent.length;
+  }
+
+  document.querySelectorAll("#cve-range button").forEach((b) => b.addEventListener("click", () => {
+    S.cveRange = b.dataset.range; store.set("sm:cveRange", S.cveRange); if (S.data) renderCves();
+  }));
+  $("#cve-more").addEventListener("click", () => { S.cveAll = true; renderCves(); });
+  $("#cves-link").addEventListener("click", async (e) => {
+    const base = (S.data && safeUrl(S.data.site_url)) || location.href.split("#")[0];
+    const btn = e.currentTarget;
+    if (!(await copyText(base + "#cves", btn, null))) btn.textContent = base + "#cves";
+  });
+
   // ------------------------------------------------------------ master prompt
   function hydrateForm() {
     $("#env-checks").replaceChildren(...ENV.map((e) => {
@@ -1330,13 +1659,15 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
   $("#feed-search").addEventListener("input", (e) => { clearTimeout(qTimer); const v = e.target.value; qTimer = setTimeout(() => { S.q = v; S.shown = 40; if (S.data) { renderTabs(); renderFeed(); } }, 180); });
   $("#watch-only").addEventListener("change", (e) => { S.watchOnly = e.target.checked; S.shown = 40; if (S.data) { renderTabs(); renderFeed(); } });
   $("#more-btn").addEventListener("click", () => { S.shown += 40; renderFeed(); });
-  let rTimer = null, lastW = 0;
+  let rTimer = null;
+  const charted = ["#activity-chart", "#trend-chart", "#cve-chart"], widths = {};
   const ro = new ResizeObserver(() => {
-    const w = $("#activity-chart").clientWidth;
-    if (!S.data || Math.abs(w - lastW) < 8) return;
-    lastW = w; clearTimeout(rTimer); rTimer = setTimeout(() => { renderActivity(); renderRansomware(); }, 120);
+    if (!S.data) return;
+    const changed = charted.some((sel) => { const w = $(sel).clientWidth; const moved = Math.abs(w - (widths[sel] || 0)) >= 8; widths[sel] = w; return moved; });
+    if (!changed) return;
+    clearTimeout(rTimer); rTimer = setTimeout(() => { renderActivity(); renderRansomware(); renderTrend(); renderCves(); }, 120);
   });
-  ro.observe($("#activity-chart"));
+  charted.forEach((sel) => ro.observe($(sel)));
 
   boot();
 })();

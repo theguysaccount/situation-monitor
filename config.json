@@ -1,5 +1,5 @@
 {
-  "site_url": "https://theguysaccount.github.io/situation-monitor/",
+  "site_url": "https://thesituationmonitor.org/",
   "repo_url": "https://github.com/theguysaccount/situation-monitor",
   "schedule_note": "Hourly, via a Claude scheduled task on the owner's Mac",
   "level_thresholds": [

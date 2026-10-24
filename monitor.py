@@ -33,7 +33,7 @@ import urllib.request
 import xml.etree.ElementTree as ET
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 from email.utils import format_datetime, parsedate_to_datetime
 from pathlib import Path
 from xml.sax.saxutils import escape as xml_escape
@@ -481,6 +481,9 @@ def ad_kev(src, ctx):
         data = fetch_json(src["fallback_url"])
     vulns = data.get("vulnerabilities", [])
     ctx["kev_cves"] = {v.get("cveID", "") for v in vulns}
+    ctx["kev_all"] = [(v.get("dateAdded", "")[:10], v.get("cveID", ""), v.get("vendorProject", ""), v.get("product", ""),
+                       v.get("vulnerabilityName", ""), v.get("dueDate", ""), int(v.get("knownRansomwareCampaignUse") == "Known"))
+                      for v in vulns if v.get("dateAdded") and v.get("cveID")]
     ctx["vocab"].update(tok.lower() for v in vulns
                         for tok in re.findall(r"[A-Za-z][A-Za-z0-9.+\-]{2,}", f"{v.get('vendorProject', '')} {v.get('product', '')}")
                         if tok.lower() not in STOP)
@@ -558,6 +561,9 @@ def ad_ransomware_live_attacks(src, ctx):
 
 def ad_hibp(src, ctx):
     data = fetch_json(src["url"])
+    ctx["hibp_all"] = [(str(b.get("AddedDate", ""))[:10], int(b.get("PwnCount") or 0), b.get("Title") or b.get("Name") or "",
+                        bool(b.get("IsSpamList")), "https://haveibeenpwned.com/Breach/" + urllib.parse.quote(b.get("Name") or ""))
+                       for b in data if b.get("AddedDate") and not b.get("IsFabricated")]
     cutoff = ctx["now"] - timedelta(days=WINDOW_DAYS)
     items = []
     for b in data:
@@ -629,6 +635,7 @@ def ad_hn(src, ctx):
                 hits.setdefault(h["objectID"], h)
     if failures and failures == len(src.get("queries", [])):
         raise RuntimeError("every Hacker News query failed")
+    ctx["hn_hits"] = [hn_row(h) for h in hits.values()]
     items = []
     for h in hits.values():
         hn_url = f"https://news.ycombinator.com/item?id={h['objectID']}"
@@ -1015,6 +1022,210 @@ def promote_packages(packages: list[dict], ctx: dict) -> list[dict]:
     return out
 
 
+# ---------------------------------------------------------------- history
+
+# The situation chart is rebuilt from the sources that keep archives, scored the same way every day,
+# so any two days compare fairly. (The live SITCON level also counts news coverage, which has no archive.)
+HISTORY_DAYS = 180
+HIST_W = {"kev": 4.0, "kev_ransomware": 2.0, "claim": 0.25, "claims_cap": 10.0,
+          "breach_10m": 6.0, "breach_1m": 2.5, "breach": 0.6, "hn": 0.6, "hn_hot": 2.5}
+HN_HOT_POINTS = 300
+
+
+def hn_row(h: dict) -> list:
+    oid = str(h["objectID"])
+    return [oid, str(h.get("created_at") or "")[:10], int(h.get("points") or 0), str(h.get("title") or "")[:120],
+            h.get("url") or f"https://news.ycombinator.com/item?id={oid}"]
+
+
+def months_between(start: datetime, end: datetime) -> list[str]:
+    y, m, out = start.year, start.month, []
+    while (y, m) <= (end.year, end.month):
+        out.append(f"{y:04d}-{m:02d}")
+        y, m = (y + 1, 1) if m == 12 else (y, m + 1)
+    return out
+
+
+def fetch_claims_month(month: str) -> dict | None:
+    """Leak-site claims per day for one month, from ransomware.live's monthly archive."""
+    try:
+        data = fetch_json("https://api.ransomware.live/v2/victims/{}/{}".format(*month.split("-")))
+    except Exception:
+        return None
+    seen, counts = set(), Counter()
+    for v in data if isinstance(data, list) else []:
+        day = str(v.get("discovered") or v.get("attackdate") or "")[:10]
+        key = (norm(v.get("group") or ""), norm(v.get("victim") or ""))
+        if day.startswith(month) and key[1] and key not in seen:
+            seen.add(key)
+            counts[day] += 1
+    return dict(counts)
+
+
+def backfill_hn(since: datetime, src: dict) -> tuple[list, int]:
+    rows, ok = [], 0
+    for q in src.get("queries", []):
+        url = "https://hn.algolia.com/api/v1/search_by_date?" + urllib.parse.urlencode({
+            "query": q, "tags": "story", "hitsPerPage": 1000,
+            "numericFilters": f"points>{src.get('min_points', 40)},created_at_i>{int(since.timestamp())}"})
+        try:
+            data = fetch_json(url)
+        except Exception:
+            continue
+        ok += 1
+        rows += [hn_row(h) for h in data.get("hits", [])
+                 if HN_RELEVANT.search(h.get("title") or "") and not HN_NOISE.search(h.get("title") or "")]
+    return rows, ok
+
+
+def kev_days(rows: list) -> dict:
+    out: dict[str, list] = {}
+    for day, cve, vendor, product, name, due, rw in rows:
+        d = out.setdefault(day, [0, 0, "", ""])
+        d[0] += 1
+        d[1] += rw
+        if not d[2] or rw:
+            d[2], d[3] = f"{cve}: {vendor} {product}", f"https://nvd.nist.gov/vuln/detail/{cve}"
+    return out
+
+
+def hibp_days(rows: list) -> dict:
+    out: dict[str, list] = {}
+    for day, accounts, title, spam, url in rows:
+        d = out.setdefault(day, [0, 0, 0.0, "", "", 0])
+        d[0] += 1
+        d[1] += accounts
+        d[2] += 0.0 if spam else HIST_W["breach_10m"] if accounts >= 10_000_000 else HIST_W["breach_1m"] if accounts >= 1_000_000 else HIST_W["breach"]
+        if accounts > d[5]:
+            d[3], d[4], d[5] = f"{title}: {accounts:,} accounts", url, accounts
+    return out
+
+
+def cve_history(rows: list, now: datetime) -> dict:
+    """The CVE monitor: CISA KEV additions over the catalog's whole life."""
+    today = now.date()
+    tomorrow = (today + timedelta(days=1)).isoformat()
+    monthly, monthly_rw, weekly, weekly_rw = Counter(), Counter(), Counter(), Counter()
+    for r in rows:
+        d = date.fromisoformat(r[0])
+        wk = (d - timedelta(days=d.weekday())).isoformat()
+        monthly[r[0][:7]] += 1
+        monthly_rw[r[0][:7]] += r[6]
+        weekly[wk] += 1
+        weekly_rw[wk] += r[6]
+    since = min((r[0] for r in rows), default=today.isoformat())
+    months = months_between(datetime.fromisoformat(since), datetime(today.year, today.month, 1))
+    this_week = today - timedelta(days=today.weekday())
+    weeks = [(this_week - timedelta(weeks=n)).isoformat() for n in range(51, -1, -1)]
+
+    def count(a: str, b: str) -> int:
+        return sum(1 for r in rows if a <= r[0] < b)
+
+    def vendors(days: int | None) -> list:
+        cutoff = (today - timedelta(days=days)).isoformat() if days else ""
+        return [list(v) for v in Counter(r[2] for r in rows if r[0] >= cutoff).most_common(10)]
+
+    recent = sorted((r for r in rows if r[0] >= (today - timedelta(days=60)).isoformat()), key=lambda r: (r[0], r[1]), reverse=True)
+    return {
+        "since": since, "total": len(rows), "ransomware": sum(r[6] for r in rows),
+        "added_30d": count((today - timedelta(days=30)).isoformat(), tomorrow),
+        "added_prev_30d": count((today - timedelta(days=60)).isoformat(), (today - timedelta(days=30)).isoformat()),
+        "added_ytd": count(f"{today.year}-01-01", tomorrow), "year": today.year,
+        "monthly": [[m, monthly[m], monthly_rw[m]] for m in months],
+        "weekly": [[w, weekly[w], weekly_rw[w]] for w in weeks],
+        "vendors": {"12w": vendors(84), "1y": vendors(365), "all": vendors(None)},
+        "recent": [[r[1], r[2], r[3], clean(r[4], 100), r[0], r[5], r[6]] for r in recent[:60]],
+    }
+
+
+def update_history(ctx: dict, items: list[dict], now: datetime, sources: list[dict]) -> None:
+    hist = load_json(STATE / "history.json", {})
+    start = now - timedelta(days=HISTORY_DAYS)
+    cutoff = start.date().isoformat()
+    if ctx.get("kev_all"):
+        hist["kev"] = {d: v for d, v in kev_days(ctx["kev_all"]).items() if d >= cutoff}
+        hist["cves"] = cve_history(ctx["kev_all"], now)
+    if ctx.get("hibp_all"):
+        hist["hibp"] = {d: v for d, v in hibp_days(ctx["hibp_all"]).items() if d >= cutoff}
+
+    # Ransomware claims: fetch each month's archive once, and refresh the latest two at most daily.
+    fetched, claims = hist.setdefault("claims_fetched", {}), hist.setdefault("claims", {})
+    months = months_between(start, now)
+    todo = [m for m in months if m not in fetched or (m in months[-2:] and hours_since(fetched[m], now) > 20)]
+    with ThreadPoolExecutor(max_workers=3) as pool:
+        for month, counts in zip(todo, pool.map(fetch_claims_month, todo)):
+            if counts is None:
+                continue
+            for d in [d for d in claims if d.startswith(month)]:
+                del claims[d]
+            claims.update(counts)
+            fetched[month] = iso(now)
+    # The archive lags by up to a day; our own sweeps (both trackers, de-duplicated) cover the latest days.
+    recent = (now - timedelta(days=2)).date().isoformat()
+    for d, n in Counter(it["published"][:10] for it in items if it["type"] == "ransomware").items():
+        if d >= recent:
+            claims[d] = max(claims.get(d, 0), n)
+
+    # Hacker News: one backfill, then each sweep's hits keep it current.
+    hn = hist.setdefault("hn", {})
+    if str(hist.get("hn_since", "9999")) > cutoff:
+        rows, ok = backfill_hn(start, next((s for s in sources if s.get("kind") == "hn"), {}))
+        for row in rows:
+            hn[row[0]] = row[1:]
+        if ok:
+            hist["hn_since"] = cutoff
+    for row in ctx.get("hn_hits", []):
+        old = hn.get(row[0])
+        hn[row[0]] = [row[1], max(row[2], old[1] if old else 0), row[3], row[4]]
+
+    hist["hn"] = {k: v for k, v in hn.items() if v[0] >= cutoff}
+    hist["claims"] = {d: n for d, n in claims.items() if d >= cutoff}
+    hist["claims_fetched"] = {m: t for m, t in fetched.items() if m >= cutoff[:7]}
+    save_json(STATE / "history.json", hist, compact=True)
+
+
+def history_series(hist: dict, now: datetime) -> dict:
+    kev, hibp, claims = hist.get("kev", {}), hist.get("hibp", {}), hist.get("claims", {})
+    covered = set(hist.get("claims_fetched", {}))
+    stories: dict[str, list] = {}
+    for day, pts, title, url in hist.get("hn", {}).values():
+        stories.setdefault(day, []).append((pts, title, url))
+    rows = []
+    for back in range(HISTORY_DAYS - 1, -1, -1):
+        d = (now - timedelta(days=back)).date().isoformat()
+        k = kev.get(d, [0, 0, "", ""])
+        b = hibp.get(d, [0, 0, 0.0, "", "", 0])
+        c = claims.get(d, 0 if d[:7] in covered else None)
+        s = sorted(stories.get(d, []), reverse=True)
+        hot = sum(1 for x in s if x[0] >= HN_HOT_POINTS)
+        top = (s[0][1], s[0][2]) if s else (k[2], k[3]) if k[2] else (b[3], b[4])
+        rows.append([d,
+                     round(HIST_W["kev"] * k[0] + HIST_W["kev_ransomware"] * k[1], 2),
+                     None if c is None else round(min(HIST_W["claim"] * c, HIST_W["claims_cap"]), 2),
+                     round(b[2], 2),
+                     round(HIST_W["hn"] * (len(s) - hot) + HIST_W["hn_hot"] * hot, 2),
+                     k[0], c, b[0], b[1], len(s), clean(top[0], 90), top[1] if str(top[1]).startswith("https://") else ""])
+    totals = [sum(v or 0 for v in r[1:5]) for r in rows]
+    full = [t for r, t in zip(rows, totals) if r[2] is not None]
+    avg90 = sum(full[-90:]) / len(full[-90:]) if full else 0.0
+    last7 = sum(totals[-7:]) / 7
+    peak = max(range(max(0, len(rows) - 30), len(rows)), key=lambda i: totals[i]) if rows else None
+    readings = hist.get("sitcon", [])
+    changes = []
+    for at, lv, _heat in readings:
+        if not changes or changes[-1][1] != lv:
+            changes.append([at, lv])
+    return {
+        "fields": ["date", "exploited", "ransomware", "breaches", "community", "kev", "claims", "breach_count",
+                   "accounts", "stories", "top", "top_url"],
+        "days": rows, "weights": HIST_W, "hot_points": HN_HOT_POINTS,
+        "avg90": round(avg90, 1), "last7": round(last7, 1), "ratio": round(last7 / avg90, 2) if avg90 else None,
+        "peak30": [rows[peak][0], round(totals[peak], 1), rows[peak][10]] if peak is not None else None,
+        "claims_from": min((d for d in claims), default=None),
+        "sitcon": changes[-300:], "sitcon_since": readings[0][0] if readings else None,
+    }
+
+
 def load_sitrep() -> dict | None:
     # The scheduled analyst writes state/sitrep.json and commits a copy as sitrep.json at the
     # repository root, so the GitHub deploy can show it too. Whichever is newer wins.
@@ -1059,6 +1270,10 @@ def load_prompt_parts() -> dict:
 def make_brief(data: dict, now: datetime) -> str:
     lv, items = data["level"], data["items"]
     lines = [f"SITCON {lv['value']} of 5 ({lv['name']}): {lv['blurb']} {lv['reason']}"]
+    hs = data.get("history") or {}
+    if hs.get("ratio"):
+        lines.append(f"Over time: the last 7 days scored {hs['ratio']}x the 90-day average on the archive-based situation score "
+                     "(exploited vulnerabilities, ransomware claims, breach dumps, Hacker News security stories).")
     sr = data.get("sitrep")
     if sr:
         lines += ["", f"Analyst summary ({sr['written_at']}): {sr['headline']}"]
@@ -1131,6 +1346,13 @@ def build(items: list[dict], packages: list[dict], status: list[dict], cfg: dict
         "sources": status,
     }
     data.update(build_stats(items, packages, status, now, data["first_sweep_at"]))
+    hist = load_json(STATE / "history.json", {})
+    if meta.get("record_reading"):  # sweeps record the live level; rebuilds don't
+        hist.setdefault("sitcon", []).append([iso(now), level["value"], level["heat"]])
+        hist["sitcon"] = hist["sitcon"][-6000:]
+        save_json(STATE / "history.json", hist, compact=True)
+    data["history"] = history_series(hist, now)
+    data["cves"] = hist.get("cves")
     data["prompt"] = load_prompt_parts()
     data["prompt_brief"] = make_brief(data, now)
     for it in data["items"]:
@@ -1205,11 +1427,47 @@ def generic_prompt(data: dict) -> str:
     return out + "\n"
 
 
-APP_WRAPPER = ('<!doctype html><html lang="en"><head><meta charset="utf-8">'
-               '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">'
-               '<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}'
-               'body{margin:0;font:14px/1.4 system-ui,-apple-system,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>'
-               '</head><body>')
+PAGE_RESET = ('<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}'
+              'body{margin:0;font:14px/1.4 system-ui,-apple-system,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>')
+SHARE_TITLE = "The Situation Monitor: I am monitoring the situation"
+SHARE_TEXT = ("A live board of the hacks, breaches, exploited vulnerabilities and ransomware attacks happening now, "
+              "from 25 public sources, with a master prompt teams use to check their exposure.")
+
+
+def page_head(data: dict, cfg: dict) -> str:
+    """The static site's <head>: search and share tags around the same reset the claude.ai viewer applies."""
+    site, e = data.get("site_url") or "", lambda v: html.escape(str(v), quote=True)
+    tags = ['<meta charset="utf-8">', '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">',
+            "<title>The Situation Monitor</title>", f'<meta name="description" content="I am monitoring the situation. {e(SHARE_TEXT)}">',
+            '<meta name="theme-color" content="#0a2552">', '<link rel="icon" type="image/png" href="favicon.png">',
+            '<link rel="apple-touch-icon" href="apple-touch-icon.png">',
+            '<link rel="alternate" type="application/rss+xml" title="The Situation Monitor: critical and high reports" href="data/feed.xml">']
+    verification = (os.environ.get("SM_GOOGLE_VERIFICATION") or cfg.get("google_site_verification") or "").strip()
+    if verification:
+        tags.append(f'<meta name="google-site-verification" content="{e(verification)}">')
+    if site:
+        alt = "I am monitoring the situation: a person in a headset watching a wall of security dashboards, with a breaking-news ticker."
+        tags += [f'<link rel="canonical" href="{e(site)}">', '<meta property="og:type" content="website">',
+                 '<meta property="og:site_name" content="The Situation Monitor">', f'<meta property="og:title" content="{e(SHARE_TITLE)}">',
+                 f'<meta property="og:description" content="{e(SHARE_TEXT)}">', f'<meta property="og:url" content="{e(site)}">',
+                 f'<meta property="og:image" content="{e(site)}og-card.png">', '<meta property="og:image:type" content="image/png">',
+                 '<meta property="og:image:width" content="1200">', '<meta property="og:image:height" content="630">',
+                 f'<meta property="og:image:alt" content="{e(alt)}">', f'<meta property="og:video" content="{e(site)}og-video.mp4">',
+                 f'<meta property="og:video:secure_url" content="{e(site)}og-video.mp4">', '<meta property="og:video:type" content="video/mp4">',
+                 '<meta property="og:video:width" content="1200">', '<meta property="og:video:height" content="630">',
+                 '<meta name="twitter:card" content="summary_large_image">', f'<meta name="twitter:title" content="{e(SHARE_TITLE)}">',
+                 f'<meta name="twitter:description" content="{e(SHARE_TEXT)}">', f'<meta name="twitter:image" content="{e(site)}og-card.png">',
+                 f'<meta name="twitter:image:alt" content="{e(alt)}">',
+                 '<script type="application/ld+json">' + json.dumps({
+                     "@context": "https://schema.org", "@type": "WebSite", "name": "The Situation Monitor", "url": site,
+                     "description": SHARE_TEXT, "image": site + "og-card.png"}).replace("</", "<\\/") + "</script>"]
+    return '<!doctype html><html lang="en"><head>' + "".join(tags) + PAGE_RESET + "</head><body>"
+
+
+def sitemap(data: dict) -> str:
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+            f'<url><loc>{xml_escape(data["site_url"])}</loc><lastmod>{data["generated_at"]}</lastmod><changefreq>hourly</changefreq></url>'
+            "</urlset>\n")
 
 
 def scrub(obj):
@@ -1235,7 +1493,10 @@ def write_outputs(data: dict, new_items: list[dict], alert_items: list[dict]) ->
                                   "items": [summary_row(it) for it in new_items[:100]]})
     app = SITE / "app.html"
     if app.exists():
-        save_text(SITE / "index.html", APP_WRAPPER + app.read_text(encoding="utf-8") + "</body></html>\n")
+        save_text(SITE / "index.html", page_head(data, load_config()) + app.read_text(encoding="utf-8") + "</body></html>\n")
+    if data.get("site_url"):
+        save_text(SITE / "sitemap.xml", sitemap(data))
+        save_text(SITE / "robots.txt", f"User-agent: *\nAllow: /\nDisallow: /app.html\n\nSitemap: {data['site_url']}sitemap.xml\n")
 
 
 def summary_row(it: dict) -> dict:
@@ -1405,7 +1666,10 @@ def run_sweep(cfg: dict, send: bool) -> dict:
     meta["vocab"] = sorted(ctx["vocab"])
     meta["kev_cves"] = sorted(ctx["kev_cves"])
     meta["seen"] = seen
+    update_history(ctx, items, now, sources)
+    meta["record_reading"] = True
     data = build(items, packages, status, cfg, now, meta)
+    meta.pop("record_reading", None)
     for it in data["items"]:  # promoted packages get their first-seen stamp here
         if it["first_seen"] is None:
             it["first_seen"] = stamp

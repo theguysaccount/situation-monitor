@@ -7,9 +7,9 @@ supply-chain attacks happening right now. It scores them, groups the stories
 several outlets are covering into developing situations, and turns all of it
 into a master prompt your team can paste into Claude to check its own exposure.
 
-- **Live site:** https://theguysaccount.github.io/situation-monitor/
-- **RSS of critical and high reports:** https://theguysaccount.github.io/situation-monitor/data/feed.xml
-- **Master prompt with today's data:** https://theguysaccount.github.io/situation-monitor/data/master-prompt.md
+- **Live site:** https://thesituationmonitor.org/
+- **RSS of critical and high reports:** https://thesituationmonitor.org/data/feed.xml
+- **Master prompt with today's data:** https://thesituationmonitor.org/data/master-prompt.md
 - **Updates:** every 30 minutes through GitHub Actions. The analyst briefing (SITREP) is written by a Claude scheduled task and committed as `sitrep.json`.
 
 ## What's here
