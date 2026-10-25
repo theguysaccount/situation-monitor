@@ -1,26 +1,26 @@
 {
-  "written_at": "2026-10-25T03:20:00Z",
+  "written_at": "2026-10-25T10:22:00Z",
   "by": "Claude",
-  "headline": "Exploited VeloCloud and Collabora flaws due Oct 26; LiteLLM 1.107.0 fallout continues; PHP2Shell exploit attempts persist",
+  "headline": "VeloCloud and Collabora KEV deadline is tomorrow; LiteLLM 1.107.0 fallout and PHP2Shell exploit attempts continue",
   "bullets": [
     {
-      "text": "Quiet overnight: one new low-severity item since the last SITREP. CISA's deadline is Oct 26 for exploited SQL injection in Arista VeloCloud Orchestrator (CVE-2026-114625), the third exploited VCO zero-day in four months, and OS command injection in Collabora Online's CODE server (CVE-2026-110447).",
+      "text": "Quiet since the last SITREP: two new medium-severity items. CISA's Oct 26 deadline is tomorrow for exploited SQL injection in Arista VeloCloud Orchestrator (CVE-2026-114625), its third exploited zero-day in four months, and OS command injection in Collabora Online's CODE server (CVE-2026-110447).",
       "url": "https://thehackernews.com/2026/10/cisa-flags-two-actively-exploited.html"
     },
     {
-      "text": "LiteLLM: a leaked master key let attackers steal GitHub tokens and hijack the release pipeline. Microsoft's analysis details how version 1.107.0 on PyPI and Docker stole credentials through Python startup hooks.",
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/"
+      "text": "LiteLLM: a leaked master key let attackers steal GitHub tokens and hijack the release pipeline. Microsoft's analysis shows version 1.107.0 on PyPI and Docker stole credentials through Python startup hooks.",
+      "url": "https://thehackernews.com/2026/10/leaked-litellm-master-key-let-attackers.html"
     },
     {
       "text": "PHP2Shell (CVE-2026-109618, CVE-2026-109619) allows unauthenticated code execution; fixes are in 8.5.12, 8.4.27, 8.3.36 and 8.2.35. Exploit attempts hit millions of hosts, some deploying Mirai. A third bug, CVE-2026-115560, will not get an emergency fix.",
       "url": "https://thehackernews.com/2026/10/php2shell-exploit-attempts-hit-millions.html"
     },
     {
-      "text": "Microsoft links the ConnectWise cloud-backup supply-chain attack to Storm-0940; reporting says the China-linked group used AI agents in the operation. Separately, Microsoft 365 accounts at 79 organizations were taken over with stolen sessions and no passwords.",
-      "url": "https://thehackernews.com/2026/10/china-linked-hackers-use-artex-ai.html"
+      "text": "Microsoft links the ConnectWise cloud-backup supply-chain attack to Storm-0940. Separately, Microsoft 365 accounts at 79 organizations were taken over with stolen sessions and no passwords.",
+      "url": "https://www.darkreading.com/cyberattacks-data-breaches/microsoft-storm-0940-connectwise-supply-chain-attack"
     },
     {
-      "text": "Railway is telling all users to rotate secrets after some environment-variable values were decrypted. Ruby fixed three regex engine bugs behind four critical GitLab RCE flaws, and Pillow has a FlashPix heap overflow allowing code execution from a crafted image.",
+      "text": "Railway is telling all users to rotate secrets after a potential breach. Ruby fixed three regex engine bugs behind four critical GitLab RCE flaws, and Pillow has a FlashPix heap overflow allowing code execution from a crafted image.",
       "url": "https://www.bleepingcomputer.com/news/security/railway-warns-devs-to-rotate-secrets-after-potential-breach/"
     },
     {
@@ -29,7 +29,7 @@
     }
   ],
   "actions": [
-    "Patch or take offline Arista VeloCloud Orchestrator and Collabora Online (CODE server) before Oct 26, and check both for signs of compromise.",
+    "Today: patch or take offline Arista VeloCloud Orchestrator and Collabora Online (CODE server), and check both for signs of compromise.",
     "Search lockfiles, images and CI caches for litellm 1.107.0. If it ever ran, treat the host as compromised and rotate every credential it could read.",
     "Update PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35, rebuild images that bundle PHP, and restart PHP-FPM or Apache.",
     "Review Microsoft 365 sign-ins for session reuse, revoke suspicious sessions, and check ConnectWise cloud backup app consent.",
