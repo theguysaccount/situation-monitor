@@ -1,0 +1,67 @@
+# Unit tests on every push and pull request; a weekly self-test (tests plus a read-only check of
+# the live board); and the keepalive that stops GitHub from disabling the scheduled sweep after
+# 60 days without a commit. Third-party actions are pinned to commit SHAs.
+name: Checks
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "sitrep.json"
+      - ".github/keepalive"
+  pull_request:
+  schedule:
+    - cron: "37 8 * * 0" # Sundays: weekly self-test and keepalive
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Unit tests (parsing, scoring, rendering, the pre-deploy gate)
+        run: python3 -m unittest discover -s tests -v
+
+      - name: Self-test against the live board
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        env:
+          SM_SITE_URL: ${{ vars.SM_SITE_URL }}
+        run: python3 ops/health.py
+
+  keepalive:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write # the heartbeat commit
+      actions: write # re-enable workflows GitHub disabled for inactivity
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      # The analyst's SITREP commits usually keep the repo active; this covers the weeks they stop.
+      - name: Heartbeat commit after 30 quiet days
+        run: |
+          age=$(( ( $(date +%s) - $(git log -1 --format=%ct) ) / 86400 ))
+          echo "Last commit was $age day(s) ago."
+          if [ "$age" -ge 30 ]; then
+            date -u +%Y-%m-%dT%H:%M:%SZ > .github/keepalive
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add .github/keepalive
+            git commit -m "Keepalive: heartbeat after $age quiet days"
+            git push
+          fi
+
+      - name: Re-enable workflows disabled for inactivity
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY/actions/workflows" --jq '.workflows[] | select(.state == "disabled_inactivity") | .id' |
+            while read -r id; do gh api -X PUT "repos/$GITHUB_REPOSITORY/actions/workflows/$id/enable" && echo "Re-enabled workflow $id"; done

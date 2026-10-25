@@ -4,7 +4,10 @@ name: Situation Monitor sweep
 
 on:
   schedule:
-    - cron: "*/30 * * * *"
+    # Every 30 minutes, off the top and bottom of the hour: GitHub delays and drops scheduled runs
+    # at busy minutes (":00/:30" ran only every 3-4 hours). health.yml also starts a sweep when the
+    # live data is overdue.
+    - cron: "13,43 * * * *"
   # A new SITREP or a code change deploys right away instead of waiting for the next sweep.
   push:
     branches: [main]
@@ -16,6 +19,7 @@ on:
       - "config.json"
       - "MASTER_PROMPT.md"
       - ".github/workflows/situation-monitor.yml"
+      - "ops/check_build.py"
   workflow_dispatch:
 
 permissions:
@@ -66,9 +70,32 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python monitor.py
 
+      # Fails (so nothing below runs and the last good deploy stays live) if the page, data, feed,
+      # prompt, sitemap or IndexNow key is missing or broken, the data isn't from this sweep, or
+      # fewer than 60% of sources answered.
+      - name: Refuse to deploy a broken or stale site
+        run: python ops/check_build.py
+
       - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
           path: site
 
       - id: deploy
         uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
+
+      # On pushes, and otherwise at most once every 20 hours (the stamp lives in the cached state/).
+      # Never fails the run.
+      - name: Ping IndexNow
+        run: |
+          site=$(python -c "import json; print(json.load(open('site/data/situation.json'))['site_url'])")
+          stamp=state/indexnow-last-ping
+          last=$(cat "$stamp" 2>/dev/null || echo 0)
+          if [ "$GITHUB_EVENT_NAME" = "push" ] || [ $(( $(date +%s) - last )) -ge 72000 ]; then
+            if python ops/indexnow.py --strict --retries 1 --key-file site/211bbe7db0768144330cc34893c045a0.txt --base "$site" "$site" "${site}data/master-prompt.md"; then
+              date +%s > "$stamp"
+            else
+              echo "IndexNow did not accept the ping; the next sweep retries."
+            fi
+          else
+            echo "Pinged $(( ($(date +%s) - last) / 3600 )) h ago; skipping."
+          fi

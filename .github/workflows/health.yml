@@ -1,0 +1,31 @@
+# Hourly live check of the public board. GitHub drops many scheduled runs of the 30-minute sweep,
+# so this job starts a sweep itself whenever the live data is overdue (over 75 minutes old). It
+# fails loudly when the board is stale (over 6 hours), broken, or most sources stop answering.
+# It never touches the deployed site. Third-party actions are pinned to commit SHAs.
+name: Health
+
+on:
+  schedule:
+    - cron: "27 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: write # dispatch a sweep when the data is overdue
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Check the live board, and start a sweep if it's overdue
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          SM_SITE_URL: ${{ vars.SM_SITE_URL }}
+        run: python3 ops/health.py --heal

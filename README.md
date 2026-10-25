@@ -24,6 +24,8 @@ into a master prompt your team can paste into Claude to check its own exposure.
 | `.github/workflows/situation-monitor.yml` | Public deploy: sweep every 30 minutes and publish to GitHub Pages. |
 | `sitrep.json` | The latest analyst briefing, committed by the scheduled task so the public site shows it. |
 | `state/` | The monitor's memory: what it has seen and alerted on. Not committed; the workflow keeps it in the Actions cache. |
+| `ops/` | Unattended operation: the pre-deploy gate, the live health check that also restarts overdue sweeps, and the IndexNow ping. See [OPERATIONS.md](OPERATIONS.md). |
+| `tests/` | Unit tests: `python3 -m unittest discover -s tests` |
 
 ## Run it
 
@@ -129,7 +131,7 @@ Your copy's RSS feed is then at `<site>/data/feed.xml` and its master prompt at
 Notes:
 
 - The workflow keeps `state/` in the Actions cache, so sweeps never commit to the repository.
-- GitHub pauses scheduled workflows in a public repository after 60 days without a commit. Any push turns it back on.
+- GitHub pauses scheduled workflows in a public repository after 60 days without a commit. Any push turns it back on. Here the weekly Checks workflow commits a heartbeat after 30 quiet days, so it never gets that far.
 - A fork shows the SITREP it was forked with until that goes stale. Delete `sitrep.json` or write your own.
 
 ## Caveats
