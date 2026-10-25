@@ -1,15 +1,15 @@
 {
-  "written_at": "2026-10-25T10:22:00Z",
+  "written_at": "2026-10-25T13:19:00Z",
   "by": "Claude",
-  "headline": "VeloCloud and Collabora KEV deadline is tomorrow; LiteLLM 1.107.0 fallout and PHP2Shell exploit attempts continue",
+  "headline": "Level eased to SITCON 4; VeloCloud and Collabora KEV deadline is tomorrow; LiteLLM 1.107.0 and PHP2Shell remain active",
   "bullets": [
     {
-      "text": "Quiet since the last SITREP: two new medium-severity items. CISA's Oct 26 deadline is tomorrow for exploited SQL injection in Arista VeloCloud Orchestrator (CVE-2026-114625), its third exploited zero-day in four months, and OS command injection in Collabora Online's CODE server (CVE-2026-110447).",
+      "text": "Level eased from SITCON 3 to 4 with two new medium items. CISA's Oct 26 deadline is tomorrow for exploited SQL injection in Arista VeloCloud Orchestrator (CVE-2026-114625), its third zero-day in four months, and OS command injection in Collabora Online's CODE server (CVE-2026-110447).",
       "url": "https://thehackernews.com/2026/10/cisa-flags-two-actively-exploited.html"
     },
     {
       "text": "LiteLLM: a leaked master key let attackers steal GitHub tokens and hijack the release pipeline. Microsoft's analysis shows version 1.107.0 on PyPI and Docker stole credentials through Python startup hooks.",
-      "url": "https://thehackernews.com/2026/10/leaked-litellm-master-key-let-attackers.html"
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/"
     },
     {
       "text": "PHP2Shell (CVE-2026-109618, CVE-2026-109619) allows unauthenticated code execution; fixes are in 8.5.12, 8.4.27, 8.3.36 and 8.2.35. Exploit attempts hit millions of hosts, some deploying Mirai. A third bug, CVE-2026-115560, will not get an emergency fix.",
@@ -29,7 +29,7 @@
     }
   ],
   "actions": [
-    "Today: patch or take offline Arista VeloCloud Orchestrator and Collabora Online (CODE server), and check both for signs of compromise.",
+    "Before tomorrow's deadline: patch or take offline Arista VeloCloud Orchestrator and Collabora Online (CODE server), and check both for compromise.",
     "Search lockfiles, images and CI caches for litellm 1.107.0. If it ever ran, treat the host as compromised and rotate every credential it could read.",
     "Update PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35, rebuild images that bundle PHP, and restart PHP-FPM or Apache.",
     "Review Microsoft 365 sign-ins for session reuse, revoke suspicious sessions, and check ConnectWise cloud backup app consent.",
