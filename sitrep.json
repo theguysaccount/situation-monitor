@@ -1,14 +1,18 @@
 {
-  "written_at": "2026-10-26T13:21:00Z",
+  "written_at": "2026-10-26T18:16:00Z",
   "by": "Claude",
-  "headline": "Two critical Wasmtime sandbox-escape flaws join PHP2Shell exploitation and the LiteLLM 1.107.0 compromise as the top stories",
+  "headline": "Critical 'HTTP2Shell' Brotli flaw draws emergency patches as PHP2Shell exploitation and the LiteLLM 1.107.0 compromise stay on the board",
   "bullets": [
     {
-      "text": "New: The Hacker News reports two critical Wasmtime flaws that could let malicious WebAssembly modules escape the sandbox. Separately, GitHub's advisory database lists a critical Cranelift miscompilation bug in Wasmtime (CVE-2026-115889).",
-      "url": "https://thehackernews.com/2026/10/two-critical-wasmtime-flaws-could-let.html"
+      "text": "New: a critical Brotli vulnerability dubbed 'HTTP2Shell' (CVE-2026-111497) has triggered emergency patches, now reported by four outlets. Microsoft has released emergency .NET patches for it; the brief names no fixed versions.",
+      "url": "https://www.bleepingcomputer.com/news/security/critical-http2shell-brotli-vulnerability-triggers-emergency-patches/"
     },
     {
-      "text": "PHP2Shell (CVE-2026-109618, CVE-2026-109619) is now being successfully exploited in the wild. Fixes are in 8.5.12, 8.4.27, 8.3.36 and 8.2.35; a third bug, CVE-2026-115560, will not get an emergency fix.",
+      "text": "New: attackers are posing as IT support in Microsoft Teams to get victims to install malware, with some intrusions ending in ransomware.",
+      "url": "https://thehackernews.com/2026/10/attackers-use-microsoft-teams-it.html"
+    },
+    {
+      "text": "PHP2Shell (CVE-2026-109618, CVE-2026-109619) is being successfully exploited in the wild. Fixes are in 8.5.12, 8.4.27, 8.3.36 and 8.2.35; a third bug, CVE-2026-115560, will not get an emergency fix.",
       "url": "https://www.bleepingcomputer.com/news/security/php2shell-security-flaws-now-sucessfully-exploited-in-the-wild/"
     },
     {
@@ -16,24 +20,19 @@
       "url": "https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/"
     },
     {
-      "text": "Fortinet has patched critical FortiOS flaws found with AI help; the brief names no CVEs or fixed versions. CISA's deadline passed today for exploited Arista VeloCloud Orchestrator (CVE-2026-114625) and Collabora Online CODE (CVE-2026-110447) flaws.",
-      "url": "https://www.helpnetsecurity.com/2026/10/26/fortinet-patches-critical-fortios-flaws-found-with-ai-help/"
+      "text": "Still active: two critical Wasmtime sandbox-escape flaws, critical FortiOS fixes, and unpatched Tailscale SSH flaws that could let a hacked tailnet device reach root on other servers.",
+      "url": "https://thehackernews.com/2026/10/two-critical-wasmtime-flaws-could-let.html"
     },
     {
-      "text": "Still open: unpatched Tailscale SSH flaws could let a hacked tailnet device reach root on other servers, and a planted file in a Downloads folder tried to trick an AI coding agent into installing malware.",
-      "url": "https://thehackernews.com/2026/10/unpatched-tailscale-ssh-flaws-could-let.html"
-    },
-    {
-      "text": "Breaches: Quest Diagnostics patient personal and health data, 11.7 million CAPCOM ID accounts, and over 70,000 firewall and VPN credentials exposed. SITCON eased to 4 (GUARDED); the last 7 days scored 1.25x the 90-day average.",
+      "text": "Breaches: Quest Diagnostics patient data, 11.7 million CAPCOM ID accounts and over 70,000 firewall and VPN credentials. SITCON holds at 4 (GUARDED); the last 7 days scored 1.31x the 90-day average.",
       "url": "https://www.bleepingcomputer.com/news/security/quest-diagnostics-confirms-data-breach-exposed-patient-records/"
     }
   ],
   "actions": [
-    "If you run untrusted WebAssembly in Wasmtime, check the Wasmtime security advisories and upgrade to the fixed release as soon as it is available.",
+    "Apply Microsoft's emergency .NET patches for the Brotli flaw (CVE-2026-111497) and check other software that bundles Brotli for vendor updates.",
     "Update PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35, rebuild images that bundle PHP, and check exposed PHP hosts for compromise.",
     "Search lockfiles, images and CI caches for litellm 1.107.0. If it ever ran, treat the host as compromised and rotate every credential it could read.",
-    "Update FortiOS to the fixed release for your branch, and patch or take offline Arista VeloCloud Orchestrator and Collabora Online (CODE server).",
-    "If you use Tailscale SSH, restrict ACLs so only trusted devices can SSH to servers, and watch for Tailscale's fix.",
-    "Require approval for installs and shell commands in AI coding agents, and keep them out of untrusted folders like Downloads."
+    "Restrict external Teams chats and remind staff that IT support will not ask them to install tools via unsolicited Teams messages.",
+    "Upgrade Wasmtime and FortiOS to their fixed releases, and limit Tailscale SSH via ACLs to trusted devices until a fix ships."
   ]
 }
