@@ -1,15 +1,15 @@
 {
-  "written_at": "2026-10-25T19:21:00Z",
+  "written_at": "2026-10-26T02:19:00Z",
   "by": "Claude",
-  "headline": "Unpatched Tailscale SSH flaws reported; VeloCloud and Collabora KEV deadline is tomorrow; LiteLLM 1.107.0 and PHP2Shell still active",
+  "headline": "VeloCloud and Collabora KEV deadline is today; LiteLLM 1.107.0, PHP2Shell and unpatched Tailscale SSH flaws remain the top stories",
   "bullets": [
     {
-      "text": "New since the last SITREP: The Hacker News reports unpatched flaws in Tailscale SSH that could let a hacked device on a tailnet reach root on other servers. No fix is named yet.",
-      "url": "https://thehackernews.com/2026/10/unpatched-tailscale-ssh-flaws-could-let.html"
+      "text": "CISA's deadline is today (Oct 26) for exploited SQL injection in Arista VeloCloud Orchestrator (CVE-2026-114625), its third zero-day in four months, and OS command injection in Collabora Online's CODE server (CVE-2026-110447).",
+      "url": "https://thehackernews.com/2026/10/cisa-flags-two-actively-exploited.html"
     },
     {
-      "text": "CISA's Oct 26 deadline is tomorrow for exploited SQL injection in Arista VeloCloud Orchestrator (CVE-2026-114625), its third zero-day in four months, and OS command injection in Collabora Online's CODE server (CVE-2026-110447).",
-      "url": "https://thehackernews.com/2026/10/cisa-flags-two-actively-exploited.html"
+      "text": "No new critical or high reports since the last SITREP. Still open: unpatched Tailscale SSH flaws could let a hacked device on a tailnet reach root on other servers. No fix is named yet.",
+      "url": "https://thehackernews.com/2026/10/unpatched-tailscale-ssh-flaws-could-let.html"
     },
     {
       "text": "LiteLLM: a leaked master key let attackers steal GitHub tokens and hijack the release pipeline. Microsoft's analysis shows version 1.107.0 on PyPI and Docker stole credentials through Python startup hooks.",
@@ -29,10 +29,10 @@
     }
   ],
   "actions": [
-    "Before tomorrow's deadline: patch or take offline Arista VeloCloud Orchestrator and Collabora Online (CODE server), and check both for compromise.",
-    "If you use Tailscale SSH, tighten ACLs so only trusted devices can SSH to servers, and watch for Tailscale's fix.",
+    "Today: patch or take offline Arista VeloCloud Orchestrator and Collabora Online (CODE server), and check both for compromise.",
     "Search lockfiles, images and CI caches for litellm 1.107.0. If it ever ran, treat the host as compromised and rotate every credential it could read.",
     "Update PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35, rebuild images that bundle PHP, and restart PHP-FPM or Apache.",
+    "If you use Tailscale SSH, tighten ACLs so only trusted devices can SSH to servers, and watch for Tailscale's fix.",
     "Review Microsoft 365 sign-ins for session reuse and revoke suspicious sessions; if you deploy on Railway, rotate every secret stored there.",
     "Patch self-managed GitLab and update Ruby and Pillow in your apps and images."
   ]
