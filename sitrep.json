@@ -1,35 +1,36 @@
 {
-  "written_at": "2026-10-26T18:16:00Z",
+  "written_at": "2026-10-26T19:24:00Z",
   "by": "Claude",
-  "headline": "Critical 'HTTP2Shell' Brotli flaw draws emergency patches as PHP2Shell exploitation and the LiteLLM 1.107.0 compromise stay on the board",
+  "headline": "'Gheist' abuses stolen GitHub tokens to steal cloud secrets as Brotli 'HTTP2Shell' and PHP2Shell exploitation stay top stories",
   "bullets": [
     {
-      "text": "New: a critical Brotli vulnerability dubbed 'HTTP2Shell' (CVE-2026-111497) has triggered emergency patches, now reported by four outlets. Microsoft has released emergency .NET patches for it; the brief names no fixed versions.",
-      "url": "https://www.bleepingcomputer.com/news/security/critical-http2shell-brotli-vulnerability-triggers-emergency-patches/"
+      "text": "New: a campaign dubbed 'Gheist' is weaponizing GitHub tokens to steal cloud secrets. It lands days after the LiteLLM compromise, where attackers also stole GitHub tokens.",
+      "url": "https://www.darkreading.com/cyberattacks-data-breaches/gheist-stolen-github-tokens-cloud-secrets"
     },
     {
-      "text": "New: attackers are posing as IT support in Microsoft Teams to get victims to install malware, with some intrusions ending in ransomware.",
-      "url": "https://thehackernews.com/2026/10/attackers-use-microsoft-teams-it.html"
+      "text": "Brotli 'HTTP2Shell' (CVE-2026-111497) is critical and drawing emergency patches across four outlets. Microsoft has shipped emergency .NET patches; the brief names no fixed versions.",
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-releases-emergency-net-patches-for-critical-brotli-flaw/"
     },
     {
       "text": "PHP2Shell (CVE-2026-109618, CVE-2026-109619) is being successfully exploited in the wild. Fixes are in 8.5.12, 8.4.27, 8.3.36 and 8.2.35; a third bug, CVE-2026-115560, will not get an emergency fix.",
       "url": "https://www.bleepingcomputer.com/news/security/php2shell-security-flaws-now-sucessfully-exploited-in-the-wild/"
     },
     {
-      "text": "LiteLLM: a leaked master key let attackers steal GitHub tokens and hijack the release pipeline. Version 1.107.0 on PyPI and Docker stole credentials through Python startup hooks.",
+      "text": "LiteLLM: a leaked master key let attackers hijack the release pipeline. Version 1.107.0 on PyPI and Docker stole credentials through Python startup hooks.",
       "url": "https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/"
     },
     {
-      "text": "Still active: two critical Wasmtime sandbox-escape flaws, critical FortiOS fixes, and unpatched Tailscale SSH flaws that could let a hacked tailnet device reach root on other servers.",
-      "url": "https://thehackernews.com/2026/10/two-critical-wasmtime-flaws-could-let.html"
+      "text": "Still active: Microsoft Teams 'IT support' scams leading to ransomware, two critical Wasmtime sandbox escapes, critical FortiOS fixes and unpatched Tailscale SSH flaws.",
+      "url": "https://thehackernews.com/2026/10/attackers-use-microsoft-teams-it.html"
     },
     {
-      "text": "Breaches: Quest Diagnostics patient data, 11.7 million CAPCOM ID accounts and over 70,000 firewall and VPN credentials. SITCON holds at 4 (GUARDED); the last 7 days scored 1.31x the 90-day average.",
+      "text": "Breaches: Quest Diagnostics patient data, 11.7 million CAPCOM ID accounts and over 70,000 firewall and VPN credentials. SITCON holds at 4 (GUARDED); the last 7 days scored 1.32x the 90-day average.",
       "url": "https://www.bleepingcomputer.com/news/security/quest-diagnostics-confirms-data-breach-exposed-patient-records/"
     }
   ],
   "actions": [
-    "Apply Microsoft's emergency .NET patches for the Brotli flaw (CVE-2026-111497) and check other software that bundles Brotli for vendor updates.",
+    "Audit GitHub personal access tokens and app tokens: revoke unused ones, shorten lifetimes, and check for cloud secrets stored in repos or Actions.",
+    "Apply Microsoft's emergency .NET patches for the Brotli flaw (CVE-2026-111497) and watch other Brotli-bundling software for vendor updates.",
     "Update PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35, rebuild images that bundle PHP, and check exposed PHP hosts for compromise.",
     "Search lockfiles, images and CI caches for litellm 1.107.0. If it ever ran, treat the host as compromised and rotate every credential it could read.",
     "Restrict external Teams chats and remind staff that IT support will not ask them to install tools via unsolicited Teams messages.",
