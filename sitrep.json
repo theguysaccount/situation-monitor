@@ -1,18 +1,18 @@
 {
-  "written_at": "2026-10-26T08:21:00Z",
+  "written_at": "2026-10-26T10:21:00Z",
   "by": "Claude",
-  "headline": "AI coding agent targeted by malicious Downloads file; PHP2Shell scanning continues; LiteLLM 1.107.0 and Tailscale SSH flaws stay open",
+  "headline": "PHP2Shell flaws now successfully exploited in the wild; AI coding agent lure, LiteLLM 1.107.0 and Tailscale SSH flaws stay open",
   "bullets": [
     {
-      "text": "New: The Hacker News reports a malicious file left in a Downloads folder that tries to trick an AI coding agent into installing malware. Agents that read local files can be steered by content planted in them.",
+      "text": "New: BleepingComputer reports PHP2Shell (CVE-2026-109618, CVE-2026-109619) is now being successfully exploited in the wild, beyond earlier attempts and suspected North Korean scanning. Fixes are in 8.5.12, 8.4.27, 8.3.36 and 8.2.35; a third bug, CVE-2026-115560, will not get an emergency fix.",
+      "url": "https://www.bleepingcomputer.com/news/security/php2shell-security-flaws-now-sucessfully-exploited-in-the-wild/"
+    },
+    {
+      "text": "The Hacker News reports a malicious file left in a Downloads folder that tries to trick an AI coding agent into installing malware. Agents that read local files can be steered by content planted in them.",
       "url": "https://thehackernews.com/2026/10/malicious-file-in-downloads-folder.html"
     },
     {
-      "text": "PHP2Shell (CVE-2026-109618, CVE-2026-109619) exploitation attempts continue, now alongside suspected North Korean global scanning. Fixes are in 8.5.12, 8.4.27, 8.3.36 and 8.2.35; a third bug, CVE-2026-115560, will not get an emergency fix.",
-      "url": "https://thehackernews.com/2026/10/php2shell-exploitation-hits-government.html"
-    },
-    {
-      "text": "CISA's deadline was today (Oct 26) for exploited SQL injection in Arista VeloCloud Orchestrator (CVE-2026-114625), its third zero-day in four months, and OS command injection in Collabora Online's CODE server (CVE-2026-110447).",
+      "text": "CISA's deadline is today (Oct 26) for exploited SQL injection in Arista VeloCloud Orchestrator (CVE-2026-114625), its third zero-day in four months, and OS command injection in Collabora Online's CODE server (CVE-2026-110447).",
       "url": "https://thehackernews.com/2026/10/cisa-flags-two-actively-exploited.html"
     },
     {
@@ -24,16 +24,16 @@
       "url": "https://thehackernews.com/2026/10/unpatched-tailscale-ssh-flaws-could-let.html"
     },
     {
-      "text": "Breaches: Quest Diagnostics patient personal and health data (4 outlets), 11.7 million CAPCOM ID accounts, and over 70,000 firewall and VPN credentials. Railway is telling all users to rotate secrets after a potential breach.",
+      "text": "Breaches: Quest Diagnostics patient personal and health data (3 outlets), 11.7 million CAPCOM ID accounts, and over 70,000 firewall and VPN credentials exposed.",
       "url": "https://www.bleepingcomputer.com/news/security/quest-diagnostics-confirms-data-breach-exposed-patient-records/"
     }
   ],
   "actions": [
+    "Update PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 today, rebuild images that bundle PHP, restart PHP-FPM or Apache, and check exposed PHP hosts for compromise.",
     "Run AI coding agents with approval required for installs and shell commands, and don't point them at untrusted folders like Downloads.",
-    "Update PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35, rebuild images that bundle PHP, and restart PHP-FPM or Apache.",
     "Patch or take offline Arista VeloCloud Orchestrator and Collabora Online (CODE server) now, and check both for compromise.",
     "Search lockfiles, images and CI caches for litellm 1.107.0. If it ever ran, treat the host as compromised and rotate every credential it could read.",
     "If you use Tailscale SSH, tighten ACLs so only trusted devices can SSH to servers, and watch for Tailscale's fix.",
-    "If you deploy on Railway, rotate every secret stored there; patch self-managed GitLab and update Ruby and Pillow."
+    "Patch self-managed GitLab and update Ruby and Pillow."
   ]
 }
