@@ -1,39 +1,39 @@
 {
-  "written_at": "2026-10-26T19:24:00Z",
+  "written_at": "2026-10-26T21:22:00Z",
   "by": "Claude",
-  "headline": "'Gheist' abuses stolen GitHub tokens to steal cloud secrets as Brotli 'HTTP2Shell' and PHP2Shell exploitation stay top stories",
+  "headline": "In-the-wild attack abuses AI agents' trust in Markdown as LiteLLM, Brotli 'HTTP2Shell' and PHP2Shell remain top stories",
   "bullets": [
     {
-      "text": "New: a campaign dubbed 'Gheist' is weaponizing GitHub tokens to steal cloud secrets. It lands days after the LiteLLM compromise, where attackers also stole GitHub tokens.",
+      "text": "New: Dark Reading reports an in-the-wild attack that abuses AI agents' trust in Markdown. Separately, a malicious file planted in a Downloads folder tried to trick an AI coding agent into installing malware.",
+      "url": "https://www.darkreading.com/application-security/in-the-wild-attack-ai-agents-trust-markdown"
+    },
+    {
+      "text": "LiteLLM: The Register confirms the supply-chain attack began with an exposed master key, which let attackers steal GitHub tokens and hijack the release pipeline. Version 1.107.0 on PyPI and Docker stole credentials via Python startup hooks.",
+      "url": "https://www.theregister.com/security/2026/10/26/litellm-supply-chain-attack-started-with-an-exposed-master-key/5305544"
+    },
+    {
+      "text": "'Gheist' campaign is weaponizing stolen GitHub tokens to steal cloud secrets, days after the LiteLLM compromise also yielded GitHub tokens.",
       "url": "https://www.darkreading.com/cyberattacks-data-breaches/gheist-stolen-github-tokens-cloud-secrets"
     },
     {
-      "text": "Brotli 'HTTP2Shell' (CVE-2026-111497) is critical and drawing emergency patches across four outlets. Microsoft has shipped emergency .NET patches; the brief names no fixed versions.",
-      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-releases-emergency-net-patches-for-critical-brotli-flaw/"
+      "text": "Brotli 'HTTP2Shell' (CVE-2026-111497) is critical and drawing emergency patches across four outlets, including emergency .NET patches from Microsoft. The brief names no fixed versions.",
+      "url": "https://www.bleepingcomputer.com/news/security/critical-http2shell-brotli-vulnerability-triggers-emergency-patches/"
     },
     {
       "text": "PHP2Shell (CVE-2026-109618, CVE-2026-109619) is being successfully exploited in the wild. Fixes are in 8.5.12, 8.4.27, 8.3.36 and 8.2.35; a third bug, CVE-2026-115560, will not get an emergency fix.",
       "url": "https://www.bleepingcomputer.com/news/security/php2shell-security-flaws-now-sucessfully-exploited-in-the-wild/"
     },
     {
-      "text": "LiteLLM: a leaked master key let attackers hijack the release pipeline. Version 1.107.0 on PyPI and Docker stole credentials through Python startup hooks.",
-      "url": "https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/"
-    },
-    {
-      "text": "Still active: Microsoft Teams 'IT support' scams leading to ransomware, two critical Wasmtime sandbox escapes, critical FortiOS fixes and unpatched Tailscale SSH flaws.",
+      "text": "Still active: Teams 'IT support' scams leading to ransomware, critical Wasmtime and FortiOS fixes, unpatched Tailscale SSH flaws, and the Quest Diagnostics and Capcom breaches. SITCON holds at 4 (GUARDED); last 7 days at 1.32x the 90-day average.",
       "url": "https://thehackernews.com/2026/10/attackers-use-microsoft-teams-it.html"
-    },
-    {
-      "text": "Breaches: Quest Diagnostics patient data, 11.7 million CAPCOM ID accounts and over 70,000 firewall and VPN credentials. SITCON holds at 4 (GUARDED); the last 7 days scored 1.32x the 90-day average.",
-      "url": "https://www.bleepingcomputer.com/news/security/quest-diagnostics-confirms-data-breach-exposed-patient-records/"
     }
   ],
   "actions": [
+    "Treat Markdown, files and web content fed to AI agents as untrusted: require approval for installs and shell commands, and limit agents' access to credentials.",
+    "Search lockfiles, images and CI caches for litellm 1.107.0. If it ever ran, treat the host as compromised and rotate every credential it could read.",
     "Audit GitHub personal access tokens and app tokens: revoke unused ones, shorten lifetimes, and check for cloud secrets stored in repos or Actions.",
     "Apply Microsoft's emergency .NET patches for the Brotli flaw (CVE-2026-111497) and watch other Brotli-bundling software for vendor updates.",
     "Update PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35, rebuild images that bundle PHP, and check exposed PHP hosts for compromise.",
-    "Search lockfiles, images and CI caches for litellm 1.107.0. If it ever ran, treat the host as compromised and rotate every credential it could read.",
-    "Restrict external Teams chats and remind staff that IT support will not ask them to install tools via unsolicited Teams messages.",
     "Upgrade Wasmtime and FortiOS to their fixed releases, and limit Tailscale SSH via ACLs to trusted devices until a fix ships."
   ]
 }
