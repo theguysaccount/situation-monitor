@@ -1,39 +1,39 @@
 {
-  "written_at": "2026-10-26T21:22:00Z",
+  "written_at": "2026-10-27T02:14:00Z",
   "by": "Claude",
-  "headline": "In-the-wild attack abuses AI agents' trust in Markdown as LiteLLM, Brotli 'HTTP2Shell' and PHP2Shell remain top stories",
+  "headline": "CISA adds PHP2Shell flaws to KEV as SITCON rises to 3; a worm arms 42 GitHub repos while LiteLLM and Brotli fallout continues",
   "bullets": [
     {
-      "text": "New: Dark Reading reports an in-the-wild attack that abuses AI agents' trust in Markdown. Separately, a malicious file planted in a Downloads folder tried to trick an AI coding agent into installing malware.",
-      "url": "https://www.darkreading.com/application-security/in-the-wild-attack-ai-agents-trust-markdown"
+      "text": "New: CISA added PHP2Shell (CVE-2026-109618, CVE-2026-109619) to its Known Exploited Vulnerabilities catalog on 2026-10-26 with a federal due date of 2026-10-29. Fixes are in PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35; a third bug, CVE-2026-115560, will not get an emergency fix.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109618"
     },
     {
-      "text": "LiteLLM: The Register confirms the supply-chain attack began with an exposed master key, which let attackers steal GitHub tokens and hijack the release pipeline. Version 1.107.0 on PyPI and Docker stole credentials via Python startup hooks.",
+      "text": "New: The Register reports a worm that armed 42 GitHub repositories by hiding an oversized payload. This follows the 'Gheist' campaign using stolen GitHub tokens to steal cloud secrets.",
+      "url": "https://www.theregister.com/security/2026/10/26/worm-armed-42-github-repos-by-hiding-a-payload-too-big-to-fail/5305570"
+    },
+    {
+      "text": "LiteLLM: the supply-chain attack began with an exposed master key that let attackers steal GitHub tokens and hijack the release pipeline. Version 1.107.0 on PyPI and Docker stole credentials via Python startup hooks.",
       "url": "https://www.theregister.com/security/2026/10/26/litellm-supply-chain-attack-started-with-an-exposed-master-key/5305544"
     },
     {
-      "text": "'Gheist' campaign is weaponizing stolen GitHub tokens to steal cloud secrets, days after the LiteLLM compromise also yielded GitHub tokens.",
-      "url": "https://www.darkreading.com/cyberattacks-data-breaches/gheist-stolen-github-tokens-cloud-secrets"
-    },
-    {
       "text": "Brotli 'HTTP2Shell' (CVE-2026-111497) is critical and drawing emergency patches across four outlets, including emergency .NET patches from Microsoft. The brief names no fixed versions.",
-      "url": "https://www.bleepingcomputer.com/news/security/critical-http2shell-brotli-vulnerability-triggers-emergency-patches/"
+      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-releases-emergency-net-patches-for-critical-brotli-flaw/"
     },
     {
-      "text": "PHP2Shell (CVE-2026-109618, CVE-2026-109619) is being successfully exploited in the wild. Fixes are in 8.5.12, 8.4.27, 8.3.36 and 8.2.35; a third bug, CVE-2026-115560, will not get an emergency fix.",
-      "url": "https://www.bleepingcomputer.com/news/security/php2shell-security-flaws-now-sucessfully-exploited-in-the-wild/"
+      "text": "AI agents remain a target: an in-the-wild attack abuses agents' trust in Markdown, and a planted file in a Downloads folder tried to trick a coding agent into installing malware.",
+      "url": "https://www.darkreading.com/application-security/in-the-wild-attack-ai-agents-trust-markdown"
     },
     {
-      "text": "Still active: Teams 'IT support' scams leading to ransomware, critical Wasmtime and FortiOS fixes, unpatched Tailscale SSH flaws, and the Quest Diagnostics and Capcom breaches. SITCON holds at 4 (GUARDED); last 7 days at 1.32x the 90-day average.",
-      "url": "https://thehackernews.com/2026/10/attackers-use-microsoft-teams-it.html"
+      "text": "Still active: University of Copenhagen breach (525,000 people), Teams 'IT support' ransomware scams, critical Wasmtime and FortiOS fixes, unpatched Tailscale SSH flaws. SITCON 3 (ELEVATED); last 7 days at 0.97x the 90-day average.",
+      "url": "https://www.bleepingcomputer.com/news/security/university-of-copenhagen-data-breach-exposes-data-of-525-000-people/"
     }
   ],
   "actions": [
-    "Treat Markdown, files and web content fed to AI agents as untrusted: require approval for installs and shell commands, and limit agents' access to credentials.",
+    "Update PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 before CISA's 2026-10-29 due date, rebuild images that bundle PHP, and check exposed PHP hosts for compromise.",
+    "Review GitHub repos for unexpected large files or workflow changes, revoke unused tokens, and shorten token lifetimes.",
     "Search lockfiles, images and CI caches for litellm 1.107.0. If it ever ran, treat the host as compromised and rotate every credential it could read.",
-    "Audit GitHub personal access tokens and app tokens: revoke unused ones, shorten lifetimes, and check for cloud secrets stored in repos or Actions.",
     "Apply Microsoft's emergency .NET patches for the Brotli flaw (CVE-2026-111497) and watch other Brotli-bundling software for vendor updates.",
-    "Update PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35, rebuild images that bundle PHP, and check exposed PHP hosts for compromise.",
+    "Treat Markdown, files and web content fed to AI agents as untrusted: require approval for installs and shell commands.",
     "Upgrade Wasmtime and FortiOS to their fixed releases, and limit Tailscale SSH via ACLs to trusted devices until a fix ships."
   ]
 }
