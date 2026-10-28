@@ -1,39 +1,39 @@
 {
-  "written_at": "2026-10-27T02:14:00Z",
+  "written_at": "2026-10-28T06:36:00Z",
   "by": "Claude",
-  "headline": "CISA adds PHP2Shell flaws to KEV as SITCON rises to 3; a worm arms 42 GitHub repos while LiteLLM and Brotli fallout continues",
+  "headline": "SITCON rises to 2: CISA adds Brotli and Magento flaws to KEV as PHP2Shell exploitation spreads; ransomware disrupts UNM Health",
   "bullets": [
     {
-      "text": "New: CISA added PHP2Shell (CVE-2026-109618, CVE-2026-109619) to its Known Exploited Vulnerabilities catalog on 2026-10-26 with a federal due date of 2026-10-29. Fixes are in PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35; a third bug, CVE-2026-115560, will not get an emergency fix.",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-109618"
+      "text": "New: CISA added CVE-2026-111497 (Google Brotli 'HTTP2Shell') and CVE-2026-48356 (Adobe Commerce and Magento unrestricted file upload) to its Known Exploited Vulnerabilities catalog on 2026-10-27, federal due date 2026-11-10. Microsoft has shipped emergency .NET patches for the Brotli flaw.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-48356"
     },
     {
-      "text": "New: The Register reports a worm that armed 42 GitHub repositories by hiding an oversized payload. This follows the 'Gheist' campaign using stolen GitHub tokens to steal cloud secrets.",
-      "url": "https://www.theregister.com/security/2026/10/26/worm-armed-42-github-repos-by-hiding-a-payload-too-big-to-fail/5305570"
+      "text": "PHP2Shell is now covered by 8 outlets and the US government says it is being exploited. CVE-2026-109618 and CVE-2026-109619 carry a CISA due date of 2026-10-29; fixes are in PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35.",
+      "url": "https://techcrunch.com/2026/10/27/us-government-says-hackers-are-now-exploiting-critical-php-web-bugs/"
     },
     {
-      "text": "LiteLLM: the supply-chain attack began with an exposed master key that let attackers steal GitHub tokens and hijack the release pipeline. Version 1.107.0 on PyPI and Docker stole credentials via Python startup hooks.",
+      "text": "New: ransomware is hitting healthcare. UNM Health's attack is disrupting patient care and surgeries, Bajaj Hospital in India had 9 servers breached and encrypted, and Japan's GMO urged customers to shut down PCs amid a ransomware threat.",
+      "url": "https://www.bleepingcomputer.com/news/security/unm-health-ransomware-attack-disrupts-patient-care-surgeries/"
+    },
+    {
+      "text": "New: attackers hijacked the Convertr analytics script to steal payment card data. GitHub supply-chain activity continues: a worm armed 42 repos with an oversized payload, and the 'Gheist' campaign uses stolen GitHub tokens to steal cloud secrets.",
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-hijack-convertr-analytics-script-to-steal-payment-card-data/"
+    },
+    {
+      "text": "LiteLLM: the attack began with an exposed master key that let attackers steal GitHub tokens and hijack the release pipeline. Version 1.107.0 on PyPI and Docker stole credentials via Python startup hooks.",
       "url": "https://www.theregister.com/security/2026/10/26/litellm-supply-chain-attack-started-with-an-exposed-master-key/5305544"
     },
     {
-      "text": "Brotli 'HTTP2Shell' (CVE-2026-111497) is critical and drawing emergency patches across four outlets, including emergency .NET patches from Microsoft. The brief names no fixed versions.",
-      "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-releases-emergency-net-patches-for-critical-brotli-flaw/"
-    },
-    {
-      "text": "AI agents remain a target: an in-the-wild attack abuses agents' trust in Markdown, and a planted file in a Downloads folder tried to trick a coding agent into installing malware.",
-      "url": "https://www.darkreading.com/application-security/in-the-wild-attack-ai-agents-trust-markdown"
-    },
-    {
-      "text": "Still active: University of Copenhagen breach (525,000 people), Teams 'IT support' ransomware scams, critical Wasmtime and FortiOS fixes, unpatched Tailscale SSH flaws. SITCON 3 (ELEVATED); last 7 days at 0.97x the 90-day average.",
-      "url": "https://www.bleepingcomputer.com/news/security/university-of-copenhagen-data-breach-exposes-data-of-525-000-people/"
+      "text": "Also new: HPE patched dozens of critical flaws in networking products, and Apple backported CoreGraphics zero-day patches to older iPhones. Still active: unpatched Tailscale SSH flaws, critical Wasmtime and FortiOS fixes. Last 7 days at 1.01x the 90-day average.",
+      "url": "https://www.securityweek.com/hpe-patches-dozens-of-critical-flaws-in-networking-products/"
     }
   ],
   "actions": [
     "Update PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 before CISA's 2026-10-29 due date, rebuild images that bundle PHP, and check exposed PHP hosts for compromise.",
-    "Review GitHub repos for unexpected large files or workflow changes, revoke unused tokens, and shorten token lifetimes.",
-    "Search lockfiles, images and CI caches for litellm 1.107.0. If it ever ran, treat the host as compromised and rotate every credential it could read.",
-    "Apply Microsoft's emergency .NET patches for the Brotli flaw (CVE-2026-111497) and watch other Brotli-bundling software for vendor updates.",
-    "Treat Markdown, files and web content fed to AI agents as untrusted: require approval for installs and shell commands.",
-    "Upgrade Wasmtime and FortiOS to their fixed releases, and limit Tailscale SSH via ACLs to trusted devices until a fix ships."
+    "Apply Microsoft's emergency .NET patches for Brotli CVE-2026-111497 and track updates from other software that bundles Brotli.",
+    "Patch Adobe Commerce and Magento for CVE-2026-48356 and check upload directories on those stores for unexpected files.",
+    "Search lockfiles, images and CI caches for litellm 1.107.0; if it ran, treat the host as compromised and rotate every credential it could read.",
+    "Inventory third-party scripts on payment pages (including Convertr), and review GitHub repos for unexpected large files and stale tokens.",
+    "Apply HPE networking and Apple iOS updates, and restrict Tailscale SSH via ACLs to trusted devices until a fix ships."
   ]
 }
