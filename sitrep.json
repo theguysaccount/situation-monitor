@@ -1,39 +1,39 @@
 {
-  "written_at": "2026-10-28T19:23:00Z",
+  "written_at": "2026-10-28T21:20:00Z",
   "by": "Claude",
-  "headline": "CISA KEV adds Linux kernel and VMware ESX flaws; Volt Typhoon tied to four zero-day campaigns; PHP2Shell deadline tomorrow",
+  "headline": "PHP2Shell CISA deadline tomorrow; DHS personnel data leak hits 41,000 workers; Linux kernel and VMware ESX flaws added to KEV",
   "bullets": [
     {
-      "text": "New: CISA added two exploited flaws to KEV today: Linux kernel CVE-2026-46300 (missing variable initialization, federal due date 2026-10-31) and Broadcom VMware ESX CVE-2026-41709 (insufficient logging, due 2026-11-11).",
-      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46300"
+      "text": "New: A hacker stole personnel data on about 41,000 Homeland Security employees, including CBP and ICE agents, some undercover. Japan Airlines also warned of a data breach as Japan deals with multiple cyber incidents, including GMO and So-net.",
+      "url": "https://www.wired.com/story/massive-leak-exposes-41000-homeland-security-workers-including-undercover-ice-agents/"
     },
     {
-      "text": "New: The Hacker News reports Volt Typhoon used its covert 'Silent Train' network in four zero-day exploitation campaigns. Researchers describe it as an ephemeral framework for hiding attack traffic.",
-      "url": "https://thehackernews.com/2026/10/volt-typhoon-used-covert-silent-train.html"
+      "text": "New: GitHub advisory CVE-2026-115893: Wasmtime's Cranelift backend on aarch64 can jump to an incorrect target on a large Wasm br_table instruction. Rated critical by the GitHub Advisory DB.",
+      "url": "https://github.com/advisories/GHSA-mghf-wjfp-p5xm"
     },
     {
-      "text": "PHP2Shell (CVE-2026-109618, CVE-2026-109619) rooted 25 servers and breached a U.S. government-affiliated network; China-linked actors are also rooting firewalls. CISA's due date is tomorrow, 2026-10-29; fixes are in PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35.",
+      "text": "PHP2Shell (CVE-2026-109618, CVE-2026-109619) rooted 25 servers and breached a U.S. government-affiliated network; China-linked actors are rooting firewalls. CISA's due date is tomorrow, 2026-10-29; fixes are in PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35.",
       "url": "https://thehackernews.com/2026/10/php2shell-attack-roots-25-servers.html"
     },
     {
-      "text": "Hackers are targeting critical Oracle E-Business Suite RCE CVE-2026-101767 days after the patch. CISA warns Node2Shell is exploited; Adobe Commerce/Magento CVE-2026-48356 and Brotli CVE-2026-111497 are in KEV, due 2026-11-10.",
+      "text": "CISA added Linux kernel CVE-2026-46300 (missing variable initialization, due 2026-10-31) and Broadcom VMware ESX CVE-2026-41709 (insufficient logging, due 2026-11-11) to KEV today. Adobe Commerce/Magento CVE-2026-48356 and Brotli CVE-2026-111497 are due 2026-11-10.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46300"
+    },
+    {
+      "text": "Volt Typhoon used its covert, ephemeral 'Silent Train' network to hide traffic in four zero-day exploitation campaigns, per The Hacker News, BleepingComputer and CyberScoop.",
+      "url": "https://thehackernews.com/2026/10/volt-typhoon-used-covert-silent-train.html"
+    },
+    {
+      "text": "Attackers are targeting critical Oracle E-Business Suite RCE CVE-2026-101767 days after the patch, and the ShinyHunters-exploited PeopleSoft zero-day (CVE-2026-35273) turned out to be three chained flaws. CISA warns Node2Shell is being exploited.",
       "url": "https://thehackernews.com/2026/10/hackers-target-critical-oracle-e.html"
-    },
-    {
-      "text": "Breaches: Sony's ISP So-net exposed about 2.5 million customer records; GMO told customers to disconnect PCs after a breach and ransomware threat; 345,000 email addresses were stolen from Germany's AfD party.",
-      "url": "https://www.bleepingcomputer.com/news/security/sony-isp-subsidiary-data-breach-exposes-25-million-customer-records/"
-    },
-    {
-      "text": "A critical 16-year-old UEFI flaw can run code before Secure Boot on network-booting servers. Adobe fixed 8 critical Campaign Classic flaws (including CVE-2026-104351) allowing code execution and security bypass.",
-      "url": "https://thehackernews.com/2026/10/critical-16-year-old-uefi-flaw-can-run.html"
     }
   ],
   "actions": [
     "Update PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 before CISA's 2026-10-29 deadline, including firewalls and appliances, and check exposed hosts.",
     "Apply your distribution's kernel fix for CVE-2026-46300 before 2026-10-31, starting with multi-user and internet-facing Linux hosts.",
     "Patch VMware ESX for CVE-2026-41709 per Broadcom's advisory and review ESX hosts for activity the logs may have missed.",
-    "Read the Volt Typhoon 'Silent Train' reporting and hunt edge and network devices for the described infrastructure and indicators.",
-    "Apply Oracle's patch for E-Business Suite CVE-2026-101767, and patch Adobe Commerce/Magento CVE-2026-48356 and Brotli CVE-2026-111497.",
-    "Check servers that network-boot for the UEFI flaw and apply firmware updates from your hardware vendor when available."
+    "If you run Wasmtime on aarch64, review GHSA-mghf-wjfp-p5xm (CVE-2026-115893) and upgrade to the fixed release it lists.",
+    "Apply Oracle's patches for E-Business Suite CVE-2026-101767 and PeopleSoft CVE-2026-35273, and patch Adobe Commerce/Magento CVE-2026-48356.",
+    "Hunt edge and network devices for Volt Typhoon 'Silent Train' infrastructure using the indicators in the published research."
   ]
 }
