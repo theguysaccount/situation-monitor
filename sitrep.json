@@ -1,38 +1,38 @@
 {
-  "written_at": "2026-10-28T12:19:00Z",
+  "written_at": "2026-10-28T13:22:00Z",
   "by": "Claude",
-  "headline": "China-linked hackers use PHP2Shell to root firewalls a day before CISA's deadline; Node2Shell exploited; Adobe fixes 8 critical Campaign flaws",
+  "headline": "GMO tells customers to disconnect PCs after breach; PHP2Shell CISA deadline is tomorrow; PeopleSoft zero-day was three chained flaws",
   "bullets": [
     {
-      "text": "New: China-linked hackers are exploiting PHP2Shell to gain root on firewalls. PHP2Shell (CVE-2026-109618, CVE-2026-109619) leads at 8 outlets; CISA's federal due date is tomorrow, 2026-10-29. Fixes are in PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35.",
+      "text": "New: Japan's GMO told customers to shut down and disconnect their PCs from the internet following a data breach and ransomware threat (4 outlets). GMO is also offering a $1 million bounty over its FX trading cloud breach.",
+      "url": "https://databreaches.net/2026/10/28/japanese-internet-giant-gmo-tells-customers-to-shut-down-and-disconnect-pcs-from-the-internet-following-data-breach-and-ransomware-threat/"
+    },
+    {
+      "text": "China-linked hackers are exploiting PHP2Shell (CVE-2026-109618, CVE-2026-109619) to root firewalls. It leads at 8 outlets and CISA's federal due date is tomorrow, 2026-10-29. Fixes are in PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35.",
       "url": "https://www.securityweek.com/china-linked-hackers-exploit-php2shell-to-root-firewalls/"
+    },
+    {
+      "text": "New: the Oracle PeopleSoft zero-day exploited by ShinyHunters turns out to be three chained flaws, including CVE-2026-35273 (3 outlets).",
+      "url": "https://thehackernews.com/2026/10/shinyhunters-exploited-oracle.html"
     },
     {
       "text": "CISA warns that hackers are now exploiting the critical Node2Shell flaw. Treat it as active exploitation and follow vendor guidance for fixed releases.",
       "url": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-hackers-now-exploiting-critical-node2shell-flaw/"
     },
     {
-      "text": "New: Adobe fixed 8 critical Campaign Classic flaws (including CVE-2026-104351) allowing code execution and security bypass. PolyShell attacks on Adobe Commerce have breached hundreds of stores; CVE-2026-48356 (Magento) and Brotli CVE-2026-111497 are in CISA KEV, due 2026-11-10.",
-      "url": "https://thehackernews.com/2026/10/adobe-fixes-8-critical-campaign-classic.html"
+      "text": "Adobe Commerce PolyShell attacks have breached hundreds of stores as Brotli exploit traffic emerges; CVE-2026-48356 (Magento) and Brotli CVE-2026-111497 are in CISA KEV, due 2026-11-10. Adobe also fixed 8 critical Campaign Classic flaws.",
+      "url": "https://thehackernews.com/2026/10/adobe-commerce-polyshell-attacks-breach.html"
     },
     {
-      "text": "Breaches: Sony-owned So-net lost 2.6 million customer records; 123 Reg disclosed an 'AI cyberattack' on customer data and suspects a China nexus; GMO offers a $1 million bounty over its FX trading cloud breach. Ransomware is still disrupting care at UNM Health.",
-      "url": "https://www.helpnetsecurity.com/2026/10/28/sony-network-communications-data-breach-so-net/"
-    },
-    {
-      "text": "New: a Ukrainian national was sentenced for ransomware conspiracies against hospitals, businesses and governments causing over $100 million in losses; an $11 million reward is offered for a co-conspirator.",
-      "url": "https://www.helpnetsecurity.com/2026/10/28/doj-ukrainian-ransomware-hacker-sentenced/"
-    },
-    {
-      "text": "Supply chain: the LiteLLM 1.107.0 compromise on PyPI and Docker began with an exposed master key; a worm armed 42 GitHub repos and 'Gheist' uses stolen GitHub tokens to steal cloud secrets. Last 7 days at 1.03x the 90-day average.",
-      "url": "https://www.theregister.com/security/2026/10/26/litellm-supply-chain-attack-started-with-an-exposed-master-key/5305544"
+      "text": "Breaches: Northern Territory Health backtracked on its claim that only five patients were hit by the RDH breach; Bithumb, So-net (2.6M records) and 123 Reg disclosed breaches; ransomware still disrupts UNM Health. The LiteLLM 1.107.0 compromise remains on the board.",
+      "url": "https://databreaches.net/2026/10/28/au-northern-territory-health-backtracks-on-claim-only-five-patients-impacted-by-rdh-privacy-breach/"
     }
   ],
   "actions": [
-    "Update PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 today, including on firewalls and appliances that run PHP, and check exposed hosts for compromise.",
+    "Update PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 before CISA's 2026-10-29 deadline, including firewalls and appliances, and check exposed hosts.",
+    "If you run Oracle PeopleSoft, follow Oracle's guidance for the chained flaws including CVE-2026-35273 and review access logs for signs of compromise.",
     "Find any Node2Shell-affected systems you run, apply the vendor's fix now and check exposed hosts for compromise.",
-    "Apply Adobe's Campaign Classic update and patch Adobe Commerce/Magento for CVE-2026-48356; check stores for webshells and unexpected uploads.",
-    "Apply Microsoft's emergency .NET patches for Brotli CVE-2026-111497 and track fixes from other software that bundles Brotli.",
+    "Patch Adobe Commerce/Magento for CVE-2026-48356 and Brotli CVE-2026-111497; check stores for webshells and unexpected uploads.",
     "Apply Tailscale's SSH fixes on nodes that use Tailscale SSH.",
     "Search lockfiles, images and CI caches for litellm 1.107.0; if it ran, treat the host as compromised and rotate every credential it could read."
   ]
