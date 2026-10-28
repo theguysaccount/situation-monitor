@@ -1,35 +1,35 @@
 {
-  "written_at": "2026-10-28T16:19:00Z",
+  "written_at": "2026-10-28T17:21:00Z",
   "by": "Claude",
-  "headline": "Volt Typhoon's 'Silent Train' hides zero-day attacks; PHP2Shell CISA deadline is tomorrow; Oracle E-Business Suite RCE under attack",
+  "headline": "PHP2Shell roots 25 servers incl. a US government-affiliated network, CISA due tomorrow; Volt Typhoon 'Silent Train'; Sony ISP breach",
   "bullets": [
     {
-      "text": "New: Volt Typhoon is hiding zero-day attacks behind a covert, ephemeral network framework researchers call 'Silent Train' (BleepingComputer, CyberScoop). Separately, an InfraTrust report warns of exploited flaws in critical network infrastructure.",
+      "text": "New: a PHP2Shell (CVE-2026-109618, CVE-2026-109619) campaign rooted 25 servers and breached a U.S. government-affiliated network. China-linked actors are also using it to root firewalls. CISA's federal due date is tomorrow, 2026-10-29; fixes are in PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35.",
+      "url": "https://thehackernews.com/2026/10/php2shell-attack-roots-25-servers.html"
+    },
+    {
+      "text": "New: Sony's ISP subsidiary (So-net) disclosed a breach exposing about 2.5 million customer records. Moldova is investigating possible foreign involvement in a major government cyberattack.",
+      "url": "https://www.bleepingcomputer.com/news/security/sony-isp-subsidiary-data-breach-exposes-25-million-customer-records/"
+    },
+    {
+      "text": "Volt Typhoon is hiding zero-day attacks behind a covert, ephemeral network framework researchers call 'Silent Train'. An InfraTrust report separately warns of exploited flaws in critical network infrastructure.",
       "url": "https://www.bleepingcomputer.com/news/security/volt-typhoon-hides-zero-day-attacks-using-silent-train-framework/"
     },
     {
-      "text": "China-linked hackers are exploiting PHP2Shell (CVE-2026-109618, CVE-2026-109619) to root firewalls. It leads at 8 outlets and CISA's federal due date is tomorrow, 2026-10-29. Fixes are in PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35.",
-      "url": "https://www.securityweek.com/china-linked-hackers-exploit-php2shell-to-root-firewalls/"
-    },
-    {
-      "text": "Hackers are targeting a critical Oracle E-Business Suite RCE flaw (CVE-2026-101767) days after Oracle's patch. The ShinyHunters-exploited PeopleSoft zero-day turned out to be three chained flaws, including CVE-2026-35273.",
+      "text": "Hackers are targeting the critical Oracle E-Business Suite RCE flaw CVE-2026-101767 days after Oracle's patch. The ShinyHunters-exploited PeopleSoft zero-day turned out to be three chained flaws, including CVE-2026-35273.",
       "url": "https://thehackernews.com/2026/10/hackers-target-critical-oracle-e.html"
     },
     {
-      "text": "CISA warns hackers are exploiting the critical Node2Shell flaw. Adobe Commerce/Magento CVE-2026-48356 and Brotli CVE-2026-111497 are in CISA KEV, due 2026-11-10. An attacker impersonating AI bots is also scanning relentlessly for credentials.",
+      "text": "CISA warns the critical Node2Shell flaw is now exploited. Adobe Commerce/Magento CVE-2026-48356 and Brotli CVE-2026-111497 are in CISA KEV, due 2026-11-10. An attacker impersonating AI bots is scanning relentlessly for credentials.",
       "url": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-hackers-now-exploiting-critical-node2shell-flaw/"
     },
     {
-      "text": "Japan's GMO told customers to shut down and disconnect their PCs after a data breach and ransomware threat, and offers a $1 million bounty. Also in Japan, Times Car reported a ¥5.5 billion loss as firms brace for breach fallout.",
-      "url": "https://databreaches.net/2026/10/28/jpn-times-car-reporting-%c2%a55-5-billion-loss-has-firms-bracing-for-data-breach-fallout/"
-    },
-    {
-      "text": "Breaches: South Korea's financial industry is hit by a fresh wave of attacks, with Bithumb disclosing a leak; 345,000 email addresses were stolen from Germany's AfD; So-net disclosed 2.6M records; ransomware still disrupts UNM Health.",
-      "url": "https://techcrunch.com/2026/10/28/south-koreas-financial-industry-hit-by-fresh-wave-of-cyberattacks/"
+      "text": "Japan's GMO told customers to shut down and disconnect PCs after a breach and ransomware threat and offers a $1 million bounty. South Korea's financial sector faces a fresh wave of attacks (Bithumb leak); ransomware still disrupts UNM Health.",
+      "url": "https://databreaches.net/2026/10/28/japanese-internet-giant-gmo-tells-customers-to-shut-down-and-disconnect-pcs-from-the-internet-following-data-breach-and-ransomware-threat/"
     }
   ],
   "actions": [
-    "Update PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 before CISA's 2026-10-29 deadline, including firewalls and appliances, and check exposed hosts.",
+    "Update PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 before CISA's 2026-10-29 deadline, including firewalls and appliances, and check exposed hosts for compromise.",
     "Read the Volt Typhoon 'Silent Train' reporting and hunt edge and network devices for the described infrastructure and indicators.",
     "If you run Oracle E-Business Suite, apply Oracle's patch for CVE-2026-101767 now; PeopleSoft users should follow guidance for CVE-2026-35273 and review logs.",
     "Find any Node2Shell-affected systems you run, apply the vendor's fix now and check exposed hosts for compromise.",
