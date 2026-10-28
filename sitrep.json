@@ -1,39 +1,39 @@
 {
-  "written_at": "2026-10-28T14:21:00Z",
+  "written_at": "2026-10-28T15:21:00Z",
   "by": "Claude",
-  "headline": "Oracle E-Business Suite RCE targeted days after patch; PHP2Shell CISA deadline is tomorrow; GMO tells customers to disconnect PCs",
+  "headline": "PHP2Shell CISA deadline is tomorrow; Oracle E-Business Suite RCE under attack; attacker posing as AI bots scans for credentials",
   "bullets": [
     {
-      "text": "New: hackers are targeting a critical Oracle E-Business Suite RCE flaw (CVE-2026-101767) days after Oracle's patch. Separately, the ShinyHunters-exploited PeopleSoft zero-day turned out to be three chained flaws, including CVE-2026-35273.",
-      "url": "https://thehackernews.com/2026/10/hackers-target-critical-oracle-e.html"
+      "text": "New: an attacker is relentlessly scanning for credentials while impersonating AI bots (Dark Reading). Help Net Security also reports compromised camera management software is giving attackers a way into corporate networks.",
+      "url": "https://www.darkreading.com/cyber-risk/attacker-impersonates-ai-bots-scans-credentials"
     },
     {
       "text": "China-linked hackers are exploiting PHP2Shell (CVE-2026-109618, CVE-2026-109619) to root firewalls. It leads at 8 outlets and CISA's federal due date is tomorrow, 2026-10-29. Fixes are in PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35.",
       "url": "https://www.securityweek.com/china-linked-hackers-exploit-php2shell-to-root-firewalls/"
     },
     {
-      "text": "New: a critical 16-year-old UEFI flaw can run code before Secure Boot on network-booting servers. A new InfraTrust report also warns of exploited flaws in critical network infrastructure.",
-      "url": "https://thehackernews.com/2026/10/critical-16-year-old-uefi-flaw-can-run.html"
+      "text": "Hackers are targeting a critical Oracle E-Business Suite RCE flaw (CVE-2026-101767) days after Oracle's patch. The ShinyHunters-exploited PeopleSoft zero-day turned out to be three chained flaws, including CVE-2026-35273.",
+      "url": "https://thehackernews.com/2026/10/hackers-target-critical-oracle-e.html"
+    },
+    {
+      "text": "CISA warns hackers are exploiting the critical Node2Shell flaw. Adobe Commerce/Magento CVE-2026-48356 and Brotli CVE-2026-111497 are in CISA KEV, due 2026-11-10. A critical 16-year-old UEFI flaw can run code before Secure Boot on network-booting servers.",
+      "url": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-hackers-now-exploiting-critical-node2shell-flaw/"
     },
     {
       "text": "Japan's GMO told customers to shut down and disconnect their PCs from the internet after a data breach and ransomware threat (4 outlets), and is offering a $1 million bounty over its FX trading cloud breach.",
       "url": "https://databreaches.net/2026/10/28/japanese-internet-giant-gmo-tells-customers-to-shut-down-and-disconnect-pcs-from-the-internet-following-data-breach-and-ransomware-threat/"
     },
     {
-      "text": "CISA warns hackers are exploiting the critical Node2Shell flaw. Adobe Commerce PolyShell attacks have breached hundreds of stores as Brotli exploit traffic emerges; CVE-2026-48356 (Magento) and Brotli CVE-2026-111497 are in CISA KEV, due 2026-11-10.",
-      "url": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-hackers-now-exploiting-critical-node2shell-flaw/"
-    },
-    {
-      "text": "Breaches: Northern Territory Health backtracked on its claim that only five patients were hit by the RDH breach; Bithumb, So-net (2.6M records) and 123 Reg disclosed breaches; ransomware still disrupts UNM Health.",
-      "url": "https://databreaches.net/2026/10/28/au-northern-territory-health-backtracks-on-claim-only-five-patients-impacted-by-rdh-privacy-breach/"
+      "text": "Breaches: 345,000 email addresses were stolen from Germany's AfD party; So-net (2.6M records), Bithumb and 123 Reg disclosed breaches; NT Health backtracked on its RDH breach count; ransomware still disrupts UNM Health.",
+      "url": "https://www.helpnetsecurity.com/2026/10/28/afd-data-breach-email-leak/"
     }
   ],
   "actions": [
     "Update PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 before CISA's 2026-10-29 deadline, including firewalls and appliances, and check exposed hosts.",
     "If you run Oracle E-Business Suite, apply Oracle's patch for CVE-2026-101767 now; PeopleSoft users should follow guidance for CVE-2026-35273 and review logs.",
-    "Inventory network-booting servers and apply firmware vendors' UEFI fixes as they ship; restrict PXE/network boot to trusted segments.",
     "Find any Node2Shell-affected systems you run, apply the vendor's fix now and check exposed hosts for compromise.",
     "Patch Adobe Commerce/Magento for CVE-2026-48356 and Brotli CVE-2026-111497; check stores for webshells and unexpected uploads.",
-    "Apply Tailscale's SSH fixes on nodes that use Tailscale SSH."
+    "Review web logs for credential scanning from clients claiming to be AI bots, and don't allowlist bot user agents without verifying them.",
+    "Check camera management software for compromise and keep it off corporate network segments; apply UEFI firmware fixes for network-booting servers as they ship."
   ]
 }
