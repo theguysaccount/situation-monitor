@@ -1,39 +1,39 @@
 {
-  "written_at": "2026-10-28T17:21:00Z",
+  "written_at": "2026-10-28T19:23:00Z",
   "by": "Claude",
-  "headline": "PHP2Shell roots 25 servers incl. a US government-affiliated network, CISA due tomorrow; Volt Typhoon 'Silent Train'; Sony ISP breach",
+  "headline": "CISA KEV adds Linux kernel and VMware ESX flaws; Volt Typhoon tied to four zero-day campaigns; PHP2Shell deadline tomorrow",
   "bullets": [
     {
-      "text": "New: a PHP2Shell (CVE-2026-109618, CVE-2026-109619) campaign rooted 25 servers and breached a U.S. government-affiliated network. China-linked actors are also using it to root firewalls. CISA's federal due date is tomorrow, 2026-10-29; fixes are in PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35.",
+      "text": "New: CISA added two exploited flaws to KEV today: Linux kernel CVE-2026-46300 (missing variable initialization, federal due date 2026-10-31) and Broadcom VMware ESX CVE-2026-41709 (insufficient logging, due 2026-11-11).",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46300"
+    },
+    {
+      "text": "New: The Hacker News reports Volt Typhoon used its covert 'Silent Train' network in four zero-day exploitation campaigns. Researchers describe it as an ephemeral framework for hiding attack traffic.",
+      "url": "https://thehackernews.com/2026/10/volt-typhoon-used-covert-silent-train.html"
+    },
+    {
+      "text": "PHP2Shell (CVE-2026-109618, CVE-2026-109619) rooted 25 servers and breached a U.S. government-affiliated network; China-linked actors are also rooting firewalls. CISA's due date is tomorrow, 2026-10-29; fixes are in PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35.",
       "url": "https://thehackernews.com/2026/10/php2shell-attack-roots-25-servers.html"
     },
     {
-      "text": "New: Sony's ISP subsidiary (So-net) disclosed a breach exposing about 2.5 million customer records. Moldova is investigating possible foreign involvement in a major government cyberattack.",
-      "url": "https://www.bleepingcomputer.com/news/security/sony-isp-subsidiary-data-breach-exposes-25-million-customer-records/"
-    },
-    {
-      "text": "Volt Typhoon is hiding zero-day attacks behind a covert, ephemeral network framework researchers call 'Silent Train'. An InfraTrust report separately warns of exploited flaws in critical network infrastructure.",
-      "url": "https://www.bleepingcomputer.com/news/security/volt-typhoon-hides-zero-day-attacks-using-silent-train-framework/"
-    },
-    {
-      "text": "Hackers are targeting the critical Oracle E-Business Suite RCE flaw CVE-2026-101767 days after Oracle's patch. The ShinyHunters-exploited PeopleSoft zero-day turned out to be three chained flaws, including CVE-2026-35273.",
+      "text": "Hackers are targeting critical Oracle E-Business Suite RCE CVE-2026-101767 days after the patch. CISA warns Node2Shell is exploited; Adobe Commerce/Magento CVE-2026-48356 and Brotli CVE-2026-111497 are in KEV, due 2026-11-10.",
       "url": "https://thehackernews.com/2026/10/hackers-target-critical-oracle-e.html"
     },
     {
-      "text": "CISA warns the critical Node2Shell flaw is now exploited. Adobe Commerce/Magento CVE-2026-48356 and Brotli CVE-2026-111497 are in CISA KEV, due 2026-11-10. An attacker impersonating AI bots is scanning relentlessly for credentials.",
-      "url": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-hackers-now-exploiting-critical-node2shell-flaw/"
+      "text": "Breaches: Sony's ISP So-net exposed about 2.5 million customer records; GMO told customers to disconnect PCs after a breach and ransomware threat; 345,000 email addresses were stolen from Germany's AfD party.",
+      "url": "https://www.bleepingcomputer.com/news/security/sony-isp-subsidiary-data-breach-exposes-25-million-customer-records/"
     },
     {
-      "text": "Japan's GMO told customers to shut down and disconnect PCs after a breach and ransomware threat and offers a $1 million bounty. South Korea's financial sector faces a fresh wave of attacks (Bithumb leak); ransomware still disrupts UNM Health.",
-      "url": "https://databreaches.net/2026/10/28/japanese-internet-giant-gmo-tells-customers-to-shut-down-and-disconnect-pcs-from-the-internet-following-data-breach-and-ransomware-threat/"
+      "text": "A critical 16-year-old UEFI flaw can run code before Secure Boot on network-booting servers. Adobe fixed 8 critical Campaign Classic flaws (including CVE-2026-104351) allowing code execution and security bypass.",
+      "url": "https://thehackernews.com/2026/10/critical-16-year-old-uefi-flaw-can-run.html"
     }
   ],
   "actions": [
-    "Update PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 before CISA's 2026-10-29 deadline, including firewalls and appliances, and check exposed hosts for compromise.",
+    "Update PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 before CISA's 2026-10-29 deadline, including firewalls and appliances, and check exposed hosts.",
+    "Apply your distribution's kernel fix for CVE-2026-46300 before 2026-10-31, starting with multi-user and internet-facing Linux hosts.",
+    "Patch VMware ESX for CVE-2026-41709 per Broadcom's advisory and review ESX hosts for activity the logs may have missed.",
     "Read the Volt Typhoon 'Silent Train' reporting and hunt edge and network devices for the described infrastructure and indicators.",
-    "If you run Oracle E-Business Suite, apply Oracle's patch for CVE-2026-101767 now; PeopleSoft users should follow guidance for CVE-2026-35273 and review logs.",
-    "Find any Node2Shell-affected systems you run, apply the vendor's fix now and check exposed hosts for compromise.",
-    "Patch Adobe Commerce/Magento for CVE-2026-48356 and Brotli CVE-2026-111497; check stores for webshells and unexpected uploads.",
-    "Review web logs for credential scanning from clients claiming to be AI bots, and don't allowlist bot user agents without verifying them."
+    "Apply Oracle's patch for E-Business Suite CVE-2026-101767, and patch Adobe Commerce/Magento CVE-2026-48356 and Brotli CVE-2026-111497.",
+    "Check servers that network-boot for the UEFI flaw and apply firmware updates from your hardware vendor when available."
   ]
 }
