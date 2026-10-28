@@ -1,11 +1,11 @@
 {
-  "written_at": "2026-10-28T15:21:00Z",
+  "written_at": "2026-10-28T16:19:00Z",
   "by": "Claude",
-  "headline": "PHP2Shell CISA deadline is tomorrow; Oracle E-Business Suite RCE under attack; attacker posing as AI bots scans for credentials",
+  "headline": "Volt Typhoon's 'Silent Train' hides zero-day attacks; PHP2Shell CISA deadline is tomorrow; Oracle E-Business Suite RCE under attack",
   "bullets": [
     {
-      "text": "New: an attacker is relentlessly scanning for credentials while impersonating AI bots (Dark Reading). Help Net Security also reports compromised camera management software is giving attackers a way into corporate networks.",
-      "url": "https://www.darkreading.com/cyber-risk/attacker-impersonates-ai-bots-scans-credentials"
+      "text": "New: Volt Typhoon is hiding zero-day attacks behind a covert, ephemeral network framework researchers call 'Silent Train' (BleepingComputer, CyberScoop). Separately, an InfraTrust report warns of exploited flaws in critical network infrastructure.",
+      "url": "https://www.bleepingcomputer.com/news/security/volt-typhoon-hides-zero-day-attacks-using-silent-train-framework/"
     },
     {
       "text": "China-linked hackers are exploiting PHP2Shell (CVE-2026-109618, CVE-2026-109619) to root firewalls. It leads at 8 outlets and CISA's federal due date is tomorrow, 2026-10-29. Fixes are in PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35.",
@@ -16,24 +16,24 @@
       "url": "https://thehackernews.com/2026/10/hackers-target-critical-oracle-e.html"
     },
     {
-      "text": "CISA warns hackers are exploiting the critical Node2Shell flaw. Adobe Commerce/Magento CVE-2026-48356 and Brotli CVE-2026-111497 are in CISA KEV, due 2026-11-10. A critical 16-year-old UEFI flaw can run code before Secure Boot on network-booting servers.",
+      "text": "CISA warns hackers are exploiting the critical Node2Shell flaw. Adobe Commerce/Magento CVE-2026-48356 and Brotli CVE-2026-111497 are in CISA KEV, due 2026-11-10. An attacker impersonating AI bots is also scanning relentlessly for credentials.",
       "url": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-hackers-now-exploiting-critical-node2shell-flaw/"
     },
     {
-      "text": "Japan's GMO told customers to shut down and disconnect their PCs from the internet after a data breach and ransomware threat (4 outlets), and is offering a $1 million bounty over its FX trading cloud breach.",
-      "url": "https://databreaches.net/2026/10/28/japanese-internet-giant-gmo-tells-customers-to-shut-down-and-disconnect-pcs-from-the-internet-following-data-breach-and-ransomware-threat/"
+      "text": "Japan's GMO told customers to shut down and disconnect their PCs after a data breach and ransomware threat, and offers a $1 million bounty. Also in Japan, Times Car reported a ¥5.5 billion loss as firms brace for breach fallout.",
+      "url": "https://databreaches.net/2026/10/28/jpn-times-car-reporting-%c2%a55-5-billion-loss-has-firms-bracing-for-data-breach-fallout/"
     },
     {
-      "text": "Breaches: 345,000 email addresses were stolen from Germany's AfD party; So-net (2.6M records), Bithumb and 123 Reg disclosed breaches; NT Health backtracked on its RDH breach count; ransomware still disrupts UNM Health.",
-      "url": "https://www.helpnetsecurity.com/2026/10/28/afd-data-breach-email-leak/"
+      "text": "Breaches: South Korea's financial industry is hit by a fresh wave of attacks, with Bithumb disclosing a leak; 345,000 email addresses were stolen from Germany's AfD; So-net disclosed 2.6M records; ransomware still disrupts UNM Health.",
+      "url": "https://techcrunch.com/2026/10/28/south-koreas-financial-industry-hit-by-fresh-wave-of-cyberattacks/"
     }
   ],
   "actions": [
     "Update PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 before CISA's 2026-10-29 deadline, including firewalls and appliances, and check exposed hosts.",
+    "Read the Volt Typhoon 'Silent Train' reporting and hunt edge and network devices for the described infrastructure and indicators.",
     "If you run Oracle E-Business Suite, apply Oracle's patch for CVE-2026-101767 now; PeopleSoft users should follow guidance for CVE-2026-35273 and review logs.",
     "Find any Node2Shell-affected systems you run, apply the vendor's fix now and check exposed hosts for compromise.",
     "Patch Adobe Commerce/Magento for CVE-2026-48356 and Brotli CVE-2026-111497; check stores for webshells and unexpected uploads.",
-    "Review web logs for credential scanning from clients claiming to be AI bots, and don't allowlist bot user agents without verifying them.",
-    "Check camera management software for compromise and keep it off corporate network segments; apply UEFI firmware fixes for network-booting servers as they ship."
+    "Review web logs for credential scanning from clients claiming to be AI bots, and don't allowlist bot user agents without verifying them."
   ]
 }
