@@ -1,39 +1,39 @@
 {
-  "written_at": "2026-10-29T19:19:00Z",
+  "written_at": "2026-10-29T20:21:00Z",
   "by": "Claude",
-  "headline": "Cisco SD-WAN flaw exploited to drop KeyDrift malware; PHP2Shell and VMware ESX zero-day; Oracle EBS exploitation attempts",
+  "headline": "GitLab and Cisco ASA/FTD flaws join CISA KEV; Cisco SD-WAN KeyDrift attacks continue; UNM Health ransomware and 4.9M Florida breach",
   "bullets": [
     {
-      "text": "New: attackers are exploiting Cisco SD-WAN flaw CVE-2026-20127 to deploy custom KeyDrift malware. Cisco SD-WAN zero-day exploitation has been tied to Volt Typhoon's 'Silent Train' network. Cisco also patched exploited ASA/FTD VPN zero-day CVE-2026-76418, used to crash SSL VPN devices.",
+      "text": "New: CISA added GitLab CE/EE CVE-2026-97229 and Cisco ASA/FTD CVE-2026-76418 to its KEV list, both with a 2026-11-01 federal due date. An attacker already tried CVE-2026-97229 (CVSS 10.0) against Alpine Linux's GitLab.",
+      "url": "https://thehackernews.com/2026/10/attacker-tried-to-exploit-alpine-linuxs.html"
+    },
+    {
+      "text": "Attackers are exploiting Cisco SD-WAN flaw CVE-2026-20127 to deploy custom KeyDrift malware, tied to Volt Typhoon's 'Silent Train' network. Cisco's ASA/FTD VPN zero-day CVE-2026-76418 is being used to crash SSL VPN devices.",
       "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-cisco-sd-wan-flaw-to-deploy-custom-keydrift-malware/"
     },
     {
-      "text": "China-linked attackers used VMware ESX zero-day CVE-2026-41709, a low-severity logging flaw, to reduce audit trail visibility, while PHP2Shell and Fragnesia were chained to root firewalls. PHP2Shell is covered by seven outlets; earlier reporting said it rooted 25 servers.",
+      "text": "China-linked attackers used VMware ESX zero-day CVE-2026-41709, a low-severity logging flaw, to reduce audit trail visibility, while PHP2Shell and Fragnesia were chained to root firewalls. PHP2Shell is covered by seven outlets.",
       "url": "https://www.helpnetsecurity.com/2026/10/29/php2shell-fragnesia-vmware-esx-zero-day/"
     },
     {
-      "text": "Exploitation attempts have begun against Oracle E-Business Suite RCE flaw CVE-2026-101767, days after Oracle patched it. Five outlets are tracking Oracle EBS.",
+      "text": "Exploitation attempts have begun against Oracle E-Business Suite RCE flaw CVE-2026-101767, days after Oracle patched it. Separately, attackers turned GitHub issues into a supply-chain campaign against 61 public repos in under an hour.",
       "url": "https://www.helpnetsecurity.com/2026/10/29/oracle-e-business-suite-cve-2026-101767-exploitation/"
     },
     {
-      "text": "Adobe, Veeam and Juniper Networks released patches for critical vulnerabilities; Brotli CVE-2026-111497 and Adobe Commerce/Magento CVE-2026-48356 are on CISA's KEV list with a 2026-11-10 due date.",
-      "url": "https://www.securityweek.com/adobe-veeam-juniper-networks-patch-critical-vulnerabilities/"
+      "text": "New: UNM Health is responding to a cyberattack claimed by a ransomware group (six outlets), and Florida's education department says a breach may affect 4.9 million people.",
+      "url": "https://databreaches.net/2026/10/29/unm-health-addresses-cyberattack-in-new-mexico-after-ransomware-group-claims-responsibility/"
     },
     {
-      "text": "Attackers turned GitHub issues into a supply-chain campaign against 61 public repositories in under an hour. Separately, an attacker tried to exploit Alpine Linux's GitLab via CVSS 10.0 flaw CVE-2026-97229.",
-      "url": "https://www.theregister.com/security/2026/10/29/attackers-turn-github-issues-into-supply-chain-campaign-against-61-public-repos-in-less-than-an-hour/5306153"
-    },
-    {
-      "text": "Breaches: Belgium's tax agency confirmed a cyberattack and pulled services offline; 2.6 million records stolen from Sony's ISP So-net; hacktivists leaked records on 41,000 DHS staff; iRhythm toll put at 8.2 million.",
+      "text": "Other breaches: Belgium's tax agency pulled services offline after a cyberattack; 2.6 million records stolen from Sony's ISP So-net; hacktivists leaked records on 41,000 DHS staff; iRhythm toll put at 8.2 million.",
       "url": "https://www.theregister.com/security/2026/10/29/belgiums-tax-agency-confirms-cyberattack-pulls-services-offline/5306409"
     }
   ],
   "actions": [
+    "Patch self-managed GitLab CE/EE for CVE-2026-97229 before 2026-11-01 and check GitLab logs for exploitation attempts.",
+    "Apply Cisco's fix for ASA/FTD VPN CVE-2026-76418 before 2026-11-01 and review VPN logs and device crashes.",
     "Patch Cisco SD-WAN for CVE-2026-20127 per Cisco's advisory and hunt for KeyDrift malware on SD-WAN components.",
-    "Apply Cisco's fix for ASA/FTD VPN CVE-2026-76418 and review VPN logs and device crashes.",
-    "Finish PHP updates now (KEV due date for CVE-2026-109618 and CVE-2026-109619 is today) and check PHP hosts and firewalls for compromise.",
-    "Patch VMware ESX CVE-2026-41709 despite its low score (KEV due 2026-11-11), and review ESX audit logging for gaps.",
-    "Confirm Oracle's patch for E-Business Suite CVE-2026-101767 is applied and check EBS logs for exploitation attempts.",
+    "Finish PHP updates (KEV due date for CVE-2026-109618 and CVE-2026-109619 has passed) and check PHP hosts for compromise.",
+    "Patch VMware ESX CVE-2026-41709 (KEV due 2026-11-11) and confirm Oracle's fix for EBS CVE-2026-101767 is applied.",
     "Apply your distro's kernel fix for CVE-2026-46300 before 2026-10-31; patch Adobe Commerce/Magento and Brotli by 2026-11-10."
   ]
 }
