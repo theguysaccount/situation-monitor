@@ -1,15 +1,15 @@
 {
-  "written_at": "2026-10-29T11:20:00Z",
+  "written_at": "2026-10-29T12:20:00Z",
   "by": "Claude",
-  "headline": "Cisco patches exploited ASA/FTD VPN zero-day that crashes firewalls; China-linked ESX zero-day; PHP2Shell KEV deadline today",
+  "headline": "GitHub issues abused in supply-chain campaign on 61 repos; exploited Cisco ASA/FTD VPN zero-day patched; PHP2Shell KEV due today",
   "bullets": [
     {
-      "text": "New: Cisco has patched CVE-2026-76418, an actively exploited zero-day in ASA and FTD VPN that attackers are using to crash SSL VPN devices. It is the second Cisco firewall VPN zero-day exploited since August.",
-      "url": "https://thehackernews.com/2026/10/cisco-patches-actively-exploited-asa.html"
+      "text": "New: attackers turned GitHub issues into a supply-chain campaign against 61 public repositories in less than an hour. Separately, GitHub launched an npm firewall meant to block malicious packages before installation.",
+      "url": "https://www.theregister.com/security/2026/10/29/attackers-turn-github-issues-into-supply-chain-campaign-against-61-public-repos-in-less-than-an-hour/5306153"
     },
     {
-      "text": "New: Cisco SD-WAN zero-day exploitation has been tied to Volt Typhoon's 'Silent Train' network, which researchers say hid four zero-day campaigns.",
-      "url": "https://www.securityweek.com/cisco-sd-wan-zero-day-exploitation-tied-to-volt-typhoons-silent-train-network/"
+      "text": "Cisco patched CVE-2026-76418, an actively exploited ASA and FTD VPN zero-day used to crash SSL VPN devices, its second firewall VPN zero-day since August. Cisco SD-WAN zero-day exploitation has also been tied to Volt Typhoon's 'Silent Train' network.",
+      "url": "https://thehackernews.com/2026/10/cisco-patches-actively-exploited-asa.html"
     },
     {
       "text": "China-linked actors used ESX logging flaw CVE-2026-41709, rated low severity, as a zero-day to reduce audit trail visibility. CISA added it to KEV on 2026-10-28 with a federal due date of 2026-11-11.",
@@ -29,8 +29,8 @@
     }
   ],
   "actions": [
-    "Apply Cisco's fix for ASA/FTD VPN CVE-2026-76418 now and review VPN logs and device crashes for signs of exploitation.",
-    "Check Cisco SD-WAN deployments against Cisco's advisories and hunt for Volt Typhoon activity described in the Silent Train reporting.",
+    "Check your public GitHub repos for unexpected issues, commits or workflow runs today, and limit token permissions for workflows triggered by issues.",
+    "Apply Cisco's fix for ASA/FTD VPN CVE-2026-76418 now, review VPN logs and crashes, and check SD-WAN against Cisco's advisories.",
     "Finish PHP updates to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 today, including firewalls and appliances, and check exposed hosts for compromise.",
     "Patch VMware ESX for CVE-2026-41709 per Broadcom's advisory despite its low score, and review ESX hosts for audit logging gaps.",
     "Apply your distribution's kernel fix for CVE-2026-46300 before 2026-10-31, starting with multi-user and internet-facing Linux hosts.",
