@@ -1,39 +1,39 @@
 {
-  "written_at": "2026-10-29T14:21:00Z",
+  "written_at": "2026-10-29T17:19:00Z",
   "by": "Claude",
-  "headline": "Adobe, Veeam and Juniper patch critical flaws; Oracle EBS CVE-2026-101767 exploitation attempts; Cisco ASA/FTD VPN zero-day patched",
+  "headline": "PHP2Shell and Fragnesia chained to root firewalls alongside VMware ESX zero-day; Cisco ASA/FTD VPN zero-day; Oracle EBS exploitation attempts",
   "bullets": [
     {
-      "text": "New: Adobe, Veeam and Juniper Networks have released patches for critical vulnerabilities. The report leads the Google Brotli story, now covered by six outlets, with Brotli CVE-2026-111497 and Adobe Commerce/Magento CVE-2026-48356 on CISA's KEV list.",
-      "url": "https://www.securityweek.com/adobe-veeam-juniper-networks-patch-critical-vulnerabilities/"
-    },
-    {
-      "text": "Exploitation attempts have begun against Oracle E-Business Suite RCE flaw CVE-2026-101767, days after Oracle patched it. Five outlets are tracking Oracle EBS.",
-      "url": "https://www.helpnetsecurity.com/2026/10/29/oracle-e-business-suite-cve-2026-101767-exploitation/"
+      "text": "New: Help Net Security reports China-linked attackers used the VMware ESX zero-day CVE-2026-41709, while PHP2Shell and Fragnesia were chained to root firewalls. PHP2Shell is now covered by seven outlets; earlier reporting said it rooted 25 servers.",
+      "url": "https://www.helpnetsecurity.com/2026/10/29/php2shell-fragnesia-vmware-esx-zero-day/"
     },
     {
       "text": "Cisco patched CVE-2026-76418, an actively exploited ASA and FTD VPN zero-day used to crash SSL VPN devices, its second firewall VPN zero-day since August. Cisco SD-WAN zero-day exploitation has been tied to Volt Typhoon's 'Silent Train' network.",
       "url": "https://thehackernews.com/2026/10/cisco-patches-actively-exploited-asa.html"
     },
     {
+      "text": "Exploitation attempts have begun against Oracle E-Business Suite RCE flaw CVE-2026-101767, days after Oracle patched it. Five outlets are tracking Oracle EBS.",
+      "url": "https://www.helpnetsecurity.com/2026/10/29/oracle-e-business-suite-cve-2026-101767-exploitation/"
+    },
+    {
+      "text": "Adobe, Veeam and Juniper Networks released patches for critical vulnerabilities; Brotli CVE-2026-111497 and Adobe Commerce/Magento CVE-2026-48356 are on CISA's KEV list with a 2026-11-10 due date.",
+      "url": "https://www.securityweek.com/adobe-veeam-juniper-networks-patch-critical-vulnerabilities/"
+    },
+    {
       "text": "Attackers turned GitHub issues into a supply-chain campaign against 61 public repositories in under an hour. Separately, an attacker tried to exploit Alpine Linux's GitLab via CVSS 10.0 flaw CVE-2026-97229.",
       "url": "https://www.theregister.com/security/2026/10/29/attackers-turn-github-issues-into-supply-chain-campaign-against-61-public-repos-in-less-than-an-hour/5306153"
     },
     {
-      "text": "KEV deadlines: PHP2Shell CVE-2026-109618/109619 was due today, with fixes in PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35; Linux kernel CVE-2026-46300 is due 2026-10-31; VMware ESX CVE-2026-41709, used as a zero-day by China-linked actors, is due 2026-11-11.",
-      "url": "https://thehackernews.com/2026/10/php2shell-attack-roots-25-servers.html"
-    },
-    {
-      "text": "Breaches: 2.6 million records stolen from Sony's ISP So-net; hacktivists leaked records on 41,000 DHS staff including undercover ICE agents; iRhythm toll put at 8.2 million; a cyberattack disrupted Belgian tax services.",
-      "url": "https://www.securityweek.com/hackers-steal-2-6-million-records-from-sonys-japanese-isp-so-net/"
+      "text": "Breaches: Belgium's tax agency confirmed a cyberattack and pulled services offline; 2.6 million records stolen from Sony's ISP So-net; hacktivists leaked records on 41,000 DHS staff; iRhythm toll put at 8.2 million.",
+      "url": "https://www.theregister.com/security/2026/10/29/belgiums-tax-agency-confirms-cyberattack-pulls-services-offline/5306409"
     }
   ],
   "actions": [
-    "Review today's Adobe, Veeam and Juniper advisories and schedule the critical fixes for any of those products you run.",
-    "Confirm Oracle's patch for E-Business Suite CVE-2026-101767 is applied and check EBS logs for exploitation attempts.",
+    "Finish PHP updates to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 now (KEV due date passed today) and check PHP hosts and firewalls for signs of compromise.",
+    "Patch VMware ESX CVE-2026-41709 despite its low score (KEV due 2026-11-11), and review ESX audit logging for gaps.",
     "Apply Cisco's fix for ASA/FTD VPN CVE-2026-76418, review VPN logs and crashes, and check SD-WAN against Cisco's advisories.",
-    "Check public GitHub repos for unexpected issues, commits or workflow runs; limit token permissions for issue-triggered workflows.",
-    "Finish PHP updates to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 now, and apply your distro's kernel fix for CVE-2026-46300 before 2026-10-31.",
-    "Patch VMware ESX CVE-2026-41709 despite its low score, and Adobe Commerce/Magento CVE-2026-48356 and Brotli CVE-2026-111497 by 2026-11-10."
+    "Confirm Oracle's patch for E-Business Suite CVE-2026-101767 is applied and check EBS logs for exploitation attempts.",
+    "Apply your distro's kernel fix for CVE-2026-46300 before 2026-10-31; patch Adobe Commerce/Magento and Brotli by 2026-11-10.",
+    "Check public GitHub repos for unexpected issues, commits or workflow runs; limit token permissions for issue-triggered workflows."
   ]
 }
