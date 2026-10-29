@@ -1,38 +1,38 @@
 {
-  "written_at": "2026-10-29T04:20:00Z",
+  "written_at": "2026-10-29T07:22:00Z",
   "by": "Claude",
-  "headline": "PHP2Shell CISA deadline is today; Linux kernel KEV fix due Oct 31; DHS staff leak spreads as Japan's breach wave grows",
+  "headline": "China-linked actors exploited VMware ESX zero-day CVE-2026-41709; PHP2Shell CISA deadline is today; Linux kernel KEV fix due Oct 31",
   "bullets": [
+    {
+      "text": "New: China-linked hackers exploited a VMware ESX zero-day to reduce audit trail visibility. CISA added Broadcom VMware ESX CVE-2026-41709 (insufficient logging) to KEV on 2026-10-28 with a federal due date of 2026-11-11.",
+      "url": "https://thehackernews.com/2026/10/china-linked-hackers-exploited-vmware.html"
+    },
     {
       "text": "PHP2Shell (CVE-2026-109618, CVE-2026-109619) rooted 25 servers and breached a U.S. government-affiliated network; China-linked actors are rooting firewalls with it. CISA's due date is today, 2026-10-29; fixes are in PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35.",
       "url": "https://thehackernews.com/2026/10/php2shell-attack-roots-25-servers.html"
     },
     {
-      "text": "KEV deadlines: Linux kernel CVE-2026-46300 (missing variable initialization) is due 2026-10-31; Adobe Commerce/Magento CVE-2026-48356 and Google Brotli CVE-2026-111497 are due 2026-11-10; Broadcom VMware ESX CVE-2026-41709 (insufficient logging) is due 2026-11-11.",
+      "text": "KEV deadlines: Linux kernel CVE-2026-46300 (missing variable initialization) is due 2026-10-31; Adobe Commerce/Magento CVE-2026-48356 and Google Brotli CVE-2026-111497 are due 2026-11-10.",
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46300"
     },
     {
-      "text": "New: Sony-owned ISP So-net disclosed a breach exposing about 2.5 million customer records, adding to Japan's wave of incidents with GMO (which urged customers to disconnect PCs and offered a $1M bounty) and Japan Airlines.",
+      "text": "Japan's breach wave continues: Sony-owned ISP So-net exposed about 2.5 million customer records, GMO urged customers to disconnect PCs and offered a $1M bounty, and Japan Airlines warned of a breach.",
       "url": "https://www.bleepingcomputer.com/news/security/sony-isp-subsidiary-data-breach-exposes-25-million-customer-records/"
     },
     {
-      "text": "Personnel data on more than 41,000 DHS employees, including CBP and ICE agents, has been published on a leak site; Bluesky is now blocking links to it.",
+      "text": "Personnel data on more than 41,000 DHS employees, including CBP and ICE agents, has been published on a leak site; Bluesky is blocking links to it.",
       "url": "https://www.wired.com/story/bluesky-blocks-links-to-major-leak-of-dhs-data/"
     },
     {
-      "text": "New: Researchers disclosed a critical 16-year-old UEFI flaw that can run code before Secure Boot on network-booting servers. Adobe also fixed 8 critical Campaign Classic flaws (CVE-2026-104351) allowing code execution.",
-      "url": "https://thehackernews.com/2026/10/critical-16-year-old-uefi-flaw-can-run.html"
-    },
-    {
-      "text": "Still active: Volt Typhoon's 'Silent Train' network hid four zero-day campaigns; attackers are hitting Oracle E-Business Suite RCE CVE-2026-101767 days after the patch; CISA warns Node2Shell is being exploited.",
+      "text": "Still active: Volt Typhoon's 'Silent Train' network hid four zero-day campaigns; attackers are hitting Oracle E-Business Suite RCE CVE-2026-101767 days after the patch; CISA warns Node2Shell is being exploited; a 16-year-old UEFI flaw affects network-booting servers.",
       "url": "https://thehackernews.com/2026/10/hackers-target-critical-oracle-e.html"
     }
   ],
   "actions": [
+    "Patch VMware ESX for CVE-2026-41709 per Broadcom's advisory and review ESX hosts for gaps in audit logging since the zero-day was in use.",
     "Finish PHP updates to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 today, including firewalls and appliances, and check exposed hosts for compromise.",
     "Apply your distribution's kernel fix for CVE-2026-46300 before 2026-10-31, starting with multi-user and internet-facing Linux hosts.",
-    "Patch Adobe Commerce/Magento CVE-2026-48356, Adobe Campaign Classic CVE-2026-104351 and VMware ESX CVE-2026-41709 per vendor advisories.",
-    "Review network-booting servers against the UEFI pre-Secure Boot advisory and restrict PXE/network boot to trusted segments.",
+    "Patch Adobe Commerce/Magento CVE-2026-48356 and Adobe Campaign Classic CVE-2026-104351 per vendor advisories.",
     "Apply Oracle's patches for E-Business Suite CVE-2026-101767 and PeopleSoft CVE-2026-35273, and check for Node2Shell exposure.",
     "If you work with GMO, So-net or Japan Airlines, follow their notices and watch for phishing using leaked customer data."
   ]
