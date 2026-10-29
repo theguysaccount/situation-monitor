@@ -1,11 +1,11 @@
 {
-  "written_at": "2026-10-29T22:19:00Z",
+  "written_at": "2026-10-29T23:30:00Z",
   "by": "Claude",
-  "headline": "Polymarket halts trading after $2.5M crypto-drain breach; GitLab and Cisco ASA/FTD KEV deadlines Nov 1; Cisco SD-WAN attacks continue",
+  "headline": "Binance probes potential $5.8B crypto theft; GitLab and Cisco ASA/FTD KEV deadlines Nov 1; Cisco SD-WAN attacks continue",
   "bullets": [
     {
-      "text": "New: Polymarket halted trading after a breach involving a crypto-draining script; BleepingComputer reports $2.5M has been traced.",
-      "url": "https://www.bleepingcomputer.com/news/security/polymarket-halts-trading-after-crypto-draining-script-breach-25m-traced/"
+      "text": "New: Binance is investigating a potential $5.8 billion crypto-theft hack and has paused withdrawals, per BleepingComputer and TechCrunch. Earlier today Polymarket halted trading after a crypto-draining script breach with $2.5M traced.",
+      "url": "https://www.bleepingcomputer.com/news/security/binance-probes-potential-58-billion-crypto-theft-hack/"
     },
     {
       "text": "CISA added GitLab CE/EE CVE-2026-97229 and Cisco ASA/FTD CVE-2026-76418 to its KEV list, both due 2026-11-01. An attacker already tried CVE-2026-97229 (CVSS 10.0) against Alpine Linux's GitLab; CVE-2026-76418 is being used to crash SSL VPN devices.",
@@ -24,7 +24,7 @@
       "url": "https://www.helpnetsecurity.com/2026/10/29/oracle-e-business-suite-cve-2026-101767-exploitation/"
     },
     {
-      "text": "Breaches: UNM Health is restoring systems after a ransomware-claimed attack; Florida's education department says 4.9 million may be affected; new: Japan Airlines reports a third-party breach of passenger info; Belgium's tax agency pulled services offline.",
+      "text": "Breaches: UNM Health is restoring systems after a ransomware-claimed attack; Florida's education department says 4.9 million may be affected; Japan Airlines reports a third-party breach of passenger info; Belgium's tax agency pulled services offline.",
       "url": "https://databreaches.net/2026/10/29/unm-health-addresses-cyberattack-in-new-mexico-after-ransomware-group-claims-responsibility/"
     }
   ],
@@ -34,6 +34,6 @@
     "Patch Cisco SD-WAN for CVE-2026-20127 per Cisco's advisory and hunt for KeyDrift malware on SD-WAN components.",
     "Apply your distro's kernel fix for CVE-2026-46300 before 2026-10-31; finish PHP updates for CVE-2026-109618/109619 (KEV due date passed).",
     "Patch VMware ESX CVE-2026-41709 (KEV due 2026-11-11) and confirm Oracle's fix for EBS CVE-2026-101767 is applied.",
-    "Patch Adobe Commerce/Magento CVE-2026-48356 and Brotli CVE-2026-111497 by 2026-11-10; review Veeam and Juniper critical patches."
+    "If you hold funds on Binance or Polymarket, follow their official status channels and ignore unsolicited 'recovery' offers."
   ]
 }
