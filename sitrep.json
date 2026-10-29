@@ -1,11 +1,11 @@
 {
-  "written_at": "2026-10-29T07:22:00Z",
+  "written_at": "2026-10-29T08:21:00Z",
   "by": "Claude",
-  "headline": "China-linked actors exploited VMware ESX zero-day CVE-2026-41709; PHP2Shell CISA deadline is today; Linux kernel KEV fix due Oct 31",
+  "headline": "China-linked actors used low-severity VMware ESX flaw CVE-2026-41709 as a zero-day; PHP2Shell KEV deadline is today; Linux kernel fix due Oct 31",
   "bullets": [
     {
-      "text": "New: China-linked hackers exploited a VMware ESX zero-day to reduce audit trail visibility. CISA added Broadcom VMware ESX CVE-2026-41709 (insufficient logging) to KEV on 2026-10-28 with a federal due date of 2026-11-11.",
-      "url": "https://thehackernews.com/2026/10/china-linked-hackers-exploited-vmware.html"
+      "text": "Update: SecurityWeek now confirms Chinese hackers quietly used ESX logging flaw CVE-2026-41709, rated low severity, as a zero-day to reduce audit trail visibility. CISA added it to KEV on 2026-10-28 with a federal due date of 2026-11-11.",
+      "url": "https://www.securityweek.com/chinese-hackers-quietly-used-low-severity-esxi-logging-flaw-as-zero-day/"
     },
     {
       "text": "PHP2Shell (CVE-2026-109618, CVE-2026-109619) rooted 25 servers and breached a U.S. government-affiliated network; China-linked actors are rooting firewalls with it. CISA's due date is today, 2026-10-29; fixes are in PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35.",
@@ -29,7 +29,7 @@
     }
   ],
   "actions": [
-    "Patch VMware ESX for CVE-2026-41709 per Broadcom's advisory and review ESX hosts for gaps in audit logging since the zero-day was in use.",
+    "Patch VMware ESX for CVE-2026-41709 per Broadcom's advisory; don't deprioritize it for its low score, and review ESX hosts for audit logging gaps.",
     "Finish PHP updates to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 today, including firewalls and appliances, and check exposed hosts for compromise.",
     "Apply your distribution's kernel fix for CVE-2026-46300 before 2026-10-31, starting with multi-user and internet-facing Linux hosts.",
     "Patch Adobe Commerce/Magento CVE-2026-48356 and Adobe Campaign Classic CVE-2026-104351 per vendor advisories.",
