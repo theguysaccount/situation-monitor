@@ -1,14 +1,18 @@
 {
-  "written_at": "2026-10-29T20:21:00Z",
+  "written_at": "2026-10-29T22:19:00Z",
   "by": "Claude",
-  "headline": "GitLab and Cisco ASA/FTD flaws join CISA KEV; Cisco SD-WAN KeyDrift attacks continue; UNM Health ransomware and 4.9M Florida breach",
+  "headline": "Polymarket halts trading after $2.5M crypto-drain breach; GitLab and Cisco ASA/FTD KEV deadlines Nov 1; Cisco SD-WAN attacks continue",
   "bullets": [
     {
-      "text": "New: CISA added GitLab CE/EE CVE-2026-97229 and Cisco ASA/FTD CVE-2026-76418 to its KEV list, both with a 2026-11-01 federal due date. An attacker already tried CVE-2026-97229 (CVSS 10.0) against Alpine Linux's GitLab.",
+      "text": "New: Polymarket halted trading after a breach involving a crypto-draining script; BleepingComputer reports $2.5M has been traced.",
+      "url": "https://www.bleepingcomputer.com/news/security/polymarket-halts-trading-after-crypto-draining-script-breach-25m-traced/"
+    },
+    {
+      "text": "CISA added GitLab CE/EE CVE-2026-97229 and Cisco ASA/FTD CVE-2026-76418 to its KEV list, both due 2026-11-01. An attacker already tried CVE-2026-97229 (CVSS 10.0) against Alpine Linux's GitLab; CVE-2026-76418 is being used to crash SSL VPN devices.",
       "url": "https://thehackernews.com/2026/10/attacker-tried-to-exploit-alpine-linuxs.html"
     },
     {
-      "text": "Attackers are exploiting Cisco SD-WAN flaw CVE-2026-20127 to deploy custom KeyDrift malware, tied to Volt Typhoon's 'Silent Train' network. Cisco's ASA/FTD VPN zero-day CVE-2026-76418 is being used to crash SSL VPN devices.",
+      "text": "Attackers are exploiting Cisco SD-WAN flaw CVE-2026-20127 to deploy custom KeyDrift malware; the activity is tied to Volt Typhoon's 'Silent Train' network, used in four zero-day campaigns.",
       "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-cisco-sd-wan-flaw-to-deploy-custom-keydrift-malware/"
     },
     {
@@ -20,20 +24,16 @@
       "url": "https://www.helpnetsecurity.com/2026/10/29/oracle-e-business-suite-cve-2026-101767-exploitation/"
     },
     {
-      "text": "New: UNM Health is responding to a cyberattack claimed by a ransomware group (six outlets), and Florida's education department says a breach may affect 4.9 million people.",
+      "text": "Breaches: UNM Health is restoring systems after a ransomware-claimed attack; Florida's education department says 4.9 million may be affected; new: Japan Airlines reports a third-party breach of passenger info; Belgium's tax agency pulled services offline.",
       "url": "https://databreaches.net/2026/10/29/unm-health-addresses-cyberattack-in-new-mexico-after-ransomware-group-claims-responsibility/"
-    },
-    {
-      "text": "Other breaches: Belgium's tax agency pulled services offline after a cyberattack; 2.6 million records stolen from Sony's ISP So-net; hacktivists leaked records on 41,000 DHS staff; iRhythm toll put at 8.2 million.",
-      "url": "https://www.theregister.com/security/2026/10/29/belgiums-tax-agency-confirms-cyberattack-pulls-services-offline/5306409"
     }
   ],
   "actions": [
     "Patch self-managed GitLab CE/EE for CVE-2026-97229 before 2026-11-01 and check GitLab logs for exploitation attempts.",
     "Apply Cisco's fix for ASA/FTD VPN CVE-2026-76418 before 2026-11-01 and review VPN logs and device crashes.",
     "Patch Cisco SD-WAN for CVE-2026-20127 per Cisco's advisory and hunt for KeyDrift malware on SD-WAN components.",
-    "Finish PHP updates (KEV due date for CVE-2026-109618 and CVE-2026-109619 has passed) and check PHP hosts for compromise.",
+    "Apply your distro's kernel fix for CVE-2026-46300 before 2026-10-31; finish PHP updates for CVE-2026-109618/109619 (KEV due date passed).",
     "Patch VMware ESX CVE-2026-41709 (KEV due 2026-11-11) and confirm Oracle's fix for EBS CVE-2026-101767 is applied.",
-    "Apply your distro's kernel fix for CVE-2026-46300 before 2026-10-31; patch Adobe Commerce/Magento and Brotli by 2026-11-10."
+    "Patch Adobe Commerce/Magento CVE-2026-48356 and Brotli CVE-2026-111497 by 2026-11-10; review Veeam and Juniper critical patches."
   ]
 }
