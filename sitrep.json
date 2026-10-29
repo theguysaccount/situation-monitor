@@ -1,15 +1,15 @@
 {
-  "written_at": "2026-10-29T17:19:00Z",
+  "written_at": "2026-10-29T19:19:00Z",
   "by": "Claude",
-  "headline": "PHP2Shell and Fragnesia chained to root firewalls alongside VMware ESX zero-day; Cisco ASA/FTD VPN zero-day; Oracle EBS exploitation attempts",
+  "headline": "Cisco SD-WAN flaw exploited to drop KeyDrift malware; PHP2Shell and VMware ESX zero-day; Oracle EBS exploitation attempts",
   "bullets": [
     {
-      "text": "New: Help Net Security reports China-linked attackers used the VMware ESX zero-day CVE-2026-41709, while PHP2Shell and Fragnesia were chained to root firewalls. PHP2Shell is now covered by seven outlets; earlier reporting said it rooted 25 servers.",
-      "url": "https://www.helpnetsecurity.com/2026/10/29/php2shell-fragnesia-vmware-esx-zero-day/"
+      "text": "New: attackers are exploiting Cisco SD-WAN flaw CVE-2026-20127 to deploy custom KeyDrift malware. Cisco SD-WAN zero-day exploitation has been tied to Volt Typhoon's 'Silent Train' network. Cisco also patched exploited ASA/FTD VPN zero-day CVE-2026-76418, used to crash SSL VPN devices.",
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-cisco-sd-wan-flaw-to-deploy-custom-keydrift-malware/"
     },
     {
-      "text": "Cisco patched CVE-2026-76418, an actively exploited ASA and FTD VPN zero-day used to crash SSL VPN devices, its second firewall VPN zero-day since August. Cisco SD-WAN zero-day exploitation has been tied to Volt Typhoon's 'Silent Train' network.",
-      "url": "https://thehackernews.com/2026/10/cisco-patches-actively-exploited-asa.html"
+      "text": "China-linked attackers used VMware ESX zero-day CVE-2026-41709, a low-severity logging flaw, to reduce audit trail visibility, while PHP2Shell and Fragnesia were chained to root firewalls. PHP2Shell is covered by seven outlets; earlier reporting said it rooted 25 servers.",
+      "url": "https://www.helpnetsecurity.com/2026/10/29/php2shell-fragnesia-vmware-esx-zero-day/"
     },
     {
       "text": "Exploitation attempts have begun against Oracle E-Business Suite RCE flaw CVE-2026-101767, days after Oracle patched it. Five outlets are tracking Oracle EBS.",
@@ -29,11 +29,11 @@
     }
   ],
   "actions": [
-    "Finish PHP updates to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 now (KEV due date passed today) and check PHP hosts and firewalls for signs of compromise.",
+    "Patch Cisco SD-WAN for CVE-2026-20127 per Cisco's advisory and hunt for KeyDrift malware on SD-WAN components.",
+    "Apply Cisco's fix for ASA/FTD VPN CVE-2026-76418 and review VPN logs and device crashes.",
+    "Finish PHP updates now (KEV due date for CVE-2026-109618 and CVE-2026-109619 is today) and check PHP hosts and firewalls for compromise.",
     "Patch VMware ESX CVE-2026-41709 despite its low score (KEV due 2026-11-11), and review ESX audit logging for gaps.",
-    "Apply Cisco's fix for ASA/FTD VPN CVE-2026-76418, review VPN logs and crashes, and check SD-WAN against Cisco's advisories.",
     "Confirm Oracle's patch for E-Business Suite CVE-2026-101767 is applied and check EBS logs for exploitation attempts.",
-    "Apply your distro's kernel fix for CVE-2026-46300 before 2026-10-31; patch Adobe Commerce/Magento and Brotli by 2026-11-10.",
-    "Check public GitHub repos for unexpected issues, commits or workflow runs; limit token permissions for issue-triggered workflows."
+    "Apply your distro's kernel fix for CVE-2026-46300 before 2026-10-31; patch Adobe Commerce/Magento and Brotli by 2026-11-10."
   ]
 }
