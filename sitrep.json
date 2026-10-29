@@ -1,10 +1,14 @@
 {
-  "written_at": "2026-10-29T12:20:00Z",
+  "written_at": "2026-10-29T13:21:00Z",
   "by": "Claude",
-  "headline": "GitHub issues abused in supply-chain campaign on 61 repos; exploited Cisco ASA/FTD VPN zero-day patched; PHP2Shell KEV due today",
+  "headline": "Oracle EBS CVE-2026-101767 exploitation attempts begin; GitHub issues abused against 61 repos; Cisco ASA/FTD VPN zero-day patched",
   "bullets": [
     {
-      "text": "New: attackers turned GitHub issues into a supply-chain campaign against 61 public repositories in less than an hour. Separately, GitHub launched an npm firewall meant to block malicious packages before installation.",
+      "text": "New: exploitation attempts have begun against Oracle E-Business Suite RCE flaw CVE-2026-101767, days after Oracle patched it. Five outlets are now tracking Oracle EBS.",
+      "url": "https://www.helpnetsecurity.com/2026/10/29/oracle-e-business-suite-cve-2026-101767-exploitation/"
+    },
+    {
+      "text": "Attackers turned GitHub issues into a supply-chain campaign against 61 public repositories in less than an hour. Separately, GitHub launched an npm firewall meant to block malicious packages before installation.",
       "url": "https://www.theregister.com/security/2026/10/29/attackers-turn-github-issues-into-supply-chain-campaign-against-61-public-repos-in-less-than-an-hour/5306153"
     },
     {
@@ -12,16 +16,12 @@
       "url": "https://thehackernews.com/2026/10/cisco-patches-actively-exploited-asa.html"
     },
     {
-      "text": "China-linked actors used ESX logging flaw CVE-2026-41709, rated low severity, as a zero-day to reduce audit trail visibility. CISA added it to KEV on 2026-10-28 with a federal due date of 2026-11-11.",
-      "url": "https://www.securityweek.com/chinese-hackers-quietly-used-low-severity-esxi-logging-flaw-as-zero-day/"
-    },
-    {
       "text": "PHP2Shell (CVE-2026-109618, CVE-2026-109619) rooted 25 servers and breached a U.S. government-affiliated network. CISA's due date is today, 2026-10-29; fixes are in PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35.",
       "url": "https://thehackernews.com/2026/10/php2shell-attack-roots-25-servers.html"
     },
     {
-      "text": "KEV deadlines: Linux kernel CVE-2026-46300 is due 2026-10-31; Adobe Commerce/Magento CVE-2026-48356 and Google Brotli CVE-2026-111497 are due 2026-11-10. Separately, an attacker tried to exploit Alpine Linux's GitLab via CVSS 10.0 flaw CVE-2026-97229.",
-      "url": "https://thehackernews.com/2026/10/attacker-tried-to-exploit-alpine-linuxs.html"
+      "text": "KEV deadlines: Linux kernel CVE-2026-46300 is due 2026-10-31; Adobe Commerce/Magento CVE-2026-48356 and Google Brotli CVE-2026-111497 are due 2026-11-10; VMware ESX logging flaw CVE-2026-41709, used as a zero-day by China-linked actors, is due 2026-11-11.",
+      "url": "https://www.securityweek.com/chinese-hackers-quietly-used-low-severity-esxi-logging-flaw-as-zero-day/"
     },
     {
       "text": "Breaches: hackers stole 2.6 million records from Sony's Japanese ISP So-net; hacktivists leaked records on 41,000 DHS staff, including undercover ICE agents; an HHS filing puts the iRhythm toll at 8.2 million.",
@@ -29,11 +29,11 @@
     }
   ],
   "actions": [
-    "Check your public GitHub repos for unexpected issues, commits or workflow runs today, and limit token permissions for workflows triggered by issues.",
+    "Confirm Oracle's patch for E-Business Suite CVE-2026-101767 is applied and check EBS logs for exploitation attempts.",
+    "Check your public GitHub repos for unexpected issues, commits or workflow runs, and limit token permissions for workflows triggered by issues.",
     "Apply Cisco's fix for ASA/FTD VPN CVE-2026-76418 now, review VPN logs and crashes, and check SD-WAN against Cisco's advisories.",
     "Finish PHP updates to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 today, including firewalls and appliances, and check exposed hosts for compromise.",
-    "Patch VMware ESX for CVE-2026-41709 per Broadcom's advisory despite its low score, and review ESX hosts for audit logging gaps.",
     "Apply your distribution's kernel fix for CVE-2026-46300 before 2026-10-31, starting with multi-user and internet-facing Linux hosts.",
-    "Patch self-hosted GitLab for CVE-2026-97229 and patch Adobe Commerce/Magento CVE-2026-48356 and Brotli CVE-2026-111497 before 2026-11-10."
+    "Patch VMware ESX CVE-2026-41709 despite its low score, and Adobe Commerce/Magento CVE-2026-48356 and Brotli CVE-2026-111497 before 2026-11-10."
   ]
 }
