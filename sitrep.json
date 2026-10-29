@@ -1,10 +1,14 @@
 {
-  "written_at": "2026-10-29T08:21:00Z",
+  "written_at": "2026-10-29T09:20:00Z",
   "by": "Claude",
-  "headline": "China-linked actors used low-severity VMware ESX flaw CVE-2026-41709 as a zero-day; PHP2Shell KEV deadline is today; Linux kernel fix due Oct 31",
+  "headline": "iRhythm breach toll rises to 8.2 million; China-linked actors used VMware ESX flaw as zero-day; PHP2Shell KEV deadline is today",
   "bullets": [
     {
-      "text": "Update: SecurityWeek now confirms Chinese hackers quietly used ESX logging flaw CVE-2026-41709, rated low severity, as a zero-day to reduce audit trail visibility. CISA added it to KEV on 2026-10-28 with a federal due date of 2026-11-11.",
+      "text": "New: an HHS filing puts the toll of the iRhythm data breach at 8.2 million people.",
+      "url": "https://www.securityweek.com/hhs-filing-puts-irhythm-data-breach-toll-at-8-2-million/"
+    },
+    {
+      "text": "China-linked actors used ESX logging flaw CVE-2026-41709, rated low severity, as a zero-day to reduce audit trail visibility. CISA added it to KEV on 2026-10-28 with a federal due date of 2026-11-11.",
       "url": "https://www.securityweek.com/chinese-hackers-quietly-used-low-severity-esxi-logging-flaw-as-zero-day/"
     },
     {
@@ -16,24 +20,20 @@
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46300"
     },
     {
-      "text": "Japan's breach wave continues: Sony-owned ISP So-net exposed about 2.5 million customer records, GMO urged customers to disconnect PCs and offered a $1M bounty, and Japan Airlines warned of a breach.",
-      "url": "https://www.bleepingcomputer.com/news/security/sony-isp-subsidiary-data-breach-exposes-25-million-customer-records/"
+      "text": "Breach wave continues: data on more than 41,000 DHS employees, including CBP and ICE agents, is on a leak site; in Japan, So-net exposed about 2.5 million customer records, GMO told customers to disconnect PCs, and Japan Airlines warned of a breach.",
+      "url": "https://cyberscoop.com/dhs-employee-data-leak-ddosecrets/"
     },
     {
-      "text": "Personnel data on more than 41,000 DHS employees, including CBP and ICE agents, has been published on a leak site; Bluesky is blocking links to it.",
-      "url": "https://www.wired.com/story/bluesky-blocks-links-to-major-leak-of-dhs-data/"
-    },
-    {
-      "text": "Still active: Volt Typhoon's 'Silent Train' network hid four zero-day campaigns; attackers are hitting Oracle E-Business Suite RCE CVE-2026-101767 days after the patch; CISA warns Node2Shell is being exploited; a 16-year-old UEFI flaw affects network-booting servers.",
+      "text": "Still active: Volt Typhoon's 'Silent Train' network hid four zero-day campaigns; attackers are hitting Oracle E-Business Suite RCE CVE-2026-101767 days after the patch; CISA warns Node2Shell is being exploited.",
       "url": "https://thehackernews.com/2026/10/hackers-target-critical-oracle-e.html"
     }
   ],
   "actions": [
-    "Patch VMware ESX for CVE-2026-41709 per Broadcom's advisory; don't deprioritize it for its low score, and review ESX hosts for audit logging gaps.",
     "Finish PHP updates to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 today, including firewalls and appliances, and check exposed hosts for compromise.",
+    "Patch VMware ESX for CVE-2026-41709 per Broadcom's advisory; don't deprioritize it for its low score, and review ESX hosts for audit logging gaps.",
     "Apply your distribution's kernel fix for CVE-2026-46300 before 2026-10-31, starting with multi-user and internet-facing Linux hosts.",
-    "Patch Adobe Commerce/Magento CVE-2026-48356 and Adobe Campaign Classic CVE-2026-104351 per vendor advisories.",
-    "Apply Oracle's patches for E-Business Suite CVE-2026-101767 and PeopleSoft CVE-2026-35273, and check for Node2Shell exposure.",
-    "If you work with GMO, So-net or Japan Airlines, follow their notices and watch for phishing using leaked customer data."
+    "Patch Adobe Commerce/Magento CVE-2026-48356 and Google Brotli CVE-2026-111497 per vendor advisories before 2026-11-10.",
+    "Apply Oracle's patch for E-Business Suite CVE-2026-101767 and check for Node2Shell exposure.",
+    "If you are an iRhythm patient or work with GMO, So-net or Japan Airlines, follow their notices and watch for phishing using leaked data."
   ]
 }
