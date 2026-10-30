@@ -1,14 +1,14 @@
 {
-  "written_at": "2026-10-29T23:30:00Z",
+  "written_at": "2026-10-30T04:23:00Z",
   "by": "Claude",
-  "headline": "Binance probes potential $5.8B crypto theft; GitLab and Cisco ASA/FTD KEV deadlines Nov 1; Cisco SD-WAN attacks continue",
+  "headline": "Binance $5.8B theft probe continues; GitLab and Cisco ASA/FTD KEV deadlines Nov 1; Cisco SD-WAN attacks tied to Volt Typhoon",
   "bullets": [
     {
-      "text": "New: Binance is investigating a potential $5.8 billion crypto-theft hack and has paused withdrawals, per BleepingComputer and TechCrunch. Earlier today Polymarket halted trading after a crypto-draining script breach with $2.5M traced.",
+      "text": "Binance is still investigating a potential $5.8 billion crypto-theft hack with withdrawals paused; Polymarket halted trading after a crypto-draining script breach with $2.5M traced. The Register notes crypto exchanges' security remains weak.",
       "url": "https://www.bleepingcomputer.com/news/security/binance-probes-potential-58-billion-crypto-theft-hack/"
     },
     {
-      "text": "CISA added GitLab CE/EE CVE-2026-97229 and Cisco ASA/FTD CVE-2026-76418 to its KEV list, both due 2026-11-01. An attacker already tried CVE-2026-97229 (CVSS 10.0) against Alpine Linux's GitLab; CVE-2026-76418 is being used to crash SSL VPN devices.",
+      "text": "CISA KEV deadlines on 2026-11-01: GitLab CE/EE CVE-2026-97229 (CVSS 10.0; an attacker already tried it against Alpine Linux's GitLab) and Cisco ASA/FTD CVE-2026-76418, exploited to crash SSL VPN devices.",
       "url": "https://thehackernews.com/2026/10/attacker-tried-to-exploit-alpine-linuxs.html"
     },
     {
@@ -16,16 +16,16 @@
       "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-cisco-sd-wan-flaw-to-deploy-custom-keydrift-malware/"
     },
     {
-      "text": "China-linked attackers used VMware ESX zero-day CVE-2026-41709, a low-severity logging flaw, to reduce audit trail visibility, while PHP2Shell and Fragnesia were chained to root firewalls. PHP2Shell is covered by seven outlets.",
-      "url": "https://www.helpnetsecurity.com/2026/10/29/php2shell-fragnesia-vmware-esx-zero-day/"
+      "text": "China-linked attackers used VMware ESX zero-day CVE-2026-41709 to reduce audit trail visibility; PHP2Shell and Fragnesia were chained to root firewalls, and The Record reports limited successful PHP2Shell exploitation.",
+      "url": "https://therecord.media/php2shell-successful-exploitation-reports-emerge"
     },
     {
-      "text": "Exploitation attempts have begun against Oracle E-Business Suite RCE flaw CVE-2026-101767, days after Oracle patched it. Separately, attackers turned GitHub issues into a supply-chain campaign against 61 public repos in under an hour.",
+      "text": "Exploitation attempts have begun against Oracle E-Business Suite RCE CVE-2026-101767, days after Oracle patched it. Attackers also turned GitHub issues into a supply-chain campaign against 61 public repos in under an hour.",
       "url": "https://www.helpnetsecurity.com/2026/10/29/oracle-e-business-suite-cve-2026-101767-exploitation/"
     },
     {
-      "text": "Breaches: UNM Health is restoring systems after a ransomware-claimed attack; Florida's education department says 4.9 million may be affected; Japan Airlines reports a third-party breach of passenger info; Belgium's tax agency pulled services offline.",
-      "url": "https://databreaches.net/2026/10/29/unm-health-addresses-cyberattack-in-new-mexico-after-ransomware-group-claims-responsibility/"
+      "text": "Breaches: iRhythm toll put at 8.2 million in an HHS filing; Sony's ISP So-net lost 2.6 million records; Florida's education department says 4.9 million may be affected; UNM Health is restoring systems after a ransomware claim.",
+      "url": "https://www.securityweek.com/hhs-filing-puts-irhythm-data-breach-toll-at-8-2-million/"
     }
   ],
   "actions": [
