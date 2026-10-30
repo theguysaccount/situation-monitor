@@ -1,26 +1,26 @@
 {
-  "written_at": "2026-10-30T14:17:00Z",
+  "written_at": "2026-10-30T15:21:00Z",
   "by": "Claude",
-  "headline": "North Korea blamed for record $6.3B Binance theft; exploited GitLab RCE and backdoored Claude Code extension remain top risks",
+  "headline": "Backdoored Claude Code extension on Cursor, record $6.3B Binance theft and exploited GitLab RCE lead the board",
   "bullets": [
     {
-      "text": "New: TechCrunch reports North Korean hackers are blamed for the record $6.3 billion Binance theft. Binance links it to a compromised DevOps laptop, SecurityWeek sees hallmarks of TraderTraitor, and The Hacker News says nearly $3 billion has been frozen.",
+      "text": "New: BleepingComputer now also reports that a malicious Claude Code extension on Cursor planted SSH backdoors, joining earlier reports from The Hacker News (Cursor Marketplace listing) and Help Net Security of a persistent SSH backdoor.",
+      "url": "https://www.bleepingcomputer.com/news/security/malicious-claude-code-extension-on-cursor-planted-ssh-backdoors/"
+    },
+    {
+      "text": "North Korean hackers are blamed for the record $6.3 billion Binance theft (TechCrunch). Binance links it to a compromised DevOps laptop, SecurityWeek sees hallmarks of TraderTraitor, and The Hacker News says nearly $3 billion has been frozen.",
       "url": "https://techcrunch.com/2026/10/30/north-korean-hackers-blamed-for-stealing-record-6-3b-in-binance-breach/"
     },
     {
-      "text": "CISA says the max-severity GitLab CE/EE flaw CVE-2026-97229 (CVSS 10.0) is exploited in the wild. It is in KEV with a 2026-11-01 due date; an attacker already tried it against Alpine Linux's instance.",
+      "text": "CISA says the max-severity GitLab CE/EE flaw CVE-2026-97229 is exploited in the wild. It is in KEV with a 2026-11-01 due date.",
       "url": "https://www.bleepingcomputer.com/news/security/hackers-now-exploiting-max-severity-gitlab-flaw-in-attacks/"
-    },
-    {
-      "text": "The official Claude Code extension was trojanized with a persistent SSH backdoor, reported by The Hacker News (Cursor Marketplace listing) and Help Net Security.",
-      "url": "https://www.helpnetsecurity.com/2026/10/30/claude-code-extension-ssh-backdoor/"
     },
     {
       "text": "Drupal warns a critical Commerce Core flaw is exploited in attacks; The Hacker News identifies it as authorization bypass CVE-2026-118539.",
       "url": "https://thehackernews.com/2026/10/hackers-actively-exploit-highly.html"
     },
     {
-      "text": "Cisco ASA/FTD VPN DoS zero-day CVE-2026-76418 is exploited and in KEV (due 2026-11-01). Separately, Cisco SD-WAN CVE-2026-20127 is exploited to deploy KeyDrift malware, tied to Volt Typhoon's 'Silent Train' network.",
+      "text": "Cisco ASA/FTD VPN DoS zero-day CVE-2026-76418 is exploited and in KEV (due 2026-11-01). Separately, Cisco SD-WAN CVE-2026-20127 is exploited to deploy custom KeyDrift malware.",
       "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-cisco-sd-wan-flaw-to-deploy-custom-keydrift-malware/"
     },
     {
@@ -29,8 +29,8 @@
     }
   ],
   "actions": [
+    "If developers use the Claude Code extension in Cursor or VS Code, check it against the vendor advisory and look for unexpected SSH keys or services.",
     "Patch self-managed GitLab CE/EE for CVE-2026-97229 today and review logs for exploitation; it is confirmed exploited in the wild.",
-    "If developers use the Claude Code extension in VS Code or Cursor, check versions against the vendor advisory and look for unexpected SSH keys or services.",
     "Review what single developer or DevOps laptops can reach in production and key custody; Binance traced its theft to one compromised DevOps laptop.",
     "If you run Drupal Commerce, apply the fix for CVE-2026-118539 now and review access logs for authorization bypass attempts.",
     "Patch Cisco ASA/FTD for CVE-2026-76418 before 2026-11-01; patch Cisco SD-WAN for CVE-2026-20127 and hunt for KeyDrift malware.",
