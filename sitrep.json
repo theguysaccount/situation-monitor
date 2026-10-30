@@ -1,10 +1,18 @@
 {
-  "written_at": "2026-10-30T08:19:00Z",
+  "written_at": "2026-10-30T09:25:00Z",
   "by": "Claude",
-  "headline": "CISA confirms GitLab RCE and Cisco ASA/FTD as exploited (due Nov 1); Volt Typhoon hits Cisco SD-WAN; Binance breach put at $6.3B",
+  "headline": "Drupal Commerce auth bypass under active exploitation; Binance $6.3B theft traced to DevOps laptop; GitLab and Cisco KEV fixes due Nov 1",
   "bullets": [
     {
-      "text": "New: CISA added actively exploited GitLab CE/EE RCE CVE-2026-97229 (CVSS 10.0) and Cisco ASA/FTD VPN DoS CVE-2026-76418 to KEV, both with a federal due date of 2026-11-01. An attacker already tried the GitLab flaw against Alpine Linux's instance.",
+      "text": "New: attackers are actively exploiting a highly critical authorization bypass in Drupal Commerce core, CVE-2026-118539.",
+      "url": "https://thehackernews.com/2026/10/hackers-actively-exploit-highly.html"
+    },
+    {
+      "text": "New: Binance links the $6.3 billion crypto theft to a compromised DevOps laptop; SecurityWeek reports the attack bears hallmarks of North Korea's TraderTraitor. Nearly $3 billion is frozen and withdrawals were paused.",
+      "url": "https://www.bleepingcomputer.com/news/security/binance-links-63-billion-crypto-theft-to-compromised-devops-laptop/"
+    },
+    {
+      "text": "CISA added actively exploited GitLab CE/EE RCE CVE-2026-97229 (CVSS 10.0) and Cisco ASA/FTD VPN DoS CVE-2026-76418 to KEV, both due 2026-11-01. An attacker already tried the GitLab flaw against Alpine Linux's instance.",
       "url": "https://thehackernews.com/2026/10/cisa-adds-actively-exploited-gitlab-rce.html"
     },
     {
@@ -12,28 +20,20 @@
       "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-cisco-sd-wan-flaw-to-deploy-custom-keydrift-malware/"
     },
     {
-      "text": "China-linked attackers used VMware ESX zero-day CVE-2026-41709 to reduce audit trail visibility; PHP2Shell and Fragnesia were chained to root firewalls, and The Record reports limited successful PHP2Shell exploitation.",
+      "text": "China-linked attackers used VMware ESX zero-day CVE-2026-41709 to reduce audit visibility; PHP2Shell and Fragnesia were chained to root firewalls. Exploitation attempts have also begun against Oracle EBS RCE CVE-2026-101767.",
       "url": "https://www.helpnetsecurity.com/2026/10/29/php2shell-fragnesia-vmware-esx-zero-day/"
     },
     {
-      "text": "Exploitation attempts have begun against Oracle E-Business Suite RCE CVE-2026-101767, days after Oracle patched it. Attackers also turned GitHub issues into a supply-chain campaign against 61 public repos in under an hour.",
-      "url": "https://www.helpnetsecurity.com/2026/10/29/oracle-e-business-suite-cve-2026-101767-exploitation/"
-    },
-    {
-      "text": "The Binance breach is now put at $6.3 billion in affected assets, with nearly $3 billion frozen and withdrawals paused. Polymarket halted trading after a crypto-draining script breach with $2.5M traced.",
-      "url": "https://thehackernews.com/2026/10/binance-suffers-security-breach.html"
-    },
-    {
-      "text": "Breaches: iRhythm toll put at 8.2 million; Florida's education department says 4.9 million may be affected; hacktivists leaked records on 41,000 DHS staff; Belgium's tax agency pulled services offline after a cyberattack; UNM Health is restoring systems.",
+      "text": "Breaches: iRhythm toll put at 8.2 million; Florida's education department says 4.9 million may be affected; hackers stole 2.6 million records from Sony's So-net; UNM Health is recovering after a ransomware claim.",
       "url": "https://www.securityweek.com/hhs-filing-puts-irhythm-data-breach-toll-at-8-2-million/"
     }
   ],
   "actions": [
-    "Patch self-managed GitLab CE/EE for CVE-2026-97229 before 2026-11-01 and check GitLab logs for exploitation attempts.",
-    "Apply Cisco's fix for ASA/FTD VPN CVE-2026-76418 before 2026-11-01 and review VPN logs and device crashes.",
+    "If you run Drupal Commerce, apply the fix for CVE-2026-118539 now and review access logs for authorization bypass attempts.",
+    "Patch self-managed GitLab CE/EE for CVE-2026-97229 and Cisco ASA/FTD for CVE-2026-76418 before 2026-11-01; review logs for exploitation.",
     "Patch Cisco SD-WAN for CVE-2026-20127 per Cisco's advisory and hunt for KeyDrift malware on SD-WAN components.",
     "Apply your distro's kernel fix for CVE-2026-46300 before 2026-10-31; finish PHP updates for CVE-2026-109618/109619 (KEV due date passed).",
     "Patch VMware ESX CVE-2026-41709 (KEV due 2026-11-11) and confirm Oracle's fix for EBS CVE-2026-101767 is applied.",
-    "If you hold funds on Binance or Polymarket, follow their official status channels and ignore unsolicited 'recovery' offers."
+    "Harden DevOps workstations with access to production or signing keys; Binance funds holders should use only official status channels."
   ]
 }
