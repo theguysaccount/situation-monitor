@@ -1,19 +1,19 @@
 {
-  "written_at": "2026-10-30T11:14:00Z",
+  "written_at": "2026-10-30T12:15:00Z",
   "by": "Claude",
-  "headline": "Official Claude Code VS Code extension compromised with SSH backdoor; Drupal Commerce flaw exploited; GitLab and Cisco KEV fixes due Nov 1",
+  "headline": "Claude Code VS Code extension backdoor confirmed by second outlet; Drupal Commerce flaw exploited; GitLab and Cisco KEV fixes due Nov 1",
   "bullets": [
     {
-      "text": "New: The Hacker News reports the official Claude Code VS Code extension was compromised to install a persistent SSH backdoor.",
-      "url": "https://thehackernews.com/2026/10/official-claude-code-vs-code-extension.html"
+      "text": "New: Help Net Security now also reports the Claude Code extension was poisoned with a persistent SSH backdoor, following The Hacker News report that the official VS Code extension was compromised.",
+      "url": "https://www.helpnetsecurity.com/2026/10/30/claude-code-extension-ssh-backdoor/"
     },
     {
-      "text": "Drupal now warns that a critical Commerce Core flaw is exploited in attacks; The Hacker News identifies it as authorization bypass CVE-2026-118539.",
-      "url": "https://www.bleepingcomputer.com/news/security/drupal-warns-of-critical-commerce-core-flaw-exploited-in-attacks/"
+      "text": "New: Polymarket confirms the cyberattack hit a third-party provider after outages. Earlier reports: more than $2 million drained from traders via a crypto-draining script; trading halted, $2.5 million traced.",
+      "url": "https://therecord.media/polymarket-confirms-cyberattack-third-party"
     },
     {
-      "text": "More than $2 million was drained from Polymarket traders in a supply-chain attack; Polymarket halted trading after a crypto-draining script breach, with $2.5 million traced per BleepingComputer.",
-      "url": "https://www.securityweek.com/2-million-drained-from-polymarket-traders-in-new-supply-chain-attack/"
+      "text": "Drupal warns a critical Commerce Core flaw is exploited in attacks; The Hacker News identifies it as authorization bypass CVE-2026-118539.",
+      "url": "https://thehackernews.com/2026/10/hackers-actively-exploit-highly.html"
     },
     {
       "text": "Binance links its $6.3 billion crypto theft to a compromised DevOps laptop; SecurityWeek reports hallmarks of North Korea's TraderTraitor. Nearly $3 billion is frozen and withdrawals were paused.",
@@ -32,8 +32,8 @@
     "If your developers use the Claude Code VS Code extension, check installed versions against the vendor's advisory and look for unexpected SSH keys or services.",
     "If you run Drupal Commerce, apply the fix for CVE-2026-118539 now and review access logs for authorization bypass attempts.",
     "Patch self-managed GitLab CE/EE for CVE-2026-97229 and Cisco ASA/FTD for CVE-2026-76418 before 2026-11-01; review logs for exploitation.",
+    "Apply your distro's kernel fix for Linux CVE-2026-46300 before its 2026-10-31 KEV due date (tomorrow).",
     "Patch Cisco SD-WAN for CVE-2026-20127 and hunt for KeyDrift malware; patch VMware ESX CVE-2026-41709 and confirm Oracle EBS CVE-2026-101767 is fixed.",
-    "Apply your distro's kernel fix for Linux CVE-2026-46300 before its 2026-10-31 KEV due date.",
     "Polymarket and Binance users should rely only on official status channels and check wallets for unexpected approvals."
   ]
 }
