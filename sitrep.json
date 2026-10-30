@@ -1,11 +1,11 @@
 {
-  "written_at": "2026-10-30T04:23:00Z",
+  "written_at": "2026-10-30T05:32:00Z",
   "by": "Claude",
-  "headline": "Binance $5.8B theft probe continues; GitLab and Cisco ASA/FTD KEV deadlines Nov 1; Cisco SD-WAN attacks tied to Volt Typhoon",
+  "headline": "Binance breach now put at $6.3B with ~$3B frozen; GitLab and Cisco ASA/FTD KEV deadlines Nov 1; Volt Typhoon hits Cisco SD-WAN",
   "bullets": [
     {
-      "text": "Binance is still investigating a potential $5.8 billion crypto-theft hack with withdrawals paused; Polymarket halted trading after a crypto-draining script breach with $2.5M traced. The Register notes crypto exchanges' security remains weak.",
-      "url": "https://www.bleepingcomputer.com/news/security/binance-probes-potential-58-billion-crypto-theft-hack/"
+      "text": "New: The Hacker News reports the Binance security breach affected $6.3 billion in assets, with nearly $3 billion frozen; withdrawals had been paused. Separately, Polymarket halted trading after a crypto-draining script breach with $2.5M traced.",
+      "url": "https://thehackernews.com/2026/10/binance-suffers-security-breach.html"
     },
     {
       "text": "CISA KEV deadlines on 2026-11-01: GitLab CE/EE CVE-2026-97229 (CVSS 10.0; an attacker already tried it against Alpine Linux's GitLab) and Cisco ASA/FTD CVE-2026-76418, exploited to crash SSL VPN devices.",
