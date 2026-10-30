@@ -1,10 +1,14 @@
 {
-  "written_at": "2026-10-30T21:19:00Z",
+  "written_at": "2026-10-30T22:19:00Z",
   "by": "Claude",
-  "headline": "Trojanized Claude Code extension hit thousands of devices; record $6.3B Binance theft and exploited GitLab and Cisco flaws stay on the board",
+  "headline": "Critical Linux kernel MPTCP remote-root flaw; trojanized Claude Code extension and record $6.3B Binance theft stay on the board",
   "bullets": [
     {
-      "text": "New: WIRED reports the supply-chain attack that trojanized the Claude Code extension on the Cursor Marketplace reached thousands of developer devices. The extension planted persistent SSH backdoors.",
+      "text": "New: BleepingComputer reports a critical Linux kernel flaw that allows remote root attacks on servers using MPTCP (Multipath TCP).",
+      "url": "https://www.bleepingcomputer.com/news/security/critical-linux-kernel-flaw-allows-remote-root-attacks-on-mptcp-servers/"
+    },
+    {
+      "text": "WIRED reports the supply-chain attack that trojanized the Claude Code extension on the Cursor Marketplace reached thousands of developer devices. The extension planted persistent SSH backdoors.",
       "url": "https://www.wired.com/story/trojan-malware-targets-thousands-of-anthropic-claude-developer-systems/"
     },
     {
@@ -22,18 +26,14 @@
     {
       "text": "China-linked attackers used VMware ESX zero-day CVE-2026-41709 and chained PHP2Shell and Fragnesia to root Palo Alto firewalls.",
       "url": "https://www.helpnetsecurity.com/2026/10/29/php2shell-fragnesia-vmware-esx-zero-day/"
-    },
-    {
-      "text": "Florida says Social Security numbers of 4.9 million people leaked in a financial aid site breach.",
-      "url": "https://therecord.media/florida-warns-5-million-affected-financial-aid-site-breach"
     }
   ],
   "actions": [
+    "Inventory Linux servers with MPTCP enabled and apply your distribution's kernel fix for the MPTCP remote-root flaw as soon as it ships.",
     "If developers use the Claude Code extension in Cursor, check it against the vendor advisory and look for unexpected SSH keys or services.",
     "Patch self-managed GitLab CE/EE for CVE-2026-97229 and Cisco ASA/FTD for CVE-2026-76418 before 2026-11-01.",
     "Patch Ivanti Connect Secure for the two flaws CISA added to KEV on 2026-10-30 (due 2026-11-02 and 2026-11-13) and review appliance logs.",
     "Patch Cisco SD-WAN for CVE-2026-20127 and hunt for KeyDrift malware; patch VMware ESX for CVE-2026-41709.",
-    "Apply Linux kernel fixes for CVE-2026-46300 (KEV due 2026-10-31) and patch Drupal Commerce for CVE-2026-118539.",
-    "Review what single developer or DevOps laptops can reach in production; Binance traced its theft to one compromised DevOps laptop."
+    "Apply Linux kernel fixes for CVE-2026-46300 (KEV due 2026-10-31) and patch Drupal Commerce for CVE-2026-118539."
   ]
 }
