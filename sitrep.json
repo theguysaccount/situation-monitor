@@ -1,15 +1,11 @@
 {
-  "written_at": "2026-10-30T05:32:00Z",
+  "written_at": "2026-10-30T08:19:00Z",
   "by": "Claude",
-  "headline": "Binance breach now put at $6.3B with ~$3B frozen; GitLab and Cisco ASA/FTD KEV deadlines Nov 1; Volt Typhoon hits Cisco SD-WAN",
+  "headline": "CISA confirms GitLab RCE and Cisco ASA/FTD as exploited (due Nov 1); Volt Typhoon hits Cisco SD-WAN; Binance breach put at $6.3B",
   "bullets": [
     {
-      "text": "New: The Hacker News reports the Binance security breach affected $6.3 billion in assets, with nearly $3 billion frozen; withdrawals had been paused. Separately, Polymarket halted trading after a crypto-draining script breach with $2.5M traced.",
-      "url": "https://thehackernews.com/2026/10/binance-suffers-security-breach.html"
-    },
-    {
-      "text": "CISA KEV deadlines on 2026-11-01: GitLab CE/EE CVE-2026-97229 (CVSS 10.0; an attacker already tried it against Alpine Linux's GitLab) and Cisco ASA/FTD CVE-2026-76418, exploited to crash SSL VPN devices.",
-      "url": "https://thehackernews.com/2026/10/attacker-tried-to-exploit-alpine-linuxs.html"
+      "text": "New: CISA added actively exploited GitLab CE/EE RCE CVE-2026-97229 (CVSS 10.0) and Cisco ASA/FTD VPN DoS CVE-2026-76418 to KEV, both with a federal due date of 2026-11-01. An attacker already tried the GitLab flaw against Alpine Linux's instance.",
+      "url": "https://thehackernews.com/2026/10/cisa-adds-actively-exploited-gitlab-rce.html"
     },
     {
       "text": "Attackers are exploiting Cisco SD-WAN flaw CVE-2026-20127 to deploy custom KeyDrift malware; the activity is tied to Volt Typhoon's 'Silent Train' network, used in four zero-day campaigns.",
@@ -17,14 +13,18 @@
     },
     {
       "text": "China-linked attackers used VMware ESX zero-day CVE-2026-41709 to reduce audit trail visibility; PHP2Shell and Fragnesia were chained to root firewalls, and The Record reports limited successful PHP2Shell exploitation.",
-      "url": "https://therecord.media/php2shell-successful-exploitation-reports-emerge"
+      "url": "https://www.helpnetsecurity.com/2026/10/29/php2shell-fragnesia-vmware-esx-zero-day/"
     },
     {
       "text": "Exploitation attempts have begun against Oracle E-Business Suite RCE CVE-2026-101767, days after Oracle patched it. Attackers also turned GitHub issues into a supply-chain campaign against 61 public repos in under an hour.",
       "url": "https://www.helpnetsecurity.com/2026/10/29/oracle-e-business-suite-cve-2026-101767-exploitation/"
     },
     {
-      "text": "Breaches: iRhythm toll put at 8.2 million in an HHS filing; Sony's ISP So-net lost 2.6 million records; Florida's education department says 4.9 million may be affected; UNM Health is restoring systems after a ransomware claim.",
+      "text": "The Binance breach is now put at $6.3 billion in affected assets, with nearly $3 billion frozen and withdrawals paused. Polymarket halted trading after a crypto-draining script breach with $2.5M traced.",
+      "url": "https://thehackernews.com/2026/10/binance-suffers-security-breach.html"
+    },
+    {
+      "text": "Breaches: iRhythm toll put at 8.2 million; Florida's education department says 4.9 million may be affected; hacktivists leaked records on 41,000 DHS staff; Belgium's tax agency pulled services offline after a cyberattack; UNM Health is restoring systems.",
       "url": "https://www.securityweek.com/hhs-filing-puts-irhythm-data-breach-toll-at-8-2-million/"
     }
   ],
