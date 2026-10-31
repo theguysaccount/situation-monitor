@@ -1,19 +1,19 @@
 {
-  "written_at": "2026-10-31T12:19:00Z",
+  "written_at": "2026-10-31T18:19:00Z",
   "by": "Claude",
-  "headline": "Chainalysis confirms intrusion exposing customer identity data; Linux kernel KEV due today, GitLab and Cisco ASA due tomorrow",
+  "headline": "Northflank breach led to abuse of customers' AI API keys; Linux kernel KEV due today, GitLab and Cisco ASA due tomorrow",
   "bullets": [
     {
-      "text": "New: Chainalysis confirms an intrusion into its internal tools that exposed customer identity data.",
-      "url": "https://thehackernews.com/2026/10/chainalysis-confirms-intrusion-into.html"
+      "text": "New: a Northflank security breach has led to abuse of customers' AI API keys.",
+      "url": "https://www.bleepingcomputer.com/news/security/northflank-security-breach-leads-to-abuse-of-customers-ai-api-keys/"
     },
     {
-      "text": "Exploited now: GitLab CE/EE CVE-2026-97229 and Cisco ASA/FTD CVE-2026-76418 are in CISA KEV with a 2026-11-01 due date; the Linux kernel flaw CVE-2026-46300 is due today, 2026-10-31.",
+      "text": "Exploited now: the Linux kernel flaw CVE-2026-46300 is due in CISA KEV today, 2026-10-31; GitLab CE/EE CVE-2026-97229 and Cisco ASA/FTD CVE-2026-76418 are due 2026-11-01. Two Ivanti Connect Secure flaws added 2026-10-30 are due 2026-11-02 and 2026-11-13.",
       "url": "https://thehackernews.com/2026/10/cisa-adds-actively-exploited-gitlab-rce.html"
     },
     {
-      "text": "Palo Alto Networks firewalls are being compromised in chained attacks using PHP2Shell; Help Net Security ties the activity to Chinese hackers who also used a VMware ESX zero-day.",
-      "url": "https://www.cybersecuritydive.com/news/palo-alto-networks-firewalls-compromised-chained-attacks-php2shell/873323/"
+      "text": "Drupal warns that a critical Commerce Core authorization bypass, CVE-2026-118539, is being exploited in attacks.",
+      "url": "https://thehackernews.com/2026/10/hackers-actively-exploit-highly.html"
     },
     {
       "text": "The official Claude Code extension on the Cursor Marketplace was trojanized with a persistent SSH backdoor; WIRED reports it reached thousands of developer devices.",
@@ -24,15 +24,15 @@
       "url": "https://thehackernews.com/2026/10/binance-suffers-security-breach.html"
     },
     {
-      "text": "Breaches: Florida says 4.9 million people had SSNs leaked from its financial aid site, and more than $2 million was drained from Polymarket traders via a third-party supply-chain attack.",
-      "url": "https://therecord.media/florida-warns-5-million-affected-financial-aid-site-breach"
+      "text": "Breaches: Chainalysis confirms an intrusion into its internal tools that exposed customer identity data; Florida says 4.9 million people had SSNs leaked from its financial aid site.",
+      "url": "https://thehackernews.com/2026/10/chainalysis-confirms-intrusion-into.html"
     }
   ],
   "actions": [
-    "Apply Linux kernel fixes for CVE-2026-46300 today (KEV due 2026-10-31) and your distribution's fix for the MPTCP remote-root flaw.",
-    "Patch self-managed GitLab CE/EE for CVE-2026-97229 and Cisco ASA/FTD for CVE-2026-76418 before the 2026-11-01 KEV deadline.",
+    "If you store AI provider API keys in Northflank, rotate them now and review provider usage and billing for abuse.",
+    "Apply Linux kernel fixes for CVE-2026-46300 today, and patch GitLab CE/EE (CVE-2026-97229) and Cisco ASA/FTD (CVE-2026-76418) by 2026-11-01.",
     "Patch the two Ivanti Connect Secure flaws CISA added to KEV on 2026-10-30 (due 2026-11-02 and 2026-11-13).",
-    "If you are a Chainalysis customer, watch for its notice and expect phishing that uses your identity data.",
+    "Update Drupal Commerce Core for CVE-2026-118539 and check sites for unauthorized access.",
     "Check Palo Alto firewalls for signs of the PHP2Shell chained compromise, and patch VMware ESX for CVE-2026-41709.",
     "If developers use the Claude Code extension in Cursor, check it against the vendor advisory and look for unexpected SSH keys or services."
   ]
