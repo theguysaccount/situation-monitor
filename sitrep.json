@@ -1,8 +1,12 @@
 {
-  "written_at": "2026-10-31T11:21:00Z",
+  "written_at": "2026-10-31T12:19:00Z",
   "by": "Claude",
-  "headline": "Linux kernel KEV deadline is today and GitLab/Cisco ASA due tomorrow; Palo Alto PHP2Shell chain and Claude Code extension backdoor remain active",
+  "headline": "Chainalysis confirms intrusion exposing customer identity data; Linux kernel KEV due today, GitLab and Cisco ASA due tomorrow",
   "bullets": [
+    {
+      "text": "New: Chainalysis confirms an intrusion into its internal tools that exposed customer identity data.",
+      "url": "https://thehackernews.com/2026/10/chainalysis-confirms-intrusion-into.html"
+    },
     {
       "text": "Exploited now: GitLab CE/EE CVE-2026-97229 and Cisco ASA/FTD CVE-2026-76418 are in CISA KEV with a 2026-11-01 due date; the Linux kernel flaw CVE-2026-46300 is due today, 2026-10-31.",
       "url": "https://thehackernews.com/2026/10/cisa-adds-actively-exploited-gitlab-rce.html"
@@ -10,10 +14,6 @@
     {
       "text": "Palo Alto Networks firewalls are being compromised in chained attacks using PHP2Shell; Help Net Security ties the activity to Chinese hackers who also used a VMware ESX zero-day.",
       "url": "https://www.cybersecuritydive.com/news/palo-alto-networks-firewalls-compromised-chained-attacks-php2shell/873323/"
-    },
-    {
-      "text": "A critical Linux kernel flaw allows remote root attacks on servers using MPTCP (Multipath TCP).",
-      "url": "https://www.bleepingcomputer.com/news/security/critical-linux-kernel-flaw-allows-remote-root-attacks-on-mptcp-servers/"
     },
     {
       "text": "The official Claude Code extension on the Cursor Marketplace was trojanized with a persistent SSH backdoor; WIRED reports it reached thousands of developer devices.",
@@ -32,8 +32,8 @@
     "Apply Linux kernel fixes for CVE-2026-46300 today (KEV due 2026-10-31) and your distribution's fix for the MPTCP remote-root flaw.",
     "Patch self-managed GitLab CE/EE for CVE-2026-97229 and Cisco ASA/FTD for CVE-2026-76418 before the 2026-11-01 KEV deadline.",
     "Patch the two Ivanti Connect Secure flaws CISA added to KEV on 2026-10-30 (due 2026-11-02 and 2026-11-13).",
+    "If you are a Chainalysis customer, watch for its notice and expect phishing that uses your identity data.",
     "Check Palo Alto firewalls for signs of the PHP2Shell chained compromise, and patch VMware ESX for CVE-2026-41709.",
-    "If developers use the Claude Code extension in Cursor, check it against the vendor advisory and look for unexpected SSH keys or services.",
-    "Patch Drupal Commerce for CVE-2026-118539 and Cisco SD-WAN for CVE-2026-20127, and hunt for KeyDrift malware."
+    "If developers use the Claude Code extension in Cursor, check it against the vendor advisory and look for unexpected SSH keys or services."
   ]
 }
