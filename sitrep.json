@@ -1,11 +1,11 @@
 {
-  "written_at": "2026-11-01T14:19:04Z",
+  "written_at": "2026-11-01T15:19:03Z",
   "by": "Claude",
-  "headline": "Ivanti KEV deadline tomorrow; CVSS 10.0 LXD and MicroCloud flaw; FBI ties $6.43B Binance heist to TraderTraitor",
+  "headline": "Alpine Linux rebuilds GitLab after RCE attempt; Ivanti KEV deadline tomorrow; CVSS 10.0 LXD and MicroCloud flaw",
   "bullets": [
     {
-      "text": "New since the last SITREP: hackers stole about $2.7 million from Polymarket traders through a hijacked DebugBear script.",
-      "url": "https://thehackernews.com/2026/11/hackers-steal-about-27-million-from.html"
+      "text": "New since the last SITREP: Alpine Linux rebuilt its GitLab after an attempted RCE attack. CISA lists the max-severity GitLab CE/EE flaw CVE-2026-97229 as exploited, with a KEV due date of today, 2026-11-01. The Cisco ASA/FTD flaw CVE-2026-76418 is due today as well.",
+      "url": "https://www.bleepingcomputer.com/news/security/alpine-linux-rebuilds-gitlab-after-attempted-rce-attack/"
     },
     {
       "text": "Attackers are chaining three Ivanti Connect Secure flaws (CVE-2026-104935, CVE-2026-111357, CVE-2026-118527) to gain unauthenticated root access. The first CISA KEV due date for Ivanti Connect Secure is tomorrow, 2026-11-02; the second is 2026-11-13.",
@@ -16,8 +16,8 @@
       "url": "https://thehackernews.com/2026/11/critical-lxd-and-microcloud-flaw-cvss.html"
     },
     {
-      "text": "KEV due dates for the exploited GitLab CE/EE flaw CVE-2026-97229 and the Cisco ASA/FTD flaw CVE-2026-76418 fall today, 2026-11-01. Treat any unpatched instances as overdue.",
-      "url": "https://thehackernews.com/2026/10/cisa-adds-actively-exploited-gitlab-rce.html"
+      "text": "Hackers stole about $2.7 million from Polymarket traders through a hijacked DebugBear script.",
+      "url": "https://thehackernews.com/2026/11/hackers-steal-about-27-million-from.html"
     },
     {
       "text": "The FBI has linked North Korea's TraderTraitor group to the record Binance crypto heist, now put at $6.43 billion. Binance earlier tied the theft to a compromised DevOps laptop.",
@@ -29,9 +29,9 @@
     }
   ],
   "actions": [
+    "If GitLab CE/EE (CVE-2026-97229) or Cisco ASA/FTD (CVE-2026-76418) are still unpatched, patch now; both KEV due dates are today.",
     "Patch Ivanti Connect Secure before the 2026-11-02 KEV deadline and check appliances for signs of the chained root compromise.",
     "Find any LXD and MicroCloud deployments, check the vendor advisory for the CVSS 10.0 flaw, and patch them.",
-    "If GitLab CE/EE (CVE-2026-97229) or Cisco ASA/FTD (CVE-2026-76418) are still unpatched, treat them as overdue and patch now.",
     "Update Drupal Commerce Core for the actively exploited CVE-2026-118539 and check sites for unauthorized access.",
     "If developers use the Claude Code extension in Cursor, check it against the vendor advisory and look for unexpected SSH keys or services.",
     "If you store AI provider API keys in Northflank, rotate them and review provider usage and billing for abuse."
