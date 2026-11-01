@@ -1,15 +1,19 @@
 {
-  "written_at": "2026-11-01T00:21:00Z",
+  "written_at": "2026-11-01T07:21:00Z",
   "by": "Claude",
-  "headline": "Level eases to SITCON 3; attackers chain Ivanti Connect Secure flaws for root, GitLab and Cisco ASA KEV fixes due today",
+  "headline": "Ivanti Connect Secure KEV deadline is tomorrow; GitLab and Cisco ASA deadlines passed today; Chainalysis and Northflank breaches",
   "bullets": [
     {
-      "text": "New: attackers are chaining three Ivanti Connect Secure flaws (CVE-2026-104935, CVE-2026-111357, CVE-2026-118527) to gain unauthenticated root access. CISA added Ivanti Connect Secure flaws to KEV on 2026-10-30, due 2026-11-02 and 2026-11-13.",
+      "text": "Attackers are chaining three Ivanti Connect Secure flaws (CVE-2026-104935, CVE-2026-111357, CVE-2026-118527) to gain unauthenticated root access. The first CISA KEV due date for Ivanti Connect Secure is tomorrow, 2026-11-02; the second is 2026-11-13.",
       "url": "https://thehackernews.com/2026/10/attackers-chain-three-ivanti-connect.html"
     },
     {
-      "text": "Due today, 2026-11-01, in CISA KEV: the exploited GitLab CE/EE flaw CVE-2026-97229 and the Cisco ASA/FTD flaw CVE-2026-76418, which is being used to crash SSL VPN devices.",
+      "text": "KEV due dates for the exploited GitLab CE/EE flaw CVE-2026-97229 and the Cisco ASA/FTD flaw CVE-2026-76418 (used to crash SSL VPN devices) fell today, 2026-11-01. Unpatched instances are now overdue.",
       "url": "https://thehackernews.com/2026/10/cisa-adds-actively-exploited-gitlab-rce.html"
+    },
+    {
+      "text": "New since the last SITREP: Chainalysis confirmed an intrusion into internal tools that exposed customer identity data.",
+      "url": "https://thehackernews.com/2026/10/chainalysis-confirms-intrusion-into.html"
     },
     {
       "text": "A Northflank security breach has led to abuse of customers' AI API keys.",
@@ -22,18 +26,14 @@
     {
       "text": "North Korea-linked hackers are blamed for the record $6.3 billion Binance theft, which Binance links to a compromised DevOps laptop; nearly $3 billion has been frozen.",
       "url": "https://thehackernews.com/2026/10/binance-suffers-security-breach.html"
-    },
-    {
-      "text": "Drupal Commerce Core authorization bypass CVE-2026-118539 remains under active exploitation.",
-      "url": "https://thehackernews.com/2026/10/hackers-actively-exploit-highly.html"
     }
   ],
   "actions": [
-    "Patch Ivanti Connect Secure now and check appliances for signs of the chained root compromise; the first KEV deadline is 2026-11-02.",
-    "Patch GitLab CE/EE for CVE-2026-97229 and Cisco ASA/FTD for CVE-2026-76418 today.",
+    "Patch Ivanti Connect Secure before the 2026-11-02 KEV deadline and check appliances for signs of the chained root compromise.",
+    "If GitLab CE/EE (CVE-2026-97229) or Cisco ASA/FTD (CVE-2026-76418) are still unpatched, treat them as overdue and patch now.",
     "If you store AI provider API keys in Northflank, rotate them and review provider usage and billing for abuse.",
+    "If you are a Chainalysis customer, watch for its notification and be alert to phishing that uses exposed identity data.",
     "If developers use the Claude Code extension in Cursor, check it against the vendor advisory and look for unexpected SSH keys or services.",
-    "Update Drupal Commerce Core for CVE-2026-118539 and check sites for unauthorized access.",
-    "Confirm Linux kernel fixes for CVE-2026-46300 are deployed; its KEV due date passed on 2026-10-31."
+    "Update Drupal Commerce Core for the actively exploited CVE-2026-118539 and check sites for unauthorized access."
   ]
 }
