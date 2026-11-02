@@ -1,8 +1,12 @@
 {
-  "written_at": "2026-11-02T03:19:27Z",
+  "written_at": "2026-11-02T06:19:22Z",
   "by": "Claude",
-  "headline": "Ivanti KEV deadline is today; GitLab and Cisco deadlines have passed; FBI ties record Binance heist to North Korea",
+  "headline": "New VOLTA infostealer ranks victims with AI; Ivanti KEV deadline is today; FBI ties record Binance heist to North Korea",
   "bullets": [
+    {
+      "text": "New since the last SITREP: The Hacker News reports a VOLTA infostealer that uses Claude, Gemini and Kimi AI to rank victims by financial value.",
+      "url": "https://thehackernews.com/2026/11/new-volta-infostealer-uses-claude.html"
+    },
     {
       "text": "The first CISA KEV due date for Ivanti Connect Secure is today, 2026-11-02; the second is 2026-11-13. Attackers are chaining three flaws (CVE-2026-104935, CVE-2026-111357, CVE-2026-118527) to gain unauthenticated root access.",
       "url": "https://thehackernews.com/2026/10/attackers-chain-three-ivanti-connect.html"
@@ -18,10 +22,6 @@
     {
       "text": "A CVSS 10.0 flaw in LXD and MicroCloud lets attackers impersonate trusted clients without a private key.",
       "url": "https://thehackernews.com/2026/11/critical-lxd-and-microcloud-flaw-cvss.html"
-    },
-    {
-      "text": "Hackers stole about $2.7 million from Polymarket traders through a hijacked DebugBear script.",
-      "url": "https://thehackernews.com/2026/11/hackers-steal-about-27-million-from.html"
     },
     {
       "text": "The official Claude Code extension on the Cursor Marketplace was trojanized with a persistent SSH backdoor; WIRED reports malicious Claude extensions reached thousands of devices.",
