@@ -1,26 +1,26 @@
 {
-  "written_at": "2026-11-02T15:19:28Z",
+  "written_at": "2026-11-02T20:19:27Z",
   "by": "Claude",
-  "headline": "VOLTA infostealer uses AI to rank victims as GitLab RCE attacks continue; FBI ties $6.3B Binance heist to North Korea",
+  "headline": "Ransomware gang claims Michigan State incident; Germany flags spyware on lawmakers' iPhones; GitLab RCE attacks continue",
   "bullets": [
     {
-      "text": "New since the last SITREP: SITCON moved from 4 to 3. The Hacker News reports a new infostealer, VOLTA, that uses Claude, Gemini and Kimi AI to rank victims by financial value.",
-      "url": "https://thehackernews.com/2026/11/new-volta-infostealer-uses-claude.html"
+      "text": "New: The Record reports the ransomware gang behind a recent hospital attack has claimed a cyber incident at Michigan State.",
+      "url": "https://therecord.media/michigan-state-university-byod-gang-cyber-incident"
     },
     {
-      "text": "BleepingComputer reports over 1,000 GitLab servers are vulnerable to ongoing RCE attacks. CISA KEV lists the max-severity GitLab CE/EE flaw CVE-2026-97229, whose due date passed on 2026-11-01. Alpine Linux rebuilt its GitLab after an attempted RCE attack.",
+      "text": "New: TechCrunch reports Germany says lawmakers' iPhones may have been hacked with spyware.",
+      "url": "https://techcrunch.com/2026/11/02/germany-says-lawmakers-iphones-may-have-been-hacked-with-spyware/"
+    },
+    {
+      "text": "BleepingComputer reports over 1,000 GitLab servers are vulnerable to ongoing RCE attacks. CISA KEV lists GitLab CE/EE flaw CVE-2026-97229, whose federal due date passed on 2026-11-01. Alpine Linux rebuilt its GitLab after an attempted RCE attack.",
       "url": "https://www.bleepingcomputer.com/news/security/over-1-000-gitlab-servers-vulnerable-to-code-execution-attacks/"
     },
     {
-      "text": "Ivanti patched two more Connect Secure zero-days chained in attacks, CVE-2026-111357 and CVE-2026-118527. CISA KEV lists CVE-2026-104935 in the same product, with federal due dates of today, 2026-11-02, and 2026-11-13.",
+      "text": "Connect Secure, 4 outlets: Ivanti patched two more zero-days chained in attacks, CVE-2026-111357 and CVE-2026-118527. CISA KEV lists CVE-2026-104935 in the same product, with federal due dates of today, 2026-11-02, and 2026-11-13.",
       "url": "https://www.bleepingcomputer.com/news/security/ivanti-patches-two-more-connect-secure-zero-days-chained-in-attacks/"
     },
     {
-      "text": "The Hacker News reports critical Langflow flaws that could let unauthenticated attackers run code on servers.",
-      "url": "https://thehackernews.com/2026/11/critical-langflow-flaws-could-let.html"
-    },
-    {
-      "text": "Claude, 6 outlets: SecurityWeek reports a malicious Claude Code extension served in a Cursor supply chain attack. BleepingComputer says it planted SSH backdoors; WIRED says malicious Claude extensions reached thousands of devices.",
+      "text": "Claude, 4 outlets: SecurityWeek reports a malicious Claude Code extension served in a Cursor supply chain attack. BleepingComputer says it planted SSH backdoors. Separately, The Hacker News reports the VOLTA infostealer uses Claude, Gemini and Kimi AI to rank victims by financial value.",
       "url": "https://www.securityweek.com/malicious-claude-code-extension-served-in-cursor-supply-chain-attack/"
     },
     {
