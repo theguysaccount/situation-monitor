@@ -1,22 +1,22 @@
 {
-  "written_at": "2026-11-03T11:01:00Z",
+  "written_at": "2026-11-03T12:21:00Z",
   "by": "Claude",
-  "headline": "Siemens IoT2050 flaw exploited to plant backdoors; Synology NAS hit by ransomware; Harvard breach exposes about 851,000 accounts",
+  "headline": "Critical Node-RED flaw exploited in attacks; Siemens IoT2050 backdoors and Synology NAS ransomware remain active",
   "bullets": [
     {
-      "text": "New: The Hacker News reports attackers are exploiting a critical Siemens IoT2050 flaw, CVE-2026-58115, to plant remote command backdoors.",
+      "text": "New: SecurityWeek reports a critical Node-RED flaw is being exploited in attacks.",
+      "url": "https://www.securityweek.com/critical-node-red-flaw-exploited-in-attacks/"
+    },
+    {
+      "text": "The Hacker News reports attackers are exploiting a critical Siemens IoT2050 flaw, CVE-2026-58115, to plant remote command backdoors.",
       "url": "https://thehackernews.com/2026/11/attackers-exploit-critical-siemens.html"
     },
     {
-      "text": "New: The Hacker News reports ransomware attacks on Synology NAS devices exploiting a patched DSM flaw. It also reports attackers targeting an unpatched CryptoPayment Gateway flaw, CVE-2026-81648, that can expose wallet credentials.",
+      "text": "The Hacker News reports ransomware attacks on Synology NAS devices exploiting a patched DSM flaw.",
       "url": "https://thehackernews.com/2026/11/synology-nas-devices-targeted-in.html"
     },
     {
-      "text": "New: BleepingComputer reports the Harvard University breach exposed information on 851,000 accounts; Have I Been Pwned added 850,537. The Hacker News reports a new wave of refrigeration cyberattacks on European supermarkets, forcing stores to pull food.",
-      "url": "https://www.bleepingcomputer.com/news/security/harvard-university-data-breach-exposed-info-of-851-000-accounts/"
-    },
-    {
-      "text": "Binance, 7 outlets: The Register reports the FBI pins the $6.3B heist on North Korean hackers; SecurityWeek says the FBI flagged over 600 addresses.",
+      "text": "Binance, 7 outlets: The Register reports the FBI pins the $6.3B heist on North Korean hackers. SecurityWeek says the FBI flagged over 600 addresses tied to it.",
       "url": "https://www.theregister.com/security/2026/11/02/fbi-pins-63b-binance-crypto-heist-on-north-korean-hackers/5306889"
     },
     {
@@ -29,11 +29,11 @@
     }
   ],
   "actions": [
+    "Find Node-RED instances, check vendor guidance on the exploited flaw, patch, and take any internet-exposed ones offline until you have.",
     "Find Siemens IoT2050 devices, check Siemens guidance on CVE-2026-58115, patch, and look for backdoors. Isolate any you cannot patch yet.",
     "Update DSM on Synology NAS devices, restrict their internet exposure, and confirm backups are intact.",
     "Patch GitLab CE/EE (CVE-2026-97229) and Cisco ASA/FTD (CVE-2026-76418) now; both KEV due dates have passed. Check GitLab servers for signs of RCE.",
     "Apply Ivanti's latest Connect Secure patches, covering CVE-2026-111357 and CVE-2026-118527, and check appliances for compromise.",
-    "If you run CryptoPayment Gateway, restrict access until CVE-2026-81648 is fixed and rotate wallet credentials if you suspect exposure.",
-    "If you handle crypto transactions, screen against the addresses the FBI flagged for the Binance heist, and warn staff about Binance-themed scams."
+    "If you handle crypto transactions, screen against the addresses the FBI flagged for the Binance heist."
   ]
 }
