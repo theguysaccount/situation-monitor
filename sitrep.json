@@ -1,10 +1,14 @@
 {
-  "written_at": "2026-11-03T19:11:15Z",
+  "written_at": "2026-11-03T22:08:33Z",
   "by": "Claude",
-  "headline": "mSecure tells users to change passwords without saying why; Barracuda root-access flaws; Node-RED exploitation continues",
+  "headline": "Chainstack production breach exposes password hashes; mSecure password-change notice; Node-RED exploitation continues",
   "bullets": [
     {
-      "text": "New: The Register reports password manager mSecure is telling users to change their passwords and won't say why.",
+      "text": "New: The Hacker News reports Chainstack disclosed a breach of its production systems that exposed customer data and password hashes.",
+      "url": "https://thehackernews.com/2026/11/chainstack-reports-production-systems.html"
+    },
+    {
+      "text": "Still active: The Register reports password manager mSecure is telling users to change their passwords and won't say why.",
       "url": "https://www.theregister.com/security/2026/11/03/password-manager-msecure-tells-users-to-change-passwords-wont-say-why/5307296"
     },
     {
@@ -20,20 +24,16 @@
       "url": "https://www.bleepingcomputer.com/news/security/ivanti-patches-two-more-connect-secure-zero-days-chained-in-attacks/"
     },
     {
-      "text": "Binance, 7 outlets: The Register reports the FBI pins the $6.3B heist on North Korean hackers.",
+      "text": "Binance, 8 outlets: The Register reports the FBI pins the $6.3B heist on North Korean hackers.",
       "url": "https://www.theregister.com/security/2026/11/02/fbi-pins-63b-binance-crypto-heist-on-north-korean-hackers/5306889"
-    },
-    {
-      "text": "Breaches still active: SecurityWeek reports a Frontline Education data breach affecting over 1.3 million people. Harvard's breach, with 850,537 accounts added to Have I Been Pwned, also remains on the board.",
-      "url": "https://www.securityweek.com/frontline-education-data-breach-impacts-over-1-3-million/"
     }
   ],
   "actions": [
+    "If you use Chainstack, change your account password and follow the vendor's breach notice.",
     "If you use mSecure, change the passwords stored in it and watch for a vendor explanation.",
     "Inventory Barracuda devices, check the vendor's advisory for the critical root-access flaws, and apply its fixes.",
     "Find Node-RED instances and Siemens IoT2050 devices, patch CVE-2026-58115 per vendor guidance, and look for backdoors.",
-    "Patch GitLab CE/EE (CVE-2026-97229) and Cisco ASA/FTD (CVE-2026-76418) now; both KEV due dates have passed.",
     "Apply Ivanti's latest Connect Secure patches, covering CVE-2026-111357 and CVE-2026-118527, and check appliances for compromise.",
-    "Update DSM on Synology NAS devices, restrict their internet exposure, and confirm backups are intact."
+    "Patch GitLab CE/EE (CVE-2026-97229) and Cisco ASA/FTD (CVE-2026-76418) now; both KEV due dates have passed."
   ]
 }
