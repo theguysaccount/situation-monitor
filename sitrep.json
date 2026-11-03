@@ -1,10 +1,14 @@
 {
-  "written_at": "2026-11-03T22:08:33Z",
+  "written_at": "2026-11-03T23:12:16Z",
   "by": "Claude",
-  "headline": "Chainstack production breach exposes password hashes; mSecure password-change notice; Node-RED exploitation continues",
+  "headline": "Researchers flagged North Korean tactics before $6.3B Binance heist; Chainstack breach exposes hashes; Node-RED flaw exploited",
   "bullets": [
     {
-      "text": "New: The Hacker News reports Chainstack disclosed a breach of its production systems that exposed customer data and password hashes.",
+      "text": "New: TechCrunch reports researchers warned of North Korean hacking tactics years before the record $6.3B Binance heist. The story now spans 9 outlets, and The Register reports the FBI pins the heist on North Korean hackers.",
+      "url": "https://techcrunch.com/2026/11/03/researchers-warned-of-north-korean-hacking-tactics-years-before-record-6-3b-binance-heist/"
+    },
+    {
+      "text": "Still active: The Hacker News reports Chainstack disclosed a breach of its production systems that exposed customer data and password hashes.",
       "url": "https://thehackernews.com/2026/11/chainstack-reports-production-systems.html"
     },
     {
@@ -22,10 +26,6 @@
     {
       "text": "Connect Secure, 4 outlets: Ivanti patched two more zero-days chained in attacks, CVE-2026-111357 and CVE-2026-118527. CISA KEV lists CVE-2026-104935 in the same product, with federal due dates of 2026-11-02 and 2026-11-13.",
       "url": "https://www.bleepingcomputer.com/news/security/ivanti-patches-two-more-connect-secure-zero-days-chained-in-attacks/"
-    },
-    {
-      "text": "Binance, 8 outlets: The Register reports the FBI pins the $6.3B heist on North Korean hackers.",
-      "url": "https://www.theregister.com/security/2026/11/02/fbi-pins-63b-binance-crypto-heist-on-north-korean-hackers/5306889"
     }
   ],
   "actions": [
