@@ -1,10 +1,14 @@
 {
- "written_at": "2026-11-04T20:17:00Z",
+ "written_at": "2026-11-04T21:09:00Z",
  "by": "Claude",
- "headline": "NIKKE PC game launcher hacked to spread malware; mSecure reset warnings and APT29 mobile exploits stay on top",
+ "headline": "Debian and Ubuntu APT flaw allows root code execution via MitM; NIKKE launcher hack and mSecure reset warnings stay active",
  "bullets": [
   {
-   "text": "New, critical: BleepingComputer reports the NIKKE PC game launcher was hacked to spread remote access and data-stealing malware.",
+   "text": "New, high: The Hacker News reports a flaw in APT on Debian and Ubuntu lets man-in-the-middle attackers swap verified packages and run code as root.",
+   "url": "https://thehackernews.com/2026/11/debian-and-ubuntu-apt-flaw-lets-mitm.html"
+  },
+  {
+   "text": "Still active, critical: BleepingComputer reports the NIKKE PC game launcher was hacked to spread remote access and data-stealing malware.",
    "url": "https://www.bleepingcomputer.com/news/security/nikke-pc-game-launcher-hacked-to-spread-remote-access-data-stealing-malware/"
   },
   {
@@ -12,28 +16,24 @@
    "url": "https://www.bleepingcomputer.com/news/security/msecure-password-manager-hack-prompts-password-reset-warnings/"
   },
   {
-   "text": "Still active, critical: The Hacker News reports APT29-linked hackers hijacked a web analytics script to deliver iOS and Android exploits. BleepingComputer and Help Net Security describe the exploits as n-day, and BleepingComputer calls the attacks zero-click.",
+   "text": "Still active, critical: The Hacker News reports APT29-linked hackers hijacked a web analytics script to deliver iOS and Android exploits. Help Net Security describes the exploits as n-day.",
    "url": "https://thehackernews.com/2026/11/apt29-linked-hackers-hijack-web.html"
   },
   {
-   "text": "Still active, cPGuard, 4 outlets: SecurityWeek reports malicious updates served in an OpsShield supply chain attack. Help Net Security says the poisoned update hit thousands of web hosting servers, and BleepingComputer says it deployed a backdoor and stole data.",
+   "text": "Still active, cPGuard, 4 outlets: SecurityWeek reports malicious updates served in an OpsShield supply chain attack. BleepingComputer says the hijacked autoupdate deployed a backdoor and stole data.",
    "url": "https://www.securityweek.com/malicious-cpguard-updates-served-in-opsshield-supply-chain-attack/"
   },
   {
    "text": "Still active, WordPress Core, 3 outlets: BleepingComputer reports CISA flags a WordPress RCE flaw as actively exploited. CISA KEV lists CVE-2026-119977, a race condition added 2026-11-03, with a federal due date of 2026-11-06.",
    "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-wordpress-rce-flaw-as-actively-exploited-in-attacks/"
-  },
-  {
-   "text": "Still active, Connect Secure, 4 outlets: Ivanti patched two more zero-days chained in attacks, CVE-2026-111357 and CVE-2026-118527. CISA KEV lists CVE-2026-104935 in the same product, with federal due dates of 2026-11-02 and 2026-11-13.",
-   "url": "https://www.bleepingcomputer.com/news/security/ivanti-patches-two-more-connect-secure-zero-days-chained-in-attacks/"
   }
  ],
  "actions": [
-  "If the NIKKE PC launcher is on any machine you manage, check that machine for remote access and data-stealing malware and rotate credentials used on it.",
+  "Check Debian and Ubuntu advisories for the APT flaw and apply fixed packages on your hosts and images as soon as they are available.",
+  "If the NIKKE PC launcher is on any machine you manage, check it for remote access and data-stealing malware and rotate credentials used on it.",
   "If you or your staff use mSecure, change the master password and rotate the credentials stored in it, starting with the most sensitive.",
   "Update managed iOS and Android devices to current releases, and apply Google's patch for CVE-2026-58868 as it reaches your fleet.",
   "If you run cPGuard, check servers for the backdoor reported by BleepingComputer and treat data on affected hosts as exposed.",
-  "Update WordPress Core for CVE-2026-119977 per vendor guidance; the KEV federal due date is 2026-11-06.",
-  "Apply Ivanti's latest Connect Secure patches, covering CVE-2026-111357 and CVE-2026-118527, and check appliances for compromise."
+  "Patch WordPress Core for CVE-2026-119977 (KEV due 2026-11-06) and Ivanti Connect Secure for CVE-2026-111357 and CVE-2026-118527."
  ]
 }
