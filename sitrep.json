@@ -1,15 +1,15 @@
 {
- "written_at": "2026-11-04T21:09:00Z",
+ "written_at": "2026-11-04T22:22:00Z",
  "by": "Claude",
- "headline": "Debian and Ubuntu APT flaw allows root code execution via MitM; NIKKE launcher hack and mSecure reset warnings stay active",
+ "headline": "DreamHost confirms breach exposing FTP logins and webmail sessions; Debian/Ubuntu APT flaw and mSecure warnings stay active",
  "bullets": [
   {
-   "text": "New, high: The Hacker News reports a flaw in APT on Debian and Ubuntu lets man-in-the-middle attackers swap verified packages and run code as root.",
-   "url": "https://thehackernews.com/2026/11/debian-and-ubuntu-apt-flaw-lets-mitm.html"
+   "text": "New, high: BleepingComputer reports DreamHost has confirmed a data breach that exposed FTP logins and webmail sessions.",
+   "url": "https://www.bleepingcomputer.com/news/security/dreamhost-confirms-data-breach-exposed-ftp-logins-and-webmail-sessions/"
   },
   {
-   "text": "Still active, critical: BleepingComputer reports the NIKKE PC game launcher was hacked to spread remote access and data-stealing malware.",
-   "url": "https://www.bleepingcomputer.com/news/security/nikke-pc-game-launcher-hacked-to-spread-remote-access-data-stealing-malware/"
+   "text": "Still active, high: The Hacker News reports a flaw in APT on Debian and Ubuntu lets man-in-the-middle attackers swap verified packages and run code as root.",
+   "url": "https://thehackernews.com/2026/11/debian-and-ubuntu-apt-flaw-lets-mitm.html"
   },
   {
    "text": "Still active, mSecure, 3 outlets: BleepingComputer reports a hack of the mSecure password manager has prompted password reset warnings. The Register says mSecure told users to change their passwords and would not say why.",
@@ -29,8 +29,8 @@
   }
  ],
  "actions": [
+  "If you host at DreamHost, change FTP passwords, end webmail sessions and check hosted sites for unauthorized file changes.",
   "Check Debian and Ubuntu advisories for the APT flaw and apply fixed packages on your hosts and images as soon as they are available.",
-  "If the NIKKE PC launcher is on any machine you manage, check it for remote access and data-stealing malware and rotate credentials used on it.",
   "If you or your staff use mSecure, change the master password and rotate the credentials stored in it, starting with the most sensitive.",
   "Update managed iOS and Android devices to current releases, and apply Google's patch for CVE-2026-58868 as it reaches your fleet.",
   "If you run cPGuard, check servers for the backdoor reported by BleepingComputer and treat data on affected hosts as exposed.",
