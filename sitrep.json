@@ -1,11 +1,11 @@
 {
-  "written_at": "2026-11-04T01:13:00Z",
+  "written_at": "2026-11-04T02:10:11Z",
   "by": "Claude",
-  "headline": "AI company breach hits nine health systems; WordPress Core KEV flaw due Nov 6; $6.3B Binance heist still leads",
+  "headline": "cPGuard autoupdate hijacked to deploy a backdoor; WordPress Core KEV flaw due Nov 6; $6.3B Binance heist still leads",
   "bullets": [
     {
-      "text": "New: DataBreaches.net reports nine health systems affected by an AI company data breach. It also reports HHS's Office for Civil Rights settled its ransomware investigation of Lehigh Valley Health Network.",
-      "url": "https://databreaches.net/2026/11/03/nine-health-systems-affected-by-ai-company-data-breach/"
+      "text": "New: BleepingComputer reports hackers hijacked the cPGuard autoupdate to deploy a backdoor and steal data.",
+      "url": "https://www.bleepingcomputer.com/news/security/hackers-hijack-cpguard-autoupdate-to-deploy-backdoor-steal-data/"
     },
     {
       "text": "Still active: CISA added WordPress Core CVE-2026-119977, a time-of-check time-of-use race condition, to its Known Exploited Vulnerabilities catalog on 2026-11-03. The federal due date is 2026-11-06. Known ransomware use is listed as unknown.",
@@ -24,16 +24,16 @@
       "url": "https://www.bleepingcomputer.com/news/security/ivanti-patches-two-more-connect-secure-zero-days-chained-in-attacks/"
     },
     {
-      "text": "Still active: The Hacker News reports Chainstack disclosed a breach of its production systems that exposed customer data and password hashes. The Register reports mSecure is telling users to change passwords and won't say why.",
+      "text": "Still active: The Hacker News reports Chainstack disclosed a breach of its production systems that exposed customer data and password hashes.",
       "url": "https://thehackernews.com/2026/11/chainstack-reports-production-systems.html"
     }
   ],
   "actions": [
+    "If you run cPGuard, read the BleepingComputer report, check servers for the backdoor, and treat data on affected hosts as exposed.",
     "Update WordPress Core for CVE-2026-119977 per vendor guidance; the KEV federal due date is 2026-11-06.",
     "Find Node-RED instances and Siemens IoT2050 devices, patch CVE-2026-58115 per vendor guidance, and look for backdoors.",
     "Apply Ivanti's latest Connect Secure patches, covering CVE-2026-111357 and CVE-2026-118527, and check appliances for compromise.",
     "If you use Chainstack or mSecure, change your passwords and follow vendor notices.",
-    "Apply Barracuda's fixes for its critical root-access flaws, and update Synology DSM, whose patched flaw is being used in ransomware attacks.",
     "Patch GitLab CE/EE (CVE-2026-97229) and Cisco ASA/FTD (CVE-2026-76418) now; both KEV due dates have passed."
   ]
 }
