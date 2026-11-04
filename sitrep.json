@@ -1,39 +1,39 @@
 {
-  "written_at": "2026-11-03T23:12:16Z",
+  "written_at": "2026-11-04T00:18:40Z",
   "by": "Claude",
-  "headline": "Researchers flagged North Korean tactics before $6.3B Binance heist; Chainstack breach exposes hashes; Node-RED flaw exploited",
+  "headline": "CISA adds WordPress Core flaw to KEV with Nov 6 deadline; $6.3B Binance heist coverage grows; Node-RED flaw exploited",
   "bullets": [
     {
-      "text": "New: TechCrunch reports researchers warned of North Korean hacking tactics years before the record $6.3B Binance heist. The story now spans 9 outlets, and The Register reports the FBI pins the heist on North Korean hackers.",
+      "text": "New: CISA added WordPress Core CVE-2026-119977, a time-of-check time-of-use race condition, to its Known Exploited Vulnerabilities catalog on 2026-11-03. The federal due date is 2026-11-06. Known ransomware use is listed as unknown.",
+      "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119977"
+    },
+    {
+      "text": "New: DataBreaches.net reports new statements from the hackers who hit UNM hospital, who apologized and offered patients $2,500. It also reports a second Liverpool hospital investigating staff over a breach of Southport attack patient records.",
+      "url": "https://databreaches.net/2026/11/02/hackers-hit-unm-hospital-then-apologize-and-offer-patients-2500-in-a-new-statement-they-reveal-more-about-the-incident/"
+    },
+    {
+      "text": "Still active: the $6.3B Binance heist spans 9 outlets. TechCrunch reports researchers warned of North Korean hacking tactics years earlier, and The Register reports the FBI pins the heist on North Korean hackers.",
       "url": "https://techcrunch.com/2026/11/03/researchers-warned-of-north-korean-hacking-tactics-years-before-record-6-3b-binance-heist/"
     },
     {
-      "text": "Still active: The Hacker News reports Chainstack disclosed a breach of its production systems that exposed customer data and password hashes.",
-      "url": "https://thehackernews.com/2026/11/chainstack-reports-production-systems.html"
-    },
-    {
-      "text": "Still active: The Register reports password manager mSecure is telling users to change their passwords and won't say why.",
-      "url": "https://www.theregister.com/security/2026/11/03/password-manager-msecure-tells-users-to-change-passwords-wont-say-why/5307296"
-    },
-    {
-      "text": "Still active: BleepingComputer reports Barracuda is warning of critical flaws that allow root access to its devices.",
-      "url": "https://www.bleepingcomputer.com/news/security/barracuda-warns-of-critical-flaws-allowing-root-access-to-devices/"
-    },
-    {
-      "text": "SITCON 2 holds on a critical report. The Hacker News says attackers exploit a critical Siemens IoT2050 flaw, CVE-2026-58115, to plant remote command backdoors. Help Net Security reports the same CVE in Node-RED used to deploy a Linux bot and backdoors.",
+      "text": "Still active: The Hacker News says attackers exploit a critical Siemens IoT2050 flaw, CVE-2026-58115, to plant remote command backdoors. Help Net Security reports the same CVE in Node-RED used to deploy a Linux bot and backdoors.",
       "url": "https://thehackernews.com/2026/11/attackers-exploit-critical-siemens.html"
     },
     {
-      "text": "Connect Secure, 4 outlets: Ivanti patched two more zero-days chained in attacks, CVE-2026-111357 and CVE-2026-118527. CISA KEV lists CVE-2026-104935 in the same product, with federal due dates of 2026-11-02 and 2026-11-13.",
+      "text": "Still active, Connect Secure, 4 outlets: Ivanti patched two more zero-days chained in attacks, CVE-2026-111357 and CVE-2026-118527. CISA KEV lists CVE-2026-104935 in the same product, with federal due dates of 2026-11-02 and 2026-11-13.",
       "url": "https://www.bleepingcomputer.com/news/security/ivanti-patches-two-more-connect-secure-zero-days-chained-in-attacks/"
+    },
+    {
+      "text": "Still active: The Hacker News reports Chainstack disclosed a breach of its production systems that exposed customer data and password hashes. The Register reports mSecure is telling users to change passwords and won't say why.",
+      "url": "https://thehackernews.com/2026/11/chainstack-reports-production-systems.html"
     }
   ],
   "actions": [
-    "If you use Chainstack, change your account password and follow the vendor's breach notice.",
-    "If you use mSecure, change the passwords stored in it and watch for a vendor explanation.",
-    "Inventory Barracuda devices, check the vendor's advisory for the critical root-access flaws, and apply its fixes.",
+    "Update WordPress Core for CVE-2026-119977 per vendor guidance; the KEV federal due date is 2026-11-06.",
     "Find Node-RED instances and Siemens IoT2050 devices, patch CVE-2026-58115 per vendor guidance, and look for backdoors.",
     "Apply Ivanti's latest Connect Secure patches, covering CVE-2026-111357 and CVE-2026-118527, and check appliances for compromise.",
+    "If you use Chainstack or mSecure, change your passwords and follow vendor notices.",
+    "Inventory Barracuda devices, check the vendor's advisory for the critical root-access flaws, and apply its fixes.",
     "Patch GitLab CE/EE (CVE-2026-97229) and Cisco ASA/FTD (CVE-2026-76418) now; both KEV due dates have passed."
   ]
 }
