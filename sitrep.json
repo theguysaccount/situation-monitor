@@ -1,10 +1,14 @@
 {
-  "written_at": "2026-11-04T02:10:11Z",
+  "written_at": "2026-11-04T08:23:00Z",
   "by": "Claude",
-  "headline": "cPGuard autoupdate hijacked to deploy a backdoor; WordPress Core KEV flaw due Nov 6; $6.3B Binance heist still leads",
+  "headline": "Philippine government breach likely leaked migrant worker data; cPGuard autoupdate hijack and $6.3B Binance heist remain active",
   "bullets": [
     {
-      "text": "New: BleepingComputer reports hackers hijacked the cPGuard autoupdate to deploy a backdoor and steal data.",
+      "text": "New: Dark Reading reports Philippine migrant worker data was likely leaked in a 69GB government breach.",
+      "url": "https://www.darkreading.com/cyberattacks-data-breaches/philippine-migrant-worker-data-69gb-government-breach"
+    },
+    {
+      "text": "Still active: BleepingComputer reports hackers hijacked the cPGuard autoupdate to deploy a backdoor and steal data.",
       "url": "https://www.bleepingcomputer.com/news/security/hackers-hijack-cpguard-autoupdate-to-deploy-backdoor-steal-data/"
     },
     {
@@ -12,7 +16,7 @@
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119977"
     },
     {
-      "text": "Still active: the $6.3B Binance heist spans 9 outlets. TechCrunch reports researchers warned of North Korean hacking tactics years before the theft.",
+      "text": "Still active: the $6.3B Binance heist spans 8 outlets. TechCrunch reports researchers warned of North Korean hacking tactics years before the theft.",
       "url": "https://techcrunch.com/2026/11/03/researchers-warned-of-north-korean-hacking-tactics-years-before-record-6-3b-binance-heist/"
     },
     {
@@ -22,10 +26,6 @@
     {
       "text": "Still active, Connect Secure, 4 outlets: Ivanti patched two more zero-days chained in attacks, CVE-2026-111357 and CVE-2026-118527. CISA KEV lists CVE-2026-104935 in the same product, with federal due dates of 2026-11-02 and 2026-11-13.",
       "url": "https://www.bleepingcomputer.com/news/security/ivanti-patches-two-more-connect-secure-zero-days-chained-in-attacks/"
-    },
-    {
-      "text": "Still active: The Hacker News reports Chainstack disclosed a breach of its production systems that exposed customer data and password hashes.",
-      "url": "https://thehackernews.com/2026/11/chainstack-reports-production-systems.html"
     }
   ],
   "actions": [
