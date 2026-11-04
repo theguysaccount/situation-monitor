@@ -1,18 +1,18 @@
 {
-  "written_at": "2026-11-04T00:18:40Z",
+  "written_at": "2026-11-04T01:13:00Z",
   "by": "Claude",
-  "headline": "CISA adds WordPress Core flaw to KEV with Nov 6 deadline; $6.3B Binance heist coverage grows; Node-RED flaw exploited",
+  "headline": "AI company breach hits nine health systems; WordPress Core KEV flaw due Nov 6; $6.3B Binance heist still leads",
   "bullets": [
     {
-      "text": "New: CISA added WordPress Core CVE-2026-119977, a time-of-check time-of-use race condition, to its Known Exploited Vulnerabilities catalog on 2026-11-03. The federal due date is 2026-11-06. Known ransomware use is listed as unknown.",
+      "text": "New: DataBreaches.net reports nine health systems affected by an AI company data breach. It also reports HHS's Office for Civil Rights settled its ransomware investigation of Lehigh Valley Health Network.",
+      "url": "https://databreaches.net/2026/11/03/nine-health-systems-affected-by-ai-company-data-breach/"
+    },
+    {
+      "text": "Still active: CISA added WordPress Core CVE-2026-119977, a time-of-check time-of-use race condition, to its Known Exploited Vulnerabilities catalog on 2026-11-03. The federal due date is 2026-11-06. Known ransomware use is listed as unknown.",
       "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119977"
     },
     {
-      "text": "New: DataBreaches.net reports new statements from the hackers who hit UNM hospital, who apologized and offered patients $2,500. It also reports a second Liverpool hospital investigating staff over a breach of Southport attack patient records.",
-      "url": "https://databreaches.net/2026/11/02/hackers-hit-unm-hospital-then-apologize-and-offer-patients-2500-in-a-new-statement-they-reveal-more-about-the-incident/"
-    },
-    {
-      "text": "Still active: the $6.3B Binance heist spans 9 outlets. TechCrunch reports researchers warned of North Korean hacking tactics years earlier, and The Register reports the FBI pins the heist on North Korean hackers.",
+      "text": "Still active: the $6.3B Binance heist spans 9 outlets. TechCrunch reports researchers warned of North Korean hacking tactics years before the theft.",
       "url": "https://techcrunch.com/2026/11/03/researchers-warned-of-north-korean-hacking-tactics-years-before-record-6-3b-binance-heist/"
     },
     {
@@ -33,7 +33,7 @@
     "Find Node-RED instances and Siemens IoT2050 devices, patch CVE-2026-58115 per vendor guidance, and look for backdoors.",
     "Apply Ivanti's latest Connect Secure patches, covering CVE-2026-111357 and CVE-2026-118527, and check appliances for compromise.",
     "If you use Chainstack or mSecure, change your passwords and follow vendor notices.",
-    "Inventory Barracuda devices, check the vendor's advisory for the critical root-access flaws, and apply its fixes.",
+    "Apply Barracuda's fixes for its critical root-access flaws, and update Synology DSM, whose patched flaw is being used in ransomware attacks.",
     "Patch GitLab CE/EE (CVE-2026-97229) and Cisco ASA/FTD (CVE-2026-76418) now; both KEV due dates have passed."
   ]
 }
