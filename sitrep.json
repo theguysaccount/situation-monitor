@@ -1,19 +1,19 @@
 {
- "written_at": "2026-11-04T22:22:00Z",
+ "written_at": "2026-11-05T00:11:00Z",
  "by": "Claude",
- "headline": "DreamHost confirms breach exposing FTP logins and webmail sessions; Debian/Ubuntu APT flaw and mSecure warnings stay active",
+ "headline": "Zyxel zero-day exploited against nearly 1,000 switches; Apple CVE-2024-27834 joins KEV; DreamHost breach details grow",
  "bullets": [
   {
-   "text": "New, high: BleepingComputer reports DreamHost has confirmed a data breach that exposed FTP logins and webmail sessions.",
-   "url": "https://www.bleepingcomputer.com/news/security/dreamhost-confirms-data-breach-exposed-ftp-logins-and-webmail-sessions/"
+   "text": "New, critical: BleepingComputer reports Zyxel has fixed a zero-day that was exploited to hack nearly 1,000 network switches.",
+   "url": "https://www.bleepingcomputer.com/news/security/zyxel-fixes-zero-day-exploited-to-hack-nearly-1-000-network-switches/"
   },
   {
-   "text": "Still active, high: The Hacker News reports a flaw in APT on Debian and Ubuntu lets man-in-the-middle attackers swap verified packages and run code as root.",
-   "url": "https://thehackernews.com/2026/11/debian-and-ubuntu-apt-flaw-lets-mitm.html"
+   "text": "New, critical: CISA KEV added CVE-2024-27834, an improper authentication flaw in multiple Apple products, on 2026-11-04, with a federal due date of 2026-11-18.",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-27834"
   },
   {
-   "text": "Still active, mSecure, 3 outlets: BleepingComputer reports a hack of the mSecure password manager has prompted password reset warnings. The Register says mSecure told users to change their passwords and would not say why.",
-   "url": "https://www.bleepingcomputer.com/news/security/msecure-password-manager-hack-prompts-password-reset-warnings/"
+   "text": "Developing, DreamHost: TechCrunch reports hackers stole customer files and inboxes during a months-long attack. BleepingComputer says DreamHost confirmed the breach exposed FTP logins and webmail sessions.",
+   "url": "https://techcrunch.com/2026/11/04/hackers-stole-dreamhost-customer-files-and-inboxes-during-months-long-attack/"
   },
   {
    "text": "Still active, critical: The Hacker News reports APT29-linked hackers hijacked a web analytics script to deliver iOS and Android exploits. Help Net Security describes the exploits as n-day.",
@@ -29,11 +29,11 @@
   }
  ],
  "actions": [
-  "If you host at DreamHost, change FTP passwords, end webmail sessions and check hosted sites for unauthorized file changes.",
-  "Check Debian and Ubuntu advisories for the APT flaw and apply fixed packages on your hosts and images as soon as they are available.",
-  "If you or your staff use mSecure, change the master password and rotate the credentials stored in it, starting with the most sensitive.",
-  "Update managed iOS and Android devices to current releases, and apply Google's patch for CVE-2026-58868 as it reaches your fleet.",
-  "If you run cPGuard, check servers for the backdoor reported by BleepingComputer and treat data on affected hosts as exposed.",
+  "Apply Zyxel's fix for the exploited zero-day on your network switches and check them for signs of compromise.",
+  "Patch Apple devices for CVE-2024-27834 (KEV due 2026-11-18) and keep managed iOS and Android devices on current releases.",
+  "If you host at DreamHost, change FTP passwords, end webmail sessions and treat customer files and inboxes as potentially stolen.",
+  "Check Debian and Ubuntu advisories for the APT flaw and apply fixed packages on hosts and images as soon as they are available.",
+  "If you use mSecure, change the master password and rotate stored credentials. If you run cPGuard, check servers for the backdoor.",
   "Patch WordPress Core for CVE-2026-119977 (KEV due 2026-11-06) and Ivanti Connect Secure for CVE-2026-111357 and CVE-2026-118527."
  ]
 }
