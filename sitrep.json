@@ -1,18 +1,14 @@
 {
- "written_at": "2026-11-06T06:20:00Z",
+ "written_at": "2026-11-06T11:20:00Z",
  "by": "Claude",
- "headline": "AI-driven fraud and secret theft in focus; patched Zyxel GS1900 switches still exploitable; WordPress KEV deadline is today",
+ "headline": "SITCON eases to 3 (ELEVATED); Zyxel GS1900 patch still bypassed; WordPress KEV deadline is today; cPGuard supply-chain attack",
  "bullets": [
   {
-   "text": "New, SecurityWeek: three people were charged in a scheme that used AI to impersonate CEOs and attorneys and steal $129 million. This adds to Microsoft's report that threat actors use agentic AI tooling to find and abuse exposed secrets.",
-   "url": "https://www.securityweek.com/3-charged-in-scheme-to-use-ai-to-impersonate-ceos-and-attorneys-to-steal-129-million/"
+   "text": "Changed: SITCON dropped from 2 (SEVERE) to 3 (ELEVATED). Drivers: 1 KEV addition in 72 hours and 3 critical reports in 48 hours. The last 7 days scored 0.68x the 90-day average. Active campaigns remain; check exposure this week.",
+   "url": "https://thehackernews.com/2026/11/zyxel-gs1900-patch-fails-to-block-zero.html"
   },
   {
-   "text": "Still active, exposed secrets: Microsoft warns of agentic AI tooling hunting exposed secrets; Truffle Security launched a program targeting nearly 1.5 million live secrets for revocation; Chainalysis warned all users were hit in a breach involving 'agentic' techniques.",
-   "url": "https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/"
-  },
-  {
-   "text": "Still active, Zyxel GS1900, 4 outlets: Zyxel's fix for a zero-day used to hack nearly 1,000 switches did not block the in-the-wild exploit (CVE-2026-107441), which allows root command execution. SITCON remains 2 (SEVERE).",
+   "text": "Still active, Zyxel GS1900, 4 outlets: Zyxel's fix for a zero-day used to hack nearly 1,000 switches did not block the in-the-wild exploit (CVE-2026-107441), which allows root command execution. Top story on the board.",
    "url": "https://thehackernews.com/2026/11/zyxel-gs1900-patch-fails-to-block-zero.html"
   },
   {
@@ -20,20 +16,24 @@
    "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-wordpress-rce-flaw-as-actively-exploited-in-attacks/"
   },
   {
-   "text": "Still active: OpenSSH emergency fix for a flaw letting long passwords bypass SSH auth on Alpine Linux (3 outlets); cPGuard autoupdate hijacked in the OpsShield supply-chain attack to serve malicious updates (4 outlets).",
+   "text": "Still active, supply chain: cPGuard autoupdate was hijacked in the OpsShield attack to serve malicious updates (4 outlets). The NIKKE PC game launcher was also hacked to spread remote-access and data-stealing malware.",
    "url": "https://www.securityweek.com/malicious-cpguard-updates-served-in-opsshield-supply-chain-attack/"
   },
   {
-   "text": "Breaches and ICS: FBI and CISA warn of attacks on refrigeration and cooling systems; DigiCert exposed customer data and identity documents; DreamHost confirmed exposed FTP logins and webmail sessions. The last 7 days scored 0.66x the 90-day average.",
-   "url": "https://www.bleepingcomputer.com/news/security/fbi-cisa-warn-of-cyberattacks-targeting-refrigeration-systems/"
+   "text": "AI-enabled fraud and secret theft: three people were charged over a $129 million scheme using AI to impersonate CEOs and attorneys; Microsoft reports threat actors using agentic AI tooling to find and abuse exposed secrets.",
+   "url": "https://www.securityweek.com/3-charged-in-scheme-to-use-ai-to-impersonate-ceos-and-attorneys-to-steal-129-million/"
+  },
+  {
+   "text": "Also on the board: OpenSSH emergency fix for long-password auth bypass on Alpine Linux; Barracuda critical root-access flaws; mSecure and DreamHost breaches; FBI/CISA warn of attacks on refrigeration and cooling systems.",
+   "url": "https://thehackernews.com/2026/11/openssh-issues-emergency-fix-for-flaw.html"
   }
  ],
  "actions": [
-  "Require out-of-band verification for payment or wire requests that appear to come from executives or lawyers, including voice and video calls.",
-  "Scan repos, CI logs and public buckets for exposed secrets and rotate any found; assume automated discovery is running against you.",
-  "Patch WordPress Core for CVE-2026-119977 now (KEV due 2026-11-06).",
+  "Patch WordPress Core for CVE-2026-119977 today (KEV due 2026-11-06).",
   "Treat Zyxel GS1900 switches as exposed even after patching: restrict management access, check for compromise, watch for a new fix.",
-  "Apply the OpenSSH emergency fix on Alpine Linux hosts; cPGuard users should check servers for malicious updates and rotate credentials.",
-  "Operators of refrigeration and cooling systems: remove internet exposure of controllers and follow the FBI/CISA hardening guidance."
+  "cPGuard users: check servers for malicious updates and rotate credentials; NIKKE launcher users should scan for malware.",
+  "Apply the OpenSSH emergency fix on Alpine Linux hosts and Barracuda's fixes for the critical root-access flaws.",
+  "Scan repos, CI logs and public buckets for exposed secrets and rotate any found.",
+  "Require out-of-band verification for payment or wire requests that appear to come from executives or lawyers."
  ]
 }
