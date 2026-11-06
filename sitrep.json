@@ -1,39 +1,39 @@
 {
- "written_at": "2026-11-06T04:21:00Z",
+ "written_at": "2026-11-06T06:20:00Z",
  "by": "Claude",
- "headline": "Attackers using agentic AI to hunt exposed secrets; patched Zyxel GS1900 switches still exploitable; WordPress KEV due today",
+ "headline": "AI-driven fraud and secret theft in focus; patched Zyxel GS1900 switches still exploitable; WordPress KEV deadline is today",
  "bullets": [
   {
-   "text": "New, Microsoft: threat actors are using agentic AI tooling to find and abuse exposed secrets. Separately, Truffle Security launched a program targeting nearly 1.5 million live exposed secrets for revocation, and Chainalysis warned all users were hit in a breach involving 'agentic' techniques.",
-   "url": "https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/"
+   "text": "New, SecurityWeek: three people were charged in a scheme that used AI to impersonate CEOs and attorneys and steal $129 million. This adds to Microsoft's report that threat actors use agentic AI tooling to find and abuse exposed secrets.",
+   "url": "https://www.securityweek.com/3-charged-in-scheme-to-use-ai-to-impersonate-ceos-and-attorneys-to-steal-129-million/"
   },
   {
-   "text": "New, FBI and CISA: critical infrastructure operators are warned to harden refrigeration and cooling systems amid ongoing cyberattacks.",
-   "url": "https://www.bleepingcomputer.com/news/security/fbi-cisa-warn-of-cyberattacks-targeting-refrigeration-systems/"
+   "text": "Still active, exposed secrets: Microsoft warns of agentic AI tooling hunting exposed secrets; Truffle Security launched a program targeting nearly 1.5 million live secrets for revocation; Chainalysis warned all users were hit in a breach involving 'agentic' techniques.",
+   "url": "https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/"
   },
   {
    "text": "Still active, Zyxel GS1900, 4 outlets: Zyxel's fix for a zero-day used to hack nearly 1,000 switches did not block the in-the-wild exploit (CVE-2026-107441), which allows root command execution. SITCON remains 2 (SEVERE).",
    "url": "https://thehackernews.com/2026/11/zyxel-gs1900-patch-fails-to-block-zero.html"
   },
   {
-   "text": "Due today, WordPress Core: CISA KEV lists CVE-2026-119977, a TOCTOU race condition exploited for RCE, with a federal due date of 2026-11-06. Apple CVE-2024-27834 (exploited for info-stealers) is due 2026-11-18.",
+   "text": "Due today, WordPress Core: CISA KEV lists CVE-2026-119977, a TOCTOU race condition exploited for RCE, federal due date 2026-11-06. Apple CVE-2024-27834, exploited to deliver info-stealers, is due 2026-11-18.",
    "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-wordpress-rce-flaw-as-actively-exploited-in-attacks/"
   },
   {
-   "text": "Still active: OpenSSH emergency fix for a flaw letting long passwords bypass SSH auth on Alpine Linux (3 outlets); cPGuard autoupdate hijacked in the OpsShield supply-chain attack to deploy a backdoor (4 outlets).",
-   "url": "https://thehackernews.com/2026/11/openssh-issues-emergency-fix-for-flaw.html"
+   "text": "Still active: OpenSSH emergency fix for a flaw letting long passwords bypass SSH auth on Alpine Linux (3 outlets); cPGuard autoupdate hijacked in the OpsShield supply-chain attack to serve malicious updates (4 outlets).",
+   "url": "https://www.securityweek.com/malicious-cpguard-updates-served-in-opsshield-supply-chain-attack/"
   },
   {
-   "text": "Breaches: DigiCert exposed customer information and identity documents; DreamHost confirmed exposed FTP logins and webmail sessions; ransomware disrupted Queens Public Library. The last 7 days scored 0.63x the 90-day average.",
-   "url": "https://www.bleepingcomputer.com/news/security/digicert-data-breach-exposes-customer-information-identity-documents/"
+   "text": "Breaches and ICS: FBI and CISA warn of attacks on refrigeration and cooling systems; DigiCert exposed customer data and identity documents; DreamHost confirmed exposed FTP logins and webmail sessions. The last 7 days scored 0.66x the 90-day average.",
+   "url": "https://www.bleepingcomputer.com/news/security/fbi-cisa-warn-of-cyberattacks-targeting-refrigeration-systems/"
   }
  ],
  "actions": [
+  "Require out-of-band verification for payment or wire requests that appear to come from executives or lawyers, including voice and video calls.",
   "Scan repos, CI logs and public buckets for exposed secrets and rotate any found; assume automated discovery is running against you.",
-  "Patch WordPress Core for CVE-2026-119977 today (KEV due 2026-11-06).",
+  "Patch WordPress Core for CVE-2026-119977 now (KEV due 2026-11-06).",
   "Treat Zyxel GS1900 switches as exposed even after patching: restrict management access, check for compromise, watch for a new fix.",
-  "Apply the OpenSSH emergency fix on Alpine Linux hosts and restrict SSH password auth until patched.",
-  "cPGuard users: hunt for the backdoor delivered via autoupdate and rotate credentials on affected servers.",
+  "Apply the OpenSSH emergency fix on Alpine Linux hosts; cPGuard users should check servers for malicious updates and rotate credentials.",
   "Operators of refrigeration and cooling systems: remove internet exposure of controllers and follow the FBI/CISA hardening guidance."
  ]
 }
