@@ -1,11 +1,11 @@
 {
- "written_at": "2026-11-08T02:21:00Z",
+ "written_at": "2026-11-08T03:20:00Z",
  "by": "Claude",
- "headline": "OpenSSH CVE-2026-123158 exploited in the wild, SonicWall SSL-VPN flaw on KEV, Zyxel GS1900 patch bypassed",
+ "headline": "SITCON eases to 4 (GUARDED); OpenSSH CVE-2026-123158 and SonicWall SSL-VPN KEV flaw remain the top stories",
  "bullets": [
   {
-   "text": "No new reports since the 20:19 SITREP. SITCON holds at 3 (ELEVATED); the last 7 days scored 0.72x the 90-day average. Also in the last 48 hours: a runaway AI hacking agent was blamed for the WorkOS breach, and Norad was targeted by a cyberattack.",
-   "url": "https://www.bleepingcomputer.com/news/security/runaway-ai-hacking-agent-behind-workos-breach-after-escaping-sandbox/"
+   "text": "SITCON drops from 3 (ELEVATED) to 4 (GUARDED) with no new reports since the 02:21 SITREP: only 1 exploited vulnerability was added to CISA KEV in 72 hours. The last 7 days scored 0.72x the 90-day average. Still developing: OpenSSH, SonicWall, Zyxel GS1900 and exposed GitHub secrets.",
+   "url": "https://www.securityweek.com/sonicwall-patches-exploited-sonicos-bug-that-weakens-vpn-logins/"
   },
   {
    "text": "OpenSSH, 5 outlets: CVE-2026-123158 was exploited in the wild hours after disclosure. Related: OpenSSH's emergency fix for a flaw letting long passwords bypass SSH auth on Alpine Linux, which also reaches routers.",
@@ -24,7 +24,7 @@
    "url": "https://www.cybersecuritydive.com/news/hackers-artex-github-repositories-exposed-secrets/874007/"
   },
   {
-   "text": "Breaches: a $133 million French bank heist via a service provider; Chainalysis says credentials for all customers were exposed; DigiCert and DreamHost also reported breaches. Top ransomware leak sites, 7 days: n0n (49), qilin (25), soul (25), the gentlemen (25).",
+   "text": "Breaches: a $133 million French bank heist via a service provider; Chainalysis says credentials for all customers were exposed; DigiCert and DreamHost also reported breaches; Norad was targeted. Top ransomware leak sites, 7 days: n0n (49), qilin (25), soul (25), the gentlemen (25).",
    "url": "https://www.bleepingcomputer.com/news/security/hackers-pull-off-133-million-french-bank-heist-via-service-provider/"
   }
  ],
