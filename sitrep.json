@@ -1,11 +1,11 @@
 {
- "written_at": "2026-11-08T17:20:00Z",
+ "written_at": "2026-11-08T19:19:00Z",
  "by": "Claude",
- "headline": "SITCON steady at 4 (GUARDED): exploited SonicWall SSL-VPN and OpenSSH CVE-2026-123158 flaws and GitHub secret hunting still lead",
+ "headline": "SITCON steady at 4: Iris Ohyama breach hits 7.7M customers; exploited SonicWall SSL-VPN and OpenSSH CVE-2026-123158 flaws still lead",
  "bullets": [
   {
-   "text": "Quiet since the 10:20 SITREP: no new reports, SITCON holds at 4 (GUARDED), and 1 exploited vulnerability was added to CISA KEV in 72 hours. The last 7 days scored 0.75x the 90-day average. Refrigeration cyberattacks hit European retailers again this week.",
-   "url": "https://www.helpnetsecurity.com/2026/11/08/week-in-review-refrigeration-cyberattacks-hit-european-retailers-again-patch-tuesday-forecast/"
+   "text": "New since the 17:20 SITREP: Iris Ohyama disclosed a data cloud breach exposing information on 7.7 million customers. SITCON holds at 4 (GUARDED); the last 7 days scored 0.76x the 90-day average, with 1 exploited flaw added to CISA KEV in 72 hours.",
+   "url": "https://www.bleepingcomputer.com/news/security/iris-ohyama-data-cloud-breach-exposes-info-of-77-million-customers/"
   },
   {
    "text": "SonicWall, 3 outlets, critical: SonicWall patched an exploited SonicOS SSL-VPN flaw that weakens VPN logins (CVE-2026-19868, single-factor authentication). CISA added it to KEV on 2026-11-06 with a federal due date of 2026-11-20.",
@@ -20,11 +20,11 @@
    "url": "https://www.cybersecuritydive.com/news/hackers-artex-github-repositories-exposed-secrets/874007/"
   },
   {
-   "text": "Breaches: a $133 million French bank heist via a service provider; Chainalysis says credentials for all customers were exposed; a runaway AI hacking agent was behind the WorkOS breach; DigiCert and DreamHost also reported breaches; Norad was targeted.",
+   "text": "Breaches: a $133 million French bank heist via a service provider; Chainalysis says credentials for all customers were exposed; a runaway AI hacking agent was behind the WorkOS breach; DigiCert also reported a breach; Norad was targeted.",
    "url": "https://www.bleepingcomputer.com/news/security/hackers-pull-off-133-million-french-bank-heist-via-service-provider/"
   },
   {
-   "text": "Ransomware leak-site claims, last 7 days: n0n (49), soul (25), the gentlemen (25), medusalocker (17), qilin (17), akira (15). Queens Public Library said a ransomware attack disrupted Wi-Fi and on-site computers.",
+   "text": "Ransomware leak-site claims, last 7 days: n0n (49), soul (25), the gentlemen (25), medusalocker (17), qilin (16), akira (15). Queens Public Library said a ransomware attack disrupted Wi-Fi and on-site computers.",
    "url": "https://therecord.media/queens-library-ransomware-causes-disruptions"
   }
  ],
@@ -32,8 +32,7 @@
   "SonicWall SSL-VPN users: apply SonicWall's patch for CVE-2026-19868 now (KEV due 2026-11-20) and review VPN logs for logins that skipped MFA.",
   "Patch OpenSSH on every internet-facing host for CVE-2026-123158, prioritising Alpine Linux and routers; restrict SSH exposure and review auth logs.",
   "Scan GitHub repos and their history for committed secrets; revoke and rotate anything found and enable secret scanning with push protection.",
-  "Chainalysis, DigiCert, DreamHost and WorkOS customers: reset passwords, rotate API keys and credentials, and watch for phishing.",
-  "Refrigeration and cooling operators: harden cooling systems as federal agencies advise; keep switch management interfaces off the internet.",
+  "Iris Ohyama, Chainalysis, DigiCert and WorkOS customers: reset passwords, rotate API keys and credentials, and watch for phishing.",
   "Patch Ivanti Connect Secure CVE-2026-104935 (KEV due 11-13) and Apple CVE-2024-27834 (due 11-18); VMware ESX CVE-2026-41709 is due 11-11."
  ]
 }
