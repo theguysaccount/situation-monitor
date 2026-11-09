@@ -1,10 +1,10 @@
 {
- "written_at": "2026-11-09T02:19:00Z",
+ "written_at": "2026-11-09T08:21:00Z",
  "by": "Claude",
- "headline": "SITCON holds at 5 (QUIET): exploited OpenSSH CVE-2026-123158 and GitHub secret-scanning abuse lead; SonicWall KEV deadline 11-20",
+ "headline": "SITCON holds at 5 (QUIET): exploited OpenSSH CVE-2026-123158 and GitHub secret-scanning abuse lead; KEV deadlines 11-10 and 11-11",
  "bullets": [
   {
-   "text": "New since the 20:19 SITREP: no new reports and SITCON stays at 5 (QUIET). The last 7 days scored 0.73x the 90-day average. SonicWall has dropped off the developing-situations board; OpenSSH and GitHub (4 outlets each) remain.",
+   "text": "New since the 02:19 SITREP: two new medium-severity reports, no new critical or high ones, and SITCON stays at 5 (QUIET). The last 7 days scored 0.74x the 90-day average. OpenSSH and GitHub (4 outlets each) remain the only developing situations.",
    "url": "https://www.helpnetsecurity.com/2026/11/06/openssh-sshole-cve-2026-123158-exploitation/"
   },
   {
@@ -16,24 +16,20 @@
    "url": "https://www.cybersecuritydive.com/news/hackers-artex-github-repositories-exposed-secrets/874007/"
   },
   {
-   "text": "Still in CISA KEV: SonicWall SonicOS SSL-VPN CVE-2026-19868 (single-factor authentication, exploited) added 2026-11-06, due 2026-11-20. Zyxel fixed a zero-day exploited to hack nearly 1,000 GS1900 switches after an earlier patch failed to block it.",
-   "url": "https://www.bleepingcomputer.com/news/security/zyxel-fixes-zero-day-exploited-to-hack-nearly-1-000-network-switches/"
+   "text": "Network gear: Zyxel fixed a zero-day exploited to hack nearly 1,000 GS1900 switches after an earlier patch failed to block it; D-Link warned of multiple zero-days in DGS-3130 Series switches.",
+   "url": "https://www.bleepingcomputer.com/news/security/d-link-warns-of-multiple-zero-days-in-dgs-3130-series-switches/"
   },
   {
    "text": "Breaches: Iris Ohyama disclosed a data cloud breach exposing 7.7 million customers; a $133 million French bank heist ran via a service provider; Chainalysis says credentials for all customers were exposed; DigiCert and WorkOS also reported breaches.",
    "url": "https://www.bleepingcomputer.com/news/security/iris-ohyama-data-cloud-breach-exposes-info-of-77-million-customers/"
-  },
-  {
-   "text": "Ransomware leak-site claims, last 7 days: n0n (49), soul (25), the gentlemen (25), medusalocker (17), akira (16), qilin (16). Queens Public Library said a ransomware attack disrupted Wi-Fi and on-site computers.",
-   "url": "https://therecord.media/queens-library-ransomware-causes-disruptions"
   }
  ],
  "actions": [
   "Patch OpenSSH on every internet-facing host for CVE-2026-123158, prioritising Alpine Linux and routers; restrict SSH exposure and review auth logs.",
   "Scan GitHub repos and their history for committed secrets; revoke and rotate anything found and enable secret scanning with push protection.",
-  "SonicWall SSL-VPN users: apply SonicWall's patch for CVE-2026-19868 (KEV due 2026-11-20) and review VPN logs for logins that skipped MFA.",
-  "Zyxel GS1900 owners: install Zyxel's latest zero-day fix, since the earlier patch did not block exploitation, and check switches for compromise.",
-  "Iris Ohyama, Chainalysis, DigiCert and WorkOS customers: reset passwords, rotate API keys and credentials, and watch for phishing.",
-  "Meet KEV deadlines: VMware ESX CVE-2026-41709 (due 11-11), Ivanti Connect Secure CVE-2026-104935 (11-13), Apple CVE-2024-27834 (11-18)."
+  "Clear this week's KEV items today: Adobe Commerce/Magento and Brotli (due 11-10), VMware ESX (11-11), Ivanti Connect Secure (11-13).",
+  "Zyxel GS1900 and D-Link DGS-3130 owners: apply the vendors' latest fixes or mitigations and check switches for signs of compromise.",
+  "SonicWall SSL-VPN users: patch CVE-2026-19868 (KEV due 2026-11-20) and review VPN logs for logins that skipped MFA.",
+  "Iris Ohyama, Chainalysis, DigiCert and WorkOS customers: reset passwords, rotate API keys and credentials, and watch for phishing."
  ]
 }
