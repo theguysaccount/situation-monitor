@@ -1,27 +1,31 @@
 {
- "written_at": "2026-11-09T15:20:00Z",
+ "written_at": "2026-11-09T16:20:00Z",
  "by": "Claude",
- "headline": "SITCON rises to 4 (GUARDED): Amplifon Americas breach hits 1.3M; GitHub secret abuse and exploited OpenSSH flaw still lead",
+ "headline": "SITCON 4 (GUARDED): OpenSSH 'SSHole' exploitation continues; Iris Plaza breach may expose 7.7M; GitHub secret abuse persists",
  "bullets": [
   {
-   "text": "New since the 13:19 SITREP: 21 new reports (1 high, 20 medium). SITCON moved from 5 (QUIET) to 4 (GUARDED), driven by the GitHub story. The high one: an Amplifon Americas data breach impacts 1.3 million people. The last 7 days scored 0.83x the 90-day average.",
-   "url": "https://www.securityweek.com/amplifon-americas-data-breach-impacts-1-3-million/"
+   "text": "New since the 15:20 SITREP: 6 new reports (2 high, 3 medium, 1 low); SITCON holds at 4 (GUARDED). Both high items extend running stories: SecurityWeek reports hackers exploiting the 'SSHole' OpenSSH auth bypass, and Iris Plaza's breach. The last 7 days scored 0.82x the 90-day average.",
+   "url": "https://www.securityweek.com/hackers-exploiting-sshole-authentication-bypass-in-openssh/"
   },
   {
-   "text": "GitHub, 4 outlets and the only developing situation: hackers are using Artex to scan GitHub repositories for exposed secrets; Microsoft reports threat actors using agentic AI tooling to find and abuse them; Truffle Security is revoking nearly 1.5 million live secrets.",
-   "url": "https://www.cybersecuritydive.com/news/hackers-artex-github-repositories-exposed-secrets/874007/"
-  },
-  {
-   "text": "OpenSSH: CVE-2026-123158 was exploited in the wild hours after disclosure. OpenSSH issued an emergency fix for the flaw, which lets long passwords bypass SSH auth on Alpine Linux and also reaches routers.",
+   "text": "OpenSSH: CVE-2026-123158 ('SSHole') was exploited in the wild hours after disclosure. OpenSSH issued an emergency fix for the flaw, which lets long passwords bypass SSH auth on Alpine Linux and also reaches routers.",
    "url": "https://www.helpnetsecurity.com/2026/11/06/openssh-sshole-cve-2026-123158-exploitation/"
+  },
+  {
+   "text": "Iris Plaza / Iris Ohyama: a cloud breach at the Japanese homeware company may have exposed 7.7 million customer records, and it has pulled its online store.",
+   "url": "https://www.theregister.com/cyber-crime/2026/11/09/japanese-homeware-giant-pulls-online-store-after-cloud-breach-puts-77m-records-at-risk/5308377"
+  },
+  {
+   "text": "GitHub secrets: hackers are using Artex to scan GitHub repositories for exposed secrets; Microsoft reports threat actors using agentic AI tooling to find and abuse them; Truffle Security is revoking nearly 1.5 million live secrets.",
+   "url": "https://www.cybersecuritydive.com/news/hackers-artex-github-repositories-exposed-secrets/874007/"
   },
   {
    "text": "Network gear: Zyxel GS1900 switches were hacked through a zero-day (CVE-2026-107441) that an earlier patch failed to block; D-Link warned of multiple zero-days in DGS-3130 Series switches.",
    "url": "https://www.securityweek.com/zyxel-switch-hacks-blamed-on-patched-flaw-actually-exploited-a-zero-day/"
   },
   {
-   "text": "Other breaches this week: Frontline Education (3M+ people), Iris Ohyama (7.7 million customers), Chainalysis (credentials for all customers exposed), a $133 million French bank heist via a service provider, and breaches at DigiCert and WorkOS.",
-   "url": "https://www.securityweek.com/3-million-people-hit-by-frontline-education-data-breach/"
+   "text": "Other breaches this week: Amplifon Americas (1.3 million people), Frontline Education (3M+), Chainalysis (credentials for all customers exposed) and a $133 million French bank heist via a service provider.",
+   "url": "https://www.securityweek.com/amplifon-americas-data-breach-impacts-1-3-million/"
   }
  ],
  "actions": [
@@ -30,6 +34,6 @@
   "Scan GitHub repos and their history for committed secrets; revoke and rotate anything found and enable secret scanning with push protection.",
   "Zyxel GS1900 and D-Link DGS-3130 owners: apply the vendors' latest fixes or mitigations and check switches for signs of compromise.",
   "Patch Ivanti Connect Secure CVE-2026-104935 (KEV due 11-13) and SonicWall SSL-VPN CVE-2026-19868 (due 11-20); review VPN logs for logins that skipped MFA.",
-  "Amplifon, Frontline Education, Iris Ohyama, Chainalysis, DigiCert and WorkOS customers: reset passwords, rotate API keys and credentials, watch for phishing."
+  "Iris Ohyama, Amplifon, Frontline Education and Chainalysis customers: reset passwords, rotate API keys and credentials, and watch for phishing."
  ]
 }
