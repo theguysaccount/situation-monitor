@@ -1,14 +1,14 @@
 {
- "written_at": "2026-11-09T13:19:00Z",
+ "written_at": "2026-11-09T15:20:00Z",
  "by": "Claude",
- "headline": "SITCON holds at 5 (QUIET): Frontline Education breach hits 3M+ people; GitHub secret abuse and exploited OpenSSH flaw still lead",
+ "headline": "SITCON rises to 4 (GUARDED): Amplifon Americas breach hits 1.3M; GitHub secret abuse and exploited OpenSSH flaw still lead",
  "bullets": [
   {
-   "text": "New since the 08:21 SITREP: 13 new reports (1 high, 6 medium, 6 low). The high one: a Frontline Education data breach hit over 3 million people. SITCON stays at 5 (QUIET); the last 7 days scored 0.77x the 90-day average.",
-   "url": "https://www.securityweek.com/3-million-people-hit-by-frontline-education-data-breach/"
+   "text": "New since the 13:19 SITREP: 21 new reports (1 high, 20 medium). SITCON moved from 5 (QUIET) to 4 (GUARDED), driven by the GitHub story. The high one: an Amplifon Americas data breach impacts 1.3 million people. The last 7 days scored 0.83x the 90-day average.",
+   "url": "https://www.securityweek.com/amplifon-americas-data-breach-impacts-1-3-million/"
   },
   {
-   "text": "GitHub, 4 outlets and now the only developing situation: hackers are using Artex to scan GitHub repositories for exposed secrets; Microsoft reports threat actors using agentic AI tooling to find and abuse them; Truffle Security is revoking nearly 1.5 million live secrets.",
+   "text": "GitHub, 4 outlets and the only developing situation: hackers are using Artex to scan GitHub repositories for exposed secrets; Microsoft reports threat actors using agentic AI tooling to find and abuse them; Truffle Security is revoking nearly 1.5 million live secrets.",
    "url": "https://www.cybersecuritydive.com/news/hackers-artex-github-repositories-exposed-secrets/874007/"
   },
   {
@@ -16,12 +16,12 @@
    "url": "https://www.helpnetsecurity.com/2026/11/06/openssh-sshole-cve-2026-123158-exploitation/"
   },
   {
-   "text": "Network gear: Zyxel fixed a zero-day exploited to hack GS1900 switches after an earlier patch failed to block it; D-Link warned of multiple zero-days in DGS-3130 Series switches.",
-   "url": "https://www.bleepingcomputer.com/news/security/d-link-warns-of-multiple-zero-days-in-dgs-3130-series-switches/"
+   "text": "Network gear: Zyxel GS1900 switches were hacked through a zero-day (CVE-2026-107441) that an earlier patch failed to block; D-Link warned of multiple zero-days in DGS-3130 Series switches.",
+   "url": "https://www.securityweek.com/zyxel-switch-hacks-blamed-on-patched-flaw-actually-exploited-a-zero-day/"
   },
   {
-   "text": "Other breaches this week: Iris Ohyama (7.7 million customers), Chainalysis (credentials for all customers exposed), a $133 million French bank heist via a service provider, and breaches at DigiCert and WorkOS.",
-   "url": "https://www.bleepingcomputer.com/news/security/iris-ohyama-data-cloud-breach-exposes-info-of-77-million-customers/"
+   "text": "Other breaches this week: Frontline Education (3M+ people), Iris Ohyama (7.7 million customers), Chainalysis (credentials for all customers exposed), a $133 million French bank heist via a service provider, and breaches at DigiCert and WorkOS.",
+   "url": "https://www.securityweek.com/3-million-people-hit-by-frontline-education-data-breach/"
   }
  ],
  "actions": [
@@ -30,6 +30,6 @@
   "Scan GitHub repos and their history for committed secrets; revoke and rotate anything found and enable secret scanning with push protection.",
   "Zyxel GS1900 and D-Link DGS-3130 owners: apply the vendors' latest fixes or mitigations and check switches for signs of compromise.",
   "Patch Ivanti Connect Secure CVE-2026-104935 (KEV due 11-13) and SonicWall SSL-VPN CVE-2026-19868 (due 11-20); review VPN logs for logins that skipped MFA.",
-  "Frontline Education, Iris Ohyama, Chainalysis, DigiCert and WorkOS customers: reset passwords, rotate API keys and credentials, and watch for phishing."
+  "Amplifon, Frontline Education, Iris Ohyama, Chainalysis, DigiCert and WorkOS customers: reset passwords, rotate API keys and credentials, watch for phishing."
  ]
 }
