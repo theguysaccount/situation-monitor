@@ -925,7 +925,50 @@ chinese russian iranian north korean european british largest biggest big small 
 source open free paid help support supports watch read here this that latest breaking exclusive analysis explained
 potential possible possibly probably alleged allegedly suspected suspect suspects linked tied ties link links back-to
 """.split())
-BROAD_NAMES = set("microsoft google apple amazon aws meta windows linux android chrome ios macos".split())
+BROAD_NAMES = set("microsoft google apple amazon aws meta windows linux android chrome ios macos "
+                  "claude chatgpt gemini copilot".split())
+# Words that name a kind of thing, not one thing. KEV product names bring many of them into the
+# vocabulary ("Connect Secure", "Secure Firewall"), and one shared "Secure" must not join two stories.
+GENERIC_KEYS = set("""
+secure security connect gateway firewall firewalls server servers manager management enterprise edition editions
+community cloud center centre client clients desktop mobile portal suite platform router routers switch switches
+commerce core
+appliance appliances controller controllers studio office console agent agents endpoint endpoints module plugin
+plugins extension extensions framework library kernel firmware browser browsers email mail web
+ssh vpn ssl tls dns rce dos ddos sql xss csrf mfa sso nas iot ics scada llm llms http https sdk cli ide pdf usb
+wifi wi-fi bluetooth uefi bios api
+university universities college school schools hospital hospitals health healthcare bank banks city county council
+ministry department airlines airline airport holdings labs foundation institute police library systems networks
+technologies solutions services retail retailers supermarket supermarkets
+""".split())
+# Vendors make poor story names (Cisco has several stories a week) and, alone, poor links between reports.
+VENDORS = set("""
+ibm cisco sap oracle microsoft google apple adobe fortinet ivanti citrix vmware broadcom juniper sonicwall zyxel qnap
+synology d-link netgear tp-link atlassian gitlab github samsung siemens schneider hitachi mitsubishi rockwell honeywell
+n-able solarwinds kaseya connectwise veeam f5 checkpoint sophos trend crowdstrike okta cloudflare akamai openai
+anthropic meta amazon dell hp hpe lenovo asus intel amd nvidia qualcomm mediatek huawei xiaomi zoho progress
+""".split())
+VENDOR_NAMES = VENDORS | {"palo alto", "palo alto networks", "check point", "trend micro", "hewlett packard enterprise"}
+COUNTRIES = set("""
+iran china russia ukraine israel france germany japan korea india taiwan vietnam pakistan uk britain usa america
+canada australia italy spain poland belarus moldova romania kazakhstan brazil mexico turkey syria iraq egypt
+netherlands belgium sweden norway finland denmark switzerland austria ireland singapore philippines indonesia
+""".split())
+# "Adobe, Veeam, Juniper Networks Patch ..." or a weekly recap: one headline about several stories.
+LIST_HEADLINE = re.compile(r"(?:[\w.'&-]+(?:\s[\w.'&-]+){0,2},\s+){2,}")
+CAMEL = re.compile(r"[a-z][A-Z]|[A-Za-z]\d|\d[A-Za-z]|[A-Z]{2,}[a-z]")
+
+
+def is_bridge(title: str) -> bool:
+    """A headline naming several stories at once; it may sit in a story but never joins two."""
+    return bool(ROUNDUP.search(title) or LIST_HEADLINE.search(title))
+
+
+def kev_tokens(it: dict) -> list[tuple[int, str]]:
+    """A KEV entry is linked by its CVE and its product's name, never by its vendor alone."""
+    product = ((it.get("extra") or {}).get("product") or "").replace("’", "'")
+    return [(i, w) for i, w in enumerate(WORD_RE.findall(product))
+            if len(w) >= 3 and w.lower() not in STOP and not w.isdigit()]
 WORD_RE = re.compile(r"[A-Za-z0-9][A-Za-z0-9.+\-]*[A-Za-z0-9+]|[A-Za-z0-9]")
 
 
@@ -972,23 +1015,29 @@ def find_situations(items: list[dict], ctx: dict) -> list[dict]:
     forms: dict[str, Counter] = {}
     toks_by_id: dict[str, list] = {}
     for it in recent:
-        toks = title_tokens(it["title"], vocab, sentence_names)
+        if it["type"] == "kev":
+            toks = kev_tokens(it)
+        elif is_bridge(it["title"]):
+            toks_by_id[it["id"]] = []
+            continue
+        else:
+            toks = title_tokens(it["title"], vocab, sentence_names)
         toks_by_id[it["id"]] = toks
-        keys = set(it.get("cves", []))
+        keys = {c.lower() for c in it.get("cves", [])}
         for _, w in toks:
             keys.add(w.lower())
             forms.setdefault(w.lower(), Counter())[w] += 1
         for k in keys:
             index.setdefault(k, set()).add(it["id"])
 
-    candidates = []
+    candidates, vendor_keys = [], []
     for key, ids in index.items():
-        if key in BROAD_NAMES:
+        if key in BROAD_NAMES or key in GENERIC_KEYS:
             continue  # too broad to be a story on its own; still used in names like "Microsoft SharePoint"
         srcs = {by_id[i]["source"] for i in ids}
         has_kev = any(by_id[i]["type"] == "kev" for i in ids)
         if len(srcs) >= 3 or (len(srcs) >= 2 and has_kev):
-            candidates.append((key, ids, srcs))
+            (vendor_keys if key in VENDORS else candidates).append((key, ids, srcs))
     candidates.sort(key=lambda c: (-len(c[2]), -len(c[1]), c[0]))
 
     # Union-find: keys that mostly share reports, or name each other ("php" / "php2shell"), are one story.
@@ -1000,6 +1049,11 @@ def find_situations(items: list[dict], ctx: dict) -> list[dict]:
             i = parent[i]
         return i
 
+    # Two exploited vulnerabilities in different products are two stories, however many reports
+    # mention both, so a group never holds KEV entries for two different products.
+    products = [{by_id[i]["extra"]["product"].lower() for i in ids
+                 if by_id[i]["type"] == "kev" and (by_id[i].get("extra") or {}).get("product")}
+                for _, ids, _ in candidates]
     for a in range(len(candidates)):
         for b in range(a + 1, len(candidates)):
             ka, ia, _ = candidates[a]
@@ -1007,13 +1061,31 @@ def find_situations(items: list[dict], ctx: dict) -> list[dict]:
             nested = len(ka) >= 3 and len(kb) >= 3 and not ka.startswith("cve-") and not kb.startswith("cve-") \
                 and (ka in kb or kb in ka) and ia & ib
             if nested or len(ia & ib) / min(len(ia), len(ib)) >= 0.5:
-                parent[root(b)] = root(a)
+                ra, rb = root(a), root(b)
+                if ra != rb and not (products[ra] and products[rb] and products[ra].isdisjoint(products[rb])):
+                    parent[rb] = ra
+                    products[ra] |= products[rb]
     merged: dict[int, dict] = {}
     for i, (key, ids, _) in enumerate(candidates):
         g = merged.setdefault(root(i), {"keys": [], "ids": set()})
         g["keys"].append(key)
         g["ids"] |= ids
     groups = list(merged.values())
+    # A vendor's name stands for a story only when nothing more specific does ("Oracle EBS" reports
+    # that never repeat a product word); otherwise its reports are already in their products' stories.
+    covered = set().union(*(g["ids"] for g in groups)) if groups else set()
+    for key, ids, _ in vendor_keys:
+        if len(ids & covered) >= 0.5 * len(ids):
+            continue
+        near = [g for g in groups if g["ids"] & ids]
+        if not near:
+            groups.append({"keys": [key], "ids": set(ids)})
+        elif len(near) == 1:  # the vendor's other reports on the one story they touch
+            kev = lambda xs: {by_id[i]["extra"]["product"].lower() for i in xs  # noqa: E731
+                              if by_id[i]["type"] == "kev" and (by_id[i].get("extra") or {}).get("product")}
+            if not (kev(near[0]["ids"]) and kev(ids) and kev(near[0]["ids"]).isdisjoint(kev(ids))):
+                near[0]["ids"] |= ids
+                near[0]["keys"].append(key)
 
     out = []
     for g in groups:
@@ -1025,7 +1097,7 @@ def find_situations(items: list[dict], ctx: dict) -> list[dict]:
             continue
         if len(srcs) >= 8:
             top = SEV_RANK["critical"]  # a story this many outlets are on is big by definition
-        name = situation_name(g["keys"], members, toks_by_id, forms, index)
+        name = situation_name(g["keys"], members, toks_by_id, forms, index, vocab)
         lead = next((m for m in members if m["type"] in ("news", "advisory", "breach")), members[0])
         weight = sum(SEV_WEIGHT[m["severity"]] for m in members) * (1 + 0.15 * len(srcs))
         out.append({
@@ -1041,14 +1113,29 @@ def find_situations(items: list[dict], ctx: dict) -> list[dict]:
     return out[:8]
 
 
-def situation_name(keys: list[str], members: list[dict], toks_by_id: dict, forms: dict, index: dict) -> str:
+def situation_name(keys: list[str], members: list[dict], toks_by_id: dict, forms: dict, index: dict,
+                   vocab: set | None = None) -> str:
+    """What people call the story: a coined bug name if there is one, never a bare vendor or country."""
+    vocab = vocab or set()
+    form = lambda k: forms[k].most_common(1)[0][0] if k in forms else k  # noqa: E731
+    bare = lambda name: name.lower() in VENDOR_NAMES or name.lower() in COUNTRIES \
+        or name.lower() in BROAD_NAMES or name.lower() in GENERIC_KEYS  # noqa: E731
+    reach: Counter = Counter()
+    for m in members:
+        reach.update({w.lower() for _, w in toks_by_id.get(m["id"], [])})
+    words = [k for k in keys if not k.startswith("cve-") and k in forms]
+    # A coined name (SSHole, PHP2Shell, ICM2SHELL) that two or more reports use.
+    coined = [k for k in reach if reach[k] >= 2 and k in forms and k not in vocab and not bare(k)
+              and form(k)[0].isalpha() and CAMEL.search(form(k))]
+    if coined:
+        return form(min(coined, key=lambda k: (-reach[k], -len(k), k)))
     # A named bug that contains the product's name ("PHP2Shell" for "PHP") is what people call the story.
-    words = sorted((k for k in keys if not k.startswith("cve-") and k in forms), key=lambda k: -len(index.get(k, ())))
+    words.sort(key=lambda k: -len(index.get(k, ())))
     if words:
         top = words[0]
         for k in words[1:]:
             if top in k and len(index.get(k, ())) >= 0.4 * len(index.get(top, ())):
-                return forms[k].most_common(1)[0][0]
+                return form(k)
     keyset = set(keys)
     phrases: Counter = Counter()
     for m in members:
@@ -1062,13 +1149,22 @@ def situation_name(keys: list[str], members: list[dict], toks_by_id: dict, forms
                 if any(w.lower() in keyset for _, w in run):
                     seen_here.add(" ".join(w for _, w in run))
         phrases.update(seen_here)
-    best = sorted(((c, len(p.split()), p) for p, c in phrases.items() if c >= 2), reverse=True)
+    best = sorted(((c, len(p.split()), p) for p, c in phrases.items() if c >= 2 and not bare(p)), reverse=True)
     if best:
         return best[0][2]
-    for k in keys:
-        if not k.upper().startswith("CVE-"):
-            return forms[k].most_common(1)[0][0] if k in forms else k
-    return keys[0].upper()
+    named = sorted((k for k in reach if k in forms and not bare(k) and k not in GENERIC_KEYS and reach[k] >= 2),
+                   key=lambda k: (k not in keys, -reach[k], k))
+    if named:
+        return form(named[0])
+    kev = [m for m in members if m["type"] == "kev"]
+    cves = sorted({c.upper() for m in kev for c in m.get("cves", [])})
+    label = form(words[0]) if words else ((kev[0].get("extra") or {}).get("vendor") if kev else "")
+    if len(cves) == 1 and label:  # "GitLab CVE-2026-97229" says which GitLab story
+        return f"{label} {cves[0]}"
+    # Only vendors or countries in common: the lead report's headline says what happened.
+    lead = next((m for m in members if m["type"] in ("news", "advisory", "breach")), members[0])
+    title = lead["title"] if len(lead["title"]) <= 70 else lead["title"][:70].rsplit(" ", 1)[0] + "…"
+    return title
 
 
 # ---------------------------------------------------------------- the picture

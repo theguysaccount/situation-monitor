@@ -70,6 +70,11 @@ A source that fails keeps its last items on the board, and the Sources table on 
 - **CISA KEV entries** are critical for 72 hours after they're added, or for as long as they're tied to ransomware; high after that.
 - **Have I Been Pwned breaches** are critical at 10M+ accounts and high at 1M+.
 - **Developing situations** are names and CVEs that at least three outlets carried in the last 72 hours (two, if one is CISA KEV), merged when they share most of their reports.
+  - Roundups and headlines that list several products ("OpenSSH, GPUStack, FreeSWITCH, and IBM") join no story. Generic words (Secure, Firewall, University, SSH) and platform names (Microsoft, Claude) never link reports on their own.
+  - A CISA KEV entry links only through its CVE and its product's name, and two KEV entries for different products never share a story.
+  - A vendor's name links reports only when nothing more specific does ("Oracle" when the reports share no product word).
+  - The name is a coined bug name when two reports use one (SSHole, PHP2Shell, ICM2SHELL), else a product or phrase the reports share; never a bare vendor or country. Failing those it's the product and CVE ("GitLab CVE-2026-97229") or the lead headline.
+  - `tests/fixtures/situations.json` holds two real boards (Oct 31 and Nov 10, 2026) that the tests group and name.
 - **SITCON** adds up a "heat" score and maps it through `level_thresholds` in `config.json` (250, 290, 405, 430): 5 quiet, 4 guarded, 3 elevated, 2 severe, 1 critical.
   - Heat counts reports from the last 48 *working* hours (Monday to Friday, UTC) by severity (critical 6, high 2.5, medium 0.6), 4 for each CISA KEV addition in the last 72 working hours, 0.25 for each ransomware leak-site claim in the last 48 hours (at most 20), and 5 for each story on five or more outlets. Counting working hours means a quiet weekend still sees Thursday and Friday, so newsrooms going home doesn't read as calm.
   - SITCON 1 also needs an event: one critical story on at least 10 outlets. Volume alone tops out at 2.

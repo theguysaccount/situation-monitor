@@ -159,6 +159,69 @@ class Level(unittest.TestCase):
         self.assertEqual(m.settle_level(want2, {}, now, sweep=True)["value"], 2)  # first sweep ever
 
 
+class Situations(unittest.TestCase):
+    """Story grouping and names on two real boards (tests/fixtures/situations.json)."""
+    FIX = None
+
+    @classmethod
+    def setUpClass(cls):
+        import json
+        cls.FIX = json.loads((ROOT / "tests" / "fixtures" / "situations.json").read_text())
+
+    def board(self, day):
+        b = self.FIX["boards"][day]
+        items = [dict(i) for i in b["items"]]
+        found = m.find_situations(items, {"now": m.parse_iso(b["now"]), "vocab": set(self.FIX["vocab"])})
+        return {i["id"]: i for i in items}, found
+
+    @staticmethod
+    def kev_cves(by, story):
+        return {by[i]["cves"][0] for i in story["items"] if by[i]["type"] == "kev"}
+
+    def check_common(self, by, found):
+        self.assertTrue(found)
+        for s in found:
+            self.assertNotIn(s["name"].lower(), m.VENDOR_NAMES | m.COUNTRIES, "named by a bare vendor or country")
+            products = {by[i]["extra"]["product"] for i in s["items"] if by[i]["type"] == "kev"}
+            self.assertLessEqual(len(products), 1, f"{s['name']} holds KEV entries for {products}")
+            for i in s["items"]:
+                self.assertFalse(m.is_bridge(by[i]["title"]), f"{s['name']} holds the roundup {by[i]['title']!r}")
+
+    def test_november_10(self):
+        by, found = self.board("2026-11-10")
+        self.check_common(by, found)
+        sshole = next(s for s in found if s["name"] == "SSHole")
+        self.assertEqual(self.kev_cves(by, sshole), {"CVE-2026-123158"})
+        self.assertTrue(any("SSHole" in by[i]["title"] for i in sshole["items"]))
+        four = {"CVE-2026-102895", "CVE-2026-116779", "CVE-2026-123158", "CVE-2026-123218"}
+        for s in found:
+            self.assertLessEqual(len(self.kev_cves(by, s) & four), 1, s["name"])
+        names = [s["name"] for s in found]
+        self.assertIn("ICM2SHELL", names)  # SAP's coined bug name, not "SAP"
+        vanderbilt = next(s for s in found if s["name"] == "Vanderbilt University")
+        self.assertFalse(any("York University" in by[i]["title"] for i in vanderbilt["items"]))
+
+    def test_october_31(self):
+        by, found = self.board("2026-10-31")
+        self.check_common(by, found)
+        names = [s["name"] for s in found]
+        self.assertIn("PHP2Shell", names)  # not "Palo Alto"
+        self.assertIn("GitLab CVE-2026-97229", names)
+        for s in found:
+            titles = " | ".join(by[i]["title"] for i in s["items"])
+            self.assertFalse("Ivanti" in titles and "Cisco" in titles, s["name"])  # joined only by "Secure"
+            self.assertFalse("Tailscale" in titles and "Cursor" in titles, s["name"])  # joined only by "SSH"
+            self.assertFalse("Drupal" in titles and "Adobe Commerce" in titles, s["name"])  # joined only by "Commerce"
+
+    def test_bridge_headlines(self):
+        self.assertTrue(m.is_bridge("CISA Warns of Active Exploitation of OpenSSH, GPUStack, FreeSWITCH, and IBM Flaws"))
+        self.assertTrue(m.is_bridge("⚡ Weekly Recap: SSHole Exploited, APT Root RCE, Robot Takeovers, and More"))
+        self.assertTrue(m.is_bridge("Adobe, Veeam, Juniper Networks Patch Critical Vulnerabilities"))
+        self.assertFalse(m.is_bridge("IBM Aspera Faspex, SignalWire FreeSwitch Vulnerabilities Exploited in Attacks"))
+        self.assertFalse(m.is_bridge("Hackers hit UNM hospital, then apologize and offer patients $2,500. In a new statement, "
+                                     "they reveal more"))
+
+
 class Rendering(unittest.TestCase):
     data = {
         "site_url": "https://thesituationmonitor.org/", "generated_at": "2026-10-25T12:00:00Z",
