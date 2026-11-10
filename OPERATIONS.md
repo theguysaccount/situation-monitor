@@ -57,17 +57,19 @@ None of these is needed for the board to keep running.
    digests matched to a team's uploaded lockfiles) needs separate hosting and a Stripe account. The free
    board stays here. When it exists, add one link labeled "Team digests" to the "Get alerted" section of
    `site/app.html`.
-4. **Google Search Console.** Verify the domain in Search Console with the HTML-tag method, then add
-   `"google_site_verification": "<token>"` to `config.json` and push; `monitor.py` adds the meta tag to the
-   page. Then submit `https://thesituationmonitor.org/sitemap.xml`. Bing, Yandex and others already get
-   IndexNow pings.
+4. **Google Search Console** is done: the domain property was verified through a DNS TXT record
+   (`google-site-verification=…` on `thesituationmonitor.org`, set at Namecheap) on Oct 24, 2026, and
+   `https://thesituationmonitor.org/sitemap.xml` is submitted. Keep that TXT record. Bing, Yandex and others
+   get IndexNow pings. (`config.json` can also carry `"google_site_verification"` for the HTML-tag method;
+   it isn't needed.)
 5. **Other domains.** `cyops.fun` is meant to redirect here. That's a DNS change for the owner; the Pages
    custom-domain setting here must not change.
 
 ## Scheduled Claude routine
 
 The analyst routine already exists: *The Situation Monitor: hourly sweep*, a Claude scheduled task on the
-owner's Mac that runs `monitor.py --summary`, rewrites the SITREP when something new is critical or high,
+owner's Mac that fast-forwards its checkout to `main` (so merged fixes reach the Mac's sweeps), runs
+`monitor.py --summary`, rewrites the SITREP when something new is critical or high,
 the level changes or the SITREP is over 6 hours old, commits `sitrep.json`, syncs the private claude.ai
 live copy, and sends the owner a push notification for new critical or watchlisted items. If it is ever
 moved to a cloud routine, keep its one rule: it commits only `sitrep.json`.
