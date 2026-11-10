@@ -79,8 +79,10 @@ def run(site: Path) -> int:
 
     prompt = site / "data" / "master-prompt.md"
     text = prompt.read_text(encoding="utf-8") if prompt.exists() else ""
-    if "<situation_data" in text and "{{" not in text:
+    if "<situation_data" in text and "{{" not in text and text.count("</situation_data") == 1:
         c.ok("data/master-prompt.md", f"{len(text):,} chars")
+    elif text.count("</situation_data") > 1:
+        c.fail("data/master-prompt.md", "more than one closing </situation_data> tag: feed text is escaping the data block")
     else:
         c.fail("data/master-prompt.md", "missing, without its <situation_data> block, or with unfilled {{placeholders}}")
 

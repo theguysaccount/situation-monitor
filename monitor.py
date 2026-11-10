@@ -24,6 +24,7 @@ import html
 import json
 import os
 import re
+import secrets
 import subprocess
 import sys
 import time
@@ -140,11 +141,26 @@ def clean(s: str, limit: int = 320) -> str:
     """Plain text from feed HTML, trimmed at a word boundary."""
     if not s:
         return ""
-    s = html.unescape(TAG_RE.sub(" ", html.unescape(str(s)))).replace("�", "")
+    s = str(s)
+    # Feeds double- and triple-encode their HTML. Decode until the text stops changing and strip tags after
+    # every pass, so an encoded "&amp;lt;/tag&amp;gt;" can never come out the other end as a literal tag.
+    for _ in range(5):
+        decoded = TAG_RE.sub(" ", html.unescape(s))
+        if decoded == s:
+            break
+        s = decoded
+    s = TAG_RE.sub(" ", s).replace("\ufffd", "")
     s = BOILERPLATE_RE.sub("", re.sub(r"\s+", " ", s)).strip()
     if len(s) > limit:
         s = s[:limit].rsplit(" ", 1)[0].rstrip(",;:.-– ") + "…"
     return s
+
+
+def prompt_safe(s: str, limit: int = 600) -> str:
+    """One line of feed-derived text for the master prompt: no angle brackets, so nothing a feed says can open
+    or close a tag in the prompt, and no line long enough to bury the instructions around it."""
+    s = re.sub(r"\s+", " ", str(s)).replace("<", "\u2039").replace(">", "\u203a").strip()
+    return s if len(s) <= limit else s[: limit - 1].rstrip() + "\u2026"
 
 
 def norm(s: str) -> str:
@@ -1316,7 +1332,7 @@ def make_brief(data: dict, now: datetime) -> str:
     if breaches:
         lines += ["", "Recently disclosed breaches:"]
         lines += [f"- {it['published'][:10]} {it['title']} ({it['source']}) {it['url']}" for it in breaches]
-    return "\n".join(lines)
+    return "\n".join(prompt_safe(line) for line in lines)
 
 
 def build(items: list[dict], packages: list[dict], status: list[dict], cfg: dict, now: datetime, meta: dict) -> dict:
@@ -1417,7 +1433,7 @@ def generic_prompt(data: dict) -> str:
     fills = {
         "TEAM_NAME": "our team", "RUN_MODE": p["run_mode"]["code"], "GENERATED_AT": data["generated_at"],
         "LEVEL": f"{data['level']['value']} {data['level']['name']}", "SITUATION_BRIEF": data["prompt_brief"],
-        "ALERTS_HOOKUP": alerts,
+        "ALERTS_HOOKUP": alerts, "DATA_ID": secrets.token_hex(6),
         "TEAM_PROFILE": "(Replace this line with the vendors, products, platforms and packages you rely on. "
                         "The website's \"Protect your team\" builder fills it in for you.)",
     }

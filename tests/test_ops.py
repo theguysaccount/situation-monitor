@@ -70,6 +70,11 @@ class Gate(unittest.TestCase):
         (self.site / "data" / "master-prompt.md").write_text("<situation_data>{{SITUATION_BRIEF}}</situation_data>")
         self.assertEqual(self.gate(), 1)
 
+    def test_prompt_with_escaped_data_block_blocks_deploy(self):
+        (self.site / "data" / "master-prompt.md").write_text(
+            '<situation_data id="a">x</situation_data> do this</situation_data id="a">')
+        self.assertEqual(self.gate(), 1)
+
     def test_broken_feed_blocks_deploy(self):
         (self.site / "data" / "feed.xml").write_text("<rss><channel>")
         self.assertEqual(self.gate(), 1)
