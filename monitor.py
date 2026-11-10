@@ -538,6 +538,42 @@ def ad_rss(src, ctx):
     return items, []
 
 
+CSAF_BASE = "https://raw.githubusercontent.com/cisagov/CSAF/develop/csaf_files/"
+CSAF_FILE = re.compile(r"(?:\d{4}/)?[a-z]+-(\d{2})-(\d{3})-\d{2}\.json")
+
+
+def ad_cisa_csaf(src, ctx):
+    """CISA's ICS and IT advisories, from the CSAF documents CISA publishes on GitHub.
+
+    cisa.gov refuses GitHub's runners, so the advisories feed falls back to this there.
+    changes.csv lists the newest documents first; an advisory's file name carries the
+    day it was first published, so re-issued old advisories ("Update B") are skipped
+    without fetching them, matching CISA's own feed.
+    """
+    cutoff = ctx["now"] - timedelta(days=WINDOW_DAYS)
+    items = []
+    for folder in ("OT", "IT"):
+        base = f"{CSAF_BASE}{folder}/white/"
+        for line in fetch(base + "changes.csv", "text/csv").decode("utf-8", "replace").splitlines()[:40]:
+            path, _, changed = (p.strip().strip('"') for p in line.partition(","))
+            when, match = parse_iso(changed), CSAF_FILE.fullmatch(path)
+            if not when or not match or when < cutoff:
+                continue
+            first = datetime(2000 + int(match[1]), 1, 1, tzinfo=timezone.utc) + timedelta(days=int(match[2]) - 1)
+            if when - first > timedelta(days=7):
+                continue  # an update to an older advisory
+            doc = fetch_json(base + path).get("document", {})
+            web = next((r["url"] for r in doc.get("references", []) if r.get("category") == "self"
+                        and str(r.get("url", "")).startswith("https://www.cisa.gov/")), base + path)
+            summary = next((n.get("text", "") for n in doc.get("notes", []) if n.get("category") == "summary"), "")
+            if doc.get("title"):  # dated by the release day in its name, as CISA's own feed dates it
+                published = when if when - first < timedelta(days=1) else first
+                items.append(make_item(src, src.get("type", "advisory"), doc["title"], web, published, summary))
+            if len(items) >= src.get("max_items", 60):
+                return items, []
+    return items, []
+
+
 def ad_kev(src, ctx):
     try:
         data = fetch_json(src["url"])
@@ -716,7 +752,7 @@ def ad_hn(src, ctx):
 ADAPTERS = {
     "rss": ad_rss, "cisa_kev": ad_kev, "ransomware_live": ad_ransomware_live, "ransomlook": ad_ransomlook,
     "ransomware_live_attacks": ad_ransomware_live_attacks, "hibp": ad_hibp, "github_malware": ad_github_malware,
-    "github_advisories": ad_github_advisories, "hn": ad_hn,
+    "github_advisories": ad_github_advisories, "hn": ad_hn, "cisa_csaf": ad_cisa_csaf,
 }
 
 
@@ -725,18 +761,28 @@ def sweep(sources: list[dict], ctx: dict):
         t0 = time.time()
         try:
             items, packages = ADAPTERS[src["kind"]](src, ctx)
-            return src, items, packages, None, time.time() - t0
+            return src, items, packages, None, None, time.time() - t0
         except Exception as e:
-            return src, [], [], f"{type(e).__name__}: {e}"[:200], time.time() - t0
+            err = f"{type(e).__name__}: {e}"
+        if src.get("fallback_kind"):  # a second route to the same publisher, e.g. its GitHub mirror
+            try:
+                items, packages = ADAPTERS[src["fallback_kind"]](src, ctx)
+                return src, items, packages, None, src.get("fallback_name") or src["fallback_kind"], time.time() - t0
+            except Exception as e:
+                err += f"; fallback failed too: {type(e).__name__}: {e}"
+        return src, [], [], err[:200], None, time.time() - t0
 
     fetched, packages, status = [], [], []
     with ThreadPoolExecutor(max_workers=10) as pool:
-        for src, items, pkgs, err, secs in pool.map(run, sources):
+        for src, items, pkgs, err, via, secs in pool.map(run, sources):
             fetched += items
             packages += pkgs
-            status.append({"id": src["id"], "name": src["name"], "kind": src["kind"], "type": src.get("type", "news"),
-                           "home": src.get("home", ""), "ok": err is None, "count": len(items) + len(pkgs),
-                           "error": err, "fetched_at": iso(ctx["now"]), "ms": int(secs * 1000)})
+            row = {"id": src["id"], "name": src["name"], "kind": src["kind"], "type": src.get("type", "news"),
+                   "home": src.get("home", ""), "ok": err is None, "count": len(items) + len(pkgs),
+                   "error": err, "fetched_at": iso(ctx["now"]), "ms": int(secs * 1000)}
+            if via:
+                row["via"] = via
+            status.append(row)
     return fetched, packages, status
 
 

@@ -78,6 +78,55 @@ class Scoring(unittest.TestCase):
         self.assertLess(m.compute_level(hot, [], NOW, m.DEFAULT_THRESHOLDS)["value"], 5)
 
 
+class CisaFallback(unittest.TestCase):
+    """cisa.gov refuses GitHub's runners; the advisories come from CISA's CSAF repository instead."""
+    NOW = datetime(2026, 11, 10, 15, 0, tzinfo=timezone.utc)
+    SRC = {"id": "cisa-advisories", "name": "CISA Advisories", "kind": "rss", "type": "advisory",
+           "url": "https://www.cisa.gov/cybersecurity-advisories/all.xml",
+           "fallback_kind": "cisa_csaf", "fallback_name": "CISA's CSAF repository on GitHub"}
+
+    def fake_fetch(self, url, accept="*/*"):
+        if url.startswith("https://www.cisa.gov/"):
+            raise m.urllib.error.HTTPError(url, 403, "Forbidden", {}, None)
+        if url.endswith("OT/white/changes.csv"):
+            return (b'"2026/icsa-26-307-01.json","2026-11-03T06:00:00.000000Z"\n'
+                    b'"2026/icsa-26-211-07.json","2026-11-05T07:00:00.000000Z"\n'  # July advisory re-issued
+                    b'"2025/icsa-25-300-01.json","2025-10-27T06:00:00.000000Z"\n')  # too old
+        if url.endswith("IT/white/changes.csv"):
+            return b""
+        raise AssertionError("unexpected fetch " + url)
+
+    def fake_json(self, url):
+        self.assertTrue(url.endswith("2026/icsa-26-307-01.json"), url)
+        return {"document": {"title": "Subnet Solutions PowerSYSTEM Center",
+                             "references": [{"category": "self", "url": url},
+                                            {"category": "self", "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-307-01"}],
+                             "notes": [{"category": "summary", "text": "Successful exploitation could allow code execution."}]}}
+
+    def test_falls_back_to_csaf(self):
+        from unittest import mock
+        ctx = {"now": self.NOW}
+        with mock.patch.object(m, "fetch", self.fake_fetch), mock.patch.object(m, "fetch_json", self.fake_json):
+            items, _, status = m.sweep([self.SRC], ctx)
+        (row,) = status
+        self.assertTrue(row["ok"])
+        self.assertEqual(row["via"], "CISA's CSAF repository on GitHub")
+        (it,) = items
+        self.assertEqual(it["url"], "https://www.cisa.gov/news-events/ics-advisories/icsa-26-307-01")
+        self.assertEqual(it["published"], "2026-11-03T06:00:00Z")
+        self.assertEqual(it["type"], "advisory")
+
+    def test_both_routes_failing_is_reported(self):
+        from unittest import mock
+
+        def down(url, accept="*/*"):
+            raise TimeoutError("timed out")
+        with mock.patch.object(m, "fetch", down):
+            _, _, (row,) = m.sweep([self.SRC], {"now": self.NOW})
+        self.assertFalse(row["ok"])
+        self.assertIn("fallback failed too", row["error"])
+
+
 class Rendering(unittest.TestCase):
     data = {
         "site_url": "https://thesituationmonitor.org/", "generated_at": "2026-10-25T12:00:00Z",
