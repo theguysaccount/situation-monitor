@@ -152,6 +152,67 @@ class PromptSafety(unittest.TestCase):
         self.assertIn("DATA_ID: PROMPT_ID", page)
 
 
+class Clock(unittest.TestCase):
+    """A wrong machine clock must not leak into published timestamps."""
+    REAL = datetime(2026, 11, 10, 14, 0, tzinfo=timezone.utc)
+
+    def setUp(self):
+        self.saved = (m._local_now, dict(m.CLOCK))
+
+    def tearDown(self):
+        m._local_now = self.saved[0]
+        m.CLOCK.clear()
+        m.CLOCK.update(self.saved[1])
+
+    def fast_by(self, hours):
+        m._local_now = lambda: self.REAL + timedelta(hours=hours)
+
+    def test_a_clock_three_hours_fast_is_corrected(self):
+        self.fast_by(3)
+        m.measure_clock(probe=lambda url: self.REAL)
+        self.assertEqual(m.iso(m.now_utc()), "2026-11-10T14:00:00Z")
+        note = m.clock_note()
+        self.assertEqual(note["skew_seconds"], -10800)
+        self.assertIn("ahead", note["warning"])
+
+    def test_small_differences_and_silent_servers_keep_the_local_clock(self):
+        self.fast_by(0)
+        m.measure_clock(probe=lambda url: self.REAL - timedelta(seconds=1))
+        self.assertEqual(m.CLOCK["skew"], 0.0)
+        m.measure_clock(probe=lambda url: None)
+        self.assertEqual(m.CLOCK["skew"], 0.0)
+        self.assertIn("local clock", m.CLOCK["source"])
+        self.assertNotIn("warning", m.clock_note())
+
+    def test_one_wrong_server_is_outvoted(self):
+        self.fast_by(0)
+        answers = {m.CLOCK_PROBES[0]: self.REAL + timedelta(days=2)}
+        m.measure_clock(probe=lambda url: answers.get(url, self.REAL))
+        self.assertEqual(m.CLOCK["skew"], 0.0)
+
+    def test_a_briefing_from_the_future_is_clamped_to_the_sweep(self):
+        import json, tempfile
+        saved = (m.STATE, m.ROOT)
+        with tempfile.TemporaryDirectory() as tmp:
+            m.STATE = m.ROOT = Path(tmp)
+            (Path(tmp) / "sitrep.json").write_text(json.dumps({
+                "written_at": m.iso(NOW + timedelta(hours=3)), "headline": "h", "bullets": [{"text": "t"}], "actions": ["a"]}))
+            try:
+                self.assertEqual(m.load_sitrep(NOW)["written_at"], m.iso(NOW))
+            finally:
+                m.STATE, m.ROOT = saved
+
+    def test_history_ignores_readings_stamped_in_the_future(self):
+        hist = {"sitcon": [[m.iso(NOW + timedelta(hours=3)), 2, 1.0], [m.iso(NOW - timedelta(hours=1)), 4, 1.0]]}
+        self.assertEqual(m.history_series(hist, NOW)["sitcon"], [[m.iso(NOW - timedelta(hours=1)), 4]])
+
+    def test_the_page_takes_now_from_the_server(self):
+        page = (ROOT / "site" / "app.html").read_text(encoding="utf-8")
+        self.assertEqual(page.count("Date.now()"), 2)  # only inside nowMs() and syncClock()
+        self.assertEqual(page.count("syncClock(r);"), 2)
+        self.assertIn("(nowMs() - t) / 36e5", page)
+
+
 class Cli(unittest.TestCase):
     def test_brief_runs_without_network(self):
         out = subprocess.run([sys.executable, str(ROOT / "monitor.py"), "--brief"], capture_output=True, text=True, timeout=60)

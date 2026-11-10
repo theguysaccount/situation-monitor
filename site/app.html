@@ -691,9 +691,19 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
   const DAY_FMT = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
   const fmtDay = (iso) => { const t = Date.parse(iso); return t ? DAY_FMT.format(t) : ""; };
   const utcTime = (iso) => { const t = Date.parse(iso); return t ? new Date(t).toISOString().slice(11, 16) + " UTC" : ""; };
+  // "Now" comes from the server's Date header when the viewer's clock is off by more than a minute,
+  // so a wrong system clock can't make fresh data read as stale.
+  let CLOCK_OFFSET = 0;
+  const nowMs = () => Date.now() + CLOCK_OFFSET;
+  function syncClock(response) {
+    const t = Date.parse((response && response.headers && response.headers.get("Date")) || "");
+    if (isNaN(t)) return;
+    const off = t - Date.now();
+    CLOCK_OFFSET = Math.abs(off) > 60000 && Math.abs(off) < 30 * 864e5 ? off : 0;
+  }
   function ago(iso) {
     const t = Date.parse(iso); if (!t) return "";
-    const sec = Math.max(0, (Date.now() - t) / 1000);
+    const sec = Math.max(0, (nowMs() - t) / 1000);
     if (sec < 90) return "just now";
     if (sec < 3600) return Math.round(sec / 60) + " min ago";
     if (sec < 86400) return Math.round(sec / 3600) + " h ago";
@@ -702,12 +712,12 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
   function shortAgo(it) {
     if (it.extra && it.extra.date_only) return fmtDay(it.published);
     const t = Date.parse(it.published); if (!t) return "";
-    const sec = Math.max(0, (Date.now() - t) / 1000);
+    const sec = Math.max(0, (nowMs() - t) / 1000);
     if (sec < 3600) return Math.max(1, Math.round(sec / 60)) + "m";
     if (sec < 86400) return Math.round(sec / 3600) + "h";
     return Math.round(sec / 86400) + "d";
   }
-  const hoursSince = (iso) => { const t = Date.parse(iso); return t ? (Date.now() - t) / 36e5 : 1e9; };
+  const hoursSince = (iso) => { const t = Date.parse(iso); return t ? (nowMs() - t) / 36e5 : 1e9; };
   const use = (name) => (window.claude && typeof window.claude.use === "function") ? window.claude.use(name).catch(() => null) : Promise.resolve(null);
   const clone = (o) => (typeof structuredClone === "function" ? structuredClone(o) : JSON.parse(JSON.stringify(o)));
   const escapeRe = (x) => x.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -796,6 +806,7 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
     hydrateForm();
     try {
       const r = await fetch("data/situation.json", { cache: "no-store" });
+      syncClock(r);
       if (r.ok) setData(await r.json(), window.claude ? "snapshot" : "file");
     } catch (e) { /* no file: wait for the live store */ }
     if (!S.data) renderEmpty();
@@ -816,11 +827,12 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
       setInterval(async () => {
         try {
           const r = await fetch("data/situation.json", { cache: "no-store" });
+          syncClock(r);
           if (r.ok) { const d = await r.json(); if (!S.data || d.generated_at !== S.data.generated_at) setData(d, "file"); }
         } catch (e) { /* offline */ }
       }, 5 * 60 * 1000);
     }
-    const leave = () => { if (S.data) store.set("sm:lastVisit", new Date().toISOString().slice(0, 19) + "Z"); };
+    const leave = () => { if (S.data) store.set("sm:lastVisit", new Date(nowMs()).toISOString().slice(0, 19) + "Z"); };
     document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") leave(); });
     window.addEventListener("pagehide", leave);
   }
@@ -845,7 +857,7 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
   }
 
   function renderClock() {
-    const now = new Date();
+    const now = new Date(nowMs());
     $("#clock").textContent = now.toISOString().slice(11, 16) + " UTC";
   }
 

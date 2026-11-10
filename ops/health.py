@@ -21,6 +21,7 @@ import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 from urllib.parse import urlsplit
 
@@ -41,9 +42,17 @@ def site_url() -> str:
     return url if url.endswith("/") else url + "/"
 
 
-def hours_ago(stamp: str) -> float:
+def hours_ago(stamp: str, now: datetime | None = None) -> float:
     dt = datetime.strptime(stamp, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
-    return (datetime.now(timezone.utc) - dt).total_seconds() / 3600
+    return ((now or datetime.now(timezone.utc)) - dt).total_seconds() / 3600
+
+
+def served_at(headers: dict) -> datetime | None:
+    """The server's own time from its Date header, so a wrong local clock can't make fresh data look stale."""
+    try:
+        return parsedate_to_datetime(headers.get("date", "")) or None
+    except (TypeError, ValueError):
+        return None
 
 
 def dispatch_sweep(c: Checks, repo: str) -> None:
@@ -77,7 +86,8 @@ def check(heal: bool) -> int:
     else:
         c.fail("home page", f"HTTP {status} {err}".strip() if status != 200 else "200 but the page lacks its title")
 
-    status, _, _, body, err = fetch(site + "data/situation.json", tries=3, limit=20_000_000)
+    status, _, headers, body, err = fetch(site + "data/situation.json", tries=3, limit=20_000_000)
+    server_now = served_at(headers or {})
     data = None
     if status == 200:
         try:
@@ -87,7 +97,7 @@ def check(heal: bool) -> int:
     else:
         c.fail("data/situation.json", f"HTTP {status} {err}".strip())
     if data:
-        age = hours_ago(data["generated_at"])
+        age = hours_ago(data["generated_at"], server_now)
         detail = f"last sweep {age * 60:.0f} min ago ({data['generated_at']})"
         if age > FAIL_AFTER_HOURS:
             c.fail("data freshness", detail + f"; over {FAIL_AFTER_HOURS} h. Check the sweep workflow's recent runs.")
@@ -112,7 +122,7 @@ def check(heal: bool) -> int:
 
         sitrep = data.get("sitrep")
         if sitrep and sitrep.get("written_at"):
-            c.ok("analyst SITREP", f"written {hours_ago(sitrep['written_at']):.0f} h ago")
+            c.ok("analyst SITREP", f"written {hours_ago(sitrep['written_at'], server_now):.0f} h ago")
         else:  # optional: written by a Claude scheduled task on the owner's Mac
             c.warn("analyst SITREP", f"none from the last {SITREP_WARN_HOURS} h; the board runs without it")
 

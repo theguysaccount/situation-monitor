@@ -31,6 +31,11 @@ before the board goes stale.
   connection), so it shows as failing on the public board and in Health warnings. CISA's Known Exploited
   Vulnerabilities feed is a separate source and is unaffected.
 - **Failure emails** for scheduled runs go to the account owner. Nothing else alerts.
+- **Clocks.** A sweep takes real time from the `Date` headers of GitHub, Google and Cloudflare, so a wrong
+  machine clock can't put timestamps in the future. `data/situation.json` and `monitor.py --summary` carry
+  `clock.skew_seconds`, plus a `warning` when the machine is off by more than 2 minutes; fix that machine's clock.
+  A briefing stamped later than its sweep is shown with the sweep's time. The page takes "now" from the data
+  response's `Date` header, so a visitor with a wrong clock still sees the right "swept … ago" and Live badge.
 - **State lives in the Actions cache** (`state/`, key `situation-state-<run id>`). GitHub evicts caches
   unused for 7 days. If sweeps stop for over a week, the next sweep starts a fresh baseline: it alerts on
   nothing on its first run, and the history charts refill from the archives.
