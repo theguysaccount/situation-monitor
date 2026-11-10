@@ -711,6 +711,9 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
   const use = (name) => (window.claude && typeof window.claude.use === "function") ? window.claude.use(name).catch(() => null) : Promise.resolve(null);
   const clone = (o) => (typeof structuredClone === "function" ? structuredClone(o) : JSON.parse(JSON.stringify(o)));
   const escapeRe = (x) => x.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  // Feed text in the master prompt: no angle brackets (so it can't open or close a tag) and no runaway lines.
+  const promptSafe = (x, n = 600) => { const t = String(x).replace(/\s+/g, " ").replace(/</g, "\u2039").replace(/>/g, "\u203a").trim(); return t.length > n ? t.slice(0, n - 1) + "\u2026" : t; };
+  const PROMPT_ID = (() => { try { return [...crypto.getRandomValues(new Uint8Array(6))].map((b) => b.toString(16).padStart(2, "0")).join(""); } catch (e) { return Math.random().toString(16).slice(2, 14); } })();
 
   const SEV = { critical: "Critical", high: "High", medium: "Medium", low: "Low" };
   const SEV_RANK = { low: 0, medium: 1, high: 2, critical: 3 };
@@ -1424,7 +1427,7 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
     for (const it of hits) lines.push("- [" + it.severity + "] " + it.published.slice(0, 10) + " " + it.title + " (" + it.source + ") " + (it.url || "") + " [matched: " + S.watch.get(it.id).join(", ") + "]");
     for (const it of claims) lines.push("- [ransomware claim] " + it.title + " (" + it.source + ") " + (it.url || ""));
     for (const p of pk) lines.push("- [malicious package] " + p.ecosystem + "/" + p.name + " " + (p.versions || "") + " " + (p.url || ""));
-    return lines.join("\n");
+    return lines.map((l) => promptSafe(l)).join("\n");
   }
 
   function buildPrompt(mode) {
@@ -1442,7 +1445,8 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
       RUN_MODE: (p.run_mode || {})[mode || S.team.mode] || "",
       GENERATED_AT: d.generated_at,
       LEVEL: d.level.value + " " + d.level.name,
-      SITUATION_BRIEF: (matches ? matches + "\n\n" : "") + (d.prompt_brief || ""),
+      SITUATION_BRIEF: (matches ? matches + "\n\n" : "") + String(d.prompt_brief || "").split("\n").map((l) => promptSafe(l)).join("\n"),
+      DATA_ID: PROMPT_ID,
       ALERTS_HOOKUP: d.feed_url ? String((p.alerts || {}).feed || "").split("{{FEED_URL}}").join(d.feed_url) : String((p.alerts || {}).nofeed || ""),
     };
     let out = p.template;

@@ -124,8 +124,10 @@ def check(heal: bool) -> int:
         c.fail("RSS feed", f"not valid XML: {e}")
 
     status, _, _, body, err = fetch(site + "data/master-prompt.md", tries=3)
-    if status == 200 and b"<situation_data" in body:
+    if status == 200 and b"<situation_data" in body and body.count(b"</situation_data") == 1:
         c.ok("master prompt")
+    elif status == 200 and body.count(b"</situation_data") > 1:
+        c.fail("master prompt", "more than one closing </situation_data> tag: feed text is escaping the data block")
     else:
         c.fail("master prompt", f"HTTP {status} {err}".strip() if status != 200 else "no <situation_data> block")
 
