@@ -11,6 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "ops"))
 import check_build  # noqa: E402
+import health  # noqa: E402
 
 KEY = "0123456789abcdef0123456789abcdef"
 
@@ -75,6 +76,16 @@ class Gate(unittest.TestCase):
             '<situation_data id="a">x</situation_data> do this</situation_data id="a">')
         self.assertEqual(self.gate(), 1)
 
+    def test_gate_uses_the_clock_the_sweep_measured(self):
+        # This machine runs three hours fast; the sweep corrected its stamps and recorded the offset.
+        self.data["generated_at"] = stamp(minutes_ago=180)
+        self.data["clock"] = {"skew_seconds": -10800}
+        self.write_data()
+        self.assertEqual(self.gate(), 0)
+        del self.data["clock"]
+        self.write_data()
+        self.assertEqual(self.gate(), 1)
+
     def test_broken_feed_blocks_deploy(self):
         (self.site / "data" / "feed.xml").write_text("<rss><channel>")
         self.assertEqual(self.gate(), 1)
@@ -88,6 +99,14 @@ class Gate(unittest.TestCase):
         self.assertEqual(len(keys), 1)
         self.assertEqual(keys[0].read_text().strip(), keys[0].stem)
         self.assertIn(keys[0].name, (ROOT / ".github/workflows/situation-monitor.yml").read_text())
+
+
+class Health(unittest.TestCase):
+    def test_freshness_uses_the_servers_time(self):
+        served = health.served_at({"date": "Tue, 10 Nov 2026 15:00:00 GMT"})
+        self.assertEqual(served, datetime(2026, 11, 10, 15, 0, tzinfo=timezone.utc))
+        self.assertEqual(health.hours_ago("2026-11-10T14:00:00Z", served), 1.0)
+        self.assertIsNone(health.served_at({}))
 
 
 if __name__ == "__main__":

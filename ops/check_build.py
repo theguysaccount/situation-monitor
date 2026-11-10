@@ -16,7 +16,7 @@ import argparse
 import json
 import sys
 import xml.etree.ElementTree as ET
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -28,9 +28,10 @@ MIN_SOURCE_SHARE = 0.6    # below this, too much of the board would be stale or 
 STORE_LIMIT = 256 * 1024  # the claude.ai live store refuses documents over 256 KiB
 
 
-def age_minutes(stamp: str) -> float:
+def age_minutes(stamp: str, skew_seconds: float = 0.0) -> float:
+    """Minutes since stamp, on the clock the sweep measured (its recorded offset from real time)."""
     dt = datetime.strptime(stamp, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
-    return (datetime.now(timezone.utc) - dt).total_seconds() / 60
+    return (datetime.now(timezone.utc) + timedelta(seconds=skew_seconds) - dt).total_seconds() / 60
 
 
 def run(site: Path) -> int:
@@ -48,7 +49,7 @@ def run(site: Path) -> int:
         c.fail("data/situation.json", f"unreadable: {e}")
         return c.finish()
     try:
-        age = age_minutes(data["generated_at"])
+        age = age_minutes(data["generated_at"], float((data.get("clock") or {}).get("skew_seconds", 0)))
         (c.ok if age <= MAX_AGE_MINUTES else c.fail)("data is fresh", f"generated {age:.0f} min ago ({data['generated_at']})")
     except (KeyError, ValueError) as e:
         c.fail("data is fresh", f"no usable generated_at: {e}")

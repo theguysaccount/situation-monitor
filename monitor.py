@@ -64,8 +64,58 @@ DEFAULT_THRESHOLDS = [35, 80, 140, 260]  # heat needed for SITCON 4, 3, 2 and 1
 
 # ---------------------------------------------------------------- small helpers
 
+# The machine's clock can be wrong (the owner's Mac ran three hours fast for weeks), so a sweep takes real time
+# from the Date headers of a few well-known servers and every timestamp goes through now_utc().
+CLOCK = {"skew": 0.0, "source": "local clock", "samples": 0}
+CLOCK_PROBES = ("https://api.github.com/", "https://www.google.com/", "https://www.cloudflare.com/")
+CLOCK_TOLERANCE = 2.0    # seconds; Date headers only resolve to the second
+CLOCK_WARN = 120.0       # seconds; past this the summary warns that the machine's clock is off
+
+
+def _local_now() -> datetime:
+    return datetime.now(timezone.utc)
+
+
 def now_utc() -> datetime:
-    return datetime.now(timezone.utc).replace(microsecond=0)
+    return (_local_now() + timedelta(seconds=CLOCK["skew"])).replace(microsecond=0)
+
+
+def _server_date(url: str) -> datetime | None:
+    req = urllib.request.Request(url, method="HEAD", headers={"User-Agent": "Mozilla/5.0 (Macintosh) SituationMonitor/1.0"})
+    try:
+        with urllib.request.urlopen(req, timeout=6) as resp:
+            value = resp.headers.get("Date")
+    except urllib.error.HTTPError as e:
+        value = e.headers.get("Date") if e.headers else None
+    except Exception:
+        return None
+    try:
+        return parsedate_to_datetime(value) if value else None
+    except (TypeError, ValueError):
+        return None
+
+
+def measure_clock(probe=None) -> dict:
+    """Set CLOCK["skew"] (real time minus this machine's time) from the median of the servers' Date headers."""
+    probe = probe or _server_date
+    with ThreadPoolExecutor(max_workers=len(CLOCK_PROBES)) as pool:
+        answers = list(pool.map(lambda url: (probe(url), _local_now()), CLOCK_PROBES))
+    samples = sorted((server - local).total_seconds() for server, local in answers if server)
+    if not samples:
+        CLOCK.update(skew=0.0, source="local clock (no time server answered)", samples=0)
+        return CLOCK
+    skew = samples[len(samples) // 2]
+    CLOCK.update(skew=skew if abs(skew) > CLOCK_TOLERANCE else 0.0, source="server Date headers", samples=len(samples))
+    return CLOCK
+
+
+def clock_note() -> dict:
+    skew = round(CLOCK["skew"])
+    note = {"skew_seconds": skew, "source": CLOCK["source"]}
+    if abs(skew) > CLOCK_WARN:
+        note["warning"] = (f"This machine's clock is {abs(skew) / 3600:.1f} h {'behind' if skew > 0 else 'ahead'}; "
+                           "timestamps use real time from server Date headers. Fix the system clock.")
+    return note
 
 
 def iso(dt: datetime) -> str:
@@ -1226,7 +1276,8 @@ def history_series(hist: dict, now: datetime) -> dict:
     avg90 = sum(full[-90:]) / len(full[-90:]) if full else 0.0
     last7 = sum(totals[-7:]) / 7
     peak = max(range(max(0, len(rows) - 30), len(rows)), key=lambda i: totals[i]) if rows else None
-    readings = hist.get("sitcon", [])
+    horizon = iso(now + timedelta(minutes=5))
+    readings = sorted((r for r in hist.get("sitcon", []) if r[0] <= horizon), key=lambda r: r[0])
     changes = []
     for at, lv, _heat in readings:
         if not changes or changes[-1][1] != lv:
@@ -1242,7 +1293,7 @@ def history_series(hist: dict, now: datetime) -> dict:
     }
 
 
-def load_sitrep() -> dict | None:
+def load_sitrep(now: datetime) -> dict | None:
     # The scheduled analyst writes state/sitrep.json and commits a copy as sitrep.json at the
     # repository root, so the GitHub deploy can show it too. Whichever is newer wins.
     found = [load_json(STATE / "sitrep.json", None), load_json(ROOT / "sitrep.json", None)]
@@ -1250,7 +1301,9 @@ def load_sitrep() -> dict | None:
     if not found:
         return None
     raw = max(found, key=lambda f: str(f.get("written_at") or ""))
-    if hours_since(str(raw.get("written_at") or ""), now_utc()) > 36:
+    # Never show a briefing stamped later than the sweep it appears in (the analyst's clock can run fast).
+    written_at = min(str(raw.get("written_at") or ""), iso(now))
+    if hours_since(written_at, now) > 36:
         return None  # stale analysis is worse than none
 
     def safe_url(u):
@@ -1262,7 +1315,7 @@ def load_sitrep() -> dict | None:
             b = {"text": b}
         if isinstance(b, dict) and b.get("text"):
             bullets.append({"text": clean(b["text"], 360), "url": safe_url(b.get("url"))})
-    return {"written_at": raw.get("written_at") or "", "by": clean(raw.get("by") or "Claude", 40),
+    return {"written_at": written_at, "by": clean(raw.get("by") or "Claude", 40),
             "headline": clean(raw["headline"], 160), "bullets": bullets,
             "actions": [clean(a, 200) for a in raw.get("actions", [])[:6] if isinstance(a, str) and a.strip()]}
 
@@ -1358,7 +1411,8 @@ def build(items: list[dict], packages: list[dict], status: list[dict], cfg: dict
         "site_url": site_url, "feed_url": site_url + "data/feed.xml" if site_url else "",
         "repo_url": (os.environ.get("SM_REPO_URL") or cfg.get("repo_url") or "").strip(),
         "level": level, "levels": {str(k): {"name": v[0], "blurb": v[1]} for k, v in LEVELS.items()},
-        "situations": situations, "sitrep": load_sitrep(), "items": items, "packages": packages[:300],
+        "clock": clock_note(),
+        "situations": situations, "sitrep": load_sitrep(now), "items": items, "packages": packages[:300],
         "sources": status,
     }
     data.update(build_stats(items, packages, status, now, data["first_sweep_at"]))
@@ -1655,10 +1709,12 @@ def release_lock() -> None:
 
 def run_sweep(cfg: dict, send: bool) -> dict:
     t0 = time.time()
+    measure_clock()
     now = now_utc()
     sources = load_json(ROOT / "sources.json", [])
     meta = load_json(STATE / "meta.json", {})
-    seen: dict[str, str] = load_json(STATE / "seen.json", {})
+    stamp = iso(now)
+    seen: dict[str, str] = {k: min(v, stamp) for k, v in load_json(STATE / "seen.json", {}).items()}
     baseline = not seen
     ctx = {"now": now, "vocab": set(meta.get("vocab", [])), "kev_cves": set(meta.get("kev_cves", []))}
     fetched, packages, status = sweep(sources, ctx)
@@ -1666,11 +1722,10 @@ def run_sweep(cfg: dict, send: bool) -> dict:
     previous = load_json(STATE / "items.json", {"items": [], "packages": []})
     items = merge_items(previous.get("items", []), fetched, now)
     packages = merge_packages(previous.get("packages", []), packages, now)
-    stamp = iso(now)
     new_ids = set()
     for it in items:
         if it["id"] in seen:
-            it["first_seen"] = it.get("first_seen") or seen[it["id"]]
+            it["first_seen"] = min(it.get("first_seen") or seen[it["id"]], stamp)
         else:
             it["first_seen"] = stamp
             seen[it["id"]] = stamp
@@ -1702,6 +1757,7 @@ def run_sweep(cfg: dict, send: bool) -> dict:
     meta.pop("seen", None)
     meta["level"] = {"value": data["level"]["value"], "since": data["level"]["since"]}
     meta["last_sweep_at"] = stamp
+    meta["clock"] = clock_note()
     save_json(STATE / "meta.json", meta)
     save_json(STATE / "seen.json", seen, compact=True)
     save_json(STATE / "items.json", {"items": [it for it in items], "packages": packages}, compact=True)
@@ -1711,8 +1767,9 @@ def run_sweep(cfg: dict, send: bool) -> dict:
 
 
 def run_rebuild(cfg: dict) -> dict:
-    now = now_utc()
     meta = load_json(STATE / "meta.json", {})
+    CLOCK.update(skew=float((meta.get("clock") or {}).get("skew_seconds", 0)), source="last sweep's measurement")
+    now = now_utc()
     meta["seen"] = load_json(STATE / "seen.json", {})
     previous = load_json(STATE / "items.json", None)
     if not previous:
@@ -1731,7 +1788,8 @@ def summary(result: dict) -> dict:
     data, new = result["data"], result["new"]
     sr = data.get("sitrep")
     return {
-        "ok": True, "generated_at": data["generated_at"], "seconds": result["seconds"], "baseline": result["baseline"],
+        "ok": True, "now": iso(now_utc()), "clock": clock_note(),
+        "generated_at": data["generated_at"], "seconds": result["seconds"], "baseline": result["baseline"],
         "level": {k: data["level"][k] for k in ("value", "name", "changed_from", "reason", "heat")},
         "counts": {"items": len(data["items"]), "new": len(new),
                    "new_by_severity": dict(Counter(it["severity"] for it in new)),
@@ -1756,6 +1814,8 @@ def main(argv=None) -> int:
     ap.add_argument("--save-db-version", type=int, metavar="N", help="record the live-store document version")
     args = ap.parse_args(argv)
     cfg = load_config()
+    CLOCK.update(skew=float((load_json(STATE / "meta.json", {}).get("clock") or {}).get("skew_seconds", 0)),
+                 source="last sweep's measurement")
 
     if args.save_db_version is not None:
         art = load_json(STATE / "artifact.json", {})
