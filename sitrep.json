@@ -1,39 +1,39 @@
 {
- "written_at": "2026-11-10T13:19:35Z",
+ "written_at": "2026-11-10T15:19:49Z",
  "by": "Claude",
- "headline": "SITCON 2 (SEVERE): Barracuda ESG flaws now exploited for root access; SAP patches four CVSS 10.0 flaws; OpenSSH SSHole attacks continue",
+ "headline": "SITCON 2 (SEVERE): Barracuda ESG and OpenSSH SSHole exploitation continue; Seminole County clerk's office closed by a cyberattack",
  "bullets": [
   {
-   "text": "Changed: attackers are now exploiting critical Barracuda Email Security Gateway flaws to gain root access on the appliances. The reporting in the brief names no CVEs or fixed releases yet. SITCON holds at 2 (SEVERE).",
+   "text": "Changed: the Seminole County clerk's office closed after a cyberattack, with services expected to resume Monday. No new critical reports this sweep; SITCON holds at 2 (SEVERE) with 4 critical reports in 48 hours.",
+   "url": "https://www.wesh.com/article/seminole-county-clerks-office-cyber-attack-closure/74298766"
+  },
+  {
+   "text": "Changed: hearing-aid maker WS Audiology was hit by a new cyberattack, per MedWatch. Separately, a Pedigo Products breach exposed financial information and SSNs, per ClaimDepot. Neither report in the brief names an attacker.",
+   "url": "https://medwatch.com/News/hearing_health/article19787621.ece"
+  },
+  {
+   "text": "Still active: attackers are exploiting critical Barracuda Email Security Gateway flaws to gain root access; the brief names no CVEs or fixed releases. SAP also patched four CVSS 10.0 flaws, two enabling remote code execution, with no exploitation reported.",
    "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-barracuda-email-security-gateway-flaws-to-get-root-access/"
   },
   {
-   "text": "Changed: SAP patched four flaws rated CVSS 10.0, two of which enable remote code execution. No exploitation is reported in the brief.",
-   "url": "https://thehackernews.com/2026/11/sap-patches-four-cvss-100-flaws.html"
-  },
-  {
-   "text": "Changed: the N-able story now spans 3 outlets. N-able took hosted N-central offline after a researcher published more than 30 zero-days (33 by one count) with proof-of-concept exploits. No fixes are named in the reporting yet.",
-   "url": "https://www.securityweek.com/n-able-takes-n-central-offline-as-researcher-drops-over-30-zero-days/"
-  },
-  {
-   "text": "SSHole (OpenSSH CVE-2026-123158, an authentication bypass) is still being used to breach Linux systems, covered by 6 outlets. In CISA KEV since 11-09 alongside GPUStack CVE-2026-102895, FreeSwitch CVE-2026-116779 and IBM Aspera Faspex CVE-2026-123218; all four are due 11-12.",
+   "text": "SSHole (OpenSSH CVE-2026-123158) is still being used to breach Linux systems; the story spans 6 outlets. It sits in CISA KEV with GPUStack CVE-2026-102895, FreeSwitch CVE-2026-116779 and IBM Aspera Faspex CVE-2026-123218, all added 11-09 and due 11-12.",
    "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-sshole-openssh-flaw-to-breach-linux-systems/"
   },
   {
-   "text": "Google patched the eighth Chrome zero-day exploited in attacks this year (CVE-2026-125350); critical reports stand at 4 in 48 hours. France blames Iran for a sabotage attack on refrigeration controllers at about 700 retail sites, a story now on 4 outlets.",
-   "url": "https://thehackernews.com/2026/11/google-issues-chrome-security-update.html"
+   "text": "N-able's hosted N-central remains the subject of 3 outlets' reporting: it was taken offline after a researcher published more than 30 zero-days (33 by one count) with proof-of-concept exploits. No fixes are named yet.",
+   "url": "https://www.securityweek.com/n-able-takes-n-central-offline-as-researcher-drops-over-30-zero-days/"
   },
   {
-   "text": "Still developing: Fireworks AI disclosed a new breach after a hack of its cloud provider, and attackers used Qubole's trusted AWS access to breach customer accounts. 300 malicious packages were listed in 7 days, mostly npm. The last 7 days ran 0.85x the 90-day average.",
-   "url": "https://www.bleepingcomputer.com/news/security/fireworks-ai-discloses-new-breach-after-cloud-provider-hack/"
+   "text": "Google patched the eighth exploited Chrome zero-day of 2026 (CVE-2026-125350). France blames Iran for sabotage of refrigeration controllers at about 700 retail sites (4 outlets). 300 malicious packages were listed in 7 days, mostly npm; the week ran 0.87x the 90-day average.",
+   "url": "https://thehackernews.com/2026/11/google-issues-chrome-security-update.html"
   }
  ],
  "actions": [
   "Barracuda ESG: check Barracuda's advisory, apply available fixes, restrict management access and review appliances for signs of root compromise.",
-  "Apply SAP's November security patches, starting with the four CVSS 10.0 flaws on internet-reachable systems.",
   "Patch OpenSSH for CVE-2026-123158 on every internet-facing host; restrict SSH exposure and review auth logs for unexpected logins.",
   "Patch or isolate GPUStack (CVE-2026-102895), FreeSwitch (CVE-2026-116779) and IBM Aspera Faspex (CVE-2026-123218) before the 11-12 KEV deadline.",
-  "Update Chrome on all endpoints to the latest release (fixes CVE-2026-125350) and restart browsers; VMware ESX CVE-2026-41709 is due in KEV 11-11.",
+  "Apply SAP's November security patches, starting with the four CVSS 10.0 flaws on internet-reachable systems.",
+  "Update Chrome on all endpoints (fixes CVE-2026-125350) and restart browsers; VMware ESX CVE-2026-41709 is due in KEV on 11-11.",
   "N-central users: plan for the hosted outage, limit network exposure of N-central servers and agents, and watch N-able for fixes."
  ]
 }
