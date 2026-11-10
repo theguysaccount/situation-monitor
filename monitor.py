@@ -59,7 +59,8 @@ LEVELS = {
     2: ("SEVERE", "Mass exploitation or major breaches underway. Act today."),
     1: ("CRITICAL", "Internet-scale incident. Drop everything and monitor the situation."),
 }
-DEFAULT_THRESHOLDS = [35, 80, 140, 260]  # heat needed for SITCON 4, 3, 2 and 1
+DEFAULT_THRESHOLDS = [250, 290, 405, 430]  # heat needed for SITCON 4, 3, 2 and 1 (fitted Nov 2026; see README)
+EVENT_OUTLETS = 10  # SITCON 1 also needs one critical story on at least this many outlets
 
 
 # ---------------------------------------------------------------- small helpers
@@ -1072,39 +1073,82 @@ def situation_name(keys: list[str], members: list[dict], toks_by_id: dict, forms
 
 # ---------------------------------------------------------------- the picture
 
+def weekday_cutoff(now: datetime, hours: float) -> datetime:
+    """The moment `hours` working hours (Monday to Friday, UTC) before now.
+
+    Newsrooms and CISA mostly stop at weekends, so a window of clock hours makes
+    every Sunday look calm. Counting back only weekday hours keeps Thursday and
+    Friday in view until Monday; reports published at the weekend still count.
+    """
+    t, left = now, timedelta(hours=hours)
+    while True:
+        start = t.replace(hour=0, minute=0, second=0, microsecond=0)
+        if start == t:
+            start -= timedelta(days=1)
+        if start.weekday() < 5:
+            if t - start >= left:
+                return t - left
+            left -= t - start
+        t = start
+
+
 def compute_level(items: list[dict], situations: list[dict], now: datetime, thresholds: list) -> dict:
-    heat, ransom, crit48, kev72 = 0.0, 0.0, 0, 0
+    """The level the board's current heat calls for. See LEVEL_METHOD for how it is used."""
+    news_from, kev_from = iso(weekday_cutoff(now, 48)), iso(weekday_cutoff(now, 72))
+    heat, ransom, crit, kev = 0.0, 0.0, 0, 0
     for it in items:
-        age = hours_since(it["published"], now)
         if it["type"] == "kev":
-            if age <= 72:
+            if it["published"] >= kev_from:
                 heat += 4
-                kev72 += 1
+                kev += 1
             continue
-        if age > 48:
+        if it["type"] == "ransomware":  # leak sites post every day of the week
+            ransom += 0.25 if hours_since(it["published"], now) <= 48 else 0
             continue
-        if it["type"] == "ransomware":
-            ransom += 0.25
+        if it["published"] < news_from:
             continue
         heat += SEV_WEIGHT[it["severity"]]
-        crit48 += it["severity"] == "critical"
+        crit += it["severity"] == "critical"
     heat += min(ransom, 20)
     heat += sum(5 for s in situations if s["source_count"] >= 5)
     value = 5
     for lv, th in zip((4, 3, 2, 1), thresholds):
         if heat >= th:
             value = lv
+    event = next((s for s in situations if s["severity"] == "critical" and s["source_count"] >= EVENT_OUTLETS), None)
+    if value == 1 and not event:
+        value = 2  # volume alone is never an internet-scale incident
     bits = []
-    if kev72:
-        bits.append(f"{kev72} exploited vulnerabilit{'y' if kev72 == 1 else 'ies'} added to CISA KEV in 72 hours")
-    if crit48:
-        bits.append(f"{crit48} critical report{'s' if crit48 != 1 else ''} in 48 hours")
+    if kev:
+        bits.append(f"{kev} exploited vulnerabilit{'y' if kev == 1 else 'ies'} added to CISA KEV in the last three working days")
+    if crit:
+        bits.append(f"{crit} critical report{'s' if crit != 1 else ''} in the last two working days")
     if situations:
-        bits.append(f"top story: {situations[0]['name']} ({situations[0]['source_count']} outlets)")
+        top = event or situations[0]
+        bits.append(f"top story: {top['name']} ({top['source_count']} outlets)")
     name, blurb = LEVELS[value]
     reason = "; ".join(bits)
     return {"value": value, "name": name, "blurb": blurb, "heat": round(heat, 1),
-            "reason": reason[:1].upper() + reason[1:] + "." if bits else "Nothing notable in the last 48 hours."}
+            "reason": reason[:1].upper() + reason[1:] + "." if bits else "Nothing notable in the last two working days."}
+
+
+def settle_level(level: dict, prev: dict, now: datetime, sweep: bool) -> dict:
+    """Move the shown level only when two sweeps in a row call for the same new level."""
+    want, shown = level["value"], prev.get("value")
+    pending = None
+    if shown is None:
+        shown = want  # the very first sweep
+    elif want != shown:
+        if sweep and prev.get("pending") == want:
+            shown = want
+        else:
+            pending = want
+    out = dict(level, value=shown, name=LEVELS[shown][0], blurb=LEVELS[shown][1], pending=pending)
+    if pending:
+        out["reason"] += f" SITCON {pending} if the next sweep agrees."
+    out["changed_from"] = prev.get("value") if prev.get("value") not in (None, shown) else None
+    out["since"] = prev.get("since") if prev.get("value") == shown and prev.get("since") else iso(now)
+    return out
 
 
 def build_stats(items: list[dict], packages: list[dict], status: list[dict], now: datetime, first_sweep: str) -> dict:
@@ -1484,9 +1528,7 @@ def build(items: list[dict], packages: list[dict], status: list[dict], cfg: dict
     items = sorted(items + promote_packages(packages, ctx), key=lambda it: it["published"], reverse=True)
     situations = find_situations(items, ctx)
     level = compute_level(items, situations, now, cfg.get("level_thresholds") or DEFAULT_THRESHOLDS)
-    prev = meta.get("level") or {}
-    level["changed_from"] = prev.get("value") if prev.get("value") not in (None, level["value"]) else None
-    level["since"] = prev.get("since") if prev.get("value") == level["value"] else iso(now)
+    level = settle_level(level, meta.get("level") or {}, now, sweep=bool(meta.get("record_reading")))
     site_url = (os.environ.get("SM_SITE_URL") or cfg.get("site_url") or "").strip()
     if site_url and not site_url.endswith("/"):
         site_url += "/"
@@ -1841,7 +1883,7 @@ def run_sweep(cfg: dict, send: bool) -> dict:
     results = send_alerts(cfg, alert_items, data["level"]) if send and not baseline else {}
 
     meta.pop("seen", None)
-    meta["level"] = {"value": data["level"]["value"], "since": data["level"]["since"]}
+    meta["level"] = {k: data["level"].get(k) for k in ("value", "since", "pending")}
     meta["last_sweep_at"] = stamp
     meta["clock"] = clock_note()
     save_json(STATE / "meta.json", meta)

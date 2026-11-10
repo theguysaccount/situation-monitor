@@ -74,7 +74,7 @@ class Scoring(unittest.TestCase):
     def test_level(self):
         quiet = m.compute_level([], [], NOW, m.DEFAULT_THRESHOLDS)
         self.assertEqual(quiet["value"], 5)
-        hot = [{"type": "kev", "published": m.iso(NOW - timedelta(hours=1)), "severity": "critical"}] * 30
+        hot = [{"type": "kev", "published": m.iso(NOW - timedelta(hours=1)), "severity": "critical"}] * 80
         self.assertLess(m.compute_level(hot, [], NOW, m.DEFAULT_THRESHOLDS)["value"], 5)
 
 
@@ -125,6 +125,38 @@ class CisaFallback(unittest.TestCase):
             _, _, (row,) = m.sweep([self.SRC], {"now": self.NOW})
         self.assertFalse(row["ok"])
         self.assertIn("fallback failed too", row["error"])
+class Level(unittest.TestCase):
+    SUNDAY = datetime(2026, 11, 8, 12, 0, tzinfo=timezone.utc)
+
+    def test_window_counts_working_hours(self):
+        at = lambda *a: datetime(*a, tzinfo=timezone.utc)  # noqa: E731
+        self.assertEqual(m.weekday_cutoff(self.SUNDAY, 48), at(2026, 11, 5, 0))       # Sunday noon -> Thursday
+        self.assertEqual(m.weekday_cutoff(at(2026, 11, 9, 6), 48), at(2026, 11, 5, 6))  # Monday 06:00 -> Thursday 06:00
+        self.assertEqual(m.weekday_cutoff(at(2026, 11, 11, 12), 48), at(2026, 11, 9, 12))  # midweek: plain 48 hours
+
+    def test_quiet_weekend_is_not_calm(self):
+        friday = m.iso(datetime(2026, 11, 6, 15, 0, tzinfo=timezone.utc))
+        news = [{"type": "news", "published": friday, "severity": "high"}] * 20
+        self.assertGreater(m.compute_level(news, [], self.SUNDAY, m.DEFAULT_THRESHOLDS)["heat"], 0)
+
+    def test_sitcon_1_needs_an_event(self):
+        flood = [{"type": "kev", "published": m.iso(self.SUNDAY - timedelta(hours=2)), "severity": "critical"}] * 200
+        self.assertEqual(m.compute_level(flood, [], self.SUNDAY, m.DEFAULT_THRESHOLDS)["value"], 2)
+        story = {"name": "SSHole", "severity": "critical", "source_count": m.EVENT_OUTLETS}
+        self.assertEqual(m.compute_level(flood, [story], self.SUNDAY, m.DEFAULT_THRESHOLDS)["value"], 1)
+
+    def test_level_moves_after_two_sweeps_agree(self):
+        now = self.SUNDAY
+        want2 = {"value": 2, "name": "SEVERE", "blurb": "", "heat": 1, "reason": "x."}
+        first = m.settle_level(want2, {"value": 3, "since": "2026-11-01T00:00:00Z"}, now, sweep=True)
+        self.assertEqual((first["value"], first["pending"], first["changed_from"]), (3, 2, None))
+        self.assertEqual(first["since"], "2026-11-01T00:00:00Z")
+        rebuilt = m.settle_level(want2, {"value": 3, "since": "x", "pending": 2}, now, sweep=False)
+        self.assertEqual(rebuilt["value"], 3)  # rebuilds never move the level
+        second = m.settle_level(want2, {"value": 3, "since": "x", "pending": 2}, now, sweep=True)
+        self.assertEqual((second["value"], second["pending"], second["changed_from"]), (2, None, 3))
+        self.assertEqual(second["since"], m.iso(now))
+        self.assertEqual(m.settle_level(want2, {}, now, sweep=True)["value"], 2)  # first sweep ever
 
 
 class Rendering(unittest.TestCase):

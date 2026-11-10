@@ -3,10 +3,10 @@
   "repo_url": "https://github.com/theguysaccount/situation-monitor",
   "schedule_note": "Hourly, via a Claude scheduled task on the owner's Mac",
   "level_thresholds": [
-    35,
-    80,
-    140,
-    260
+    250,
+    290,
+    405,
+    430
   ],
   "alerts": {
     "min_severity": "critical",

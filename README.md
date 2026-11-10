@@ -70,7 +70,11 @@ A source that fails keeps its last items on the board, and the Sources table on 
 - **CISA KEV entries** are critical for 72 hours after they're added, or for as long as they're tied to ransomware; high after that.
 - **Have I Been Pwned breaches** are critical at 10M+ accounts and high at 1M+.
 - **Developing situations** are names and CVEs that at least three outlets carried in the last 72 hours (two, if one is CISA KEV), merged when they share most of their reports.
-- **SITCON** sums the last 48 hours of weighted reports (plus KEV additions and widely covered stories) and maps the total through `level_thresholds` in `config.json`: 5 quiet, 4 guarded, 3 elevated, 2 severe, 1 critical.
+- **SITCON** adds up a "heat" score and maps it through `level_thresholds` in `config.json` (250, 290, 405, 430): 5 quiet, 4 guarded, 3 elevated, 2 severe, 1 critical.
+  - Heat counts reports from the last 48 *working* hours (Monday to Friday, UTC) by severity (critical 6, high 2.5, medium 0.6), 4 for each CISA KEV addition in the last 72 working hours, 0.25 for each ransomware leak-site claim in the last 48 hours (at most 20), and 5 for each story on five or more outlets. Counting working hours means a quiet weekend still sees Thursday and Friday, so newsrooms going home doesn't read as calm.
+  - SITCON 1 also needs an event: one critical story on at least 10 outlets. Volume alone tops out at 2.
+  - A new level shows only when two sweeps in a row call for it; until then the reason line says where it's heading.
+  - The thresholds were fitted in November 2026 by replaying every hour from Oct 31 to Nov 10 with the current scoring: severe 13% of hours, elevated 60%, guarded 26%, quiet 1% (before: severe 45%). Refit them the same way if the scoring changes.
 
 ## Alerts
 
