@@ -65,7 +65,8 @@ A source that fails keeps its last items on the board, and the Sources table on 
 
 ## How it scores
 
-- **Severity** comes from the headline (summary-only words count half): active exploitation, zero-days, supply-chain compromise, worms, emergency patches, nation-state attribution, breaches with credentials, big record counts. Commentary, sponsored posts and weekly roundups are capped at medium.
+- **Severity** answers "should a security team hear about this today?" It comes from the headline (summary-only words count half): something happened (a breach, theft, attack, ransomware, a malicious release), active exploitation, zero-days, critical flaws, worms, emergency patches, nation-state attribution, big record counts. A story only reaches **critical** when its headline names something to patch or hunt now (exploitation, a zero-day, a malicious release, a worm, a critical flaw). Headlines that are roundups, questions, advice, research, predictions, business news, courts, arrests or policy are capped at medium.
+- The rules are measured against 300 hand-labelled headlines in `tests/fixtures/scoring_gold.json`: on the 30% held out, high-or-critical has precision 0.85 and recall 0.89 (November 2026). `python3 tests/test_scoring.py` prints the current numbers and the mistakes on the tuning part; the checks fail if held-out precision or recall drops below 0.85.
 - **CISA KEV entries** are critical for 72 hours after they're added, or for as long as they're tied to ransomware; high after that.
 - **Have I Been Pwned breaches** are critical at 10M+ accounts and high at 1M+.
 - **Developing situations** are names and CVEs that at least three outlets carried in the last 72 hours (two, if one is CISA KEV), merged when they share most of their reports.

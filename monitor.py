@@ -383,65 +383,105 @@ def _rx(p: str):
     return re.compile(p, re.I)
 
 
-RULES = [  # (pattern, points, tag)
-    (_rx(r"actively exploit|exploited in the wild|in-the-wild|under active (?:attack|exploitation)|mass[- ]exploit|being exploited|exploit(?:ation)? attempts|exploited (?:zero|0)[- ]?day|zero-day exploited"), 3, "actively-exploited"),
-    (_rx(r"\bzero[- ]?days?\b|\b0[- ]?days?\b"), 3, "zero-day"),
-    (_rx(r"supply[- ]chain|malicious (?:package|version|release|update|extension|npm|pypi)|compromised (?:package|release|pipeline|build|version|account|maintainer)|typosquat|dependency confusion|release pipeline|hijacked (?:package|account)"), 4, "supply-chain"),
-    (_rx(r"\bworm\b|self-propagat|\bwiper\b"), 3, "worm"),
-    (_rx(r"emergency (?:patch|fix|directive|update)|out-of-band|patch now|urgent(?:ly)? patch"), 2, "emergency"),
-    (_rx(r"nation[- ]state|state-sponsored|state-backed|\bapt ?\d*\b|china-linked|china-nexus|russia-linked|north korea|iranian|lazarus|typhoon|sandworm|kimsuky|fancy bear|cozy bear"), 2, "nation-state"),
-    (_rx(r"ransomware|extortion|leak site|encrypted (?:files|systems|servers)"), 2, "ransomware"),
-    (_rx(r"data breach|\bbreach(?:ed|es)?\b|\bhacked\b|hackers? (?:stole|steal|accessed|breached|leaked|hijack)|stolen data|data (?:leak|theft|exposure)|exposed (?:data|records|database|secrets|credentials)|exposure of|\bleak(?:ed|s)?\b|exfiltrat|unauthori[sz]ed (?:access|party)|cyberattack|cyber-attack|cyber attack|security incident|\bcompromised\b"), 2, "breach"),
-    (_rx(r"remote code execution|\brce\b|code execution|authentication bypass|auth bypass|privilege escalation|unauthenticated|sql injection|command injection"), 1, "rce"),
-    (_rx(r"credential|password|api keys?|secrets?\b|tokens?\b|environment variables|session cookies|private keys"), 1, "credentials"),
-    (_rx(r"backdoor|infostealer|info-stealer|stealer|trojan|botnet|rootkit|malware|spyware|\brat\b|loader"), 1, "malware"),
-    (_rx(r"phishing|smishing|vishing|social engineering|impersonat|help ?desk"), 1, "phishing"),
-    (_rx(r"\bddos\b|denial[- ]of[- ]service"), 1, "ddos"),
-    (_rx(r"critical(?:\s+[\w.'-]+){0,2}?\s+(?:flaws?|vulnerabilit|bugs?|security|infrastructure|rce)|cvss(?: v?\d(?:\.\d)?)?(?: score)?(?: of)? (?:9\.\d|10)"), 2, "critical"),
-    (_rx(r"vulnerabilit|\bflaws?\b|\bbugs?\b|\bpatch(?:es|ed)?\b|security update|advisory|\bcve-"), 1, "vuln"),
-    (_rx(r"hospital|healthcare|health system|patients?\b|medical|pharma"), 1, "healthcare"),
-    (_rx(r"power grid|water (?:utility|system)|critical infrastructure|\bics\b|scada|\bot (?:network|systems)|energy sector|pipeline operator"), 1, "critical-infra"),
-    (_rx(r"crypto(?:currency)?|bitcoin|ethereum|defi\b|wallet drainer|exchange (?:hack|heist)"), 1, "crypto"),
-    (_rx(r"\bai\b|\bllms?\b|openai|anthropic|claude|chatgpt|\bgpt|gemini|copilot|agentic|ai agents?|mcp server|inference|litellm|hugging ?face"), 0, "ai"),
-    (_rx(r"\baws\b|azure|google cloud|\bgcp\b|kubernetes|\bk8s\b|cloud"), 0, "cloud"),
-    (_rx(r"okta|entra|active directory|\bsso\b|oauth|\bmfa\b|identity provider"), 0, "identity"),
-    (_rx(r"arrest|charged|sentenced|extradit|takedown|seized|dismantl|indicted|pleads? guilty|europol"), 0, "law-enforcement"),
+# Severity is "should a security team hear about this today". It is measured
+# against a hand-labelled set of 300 real headlines in tests/fixtures/scoring_gold.json
+# (python3 -m unittest tests.test_scoring -v prints precision and recall); change
+# these rules only with that test passing.
+#
+# Rules in the "event" group describe that something happened (a breach, an attack,
+# a malicious release). A story usually says so several ways, so the group counts
+# once, at its strongest rule; every other rule adds up.
+RULES = [  # (pattern, points, tag, group)
+    (_rx(r"actively exploit|exploited in the wild|in-the-wild|under active (?:attack|exploitation)|mass[- ]exploit|being exploited|(?<!be )(?<!if )\bexploited\b|\bexploitation\b|\bexploit(?:s|ing)\b|(?:hackers?|attackers?|threat actors?|criminals|gangs?|groups?|apts?)\s+(?:\w+\s+){0,2}exploit\b"), 3, "actively-exploited", None),
+    (_rx(r"\bzero[- ]?days?\b|\b0[- ]?days?\b"), 3, "zero-day", None),
+    (_rx(r"supply[- ]chain|malicious (?:\w+ )?(?:packages?|versions?|releases?|updates?|extensions?|npm|pypi|plugins?|scripts?|apps?|crates?|gems?|images?)|compromised (?:package|release|pipeline|build|version|account|maintainer)|typosquat|dependency confusion|release (?:pipeline|automation)|hijacked (?:package|account|script|extension|update)|poisoned (?:\w+ )?(?:updates?|packages?|releases?|versions?|installers?)|trojani[sz]ed|backdoored|hardware implant"), 4, "supply-chain", "event"),
+    (_rx(r"ransomware|extortion|leak site|encrypted (?:files|systems|servers)"), 3, "ransomware", "event"),
+    (_rx(r"data breach|\bbreach(?:ed|es|ing)?\b|\bhack(?:ed|s)?\b|\bpwned\b|\bstol(?:e|en)\b|\bsteal(?:s|ing)?\b|\btheft\b|\bheists?\b|\bpilfer|\bleak(?:s|ed)?\b|\bexpos(?:e|ed|es|ing)\b|exfiltrat|unauthori[sz]ed (?:access|party|actor)|suspicious activity|(?:change|reset) (?:their |your )?passwords|security incident|cyber[- ]?(?:incident|intrusion)|\bintrusions?\b|\bcompromis(?:e|ed|es|ing)\b|\bdrain(?:s|ed|ing)\b|\bdoxx?(?:ed|ing)?\b"), 3, "breach", "event"),
+    (_rx(r"cyber[- ]?attack\b|\battacks? (?:on|against)\b|amid attacks|\bhit(?:s|ting)?\b(?! (?:a )?(?:record|new|high|low|\d))|\bsabotage|\broots\b|\b(?:push(?:es|ing)?|spread(?:s|ing)?|deliver(?:s|ing|ed)?|deploy(?:s|ing|ed)?|drop(?:s|ping)?|serv(?:e|es|ed|ing)) (?:\S+ ){0,2}(?:malware|backdoors?|infostealers?|stealers?|ransomware|trojans?|rats?|spyware|loaders?|web ?shells?)\b|mercenary spyware|commercial spyware|(?:school|hospital|university|bank|airline|retail|supermarket|government|council|city|county) (?:\w+ )?attacks?\b|\btarget(?:s|ed|ing)?\b|\bvictims?\b|\binfect(?:s|ed|ions?)\b|\brooted\b|\bhijack(?:s|ed|ing)?\b|\bdefac(?:e|ed|ement)\b|(?:phishing|malware|espionage|cyberespionage|hacking|spam|smishing|extortion|attack|influence|exploitation) (?:campaigns?|waves?|spree|attempts|incident)|\bwaves? of (?:cyber)?attacks"), 3, "attack", "event"),
+    (_rx(r"cyber[- ]?attacks\b"), 2, "attack", "event"),
+    (_rx(r"\bworm\b|self-propagat|\bwiper\b"), 3, "worm", None),
+    (_rx(r"emergency (?:patch|fix|directive|update)|out-of-band|patch now|urgent(?:ly)? patch|shut (?:them |it )?down"), 2, "emergency", None),
+    (_rx(r"nation[- ]state|state-sponsored|state-backed|\bapt ?\d*\b|china-(?:linked|nexus|backed|aligned)|russia-(?:linked|aligned|backed)|pro-russian|north korean?|iranian|\biran\b|\bchinese (?:hackers|attackers|threat|state|apt|spies)|\brussian (?:hackers|threat|state|apt|military|intelligence|turla|gru)|lazarus|typhoon|sandworm|kimsuky|turla|fancy bear|cozy bear|\bgru\b|espionage|threat (?:actors?|groups?|clusters?)"), 2, "nation-state", None),
+    (_rx(r"\bhackers?\b|\battackers?\b|cybercriminals?|\bcrooks\b|threat actors?|ransomware gang|extortion (?:gang|group)"), 2, "attacker", None),
+    (_rx(r"remote code execution|\brce\b|code execution|run (?:malicious |arbitrary )?code|execute (?:arbitrary |remote )?(?:code|commands)|authentication bypass|auth bypass|privilege escalation|unauthenticated|sql injection|command injection|(?:lets?|allows?|allowing|enabl(?:e|es|ing)) (?:remote )?attackers|attackers (?:can|could)|\btake ?over\b|root access|remote root|without (?:login|authentication|user interaction)|lateral movement|\blets? (?:a |an )?(?:remote|unauthenticated)\b"), 2, "rce", None),
+    (_rx(r"credential|password|api keys?|secrets?\b|tokens?\b|environment variables|session cookies|private keys|passkeys?"), 1, "credentials", None),
+    (_rx(r"backdoor|web ?shells?|infostealer|info-stealer|stealer|trojan|botnet|rootkit|malware|spyware|\brat\b|loader"), 1, "malware", None),
+    (_rx(r"phishing|smishing|vishing|social engineering|impersonat|help ?desk"), 1, "phishing", None),
+    (_rx(r"\bddos\b|denial[- ]of[- ]service|\boutage\b|offline"), 1, "ddos", None),
+    (_rx(r"critical(?:\s+[\w.'-]+){0,2}?\s+(?:flaws?|vulnerabilit|bugs?|security|infrastructure|rce)|cvss(?: v?\d(?:\.\d)?)?(?: score)?(?: of)? (?:9\.\d|10)|\b(?:9\.\d|10\.0)(?:[- ]rated| cvss)|max(?:imum)?[- ]severity"), 2, "critical", None),
+    (_rx(r"vulnerabilit|\bflaws?\b|\bbugs?\b|\bpatch(?:es|ed)?\b|security update|advisory|\bcve-"), 1, "vuln", None),
+    (_rx(r"hospital|healthcare|health system|patients?\b|medical|pharma"), 1, "healthcare", None),
+    (_rx(r"power grid|water (?:utility|system)|critical infrastructure|\bics\b|scada|\bot (?:network|systems)|energy sector|pipeline operator"), 1, "critical-infra", None),
+    (_rx(r"crypto(?:currency)?|bitcoin|ethereum|defi\b|wallet drainer|exchange (?:hack|heist)"), 1, "crypto", None),
+    (_rx(r"\bai\b|\bllms?\b|openai|anthropic|claude|chatgpt|\bgpt|gemini|copilot|agentic|ai agents?|mcp server|inference|litellm|hugging ?face"), 0, "ai", None),
+    (_rx(r"\baws\b|azure|google cloud|\bgcp\b|kubernetes|\bk8s\b|cloud"), 0, "cloud", None),
+    (_rx(r"okta|entra|active directory|\bsso\b|oauth|\bmfa\b|identity provider"), 0, "identity", None),
+    (_rx(r"arrest|charged|sentenced|extradit|takedown|seized|dismantl|indicted|pleads? guilty|europol"), 0, "law-enforcement", None),
 ]
-NEGATIVE = _rx(r"webinar|podcast|sponsored|\bdeal\b|funding|raises \$|acquir|acquisition|partnership|appoints?|\bhires\b|named (?:ciso|ceo|cto)|\baward|conference|keynote|\bhow to\b|\bguide\b|review:|best .{0,30}(?:apps|tools|vpns?)|interview|opinion|product (?:launch|showcase)|weekly recap|week in review|newsletter|\bjobs?\b|careers|survey finds|report finds|\bstudy\b|predictions|\bcoupon|\bsale\b")
-ROUNDUP = _rx(r"in other news|round-?up|threatsday|weekly recap|week in review|this week in|news brief|recap:|daily briefing|top stories")
-BIG_NUM = _rx(r"(\$?)(\d+(?:\.\d+)?)\s*(million|billion|bn\b|m\b)")
+# Headlines of these kinds are never news a team must act on today, however many
+# alarming words they carry: they cost 3 points and can't rise above medium.
+NOT_AN_EVENT = _rx(
+    # promotion, events and business news
+    r"webinar|podcast|sponsored|\bdeal\b|funding|raises \$|acquir|acquisition|partnership|\bappoints?\b|\bhires\b|named (?:ciso|ceo|cto)|\baward|conference|keynote|virtual event|\bsummit\b"
+    r"|\blaunch(?:es|ed)?\b|\bunveil|\bintroduc(?:e|es|ed|ing)\b|\bannounces (?!(?:a |a new )?(?:data|security|cyber))|valued at|\braise\b|raises|exits stealth|out of stealth|\bhelps (?:\w+ ){0,3}(?:teams|organi[sz]ations|companies|defenders|businesses)|open[- ]sources?|\brolls? out\b|\bdebuts?\b|startup|valuation|\bipo\b|earnings|in talks to|\bto buy\b|shell out|bug bount|\bbounty\b|product (?:launch|showcase)"
+    # advice, opinion, explainers and research findings
+    r"|\bhow to\b|\bguide\b|review:|best .{0,30}(?:apps|tools|vpns?)|\binterview(?:ed)? with\b|interview:|opinion|\blessons\b|\btips\b|best practices|explained|what (?:to|you) (?:know|need)"
+    r"|the rise of|the future of|the case for|wake-up call|emerges as|\bthriving\b|\bgrowing\b|on the rise|\brise in\b|\bmore (?:companies|organi[sz]ations|firms|businesses) (?:are|seek|seeking|turn|turning|adopt|adopting|plan|say|want)\b|\b(?:hackers|attackers|criminals) (?:could|may|might)\b|\bplans? to\b|financial (?:toll|impact|hit|fallout)|\bcosts? of\b|(?:investigates|disciplines?|fire[sd]|sack(?:s|ed)) (?:staff|employees?|workers)|\bsnoop|emotional|sleepless|grieving|\bhaunts?\b|disrupts? (?:\S+ ){0,4}botnet|found (?:\w+ )?exposed|\b(?:researchers?|academics|white hats?) (?:\w+ )?(?:pwn|hack|bypass|crack|show|demonstrate|reveal|break|exfiltrate|trick|jailbreak)|pwn2own|hackathon|\bctf\b|publicly exposed|\bin public (?:\w+ )?(?:repos|repositories|copies|buckets)\b|\bfaces? (?:\w+ ){0,2}risks?\b|severs? (?:\S+ ){0,3}access|benchmark|\byour\b(?!.*\b(?:patch|update)\b)|(?:model|pipeline|ai agents?)\b.{0,40}\b(?:builds?|built|generates?|chains?|writes?|finds?)\b|\b(?:finds?|found|discover(?:s|ed)?|uncover(?:s|ed)?)\b.{0,40}\b(?:bugs|flaws|vulnerabilities)\b|\bvs\.? |\bmyths?\b|checklist|\bplaybook\b|\bstrateg(?:y|ies)\b|\bjobs? (?:market|report)|careers?\b|predictions"
+    r"|survey|report finds|\bstudy\b|\d+(?:\.\d+)?%|\bpercent\b|\bon average\b|\ban average of\b|\bq[1-4]\b|\bby 20\d\d\b|coming (?:months|years)|\bwill (?:face|see)\b|\bmost (?:companies|organi[sz]ations|firms|businesses|consumers|cisos|enterprises|developers)\b|increasingly|\bcoupon|\bsale\b"
+    r"|\b(?:patch(?:es|ed)?|fix(?:es|ed)?|address(?:es)?)\s+(?:over |more than |nearly |about |around )?\d{2,}\b|patch tuesday|\b\d{2,}\s+(?:\w+\s+)?(?:vulnerabilities|flaws|bugs)\b"
+    # courts, police and policy
+    r"|\bsettle(?:s|d|ment)?\b|litigation|attorneys? general|prosecutors|\bcharges?\b|accused of|\bsentence\b|guilty plea|\bbust(?:s|ed)?\b|\bliab(?:le|ility)\b|lawsuit|class action|pleads? guilty|\bsentenced\b|sentencing|\bconvicted\b|\bindicted\b|\bcharged\b|\barrest(?:s|ed)?\b|extradit|\bprison\b|\bjail|behind bars|\bfined\b|\bpenalt(?:y|ies)\b|\bcourt\b|\bjudge\b|\bsues\b|\bsued\b"
+    r"|\blaws?\b(?! enforcement)|legislat|\bbills?\b|congress|\bsenate\b|lawmakers|regulators?\b|\bregulat(?:ion|ory)\b|\bban\b|sanctions?\b|\bpolic(?:y|ies)\b|takedown|dismantl|\bseiz(?:e|es|ed|ure)\b|europol"
+)
+# Critical means "drop everything": it fires the alerts. A story reaches it only when its
+# headline itself says something must be patched or hunted now.
+URGENT = {"actively-exploited", "zero-day", "supply-chain", "worm", "critical"}
+# Questions and advice ("What a CISO should tell the board about leaked credentials").
+QUESTION = _rx(r"^(?:what|why|how|when|where|who|which|is|are|can|could|should|do|does|will|would)\b|\?\s*$")
+# Promotional words in a summary cost a point; the headline rules above are too broad for summaries.
+PROMO = _rx(r"webinar|podcast|sponsored|register now|virtual event|\bcoupon|\bsale\b|product showcase|in this .{0,40}interview")
+ROUNDUP = _rx(r"in other news|round-?up|threatsday|weekly recap|week in review|this week in|news brief|recap:|daily briefing|top stories|stormcast")
+BIG_NUM = _rx(r"(\$?)(\d+(?:\.\d+)?)\s*(million|billion|bn\b|b\b|m\b)")
 
 
 def keyword_score(title: str, summary: str = "") -> tuple[float, list[str]]:
     """Headline words count in full, summary-only words count half.
 
-    A headline with no signal of its own (commentary, sponsored posts) and
-    roundup posts never score above medium, however busy their summaries are.
+    A headline with no signal of its own, and headlines that are roundups,
+    questions, advice, business, court or policy news, never score above
+    medium, however busy their summaries are. Only a headline that names
+    something to patch or hunt now (URGENT) can reach critical.
     """
     tl, sl = title.lower(), summary.lower()
-    score, tags, headline = 0.0, [], 0
-    for rx, pts, tag in RULES:
-        if rx.search(tl):
-            score += pts
+    score, tags, headline, groups, urgent = 0.0, [], 0.0, {}, False
+    for rx, pts, tag, group in RULES:
+        got = pts if rx.search(tl) else pts / 2 if rx.search(sl) else 0
+        if not got and not (pts == 0 and (rx.search(tl) or rx.search(sl))):
+            continue
+        tags.append(tag)
+        if got == pts:
             headline += pts
-            tags.append(tag)
-        elif rx.search(sl):
-            score += pts / 2
-            tags.append(tag)
+            urgent = urgent or tag in URGENT
+        if group:
+            groups[group] = max(groups.get(group, 0), got)
+        else:
+            score += got
+    score += sum(groups.values())
     biggest = 0.0
     for dollar, num, unit in BIG_NUM.findall(f"{tl} {sl}"):
-        if unit.lower() == "m" and not dollar:
+        if unit.lower() in ("m", "b") and not dollar:
             continue
         biggest = max(biggest, float(num) * (1e9 if unit.lower().startswith("b") else 1e6))
     score += 2 if biggest >= 50e6 else 1 if biggest >= 1e6 else 0
-    if "breach" in tags and "credentials" in tags:
-        score += 1
-    if NEGATIVE.search(tl) or ROUNDUP.search(tl):
+    not_event = NOT_AN_EVENT.search(tl) or ROUNDUP.search(tl) or QUESTION.search(tl)
+    if not_event:
         score -= 3
-    elif NEGATIVE.search(sl):
+    elif PROMO.search(sl):
         score -= 1
-    if headline == 0 or ROUNDUP.search(tl):
+    if headline == 0 or not_event:
         score = min(score, 2.9)
+    elif not urgent:
+        score = min(score, 5.9)
     return score, tags
 
 
