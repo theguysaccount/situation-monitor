@@ -1,39 +1,39 @@
 {
- "written_at": "2026-11-10T10:19:00Z",
+ "written_at": "2026-11-10T11:19:00Z",
  "by": "Claude",
- "headline": "SITCON 2 (SEVERE): Chrome zero-day CVE-2026-125350 exploited; N-able N-central cloud offline over 33 zero-days; OpenSSH SSHole still exploited",
+ "headline": "SITCON 2 (SEVERE): France blames Iran for refrigeration attacks; Chrome zero-day CVE-2026-125350 and OpenSSH SSHole exploited; N-central offline",
  "bullets": [
   {
-   "text": "Changed: Google's Chrome security update fixes CVE-2026-125350, the eighth actively exploited Chrome zero-day of 2026. SITCON holds at 2 (SEVERE) on 4 CISA KEV additions in 72 hours and 3 critical reports in 48 hours.",
+   "text": "Changed: France has blamed Iran for cyberattacks on refrigerators and freezers in supermarkets and blood banks, some reported to have caused fires. Now a developing situation across 3 outlets. SITCON holds at 2 (SEVERE) on 4 CISA KEV additions in 72 hours and 3 critical reports in 48 hours.",
+   "url": "https://www.securityweek.com/france-blames-iran-for-a-cyberattack-that-heated-supermarket-refrigerators/"
+  },
+  {
+   "text": "Google's Chrome security update fixes CVE-2026-125350, the eighth actively exploited Chrome zero-day of 2026.",
    "url": "https://thehackernews.com/2026/11/google-issues-chrome-security-update.html"
   },
   {
-   "text": "Changed: N-able took its hosted N-central cloud offline after a researcher disclosed 33 zero-days with proof-of-concept exploits. Earlier reports put the count at 30+.",
+   "text": "N-able's hosted N-central cloud remains the subject of a disclosure of 33 zero-days with proof-of-concept exploits; N-able took the platform offline in response.",
    "url": "https://thehackernews.com/2026/11/n-able-takes-hosted-n-central-offline.html"
   },
   {
-   "text": "SSHole (OpenSSH CVE-2026-123158, an authentication bypass) is still being used to breach Linux systems, now covered by 6 outlets. In CISA KEV since 11-09 alongside GPUStack CVE-2026-102895, FreeSwitch CVE-2026-116779 and IBM Aspera Faspex CVE-2026-123218; all four are due 11-12.",
+   "text": "SSHole (OpenSSH CVE-2026-123158, an authentication bypass) is still being used to breach Linux systems, covered by 6 outlets. In CISA KEV since 11-09 alongside GPUStack CVE-2026-102895, FreeSwitch CVE-2026-116779 and IBM Aspera Faspex CVE-2026-123218; all four are due 11-12.",
    "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-sshole-openssh-flaw-to-breach-linux-systems/"
   },
   {
-   "text": "Cloud trust abuse: attackers used Qubole's trusted access into customer AWS accounts to breach them and steal data. A separate report describes attackers backdooring trusted AWS integrations to steal secrets.",
-   "url": "https://thehackernews.com/2026/11/hackers-exploit-quboles-trusted-aws.html"
+   "text": "Changed: Fireworks AI disclosed a new breach following a hack of its cloud provider. It joins this week's cloud trust abuse: attackers used Qubole's trusted AWS access to breach customer accounts, and a separate report describes backdoored AWS integrations stealing secrets.",
+   "url": "https://www.bleepingcomputer.com/news/security/fireworks-ai-discloses-new-breach-after-cloud-provider-hack/"
   },
   {
-   "text": "Supply chain: Ethersphere's bee-js and Swarm Desktop were compromised to deliver wallet-stealing malware. 300 malicious packages were listed in the GitHub Advisory Database in 7 days, almost all npm.",
+   "text": "Still developing: Ethersphere's bee-js and Swarm Desktop compromised to deliver wallet-stealing malware; 300 malicious packages listed in the GitHub Advisory Database in 7 days, mostly npm; Vanderbilt ransomware and the Beget wiper attack. The last 7 days ran 0.84x the 90-day average.",
    "url": "https://thehackernews.com/2026/11/hackers-compromise-etherspheres-bee-js.html"
-  },
-  {
-   "text": "Still developing: Vanderbilt University hit by ransomware via BYOD devices, with data theft claimed; Beget rebuilding after a wiper attack; breaches at Iris Ohyama (7.7M), Frontline Education (3M+), Revolve (1.5M) and Amplifon Americas (1.3M). The last 7 days ran 0.84x the 90-day average.",
-   "url": "https://www.bleepingcomputer.com/news/security/vanderbilt-university-hit-in-byod-ransomware-attack-data-theft-claimed/"
   }
  ],
  "actions": [
   "Update Chrome on all endpoints to the latest release (fixes CVE-2026-125350) and restart browsers; confirm managed fleets picked it up.",
-  "N-central users: plan for the hosted outage, limit network exposure of N-central servers and agents, and watch N-able for fixes.",
   "Patch OpenSSH for CVE-2026-123158 on every internet-facing host; restrict SSH exposure and review auth logs for unexpected logins.",
   "Patch or isolate GPUStack (CVE-2026-102895), FreeSwitch (CVE-2026-116779) and IBM Aspera Faspex (CVE-2026-123218) before the 11-12 KEV deadline.",
+  "N-central users: plan for the hosted outage, limit network exposure of N-central servers and agents, and watch N-able for fixes.",
   "Audit IAM roles that trust third-party AWS accounts; remove unused integrations such as Qubole and rotate secrets they could reach.",
-  "Clear remaining KEV deadlines: VMware ESX CVE-2026-41709 (11-11), Ivanti Connect Secure CVE-2026-104935 (11-13), SonicWall SSL-VPN CVE-2026-19868 (11-20)."
+  "Check that refrigeration and other building-control systems are not reachable from the internet; VMware ESX CVE-2026-41709 is due in KEV 11-11."
  ]
 }
