@@ -1641,7 +1641,7 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
       h("thead", null, h("tr", null, h("th", null, "Source"), h("th", null, "Covers"), h("th", null, "Status"), h("th", { class: "num" }, "Items"), h("th", { class: "num" }, "Response"))),
       h("tbody", null, ...rows.map((x) => h("tr", null,
         h("td", null, ext(x.home, null, x.name)), h("td", null, SOURCE_TYPES[x.type] || x.type),
-        h("td", null, h("span", { class: "dot" + (x.ok ? "" : " bad"), "aria-hidden": "true" }), x.ok ? "Reporting" : "Failed: " + (x.error || "unknown error")),
+        h("td", null, h("span", { class: "dot" + (x.ok ? "" : " bad"), "aria-hidden": "true" }), x.ok ? (x.via ? "Reporting via " + x.via : "Reporting") : "Failed: " + (x.error || "unknown error")),
         h("td", { class: "num" }, fmtInt(x.count)), h("td", { class: "num" }, (x.ms / 1000).toFixed(1) + " s")))));
     $("#sources-table").replaceChildren(tbl);
     $("#sources-blurb").textContent = fmtInt(S.data.sources.length) + " public feeds and trackers, checked on every sweep. Last checked " + ago(S.data.generated_at) + ".";

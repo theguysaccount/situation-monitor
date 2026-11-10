@@ -27,9 +27,11 @@ before the board goes stale.
 - **Actions tab → Health.** Red means the board is stale or broken; the run summary lists every check
   and the failing sources. Sustained red with "data freshness" failing means sweeps aren't completing:
   open the latest **Situation Monitor sweep** run and read the gate's annotations.
-- **Known source failure:** *CISA Advisories* answers HTTP 403 to GitHub's runners (it works from a home
-  connection), so it shows as failing on the public board and in Health warnings. CISA's Known Exploited
-  Vulnerabilities feed is a separate source and is unaffected.
+- **CISA from GitHub:** cisa.gov answers HTTP 403 to GitHub's runners (it works from a home connection).
+  *CISA Advisories* then falls back to the CSAF documents CISA publishes in its `cisagov/CSAF` repository
+  (ICS and IT advisories; CISA's news items and joint guidance aren't there), and the Sources table says
+  "Reporting via CISA's CSAF repository". *CISA KEV* falls back to `cisagov/kev-data` the same way. A
+  source fails only when both routes fail.
 - **Failure emails** for scheduled runs go to the account owner. Nothing else alerts.
 - **Clocks.** A sweep takes real time from the `Date` headers of GitHub, Google and Cloudflare, so a wrong
   machine clock can't put timestamps in the future. `data/situation.json` and `monitor.py --summary` carry
