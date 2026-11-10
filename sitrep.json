@@ -1,15 +1,15 @@
 {
- "written_at": "2026-11-10T15:19:49Z",
+ "written_at": "2026-11-10T16:20:00Z",
  "by": "Claude",
- "headline": "SITCON 2 (SEVERE): Barracuda ESG and OpenSSH SSHole exploitation continue; Seminole County clerk's office closed by a cyberattack",
+ "headline": "SITCON 2 (SEVERE): Vanderbilt ransomware attack escalates; Barracuda ESG and OpenSSH SSHole exploitation continue",
  "bullets": [
   {
-   "text": "Changed: the Seminole County clerk's office closed after a cyberattack, with services expected to resume Monday. No new critical reports this sweep; SITCON holds at 2 (SEVERE) with 4 critical reports in 48 hours.",
-   "url": "https://www.wesh.com/article/seminole-county-clerks-office-cyber-attack-closure/74298766"
+   "text": "Changed: The Register reports a ransomware threat blared from Vanderbilt University computers during the cyberattack; BleepingComputer earlier reported a BYOD ransomware attack with data theft claimed. Now 4 outlets. No new critical reports this sweep; SITCON holds at 2 (SEVERE).",
+   "url": "https://www.theregister.com/cyber-crime/2026/11/10/ransomware-threat-blares-from-vanderbilt-university-computers-during-cyberattack/5308687"
   },
   {
-   "text": "Changed: hearing-aid maker WS Audiology was hit by a new cyberattack, per MedWatch. Separately, a Pedigo Products breach exposed financial information and SSNs, per ClaimDepot. Neither report in the brief names an attacker.",
-   "url": "https://medwatch.com/News/hearing_health/article19787621.ece"
+   "text": "Changed: DataBreaches.net reports a data breach at The Children's Foundation. Separately, NEPSE's cybersecurity report after its ransomware attack is criticized as offering only superficial fixes. Seminole County clerk's office remains closed after a cyberattack, due back Monday.",
+   "url": "https://databreaches.net/2026/11/10/ca-data-breach-at-the-childrens-foundation/"
   },
   {
    "text": "Still active: attackers are exploiting critical Barracuda Email Security Gateway flaws to gain root access; the brief names no CVEs or fixed releases. SAP also patched four CVSS 10.0 flaws, two enabling remote code execution, with no exploitation reported.",
@@ -20,7 +20,7 @@
    "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-sshole-openssh-flaw-to-breach-linux-systems/"
   },
   {
-   "text": "N-able's hosted N-central remains the subject of 3 outlets' reporting: it was taken offline after a researcher published more than 30 zero-days (33 by one count) with proof-of-concept exploits. No fixes are named yet.",
+   "text": "N-able's hosted N-central remains offline in 3 outlets' reporting, after a researcher published more than 30 zero-days (33 by one count) with proof-of-concept exploits. No fixes are named yet.",
    "url": "https://www.securityweek.com/n-able-takes-n-central-offline-as-researcher-drops-over-30-zero-days/"
   },
   {
