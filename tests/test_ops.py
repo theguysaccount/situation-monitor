@@ -44,6 +44,7 @@ class Gate(unittest.TestCase):
 
     def write_data(self):
         (self.site / "data" / "situation.json").write_text(json.dumps(self.data))
+        (self.site / "data" / "changes.json").write_text(json.dumps({"generated_at": self.data["generated_at"], "items": []}))
 
     def gate(self):
         with redirect_stdout(io.StringIO()):

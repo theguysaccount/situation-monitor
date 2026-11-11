@@ -1785,6 +1785,7 @@ def write_outputs(data: dict, new_items: list[dict], alert_items: list[dict]) ->
                                   "by_severity": dict(Counter(it["severity"] for it in new_items)),
                                   "alerts": [summary_row(it) for it in alert_items],
                                   "items": [summary_row(it) for it in new_items[:100]]})
+    save_json(DATA / "changes.json", changes_doc(data))
     app = SITE / "app.html"
     if app.exists():
         save_text(SITE / "index.html", page_head(data, load_config()) + app.read_text(encoding="utf-8") + "</body></html>\n")
@@ -1795,6 +1796,125 @@ def write_outputs(data: dict, new_items: list[dict], alert_items: list[dict]) ->
 
 def summary_row(it: dict) -> dict:
     return {k: it.get(k) for k in ("severity", "type", "title", "source", "url", "published")}
+
+
+CHANGES_DAYS = 7  # how far back data/changes.json lists critical and high items
+
+
+def changes_doc(data: dict) -> dict:
+    """data/changes.json: the level and every critical or high item first seen in the last week, newest first.
+    Small enough to poll; the analyst on the Mac alerts and briefs from it instead of sweeping itself."""
+    lv, sr = data["level"], data.get("sitrep")
+    cutoff = iso(parse_iso(data["generated_at"]) - timedelta(days=CHANGES_DAYS))
+    rows = [dict(summary_row(it), id=it["id"], first_seen=it.get("first_seen"), cves=(it.get("cves") or [])[:6])
+            for it in data["items"]
+            if it["severity"] in ("critical", "high") and (it.get("first_seen") or "") >= cutoff]
+    rows.sort(key=lambda r: (r["first_seen"], SEV_RANK[r["severity"]]), reverse=True)
+    stats = data.get("stats") or {}
+    return {"schema": 1, "generated_at": data["generated_at"], "first_sweep_at": data.get("first_sweep_at"),
+            "level": {k: lv.get(k) for k in ("value", "name", "changed_from", "since", "pending", "heat", "reason")},
+            "sitrep_written_at": sr["written_at"] if sr else None,
+            "sources_ok": stats.get("sources_ok"), "sources_total": stats.get("sources_total"),
+            "items": rows[:400]}
+
+
+# ---------------------------------------------------------------- the analyst's view of the published site
+
+FRESH_SLACK = 180  # seconds; with --wait, a sweep generated this long before the command started counts as fresh
+ANALYST = "analyst.json"
+
+
+def site_base(cfg: dict) -> str:
+    url = (os.environ.get("SM_SITE_URL") or cfg.get("site_url") or "").strip()
+    return url if url.endswith("/") else url + "/"
+
+
+def read_published(base: str, wait: float = 0, sleep=time.sleep) -> tuple[dict, dict, dict, float]:
+    """Download the published changes, board and live-store copy. With wait, poll changes.json (small)
+    until a sweep generated after this call started is live, for at most that many seconds."""
+    def changes():
+        try:
+            return json.loads(fetch(base + "data/changes.json", "application/json"))
+        except urllib.error.HTTPError as e:
+            if e.code != 404:
+                raise
+            return None  # published before changes.json existed: derive it from the board below
+
+    want = iso(now_utc() - timedelta(seconds=FRESH_SLACK))
+    t0 = time.monotonic()
+    ch = changes()
+    for _ in range(int(wait // 15)):
+        if ch is not None and ch["generated_at"] >= want:
+            break
+        sleep(15)
+        ch = changes()
+    data = json.loads(fetch(base + "data/situation.json", "application/json"))
+    if ch is None or ch["generated_at"] != data["generated_at"]:
+        ch = changes_doc(data)  # a deploy landed between the two downloads, or there was no changes.json
+    live = json.loads(fetch(base + "data/live.json", "application/json"))
+    return ch, data, live, round(time.monotonic() - t0, 1)
+
+
+def run_from_site(cfg: dict, wait: float = 0, sleep=time.sleep) -> dict:
+    """The analyst's run: read what the public site published, work out what is new since the analyst last
+    looked, and mirror the site's data locally for --brief and the private live copy. Sweeps nothing."""
+    measure_clock()
+    started = now_utc()
+    ch, data, live, waited = read_published(site_base(cfg), wait, sleep)
+    now = now_utc()
+    mem = load_json(STATE / ANALYST, {})
+    marker = mem.get("seen_until")
+    # No memory yet, or GitHub's sweep lost its own memory and re-stamped everything: report nothing as new.
+    baseline = not marker or (ch.get("first_sweep_at") or "") > marker
+    new = [] if baseline else [r for r in ch["items"] if (r.get("first_seen") or "") > marker]
+    new.sort(key=lambda r: (SEV_RANK[r["severity"]], r["published"] or ""), reverse=True)
+    lv = data["level"]
+    prev = mem.get("level")
+    changed_from = prev if prev is not None and prev != lv["value"] else None
+
+    save_json(DATA / "situation.json", data, compact=True)
+    save_json(STATE / "site" / "live.json", live, compact=True)
+    save_json(STATE / "site" / "changes.json", ch, compact=True)
+    save_json(STATE / ANALYST, {"seen_until": max(filter(None, [marker, ch["generated_at"]])), "level": lv["value"],
+                                "checked_at": iso(now), "site_generated_at": data["generated_at"]})
+    apply_sitrep(now)
+
+    local = (load_json(STATE / "sitrep.json", None) or {}).get("written_at")
+    written = [w for w in ((data.get("sitrep") or {}).get("written_at"), local) if w]
+    alerts = pick_alerts(new, cfg)
+    return {
+        "ok": True, "mode": "from-site", "now": iso(now), "clock": clock_note(),
+        "generated_at": data["generated_at"], "data_age_minutes": round(hours_since(data["generated_at"], now) * 60),
+        "fresh": data["generated_at"] >= iso(started - timedelta(seconds=FRESH_SLACK)), "waited_seconds": waited,
+        "baseline": baseline,
+        "level": {"value": lv["value"], "name": lv["name"], "changed_from": changed_from,
+                  "reason": lv.get("reason"), "heat": lv.get("heat")},
+        "counts": {"items": len(data["items"]), "new": len(new),
+                   "new_by_severity": dict(Counter(r["severity"] for r in new)), "packages": len(data["packages"])},
+        "sources_failed": [{"name": s["name"], "error": s.get("error")} for s in data.get("sources", []) if not s.get("ok")],
+        "alert_items": [dict(r, watch=r.get("watch", [])) for r in alerts[:10]],
+        "top_new": new[:15],
+        "situations": [{"name": s["name"], "outlets": s["source_count"], "severity": s["severity"]}
+                       for s in data["situations"][:6]],
+        "sitrep_written_at": min(max(written), iso(now)) if written else None,
+        "files": {"live_store_doc": str(DATA / "live.json"), "situation": str(DATA / "situation.json")},
+    }
+
+
+def apply_sitrep(now: datetime | None = None) -> dict:
+    """Write site/data/live.json for the private live copy: the site's published copy, carrying the newest
+    briefing (a SITREP written on this machine reaches the private copy before GitHub has redeployed)."""
+    live = load_json(STATE / "site" / "live.json", None)
+    if not live:
+        sys.exit("Nothing to update yet: run python3 monitor.py --from-site first.")
+    if now is None:
+        measure_clock()
+        now = now_utc()
+    sr, pub = load_sitrep(now), live.get("sitrep")
+    if sr and (not pub or sr["written_at"] > str(pub.get("written_at") or "")):
+        live = dict(live, sitrep=sr)
+    save_json(DATA / "live.json", live, compact=True)
+    return live
 
 
 # ---------------------------------------------------------------- alerts
@@ -2036,10 +2156,30 @@ def main(argv=None) -> int:
     ap.add_argument("--no-alerts", action="store_true", help="sweep without sending alerts")
     ap.add_argument("--test-alert", action="store_true", help="send a test alert to every configured channel")
     ap.add_argument("--save-db-version", type=int, metavar="N", help="record the live-store document version")
+    ap.add_argument("--from-site", action="store_true",
+                    help="sweep nothing: read the published site, report what is new since the last look as JSON, "
+                         "and mirror its data for --brief and the live store (the analyst's mode)")
+    ap.add_argument("--wait", type=int, default=0, metavar="SECONDS",
+                    help="with --from-site, wait up to this long for a sweep that started after the command did")
+    ap.add_argument("--apply-sitrep", action="store_true",
+                    help="put state/sitrep.json into site/data/live.json (after --from-site) for the live store")
     args = ap.parse_args(argv)
     cfg = load_config()
     CLOCK.update(skew=float((load_json(STATE / "meta.json", {}).get("clock") or {}).get("skew_seconds", 0)),
                  source="last sweep's measurement")
+
+    if args.from_site:
+        try:
+            print(json.dumps(run_from_site(cfg, wait=max(0, args.wait)), ensure_ascii=False, indent=1))
+        except Exception as e:
+            print(json.dumps({"ok": False, "error": f"could not read the published site: {type(e).__name__}: {e}"[:300]}))
+            return 1
+        return 0
+    if args.apply_sitrep:
+        live = apply_sitrep()
+        sr = live.get("sitrep") or {}
+        print(f"site/data/live.json carries the SITREP written {sr.get('written_at') or 'never'}.")
+        return 0
 
     if args.save_db_version is not None:
         art = load_json(STATE / "artifact.json", {})

@@ -70,6 +70,13 @@ def run(site: Path) -> int:
         c.ok("data/live.json", f"{live.stat().st_size:,} bytes")
     else:
         c.fail("data/live.json", "missing or over the 256 KiB live-store limit")
+    try:  # the analyst on the Mac alerts and briefs from this file
+        changes = json.loads((site / "data" / "changes.json").read_text(encoding="utf-8"))
+        if changes.get("generated_at") != data.get("generated_at") or not isinstance(changes.get("items"), list):
+            raise ValueError("not from this sweep")
+        c.ok("data/changes.json", f"{len(changes['items'])} critical and high items")
+    except (OSError, ValueError) as e:
+        c.fail("data/changes.json", f"missing or unusable: {e}")
 
     for name, root_tag in (("data/feed.xml", "rss"), ("sitemap.xml", "urlset")):
         try:
