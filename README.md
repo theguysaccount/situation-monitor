@@ -39,7 +39,8 @@ python3 -m http.server 8765 --directory site
 
 Then open http://localhost:8765. Other modes: `--summary` (JSON summary for
 automation), `--brief` (the current situation as text), `--rebuild` (re-render
-from the last sweep without fetching), `--no-alerts`, `--test-alert`.
+from the last sweep without fetching), `--no-alerts`, `--test-alert`, and the
+analyst's `--from-site [--wait SECONDS]` and `--apply-sitrep` (below).
 
 Each sweep writes:
 
@@ -48,6 +49,7 @@ Each sweep writes:
 - `site/data/feed.xml`: RSS of critical and high-severity reports
 - `site/data/master-prompt.md`: the master prompt filled with the latest data, ready to paste
 - `site/data/new.json`: what is new since the previous sweep
+- `site/data/changes.json`: the level and every critical or high report first seen in the last 7 days, with first-seen times (small; the analyst polls it)
 
 ## Sources
 
@@ -118,14 +120,17 @@ The first sweep only records a baseline and alerts on nothing.
 ## The analyst (a Claude scheduled task)
 
 The maintainer's Claude scheduled task **The Situation Monitor: hourly sweep** runs
-once an hour while the Claude app is open. Each run:
+once an hour while the Claude app is open. It sweeps nothing itself: there is one
+pipeline (the GitHub sweep) and one memory (its Actions cache). Each run:
 
-1. runs `monitor.py --summary`
-2. rewrites the SITREP when there are new critical or high reports, the level changes, or the SITREP is over 6 hours old, and commits it here as `sitrep.json` (the push redeploys the site)
-3. pushes the data into a private live copy of the site on claude.ai
+1. starts the GitHub sweep, then runs `monitor.py --from-site --wait 150`, which waits for that sweep to go live, downloads the published `changes.json`, `situation.json` and `live.json`, and reports as JSON what was first seen since the analyst last looked (its only memory is `state/analyst.json`)
+2. rewrites the SITREP from `monitor.py --brief` (the published board as text) when there are new critical or high reports, the level changes, or the SITREP is over 6 hours old, and commits it here as `sitrep.json` (the push redeploys the site)
+3. runs `monitor.py --apply-sitrep` and pushes the published `live.json`, carrying the new SITREP, into a private live copy of the site on claude.ai
 4. sends the maintainer a push notification when something new is critical or on the watchlist
 
-A SITREP older than 36 hours is dropped from the site, so stale analysis never lingers.
+So every fact in a SITREP is already on the public board when it is written, and every
+timestamp comes from GitHub's or the site's clocks, not the Mac's. A SITREP older than
+36 hours is dropped from the site, so stale analysis never lingers.
 
 ## Run your own copy on GitHub Pages
 

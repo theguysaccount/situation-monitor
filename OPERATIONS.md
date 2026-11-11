@@ -13,7 +13,7 @@ how each fails safely, what to watch, and the keys a human can turn later.
 | **Health** (`health.yml`) | Hourly at :27 | `ops/health.py --heal` reads the live board: page, data freshness, sources answering, item count, SITREP age, RSS feed, master prompt, robots.txt, sitemap, IndexNow key, TLS certificate life. **When the live data is over 75 minutes old and no sweep is queued, it dispatches a sweep itself.** | Read-only towards the site. Fails loudly (`::error::`) when the data is over 6 hours old, a file is broken, fewer than 60% of sources answer, or the certificate has under 10 days left. Warns at 2 hours, on any failing source, on a missing SITREP and under 21 days of certificate. |
 | **Checks** (`checks.yml`) | Every push and pull request; Sundays 08:37 UTC | Unit tests (feed parsing, scoring, rendering, the gate), including severity precision and recall against the hand-labelled headlines, shown in the run summary. On Sundays it is the **weekly self-test**: the tests plus a read-only health check of the live board | Changes nothing. A red run means a code change broke something or the board is unhealthy. |
 | **Checks → keepalive** | Sundays, same workflow | Commits `.github/keepalive` after 30 days without a commit and re-enables any workflow GitHub disabled for inactivity | GitHub disables scheduled workflows in a public repo after 60 days without a commit. The analyst's SITREP commits normally keep the repo active; the heartbeat covers the weeks they stop. |
-| **Analyst SITREP** (not in Actions) | Hourly, while the owner's Claude app is open | A Claude scheduled task on the owner's Mac writes the briefing and commits `sitrep.json`, which triggers a sweep and deploy. If its push is rejected because `main` moved, it pulls with rebase and retries | Optional. The site drops a SITREP older than 36 hours, so stale analysis never lingers, and the board works without one. |
+| **Analyst SITREP** (not in Actions) | Hourly, while the owner's Claude app is open | A Claude scheduled task on the owner's Mac starts a sweep here, waits for it to deploy, reads the published data (`monitor.py --from-site`; it never sweeps itself), writes the briefing and commits `sitrep.json`, which triggers another sweep and deploy. If its push is rejected because `main` moved, it pulls with rebase and retries | Optional. The site drops a SITREP older than 36 hours, so stale analysis never lingers, and the board works without one. |
 
 ### Why the sweep has a second trigger
 
@@ -68,8 +68,12 @@ None of these is needed for the board to keep running.
 ## Scheduled Claude routine
 
 The analyst routine already exists: *The Situation Monitor: hourly sweep*, a Claude scheduled task on the
-owner's Mac that fast-forwards its checkout to `main` (so merged fixes reach the Mac's sweeps), runs
-`monitor.py --summary`, rewrites the SITREP when something new is critical or high,
-the level changes or the SITREP is over 6 hours old, commits `sitrep.json`, syncs the private claude.ai
-live copy, and sends the owner a push notification for new critical or watchlisted items. If it is ever
-moved to a cloud routine, keep its one rule: it commits only `sitrep.json`.
+owner's Mac that fast-forwards its checkout to `main`, starts the GitHub sweep, and runs
+`monitor.py --from-site --wait 150`. That waits for the sweep to deploy and reads what the site published;
+the Mac sweeps nothing and keeps no board of its own (only `state/analyst.json`: the newest first-seen
+time and level it has reported). It rewrites the SITREP from the published board when something new is
+critical or high, the level changes or the SITREP is over 6 hours old, commits `sitrep.json`, syncs the
+private claude.ai live copy from the published `live.json` (`--apply-sitrep` adds the new SITREP), and
+sends the owner a push notification for new critical or watchlisted items. If GitHub's memory is reset
+(an evicted cache), the analyst treats the next look as a baseline instead of alerting on everything. If
+it is ever moved to a cloud routine, keep its one rule: it commits only `sitrep.json`.

@@ -1,4 +1,5 @@
 """Offline tests for monitor.py's parsing, scoring and rendering. Run: python3 -m unittest discover -s tests"""
+import json
 import re
 import subprocess
 import sys
@@ -355,6 +356,124 @@ class Clock(unittest.TestCase):
         self.assertEqual(page.count("Date.now()"), 2)  # only inside nowMs() and syncClock()
         self.assertEqual(page.count("syncClock(r);"), 2)
         self.assertIn("(nowMs() - t) / 36e5", page)
+
+
+class Analyst(unittest.TestCase):
+    """The Mac's analyst reads the published site (--from-site) instead of sweeping on its own."""
+    NOW = datetime(2026, 11, 11, 4, 0, tzinfo=timezone.utc)
+
+    def setUp(self):
+        import tempfile
+        from unittest import mock
+        self.tmp = tempfile.TemporaryDirectory()
+        tmp = Path(self.tmp.name)
+        (tmp / "state").mkdir()
+        self.clock = [self.NOW]
+        self.site = {}
+        self.patches = [mock.patch.object(m, "STATE", tmp / "state"), mock.patch.object(m, "DATA", tmp / "data"),
+                        mock.patch.object(m, "ROOT", tmp), mock.patch.object(m, "measure_clock", lambda: m.CLOCK),
+                        mock.patch.object(m, "_local_now", lambda: self.clock[0]),
+                        mock.patch.object(m, "fetch", self.fake_fetch), mock.patch.dict(m.CLOCK, skew=0.0)]
+        for p in self.patches:
+            p.start()
+
+    def tearDown(self):
+        for p in reversed(self.patches):
+            p.stop()
+        self.tmp.cleanup()
+
+    def fake_fetch(self, url, accept="*/*"):
+        name = url.rsplit("/", 1)[-1]
+        if name not in self.site:
+            raise m.urllib.error.HTTPError(url, 404, "Not Found", {}, None)
+        return json.dumps(self.site[name]).encode()
+
+    def item(self, id_, sev, first_seen, title=None):
+        return {"id": id_, "severity": sev, "type": "news", "title": title or f"Story {id_}", "source": "Example",
+                "url": f"https://example.com/{id_}", "published": first_seen, "first_seen": first_seen, "cves": [],
+                "summary": ""}
+
+    def publish(self, generated_at, items, level=3, sitrep_at=None, first_sweep="2026-10-28T00:00:00Z"):
+        data = {"generated_at": generated_at, "first_sweep_at": first_sweep, "items": items, "packages": [],
+                "situations": [], "sources": [{"name": "A", "ok": True}, {"name": "B", "ok": False, "error": "HTTP 403"}],
+                "stats": {"sources_ok": 1, "sources_total": 2},
+                "level": {"value": level, "name": m.LEVELS[level][0], "changed_from": None, "reason": "r", "heat": 300.0},
+                "sitrep": {"written_at": sitrep_at, "by": "Claude", "headline": "h", "bullets": [], "actions": []} if sitrep_at else None}
+        self.site = {"situation.json": data, "changes.json": m.changes_doc(data),
+                     "live.json": dict(data, trimmed_for_store=True)}
+
+    def run_analyst(self, **kw):
+        return m.run_from_site({"site_url": "https://example.test/"}, **kw)
+
+    def test_changes_lists_recent_critical_and_high_newest_first(self):
+        items = [self.item("old", "critical", "2026-11-01T00:00:00Z"), self.item("med", "medium", "2026-11-11T03:00:00Z"),
+                 self.item("h", "high", "2026-11-10T03:00:00Z"), self.item("c", "critical", "2026-11-11T03:00:00Z")]
+        self.publish("2026-11-11T03:00:00Z", items)
+        ch = self.site["changes.json"]
+        self.assertEqual([r["id"] for r in ch["items"]], ["c", "h"])
+        self.assertEqual(ch["level"]["value"], 3)
+
+    def test_first_look_is_a_baseline_then_only_newer_items_count(self):
+        self.publish("2026-11-11T03:00:00Z", [self.item("a", "critical", "2026-11-11T03:00:00Z")])
+        first = self.run_analyst()
+        self.assertTrue(first["baseline"])
+        self.assertEqual(first["alert_items"], [])
+        self.assertEqual(first["sources_failed"], [{"name": "B", "error": "HTTP 403"}])
+        self.publish("2026-11-11T03:43:00Z", [self.item("b", "critical", "2026-11-11T03:43:00Z"),
+                                              self.item("c", "high", "2026-11-11T03:43:00Z"),
+                                              self.item("a", "critical", "2026-11-11T03:00:00Z")], level=2)
+        second = self.run_analyst()
+        self.assertFalse(second["baseline"])
+        self.assertEqual(second["counts"]["new_by_severity"], {"critical": 1, "high": 1})
+        self.assertEqual([r["id"] for r in second["alert_items"]], ["b"])
+        self.assertEqual(second["level"]["changed_from"], 3)
+        self.assertEqual(self.run_analyst()["counts"]["new"], 0)  # nothing new on a third look at the same data
+
+    def test_a_reset_on_github_is_not_an_alert_flood(self):
+        self.publish("2026-11-11T03:00:00Z", [])
+        self.run_analyst()
+        self.publish("2026-11-11T03:43:00Z", [self.item("x", "critical", "2026-11-11T03:43:00Z")],
+                     first_sweep="2026-11-11T03:43:00Z")
+        out = self.run_analyst()
+        self.assertTrue(out["baseline"])
+        self.assertEqual(out["alert_items"], [])
+
+    def test_waits_for_the_sweep_it_started(self):
+        self.publish("2026-11-11T03:13:00Z", [])
+        stale = self.site
+        self.publish("2026-11-11T04:00:40Z", [])
+        fresh, polls = self.site, []
+
+        def sleep(s):
+            polls.append(s)
+            self.site = fresh
+        self.site = stale
+        out = self.run_analyst(wait=150, sleep=sleep)
+        self.assertEqual(polls, [15])
+        self.assertTrue(out["fresh"])
+        self.assertEqual(out["generated_at"], "2026-11-11T04:00:40Z")
+
+    def test_gives_up_waiting_and_says_so(self):
+        self.publish("2026-11-11T03:13:00Z", [])
+        out = self.run_analyst(wait=60, sleep=lambda s: None)
+        self.assertFalse(out["fresh"])
+        self.assertEqual(out["data_age_minutes"], 47)
+
+    def test_works_before_changes_json_is_published(self):
+        self.publish("2026-11-11T03:00:00Z", [])
+        del self.site["changes.json"]
+        self.assertTrue(self.run_analyst()["ok"])
+
+    def test_a_new_local_sitrep_reaches_the_live_copy(self):
+        self.publish("2026-11-11T03:00:00Z", [], sitrep_at="2026-11-11T00:00:00Z")
+        self.run_analyst()
+        self.assertEqual(json.loads((m.DATA / "live.json").read_text())["sitrep"]["written_at"], "2026-11-11T00:00:00Z")
+        (m.STATE / "sitrep.json").write_text(json.dumps(
+            {"written_at": "2026-11-11T07:00:00Z", "headline": "Newer", "bullets": [], "actions": []}))
+        live = m.apply_sitrep()
+        self.assertEqual(live["sitrep"]["headline"], "Newer")
+        self.assertEqual(live["sitrep"]["written_at"], "2026-11-11T04:00:00Z")  # clamped to real time
+        self.assertTrue(json.loads((m.DATA / "live.json").read_text())["trimmed_for_store"])
 
 
 class Cli(unittest.TestCase):
