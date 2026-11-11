@@ -1,0 +1,39 @@
+{
+ "written_at": "2026-11-11T12:19:45Z",
+ "by": "Claude",
+ "headline": "Maersk probes IT security incident and data theft; OpenSSH SSHole due 11-12; Barracuda ESG due 11-13; Cisco BroadWorks exploited",
+ "bullets": [
+  {
+   "text": "New: shipping giant Maersk is investigating an IT security incident involving data theft. eMudhra has revoked 8 more CAs it had previously declared unaffected by its key compromise.",
+   "url": "https://www.theregister.com/security/2026/11/11/shipping-giant-maersk-probes-it-security-incident-data-theft/5309096"
+  },
+  {
+   "text": "Healthcare and education: a Korean hospital's care was disrupted by ransomware (MBC), Ridgecrest Regional Hospital in California took systems offline, Vanderbilt is on lockdown after a ransomware attack (6 outlets), and two US school districts shut systems.",
+   "url": "https://imnews.imbc.com/replay/2026/nwdesk/article/6863510_37004.html"
+  },
+  {
+   "text": "Due tomorrow, 11-12: OpenSSH SSHole CVE-2026-123158 (exploited to breach Linux systems, 4 outlets), GPUStack CVE-2026-102895, FreeSwitch CVE-2026-116779 and IBM Aspera Faspex CVE-2026-123218.",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-sshole-openssh-flaw-to-breach-linux-systems/"
+  },
+  {
+   "text": "Barracuda ESG CVE-2026-116606 (auth bypass) and CVE-2026-111560 (OS command injection) are exploited in attacks (4 outlets); KEV due 11-13. Ivanti Connect Secure CVE-2026-104935 is also due 11-13.",
+   "url": "https://www.securityweek.com/recently-patched-barracuda-vulnerabilities-exploited-in-attacks/"
+  },
+  {
+   "text": "Cisco BroadWorks CVE-2026-20320 (XXE) and Openwave Webtop CVE-2026-111793 are exploited despite patches (KEV due 11-24). Microsoft patched exploited Outlook CVE-2026-124194 (NTLMv2 hash exposure) and Chrome zero-day CVE-2026-125350 is due 11-24.",
+   "url": "https://www.securityweek.com/threat-actors-exploit-openwave-cisco-broadworks-vulnerabilities/"
+  },
+  {
+   "text": "Still active: N-able keeps hosted N-central offline after dozens of published zero-days; SAP patched four CVSS 10.0 flaws (ICM2SHELL); Xen Orchestra auth bypass is exploited; France blames Iran for sabotage at ~700 retail sites. The week ran 1.09x the 90-day average.",
+   "url": "https://techcrunch.com/2026/11/10/n-able-takes-its-remote-access-service-offline-after-researcher-publishes-dozens-of-zero-day-bugs/"
+  }
+ ],
+ "actions": [
+  "Patch OpenSSH (CVE-2026-123158), GPUStack, FreeSwitch and IBM Aspera Faspex today; their KEV deadline is 11-12.",
+  "Barracuda ESG: apply fixes for CVE-2026-116606 and CVE-2026-111560 (due 11-13) and hunt for compromise; patch Ivanti Connect Secure too.",
+  "Check trust stores and certificate inventories for eMudhra-issued CAs and replace any certificates chaining to revoked CAs.",
+  "Patch Cisco BroadWorks and Openwave Webtop, roll out Microsoft's November updates (Outlook CVE-2026-124194 first), and update Chrome.",
+  "Apply SAP's patches for the four CVSS 10.0 flaws and patch or isolate Xen Orchestra servers.",
+  "Healthcare, education and logistics IT: review remote access and offline backups given this week's hospital, university and Maersk incidents."
+ ]
+}
