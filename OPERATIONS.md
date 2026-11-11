@@ -10,6 +10,7 @@ how each fails safely, what to watch, and the keys a human can turn later.
 | Workflow | When | What it does | How it fails safely |
 |---|---|---|---|
 | **Situation Monitor sweep** (`situation-monitor.yml`) | Every 30 minutes (at :13 and :43), on pushes of the code, prompt, sources or `sitrep.json`, and on demand | `monitor.py` sweeps the 25 sources, scores and groups reports, writes `site/data/` and the page, and sends alerts to any configured channel. Then the **pre-deploy gate** (`ops/check_build.py`) runs, the site deploys to Pages, and IndexNow is pinged (on pushes, otherwise at most once every 20 hours) | A source that fails keeps its last items on the board and shows as failing in the Sources table. The gate stops the run before deploying if the page, data, feed, prompt, sitemap or IndexNow key is broken, if the data isn't from this sweep, or if fewer than 60% of sources answered; the last good deploy stays live. The IndexNow ping never fails the run. |
+| **Sweep → archive job** (same workflow) | After each deployed sweep | `ops/archive.py save` commits any new SITREP, the snapshot of each finished UTC day and (daily) the sweep's memory to the orphan `data` branch. It is the only job with `contents: write`; the sweep job hands it the memory as a one-day artifact | Writes only what is missing, so most runs commit nothing. If it fails, the deploy has already happened; the next run fills in whatever was missed, because each day is written from the 14-day memory. |
 | **Health** (`health.yml`) | Hourly at :27 | `ops/health.py --heal` reads the live board: page, data freshness, sources answering, item count, SITREP age, RSS feed, master prompt, robots.txt, sitemap, IndexNow key, TLS certificate life. **When the live data is over 75 minutes old and no sweep is queued, it dispatches a sweep itself.** | Read-only towards the site. Fails loudly (`::error::`) when the data is over 6 hours old, a file is broken, fewer than 60% of sources answer, or the certificate has under 10 days left. Warns at 2 hours, on any failing source, on a missing SITREP and under 21 days of certificate. |
 | **Checks** (`checks.yml`) | Every push and pull request; Sundays 08:37 UTC | Unit tests (feed parsing, scoring, rendering, the gate), including severity precision and recall against the hand-labelled headlines, shown in the run summary. On Sundays it is the **weekly self-test**: the tests plus a read-only health check of the live board | Changes nothing. A red run means a code change broke something or the board is unhealthy. |
 | **Checks → keepalive** | Sundays, same workflow | Commits `.github/keepalive` after 30 days without a commit and re-enables any workflow GitHub disabled for inactivity | GitHub disables scheduled workflows in a public repo after 60 days without a commit. The analyst's SITREP commits normally keep the repo active; the heartbeat covers the weeks they stop. |
@@ -39,8 +40,11 @@ before the board goes stale.
   A briefing stamped later than its sweep is shown with the sweep's time. The page takes "now" from the data
   response's `Date` header, so a visitor with a wrong clock still sees the right "swept … ago" and Live badge.
 - **State lives in the Actions cache** (`state/`, key `situation-state-<run id>`). GitHub evicts caches
-  unused for 7 days. If sweeps stop for over a week, the next sweep starts a fresh baseline: it alerts on
-  nothing on its first run, and the history charts refill from the archives.
+  unused for 7 days. If that happens, the sweep restores the copy the archive job keeps on the `data`
+  branch (at most a day old), so only reports from that last day can be flagged as new again. Only if the
+  branch is missing too does it start a fresh baseline that alerts on nothing on its first run.
+- **The `data` branch is the permanent record.** Never merge it into `main`, and don't rewrite its
+  history: later pages (daily briefings, situation pages) will be built from it.
 
 ## Keys a human can turn later
 
