@@ -1,0 +1,39 @@
+{
+ "written_at": "2026-11-11T17:19:47Z",
+ "by": "Claude",
+ "headline": "Maersk confirms breach as WhiteArmor demands $5M; critical Zoom Workplace flaw; OpenSSH SSHole due 11-12, Barracuda ESG 11-13",
+ "bullets": [
+  {
+   "text": "New: Maersk confirmed a data breach; the WhiteArmor ransomware group is demanding $5 million (BleepingComputer). Earlier today it was probing an IT incident and data theft.",
+   "url": "https://www.bleepingcomputer.com/news/security/maersk-confirms-data-breach-as-whitearmor-ransomware-demands-5-million/"
+  },
+  {
+   "text": "New: a critical Zoom Workplace flaw, CVE-2026-108186, could allow unauthenticated remote privilege escalation (The Hacker News). Zoom has released patches (SecurityWeek).",
+   "url": "https://thehackernews.com/2026/11/critical-zoom-workplace-flaw-could.html"
+  },
+  {
+   "text": "Critical Xen Orchestra flaws are exploited in attacks (3 outlets; no CVEs or fixed releases in the brief). Qlik Sense servers are hit with reverse shells while attackers stage ActiveMQ and Veeam exploits.",
+   "url": "https://www.securityweek.com/critical-xen-orchestra-flaws-exploited-in-attacks/"
+  },
+  {
+   "text": "KEV due tomorrow, 11-12: OpenSSH SSHole CVE-2026-123158 (exploited on Linux, 3 outlets), GPUStack CVE-2026-102895, FreeSwitch CVE-2026-116779, IBM Aspera Faspex CVE-2026-123218. Due 11-13: Barracuda ESG CVE-2026-116606 and CVE-2026-111560, Ivanti Connect Secure CVE-2026-104935.",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-sshole-openssh-flaw-to-breach-linux-systems/"
+  },
+  {
+   "text": "Breaches today: a $26 million cyber heist hit a small New Jersey town; York University (19 years of student data), Credit Mutuel Arkea (€100m missing), Fullerton Health, Wyndham and hundreds of Dutch sports clubs also reported incidents.",
+   "url": "https://databreaches.net/2026/11/11/the-26-million-cyber-heist-rocking-a-small-new-jersey-town/"
+  },
+  {
+   "text": "Still active: N-able hotfixes for the published N-central zero-days (5 outlets); Vanderbilt on lockdown after ransomware (6 outlets); Cisco BroadWorks and Openwave exploited (KEV due 11-24); AntiFox AI agents used to steal AWS credentials. Week ran 1.15x the 90-day average.",
+   "url": "https://www.bleepingcomputer.com/news/security/n-able-releases-security-hotfixes-for-zero-day-vulnerabilities/"
+  }
+ ],
+ "actions": [
+  "Patch OpenSSH (CVE-2026-123158), GPUStack, FreeSwitch and IBM Aspera Faspex today; their KEV deadline is 11-12.",
+  "Barracuda ESG: apply fixes for CVE-2026-116606 and CVE-2026-111560 (due 11-13) and hunt for compromise; patch Ivanti Connect Secure and Citrix.",
+  "Update Zoom Workplace clients and servers for CVE-2026-108186.",
+  "Inventory Xen Orchestra instances and keep them off the internet; check Qlik Sense servers for reverse shells and patch ActiveMQ and Veeam.",
+  "N-central customers: apply the hotfixes. Patch Cisco BroadWorks, Openwave Webtop, Outlook (CVE-2026-124194) and Chrome before 11-24.",
+  "Review AWS access keys and CloudTrail for unusual use, rotate exposed credentials, and update Git on developer machines and CI."
+ ]
+}
