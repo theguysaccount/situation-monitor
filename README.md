@@ -23,7 +23,8 @@ into a master prompt your team can paste into Claude to check its own exposure.
 | `site/app.html` | The website, one file. `site/index.html` is generated from it for static hosting. |
 | `.github/workflows/situation-monitor.yml` | Public deploy: sweep every 30 minutes and publish to GitHub Pages. |
 | `sitrep.json` | The latest analyst briefing, committed by the scheduled task so the public site shows it. |
-| `state/` | The monitor's memory: what it has seen and alerted on. Not committed; the workflow keeps it in the Actions cache. |
+| `state/` | The monitor's memory: what it has seen and alerted on. Not committed; the workflow keeps it in the Actions cache, with a daily copy on the `data` branch. |
+| `data` branch | The permanent record, never deployed: every SITREP, one snapshot per day since Oct 24, 2026, and the sweep's memory. See [The archive](#the-archive). |
 | `ops/` | Unattended operation: the pre-deploy gate, the live health check that also restarts overdue sweeps, and the IndexNow ping. See [OPERATIONS.md](OPERATIONS.md). |
 | `tests/` | Unit tests: `python3 -m unittest discover -s tests` |
 
@@ -131,6 +132,21 @@ pipeline (the GitHub sweep) and one memory (its Actions cache). Each run:
 So every fact in a SITREP is already on the public board when it is written, and every
 timestamp comes from GitHub's or the site's clocks, not the Mac's. A SITREP older than
 36 hours is dropped from the site, so stale analysis never lingers.
+
+## The archive
+
+The board only keeps 14 days, and the sweep's memory lives in the Actions cache, which GitHub
+evicts after 7 unused days. So after each sweep an `archive` job (the workflow's only part
+with write access to the repository) runs `ops/archive.py save` and commits to the orphan
+[`data` branch](../../tree/data):
+
+- `sitreps/YYYY-MM-DD/HHMMSSZ.json`: every briefing, under its real UTC time
+- `days/YYYY-MM-DD.json`: one snapshot per finished UTC day. It covers SITCON readings and hours at each level, the situations, the top critical and high reports, CISA KEV additions, breaches, ransomware claims by group, the archive-based counts, and that day's briefings.
+- `state/`: the sweep's memory, refreshed once a day. A sweep that finds its cache empty restores from it (`ops/archive.py restore`) instead of starting from nothing.
+
+Most sweeps add nothing; a commit lands for each new SITREP and once a day after midnight UTC.
+Days from Oct 24 to Nov 10, 2026 and the earlier briefings were backfilled once with
+`ops/archive.py backfill`, with the Mac's 3-hour clock error corrected; the branch's README says how.
 
 ## Run your own copy on GitHub Pages
 

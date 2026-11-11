@@ -20,6 +20,7 @@ on:
       - "MASTER_PROMPT.md"
       - ".github/workflows/situation-monitor.yml"
       - "ops/check_build.py"
+      - "ops/archive.py"
   workflow_dispatch:
 
 permissions:
@@ -56,6 +57,19 @@ jobs:
           key: situation-state-${{ github.run_id }}
           restore-keys: situation-state-
 
+      # GitHub evicts caches unused for 7 days. If that happened, start from the memory archived on the
+      # data branch (at most a day old) instead of from nothing, which would re-flag every report as new.
+      - name: Fall back to the archived state
+        run: |
+          if [ ! -f state/items.json ] && git fetch -q --depth 1 origin data 2>/dev/null; then
+            mkdir -p archive
+            if git archive FETCH_HEAD state 2>/dev/null | tar -x -C archive 2>/dev/null; then
+              python ops/archive.py restore --state state --archive archive
+            else
+              echo "The data branch has no archived state yet; starting fresh."
+            fi
+          fi
+
       - name: Sweep sources and send alerts
         env:
           SM_SITE_URL: ${{ vars.SM_SITE_URL }}
@@ -83,6 +97,20 @@ jobs:
       - id: deploy
         uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
 
+      # The archive job below writes the data branch; this job keeps read-only repository access.
+      - name: Hand the sweep's memory to the archive job
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: archive-input
+          retention-days: 1
+          path: |
+            state/items.json
+            state/seen.json
+            state/meta.json
+            state/history.json
+            state/sources_status.json
+            site/data/situation.json
+
       # On pushes, and otherwise at most once every 20 hours (the stamp lives in the cached state/).
       # Never fails the run.
       - name: Ping IndexNow
@@ -99,3 +127,44 @@ jobs:
           else
             echo "Pinged $(( ($(date +%s) - last) / 3600 )) h ago; skipping."
           fi
+
+  # The permanent record (see ops/archive.py): every briefing, one snapshot per finished day and, once a
+  # day, the sweep's memory, committed to the orphan `data` branch. Most sweeps add nothing.
+  archive:
+    needs: sweep
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: archive-input
+          path: incoming
+
+      - name: Update the data branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh auth setup-git
+          repo="https://github.com/${GITHUB_REPOSITORY}.git"
+          if ! git ls-remote --exit-code --heads "$repo" data >/dev/null; then
+            git init -q -b data archive && git -C archive remote add origin "$repo"
+          else
+            git clone -q --depth 1 --branch data "$repo" archive
+          fi
+          python3 ops/archive.py save --state incoming/state --site incoming/site --archive archive --sitrep sitrep.json
+          cd archive
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nothing new to archive."
+            exit 0
+          fi
+          stamp=$(python3 -c 'import json; print(json.load(open("../incoming/site/data/situation.json"))["generated_at"])')
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+            commit -q -m "Archive after the sweep of $stamp"
+          git push -q origin HEAD:data
