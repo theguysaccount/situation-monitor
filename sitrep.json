@@ -1,21 +1,21 @@
 {
- "written_at": "2026-11-11T14:20:19Z",
+ "written_at": "2026-11-11T15:20:05Z",
  "by": "Claude",
- "headline": "Citrix and Ivanti patch critical flaws; Poland shuts ePUAP after cyberattack; OpenSSH SSHole due 11-12, Barracuda ESG due 11-13",
+ "headline": "Qlik Sense servers hit with reverse shells; Credit Mutuel Arkea reports €100m missing; OpenSSH SSHole due 11-12, Barracuda ESG due 11-13",
  "bullets": [
-  {"text": "New: Citrix and Ivanti released patches for critical and high-severity vulnerabilities (SecurityWeek). Asus and Zoom also shipped security patches today.", "url": "https://www.securityweek.com/citrix-ivanti-patch-critical-and-high-severity-vulnerabilities/"},
-  {"text": "New: Poland shut down its government services platform ePUAP following a cyberattack. Also still developing: Maersk is investigating an IT security incident with data theft.", "url": "https://therecord.media/poland-shuts-down-government-services-platform-cyberattack"},
+  {"text": "New: attackers are targeting Qlik Sense servers with reverse shells and staging ActiveMQ and Veeam exploits (The Hacker News). Separately, AntiFox AI agents are being used in AWS credential-theft attacks (BleepingComputer).", "url": "https://thehackernews.com/2026/11/hackers-target-qlik-sense-servers-with.html"},
+  {"text": "New: French bank Credit Mutuel Arkea says €100m is missing after a cyberattack. Wyndham exposed customer data through an app security lapse; Fullerton Health in Singapore and hundreds of Dutch sports clubs also reported breaches.", "url": "https://databreaches.net/2026/11/11/french-bank-credit-mutuel-arkea-says-e100m-missing-after-cyberattack/"},
+  {"text": "New: Git fixed six vulnerabilities, including code execution during recursive clones (Help Net Security). Earlier today Citrix and Ivanti patched critical and high-severity flaws, and Asus and Zoom shipped security patches.", "url": "https://www.helpnetsecurity.com/2026/11/11/git-project-security-updates/"},
   {"text": "Due tomorrow, 11-12: OpenSSH SSHole CVE-2026-123158 (exploited to breach Linux systems, 4 outlets), GPUStack CVE-2026-102895, FreeSwitch CVE-2026-116779 and IBM Aspera Faspex CVE-2026-123218.", "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-sshole-openssh-flaw-to-breach-linux-systems/"},
-  {"text": "Barracuda ESG CVE-2026-116606 (auth bypass) and CVE-2026-111560 (OS command injection) are exploited in attacks (4 outlets); KEV due 11-13. Ivanti Connect Secure CVE-2026-104935 is also due 11-13.", "url": "https://www.securityweek.com/recently-patched-barracuda-vulnerabilities-exploited-in-attacks/"},
-  {"text": "N-able has released hotfixes for the N-central zero-days a researcher published (4 outlets). Cisco BroadWorks CVE-2026-20320 and Openwave Webtop CVE-2026-111793 are exploited despite patches; KEV due 11-24.", "url": "https://www.bleepingcomputer.com/news/security/n-able-releases-security-hotfixes-for-zero-day-vulnerabilities/"},
-  {"text": "Still active: Vanderbilt on lockdown after ransomware (6 outlets), Ridgecrest Regional Hospital offline, two US school districts shut systems; 35,000+ Grok-built apps exposed online. The week ran 1.14x the 90-day average.", "url": "https://www.nashvillescene.com/news/pithinthewind/vanderbilt-university-cyber-attack-lockdown/article_c7136f1f-a103-4e75-93bc-826ca02e894e.html"}
+  {"text": "Barracuda ESG CVE-2026-116606 (auth bypass) and CVE-2026-111560 (OS command injection) are exploited (4 outlets); KEV due 11-13, as is Ivanti Connect Secure CVE-2026-104935. Cisco BroadWorks CVE-2026-20320 and Openwave Webtop CVE-2026-111793 are due 11-24.", "url": "https://www.securityweek.com/recently-patched-barracuda-vulnerabilities-exploited-in-attacks/"},
+  {"text": "Still active: N-able released hotfixes for the published N-central zero-days (4 outlets); Vanderbilt on lockdown after ransomware (6 outlets); Maersk probing data theft; Poland's ePUAP shut down. The week ran 1.15x the 90-day average.", "url": "https://www.bleepingcomputer.com/news/security/n-able-releases-security-hotfixes-for-zero-day-vulnerabilities/"}
  ],
  "actions": [
-  "Review the new Citrix and Ivanti advisories and patch internet-facing Citrix and Ivanti appliances first; apply the Asus and Zoom updates.",
+  "Check internet-facing Qlik Sense servers for reverse shells and unexpected processes; make sure ActiveMQ and Veeam hosts are patched.",
+  "Update Git on developer machines and CI runners, and avoid recursive clones of untrusted repositories until updated.",
   "Patch OpenSSH (CVE-2026-123158), GPUStack, FreeSwitch and IBM Aspera Faspex today; their KEV deadline is 11-12.",
-  "Barracuda ESG: apply fixes for CVE-2026-116606 and CVE-2026-111560 (due 11-13) and hunt for compromise; patch Ivanti Connect Secure too.",
-  "N-able N-central customers: apply the zero-day hotfixes now and review RMM activity for misuse.",
-  "Patch Cisco BroadWorks and Openwave Webtop, roll out Microsoft's November updates (Outlook CVE-2026-124194 first), and update Chrome.",
-  "Inventory internet-exposed AI-generated apps, lock down access and rotate any secrets they hold."
+  "Barracuda ESG: apply fixes for CVE-2026-116606 and CVE-2026-111560 (due 11-13) and hunt for compromise; patch Citrix and Ivanti Connect Secure.",
+  "N-central customers: apply the hotfixes. Patch Cisco BroadWorks, Openwave Webtop, Outlook (CVE-2026-124194) and Chrome before 11-24.",
+  "Review AWS access keys and CloudTrail for unusual use, and rotate any credentials that may be exposed."
  ]
 }
