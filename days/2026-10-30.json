@@ -1,0 +1,652 @@
+{
+ "schema": 1,
+ "date": "2026-10-30",
+ "source": "backfill",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-10-30T00:19:46Z",
+    2,
+    221.0
+   ],
+   [
+    "2026-10-30T01:19:47Z",
+    2,
+    220.9
+   ],
+   [
+    "2026-10-30T02:19:48Z",
+    2,
+    220.4
+   ],
+   [
+    "2026-10-30T03:08:19Z",
+    2,
+    220.4
+   ],
+   [
+    "2026-10-30T04:22:40Z",
+    2,
+    223.2
+   ],
+   [
+    "2026-10-30T05:32:28Z",
+    2,
+    225.7
+   ],
+   [
+    "2026-10-30T06:19:28Z",
+    2,
+    221.7
+   ],
+   [
+    "2026-10-30T07:19:30Z",
+    2,
+    219.2
+   ],
+   [
+    "2026-10-30T08:19:30Z",
+    2,
+    220.9
+   ],
+   [
+    "2026-10-30T09:23:06Z",
+    2,
+    230.1
+   ],
+   [
+    "2026-10-30T10:15:05Z",
+    2,
+    233.1
+   ],
+   [
+    "2026-10-30T11:11:33Z",
+    2,
+    232.5
+   ],
+   [
+    "2026-10-30T12:15:32Z",
+    2,
+    224.1
+   ],
+   [
+    "2026-10-30T13:08:53Z",
+    2,
+    223.4
+   ],
+   [
+    "2026-10-30T14:15:47Z",
+    2,
+    225.5
+   ],
+   [
+    "2026-10-30T15:19:48Z",
+    2,
+    222.3
+   ],
+   [
+    "2026-10-30T16:11:03Z",
+    2,
+    216.7
+   ],
+   [
+    "2026-10-30T17:15:13Z",
+    2,
+    216.0
+   ],
+   [
+    "2026-10-30T18:08:49Z",
+    2,
+    217.1
+   ],
+   [
+    "2026-10-30T19:08:41Z",
+    2,
+    216.8
+   ],
+   [
+    "2026-10-30T20:12:04Z",
+    2,
+    215.6
+   ],
+   [
+    "2026-10-30T21:19:19Z",
+    2,
+    220.6
+   ],
+   [
+    "2026-10-30T22:19:20Z",
+    2,
+    220.6
+   ],
+   [
+    "2026-10-30T23:19:17Z",
+    2,
+    221.8
+   ]
+  ],
+  "hours_at_level": {
+   "2": 24
+  },
+  "highest": 2,
+  "lowest": 2
+ },
+ "first_seen": {
+  "count": 137,
+  "by_severity": {
+   "medium": 67,
+   "high": 41,
+   "critical": 6,
+   "low": 23
+  },
+  "by_type": {
+   "ransomware": 47,
+   "vuln": 3,
+   "news": 73,
+   "advisory": 2,
+   "community": 7,
+   "breach": 3,
+   "kev": 2
+  }
+ },
+ "situations": [
+  {
+   "name": "PHP2Shell",
+   "severity": "critical",
+   "outlets": 8,
+   "reports": 11,
+   "cves": [],
+   "lead": {
+    "title": "Chinese hackers used VMware ESX zero-day; PHP2Shell and Fragnesia chained to root firewalls",
+    "url": "https://www.helpnetsecurity.com/2026/10/29/php2shell-fragnesia-vmware-esx-zero-day/",
+    "source": "Help Net Security",
+    "published": "2026-10-29T16:25:10Z"
+   }
+  },
+  {
+   "name": "Binance",
+   "severity": "critical",
+   "outlets": 9,
+   "reports": 12,
+   "cves": [],
+   "lead": {
+    "title": "North Korea-linked group steals $6.3B from Binance in largest-ever cryptocurrency hack",
+    "url": "https://www.cybersecuritydive.com/news/binance-hack-north-korea-cryptocurrency-theft/873304/",
+    "source": "Cybersecurity Dive",
+    "published": "2026-10-30T14:19:34Z"
+   }
+  },
+  {
+   "name": "GitLab CVE-2026-97229",
+   "severity": "critical",
+   "outlets": 4,
+   "reports": 5,
+   "cves": [
+    "CVE-2026-97229"
+   ],
+   "lead": {
+    "title": "Max-Severity GitLab Vulnerability Exploited Against Alpine Linux",
+    "url": "https://www.securityweek.com/max-severity-gitlab-vulnerability-exploited-against-alpine-linux/",
+    "source": "SecurityWeek",
+    "published": "2026-10-30T09:32:27Z"
+   }
+  },
+  {
+   "name": "Volt Typhoon",
+   "severity": "critical",
+   "outlets": 5,
+   "reports": 5,
+   "cves": [],
+   "lead": {
+    "title": "Cisco SD-WAN Zero-Day Exploitation Tied to Volt Typhoon’s ‘Silent Train’ Network",
+    "url": "https://www.securityweek.com/cisco-sd-wan-zero-day-exploitation-tied-to-volt-typhoons-silent-train-network/",
+    "source": "SecurityWeek",
+    "published": "2026-10-29T10:29:25Z"
+   }
+  },
+  {
+   "name": "Cisco SD-WAN",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [
+    "CVE-2026-20127"
+   ],
+   "lead": {
+    "title": "Hackers exploit Cisco SD-WAN flaw to deploy custom KeyDrift malware",
+    "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-cisco-sd-wan-flaw-to-deploy-custom-keydrift-malware/",
+    "source": "BleepingComputer",
+    "published": "2026-10-29T18:38:26Z"
+   }
+  },
+  {
+   "name": "DHS",
+   "severity": "high",
+   "outlets": 6,
+   "reports": 6,
+   "cves": [],
+   "lead": {
+    "title": "DHS personnel leak exposes contact details and sensitive job information",
+    "url": "https://databreaches.net/2026/10/29/dhs-personnel-leak-exposes-contact-details-and-sensitive-job-information/",
+    "source": "DataBreaches.net",
+    "published": "2026-10-29T19:41:47Z"
+   }
+  },
+  {
+   "name": "Drupal Commerce Core",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [
+    "CVE-2026-118539"
+   ],
+   "lead": {
+    "title": "Drupal warns of critical Commerce Core flaw exploited in attacks",
+    "url": "https://www.bleepingcomputer.com/news/security/drupal-warns-of-critical-commerce-core-flaw-exploited-in-attacks/",
+    "source": "BleepingComputer",
+    "published": "2026-10-30T10:16:07Z"
+   }
+  },
+  {
+   "name": "EBS",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [
+    "CVE-2026-101767"
+   ],
+   "lead": {
+    "title": "Exploitation attempts against recently patched Oracle EBS flaw have begun (CVE-2026-101767)",
+    "url": "https://www.helpnetsecurity.com/2026/10/29/oracle-e-business-suite-cve-2026-101767-exploitation/",
+    "source": "Help Net Security",
+    "published": "2026-10-29T13:12:24Z"
+   }
+  }
+ ],
+ "top_reports": [
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Critical Linux kernel flaw allows remote root attacks on MPTCP servers",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/critical-linux-kernel-flaw-allows-remote-root-attacks-on-mptcp-servers/",
+   "published": "2026-10-30T21:09:46Z",
+   "first_seen": "2026-10-30T21:20:18Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "CISA says max severity GitLab flaw now exploited in the wild",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-now-exploiting-max-severity-gitlab-flaw-in-attacks/",
+   "published": "2026-10-30T13:00:32Z",
+   "first_seen": "2026-10-30T13:09:41Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Drupal warns of critical Commerce Core flaw exploited in attacks",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/drupal-warns-of-critical-commerce-core-flaw-exploited-in-attacks/",
+   "published": "2026-10-30T10:16:07Z",
+   "first_seen": "2026-10-30T10:18:42Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Max-Severity GitLab Vulnerability Exploited Against Alpine Linux",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/max-severity-gitlab-vulnerability-exploited-against-alpine-linux/",
+   "published": "2026-10-30T09:32:27Z",
+   "first_seen": "2026-10-30T10:18:42Z",
+   "cves": [
+    "CVE-2026-97229"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Hackers Actively Exploit Highly Critical Drupal Commerce Core Authorization Bypass Flaw",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/10/hackers-actively-exploit-highly.html",
+   "published": "2026-10-30T07:45:30Z",
+   "first_seen": "2026-10-30T09:24:22Z",
+   "cves": [
+    "CVE-2026-118539"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "CISA Adds Actively Exploited GitLab RCE and Cisco Firewall DoS Flaws to KEV",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/10/cisa-adds-actively-exploited-gitlab-rce.html",
+   "published": "2026-10-30T07:27:05Z",
+   "first_seen": "2026-10-30T08:20:26Z",
+   "cves": [
+    "CVE-2026-97229"
+   ]
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Applebee’s exposed customers’ personal data after leaving database password in app",
+   "source": "TechCrunch Security",
+   "url": "https://techcrunch.com/2026/10/30/applebees-exposed-customers-personal-data-after-leaving-database-password-in-app/",
+   "published": "2026-10-30T21:48:53Z",
+   "first_seen": "2026-10-30T22:20:25Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "China-backed threat group used agentic AI pentesting tool to compromise 140 sensitive targets in 11 days",
+   "source": "CyberScoop",
+   "url": "https://cyberscoop.com/china-vapor-panda-agentic-ai-artex-campaign-crowdstrike/",
+   "published": "2026-10-30T21:30:00Z",
+   "first_seen": "2026-10-30T22:20:25Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Linux kernel exploit enables remote root attacks on MPTCP servers",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/linux-kernel-exploit-enables-remote-root-attacks-on-mptcp-servers/",
+   "published": "2026-10-30T21:09:46Z",
+   "first_seen": "2026-10-30T21:19:19Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "A Supply Chain Attack Put Malicious Anthropic Claude Extensions on Thousands of Devices",
+   "source": "WIRED Security",
+   "url": "https://www.wired.com/story/trojan-malware-targets-thousands-of-anthropic-claude-developer-systems/",
+   "published": "2026-10-30T20:38:46Z",
+   "first_seen": "2026-10-30T21:20:18Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Devs Hit by Trojanized Claude Code Extension for Cursor",
+   "source": "Dark Reading",
+   "url": "https://www.darkreading.com/cyberattacks-data-breaches/devs-trojanized-claude-code-extension-cursor",
+   "published": "2026-10-30T20:05:58Z",
+   "first_seen": "2026-10-30T21:20:18Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Crim spent $7K+ on AI services in extortion attacks, then left evidence for all to see",
+   "source": "The Register",
+   "url": "https://www.theregister.com/security/2026/10/30/crim-spent-7k-on-ai-services-in-extortion-attacks-then-left-evidence-for-all-to-see/5306754",
+   "published": "2026-10-30T19:37:12Z",
+   "first_seen": "2026-10-30T20:18:41Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Fashion retailer Resolve says hackers stole payment card information",
+   "source": "The Record",
+   "url": "https://therecord.media/resolve-fashion-retailer-data-breach-payment-cards",
+   "published": "2026-10-30T19:00:00Z",
+   "first_seen": "2026-10-30T20:18:41Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Apple notifications alert victims in 99 countries about mercenary spyware infections",
+   "source": "CyberScoop",
+   "url": "https://cyberscoop.com/apple-spyware-notifications-pall-mall-process/",
+   "published": "2026-10-30T17:07:05Z",
+   "first_seen": "2026-10-30T17:15:49Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Chinese Hackers Use AI-Powered ARTEX to Target Over 200 Organizations Worldwide",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/10/chinese-hackers-use-ai-powered-artex-to.html",
+   "published": "2026-10-30T16:58:44Z",
+   "first_seen": "2026-10-30T18:52:43Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Anthropic: That Claude Code extension compromise… couldn't be us",
+   "source": "The Register",
+   "url": "https://www.theregister.com/cyber-crime/2026/10/30/anthropic-that-claude-code-extension-compromise-couldnt-be-us/5306682",
+   "published": "2026-10-30T16:27:00Z",
+   "first_seen": "2026-10-30T17:15:49Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "advisory",
+   "title": "From help desk impersonation to AD CS abuse: Investigating ESC1 and ESC8 intrusion paths",
+   "source": "Microsoft Security Blog",
+   "url": "https://www.microsoft.com/en-us/security/blog/2026/10/30/help-desk-impersonation-ad-cs-abuse-investigating-esc1-esc8-intrusion-paths/",
+   "published": "2026-10-30T16:11:44Z",
+   "first_seen": "2026-10-30T17:15:49Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Trezor warns of suspected crypto-theft implant in hardware wallet",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/trezor-warns-of-suspected-crypto-theft-implant-in-hardware-wallet/",
+   "published": "2026-10-30T15:58:20Z",
+   "first_seen": "2026-10-30T16:11:54Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Florida warns that 4.9 million people had Social Security numbers leaked in financial aid site breach",
+   "source": "The Record",
+   "url": "https://therecord.media/florida-warns-5-million-affected-financial-aid-site-breach",
+   "published": "2026-10-30T15:54:00Z",
+   "first_seen": "2026-10-30T16:11:54Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "TeamViewer Flaw Lets Remote Computers Attack Users Who Connect to Control Them",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/10/teamviewer-flaw-lets-remote-computers.html",
+   "published": "2026-10-30T15:17:28Z",
+   "first_seen": "2026-10-30T17:15:49Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Palo Alto Networks firewalls compromised in chained attacks using PHP2Shell",
+   "source": "Cybersecurity Dive",
+   "url": "https://www.cybersecuritydive.com/news/palo-alto-networks-firewalls-compromised-chained-attacks-php2shell/873323/",
+   "published": "2026-10-30T15:17:22Z",
+   "first_seen": "2026-10-30T16:11:54Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "community",
+   "title": "Northflank Breached",
+   "source": "Hacker News",
+   "url": "https://status.northflank.com",
+   "published": "2026-10-30T15:10:31Z",
+   "first_seen": "2026-10-30T16:11:54Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Malicious Claude Code extension on Cursor planted SSH backdoors",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/malicious-claude-code-extension-on-cursor-planted-ssh-backdoors/",
+   "published": "2026-10-30T14:36:54Z",
+   "first_seen": "2026-10-30T15:20:47Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "North Korea-linked group steals $6.3B from Binance in largest-ever cryptocurrency hack",
+   "source": "Cybersecurity Dive",
+   "url": "https://www.cybersecuritydive.com/news/binance-hack-north-korea-cryptocurrency-theft/873304/",
+   "published": "2026-10-30T14:19:34Z",
+   "first_seen": "2026-10-30T16:11:54Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "WordPress RCE Flaw Draws Nearly 63,000 Attack Attempts in Just 24 Hours",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/10/wordpress-rce-flaw-draws-nearly-63000.html",
+   "published": "2026-10-30T14:08:14Z",
+   "first_seen": "2026-10-30T17:15:49Z",
+   "cves": []
+  }
+ ],
+ "kev_added": [
+  {
+   "cve": "CVE-2026-104935",
+   "vendor": "Ivanti",
+   "product": "Connect Secure",
+   "title": "CVE-2026-118527: Ivanti Connect Secure Generation of Predictable Numbers or Identifiers Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-118527",
+   "due": "2026-11-13",
+   "ransomware": false
+  },
+  {
+   "cve": "CVE-2026-104935",
+   "vendor": "Ivanti",
+   "product": "Connect Secure",
+   "title": "CVE-2026-111357: Ivanti Connect Secure Missing Authentication for Critical Function Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111357",
+   "due": "2026-11-02",
+   "ransomware": false
+  }
+ ],
+ "breaches": [
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Nach Hackerangriff: Uni Leipzig weiter offline",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.mdr.de/nachrichten/sachsen/leipzig/leipzig-leipzig-land/news-cyberangriff-internet-sicherheit,hackerangriff-uni-100.html",
+   "published": "2026-10-30T00:00:00Z",
+   "first_seen": "2026-10-30T13:09:41Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "VIDEO 🎦 Rectificare de buget pentru Finanțe Locale Ploiești, în urma unui atac cibernetic. Director: „Ne trebuie măsuri de protecție ca să nu fie atacată baza de date”",
+   "source": "ransomware.live disclosures",
+   "url": "https://telegrama.ro/article/video-rectificare-de-buget-pentru-finante-locale-ploiesti-in-urma-unui-atac-cibernetic-director-ne-trebuie-masuri-de-protectie-ca-sa-nu-fie-atacata-baza-de-date",
+   "published": "2026-10-30T00:00:00Z",
+   "first_seen": "2026-10-30T16:11:54Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Часть услуг НКСС могут быть недоступны из-за кибератаки",
+   "source": "ransomware.live disclosures",
+   "url": "https://logos-pres.md/ru/novosti/chast-uslug-nkss-mogut-byt-nedostupny-iz-za-kiberataki/",
+   "published": "2026-10-30T00:00:00Z",
+   "first_seen": "2026-10-30T17:15:49Z",
+   "cves": []
+  }
+ ],
+ "ransomware_claims": {
+  "count": 48,
+  "groups": [
+   [
+    "qilin",
+    11
+   ],
+   [
+    "genesis",
+    9
+   ],
+   [
+    "SilentRansomGroup",
+    6
+   ],
+   [
+    "leakeddata",
+    4
+   ],
+   [
+    "akira",
+    3
+   ],
+   [
+    "the gentlemen",
+    3
+   ],
+   [
+    "rhysida",
+    2
+   ],
+   [
+    "aurora",
+    2
+   ],
+   [
+    "emperador",
+    1
+   ],
+   [
+    "whitearmor",
+    1
+   ]
+  ]
+ },
+ "archive_counts": {
+  "date": "2026-10-30",
+  "exploited": 8.0,
+  "ransomware": 10.0,
+  "breaches": 0.0,
+  "community": 11.2,
+  "kev": 2,
+  "claims": 41,
+  "breach_count": 0,
+  "accounts": 0,
+  "stories": 6,
+  "top": "Backdoor in Claude Code for VS Code extension on the Cursor Marketplace",
+  "top_url": "https://phorion.io/blog/offical-claude-code-vsx-compromise/"
+ },
+ "sitreps": [
+  "sitreps/2026-10-30/042300Z.json",
+  "sitreps/2026-10-30/053200Z.json",
+  "sitreps/2026-10-30/081900Z.json",
+  "sitreps/2026-10-30/092500Z.json",
+  "sitreps/2026-10-30/101500Z.json",
+  "sitreps/2026-10-30/111400Z.json",
+  "sitreps/2026-10-30/121500Z.json",
+  "sitreps/2026-10-30/131000Z.json",
+  "sitreps/2026-10-30/141700Z.json",
+  "sitreps/2026-10-30/152100Z.json",
+  "sitreps/2026-10-30/161300Z.json",
+  "sitreps/2026-10-30/181000Z.json",
+  "sitreps/2026-10-30/211900Z.json",
+  "sitreps/2026-10-30/221900Z.json"
+ ],
+ "note": "Backfilled on 2026-11-11 from the sweep memory kept on the analyst's Mac and the public board. Reports drop off the board 14 days after publication, so early days list fewer reports than were seen; the archive_counts come from the full CISA KEV, ransomware-claim, Have I Been Pwned and Hacker News archives. The Mac's clock ran 3.0 h fast from about 2026-11-03T16:20:14Z; its stamps in that period have been corrected."
+}

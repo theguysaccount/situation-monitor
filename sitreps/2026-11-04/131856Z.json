@@ -1,0 +1,42 @@
+{
+ "written_at": "2026-11-04T13:18:56Z",
+ "by": "Claude",
+ "headline": "WorkOS, Northflank and Trigger.dev disclose AI-linked hacks; cPGuard supply chain attack and exploited WordPress flaw stay on top",
+ "bullets": [
+  {
+   "text": "New: SecurityWeek reports WorkOS, Northflank and Trigger.dev have disclosed hacks in a mounting run of AI-linked breaches. BleepingComputer says the WorkOS attacker used ARTEX AI to breach an internal sales app.",
+   "url": "https://www.securityweek.com/ai-linked-breaches-mount-as-workos-northflank-trigger-dev-disclose-hacks/"
+  },
+  {
+   "text": "Still active, cPGuard, 4 outlets: Help Net Security says a poisoned update hit thousands of web hosting servers. BleepingComputer reports the hijacked autoupdate deployed a backdoor and stole data.",
+   "url": "https://www.helpnetsecurity.com/2026/11/04/cpguard-update-supply-chain-compromised/"
+  },
+  {
+   "text": "Still active, WordPress Core, 3 outlets: BleepingComputer reports CISA flags a WordPress RCE flaw as actively exploited. CISA KEV lists CVE-2026-119977, a race condition added 2026-11-03, with a federal due date of 2026-11-06.",
+   "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-wordpress-rce-flaw-as-actively-exploited-in-attacks/"
+  },
+  {
+   "text": "Still active: The Hacker News reports a critical Rails flaw lets attackers write server files through crafted ImageMagick uploads.",
+   "url": "https://thehackernews.com/2026/11/critical-rails-flaw-lets-attackers.html"
+  },
+  {
+   "text": "Still active, $6.3B Binance heist, 8 outlets: SecurityWeek reports a rigged coding assignment and an abused AI tool opened the path to the theft.",
+   "url": "https://www.securityweek.com/rigged-coding-assignment-abused-ai-tool-opened-path-to-6-billion-binance-heist/"
+  },
+  {
+   "text": "Still active, Connect Secure, 4 outlets: Ivanti patched two more zero-days chained in attacks, CVE-2026-111357 and CVE-2026-118527. CISA KEV lists CVE-2026-104935 in the same product, with federal due dates of 2026-11-02 and 2026-11-13.",
+   "url": "https://www.bleepingcomputer.com/news/security/ivanti-patches-two-more-connect-secure-zero-days-chained-in-attacks/"
+  }
+ ],
+ "actions": [
+  "If you use WorkOS, Northflank or Trigger.dev, read their disclosures and review the access and tokens you share with them.",
+  "If you run cPGuard, check servers for the backdoor reported by BleepingComputer and treat data on affected hosts as exposed.",
+  "Update WordPress Core for CVE-2026-119977 per vendor guidance; the KEV federal due date is 2026-11-06.",
+  "Find Rails apps that process ImageMagick uploads, follow the Rails project's guidance, and check for unexpected files on those servers.",
+  "Apply Ivanti's latest Connect Secure patches, covering CVE-2026-111357 and CVE-2026-118527, and check appliances for compromise.",
+  "Find Node-RED instances, patch CVE-2026-58115 per vendor guidance, and look for backdoors."
+ ],
+ "commit": "7c1ae6e511d9bcd1d3fd388009f5504d5295bcab",
+ "pushed_at": "2026-11-04T13:18:56Z",
+ "written_at_as_recorded": "2026-11-04T16:18:43Z"
+}

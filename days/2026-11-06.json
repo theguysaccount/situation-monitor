@@ -1,0 +1,606 @@
+{
+ "schema": 1,
+ "date": "2026-11-06",
+ "source": "backfill",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-11-06T00:12:34Z",
+    2,
+    141.9
+   ],
+   [
+    "2026-11-06T01:19:32Z",
+    2,
+    145.0
+   ],
+   [
+    "2026-11-06T02:19:05Z",
+    2,
+    145.0
+   ],
+   [
+    "2026-11-06T03:18:59Z",
+    2,
+    146.9
+   ],
+   [
+    "2026-11-06T04:19:02Z",
+    2,
+    146.9
+   ],
+   [
+    "2026-11-06T05:18:59Z",
+    2,
+    144.4
+   ],
+   [
+    "2026-11-06T06:19:02Z",
+    2,
+    144.4
+   ],
+   [
+    "2026-11-06T07:19:01Z",
+    2,
+    145.0
+   ],
+   [
+    "2026-11-06T08:19:01Z",
+    3,
+    137.8
+   ],
+   [
+    "2026-11-06T09:19:00Z",
+    3,
+    134.1
+   ],
+   [
+    "2026-11-06T10:19:03Z",
+    3,
+    130.4
+   ],
+   [
+    "2026-11-06T11:19:05Z",
+    3,
+    128.6
+   ],
+   [
+    "2026-11-06T12:19:01Z",
+    3,
+    120.8
+   ],
+   [
+    "2026-11-06T13:19:04Z",
+    3,
+    130.2
+   ],
+   [
+    "2026-11-06T14:19:02Z",
+    3,
+    124.1
+   ],
+   [
+    "2026-11-06T15:19:00Z",
+    3,
+    124.1
+   ],
+   [
+    "2026-11-06T16:19:04Z",
+    3,
+    121.0
+   ],
+   [
+    "2026-11-06T17:19:01Z",
+    3,
+    127.2
+   ],
+   [
+    "2026-11-06T18:19:02Z",
+    3,
+    121.2
+   ],
+   [
+    "2026-11-06T19:19:02Z",
+    3,
+    118.3
+   ],
+   [
+    "2026-11-06T20:19:03Z",
+    3,
+    117.4
+   ],
+   [
+    "2026-11-06T21:19:09Z",
+    3,
+    116.6
+   ],
+   [
+    "2026-11-06T22:19:08Z",
+    3,
+    117.2
+   ],
+   [
+    "2026-11-06T23:19:08Z",
+    3,
+    118.6
+   ]
+  ],
+  "hours_at_level": {
+   "2": 8,
+   "3": 16
+  },
+  "highest": 2,
+  "lowest": 3
+ },
+ "first_seen": {
+  "count": 111,
+  "by_severity": {
+   "high": 24,
+   "medium": 56,
+   "low": 28,
+   "critical": 3
+  },
+  "by_type": {
+   "news": 69,
+   "ransomware": 32,
+   "vuln": 6,
+   "advisory": 2,
+   "breach": 1,
+   "kev": 1
+  }
+ },
+ "situations": [
+  {
+   "name": "French",
+   "severity": "high",
+   "outlets": 7,
+   "reports": 8,
+   "cves": [],
+   "lead": {
+    "title": "French authorities probe cyberattack targeting nation’s blood supply",
+    "url": "https://www.cybersecuritydive.com/news/french-probe-cyberattack-blood-supply/873871/",
+    "source": "Cybersecurity Dive",
+    "published": "2026-11-05T15:52:25Z"
+   }
+  },
+  {
+   "name": "Zyxel GS1900",
+   "severity": "critical",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [
+    "CVE-2026-107441",
+    "CVE-2026-7273"
+   ],
+   "lead": {
+    "title": "Zyxel Switch Hacks Blamed on Patched Flaw Actually Exploited a Zero-Day",
+    "url": "https://www.securityweek.com/zyxel-switch-hacks-blamed-on-patched-flaw-actually-exploited-a-zero-day/",
+    "source": "SecurityWeek",
+    "published": "2026-11-05T10:56:41Z"
+   }
+  },
+  {
+   "name": "SSHole",
+   "severity": "critical",
+   "outlets": 5,
+   "reports": 6,
+   "cves": [
+    "CVE-2026-123158"
+   ],
+   "lead": {
+    "title": "OpenSSH flaw exploited in the wild just hours after disclosure (CVE-2026-123158)",
+    "url": "https://www.helpnetsecurity.com/2026/11/06/openssh-sshole-cve-2026-123158-exploitation/",
+    "source": "Help Net Security",
+    "published": "2026-11-06T12:49:41Z"
+   }
+  },
+  {
+   "name": "DigiCert",
+   "severity": "high",
+   "outlets": 5,
+   "reports": 5,
+   "cves": [],
+   "lead": {
+    "title": "Certificate authority DigiCert reports data breach involving business customer info",
+    "url": "https://therecord.media/digicert-certificate-authority-reports-data-breach",
+    "source": "The Record",
+    "published": "2026-11-06T18:56:00Z"
+   }
+  },
+  {
+   "name": "Claude Dispatch",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [],
+   "lead": {
+    "title": "Malicious Browser Extensions Could Use Claude Dispatch to Run Code on Users' Computers",
+    "url": "https://thehackernews.com/2026/11/malicious-browser-extensions-could-use.html",
+    "source": "The Hacker News",
+    "published": "2026-11-06T12:06:35Z"
+   }
+  },
+  {
+   "name": "Apple CVE-2024-27834",
+   "severity": "critical",
+   "outlets": 2,
+   "reports": 2,
+   "cves": [
+    "CVE-2024-27834"
+   ],
+   "lead": {
+    "title": "Hackers Exploit Patched Apple Flaw to Deliver Info-Stealing Malware, CISA Says",
+    "url": "https://thehackernews.com/2026/11/hackers-exploit-patched-apple-flaw-to.html",
+    "source": "The Hacker News",
+    "published": "2026-11-05T05:17:04Z"
+   }
+  },
+  {
+   "name": "GMS",
+   "severity": "high",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [
+    "CVE-2026-109593"
+   ],
+   "lead": {
+    "title": "SonicWall Won't Patch EoL GMS Flaws That Could Expose Files, Alter Database Records",
+    "url": "https://thehackernews.com/2026/11/sonicwall-wont-patch-eol-gms-flaws-that.html",
+    "source": "The Hacker News",
+    "published": "2026-11-04T17:00:38Z"
+   }
+  }
+ ],
+ "top_reports": [
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Installing the Fix for an Exploited WordPress Flaw Can Expose Some Sites One Last Time",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/installing-fix-for-exploited-wordpress.html",
+   "published": "2026-11-06T16:08:38Z",
+   "first_seen": "2026-11-06T17:19:49Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "OpenSSH flaw exploited in the wild just hours after disclosure (CVE-2026-123158)",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/11/06/openssh-sshole-cve-2026-123158-exploitation/",
+   "published": "2026-11-06T12:49:41Z",
+   "first_seen": "2026-11-06T13:19:49Z",
+   "cves": [
+    "CVE-2026-123158"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Malicious Browser Extensions Could Use Claude Dispatch to Run Code on Users' Computers",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/malicious-browser-extensions-could-use.html",
+   "published": "2026-11-06T12:06:35Z",
+   "first_seen": "2026-11-06T13:19:49Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Runaway AI hacking agent behind WorkOS breach after escaping sandbox",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/runaway-ai-hacking-agent-behind-workos-breach-after-escaping-sandbox/",
+   "published": "2026-11-06T22:27:25Z",
+   "first_seen": "2026-11-06T23:19:27Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Certificate authority DigiCert reports data breach involving business customer info",
+   "source": "The Record",
+   "url": "https://therecord.media/digicert-certificate-authority-reports-data-breach",
+   "published": "2026-11-06T18:56:00Z",
+   "first_seen": "2026-11-06T19:19:20Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Fake security tools on GitHub push backdoors and infostealers",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/fake-security-tools-on-github-push-backdoors-and-infostealers/",
+   "published": "2026-11-06T18:46:52Z",
+   "first_seen": "2026-11-06T19:19:20Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "QNAP says hackers breaching NAS devices in Plex2Shell attacks",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/qnap-says-hackers-breaching-nas-devices-in-plex2shell-attacks/",
+   "published": "2026-11-06T17:04:23Z",
+   "first_seen": "2026-11-06T17:19:49Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Hackers enlist Artex to scan GitHub repositories for exposed secrets",
+   "source": "Cybersecurity Dive",
+   "url": "https://www.cybersecuritydive.com/news/hackers-artex-github-repositories-exposed-secrets/874007/",
+   "published": "2026-11-06T15:57:21Z",
+   "first_seen": "2026-11-06T17:19:49Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Hackers Target OpenSSH SSHole Flaw Within Hours of Disclosure, Gain Root on Honeypot",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/hackers-exploited-openssh-sshole-flaw.html",
+   "published": "2026-11-06T15:21:49Z",
+   "first_seen": "2026-11-06T17:19:49Z",
+   "cves": [
+    "CVE-2026-123158"
+   ]
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "CEO-spoofing scammers used AI to help steal more than $100 million, feds say",
+   "source": "The Record",
+   "url": "https://therecord.media/ceo-spoofing-scammers-charged",
+   "published": "2026-11-06T14:30:00Z",
+   "first_seen": "2026-11-06T15:19:17Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Chainalysis says breach exposed credentials for all customers",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/chainalysis-says-breach-exposed-credentials-for-all-customers/",
+   "published": "2026-11-06T14:17:07Z",
+   "first_seen": "2026-11-06T14:19:57Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "DigiCert Data Breach Impacts Business Customer Information",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/digicert-data-breach-impacts-business-customer-information/",
+   "published": "2026-11-06T14:00:07Z",
+   "first_seen": "2026-11-06T14:19:57Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "NI: Parents warned to be on alert after school data breach",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/06/ni-parents-warned-to-be-on-alert-after-school-data-breach/",
+   "published": "2026-11-06T13:56:51Z",
+   "first_seen": "2026-11-06T14:19:57Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "DigiCert data breach exposes customer information, identity documents",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/06/digicert-data-breach-exposes-customer-information-identity-documents/",
+   "published": "2026-11-06T13:42:29Z",
+   "first_seen": "2026-11-06T14:19:57Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Any long password will do: SSH flaw lets hackers into Alpine systems, routers and more",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/06/any-long-password-will-do-ssh-flaw-lets-hackers-into-alpine-systems-routers-and-more/",
+   "published": "2026-11-06T13:42:22Z",
+   "first_seen": "2026-11-06T14:19:57Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "DigiCert admits 16-month security lapse exposed customer information",
+   "source": "The Register",
+   "url": "https://www.theregister.com/security/2026/11/06/digicert-admits-16-month-security-lapse-exposed-customer-information/5308097",
+   "published": "2026-11-06T13:15:00Z",
+   "first_seen": "2026-11-06T13:19:49Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "D-Link warns of multiple zero-days in DGS-3130 Series switches",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/d-link-warns-of-multiple-zero-days-in-dgs-3130-series-switches/",
+   "published": "2026-11-06T12:37:22Z",
+   "first_seen": "2026-11-06T13:19:49Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "OpenSSH Rushes Patches for ‘SSHole’ Authentication Bypass",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/openssh-rushes-patches-for-sshole-authentication-bypass/",
+   "published": "2026-11-06T12:07:42Z",
+   "first_seen": "2026-11-06T12:19:19Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Microsoft Paint RCE Fix Now Available, but Windows Update Won't Deliver It",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/microsoft-paint-rce-fix-now-available.html",
+   "published": "2026-11-06T12:06:43Z",
+   "first_seen": "2026-11-06T13:19:49Z",
+   "cves": [
+    "CVE-2026-83844"
+   ]
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "US agencies warn attackers are targeting refrigeration systems that protect food and medicine",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/11/06/cyberattacks-refrigeration-systems-cisa-fbi/",
+   "published": "2026-11-06T09:04:36Z",
+   "first_seen": "2026-11-06T09:19:37Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Chainalysis Breach Exposes All Users' Credentials, Forces Shutdown of Key Services",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/chainalysis-breach-exposes-all-users.html",
+   "published": "2026-11-06T08:04:49Z",
+   "first_seen": "2026-11-06T09:19:37Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Hackers Hide Linux Backdoor in Control Web Panel Server to Execute Commands Without Logs",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/hackers-hide-linux-backdoor-in-control.html",
+   "published": "2026-11-06T05:58:54Z",
+   "first_seen": "2026-11-06T07:19:22Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Threat actor targets Indian fintechs on weekends when defenders aren’t watching",
+   "source": "The Register",
+   "url": "https://www.theregister.com/security/2026/11/06/threat-actor-targets-indian-fintechs-on-weekends-when-defenders-arent-watching/5308000",
+   "published": "2026-11-06T01:17:40Z",
+   "first_seen": "2026-11-06T01:20:12Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "FBI, CISA warn of cyberattacks targeting refrigeration systems",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/fbi-cisa-warn-of-cyberattacks-targeting-refrigeration-systems/",
+   "published": "2026-11-06T00:56:44Z",
+   "first_seen": "2026-11-06T01:20:12Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "advisory",
+   "title": "Threat actors use agentic AI tooling to find and abuse exposed secrets",
+   "source": "Microsoft Security Blog",
+   "url": "https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/",
+   "published": "2026-11-05T23:46:50Z",
+   "first_seen": "2026-11-06T03:19:51Z",
+   "cves": []
+  }
+ ],
+ "kev_added": [
+  {
+   "cve": "CVE-2026-19868",
+   "vendor": "SonicWall",
+   "product": "SonicOS SSLVPN",
+   "title": "CVE-2026-19868: SonicWall SonicOS SSLVPN Use of Single-factor Authentication Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19868",
+   "due": "2026-11-20",
+   "ransomware": false
+  }
+ ],
+ "breaches": [
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Cyberattaque : l'école d'ingénieurs ISAE-Supméca touchée par un...",
+   "source": "ransomware.live disclosures",
+   "url": "https://frenchbreaches.com/alertes/cyberattaque-isae-supmeca-rancongiciel-infrastructure-informatique-mw4w3zidii5j32t03la",
+   "published": "2026-11-06T00:00:00Z",
+   "first_seen": "2026-11-06T15:19:17Z",
+   "cves": []
+  }
+ ],
+ "ransomware_claims": {
+  "count": 29,
+  "groups": [
+   [
+    "n0n",
+    8
+   ],
+   [
+    "leakeddata",
+    3
+   ],
+   [
+    "SilentRansomGroup",
+    3
+   ],
+   [
+    "akira",
+    3
+   ],
+   [
+    "genesis",
+    2
+   ],
+   [
+    "eclipse",
+    1
+   ],
+   [
+    "brain cipher",
+    1
+   ],
+   [
+    "incransom",
+    1
+   ],
+   [
+    "interlock",
+    1
+   ],
+   [
+    "direwolf",
+    1
+   ]
+  ]
+ },
+ "archive_counts": {
+  "date": "2026-11-06",
+  "exploited": 4.0,
+  "ransomware": 6.0,
+  "breaches": 0.0,
+  "community": 0.0,
+  "kev": 1,
+  "claims": 24,
+  "breach_count": 0,
+  "accounts": 0,
+  "stories": 0,
+  "top": "CVE-2026-19868: SonicWall SonicOS SSLVPN",
+  "top_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19868"
+ },
+ "sitreps": [
+  "sitreps/2026-11-06/011959Z.json",
+  "sitreps/2026-11-06/031942Z.json",
+  "sitreps/2026-11-06/081931Z.json",
+  "sitreps/2026-11-06/091927Z.json",
+  "sitreps/2026-11-06/131939Z.json",
+  "sitreps/2026-11-06/141943Z.json",
+  "sitreps/2026-11-06/171937Z.json",
+  "sitreps/2026-11-06/201935Z.json",
+  "sitreps/2026-11-06/211945Z.json"
+ ],
+ "note": "Backfilled on 2026-11-11 from the sweep memory kept on the analyst's Mac and the public board. Reports drop off the board 14 days after publication, so early days list fewer reports than were seen; the archive_counts come from the full CISA KEV, ransomware-claim, Have I Been Pwned and Hacker News archives. The Mac's clock ran 3.0 h fast from about 2026-11-03T16:20:14Z; its stamps in that period have been corrected."
+}

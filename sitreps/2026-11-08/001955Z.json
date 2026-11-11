@@ -1,0 +1,42 @@
+{
+ "written_at": "2026-11-08T00:19:55Z",
+ "by": "Claude",
+ "headline": "SITCON eases to 4 (GUARDED); OpenSSH CVE-2026-123158 and SonicWall SSL-VPN KEV flaw remain the top stories",
+ "bullets": [
+  {
+   "text": "SITCON drops from 3 (ELEVATED) to 4 (GUARDED) with no new reports since the 02:21 SITREP: only 1 exploited vulnerability was added to CISA KEV in 72 hours. The last 7 days scored 0.72x the 90-day average. Still developing: OpenSSH, SonicWall, Zyxel GS1900 and exposed GitHub secrets.",
+   "url": "https://www.securityweek.com/sonicwall-patches-exploited-sonicos-bug-that-weakens-vpn-logins/"
+  },
+  {
+   "text": "OpenSSH, 5 outlets: CVE-2026-123158 was exploited in the wild hours after disclosure. Related: OpenSSH's emergency fix for a flaw letting long passwords bypass SSH auth on Alpine Linux, which also reaches routers.",
+   "url": "https://www.helpnetsecurity.com/2026/11/06/openssh-sshole-cve-2026-123158-exploitation/"
+  },
+  {
+   "text": "SonicWall, 3 outlets: SonicWall patched an exploited SonicOS SSL-VPN flaw that weakens VPN logins (CVE-2026-19868, single-factor authentication). CISA added it to KEV on 2026-11-06, federal due date 2026-11-20.",
+   "url": "https://www.securityweek.com/sonicwall-patches-exploited-sonicos-bug-that-weakens-vpn-logins/"
+  },
+  {
+   "text": "Zyxel GS1900, 3 outlets: the vendor fix did not block the in-the-wild exploit (CVE-2026-107441) used to hack nearly 1,000 switches, allowing root command execution. D-Link separately warned of multiple zero-days in DGS-3130 Series switches.",
+   "url": "https://thehackernews.com/2026/11/zyxel-gs1900-patch-fails-to-block-zero.html"
+  },
+  {
+   "text": "Exposed secrets, GitHub and Artex stories across 4 outlets: hackers are using Artex to scan GitHub repositories for exposed secrets; Microsoft reports threat actors using agentic AI tooling to find and abuse them; Truffle Security launched a program to revoke nearly 1.5 million live secrets.",
+   "url": "https://www.cybersecuritydive.com/news/hackers-artex-github-repositories-exposed-secrets/874007/"
+  },
+  {
+   "text": "Breaches: a $133 million French bank heist via a service provider; Chainalysis says credentials for all customers were exposed; DigiCert and DreamHost also reported breaches; Norad was targeted. Top ransomware leak sites, 7 days: n0n (49), qilin (25), soul (25), the gentlemen (25).",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-pull-off-133-million-french-bank-heist-via-service-provider/"
+  }
+ ],
+ "actions": [
+  "Patch OpenSSH on every internet-facing host for CVE-2026-123158; restrict SSH exposure and review auth logs for exploitation.",
+  "SonicWall SSL-VPN users: apply SonicWall's patch for CVE-2026-19868 now (KEV due 2026-11-20) and review VPN logs for logins that skipped MFA.",
+  "Treat Zyxel GS1900 and D-Link DGS-3130 switches as exposed: restrict management access, check for compromise, apply fixes as they ship.",
+  "Scan GitHub repos and their history for committed secrets; revoke and rotate anything found and enable secret scanning with push protection.",
+  "Chainalysis, DigiCert and DreamHost customers: reset passwords, rotate API keys and credentials, and watch for phishing.",
+  "Patch Ivanti Connect Secure CVE-2026-104935 (KEV due 11-13) and Apple CVE-2024-27834 (due 11-18); WordPress CVE-2026-119977 is past due."
+ ],
+ "commit": "88bdcc80e25e92711bba24910a468aa6fe1766e8",
+ "pushed_at": "2026-11-08T00:19:55Z",
+ "written_at_as_recorded": "2026-11-08T03:20:00Z"
+}

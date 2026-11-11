@@ -1,0 +1,148 @@
+{
+ "schema": 1,
+ "date": "2026-10-26",
+ "source": "backfill",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-10-26T00:19:04Z",
+    4,
+    38.6
+   ],
+   [
+    "2026-10-26T01:19:05Z",
+    4,
+    38.4
+   ],
+   [
+    "2026-10-26T02:19:09Z",
+    4,
+    38.6
+   ],
+   [
+    "2026-10-26T03:19:03Z",
+    4,
+    38.6
+   ],
+   [
+    "2026-10-26T04:19:03Z",
+    4,
+    38.6
+   ],
+   [
+    "2026-10-26T05:19:06Z",
+    4,
+    41.5
+   ],
+   [
+    "2026-10-26T06:19:05Z",
+    4,
+    41.5
+   ],
+   [
+    "2026-10-26T07:19:10Z",
+    4,
+    35.5
+   ],
+   [
+    "2026-10-26T08:19:03Z",
+    4,
+    38.2
+   ],
+   [
+    "2026-10-26T09:19:05Z",
+    4,
+    37.8
+   ],
+   [
+    "2026-10-26T10:19:06Z",
+    4,
+    40.6
+   ],
+   [
+    "2026-10-26T11:19:05Z",
+    4,
+    35.8
+   ],
+   [
+    "2026-10-26T12:19:04Z",
+    5,
+    32.4
+   ],
+   [
+    "2026-10-26T13:19:07Z",
+    4,
+    37.0
+   ],
+   [
+    "2026-10-26T14:19:48Z",
+    4,
+    39.8
+   ],
+   [
+    "2026-10-26T18:14:26Z",
+    4,
+    54.5
+   ],
+   [
+    "2026-10-26T19:22:27Z",
+    4,
+    57.0
+   ],
+   [
+    "2026-10-26T21:19:34Z",
+    4,
+    63.2
+   ],
+   [
+    "2026-10-26T22:21:08Z",
+    4,
+    63.8
+   ]
+  ],
+  "hours_at_level": {
+   "4": 18,
+   "5": 1
+  },
+  "highest": 4,
+  "lowest": 5
+ },
+ "first_seen": {
+  "count": 0,
+  "by_severity": {},
+  "by_type": {}
+ },
+ "situations": [],
+ "top_reports": [],
+ "kev_added": [],
+ "breaches": [],
+ "ransomware_claims": {
+  "count": 0,
+  "groups": []
+ },
+ "archive_counts": {
+  "date": "2026-10-26",
+  "exploited": 8.0,
+  "ransomware": 9.0,
+  "breaches": 0.0,
+  "community": 2.5,
+  "kev": 2,
+  "claims": 36,
+  "breach_count": 0,
+  "accounts": 0,
+  "stories": 1,
+  "top": "In Leaked Audio, Flock CEO Tells Cops Backlash to the Company Isn't Real",
+  "top_url": "https://www.404media.co/in-leaked-audio-flock-ceo-tells-cops-backlash-to-the-company-isnt-real/"
+ },
+ "sitreps": [
+  "sitreps/2026-10-26/021900Z.json",
+  "sitreps/2026-10-26/082100Z.json",
+  "sitreps/2026-10-26/102100Z.json",
+  "sitreps/2026-10-26/122000Z.json",
+  "sitreps/2026-10-26/132100Z.json",
+  "sitreps/2026-10-26/181600Z.json",
+  "sitreps/2026-10-26/192400Z.json",
+  "sitreps/2026-10-26/212200Z.json"
+ ],
+ "note": "Backfilled on 2026-11-11 from the sweep memory kept on the analyst's Mac and the public board. Reports drop off the board 14 days after publication, so early days list fewer reports than were seen; the archive_counts come from the full CISA KEV, ransomware-claim, Have I Been Pwned and Hacker News archives. The Mac's clock ran 3.0 h fast from about 2026-11-03T16:20:14Z; its stamps in that period have been corrected."
+}

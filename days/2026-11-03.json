@@ -1,0 +1,551 @@
+{
+ "schema": 1,
+ "date": "2026-11-03",
+ "source": "backfill",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-11-03T00:19:27Z",
+    3,
+    111.9
+   ],
+   [
+    "2026-11-03T01:19:28Z",
+    3,
+    112.2
+   ],
+   [
+    "2026-11-03T02:19:28Z",
+    3,
+    111.7
+   ],
+   [
+    "2026-11-03T03:19:28Z",
+    3,
+    112.3
+   ],
+   [
+    "2026-11-03T10:59:57Z",
+    3,
+    124.1
+   ],
+   [
+    "2026-11-03T11:19:39Z",
+    3,
+    123.5
+   ],
+   [
+    "2026-11-03T12:19:39Z",
+    3,
+    126.6
+   ],
+   [
+    "2026-11-03T13:19:39Z",
+    3,
+    134.0
+   ],
+   [
+    "2026-11-03T13:42:01Z",
+    3,
+    130.7
+   ],
+   [
+    "2026-11-03T14:19:42Z",
+    3,
+    135.6
+   ],
+   [
+    "2026-11-03T15:19:42Z",
+    2,
+    141.7
+   ],
+   [
+    "2026-11-03T16:11:13Z",
+    2,
+    146.9
+   ],
+   [
+    "2026-11-03T17:21:46Z",
+    2,
+    145.6
+   ],
+   [
+    "2026-11-03T18:21:31Z",
+    2,
+    148.6
+   ],
+   [
+    "2026-11-03T19:08:11Z",
+    2,
+    153.5
+   ],
+   [
+    "2026-11-03T20:11:55Z",
+    2,
+    157.2
+   ],
+   [
+    "2026-11-03T21:18:21Z",
+    2,
+    171.7
+   ],
+   [
+    "2026-11-03T22:12:54Z",
+    2,
+    186.5
+   ],
+   [
+    "2026-11-03T23:09:41Z",
+    2,
+    189.6
+   ]
+  ],
+  "hours_at_level": {
+   "3": 10,
+   "2": 9
+  },
+  "highest": 2,
+  "lowest": 3
+ },
+ "first_seen": {
+  "count": 156,
+  "by_severity": {
+   "high": 44,
+   "medium": 64,
+   "low": 40,
+   "critical": 8
+  },
+  "by_type": {
+   "news": 108,
+   "ransomware": 36,
+   "vuln": 2,
+   "advisory": 5,
+   "community": 3,
+   "breach": 1,
+   "kev": 1
+  }
+ },
+ "situations": [
+  {
+   "name": "TraderTraitor",
+   "severity": "critical",
+   "outlets": 10,
+   "reports": 14,
+   "cves": [],
+   "lead": {
+    "title": "North Korean fake job interview led to $6.3B Binance heist",
+    "url": "https://www.theregister.com/security/2026/11/03/north-korean-fake-job-interview-led-to-63b-binance-heist/5307398",
+    "source": "The Register",
+    "published": "2026-11-03T22:04:45Z"
+   }
+  },
+  {
+   "name": "Ukraine and Russia both report fake emergency alerts after…",
+   "severity": "high",
+   "outlets": 3,
+   "reports": 5,
+   "cves": [],
+   "lead": {
+    "title": "Ukraine and Russia both report fake emergency alerts after cyberattacks target apps as limited ceasefire ends",
+    "url": "https://wordpress-1685287-6764806.cloudwaysapps.com/2026/11/03/ukraine-and-russia-both-report-fake-emergency-alerts-after-cyberattacks-target-apps-as-limited-ceasefire-ends/",
+    "source": "DataBreaches.net",
+    "published": "2026-11-03T20:07:11Z"
+   }
+  },
+  {
+   "name": "Europe",
+   "severity": "high",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [],
+   "lead": {
+    "title": "New Wave of Refrigeration Cyberattacks Hits Supermarkets Across Europe, Forcing Stores to Pull Food",
+    "url": "https://thehackernews.com/2026/11/second-wave-of-cyberattacks-hits.html",
+    "source": "The Hacker News",
+    "published": "2026-11-03T07:27:07Z"
+   }
+  },
+  {
+   "name": "Ivanti Patches Two More Zero-Days Exploited in Connect Secure Attack…",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [
+    "CVE-2026-111357",
+    "CVE-2026-118527"
+   ],
+   "lead": {
+    "title": "Ivanti Patches Two More Zero-Days Exploited in Connect Secure Attack Chain",
+    "url": "https://www.securityweek.com/ivanti-patches-two-more-zero-days-exploited-in-connect-secure-attack-chain/",
+    "source": "SecurityWeek",
+    "published": "2026-11-02T07:57:49Z"
+   }
+  },
+  {
+   "name": "AI-powered",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [],
+   "lead": {
+    "title": "Cyber chief: UK facing AI-powered attacks on critical infrastructure within two years",
+    "url": "https://www.ncsc.gov.uk/news/cyber-chief-uk-facing-ai-powered-attacks-on-critical-infrastructure-in-two-years",
+    "source": "NCSC (UK)",
+    "published": "2026-11-03T12:00:00Z"
+   }
+  }
+ ],
+ "top_reports": [
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Barracuda warns of critical flaws allowing root access to devices",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/barracuda-warns-of-critical-flaws-allowing-root-access-to-devices/",
+   "published": "2026-11-03T15:06:16Z",
+   "first_seen": "2026-11-03T15:08:20Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Attackers exploit critical Node-RED flaw to deploy Linux bot and backdoors (CVE-2026-58115)",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/11/03/node-red-cve-2026-58115-exploitation/",
+   "published": "2026-11-03T12:59:51Z",
+   "first_seen": "2026-11-03T13:20:28Z",
+   "cves": [
+    "CVE-2026-58115"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Critical Node-RED Flaw Exploited in Attacks",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/critical-node-red-flaw-exploited-in-attacks/",
+   "published": "2026-11-03T12:10:19Z",
+   "first_seen": "2026-11-03T12:21:10Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "advisory",
+   "title": "Cyber chief: UK facing AI-powered attacks on critical infrastructure within two years",
+   "source": "NCSC (UK)",
+   "url": "https://www.ncsc.gov.uk/news/cyber-chief-uk-facing-ai-powered-attacks-on-critical-infrastructure-in-two-years",
+   "published": "2026-11-03T12:00:00Z",
+   "first_seen": "2026-11-03T00:20:27Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Russia-Aligned Gorbag Hackers Exploit WinRAR Flaw to Deploy Data-Stealing Malware",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/russia-aligned-gorbag-hackers-exploit.html",
+   "published": "2026-11-03T11:00:45Z",
+   "first_seen": "2026-11-03T13:20:28Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Hackers Exploit BTCPay Server Flaw to Steal Bitcoin and Litecoin From Hot Wallets",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-btcpay-server-flaw-to.html",
+   "published": "2026-11-03T08:31:48Z",
+   "first_seen": "2026-11-03T09:48:41Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Synology NAS Devices Targeted in Ransomware Attacks Exploiting Patched DSM Flaw",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/synology-nas-devices-targeted-in.html",
+   "published": "2026-11-03T07:43:07Z",
+   "first_seen": "2026-11-03T09:48:41Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Attackers Exploit Critical Siemens IoT2050 Flaw to Plant Remote Command Backdoors",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/attackers-exploit-critical-siemens.html",
+   "published": "2026-11-03T05:34:41Z",
+   "first_seen": "2026-11-03T06:47:41Z",
+   "cves": [
+    "CVE-2026-58115"
+   ]
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "AU: Criminal investigation after NSW Health hit by cyber breach",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/03/au-criminal-investigation-after-nsw-health-hit-by-cyber-breach/",
+   "published": "2026-11-03T22:29:14Z",
+   "first_seen": "2026-11-03T23:10:54Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Hackers hijack cPGuard autoupdate to deploy backdoor, steal data",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-hijack-cpguard-autoupdate-to-deploy-backdoor-steal-data/",
+   "published": "2026-11-03T22:18:50Z",
+   "first_seen": "2026-11-03T23:10:54Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "North Korean fake job interview led to $6.3B Binance heist",
+   "source": "The Register",
+   "url": "https://www.theregister.com/security/2026/11/03/north-korean-fake-job-interview-led-to-63b-binance-heist/5307398",
+   "published": "2026-11-03T22:04:45Z",
+   "first_seen": "2026-11-03T22:13:48Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "WorkOS says attacker used ARTEX AI to breach internal sales app",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/workos-says-attacker-used-artex-ai-to-breach-internal-sales-app/",
+   "published": "2026-11-03T21:28:44Z",
+   "first_seen": "2026-11-03T22:13:48Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Ukraine and Russia both report fake emergency alerts after cyberattacks target apps as limited ceasefire ends",
+   "source": "DataBreaches.net",
+   "url": "https://wordpress-1685287-6764806.cloudwaysapps.com/2026/11/03/ukraine-and-russia-both-report-fake-emergency-alerts-after-cyberattacks-target-apps-as-limited-ceasefire-ends/",
+   "published": "2026-11-03T20:07:11Z",
+   "first_seen": "2026-11-03T20:59:23Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Ukraine and Russia both report fake emergency alerts after cyberattacks target apps as limited ceasefire ends",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/03/ukraine-and-russia-both-report-fake-emergency-alerts-after-cyberattacks-target-apps-as-limited-ceasefire-ends/",
+   "published": "2026-11-03T20:07:11Z",
+   "first_seen": "2026-11-03T22:13:48Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Binance says fake job interview led to $6.3 billion crypto heist",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/binance-says-fake-job-interview-led-to-63-billion-crypto-heist/",
+   "published": "2026-11-03T20:05:50Z",
+   "first_seen": "2026-11-03T20:13:33Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Nine health systems affected by AI company data breach",
+   "source": "DataBreaches.net",
+   "url": "https://wordpress-1685287-6764806.cloudwaysapps.com/2026/11/03/nine-health-systems-affected-by-ai-company-data-breach/",
+   "published": "2026-11-03T20:02:54Z",
+   "first_seen": "2026-11-03T20:59:23Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Nine health systems affected by AI company data breach",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/03/nine-health-systems-affected-by-ai-company-data-breach/",
+   "published": "2026-11-03T20:02:54Z",
+   "first_seen": "2026-11-03T22:13:48Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "KR: Presidential office holds emergency meeting over leak of personal data of president, trip entourage",
+   "source": "DataBreaches.net",
+   "url": "https://wordpress-1685287-6764806.cloudwaysapps.com/2026/11/03/kr-presidential-office-holds-emergency-meeting-over-leak-of-personal-data-of-president-trip-entourage/",
+   "published": "2026-11-03T19:57:32Z",
+   "first_seen": "2026-11-03T20:59:23Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "KR: Presidential office holds emergency meeting over leak of personal data of president, trip entourage",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/03/kr-presidential-office-holds-emergency-meeting-over-leak-of-personal-data-of-president-trip-entourage/",
+   "published": "2026-11-03T19:57:32Z",
+   "first_seen": "2026-11-03T22:13:48Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Hackers hit UNM hospital, then apologize and offer patients $2,500. In a new statement, they reveal more about the incident.",
+   "source": "DataBreaches.net",
+   "url": "https://wordpress-1685287-6764806.cloudwaysapps.com/2026/11/03/hackers-hit-unm-hospital-then-apologize-and-offer-patients-2500-in-a-new-statement-they-reveal-more-about-the-incident/",
+   "published": "2026-11-03T19:55:17Z",
+   "first_seen": "2026-11-03T20:59:23Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Hackers hit UNM hospital, then apologize and offer patients $2,500. In a new statement, they reveal more about the incident.",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/03/hackers-hit-unm-hospital-then-apologize-and-offer-patients-2500-in-a-new-statement-they-reveal-more-about-the-incident/",
+   "published": "2026-11-03T19:55:17Z",
+   "first_seen": "2026-11-03T22:13:48Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "CSX data breach exposes employee information",
+   "source": "DataBreaches.net",
+   "url": "https://wordpress-1685287-6764806.cloudwaysapps.com/2026/11/03/csx-data-breach-exposes-employee-information/",
+   "published": "2026-11-03T19:54:48Z",
+   "first_seen": "2026-11-03T20:59:23Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "CSX data breach exposes employee information",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/03/csx-data-breach-exposes-employee-information/",
+   "published": "2026-11-03T19:54:48Z",
+   "first_seen": "2026-11-03T22:13:48Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Researchers warned of North Korean hacking tactics years before record $6.3B Binance heist",
+   "source": "TechCrunch Security",
+   "url": "https://techcrunch.com/2026/11/03/researchers-warned-of-north-korean-hacking-tactics-years-before-record-6-3b-binance-heist/",
+   "published": "2026-11-03T19:45:48Z",
+   "first_seen": "2026-11-03T20:13:33Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Binance Says Hackers Used Well-Known Tricks to Carry Out a $6.34 Billion Heist",
+   "source": "WIRED Security",
+   "url": "https://www.wired.com/story/binance-says-hackers-used-well-known-tricks-to-carry-out-a-dollar634-billion-heist/",
+   "published": "2026-11-03T19:04:58Z",
+   "first_seen": "2026-11-03T19:09:44Z",
+   "cves": []
+  }
+ ],
+ "kev_added": [
+  {
+   "cve": "CVE-2026-119977",
+   "vendor": "WordPress",
+   "product": "WordPress Core",
+   "title": "CVE-2026-119977: WordPress WordPress Core Time-of-check Time-of-use (TOCTOU) Race Condition Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-119977",
+   "due": "2026-11-06",
+   "ransomware": false
+  }
+ ],
+ "breaches": [
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Harvard: 850,537 accounts added to Have I Been Pwned",
+   "source": "Have I Been Pwned",
+   "url": "https://haveibeenpwned.com/Breach/Harvard",
+   "published": "2026-11-03T07:24:50Z",
+   "first_seen": "2026-11-03T09:48:41Z",
+   "cves": []
+  }
+ ],
+ "ransomware_claims": {
+  "count": 42,
+  "groups": [
+   [
+    "n0n",
+    10
+   ],
+   [
+    "incransom",
+    6
+   ],
+   [
+    "booba team",
+    4
+   ],
+   [
+    "Booba Project",
+    4
+   ],
+   [
+    "akira",
+    3
+   ],
+   [
+    "OBSOFT",
+    2
+   ],
+   [
+    "Scarlettgroup",
+    1
+   ],
+   [
+    "payoutsking",
+    1
+   ],
+   [
+    "chaos",
+    1
+   ],
+   [
+    "whitearmor",
+    1
+   ]
+  ]
+ },
+ "archive_counts": {
+  "date": "2026-11-03",
+  "exploited": 4.0,
+  "ransomware": 9.25,
+  "breaches": 0.6,
+  "community": 1.2,
+  "kev": 1,
+  "claims": 37,
+  "breach_count": 1,
+  "accounts": 850537,
+  "stories": 2,
+  "top": "Gitbook Breached",
+  "top_url": "https://news.ycombinator.com/item?id=50354336"
+ },
+ "sitreps": [
+  "sitreps/2026-11-03/002000Z.json",
+  "sitreps/2026-11-03/110100Z.json",
+  "sitreps/2026-11-03/122100Z.json",
+  "sitreps/2026-11-03/132000Z.json",
+  "sitreps/2026-11-03/142022Z.json",
+  "sitreps/2026-11-03/152020Z.json",
+  "sitreps/2026-11-03/161147Z.json",
+  "sitreps/2026-11-03/190921Z.json",
+  "sitreps/2026-11-03/201318Z.json",
+  "sitreps/2026-11-03/212111Z.json",
+  "sitreps/2026-11-03/221336Z.json",
+  "sitreps/2026-11-03/231038Z.json"
+ ],
+ "note": "Backfilled on 2026-11-11 from the sweep memory kept on the analyst's Mac and the public board. Reports drop off the board 14 days after publication, so early days list fewer reports than were seen; the archive_counts come from the full CISA KEV, ransomware-claim, Have I Been Pwned and Hacker News archives. The Mac's clock ran 3.0 h fast from about 2026-11-03T16:20:14Z; its stamps in that period have been corrected."
+}

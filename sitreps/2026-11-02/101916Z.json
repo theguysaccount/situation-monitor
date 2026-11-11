@@ -1,0 +1,41 @@
+{
+ "written_at": "2026-11-02T10:19:16Z",
+ "by": "Claude",
+ "headline": "FBI pins $6.3B Binance heist on North Korea as scammers circle users; Ivanti Connect Secure zero-days stay the top patch priority",
+ "bullets": [
+  {
+   "text": "New since the last SITREP: Help Net Security reports the FBI has pinned the $6.3 billion Binance heist on North Korea while scammers circle anxious users. Earlier reports name TraderTraitor and say the FBI flagged over 600 addresses.",
+   "url": "https://www.helpnetsecurity.com/2026/11/02/fbi-north-korea-binance-hack/"
+  },
+  {
+   "text": "Also new: BleepingComputer confirms Ivanti patched two more Connect Secure zero-days chained in attacks, CVE-2026-111357 and CVE-2026-118527. CISA KEV lists CVE-2026-104935 in the same product, with federal due dates of today, 2026-11-02, and 2026-11-13.",
+   "url": "https://www.bleepingcomputer.com/news/security/ivanti-patches-two-more-connect-secure-zero-days-chained-in-attacks/"
+  },
+  {
+   "text": "Polymarket returned $3.9 million to traders, and DebugBear cites a DNS hijack, SecurityWeek reports. The Hacker News earlier described about $2.7 million stolen through a hijacked DebugBear script.",
+   "url": "https://www.securityweek.com/polymarket-returns-3-9-million-to-traders-as-debugbear-cites-dns-hijack/"
+  },
+  {
+   "text": "The Hacker News reports a new VOLTA infostealer that uses Claude, Gemini and Kimi AI to rank victims by financial value.",
+   "url": "https://thehackernews.com/2026/11/new-volta-infostealer-uses-claude.html"
+  },
+  {
+   "text": "CISA KEV due dates for the max-severity GitLab CE/EE flaw CVE-2026-97229 and the Cisco ASA/FTD flaw CVE-2026-76418 passed on 2026-11-01. Alpine Linux rebuilt its GitLab after an attempted RCE attack.",
+   "url": "https://www.bleepingcomputer.com/news/security/alpine-linux-rebuilds-gitlab-after-attempted-rce-attack/"
+  },
+  {
+   "text": "The official Claude Code extension on the Cursor Marketplace was trojanized with a persistent SSH backdoor; WIRED reports malicious Claude extensions reached thousands of devices.",
+   "url": "https://www.wired.com/story/trojan-malware-targets-thousands-of-anthropic-claude-developer-systems/"
+  }
+ ],
+ "actions": [
+  "If you handle crypto transactions, screen against the addresses the FBI flagged for the Binance heist, and warn staff about Binance-themed scams.",
+  "Apply Ivanti's latest Connect Secure patches today, covering CVE-2026-111357 and CVE-2026-118527, and check appliances for compromise.",
+  "If GitLab CE/EE (CVE-2026-97229) or Cisco ASA/FTD (CVE-2026-76418) are still unpatched, patch now; both KEV due dates have passed.",
+  "Find any LXD and MicroCloud deployments, check the vendor advisory for the CVSS 10.0 flaw, and patch them.",
+  "If your sites load the DebugBear script, review it against DebugBear's DNS hijack statement and check for injected code.",
+  "If developers use the Claude Code extension in Cursor, check it against the vendor advisory and look for unexpected SSH keys or services."
+ ],
+ "commit": "f46ebcf4b2e2659311eb5fa37d4d5b0515b2bdb4",
+ "pushed_at": "2026-11-02T10:19:39Z"
+}

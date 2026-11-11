@@ -1,0 +1,41 @@
+{
+ "written_at": "2026-11-03T13:20:00Z",
+ "by": "Claude",
+ "headline": "Node-RED flaw CVE-2026-58115 exploited to deploy Linux bot; Synology NAS ransomware and Ivanti zero-days remain active",
+ "bullets": [
+  {
+   "text": "New: Help Net Security reports attackers are exploiting critical Node-RED flaw CVE-2026-58115 to deploy a Linux bot and backdoors. The Hacker News ties the same CVE to Siemens IoT2050 devices, where it is used to plant remote command backdoors.",
+   "url": "https://www.helpnetsecurity.com/2026/11/03/node-red-cve-2026-58115-exploitation/"
+  },
+  {
+   "text": "New: NCSC's chief warns the UK will face AI-powered attacks on critical infrastructure within two years. The Register, SecurityWeek and NCSC all carry it. This is a forecast, not an active incident.",
+   "url": "https://www.ncsc.gov.uk/news/cyber-chief-uk-facing-ai-powered-attacks-on-critical-infrastructure-in-two-years"
+  },
+  {
+   "text": "The Hacker News reports ransomware attacks on Synology NAS devices exploiting a patched DSM flaw, and attackers targeting an unpatched CryptoPayment gateway flaw, CVE-2026-81648, that can expose wallet credentials.",
+   "url": "https://thehackernews.com/2026/11/synology-nas-devices-targeted-in.html"
+  },
+  {
+   "text": "Connect Secure, 4 outlets: Ivanti patched two more zero-days chained in attacks, CVE-2026-111357 and CVE-2026-118527. CISA KEV lists CVE-2026-104935 in the same product, with federal due dates of 2026-11-02 and 2026-11-13.",
+   "url": "https://www.bleepingcomputer.com/news/security/ivanti-patches-two-more-connect-secure-zero-days-chained-in-attacks/"
+  },
+  {
+   "text": "BleepingComputer reports over 1,000 GitLab servers are vulnerable to ongoing RCE attacks. CISA KEV lists GitLab CE/EE flaw CVE-2026-97229, whose federal due date passed on 2026-11-01.",
+   "url": "https://www.bleepingcomputer.com/news/security/over-1-000-gitlab-servers-vulnerable-to-code-execution-attacks/"
+  },
+  {
+   "text": "Binance, 7 outlets: The Register reports the FBI pins the $6.3B heist on North Korean hackers. SecurityWeek says the FBI flagged over 600 addresses tied to it.",
+   "url": "https://www.theregister.com/security/2026/11/02/fbi-pins-63b-binance-crypto-heist-on-north-korean-hackers/5306889"
+  }
+ ],
+ "actions": [
+  "Find Node-RED instances and Siemens IoT2050 devices, patch CVE-2026-58115 per vendor guidance, and look for backdoors. Isolate exposed ones you cannot patch.",
+  "Update DSM on Synology NAS devices, restrict their internet exposure, and confirm backups are intact.",
+  "Patch GitLab CE/EE (CVE-2026-97229) and Cisco ASA/FTD (CVE-2026-76418) now; both KEV due dates have passed. Check GitLab servers for signs of RCE.",
+  "Apply Ivanti's latest Connect Secure patches, covering CVE-2026-111357 and CVE-2026-118527, and check appliances for compromise.",
+  "If you run a CryptoPayment gateway, restrict access until CVE-2026-81648 is patched and rotate any wallet credentials it holds.",
+  "If you handle crypto transactions, screen against the addresses the FBI flagged for the Binance heist."
+ ],
+ "commit": "c7651090803dfff429ff8e1a97ee0540ee3faec4",
+ "pushed_at": "2026-11-03T13:20:16Z"
+}

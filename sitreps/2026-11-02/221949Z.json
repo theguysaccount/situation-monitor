@@ -1,0 +1,41 @@
+{
+ "written_at": "2026-11-02T22:19:49Z",
+ "by": "Claude",
+ "headline": "Brazil's largest crypto exchange confirms cyberattack; FBI ties Binance heist to North Korea; GitLab RCE attacks continue",
+ "bullets": [
+  {
+   "text": "New: The Record reports the largest crypto exchange in Brazil has confirmed a cyberattack as millions flow out of the platform.",
+   "url": "https://therecord.media/mercado-bitcoin-brazil-cryptocurrency-heist"
+  },
+  {
+   "text": "Binance, 6 outlets: The Register reports the FBI pins the $6.3B heist on North Korean hackers. The Record names TraderTraitor and says the FBI urges the crypto industry to block transactions; SecurityWeek says it flagged over 600 addresses.",
+   "url": "https://www.theregister.com/security/2026/11/02/fbi-pins-63b-binance-crypto-heist-on-north-korean-hackers/5306889"
+  },
+  {
+   "text": "BleepingComputer reports over 1,000 GitLab servers are vulnerable to ongoing RCE attacks. CISA KEV lists GitLab CE/EE flaw CVE-2026-97229, whose federal due date passed on 2026-11-01. Alpine Linux rebuilt its GitLab after an attempted RCE attack.",
+   "url": "https://www.bleepingcomputer.com/news/security/over-1-000-gitlab-servers-vulnerable-to-code-execution-attacks/"
+  },
+  {
+   "text": "Connect Secure, 4 outlets: Ivanti patched two more zero-days chained in attacks, CVE-2026-111357 and CVE-2026-118527. CISA KEV lists CVE-2026-104935 in the same product, with federal due dates of today, 2026-11-02, and 2026-11-13.",
+   "url": "https://www.bleepingcomputer.com/news/security/ivanti-patches-two-more-connect-secure-zero-days-chained-in-attacks/"
+  },
+  {
+   "text": "Claude, 3 outlets: SecurityWeek reports a malicious Claude Code extension served in a Cursor supply chain attack. BleepingComputer says it planted SSH backdoors. Separately, The Hacker News reports the VOLTA infostealer uses Claude, Gemini and Kimi AI to rank victims by financial value.",
+   "url": "https://www.securityweek.com/malicious-claude-code-extension-served-in-cursor-supply-chain-attack/"
+  },
+  {
+   "text": "The Record reports the ransomware gang behind a recent hospital attack has claimed a cyber incident at Michigan State.",
+   "url": "https://therecord.media/michigan-state-university-byod-gang-cyber-incident"
+  }
+ ],
+ "actions": [
+  "Patch GitLab CE/EE (CVE-2026-97229) and Cisco ASA/FTD (CVE-2026-76418) now; both KEV due dates have passed. Check GitLab servers for signs of RCE.",
+  "Apply Ivanti's latest Connect Secure patches today, covering CVE-2026-111357 and CVE-2026-118527, and check appliances for compromise.",
+  "Find any Langflow, LXD and MicroCloud servers, check vendor advisories for the critical flaws, and patch. Restrict access to any you cannot patch yet.",
+  "If developers use the Claude Code extension in Cursor, check it against the vendor advisory and look for unexpected SSH keys or services.",
+  "Review infostealer detections, and rotate credentials and tokens on any host found infected.",
+  "If you handle crypto transactions, screen against the addresses the FBI flagged for the Binance heist, and warn staff about Binance-themed scams."
+ ],
+ "commit": "3351185c66f9e1a6ecc4ef4832d9b1da856d56d8",
+ "pushed_at": "2026-11-02T22:20:13Z"
+}

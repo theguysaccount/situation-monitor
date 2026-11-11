@@ -1,0 +1,42 @@
+{
+ "written_at": "2026-11-05T17:20:11Z",
+ "by": "Claude",
+ "headline": "DigiCert breach exposes customer identity documents; Zyxel GS1900 patch fails against zero-day; WordPress KEV patch due Nov 6",
+ "bullets": [
+  {
+   "text": "New: BleepingComputer reports a DigiCert data breach exposed customer information and identity documents.",
+   "url": "https://www.bleepingcomputer.com/news/security/digicert-data-breach-exposes-customer-information-identity-documents/"
+  },
+  {
+   "text": "New: DataBreaches.net reports a Royal Cornwall Hospitals Trust data breach in the UK exposed health details of 7,715 staff.",
+   "url": "https://databreaches.net/2026/11/05/uk-royal-cornwall-hospitals-trust-data-breach-exposed-health-details-of-7715-staff/"
+  },
+  {
+   "text": "Still active, Zyxel GS1900, 4 outlets: Help Net Security reports patched switches remained open to an in-the-wild exploit (CVE-2026-107441). SecurityWeek says the hacks were a zero-day; The Hacker News says the patch fails to block root command execution.",
+   "url": "https://www.helpnetsecurity.com/2026/11/05/zyxel-cve-2026-107441-exploit/"
+  },
+  {
+   "text": "Due tomorrow, WordPress Core, 3 outlets: BleepingComputer reports CISA flags a WordPress RCE flaw as actively exploited. CISA KEV lists CVE-2026-119977, a race condition added 2026-11-03, with a federal due date of 2026-11-06.",
+   "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-wordpress-rce-flaw-as-actively-exploited-in-attacks/"
+  },
+  {
+   "text": "Still active, CVE-2024-27834, 2 outlets: The Hacker News reports hackers are exploiting a patched Apple flaw to deliver info-stealing malware, citing CISA. CISA KEV added it 2026-11-04, with a federal due date of 2026-11-18.",
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-patched-apple-flaw-to.html"
+  },
+  {
+   "text": "Still active, cPGuard, 4 outlets: SecurityWeek reports malicious updates served in an OpsShield supply chain attack. BleepingComputer says the hijacked autoupdate deployed a backdoor and stole data.",
+   "url": "https://www.securityweek.com/malicious-cpguard-updates-served-in-opsshield-supply-chain-attack/"
+  }
+ ],
+ "actions": [
+  "Treat Zyxel GS1900 switches as still exposed even after patching: restrict access, check for compromise, watch for a new fix.",
+  "Patch WordPress Core for CVE-2026-119977 (KEV due 2026-11-06).",
+  "Patch Apple devices for CVE-2024-27834 (KEV due 2026-11-18) and keep iOS and Android current against APT29-linked exploits.",
+  "Check Rails advisories and patch apps that accept ImageMagick uploads. Check Debian and Ubuntu advisories for the APT flaw.",
+  "Patch Ivanti Connect Secure for CVE-2026-104935 (KEV due dates 2026-11-02 and 2026-11-13) and check for compromise.",
+  "DigiCert, Chainalysis users: heed notices. DreamHost: change FTP passwords, end webmail sessions. mSecure: follow reset warnings. cPGuard: hunt the backdoor."
+ ],
+ "commit": "9e7cae2a84cc603a308e91df2bb5916469518133",
+ "pushed_at": "2026-11-05T17:20:11Z",
+ "written_at_as_recorded": "2026-11-05T20:19:56Z"
+}

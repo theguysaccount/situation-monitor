@@ -1,0 +1,42 @@
+{
+ "written_at": "2026-11-05T21:23:39Z",
+ "by": "Claude",
+ "headline": "SITCON eases to 3: Zyxel GS1900 zero-day still unfixed in practice; WordPress KEV patch due today; cPGuard supply-chain attack",
+ "bullets": [
+  {
+   "text": "Changed: SITCON eased from 2 to 3 (ELEVATED). The last 7 days scored 0.62x the 90-day average; one KEV addition in 72 hours and 4 critical reports in 48 hours keep it above baseline.",
+   "url": "https://www.helpnetsecurity.com/2026/11/05/zyxel-cve-2026-107441-exploit/"
+  },
+  {
+   "text": "Still active, Zyxel GS1900, 4 outlets: Zyxel fixed a zero-day used to hack nearly 1,000 switches, but Help Net Security and The Hacker News report patched switches remained open to the in-the-wild exploit (CVE-2026-107441), allowing root command execution.",
+   "url": "https://thehackernews.com/2026/11/zyxel-gs1900-patch-fails-to-block-zero.html"
+  },
+  {
+   "text": "Due today, WordPress Core: CISA KEV lists CVE-2026-119977, a TOCTOU race condition exploited for RCE, added 2026-11-03 with a federal due date of 2026-11-06.",
+   "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-wordpress-rce-flaw-as-actively-exploited-in-attacks/"
+  },
+  {
+   "text": "Still active, cPGuard, 4 outlets: attackers hijacked cPGuard autoupdate in an OpsShield supply-chain attack to deploy a backdoor and steal data.",
+   "url": "https://www.securityweek.com/malicious-cpguard-updates-served-in-opsshield-supply-chain-attack/"
+  },
+  {
+   "text": "Still active, CVE-2024-27834: The Hacker News reports a patched Apple flaw is being exploited to deliver info-stealing malware. CISA KEV added it 2026-11-04, federal due date 2026-11-18.",
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-patched-apple-flaw-to.html"
+  },
+  {
+   "text": "New breaches: a cyberattack hit a French blood bank site (no blood products compromised, per SecurityWeek) and an attack on Norway's aid agency Norad may have exposed all grants-portal user data. CISA/FBI cooling-system hardening warning still stands.",
+   "url": "https://www.securityweek.com/cyberattack-hits-french-blood-bank-site-but-no-blood-products-are-compromised/"
+  }
+ ],
+ "actions": [
+  "Treat Zyxel GS1900 switches as exposed even after patching: restrict management access, check for compromise, watch for a new fix.",
+  "Patch WordPress Core for CVE-2026-119977 today (KEV due 2026-11-06).",
+  "Patch Apple devices for CVE-2024-27834 (KEV due 2026-11-18).",
+  "Patch Ivanti Connect Secure for CVE-2026-104935 (KEV due 2026-11-13) and check for compromise.",
+  "cPGuard users: hunt for the backdoor delivered via autoupdate and rotate credentials on affected servers.",
+  "Operators of cooling and refrigeration systems: apply the CISA/FBI hardening guidance and remove internet exposure of controllers."
+ ],
+ "commit": "9ec1cf655bf1f196592711f9247f2234c0965986",
+ "pushed_at": "2026-11-05T21:23:39Z",
+ "written_at_as_recorded": "2026-11-06T00:23:25Z"
+}

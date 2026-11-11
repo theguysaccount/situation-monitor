@@ -1,0 +1,41 @@
+{
+ "written_at": "2026-10-31T18:19:00Z",
+ "by": "Claude",
+ "headline": "Northflank breach led to abuse of customers' AI API keys; Linux kernel KEV due today, GitLab and Cisco ASA due tomorrow",
+ "bullets": [
+  {
+   "text": "New: a Northflank security breach has led to abuse of customers' AI API keys.",
+   "url": "https://www.bleepingcomputer.com/news/security/northflank-security-breach-leads-to-abuse-of-customers-ai-api-keys/"
+  },
+  {
+   "text": "Exploited now: the Linux kernel flaw CVE-2026-46300 is due in CISA KEV today, 2026-10-31; GitLab CE/EE CVE-2026-97229 and Cisco ASA/FTD CVE-2026-76418 are due 2026-11-01. Two Ivanti Connect Secure flaws added 2026-10-30 are due 2026-11-02 and 2026-11-13.",
+   "url": "https://thehackernews.com/2026/10/cisa-adds-actively-exploited-gitlab-rce.html"
+  },
+  {
+   "text": "Drupal warns that a critical Commerce Core authorization bypass, CVE-2026-118539, is being exploited in attacks.",
+   "url": "https://thehackernews.com/2026/10/hackers-actively-exploit-highly.html"
+  },
+  {
+   "text": "The official Claude Code extension on the Cursor Marketplace was trojanized with a persistent SSH backdoor; WIRED reports it reached thousands of developer devices.",
+   "url": "https://www.wired.com/story/trojan-malware-targets-thousands-of-anthropic-claude-developer-systems/"
+  },
+  {
+   "text": "North Korea-linked hackers are blamed for the record $6.3 billion Binance theft, which Binance links to a compromised DevOps laptop; nearly $3 billion has been frozen.",
+   "url": "https://thehackernews.com/2026/10/binance-suffers-security-breach.html"
+  },
+  {
+   "text": "Breaches: Chainalysis confirms an intrusion into its internal tools that exposed customer identity data; Florida says 4.9 million people had SSNs leaked from its financial aid site.",
+   "url": "https://thehackernews.com/2026/10/chainalysis-confirms-intrusion-into.html"
+  }
+ ],
+ "actions": [
+  "If you store AI provider API keys in Northflank, rotate them now and review provider usage and billing for abuse.",
+  "Apply Linux kernel fixes for CVE-2026-46300 today, and patch GitLab CE/EE (CVE-2026-97229) and Cisco ASA/FTD (CVE-2026-76418) by 2026-11-01.",
+  "Patch the two Ivanti Connect Secure flaws CISA added to KEV on 2026-10-30 (due 2026-11-02 and 2026-11-13).",
+  "Update Drupal Commerce Core for CVE-2026-118539 and check sites for unauthorized access.",
+  "Check Palo Alto firewalls for signs of the PHP2Shell chained compromise, and patch VMware ESX for CVE-2026-41709.",
+  "If developers use the Claude Code extension in Cursor, check it against the vendor advisory and look for unexpected SSH keys or services."
+ ],
+ "commit": "761c8fd4cabeed28ce6b5399d16f48235828b12a",
+ "pushed_at": "2026-10-31T18:20:04Z"
+}

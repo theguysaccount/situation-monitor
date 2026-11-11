@@ -1,0 +1,42 @@
+{
+ "written_at": "2026-11-05T12:11:05Z",
+ "by": "Claude",
+ "headline": "Patched Zyxel GS1900 switches still open to in-the-wild exploit; WordPress KEV patch due Nov 6; all Chainalysis users hit in breach",
+ "bullets": [
+  {
+   "text": "New: Help Net Security reports patched Zyxel GS1900 switches remained open to an in-the-wild exploit (CVE-2026-107441). SecurityWeek says the hacks were a zero-day; The Hacker News says the patch fails to block root command execution. BleepingComputer counts nearly 1,000 switches hacked.",
+   "url": "https://www.helpnetsecurity.com/2026/11/05/zyxel-cve-2026-107441-exploit/"
+  },
+  {
+   "text": "Still active: The Record reports Chainalysis warned that all users were hit in a cyber breach involving 'agentic' techniques.",
+   "url": "https://therecord.media/chainalysis-all-users-hit-by-agentic-cyberattack"
+  },
+  {
+   "text": "Due tomorrow, WordPress Core, 3 outlets: BleepingComputer reports CISA flags a WordPress RCE flaw as actively exploited. CISA KEV lists CVE-2026-119977, a race condition added 2026-11-03, with a federal due date of 2026-11-06.",
+   "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-wordpress-rce-flaw-as-actively-exploited-in-attacks/"
+  },
+  {
+   "text": "Still active, CVE-2024-27834, 2 outlets: The Hacker News reports hackers are exploiting a patched Apple flaw to deliver info-stealing malware, citing CISA. CISA KEV added it 2026-11-04, with a federal due date of 2026-11-18.",
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-patched-apple-flaw-to.html"
+  },
+  {
+   "text": "Still active, cPGuard, 4 outlets: SecurityWeek reports malicious updates served in an OpsShield supply chain attack. BleepingComputer says the hijacked autoupdate deployed a backdoor and stole data.",
+   "url": "https://www.securityweek.com/malicious-cpguard-updates-served-in-opsshield-supply-chain-attack/"
+  },
+  {
+   "text": "Developing, Binance, 6 outlets: TechCrunch reports researchers warned of North Korean hacking tactics years before the record $6.3B heist.",
+   "url": "https://techcrunch.com/2026/11/03/researchers-warned-of-north-korean-hacking-tactics-years-before-record-6-3b-binance-heist/"
+  }
+ ],
+ "actions": [
+  "Treat Zyxel GS1900 switches as still exposed even after patching: restrict access, check for compromise, watch for a new fix.",
+  "Patch WordPress Core for CVE-2026-119977 (KEV due 2026-11-06).",
+  "Patch Apple devices for CVE-2024-27834 (KEV due 2026-11-18) and keep iOS and Android current against APT29-linked exploits.",
+  "Check Rails advisories and patch apps that accept ImageMagick uploads. Apply Debian and Ubuntu APT fixes as they become available.",
+  "Patch Ivanti Connect Secure for CVE-2026-104935 (KEV due dates 2026-11-02 and 2026-11-13) and check for compromise.",
+  "DreamHost: change FTP passwords, end webmail sessions. mSecure: follow reset warnings. cPGuard: hunt the backdoor. Chainalysis users: heed its warning."
+ ],
+ "commit": "7113fce9115514f52aff4495a6aac82bc825fb82",
+ "pushed_at": "2026-11-05T12:11:05Z",
+ "written_at_as_recorded": "2026-11-05T15:10:51Z"
+}

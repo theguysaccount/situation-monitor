@@ -1,0 +1,42 @@
+{
+ "written_at": "2026-11-04T12:38:19Z",
+ "by": "Claude",
+ "headline": "Critical Rails file-write flaw and Sogou DNS hijack are new; cPGuard supply chain attack now hits thousands of hosting servers",
+ "bullets": [
+  {
+   "text": "New: The Hacker News reports a critical Rails flaw lets attackers write server files through crafted ImageMagick uploads.",
+   "url": "https://thehackernews.com/2026/11/critical-rails-flaw-lets-attackers.html"
+  },
+  {
+   "text": "New: The Hacker News reports China-aligned hackers are hijacking Sogou input method DNS requests to deploy a backdoor called DarkVigil.",
+   "url": "https://thehackernews.com/2026/11/china-aligned-hackers-hijack-sogou.html"
+  },
+  {
+   "text": "Growing, cPGuard, now 4 outlets: Help Net Security says a poisoned update hit thousands of web hosting servers. SecurityWeek ties the malicious updates to an OpsShield supply chain attack.",
+   "url": "https://www.helpnetsecurity.com/2026/11/04/cpguard-update-supply-chain-compromised/"
+  },
+  {
+   "text": "Update, WordPress Core, 3 outlets: BleepingComputer reports CISA flags a WordPress RCE flaw as actively exploited. CISA KEV lists CVE-2026-119977, a race condition added 2026-11-03, with a federal due date of 2026-11-06.",
+   "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-wordpress-rce-flaw-as-actively-exploited-in-attacks/"
+  },
+  {
+   "text": "Still active, $6.3B Binance heist, 8 outlets: SecurityWeek reports a rigged coding assignment and an abused AI tool opened the path to the theft.",
+   "url": "https://www.securityweek.com/rigged-coding-assignment-abused-ai-tool-opened-path-to-6-billion-binance-heist/"
+  },
+  {
+   "text": "Still active, Connect Secure, 4 outlets: Ivanti patched two more zero-days chained in attacks, CVE-2026-111357 and CVE-2026-118527. CISA KEV lists CVE-2026-104935 in the same product, with federal due dates of 2026-11-02 and 2026-11-13.",
+   "url": "https://www.bleepingcomputer.com/news/security/ivanti-patches-two-more-connect-secure-zero-days-chained-in-attacks/"
+  }
+ ],
+ "actions": [
+  "Find Rails apps that process ImageMagick uploads, follow the Rails project's guidance, and check for unexpected files on those servers.",
+  "If you run cPGuard, check servers for the backdoor reported by BleepingComputer and treat data on affected hosts as exposed.",
+  "Update WordPress Core for CVE-2026-119977 per vendor guidance; the KEV federal due date is 2026-11-06.",
+  "Apply Ivanti's latest Connect Secure patches, covering CVE-2026-111357 and CVE-2026-118527, and check appliances for compromise.",
+  "Find Node-RED instances and Siemens IoT2050 devices, patch CVE-2026-58115 per vendor guidance, and look for backdoors.",
+  "Roll out Google's Android patches for CVE-2026-58868 to managed devices as they become available."
+ ],
+ "commit": "29c4b249a0e4c79f210959648754563c427b0e6c",
+ "pushed_at": "2026-11-04T12:38:19Z",
+ "written_at_as_recorded": "2026-11-04T15:38:00Z"
+}

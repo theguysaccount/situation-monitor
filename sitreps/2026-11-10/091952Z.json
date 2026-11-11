@@ -1,0 +1,42 @@
+{
+ "written_at": "2026-11-10T09:19:52Z",
+ "by": "Claude",
+ "headline": "SITCON 2 (SEVERE): Chrome zero-day CVE-2026-125350 exploited; OpenSSH SSHole attacks continue; France ties Iran to refrigeration sabotage",
+ "bullets": [
+  {
+   "text": "Changed: a further report confirms Google patched the eighth Chrome zero-day exploited in attacks this year (CVE-2026-125350), bringing critical reports to 4 in 48 hours. SITCON holds at 2 (SEVERE), also on 4 CISA KEV additions in 72 hours.",
+   "url": "https://www.bleepingcomputer.com/news/security/google-patches-eighth-chrome-zero-day-exploited-in-attacks-this-year/"
+  },
+  {
+   "text": "Changed: the Iran story now spans 4 outlets. France blames Iran for a sabotage attack on refrigeration controllers at about 700 retail sites; earlier reports cover freezers in grocery stores and blood banks and attacks that sparked fires.",
+   "url": "https://thehackernews.com/2026/11/france-blames-iran-for-sabotage-attack.html"
+  },
+  {
+   "text": "SSHole (OpenSSH CVE-2026-123158, an authentication bypass) is still being used to breach Linux systems, covered by 6 outlets. In CISA KEV since 11-09 alongside GPUStack CVE-2026-102895, FreeSwitch CVE-2026-116779 and IBM Aspera Faspex CVE-2026-123218; all four are due 11-12.",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-sshole-openssh-flaw-to-breach-linux-systems/"
+  },
+  {
+   "text": "N-able took its hosted N-central cloud offline after a researcher disclosed 33 zero-days with proof-of-concept exploits. No fixes are named in the reporting yet.",
+   "url": "https://thehackernews.com/2026/11/n-able-takes-hosted-n-central-offline.html"
+  },
+  {
+   "text": "Cloud trust abuse continues: Fireworks AI disclosed a new breach after a hack of its cloud provider, attackers used Qubole's trusted AWS access to breach customer accounts, and a separate report describes backdoored AWS integrations stealing secrets.",
+   "url": "https://www.bleepingcomputer.com/news/security/fireworks-ai-discloses-new-breach-after-cloud-provider-hack/"
+  },
+  {
+   "text": "Still developing: Ethersphere's bee-js and Swarm Desktop compromised to deliver wallet-stealing malware; 300 malicious packages listed in the GitHub Advisory Database in 7 days, mostly npm; Vanderbilt ransomware and the Beget wiper attack. The last 7 days ran 0.85x the 90-day average.",
+   "url": "https://thehackernews.com/2026/11/hackers-compromise-etherspheres-bee-js.html"
+  }
+ ],
+ "actions": [
+  "Update Chrome on all endpoints to the latest release (fixes CVE-2026-125350) and restart browsers; confirm managed fleets picked it up.",
+  "Patch OpenSSH for CVE-2026-123158 on every internet-facing host; restrict SSH exposure and review auth logs for unexpected logins.",
+  "Patch or isolate GPUStack (CVE-2026-102895), FreeSwitch (CVE-2026-116779) and IBM Aspera Faspex (CVE-2026-123218) before the 11-12 KEV deadline.",
+  "N-central users: plan for the hosted outage, limit network exposure of N-central servers and agents, and watch N-able for fixes.",
+  "Audit IAM roles that trust third-party AWS accounts; remove unused integrations such as Qubole and rotate secrets they could reach.",
+  "Confirm refrigeration and building-control controllers are not reachable from the internet; VMware ESX CVE-2026-41709 is due in KEV 11-11."
+ ],
+ "commit": "81593b36f27dae07ca8eb31ad064a2eefa865390",
+ "pushed_at": "2026-11-10T09:19:52Z",
+ "written_at_as_recorded": "2026-11-10T12:20:00Z"
+}

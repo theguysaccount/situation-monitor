@@ -1,0 +1,70 @@
+{
+ "schema": 1,
+ "date": "2026-10-27",
+ "source": "backfill",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-10-27T02:13:31Z",
+    3,
+    80.5
+   ],
+   [
+    "2026-10-27T03:22:37Z",
+    3,
+    80.5
+   ],
+   [
+    "2026-10-27T04:19:16Z",
+    3,
+    80.5
+   ],
+   [
+    "2026-10-27T05:19:22Z",
+    3,
+    80.5
+   ],
+   [
+    "2026-10-27T06:19:18Z",
+    3,
+    82.3
+   ]
+  ],
+  "hours_at_level": {
+   "3": 5
+  },
+  "highest": 3,
+  "lowest": 3
+ },
+ "first_seen": {
+  "count": 0,
+  "by_severity": {},
+  "by_type": {}
+ },
+ "situations": [],
+ "top_reports": [],
+ "kev_added": [],
+ "breaches": [],
+ "ransomware_claims": {
+  "count": 0,
+  "groups": []
+ },
+ "archive_counts": {
+  "date": "2026-10-27",
+  "exploited": 8.0,
+  "ransomware": 10.0,
+  "breaches": 0.6,
+  "community": 1.2,
+  "kev": 2,
+  "claims": 42,
+  "breach_count": 1,
+  "accounts": 345439,
+  "stories": 2,
+  "top": "PHP2Shell: Exploitation attempts and remediation trends",
+  "top_url": "https://www.wiz.io/blog/php2shell-exploitation-so-far"
+ },
+ "sitreps": [
+  "sitreps/2026-10-27/021400Z.json"
+ ],
+ "note": "Backfilled on 2026-11-11 from the sweep memory kept on the analyst's Mac and the public board. Reports drop off the board 14 days after publication, so early days list fewer reports than were seen; the archive_counts come from the full CISA KEV, ransomware-claim, Have I Been Pwned and Hacker News archives. The Mac's clock ran 3.0 h fast from about 2026-11-03T16:20:14Z; its stamps in that period have been corrected."
+}

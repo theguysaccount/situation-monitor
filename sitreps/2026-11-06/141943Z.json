@@ -1,0 +1,42 @@
+{
+ "written_at": "2026-11-06T14:19:43Z",
+ "by": "Claude",
+ "headline": "OpenSSH CVE-2026-123158 exploited in the wild; Chainalysis breach exposed all customers' credentials; Zyxel GS1900 patch bypassed",
+ "bullets": [
+  {
+   "text": "Update: BleepingComputer now reports the Chainalysis breach exposed credentials for all customers; the company shut down key services. DigiCert (customer info, identity documents) and DreamHost (FTP logins, webmail sessions) breaches remain on the board.",
+   "url": "https://www.bleepingcomputer.com/news/security/chainalysis-says-breach-exposed-credentials-for-all-customers/"
+  },
+  {
+   "text": "Still active, OpenSSH, 5 outlets: CVE-2026-123158 is exploited in the wild hours after disclosure. Related: OpenSSH's emergency fix for long passwords bypassing SSH auth on Alpine Linux, which also reaches routers. SITCON holds at 3 (ELEVATED); last 7 days at 0.7x the 90-day average.",
+   "url": "https://www.helpnetsecurity.com/2026/11/06/openssh-sshole-cve-2026-123158-exploitation/"
+  },
+  {
+   "text": "Still active, Zyxel GS1900, 4 outlets and top story: Zyxel's fix did not block the in-the-wild exploit (CVE-2026-107441) used to hack nearly 1,000 switches, which allows root command execution. D-Link separately warned of multiple zero-days in DGS-3130 Series switches.",
+   "url": "https://thehackernews.com/2026/11/zyxel-gs1900-patch-fails-to-block-zero.html"
+  },
+  {
+   "text": "CISA KEV: WordPress Core CVE-2026-119977 (TOCTOU race, exploited for RCE) is due today, 2026-11-06. Ivanti Connect Secure CVE-2026-104935 is due 2026-11-13; Apple CVE-2024-27834, used to deliver info-stealing malware, is due 2026-11-18.",
+   "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-wordpress-rce-flaw-as-actively-exploited-in-attacks/"
+  },
+  {
+   "text": "Still active, supply chain: cPGuard autoupdate was hijacked in the OpsShield attack to serve malicious updates (3 outlets). The NIKKE PC game launcher was hacked to spread remote-access and data-stealing malware.",
+   "url": "https://www.securityweek.com/malicious-cpguard-updates-served-in-opsshield-supply-chain-attack/"
+  },
+  {
+   "text": "Critical infrastructure: the UK warned its critical infrastructure faces grave risk, and FBI and CISA warned of attacks on refrigeration and cooling systems, urging operators to harden them now.",
+   "url": "https://www.darkreading.com/cybersecurity-operations/uk-warns-critical-infrastructure-grave-risk"
+  }
+ ],
+ "actions": [
+  "Patch OpenSSH on every internet-facing host now for CVE-2026-123158; restrict SSH exposure and review auth logs for exploitation.",
+  "Chainalysis, DigiCert and DreamHost customers: reset passwords, rotate API keys and FTP credentials, and watch for phishing.",
+  "Treat Zyxel GS1900 and D-Link DGS-3130 switches as exposed: restrict management access, check for compromise, apply fixes as they ship.",
+  "Patch WordPress Core for CVE-2026-119977 today (KEV due 2026-11-06); schedule Ivanti and Apple KEV fixes before their due dates.",
+  "cPGuard users: check servers for malicious updates and rotate credentials; NIKKE launcher users should scan for malware.",
+  "Operators of refrigeration and cooling systems: review exposure and apply the FBI/CISA hardening guidance now."
+ ],
+ "commit": "d7bf950f600097bf48e8042a84e9b6a0e8124f1c",
+ "pushed_at": "2026-11-06T14:19:43Z",
+ "written_at_as_recorded": "2026-11-06T17:19:00Z"
+}

@@ -1,0 +1,41 @@
+{
+ "written_at": "2026-11-03T00:20:00Z",
+ "by": "Claude",
+ "headline": "UK cyber chief warns of AI-powered attacks on infrastructure; FBI ties Binance heist to North Korea; GitLab and Ivanti attacks continue",
+ "bullets": [
+  {
+   "text": "New: the UK's NCSC says its cyber chief warns the UK faces AI-powered attacks on critical infrastructure within two years. The Record reports a warning of an 'unprecedented rise' in cyberattacks in the coming months.",
+   "url": "https://www.ncsc.gov.uk/news/cyber-chief-uk-facing-ai-powered-attacks-on-critical-infrastructure-in-two-years"
+  },
+  {
+   "text": "New: DataBreaches.net reports the hackers who hit UNM hospital apologized, offered patients $2,500 and revealed more in a new statement. It also reports a breach at HYBE in South Korea exposing employee medical records and financial details.",
+   "url": "https://databreaches.net/2026/11/02/hackers-hit-unm-hospital-then-apologize-and-offer-patients-2500-in-a-new-statement-they-reveal-more-about-the-incident/"
+  },
+  {
+   "text": "Binance, 7 outlets: The Register reports the FBI pins the $6.3B heist on North Korean hackers; SecurityWeek says the FBI flagged over 600 addresses. Separately, The Record reports Brazil's largest crypto exchange confirmed a cyberattack as millions flowed out.",
+   "url": "https://www.theregister.com/security/2026/11/02/fbi-pins-63b-binance-crypto-heist-on-north-korean-hackers/5306889"
+  },
+  {
+   "text": "BleepingComputer reports over 1,000 GitLab servers are vulnerable to ongoing RCE attacks. CISA KEV lists GitLab CE/EE flaw CVE-2026-97229, whose federal due date passed on 2026-11-01. Alpine Linux rebuilt its GitLab after an attempted RCE attack.",
+   "url": "https://www.bleepingcomputer.com/news/security/over-1-000-gitlab-servers-vulnerable-to-code-execution-attacks/"
+  },
+  {
+   "text": "Connect Secure, 5 outlets: Ivanti patched two more zero-days chained in attacks, CVE-2026-111357 and CVE-2026-118527. CISA KEV lists CVE-2026-104935 in the same product, with federal due dates of 2026-11-02 and 2026-11-13.",
+   "url": "https://www.bleepingcomputer.com/news/security/ivanti-patches-two-more-connect-secure-zero-days-chained-in-attacks/"
+  },
+  {
+   "text": "Claude, 3 outlets: SecurityWeek reports a malicious Claude Code extension served in a Cursor supply chain attack. Separately, The Hacker News reports the VOLTA infostealer uses Claude, Gemini and Kimi AI to rank victims by financial value.",
+   "url": "https://www.securityweek.com/malicious-claude-code-extension-served-in-cursor-supply-chain-attack/"
+  }
+ ],
+ "actions": [
+  "Patch GitLab CE/EE (CVE-2026-97229) and Cisco ASA/FTD (CVE-2026-76418) now; both KEV due dates have passed. Check GitLab servers for signs of RCE.",
+  "Apply Ivanti's latest Connect Secure patches, covering CVE-2026-111357 and CVE-2026-118527, and check appliances for compromise.",
+  "Find any Langflow, LXD and MicroCloud servers, check vendor advisories for the critical flaws, and patch. Restrict access to any you cannot patch yet.",
+  "If developers use the Claude Code extension in Cursor, check it against the vendor advisory and look for unexpected SSH keys or services.",
+  "Review infostealer detections, and rotate credentials and tokens on any host found infected.",
+  "If you handle crypto transactions, screen against the addresses the FBI flagged for the Binance heist, and warn staff about Binance-themed scams."
+ ],
+ "commit": "6ba757d944a7e209a67f91b0741a491579f3c5f2",
+ "pushed_at": "2026-11-03T00:20:11Z"
+}

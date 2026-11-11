@@ -1,0 +1,874 @@
+{
+ "schema": 1,
+ "date": "2026-11-10",
+ "source": "backfill",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-11-10T00:18:58Z",
+    3,
+    137.8
+   ],
+   [
+    "2026-11-10T01:18:56Z",
+    3,
+    137.8
+   ],
+   [
+    "2026-11-10T02:18:59Z",
+    3,
+    137.8
+   ],
+   [
+    "2026-11-10T03:10:09Z",
+    3,
+    137.8
+   ],
+   [
+    "2026-11-10T04:19:14Z",
+    3,
+    137.8
+   ],
+   [
+    "2026-11-10T05:19:15Z",
+    3,
+    137.8
+   ],
+   [
+    "2026-11-10T06:19:14Z",
+    2,
+    140.3
+   ],
+   [
+    "2026-11-10T07:19:15Z",
+    2,
+    150.0
+   ],
+   [
+    "2026-11-10T08:19:15Z",
+    2,
+    155.6
+   ],
+   [
+    "2026-11-10T09:19:15Z",
+    2,
+    165.2
+   ],
+   [
+    "2026-11-10T10:19:16Z",
+    2,
+    178.8
+   ],
+   [
+    "2026-11-10T11:19:15Z",
+    2,
+    180.6
+   ],
+   [
+    "2026-11-10T12:19:16Z",
+    2,
+    194.1
+   ],
+   [
+    "2026-11-10T13:19:15Z",
+    2,
+    208.1
+   ],
+   [
+    "2026-11-10T14:19:15Z",
+    2,
+    224.6
+   ],
+   [
+    "2026-11-10T15:19:17Z",
+    2,
+    227.6
+   ],
+   [
+    "2026-11-10T16:19:14Z",
+    2,
+    482.6
+   ],
+   [
+    "2026-11-10T17:19:18Z",
+    2,
+    480.1
+   ]
+  ],
+  "hours_at_level": {
+   "3": 6,
+   "2": 12
+  },
+  "highest": 2,
+  "lowest": 3
+ },
+ "first_seen": {
+  "count": 269,
+  "by_severity": {
+   "medium": 158,
+   "low": 38,
+   "high": 54,
+   "critical": 19
+  },
+  "by_type": {
+   "vuln": 5,
+   "news": 107,
+   "ransomware": 105,
+   "community": 2,
+   "breach": 40,
+   "kev": 6,
+   "advisory": 4
+  }
+ },
+ "situations": [
+  {
+   "name": "N-central",
+   "severity": "critical",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [],
+   "lead": {
+    "title": "N-able takes its remote access service offline after researcher publishes dozens of zero-day bugs",
+    "url": "https://techcrunch.com/2026/11/10/n-able-takes-its-remote-access-service-offline-after-researcher-publishes-dozens-of-zero-day-bugs/",
+    "source": "TechCrunch Security",
+    "published": "2026-11-10T15:45:27Z"
+   }
+  },
+  {
+   "name": "SSHole",
+   "severity": "critical",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [
+    "CVE-2026-123158"
+   ],
+   "lead": {
+    "title": "Hackers exploit SSHole OpenSSH flaw to breach Linux systems",
+    "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-sshole-openssh-flaw-to-breach-linux-systems/",
+    "source": "BleepingComputer",
+    "published": "2026-11-09T16:04:57Z"
+   }
+  },
+  {
+   "name": "France Blames Iran for Sabotage Attack on Refrigeration Controllers…",
+   "severity": "high",
+   "outlets": 5,
+   "reports": 5,
+   "cves": [],
+   "lead": {
+    "title": "France Blames Iran for Sabotage Attack on Refrigeration Controllers at About 700 Retail Sites",
+    "url": "https://thehackernews.com/2026/11/france-blames-iran-for-sabotage-attack.html",
+    "source": "The Hacker News",
+    "published": "2026-11-10T09:08:20Z"
+   }
+  },
+  {
+   "name": "Vanderbilt University",
+   "severity": "high",
+   "outlets": 5,
+   "reports": 5,
+   "cves": [],
+   "lead": {
+    "title": "Vanderbilt University reels following ransomware attack claimed by BYOD group",
+    "url": "https://cyberscoop.com/vanderbilt-university-ransomware-attack-byod/",
+    "source": "CyberScoop",
+    "published": "2026-11-10T17:46:29Z"
+   }
+  },
+  {
+   "name": "ICM2SHELL",
+   "severity": "critical",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [],
+   "lead": {
+    "title": "SAP Patches Four CVSS 10.0 Flaws, Including Two Enabling Remote Code Execution",
+    "url": "https://thehackernews.com/2026/11/sap-patches-four-cvss-100-flaws.html",
+    "source": "The Hacker News",
+    "published": "2026-11-10T10:02:40Z"
+   }
+  },
+  {
+   "name": "Barracuda",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [
+    "CVE-2026-116606"
+   ],
+   "lead": {
+    "title": "Hackers now exploit critical Barracuda ESG flaws to gain root access",
+    "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-barracuda-email-security-gateway-flaws-to-get-root-access/",
+    "source": "BleepingComputer",
+    "published": "2026-11-10T10:10:20Z"
+   }
+  },
+  {
+   "name": "Turla",
+   "severity": "high",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [],
+   "lead": {
+    "title": "Russian Turla Hackers Use New Cereal Malware to Steal Emails From Government Exchange Servers",
+    "url": "https://thehackernews.com/2026/11/russian-turla-hackers-use-new-cereal.html",
+    "source": "The Hacker News",
+    "published": "2026-11-10T10:07:29Z"
+   }
+  },
+  {
+   "name": "Google CVE-2026-125350",
+   "severity": "critical",
+   "outlets": 2,
+   "reports": 2,
+   "cves": [
+    "CVE-2026-125350"
+   ],
+   "lead": {
+    "title": "Google Issues Chrome Security Update for Eighth Actively Exploited Zero-Day of 2026",
+    "url": "https://thehackernews.com/2026/11/google-issues-chrome-security-update.html",
+    "source": "The Hacker News",
+    "published": "2026-11-10T06:52:54Z"
+   }
+  }
+ ],
+ "top_reports": [
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Hackers exploit trusted AWS access to breach multiple cloud environments",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-trusted-aws-access-to-breach-multiple-cloud-environments/",
+   "published": "2026-11-10T19:31:11Z",
+   "first_seen": "2026-11-10T20:56:30Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Hackers Exploit Critical Xen Orchestra Auth Bypass Flaw to Gain Admin Access",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-xen-orchestra.html",
+   "published": "2026-11-10T18:12:21Z",
+   "first_seen": "2026-11-10T20:56:30Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Critical Xen Orchestra auth bypass flaw exploited to hijack VM servers",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/critical-xen-orchestra-auth-bypass-flaw-exploited-to-hijack-vm-servers/",
+   "published": "2026-11-10T16:17:16Z",
+   "first_seen": "2026-11-10T16:20:16Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Attackers Exploit AhsayCBS Flaws to Deploy Sandbox-Evading Python Backdoor",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/attackers-exploit-ahsaycbs-flaws-to.html",
+   "published": "2026-11-10T16:00:55Z",
+   "first_seen": "2026-11-10T16:20:16Z",
+   "cves": [
+    "CVE-2026-105133",
+    "CVE-2026-105134"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "N-able takes its remote access service offline after researcher publishes dozens of zero-day bugs",
+   "source": "TechCrunch Security",
+   "url": "https://techcrunch.com/2026/11/10/n-able-takes-its-remote-access-service-offline-after-researcher-publishes-dozens-of-zero-day-bugs/",
+   "published": "2026-11-10T15:45:27Z",
+   "first_seen": "2026-11-10T15:49:50Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Hackers now exploit critical Barracuda ESG flaws to gain root access",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-barracuda-email-security-gateway-flaws-to-get-root-access/",
+   "published": "2026-11-10T10:10:20Z",
+   "first_seen": "2026-11-10T10:20:00Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "SAP Patches Four CVSS 10.0 Flaws, Including Two Enabling Remote Code Execution",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/sap-patches-four-cvss-100-flaws.html",
+   "published": "2026-11-10T10:02:40Z",
+   "first_seen": "2026-11-10T10:20:00Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "N-able Takes N-central Offline as Researcher Drops Over 30 Zero-Days",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/n-able-takes-n-central-offline-as-researcher-drops-over-30-zero-days/",
+   "published": "2026-11-10T09:56:28Z",
+   "first_seen": "2026-11-10T10:20:00Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Google patches eighth Chrome zero-day exploited in attacks this year",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/google-patches-eighth-chrome-zero-day-exploited-in-attacks-this-year/",
+   "published": "2026-11-10T08:51:25Z",
+   "first_seen": "2026-11-10T09:52:21Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Google Issues Chrome Security Update for Eighth Actively Exploited Zero-Day of 2026",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/google-issues-chrome-security-update.html",
+   "published": "2026-11-10T06:52:54Z",
+   "first_seen": "2026-11-10T07:20:03Z",
+   "cves": [
+    "CVE-2026-125350"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "N-able Takes N-central Cloud Offline After Researcher Discloses 33 Zero-Days with PoC Exploits",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/n-able-takes-hosted-n-central-offline.html",
+   "published": "2026-11-10T06:44:36Z",
+   "first_seen": "2026-11-10T07:20:03Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Chrome Update Patches Exploited XML Zero-Day, Eighth This Year",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/chrome-update-patches-exploited-xml-zero-day-eighth-this-year/",
+   "published": "2026-11-10T06:12:24Z",
+   "first_seen": "2026-11-10T06:19:56Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "breach",
+   "title": "Michigan State cyber incident claimed by ransomware gang behind recent hospital attack",
+   "source": "ransomware.live disclosures",
+   "url": "https://therecord.media/michigan-state-university-byod-gang-cyber-incident",
+   "published": "2026-11-10T00:00:00Z",
+   "first_seen": "2026-11-10T14:20:08Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "The US wants its quantum lead to turn into factories and supply chains",
+   "source": "CyberScoop",
+   "url": "https://cyberscoop.com/us-quantum-computing-industry-manufacturing-push/",
+   "published": "2026-11-10T21:50:46Z",
+   "first_seen": "2026-11-10T23:22:28Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Artex: The AI Pen-Test Tool Hackers Turned Into a Weapon",
+   "source": "Dark Reading",
+   "url": "https://www.darkreading.com/cyberattacks-data-breaches/artex-ai-pen-test-tool-hackers-weapon",
+   "published": "2026-11-10T21:01:14Z",
+   "first_seen": "2026-11-10T23:22:28Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Japanese furniture giant Nitori says hackers stole 37.6M customer records",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/japanese-furniture-giant-nitori-says-hackers-stole-376m-customer-records/",
+   "published": "2026-11-10T20:54:55Z",
+   "first_seen": "2026-11-10T20:56:30Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Near AI Breach Exposes User Details and Data From 18 AI Agents",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/10/near-ai-breach-exposes-user-details-and-data-from-18-ai-agents/",
+   "published": "2026-11-10T20:39:48Z",
+   "first_seen": "2026-11-10T20:56:30Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Git Patches Flaw That Lets Malicious Repositories Execute Code During Recursive Clones",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/git-patches-flaw-that-lets-malicious.html",
+   "published": "2026-11-10T19:23:10Z",
+   "first_seen": "2026-11-10T20:56:30Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "SGLang RCE Exploit Breaches NEAR AI, Steals Data From 18 Agents and About 100 Users",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/sglang-rce-exploit-breaches-near-ai.html",
+   "published": "2026-11-10T19:19:39Z",
+   "first_seen": "2026-11-10T20:56:30Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "AI Coding Agents Leak Thousands of Secrets to GitHub",
+   "source": "Dark Reading",
+   "url": "https://www.darkreading.com/cyber-risk/ai-coding-agents-leak-secrets-github",
+   "published": "2026-11-10T18:46:22Z",
+   "first_seen": "2026-11-10T20:56:30Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Vanderbilt University reels following ransomware attack claimed by BYOD group",
+   "source": "CyberScoop",
+   "url": "https://cyberscoop.com/vanderbilt-university-ransomware-attack-byod/",
+   "published": "2026-11-10T17:46:29Z",
+   "first_seen": "2026-11-10T17:50:34Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Three China-Nexus Espionage Campaigns Linked Through Sparrow Malware Ecosystem",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/three-china-nexus-espionage-campaigns.html",
+   "published": "2026-11-10T17:43:23Z",
+   "first_seen": "2026-11-10T20:56:30Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "AI company Fireworks says hackers stole data, billing info during October breaches",
+   "source": "The Record",
+   "url": "https://therecord.media/ai-company-fireworks-says-hackers-stole-data-in-oct-attacks",
+   "published": "2026-11-10T16:08:00Z",
+   "first_seen": "2026-11-10T16:20:16Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Binance warns of iOS flaw that could leak crypto wallet secrets",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/binance-warns-of-ios-flaw-that-could-leak-crypto-wallet-secrets/",
+   "published": "2026-11-10T15:59:19Z",
+   "first_seen": "2026-11-10T16:20:16Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "vuln",
+   "title": "GPUStack: SAML callback trusts an unverified SAMLResponse, allowing authentication bypass and account takeover",
+   "source": "GitHub Advisory DB (critical)",
+   "url": "https://github.com/advisories/GHSA-62m9-f875-rqw6",
+   "published": "2026-11-10T15:57:15Z",
+   "first_seen": "2026-11-10T16:20:16Z",
+   "cves": [
+    "CVE-2026-102894"
+   ]
+  }
+ ],
+ "kev_added": [
+  {
+   "cve": "CVE-2026-124194",
+   "vendor": "Microsoft",
+   "product": "Office",
+   "title": "CVE-2026-124194: Microsoft Office Outlook Missing User Interaction for Potentially Unsafe Action Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-124194",
+   "due": "2026-11-24",
+   "ransomware": false
+  },
+  {
+   "cve": "CVE-2026-111793",
+   "vendor": "Openwave Messaging Limited",
+   "product": "Webtop Media Transcoder",
+   "title": "CVE-2026-111793: Openwave Messaging Limited Webtop Media Transcoder Incorrect Resource Transfer Between Spheres Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111793",
+   "due": "2026-11-24",
+   "ransomware": false
+  },
+  {
+   "cve": "CVE-2026-20320",
+   "vendor": "Cisco",
+   "product": "BroadWorks",
+   "title": "CVE-2026-20320: Cisco BroadWorks Improper Restriction of XML External Entity Reference Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-20320",
+   "due": "2026-11-24",
+   "ransomware": false
+  },
+  {
+   "cve": "CVE-2026-111560",
+   "vendor": "Barracuda Networks",
+   "product": "Multiple Products",
+   "title": "CVE-2026-111560: Barracuda Networks Multiple Products OS Command Injection Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-111560",
+   "due": "2026-11-13",
+   "ransomware": false
+  },
+  {
+   "cve": "CVE-2026-116606",
+   "vendor": "Barracuda Networks",
+   "product": "Barracuda Email Security Gateway (ESG)",
+   "title": "CVE-2026-116606: Barracuda Networks Email Security Gateway (ESG) Authentication Bypass Using an Alternate Path or Channel Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116606",
+   "due": "2026-11-13",
+   "ransomware": false
+  },
+  {
+   "cve": "CVE-2026-125350",
+   "vendor": "Google",
+   "product": "Chromium",
+   "title": "CVE-2026-125350: Google Chromium Use-After-Free Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-125350",
+   "due": "2026-11-24",
+   "ransomware": false
+  }
+ ],
+ "breaches": [
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Auf Rat der Polizei kein Kontakt mit Tätern: Nach Cyber-Angriff – Reichenau erklärt sich",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.meinbezirk.at/neunkirchen/c-lokales/nach-cyber-angriff-reichenau-erklaert-sich_a8980296",
+   "published": "2026-11-10T00:00:00Z",
+   "first_seen": "2026-11-10T09:52:21Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "« Tout un morceau de notre histoire qui vient de nous être volé » : une radio associative de Dordogne a été la cible d’une cyberattaque",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.sudouest.fr/dordogne/riberac/tout-un-morceau-de-notre-histoire-qui-vient-de-nous-etre-vole-une-radio-associative-de-dordogne-a-ete-la-cible-d-une-cyberattaque-31283067.php",
+   "published": "2026-11-10T00:00:00Z",
+   "first_seen": "2026-11-10T09:52:21Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Atac cibernetic la Cărturești: site-ul, temporar indisponibil",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.romania-actualitati.ro/stiri/romania/atac-cibernetic-la-carturesti-site-ul-temporar-indisponibil-id236510.html",
+   "published": "2026-11-10T00:00:00Z",
+   "first_seen": "2026-11-10T09:52:21Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Portes du Berry : une cyberattaque menace les dossiers personnels des habitants",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.cyberattaque.org/portes-du-berry-une-cyberattaque-menace-les-dossiers-personnels-des-habitants/",
+   "published": "2026-11-10T00:00:00Z",
+   "first_seen": "2026-11-10T09:52:21Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Former employees sue J.B. Hunt in claimed data breach | Arkansas Democrat Gazette",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.arkansasonline.com/news/2026/oct/29/former-employees-sue-jb-hunt-in-claimed-data/",
+   "published": "2026-11-10T00:00:00Z",
+   "first_seen": "2026-11-10T10:20:00Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Eldorado: el municipio confirmó que el ciberataque no provocó pérdidas económicas y explicó la situación del transporte público - Multimedio Genesis",
+   "source": "ransomware.live disclosures",
+   "url": "https://multimediosgenesis.com.ar/articulo/2026/10/eldorado-el-municipio-confirmo-que-el-ciberataque-no-provoco-perdidas-economicas-y-explico-la-situacion-del-transporte-publico.php",
+   "published": "2026-11-10T00:00:00Z",
+   "first_seen": "2026-11-10T10:20:00Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Attacco hacker alla Rsa di Rovereto: chiesto un riscatto, tecnici al lavoro",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.ladige.it/salute-e-benessere/attacco-hacker-alla-rsa-di-rovereto-chiesto-un-riscatto-tecnici-al-lavoro-o55xsxq4",
+   "published": "2026-11-10T00:00:00Z",
+   "first_seen": "2026-11-10T09:52:21Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "जिस पुलिस पर साइबर अपराध रोकने की जिम्मेदारी, उसी के सिस्टम पर साइबर अटैक! डेटा लॉक",
+   "source": "ransomware.live disclosures",
+   "url": "https://thesootr.com/state/madhya-pradesh/bhopal-police-computer-ransomware-attack-cctns-system/articleshow/135263457.html",
+   "published": "2026-11-10T00:00:00Z",
+   "first_seen": "2026-11-10T09:52:21Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "東建コーポレーションにサイバー攻撃、社内・社外向けシステムの一部が停止 個人情報への影響は調査中|セキュリティニュースのセキュリティ対策Lab",
+   "source": "ransomware.live disclosures",
+   "url": "https://rocket-boys.co.jp/security-measures-lab/token_corporation_cyberattack_system_outage_20261031/",
+   "published": "2026-11-10T00:00:00Z",
+   "first_seen": "2026-11-10T12:20:08Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Seminole County clerk's office closed after cyber attack, services expected to resume Monday",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.wesh.com/article/seminole-county-clerks-office-cyber-attack-closure/74298766",
+   "published": "2026-11-10T00:00:00Z",
+   "first_seen": "2026-11-10T12:20:08Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Plainfield investigates cyber incident, votes remain secure - AOL",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.aol.com/articles/plainfield-investigates-cyber-incident-votes-174730000.html",
+   "published": "2026-11-10T00:00:00Z",
+   "first_seen": "2026-11-10T12:20:08Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "« L’origine reste pour l’heure indéterminée » : une possible cyberattaque perturbe les services de la ville de Cholet",
+   "source": "ransomware.live disclosures",
+   "url": "https://angers.maville.com/actu/actudet_-l-origine-reste-pour-l-heure-indeterminee-une-possible-cyberattaque-perturbe-les-services-de-la-ville-de-cholet_dep-7550459_actu.Htm",
+   "published": "2026-11-10T00:00:00Z",
+   "first_seen": "2026-11-10T12:20:08Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Pedigo Products Data Breach Exposes Financial Information and SSNs",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.claimdepot.com/data-breach/pedigo-2026",
+   "published": "2026-11-10T00:00:00Z",
+   "first_seen": "2026-11-10T12:20:08Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "WS Audiology hit by new cyberattack",
+   "source": "ransomware.live disclosures",
+   "url": "https://medwatch.com/News/hearing_health/article19787621.ece",
+   "published": "2026-11-10T00:00:00Z",
+   "first_seen": "2026-11-10T12:20:08Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Деньги или репутация: почему 12 STOREEZ выбрали второе и чему научила нас громкая кибератака — разбираемся с экспертом",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.marieclaire.ru/stil-zjizny/dengi-ili-reputaciya-pochemu-12-storeez-vybrali-vtoroe-i-chemu-nauchila-nas-gromkaya-kiberataka-razbiraemsya-s-ekspertom/",
+   "published": "2026-11-10T00:00:00Z",
+   "first_seen": "2026-11-10T12:20:08Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Revolve Group Reports Cyber Incident, Says No Material Business Impact Expected",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.tradingview.com/news/tradingview:5e1fe46d01dd6:0-revolve-group-reports-cyber-incident-says-no-material-business-impact-expected/",
+   "published": "2026-11-10T00:00:00Z",
+   "first_seen": "2026-11-10T12:20:08Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "धक्कादायक! AU Small Finance Bank च्या डेटावर हॅकर्सचा दरोडा; पॅन, आधार कार्डसह लाखो ग्राहकांची वैयक्तिक माहिती लीक झाल्याचा दावा",
+   "source": "ransomware.live disclosures",
+   "url": "https://marathi.timesnownews.com/india/au-small-finance-bank-data-compromised-hackers-allegedly-steal-pan-aadhaar-and-other-sensitive-customer-data-article-156434164/amp",
+   "published": "2026-11-10T00:00:00Z",
+   "first_seen": "2026-11-10T12:20:08Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "證期權",
+   "source": "ransomware.live disclosures",
+   "url": "https://ww2.money-link.com.tw/RealtimeNews/NewsContent.aspx?SN=2436866002&PU=0010",
+   "published": "2026-11-10T00:00:00Z",
+   "first_seen": "2026-11-10T13:19:56Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "В Свердловской области завод остановил работу и сокращает сотрудников - АБН 24",
+   "source": "ransomware.live disclosures",
+   "url": "https://abnews.ru/ural/news/ekaterinburg/2026/11/1/v-sverdlovskoj-oblasti-zavod-ostanovil-rabotu-i-sokrashhaet-sotrudnikov",
+   "published": "2026-11-10T00:00:00Z",
+   "first_seen": "2026-11-10T13:19:56Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "クラブツーリズムへ不正アクセスによるサイバー攻撃、最大約432万件の個人情報漏洩の恐れ|セキュリティニュースのセキュリティ対策Lab",
+   "source": "ransomware.live disclosures",
+   "url": "https://rocket-boys.co.jp/security-measures-lab/club_tourism_20261101_data_breach_article/",
+   "published": "2026-11-10T00:00:00Z",
+   "first_seen": "2026-11-10T13:19:56Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Росстат заявил о кибератаках на его информационные ресурсы с 29 октября по 1 ноября",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.interfax.ru/russia/1126380",
+   "published": "2026-11-10T00:00:00Z",
+   "first_seen": "2026-11-10T13:19:56Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "NEPSE’s cybersecurity report offers only superficial solutions after ransomware attack",
+   "source": "ransomware.live disclosures",
+   "url": "https://english.onlinekhabar.com/nepse-report-superficial-ransomware-attack.html",
+   "published": "2026-11-10T00:00:00Z",
+   "first_seen": "2026-11-10T13:19:56Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Loire. La mairie de Verrières-en-Forez victime d’une cyberattaque et d’un rançonnage",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.leprogres.fr/politique/2026/10/31/la-mairie-de-verrieres-en-forez-victime-d-une-cyberattaque-et-d-un-ranconnage",
+   "published": "2026-11-10T00:00:00Z",
+   "first_seen": "2026-11-10T13:19:56Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Floin Cyberangriff: MiCA-Börse aus Liechtenstein offline",
+   "source": "ransomware.live disclosures",
+   "url": "https://cryptoticker.io/de/floin-cyberangriff-plattform-offline/",
+   "published": "2026-11-10T00:00:00Z",
+   "first_seen": "2026-11-10T13:19:56Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "breach",
+   "title": "Michigan State cyber incident claimed by ransomware gang behind recent hospital attack",
+   "source": "ransomware.live disclosures",
+   "url": "https://therecord.media/michigan-state-university-byod-gang-cyber-incident",
+   "published": "2026-11-10T00:00:00Z",
+   "first_seen": "2026-11-10T14:20:08Z",
+   "cves": []
+  }
+ ],
+ "ransomware_claims": {
+  "count": 111,
+  "groups": [
+   [
+    "inc ransom",
+    46
+   ],
+   [
+    "aoqin leaks",
+    7
+   ],
+   [
+    "vortex",
+    6
+   ],
+   [
+    "obsoft",
+    6
+   ],
+   [
+    "booba team",
+    6
+   ],
+   [
+    "Booba Project",
+    6
+   ],
+   [
+    "pixelleaks",
+    5
+   ],
+   [
+    "play",
+    3
+   ],
+   [
+    "Climax Inc",
+    3
+   ],
+   [
+    "Vortex",
+    3
+   ]
+  ]
+ },
+ "archive_counts": {
+  "date": "2026-11-10",
+  "exploited": 24.0,
+  "ransomware": 10.0,
+  "breaches": 0.0,
+  "community": 1.2,
+  "kev": 6,
+  "claims": 111,
+  "breach_count": 0,
+  "accounts": 0,
+  "stories": 2,
+  "top": "Queens Public Library under ransomware attack",
+  "top_url": "https://connect.queenslibrary.org/"
+ },
+ "sitreps": [
+  "sitreps/2026-11-10/001949Z.json",
+  "sitreps/2026-11-10/061944Z.json",
+  "sitreps/2026-11-10/071953Z.json",
+  "sitreps/2026-11-10/081950Z.json",
+  "sitreps/2026-11-10/091952Z.json",
+  "sitreps/2026-11-10/101950Z.json",
+  "sitreps/2026-11-10/121957Z.json",
+  "sitreps/2026-11-10/131946Z.json",
+  "sitreps/2026-11-10/141958Z.json",
+  "sitreps/2026-11-10/161919Z.json"
+ ],
+ "note": "Backfilled on 2026-11-11 from the sweep memory kept on the analyst's Mac and the public board. Reports drop off the board 14 days after publication, so early days list fewer reports than were seen; the archive_counts come from the full CISA KEV, ransomware-claim, Have I Been Pwned and Hacker News archives. The Mac's clock ran 3.0 h fast from about 2026-11-03T16:20:14Z; its stamps in that period have been corrected."
+}

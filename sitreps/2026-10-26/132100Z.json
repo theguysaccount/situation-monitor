@@ -1,0 +1,41 @@
+{
+ "written_at": "2026-10-26T13:21:00Z",
+ "by": "Claude",
+ "headline": "Two critical Wasmtime sandbox-escape flaws join PHP2Shell exploitation and the LiteLLM 1.107.0 compromise as the top stories",
+ "bullets": [
+  {
+   "text": "New: The Hacker News reports two critical Wasmtime flaws that could let malicious WebAssembly modules escape the sandbox. Separately, GitHub's advisory database lists a critical Cranelift miscompilation bug in Wasmtime (CVE-2026-115889).",
+   "url": "https://thehackernews.com/2026/10/two-critical-wasmtime-flaws-could-let.html"
+  },
+  {
+   "text": "PHP2Shell (CVE-2026-109618, CVE-2026-109619) is now being successfully exploited in the wild. Fixes are in 8.5.12, 8.4.27, 8.3.36 and 8.2.35; a third bug, CVE-2026-115560, will not get an emergency fix.",
+   "url": "https://www.bleepingcomputer.com/news/security/php2shell-security-flaws-now-sucessfully-exploited-in-the-wild/"
+  },
+  {
+   "text": "LiteLLM: a leaked master key let attackers steal GitHub tokens and hijack the release pipeline. Version 1.107.0 on PyPI and Docker stole credentials through Python startup hooks.",
+   "url": "https://www.microsoft.com/en-us/security/blog/2026/10/23/inside-the-litellm-1-107-0-supply-chain-compromise-credential-theft-through-python-startup-hooks/"
+  },
+  {
+   "text": "Fortinet has patched critical FortiOS flaws found with AI help; the brief names no CVEs or fixed versions. CISA's deadline passed today for exploited Arista VeloCloud Orchestrator (CVE-2026-114625) and Collabora Online CODE (CVE-2026-110447) flaws.",
+   "url": "https://www.helpnetsecurity.com/2026/10/26/fortinet-patches-critical-fortios-flaws-found-with-ai-help/"
+  },
+  {
+   "text": "Still open: unpatched Tailscale SSH flaws could let a hacked tailnet device reach root on other servers, and a planted file in a Downloads folder tried to trick an AI coding agent into installing malware.",
+   "url": "https://thehackernews.com/2026/10/unpatched-tailscale-ssh-flaws-could-let.html"
+  },
+  {
+   "text": "Breaches: Quest Diagnostics patient personal and health data, 11.7 million CAPCOM ID accounts, and over 70,000 firewall and VPN credentials exposed. SITCON eased to 4 (GUARDED); the last 7 days scored 1.25x the 90-day average.",
+   "url": "https://www.bleepingcomputer.com/news/security/quest-diagnostics-confirms-data-breach-exposed-patient-records/"
+  }
+ ],
+ "actions": [
+  "If you run untrusted WebAssembly in Wasmtime, check the Wasmtime security advisories and upgrade to the fixed release as soon as it is available.",
+  "Update PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35, rebuild images that bundle PHP, and check exposed PHP hosts for compromise.",
+  "Search lockfiles, images and CI caches for litellm 1.107.0. If it ever ran, treat the host as compromised and rotate every credential it could read.",
+  "Update FortiOS to the fixed release for your branch, and patch or take offline Arista VeloCloud Orchestrator and Collabora Online (CODE server).",
+  "If you use Tailscale SSH, restrict ACLs so only trusted devices can SSH to servers, and watch for Tailscale's fix.",
+  "Require approval for installs and shell commands in AI coding agents, and keep them out of untrusted folders like Downloads."
+ ],
+ "commit": "f372f9c0eaff6df30564ff7503b85891358c5e5a",
+ "pushed_at": "2026-10-26T13:20:07Z"
+}

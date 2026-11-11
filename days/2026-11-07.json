@@ -1,0 +1,400 @@
+{
+ "schema": 1,
+ "date": "2026-11-07",
+ "source": "backfill",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-11-07T00:19:09Z",
+    3,
+    119.4
+   ],
+   [
+    "2026-11-07T01:19:10Z",
+    3,
+    119.7
+   ],
+   [
+    "2026-11-07T02:19:08Z",
+    3,
+    120.1
+   ],
+   [
+    "2026-11-07T03:19:27Z",
+    3,
+    119.2
+   ],
+   [
+    "2026-11-07T04:19:11Z",
+    3,
+    117.2
+   ],
+   [
+    "2026-11-07T05:19:09Z",
+    3,
+    116.5
+   ],
+   [
+    "2026-11-07T06:19:09Z",
+    3,
+    114.4
+   ],
+   [
+    "2026-11-07T07:19:10Z",
+    3,
+    112.2
+   ],
+   [
+    "2026-11-07T08:19:09Z",
+    3,
+    109.4
+   ],
+   [
+    "2026-11-07T09:19:10Z",
+    3,
+    102.7
+   ],
+   [
+    "2026-11-07T10:19:09Z",
+    3,
+    100.3
+   ],
+   [
+    "2026-11-07T11:19:10Z",
+    3,
+    99.4
+   ],
+   [
+    "2026-11-07T12:19:10Z",
+    3,
+    98.2
+   ],
+   [
+    "2026-11-07T13:19:12Z",
+    3,
+    98.7
+   ],
+   [
+    "2026-11-07T14:19:09Z",
+    3,
+    93.4
+   ],
+   [
+    "2026-11-07T15:19:11Z",
+    3,
+    92.6
+   ],
+   [
+    "2026-11-07T16:19:12Z",
+    3,
+    88.8
+   ],
+   [
+    "2026-11-07T17:19:14Z",
+    3,
+    85.7
+   ],
+   [
+    "2026-11-07T18:19:10Z",
+    3,
+    85.4
+   ],
+   [
+    "2026-11-07T19:19:11Z",
+    3,
+    82.5
+   ],
+   [
+    "2026-11-07T20:19:13Z",
+    3,
+    82.8
+   ],
+   [
+    "2026-11-07T21:19:13Z",
+    3,
+    81.2
+   ],
+   [
+    "2026-11-07T22:19:12Z",
+    3,
+    80.8
+   ],
+   [
+    "2026-11-07T23:19:17Z",
+    3,
+    80.8
+   ]
+  ],
+  "hours_at_level": {
+   "3": 24
+  },
+  "highest": 3,
+  "lowest": 3
+ },
+ "first_seen": {
+  "count": 58,
+  "by_severity": {
+   "medium": 47,
+   "high": 6,
+   "low": 3,
+   "critical": 2
+  },
+  "by_type": {
+   "ransomware": 46,
+   "news": 11,
+   "advisory": 1
+  }
+ },
+ "situations": [
+  {
+   "name": "Artex",
+   "severity": "critical",
+   "outlets": 5,
+   "reports": 6,
+   "cves": [],
+   "lead": {
+    "title": "CERT-In Flags AI-Driven Attacks as Backdoored ARTEX Exposes 62 Consoles to Root Access",
+    "url": "https://thehackernews.com/2026/11/backdoored-docker-image-for-artex-ai.html",
+    "source": "The Hacker News",
+    "published": "2026-11-05T08:42:03Z"
+   }
+  },
+  {
+   "name": "SSHole",
+   "severity": "critical",
+   "outlets": 5,
+   "reports": 6,
+   "cves": [
+    "CVE-2026-123158"
+   ],
+   "lead": {
+    "title": "OpenSSH flaw exploited in the wild just hours after disclosure (CVE-2026-123158)",
+    "url": "https://www.helpnetsecurity.com/2026/11/06/openssh-sshole-cve-2026-123158-exploitation/",
+    "source": "Help Net Security",
+    "published": "2026-11-06T12:49:41Z"
+   }
+  },
+  {
+   "name": "DigiCert",
+   "severity": "high",
+   "outlets": 5,
+   "reports": 5,
+   "cves": [],
+   "lead": {
+    "title": "Certificate authority DigiCert reports data breach involving business customer info",
+    "url": "https://therecord.media/digicert-certificate-authority-reports-data-breach",
+    "source": "The Record",
+    "published": "2026-11-06T18:56:00Z"
+   }
+  },
+  {
+   "name": "Zyxel GS1900",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [
+    "CVE-2026-107441",
+    "CVE-2026-7273"
+   ],
+   "lead": {
+    "title": "Zyxel Switch Hacks Blamed on Patched Flaw Actually Exploited a Zero-Day",
+    "url": "https://www.securityweek.com/zyxel-switch-hacks-blamed-on-patched-flaw-actually-exploited-a-zero-day/",
+    "source": "SecurityWeek",
+    "published": "2026-11-05T10:56:41Z"
+   }
+  },
+  {
+   "name": "Claude Dispatch",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [],
+   "lead": {
+    "title": "Malicious Browser Extensions Could Use Claude Dispatch to Run Code on Users' Computers",
+    "url": "https://thehackernews.com/2026/11/malicious-browser-extensions-could-use.html",
+    "source": "The Hacker News",
+    "published": "2026-11-06T12:06:35Z"
+   }
+  },
+  {
+   "name": "SonicOS",
+   "severity": "critical",
+   "outlets": 2,
+   "reports": 2,
+   "cves": [
+    "CVE-2026-19868"
+   ],
+   "lead": {
+    "title": "SonicWall Patches Exploited SonicOS Vulnerability That Weakens VPN Logins",
+    "url": "https://www.securityweek.com/sonicwall-patches-exploited-sonicos-bug-that-weakens-vpn-logins/",
+    "source": "SecurityWeek",
+    "published": "2026-11-07T10:16:23Z"
+   }
+  },
+  {
+   "name": "French",
+   "severity": "high",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [],
+   "lead": {
+    "title": "Hackers pull off $133 million French bank heist via service provider",
+    "url": "https://www.bleepingcomputer.com/news/security/hackers-pull-off-133-million-french-bank-heist-via-service-provider/",
+    "source": "BleepingComputer",
+    "published": "2026-11-07T15:25:35Z"
+   }
+  }
+ ],
+ "top_reports": [
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "CTM360 Exposes Fake Gift Card Scams Exploiting Trusted Brands",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/ctm360-exposes-fake-gift-card-scams-exploiting-trusted-brands/",
+   "published": "2026-11-07T14:10:19Z",
+   "first_seen": "2026-11-07T14:19:29Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "SonicWall Patches Exploited SonicOS Vulnerability That Weakens VPN Logins",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/sonicwall-patches-exploited-sonicos-bug-that-weakens-vpn-logins/",
+   "published": "2026-11-07T10:16:23Z",
+   "first_seen": "2026-11-07T11:19:28Z",
+   "cves": [
+    "CVE-2026-19868"
+   ]
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Hackers pull off $133 million French bank heist via service provider",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-pull-off-133-million-french-bank-heist-via-service-provider/",
+   "published": "2026-11-07T15:25:35Z",
+   "first_seen": "2026-11-07T16:19:33Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "No need to hack when it’s leaking: Artex edition",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/07/no-need-to-hack-when-its-leaking-artex-edition/",
+   "published": "2026-11-07T15:06:41Z",
+   "first_seen": "2026-11-07T15:19:27Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Norad targeted by cyberattack",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/07/norad-targeted-by-cyberattack/",
+   "published": "2026-11-07T15:05:43Z",
+   "first_seen": "2026-11-07T15:19:27Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Claude Code's “Don't Ask Again” File Exposes Passwords and Keys in 1,122 Public Copies on GitHub",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/claude-codes-dont-ask-again-file.html",
+   "published": "2026-11-07T06:44:17Z",
+   "first_seen": "2026-11-07T08:19:29Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "advisory",
+   "title": "ARTEX abuse expands as cybercriminals target financial sector",
+   "source": "Microsoft Security Blog",
+   "url": "https://www.microsoft.com/en-us/security/blog/2026/11/06/artex-abuse-expands-as-cybercriminals-target-financial-sector/",
+   "published": "2026-11-07T02:44:34Z",
+   "first_seen": "2026-11-07T05:19:27Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "SonicWall warns of new SSL-VPN MFA bypass flaw exploited in attacks",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/sonicwall-warns-of-new-ssl-vpn-mfa-bypass-flaw-exploited-in-attacks/",
+   "published": "2026-11-07T00:00:55Z",
+   "first_seen": "2026-11-07T00:19:30Z",
+   "cves": []
+  }
+ ],
+ "kev_added": [],
+ "breaches": [],
+ "ransomware_claims": {
+  "count": 46,
+  "groups": [
+   [
+    "n0n",
+    14
+   ],
+   [
+    "qilin",
+    10
+   ],
+   [
+    "metaencryptor",
+    7
+   ],
+   [
+    "payload",
+    4
+   ],
+   [
+    "nightspire",
+    3
+   ],
+   [
+    "rhysida",
+    2
+   ],
+   [
+    "safepay",
+    1
+   ],
+   [
+    "whitearmor",
+    1
+   ],
+   [
+    "leakeddata",
+    1
+   ],
+   [
+    "anubis",
+    1
+   ]
+  ]
+ },
+ "archive_counts": {
+  "date": "2026-11-07",
+  "exploited": 0.0,
+  "ransomware": 10.0,
+  "breaches": 0.0,
+  "community": 0.0,
+  "kev": 0,
+  "claims": 42,
+  "breach_count": 0,
+  "accounts": 0,
+  "stories": 0,
+  "top": "",
+  "top_url": ""
+ },
+ "sitreps": [
+  "sitreps/2026-11-07/032010Z.json",
+  "sitreps/2026-11-07/101953Z.json",
+  "sitreps/2026-11-07/172003Z.json",
+  "sitreps/2026-11-07/231944Z.json"
+ ],
+ "note": "Backfilled on 2026-11-11 from the sweep memory kept on the analyst's Mac and the public board. Reports drop off the board 14 days after publication, so early days list fewer reports than were seen; the archive_counts come from the full CISA KEV, ransomware-claim, Have I Been Pwned and Hacker News archives. The Mac's clock ran 3.0 h fast from about 2026-11-03T16:20:14Z; its stamps in that period have been corrected."
+}

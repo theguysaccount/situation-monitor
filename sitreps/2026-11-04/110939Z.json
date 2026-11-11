@@ -1,0 +1,42 @@
+{
+ "written_at": "2026-11-04T11:09:39Z",
+ "by": "Claude",
+ "headline": "Malicious cPGuard updates served in OpsShield supply chain attack; Android RCE patches and $6.3B Binance heist stay on the board",
+ "bullets": [
+  {
+   "text": "New: SecurityWeek reports malicious cPGuard updates were served in an OpsShield supply chain attack. BleepingComputer says hackers hijacked the autoupdate to deploy a backdoor and steal data. Three outlets are now covering it.",
+   "url": "https://www.securityweek.com/malicious-cpguard-updates-served-in-opsshield-supply-chain-attack/"
+  },
+  {
+   "text": "New detail on the $6.3B Binance heist, now at 8 outlets: SecurityWeek reports a rigged coding assignment and an abused AI tool opened the path to the theft.",
+   "url": "https://www.securityweek.com/rigged-coding-assignment-abused-ai-tool-opened-path-to-6-billion-binance-heist/"
+  },
+  {
+   "text": "Still active: The Hacker News reports Google issued patches for a critical Android flaw, CVE-2026-58868, that could allow remote code execution without user interaction.",
+   "url": "https://thehackernews.com/2026/11/google-patches-critical-android-flaw.html"
+  },
+  {
+   "text": "Still active: The Hacker News reports CISA confirmed hackers are exploiting WordPress Core CVE-2026-119977 during software upgrades. CISA added this race condition to its KEV catalog on 2026-11-03, with a federal due date of 2026-11-06.",
+   "url": "https://thehackernews.com/2026/11/cisa-confirms-hackers-exploiting.html"
+  },
+  {
+   "text": "Still active: The Hacker News says attackers exploit a critical Siemens IoT2050 flaw, CVE-2026-58115, to plant remote command backdoors. Help Net Security reports the same CVE in Node-RED used to deploy a Linux bot and backdoors.",
+   "url": "https://thehackernews.com/2026/11/attackers-exploit-critical-siemens.html"
+  },
+  {
+   "text": "Still active, Connect Secure, 4 outlets: Ivanti patched two more zero-days chained in attacks, CVE-2026-111357 and CVE-2026-118527. CISA KEV lists CVE-2026-104935 in the same product, with federal due dates of 2026-11-02 and 2026-11-13.",
+   "url": "https://www.bleepingcomputer.com/news/security/ivanti-patches-two-more-connect-secure-zero-days-chained-in-attacks/"
+  }
+ ],
+ "actions": [
+  "If you run cPGuard, read the SecurityWeek and BleepingComputer reports, check servers for the backdoor, and treat data on affected hosts as exposed.",
+  "Roll out Google's Android patches for CVE-2026-58868 to managed devices as they become available.",
+  "Update WordPress Core for CVE-2026-119977 per vendor guidance; the KEV federal due date is 2026-11-06.",
+  "Find Node-RED instances and Siemens IoT2050 devices, patch CVE-2026-58115 per vendor guidance, and look for backdoors.",
+  "Apply Ivanti's latest Connect Secure patches, covering CVE-2026-111357 and CVE-2026-118527, and check appliances for compromise.",
+  "Patch GitLab CE/EE (CVE-2026-97229) and Cisco ASA/FTD (CVE-2026-76418) now; both KEV due dates have passed."
+ ],
+ "commit": "699cfab00dea2c092410b4da336d1ec31291b791",
+ "pushed_at": "2026-11-04T11:09:39Z",
+ "written_at_as_recorded": "2026-11-04T14:09:00Z"
+}

@@ -1,0 +1,42 @@
+{
+ "written_at": "2026-11-05T06:25:32Z",
+ "by": "Claude",
+ "headline": "Patched Apple flaw exploited to spread info-stealers; WordPress KEV patch due Nov 6; $6.3B Binance heist leads coverage",
+ "bullets": [
+  {
+   "text": "New: The Hacker News reports hackers are exploiting a patched Apple flaw to deliver info-stealing malware, citing CISA. CISA KEV lists CVE-2024-27834, added 2026-11-04, with a federal due date of 2026-11-18.",
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-patched-apple-flaw-to.html"
+  },
+  {
+   "text": "Developing, Binance, 8 outlets and the biggest story on the board: TechCrunch reports researchers warned of North Korean hacking tactics years before the record $6.3B heist.",
+   "url": "https://techcrunch.com/2026/11/03/researchers-warned-of-north-korean-hacking-tactics-years-before-record-6-3b-binance-heist/"
+  },
+  {
+   "text": "Still active, WordPress Core, 3 outlets: BleepingComputer reports CISA flags a WordPress RCE flaw as actively exploited. CISA KEV lists CVE-2026-119977, a race condition added 2026-11-03, with a federal due date of 2026-11-06.",
+   "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-wordpress-rce-flaw-as-actively-exploited-in-attacks/"
+  },
+  {
+   "text": "Still active, critical: BleepingComputer reports Zyxel has fixed a zero-day that was exploited to hack nearly 1,000 network switches.",
+   "url": "https://www.bleepingcomputer.com/news/security/zyxel-fixes-zero-day-exploited-to-hack-nearly-1-000-network-switches/"
+  },
+  {
+   "text": "Still active, high: The Hacker News reports a critical Rails flaw lets attackers write server files through crafted ImageMagick uploads. Dark Reading also warns that vulnerable servers are at risk.",
+   "url": "https://thehackernews.com/2026/11/critical-rails-flaw-lets-attackers.html"
+  },
+  {
+   "text": "Still active, cPGuard, 4 outlets: SecurityWeek reports malicious updates served in an OpsShield supply chain attack. BleepingComputer says the hijacked autoupdate deployed a backdoor and stole data.",
+   "url": "https://www.securityweek.com/malicious-cpguard-updates-served-in-opsshield-supply-chain-attack/"
+  }
+ ],
+ "actions": [
+  "Patch WordPress Core for CVE-2026-119977 (KEV due 2026-11-06).",
+  "Patch Apple devices for CVE-2024-27834 (KEV due 2026-11-18) and keep iOS and Android current against the APT29-linked n-day exploits.",
+  "Check Rails advisories and patch apps that accept ImageMagick uploads. Apply Debian and Ubuntu APT fixes as they become available.",
+  "Apply Zyxel's switch zero-day fix and patch Ivanti Connect Secure for CVE-2026-111357 and CVE-2026-118527; check both for compromise.",
+  "DreamHost: change FTP passwords, end webmail sessions. mSecure: follow its password reset warnings. cPGuard: hunt the backdoor.",
+  "Check whether your firm works with Lab 1 and, if so, review what data it held and any notice it sent."
+ ],
+ "commit": "cc3e842b24bd346cfef9c9131a1396e66e91f0f0",
+ "pushed_at": "2026-11-05T06:25:32Z",
+ "written_at_as_recorded": "2026-11-05T09:25:22Z"
+}

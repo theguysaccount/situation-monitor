@@ -1,0 +1,42 @@
+{
+ "written_at": "2026-11-10T14:19:58Z",
+ "by": "Claude",
+ "headline": "SITCON 2 (SEVERE): Qubole supply-chain attack hits over a dozen organizations; Barracuda ESG and OpenSSH SSHole exploitation continue",
+ "bullets": [
+  {
+   "text": "Changed: SecurityWeek reports that over a dozen organizations were hit in a supply chain attack involving Qubole. The brief gives no affected versions, indicators or fixes yet. This is the one new critical report this sweep; SITCON holds at 2 (SEVERE).",
+   "url": "https://www.securityweek.com/over-a-dozen-organizations-hit-in-qubole-supply-chain-attack/"
+  },
+  {
+   "text": "Changed: The Record reports the Michigan State University cyber incident has been claimed by the ransomware gang behind a recent hospital attack. Vanderbilt University's ransomware attack, with data theft claimed, remains on the board across 4 outlets.",
+   "url": "https://therecord.media/michigan-state-university-byod-gang-cyber-incident"
+  },
+  {
+   "text": "Still active: attackers are exploiting critical Barracuda Email Security Gateway flaws to gain root access; the brief names no CVEs or fixed releases. SAP also patched four CVSS 10.0 flaws, two enabling remote code execution, with no exploitation reported.",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-barracuda-email-security-gateway-flaws-to-get-root-access/"
+  },
+  {
+   "text": "SSHole (OpenSSH CVE-2026-123158) is still being used to breach Linux systems; the story spans 6 outlets. It sits in CISA KEV with GPUStack CVE-2026-102895, FreeSwitch CVE-2026-116779 and IBM Aspera Faspex CVE-2026-123218, all added 11-09 and due 11-12.",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-sshole-openssh-flaw-to-breach-linux-systems/"
+  },
+  {
+   "text": "N-able's hosted N-central remains offline in 3 outlets' reporting, after a researcher published more than 30 zero-days (33 by one count) with proof-of-concept exploits. No fixes are named yet.",
+   "url": "https://www.securityweek.com/n-able-takes-n-central-offline-as-researcher-drops-over-30-zero-days/"
+  },
+  {
+   "text": "Google patched the eighth exploited Chrome zero-day of 2026 (CVE-2026-125350). France blames Iran for sabotage of refrigeration controllers at about 700 retail sites (4 outlets). 300 malicious packages were listed in 7 days, mostly npm; the week ran 0.89x the 90-day average.",
+   "url": "https://thehackernews.com/2026/11/google-issues-chrome-security-update.html"
+  }
+ ],
+ "actions": [
+  "Qubole customers: read the SecurityWeek report, rotate credentials and tokens shared with Qubole, and review access logs for its integrations.",
+  "Barracuda ESG: check Barracuda's advisory, apply available fixes, restrict management access and review appliances for signs of root compromise.",
+  "Patch OpenSSH for CVE-2026-123158 on every internet-facing host; restrict SSH exposure and review auth logs for unexpected logins.",
+  "Patch or isolate GPUStack, FreeSwitch and IBM Aspera Faspex before the 11-12 KEV deadline; VMware ESX CVE-2026-41709 is due 11-11.",
+  "Update Chrome on all endpoints (fixes CVE-2026-125350); apply SAP's November patches, starting with the four CVSS 10.0 flaws.",
+  "N-central users: plan for the hosted outage, limit network exposure of N-central servers and agents, and watch N-able for fixes."
+ ],
+ "commit": "df251306a0b3c8445f1bbfb4caf03de951e83b98",
+ "pushed_at": "2026-11-10T14:19:58Z",
+ "written_at_as_recorded": "2026-11-10T17:21:00Z"
+}

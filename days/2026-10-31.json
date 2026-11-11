@@ -1,0 +1,398 @@
+{
+ "schema": 1,
+ "date": "2026-10-31",
+ "source": "backfill",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-10-31T00:19:17Z",
+    2,
+    218.2
+   ],
+   [
+    "2026-10-31T01:19:18Z",
+    2,
+    218.2
+   ],
+   [
+    "2026-10-31T02:19:18Z",
+    2,
+    218.2
+   ],
+   [
+    "2026-10-31T03:19:20Z",
+    2,
+    218.8
+   ],
+   [
+    "2026-10-31T04:19:19Z",
+    2,
+    218.2
+   ],
+   [
+    "2026-10-31T05:19:18Z",
+    2,
+    218.2
+   ],
+   [
+    "2026-10-31T06:19:20Z",
+    2,
+    217.6
+   ],
+   [
+    "2026-10-31T07:19:20Z",
+    2,
+    215.1
+   ],
+   [
+    "2026-10-31T08:19:19Z",
+    2,
+    212.0
+   ],
+   [
+    "2026-10-31T09:19:20Z",
+    2,
+    201.4
+   ],
+   [
+    "2026-10-31T10:19:20Z",
+    2,
+    196.4
+   ],
+   [
+    "2026-10-31T11:19:21Z",
+    2,
+    179.8
+   ],
+   [
+    "2026-10-31T12:19:21Z",
+    2,
+    179.2
+   ],
+   [
+    "2026-10-31T13:19:19Z",
+    2,
+    177.3
+   ],
+   [
+    "2026-10-31T14:19:19Z",
+    2,
+    170.6
+   ],
+   [
+    "2026-10-31T15:19:22Z",
+    2,
+    169.4
+   ],
+   [
+    "2026-10-31T16:19:19Z",
+    2,
+    161.4
+   ],
+   [
+    "2026-10-31T17:19:20Z",
+    2,
+    158.9
+   ],
+   [
+    "2026-10-31T18:19:22Z",
+    2,
+    161.1
+   ],
+   [
+    "2026-10-31T19:19:20Z",
+    2,
+    158.0
+   ],
+   [
+    "2026-10-31T20:19:19Z",
+    2,
+    150.3
+   ],
+   [
+    "2026-10-31T21:19:26Z",
+    2,
+    148.9
+   ],
+   [
+    "2026-10-31T22:19:11Z",
+    2,
+    144.1
+   ],
+   [
+    "2026-10-31T23:19:10Z",
+    2,
+    140.6
+   ]
+  ],
+  "hours_at_level": {
+   "2": 24
+  },
+  "highest": 2,
+  "lowest": 2
+ },
+ "first_seen": {
+  "count": 50,
+  "by_severity": {
+   "medium": 40,
+   "high": 5,
+   "low": 5
+  },
+  "by_type": {
+   "ransomware": 33,
+   "news": 13,
+   "community": 2,
+   "advisory": 1,
+   "breach": 1
+  }
+ },
+ "situations": [
+  {
+   "name": "Binance",
+   "severity": "critical",
+   "outlets": 9,
+   "reports": 12,
+   "cves": [],
+   "lead": {
+    "title": "North Korea-linked group steals $6.3B from Binance in largest-ever cryptocurrency hack",
+    "url": "https://www.cybersecuritydive.com/news/binance-hack-north-korea-cryptocurrency-theft/873304/",
+    "source": "Cybersecurity Dive",
+    "published": "2026-10-30T14:19:34Z"
+   }
+  },
+  {
+   "name": "PHP2Shell",
+   "severity": "critical",
+   "outlets": 7,
+   "reports": 7,
+   "cves": [],
+   "lead": {
+    "title": "Chinese hackers used VMware ESX zero-day; PHP2Shell and Fragnesia chained to root firewalls",
+    "url": "https://www.helpnetsecurity.com/2026/10/29/php2shell-fragnesia-vmware-esx-zero-day/",
+    "source": "Help Net Security",
+    "published": "2026-10-29T16:25:10Z"
+   }
+  },
+  {
+   "name": "GitLab CVE-2026-97229",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 4,
+   "cves": [
+    "CVE-2026-97229"
+   ],
+   "lead": {
+    "title": "Max-Severity GitLab Vulnerability Exploited Against Alpine Linux",
+    "url": "https://www.securityweek.com/max-severity-gitlab-vulnerability-exploited-against-alpine-linux/",
+    "source": "SecurityWeek",
+    "published": "2026-10-30T09:32:27Z"
+   }
+  },
+  {
+   "name": "Cisco SD-WAN",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [
+    "CVE-2026-20127"
+   ],
+   "lead": {
+    "title": "Hackers exploit Cisco SD-WAN flaw to deploy custom KeyDrift malware",
+    "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-cisco-sd-wan-flaw-to-deploy-custom-keydrift-malware/",
+    "source": "BleepingComputer",
+    "published": "2026-10-29T18:38:26Z"
+   }
+  },
+  {
+   "name": "Drupal Commerce Core",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [
+    "CVE-2026-118539"
+   ],
+   "lead": {
+    "title": "Drupal warns of critical Commerce Core flaw exploited in attacks",
+    "url": "https://www.bleepingcomputer.com/news/security/drupal-warns-of-critical-commerce-core-flaw-exploited-in-attacks/",
+    "source": "BleepingComputer",
+    "published": "2026-10-30T10:16:07Z"
+   }
+  },
+  {
+   "name": "DHS",
+   "severity": "high",
+   "outlets": 5,
+   "reports": 5,
+   "cves": [],
+   "lead": {
+    "title": "DHS personnel leak exposes contact details and sensitive job information",
+    "url": "https://databreaches.net/2026/10/29/dhs-personnel-leak-exposes-contact-details-and-sensitive-job-information/",
+    "source": "DataBreaches.net",
+    "published": "2026-10-29T19:41:47Z"
+   }
+  },
+  {
+   "name": "Cursor",
+   "severity": "high",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [],
+   "lead": {
+    "title": "Devs Hit by Trojanized Claude Code Extension for Cursor",
+    "url": "https://www.darkreading.com/cyberattacks-data-breaches/devs-trojanized-claude-code-extension-cursor",
+    "source": "Dark Reading",
+    "published": "2026-10-30T20:05:58Z"
+   }
+  },
+  {
+   "name": "Attackers Chain Three Ivanti Connect Secure Flaws to Gain…",
+   "severity": "high",
+   "outlets": 2,
+   "reports": 3,
+   "cves": [
+    "CVE-2026-104935",
+    "CVE-2026-111357",
+    "CVE-2026-118527"
+   ],
+   "lead": {
+    "title": "Attackers Chain Three Ivanti Connect Secure Flaws to Gain Unauthenticated Root Access",
+    "url": "https://thehackernews.com/2026/10/attackers-chain-three-ivanti-connect.html",
+    "source": "The Hacker News",
+    "published": "2026-10-31T08:27:43Z"
+   }
+  }
+ ],
+ "top_reports": [
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Northflank security breach leads to abuse of customers' AI API keys",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/northflank-security-breach-leads-to-abuse-of-customers-ai-api-keys/",
+   "published": "2026-10-31T18:01:12Z",
+   "first_seen": "2026-10-31T18:20:14Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Chainalysis discloses data breach from \"offensive agentic techniques\"",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/chainalysis-discloses-data-breach-from-offensive-agentic-techniques/",
+   "published": "2026-10-31T12:50:09Z",
+   "first_seen": "2026-10-31T13:19:41Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Chainalysis Confirms Intrusion Into Internal Tools and Exposure of Customer Identity Data",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/10/chainalysis-confirms-intrusion-into.html",
+   "published": "2026-10-31T12:01:56Z",
+   "first_seen": "2026-10-31T12:20:18Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Spooky New Infostealer Malware Uses AI to ‘Autodox’ Victims",
+   "source": "WIRED Security",
+   "url": "https://www.wired.com/story/kernel-panic-volta-autodoxer-ai-infostealer-malware/",
+   "published": "2026-10-31T12:00:00Z",
+   "first_seen": "2026-10-31T12:20:18Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Attackers Chain Three Ivanti Connect Secure Flaws to Gain Unauthenticated Root Access",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/10/attackers-chain-three-ivanti-connect.html",
+   "published": "2026-10-31T08:27:43Z",
+   "first_seen": "2026-10-31T09:19:42Z",
+   "cves": [
+    "CVE-2026-111357"
+   ]
+  }
+ ],
+ "kev_added": [],
+ "breaches": [
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "佐賀大学の事務情報システムでランサムウエアによる被害発生 NAS内でファイルが暗号化 | 行政・社会 | 佐賀県のニュース | 佐賀新聞",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.saga-s.co.jp/articles/-/1798549",
+   "published": "2026-10-31T00:00:00Z",
+   "first_seen": "2026-10-31T13:19:41Z",
+   "cves": []
+  }
+ ],
+ "ransomware_claims": {
+  "count": 29,
+  "groups": [
+   [
+    "audit team",
+    5
+   ],
+   [
+    "AuditTeam",
+    4
+   ],
+   [
+    "payload",
+    3
+   ],
+   [
+    "vexy",
+    2
+   ],
+   [
+    "Vexy Ransomware",
+    2
+   ],
+   [
+    "emperador",
+    2
+   ],
+   [
+    "interlock",
+    2
+   ],
+   [
+    "qilin",
+    1
+   ],
+   [
+    "nightspire",
+    1
+   ],
+   [
+    "rhysida",
+    1
+   ]
+  ]
+ },
+ "archive_counts": {
+  "date": "2026-10-31",
+  "exploited": 0.0,
+  "ransomware": 10.0,
+  "breaches": 0.0,
+  "community": 1.2,
+  "kev": 0,
+  "claims": 82,
+  "breach_count": 0,
+  "accounts": 0,
+  "stories": 2,
+  "top": "Malware uses LLMs to rank victims by how much they're worth",
+  "top_url": "https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/"
+ },
+ "sitreps": [
+  "sitreps/2026-10-31/042200Z.json",
+  "sitreps/2026-10-31/112100Z.json",
+  "sitreps/2026-10-31/121900Z.json",
+  "sitreps/2026-10-31/181900Z.json"
+ ],
+ "note": "Backfilled on 2026-11-11 from the sweep memory kept on the analyst's Mac and the public board. Reports drop off the board 14 days after publication, so early days list fewer reports than were seen; the archive_counts come from the full CISA KEV, ransomware-claim, Have I Been Pwned and Hacker News archives. The Mac's clock ran 3.0 h fast from about 2026-11-03T16:20:14Z; its stamps in that period have been corrected."
+}

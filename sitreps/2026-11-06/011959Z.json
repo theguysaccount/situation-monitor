@@ -1,0 +1,42 @@
+{
+ "written_at": "2026-11-06T01:19:59Z",
+ "by": "Claude",
+ "headline": "Attackers using agentic AI to hunt exposed secrets; patched Zyxel GS1900 switches still exploitable; WordPress KEV due today",
+ "bullets": [
+  {
+   "text": "New, Microsoft: threat actors are using agentic AI tooling to find and abuse exposed secrets. Separately, Truffle Security launched a program targeting nearly 1.5 million live exposed secrets for revocation, and Chainalysis warned all users were hit in a breach involving 'agentic' techniques.",
+   "url": "https://www.microsoft.com/en-us/security/blog/2026/11/05/threat-actors-use-agentic-ai-tooling-to-find-and-abuse-exposed-secrets/"
+  },
+  {
+   "text": "New, FBI and CISA: critical infrastructure operators are warned to harden refrigeration and cooling systems amid ongoing cyberattacks.",
+   "url": "https://www.bleepingcomputer.com/news/security/fbi-cisa-warn-of-cyberattacks-targeting-refrigeration-systems/"
+  },
+  {
+   "text": "Still active, Zyxel GS1900, 4 outlets: Zyxel's fix for a zero-day used to hack nearly 1,000 switches did not block the in-the-wild exploit (CVE-2026-107441), which allows root command execution. SITCON remains 2 (SEVERE).",
+   "url": "https://thehackernews.com/2026/11/zyxel-gs1900-patch-fails-to-block-zero.html"
+  },
+  {
+   "text": "Due today, WordPress Core: CISA KEV lists CVE-2026-119977, a TOCTOU race condition exploited for RCE, with a federal due date of 2026-11-06. Apple CVE-2024-27834 (exploited for info-stealers) is due 2026-11-18.",
+   "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-wordpress-rce-flaw-as-actively-exploited-in-attacks/"
+  },
+  {
+   "text": "Still active: OpenSSH emergency fix for a flaw letting long passwords bypass SSH auth on Alpine Linux (3 outlets); cPGuard autoupdate hijacked in the OpsShield supply-chain attack to deploy a backdoor (4 outlets).",
+   "url": "https://thehackernews.com/2026/11/openssh-issues-emergency-fix-for-flaw.html"
+  },
+  {
+   "text": "Breaches: DigiCert exposed customer information and identity documents; DreamHost confirmed exposed FTP logins and webmail sessions; ransomware disrupted Queens Public Library. The last 7 days scored 0.63x the 90-day average.",
+   "url": "https://www.bleepingcomputer.com/news/security/digicert-data-breach-exposes-customer-information-identity-documents/"
+  }
+ ],
+ "actions": [
+  "Scan repos, CI logs and public buckets for exposed secrets and rotate any found; assume automated discovery is running against you.",
+  "Patch WordPress Core for CVE-2026-119977 today (KEV due 2026-11-06).",
+  "Treat Zyxel GS1900 switches as exposed even after patching: restrict management access, check for compromise, watch for a new fix.",
+  "Apply the OpenSSH emergency fix on Alpine Linux hosts and restrict SSH password auth until patched.",
+  "cPGuard users: hunt for the backdoor delivered via autoupdate and rotate credentials on affected servers.",
+  "Operators of refrigeration and cooling systems: remove internet exposure of controllers and follow the FBI/CISA hardening guidance."
+ ],
+ "commit": "7ca762e7ba56186f2fa4dfd0f102618c9918c42a",
+ "pushed_at": "2026-11-06T01:19:59Z",
+ "written_at_as_recorded": "2026-11-06T04:21:00Z"
+}

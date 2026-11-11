@@ -1,0 +1,41 @@
+{
+ "written_at": "2026-11-02T09:19:30Z",
+ "by": "Claude",
+ "headline": "FBI flags 600+ addresses tied to North Korea's Binance heist; exploited Ivanti Connect Secure zero-days and VOLTA infostealer stay on the board",
+ "bullets": [
+  {
+   "text": "New since the last SITREP: SecurityWeek reports the FBI has flagged over 600 addresses tied to North Korea's Binance heist.",
+   "url": "https://www.securityweek.com/fbi-flags-over-600-addresses-tied-to-north-koreas-binance-heist/"
+  },
+  {
+   "text": "Also new: The Record reports the FBI blames North Korea's TraderTraitor for the Binance theft and is urging the crypto industry to block transactions.",
+   "url": "https://therecord.media/fbi-blames-tradertraitor-for-binance-hack"
+  },
+  {
+   "text": "Ivanti has patched two more zero-days exploited in the Connect Secure attack chain, CVE-2026-111357 and CVE-2026-118527. Attackers chain them with CVE-2026-104935 for unauthenticated root access. CISA KEV due dates are today, 2026-11-02, and 2026-11-13.",
+   "url": "https://thehackernews.com/2026/10/attackers-chain-three-ivanti-connect.html"
+  },
+  {
+   "text": "The Hacker News reports a new VOLTA infostealer that uses Claude, Gemini and Kimi AI to rank victims by financial value.",
+   "url": "https://thehackernews.com/2026/11/new-volta-infostealer-uses-claude.html"
+  },
+  {
+   "text": "CISA KEV due dates for the max-severity GitLab CE/EE flaw CVE-2026-97229 and the Cisco ASA/FTD flaw CVE-2026-76418 passed on 2026-11-01. Alpine Linux rebuilt its GitLab after an attempted RCE attack.",
+   "url": "https://thehackernews.com/2026/10/cisa-adds-actively-exploited-gitlab-rce.html"
+  },
+  {
+   "text": "The official Claude Code extension on the Cursor Marketplace was trojanized with a persistent SSH backdoor; WIRED reports malicious Claude extensions reached thousands of devices.",
+   "url": "https://www.wired.com/story/trojan-malware-targets-thousands-of-anthropic-claude-developer-systems/"
+  }
+ ],
+ "actions": [
+  "If you handle crypto transactions, screen against the addresses the FBI flagged for the Binance heist and block matches.",
+  "Apply Ivanti's latest Connect Secure patches today, covering CVE-2026-111357 and CVE-2026-118527, and check appliances for the chained root compromise.",
+  "If GitLab CE/EE (CVE-2026-97229) or Cisco ASA/FTD (CVE-2026-76418) are still unpatched, patch now; both KEV due dates have passed.",
+  "Find any LXD and MicroCloud deployments, check the vendor advisory for the CVSS 10.0 flaw, and patch them.",
+  "Update Drupal Commerce Core for the actively exploited CVE-2026-118539 and check sites for unauthorized access.",
+  "If developers use the Claude Code extension in Cursor, check it against the vendor advisory and look for unexpected SSH keys or services."
+ ],
+ "commit": "9e9104237e0db8dd566f16f2fc16502386639dd6",
+ "pushed_at": "2026-11-02T09:19:38Z"
+}

@@ -1,0 +1,352 @@
+{
+ "schema": 1,
+ "date": "2026-11-01",
+ "source": "backfill",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-11-01T00:19:11Z",
+    3,
+    123.4
+   ],
+   [
+    "2026-11-01T01:19:10Z",
+    3,
+    123.7
+   ],
+   [
+    "2026-11-01T02:10:51Z",
+    3,
+    123.7
+   ],
+   [
+    "2026-11-01T03:08:49Z",
+    3,
+    123.7
+   ],
+   [
+    "2026-11-01T04:24:58Z",
+    3,
+    113.7
+   ],
+   [
+    "2026-11-01T05:18:52Z",
+    3,
+    113.1
+   ],
+   [
+    "2026-11-01T06:18:54Z",
+    3,
+    108.1
+   ],
+   [
+    "2026-11-01T07:18:52Z",
+    3,
+    107.5
+   ],
+   [
+    "2026-11-01T08:18:55Z",
+    3,
+    103.1
+   ],
+   [
+    "2026-11-01T10:18:53Z",
+    3,
+    91.6
+   ],
+   [
+    "2026-11-01T11:18:53Z",
+    3,
+    87.7
+   ],
+   [
+    "2026-11-01T12:18:53Z",
+    3,
+    86.6
+   ],
+   [
+    "2026-11-01T13:18:53Z",
+    3,
+    81.5
+   ],
+   [
+    "2026-11-01T14:18:53Z",
+    4,
+    76.8
+   ],
+   [
+    "2026-11-01T15:18:54Z",
+    4,
+    71.4
+   ],
+   [
+    "2026-11-01T16:18:53Z",
+    4,
+    66.6
+   ],
+   [
+    "2026-11-01T17:25:11Z",
+    4,
+    63.8
+   ],
+   [
+    "2026-11-01T18:18:53Z",
+    4,
+    64.1
+   ],
+   [
+    "2026-11-01T19:18:54Z",
+    4,
+    63.5
+   ],
+   [
+    "2026-11-01T20:18:53Z",
+    4,
+    64.0
+   ],
+   [
+    "2026-11-01T21:18:55Z",
+    4,
+    57.6
+   ],
+   [
+    "2026-11-01T22:18:53Z",
+    4,
+    55.5
+   ],
+   [
+    "2026-11-01T23:18:54Z",
+    4,
+    51.8
+   ]
+  ],
+  "hours_at_level": {
+   "3": 13,
+   "4": 10
+  },
+  "highest": 3,
+  "lowest": 4
+ },
+ "first_seen": {
+  "count": 33,
+  "by_severity": {
+   "low": 3,
+   "medium": 24,
+   "high": 5,
+   "critical": 1
+  },
+  "by_type": {
+   "news": 11,
+   "ransomware": 20,
+   "community": 2
+  }
+ },
+ "situations": [
+  {
+   "name": "TraderTraitor",
+   "severity": "critical",
+   "outlets": 9,
+   "reports": 11,
+   "cves": [],
+   "lead": {
+    "title": "FBI links $6.3 billion Binance crypto heist to North Korean hackers",
+    "url": "https://www.bleepingcomputer.com/news/security/fbi-links-63-billion-binance-crypto-heist-to-north-korean-hackers/",
+    "source": "BleepingComputer",
+    "published": "2026-11-01T19:57:53Z"
+   }
+  },
+  {
+   "name": "CISA says max severity GitLab flaw now exploited in the wild",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 4,
+   "cves": [
+    "CVE-2026-97229"
+   ],
+   "lead": {
+    "title": "CISA says max severity GitLab flaw now exploited in the wild",
+    "url": "https://www.bleepingcomputer.com/news/security/hackers-now-exploiting-max-severity-gitlab-flaw-in-attacks/",
+    "source": "BleepingComputer",
+    "published": "2026-10-30T13:00:32Z"
+   }
+  },
+  {
+   "name": "Drupal Commerce Core",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [
+    "CVE-2026-118539"
+   ],
+   "lead": {
+    "title": "Drupal warns of critical Commerce Core flaw exploited in attacks",
+    "url": "https://www.bleepingcomputer.com/news/security/drupal-warns-of-critical-commerce-core-flaw-exploited-in-attacks/",
+    "source": "BleepingComputer",
+    "published": "2026-10-30T10:16:07Z"
+   }
+  },
+  {
+   "name": "Cursor",
+   "severity": "high",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [],
+   "lead": {
+    "title": "Devs Hit by Trojanized Claude Code Extension for Cursor",
+    "url": "https://www.darkreading.com/cyberattacks-data-breaches/devs-trojanized-claude-code-extension-cursor",
+    "source": "Dark Reading",
+    "published": "2026-10-30T20:05:58Z"
+   }
+  },
+  {
+   "name": "Attackers Chain Three Ivanti Connect Secure Flaws to Gain…",
+   "severity": "high",
+   "outlets": 2,
+   "reports": 3,
+   "cves": [
+    "CVE-2026-104935",
+    "CVE-2026-111357",
+    "CVE-2026-118527"
+   ],
+   "lead": {
+    "title": "Attackers Chain Three Ivanti Connect Secure Flaws to Gain Unauthenticated Root Access",
+    "url": "https://thehackernews.com/2026/10/attackers-chain-three-ivanti-connect.html",
+    "source": "The Hacker News",
+    "published": "2026-10-31T08:27:43Z"
+   }
+  }
+ ],
+ "top_reports": [
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "CVSS 10.0 LXD, MicroCloud Flaw Lets Attackers Impersonate Trusted Clients Without a Private Key",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/critical-lxd-and-microcloud-flaw-cvss.html",
+   "published": "2026-11-01T08:51:31Z",
+   "first_seen": "2026-11-01T09:45:26Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "FBI links $6.3 billion Binance crypto heist to North Korean hackers",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/fbi-links-63-billion-binance-crypto-heist-to-north-korean-hackers/",
+   "published": "2026-11-01T19:57:53Z",
+   "first_seen": "2026-11-01T20:19:40Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Alpine Linux rebuilds GitLab after attempted RCE attack",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/alpine-linux-rebuilds-gitlab-after-attempted-rce-attack/",
+   "published": "2026-11-01T15:11:21Z",
+   "first_seen": "2026-11-01T15:19:41Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Hackers Steal About $2.7 Million From Polymarket Traders via Hijacked DebugBear Script",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/hackers-steal-about-27-million-from.html",
+   "published": "2026-11-01T07:25:40Z",
+   "first_seen": "2026-11-01T08:19:41Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "FBI Links North Korea's TraderTraitor to Record $6.43 Billion Binance Crypto Heist",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/fbi-links-north-koreas-tradertraitor-to.html",
+   "published": "2026-11-01T07:03:00Z",
+   "first_seen": "2026-11-01T08:19:41Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "NetamLoader Malware Targets Government Windows 10 Systems in Asia via .NET Injection",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/netamloader-malware-targets-government.html",
+   "published": "2026-11-01T07:02:58Z",
+   "first_seen": "2026-11-01T08:19:41Z",
+   "cves": []
+  }
+ ],
+ "kev_added": [],
+ "breaches": [],
+ "ransomware_claims": {
+  "count": 20,
+  "groups": [
+   [
+    "qilin",
+    10
+   ],
+   [
+    "interlock",
+    2
+   ],
+   [
+    "leaknet",
+    1
+   ],
+   [
+    "shiba",
+    1
+   ],
+   [
+    "lockbit5",
+    1
+   ],
+   [
+    "hyflock",
+    1
+   ],
+   [
+    "direwolf",
+    1
+   ],
+   [
+    "Whitearmor",
+    1
+   ],
+   [
+    "HYFLOCK",
+    1
+   ],
+   [
+    "Barracuda",
+    1
+   ]
+  ]
+ },
+ "archive_counts": {
+  "date": "2026-11-01",
+  "exploited": 0.0,
+  "ransomware": 4.0,
+  "breaches": 0.0,
+  "community": 1.2,
+  "kev": 0,
+  "claims": 16,
+  "breach_count": 0,
+  "accounts": 0,
+  "stories": 2,
+  "top": "Frontier Airlines Likely Breached",
+  "top_url": "https://www.reddit.com/r/frontierairlines/comments/1xl20e8/psa_email_scam/"
+ },
+ "sitreps": [
+  "sitreps/2026-11-01/002100Z.json",
+  "sitreps/2026-11-01/072100Z.json",
+  "sitreps/2026-11-01/082000Z.json",
+  "sitreps/2026-11-01/102000Z.json",
+  "sitreps/2026-11-01/141904Z.json",
+  "sitreps/2026-11-01/151903Z.json",
+  "sitreps/2026-11-01/201919Z.json"
+ ],
+ "note": "Backfilled on 2026-11-11 from the sweep memory kept on the analyst's Mac and the public board. Reports drop off the board 14 days after publication, so early days list fewer reports than were seen; the archive_counts come from the full CISA KEV, ransomware-claim, Have I Been Pwned and Hacker News archives. The Mac's clock ran 3.0 h fast from about 2026-11-03T16:20:14Z; its stamps in that period have been corrected."
+}

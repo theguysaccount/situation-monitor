@@ -1,0 +1,41 @@
+{
+ "written_at": "2026-11-01T10:20:00Z",
+ "by": "Claude",
+ "headline": "New CVSS 10.0 LXD and MicroCloud flaw; Ivanti KEV deadline tomorrow; FBI ties $6.43B Binance heist to TraderTraitor",
+ "bullets": [
+  {
+   "text": "New since the last SITREP: a CVSS 10.0 flaw in LXD and MicroCloud lets attackers impersonate trusted clients without a private key.",
+   "url": "https://thehackernews.com/2026/11/critical-lxd-and-microcloud-flaw-cvss.html"
+  },
+  {
+   "text": "Attackers are chaining three Ivanti Connect Secure flaws (CVE-2026-104935, CVE-2026-111357, CVE-2026-118527) to gain unauthenticated root access. The first CISA KEV due date for Ivanti Connect Secure is tomorrow, 2026-11-02; the second is 2026-11-13.",
+   "url": "https://thehackernews.com/2026/10/attackers-chain-three-ivanti-connect.html"
+  },
+  {
+   "text": "KEV due dates for the exploited GitLab CE/EE flaw CVE-2026-97229 and the Cisco ASA/FTD flaw CVE-2026-76418 (used to crash SSL VPN devices) fell today, 2026-11-01. Unpatched instances are now overdue.",
+   "url": "https://thehackernews.com/2026/10/cisa-adds-actively-exploited-gitlab-rce.html"
+  },
+  {
+   "text": "The FBI has linked North Korea's TraderTraitor group to the record Binance crypto heist, now put at $6.43 billion. Binance earlier tied the theft to a compromised DevOps laptop.",
+   "url": "https://thehackernews.com/2026/11/fbi-links-north-koreas-tradertraitor-to.html"
+  },
+  {
+   "text": "The official Claude Code extension on the Cursor Marketplace was trojanized with a persistent SSH backdoor; WIRED reports malicious Claude extensions reached thousands of devices.",
+   "url": "https://www.wired.com/story/trojan-malware-targets-thousands-of-anthropic-claude-developer-systems/"
+  },
+  {
+   "text": "A Northflank security breach has led to abuse of customers' AI API keys.",
+   "url": "https://www.bleepingcomputer.com/news/security/northflank-security-breach-leads-to-abuse-of-customers-ai-api-keys/"
+  }
+ ],
+ "actions": [
+  "Find any LXD and MicroCloud deployments, check the vendor advisory for the CVSS 10.0 flaw, and patch them first.",
+  "Patch Ivanti Connect Secure before the 2026-11-02 KEV deadline and check appliances for signs of the chained root compromise.",
+  "If GitLab CE/EE (CVE-2026-97229) or Cisco ASA/FTD (CVE-2026-76418) are still unpatched, treat them as overdue and patch now.",
+  "If you store AI provider API keys in Northflank, rotate them and review provider usage and billing for abuse.",
+  "If developers use the Claude Code extension in Cursor, check it against the vendor advisory and look for unexpected SSH keys or services.",
+  "Update Drupal Commerce Core for the actively exploited CVE-2026-118539 and check sites for unauthorized access."
+ ],
+ "commit": "7fcbdf0dd4bc260950c3d9054d27fc4d9e42c3a5",
+ "pushed_at": "2026-11-01T10:19:32Z"
+}

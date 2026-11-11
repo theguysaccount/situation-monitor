@@ -1,0 +1,42 @@
+{
+ "written_at": "2026-11-05T22:24:39Z",
+ "by": "Claude",
+ "headline": "SITCON rises to 2: patched Zyxel GS1900 switches still exploitable; OpenSSH emergency fix on Alpine; WordPress KEV due today",
+ "bullets": [
+  {
+   "text": "Changed: SITCON rose from 3 to 2 (SEVERE). One KEV addition in 72 hours and 4 critical reports in 48 hours; Zyxel GS1900 is the top story (4 outlets). The last 7 days still scored 0.62x the 90-day average.",
+   "url": "https://www.securityweek.com/zyxel-switch-hacks-blamed-on-patched-flaw-actually-exploited-a-zero-day/"
+  },
+  {
+   "text": "New, OpenSSH, 3 outlets: OpenSSH issued an emergency fix for a flaw that lets long passwords bypass SSH authentication on Alpine Linux.",
+   "url": "https://thehackernews.com/2026/11/openssh-issues-emergency-fix-for-flaw.html"
+  },
+  {
+   "text": "Still active, Zyxel GS1900, 4 outlets: Zyxel's fix for a zero-day used to hack nearly 1,000 switches did not block the in-the-wild exploit (CVE-2026-107441); SecurityWeek reports the hacks blamed on a patched flaw were a zero-day. Root command execution is possible.",
+   "url": "https://thehackernews.com/2026/11/zyxel-gs1900-patch-fails-to-block-zero.html"
+  },
+  {
+   "text": "Due today, WordPress Core: CISA KEV lists CVE-2026-119977, a TOCTOU race condition exploited for RCE, added 2026-11-03 with a federal due date of 2026-11-06.",
+   "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-wordpress-rce-flaw-as-actively-exploited-in-attacks/"
+  },
+  {
+   "text": "Still active: cPGuard autoupdate hijacked in the OpsShield supply-chain attack to deploy a backdoor (4 outlets); a patched Apple flaw, CVE-2024-27834, is exploited to deliver info-stealers (KEV due 2026-11-18).",
+   "url": "https://www.securityweek.com/malicious-cpguard-updates-served-in-opsshield-supply-chain-attack/"
+  },
+  {
+   "text": "New breaches: ransomware disrupted Wi-Fi and on-site computers at Queens Public Library; DigiCert disclosed a breach exposing customer information and identity documents; DreamHost confirmed exposed FTP logins and webmail sessions.",
+   "url": "https://therecord.media/queens-library-ransomware-causes-disruptions"
+  }
+ ],
+ "actions": [
+  "Apply the OpenSSH emergency fix on Alpine Linux hosts now and restrict SSH password auth until patched.",
+  "Treat Zyxel GS1900 switches as exposed even after patching: restrict management access, check for compromise, watch for a new fix.",
+  "Patch WordPress Core for CVE-2026-119977 today (KEV due 2026-11-06).",
+  "cPGuard users: hunt for the backdoor delivered via autoupdate and rotate credentials on affected servers.",
+  "Patch Apple devices for CVE-2024-27834 (KEV due 2026-11-18) and Ivanti Connect Secure for CVE-2026-104935 (KEV due 2026-11-13).",
+  "DreamHost customers: rotate FTP and webmail credentials and end active sessions."
+ ],
+ "commit": "b15b87c11e759b483313eb4b2b6da13f6aeb4d4a",
+ "pushed_at": "2026-11-05T22:24:39Z",
+ "written_at_as_recorded": "2026-11-06T01:16:38Z"
+}

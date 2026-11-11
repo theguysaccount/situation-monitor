@@ -1,0 +1,41 @@
+{
+ "written_at": "2026-10-30T04:23:00Z",
+ "by": "Claude",
+ "headline": "Binance $5.8B theft probe continues; GitLab and Cisco ASA/FTD KEV deadlines Nov 1; Cisco SD-WAN attacks tied to Volt Typhoon",
+ "bullets": [
+  {
+   "text": "Binance is still investigating a potential $5.8 billion crypto-theft hack with withdrawals paused; Polymarket halted trading after a crypto-draining script breach with $2.5M traced. The Register notes crypto exchanges' security remains weak.",
+   "url": "https://www.bleepingcomputer.com/news/security/binance-probes-potential-58-billion-crypto-theft-hack/"
+  },
+  {
+   "text": "CISA KEV deadlines on 2026-11-01: GitLab CE/EE CVE-2026-97229 (CVSS 10.0; an attacker already tried it against Alpine Linux's GitLab) and Cisco ASA/FTD CVE-2026-76418, exploited to crash SSL VPN devices.",
+   "url": "https://thehackernews.com/2026/10/attacker-tried-to-exploit-alpine-linuxs.html"
+  },
+  {
+   "text": "Attackers are exploiting Cisco SD-WAN flaw CVE-2026-20127 to deploy custom KeyDrift malware; the activity is tied to Volt Typhoon's 'Silent Train' network, used in four zero-day campaigns.",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-cisco-sd-wan-flaw-to-deploy-custom-keydrift-malware/"
+  },
+  {
+   "text": "China-linked attackers used VMware ESX zero-day CVE-2026-41709 to reduce audit trail visibility; PHP2Shell and Fragnesia were chained to root firewalls, and The Record reports limited successful PHP2Shell exploitation.",
+   "url": "https://therecord.media/php2shell-successful-exploitation-reports-emerge"
+  },
+  {
+   "text": "Exploitation attempts have begun against Oracle E-Business Suite RCE CVE-2026-101767, days after Oracle patched it. Attackers also turned GitHub issues into a supply-chain campaign against 61 public repos in under an hour.",
+   "url": "https://www.helpnetsecurity.com/2026/10/29/oracle-e-business-suite-cve-2026-101767-exploitation/"
+  },
+  {
+   "text": "Breaches: iRhythm toll put at 8.2 million in an HHS filing; Sony's ISP So-net lost 2.6 million records; Florida's education department says 4.9 million may be affected; UNM Health is restoring systems after a ransomware claim.",
+   "url": "https://www.securityweek.com/hhs-filing-puts-irhythm-data-breach-toll-at-8-2-million/"
+  }
+ ],
+ "actions": [
+  "Patch self-managed GitLab CE/EE for CVE-2026-97229 before 2026-11-01 and check GitLab logs for exploitation attempts.",
+  "Apply Cisco's fix for ASA/FTD VPN CVE-2026-76418 before 2026-11-01 and review VPN logs and device crashes.",
+  "Patch Cisco SD-WAN for CVE-2026-20127 per Cisco's advisory and hunt for KeyDrift malware on SD-WAN components.",
+  "Apply your distro's kernel fix for CVE-2026-46300 before 2026-10-31; finish PHP updates for CVE-2026-109618/109619 (KEV due date passed).",
+  "Patch VMware ESX CVE-2026-41709 (KEV due 2026-11-11) and confirm Oracle's fix for EBS CVE-2026-101767 is applied.",
+  "If you hold funds on Binance or Polymarket, follow their official status channels and ignore unsolicited 'recovery' offers."
+ ],
+ "commit": "9349041621d7de36a2267118a154ab434b3b45a4",
+ "pushed_at": "2026-10-30T04:23:13Z"
+}

@@ -1,0 +1,92 @@
+{
+ "schema": 1,
+ "date": "2026-10-24",
+ "source": "backfill",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-10-24T07:25:26Z",
+    2,
+    183.4
+   ],
+   [
+    "2026-10-24T08:19:04Z",
+    2,
+    187.5
+   ],
+   [
+    "2026-10-24T09:19:02Z",
+    2,
+    179.0
+   ],
+   [
+    "2026-10-24T10:19:01Z",
+    2,
+    179.4
+   ],
+   [
+    "2026-10-24T20:43:46Z",
+    3,
+    132.8
+   ],
+   [
+    "2026-10-24T21:19:31Z",
+    3,
+    132.5
+   ],
+   [
+    "2026-10-24T22:19:30Z",
+    3,
+    127.2
+   ],
+   [
+    "2026-10-24T23:19:30Z",
+    3,
+    127.0
+   ]
+  ],
+  "hours_at_level": {
+   "2": 4,
+   "3": 4
+  },
+  "highest": 2,
+  "lowest": 3
+ },
+ "first_seen": {
+  "count": 3,
+  "by_severity": {
+   "medium": 3
+  },
+  "by_type": {
+   "ransomware": 3
+  }
+ },
+ "situations": [],
+ "top_reports": [],
+ "kev_added": [],
+ "breaches": [],
+ "ransomware_claims": {
+  "count": 0,
+  "groups": []
+ },
+ "archive_counts": {
+  "date": "2026-10-24",
+  "exploited": 0.0,
+  "ransomware": 8.0,
+  "breaches": 0.0,
+  "community": 0.6,
+  "kev": 0,
+  "claims": 32,
+  "breach_count": 0,
+  "accounts": 0,
+  "stories": 1,
+  "top": "Hacker reverses Samsung TV, finds on-board AI listening OpenAI account suspended",
+  "top_url": "https://www.reddit.com/r/antiai/comments/1xdv3e5/hacker_reverse_engineers_his_samsung_tv_and_finds/"
+ },
+ "sitreps": [
+  "sitreps/2026-10-24/054500Z.json",
+  "sitreps/2026-10-24/081900Z.json",
+  "sitreps/2026-10-24/204700Z.json"
+ ],
+ "note": "Backfilled on 2026-11-11 from the sweep memory kept on the analyst's Mac and the public board. Reports drop off the board 14 days after publication, so early days list fewer reports than were seen; the archive_counts come from the full CISA KEV, ransomware-claim, Have I Been Pwned and Hacker News archives. The Mac's clock ran 3.0 h fast from about 2026-11-03T16:20:14Z; its stamps in that period have been corrected."
+}

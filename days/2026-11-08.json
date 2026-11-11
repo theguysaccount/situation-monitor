@@ -1,0 +1,287 @@
+{
+ "schema": 1,
+ "date": "2026-11-08",
+ "source": "backfill",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-11-08T00:19:11Z",
+    4,
+    77.6
+   ],
+   [
+    "2026-11-08T01:19:13Z",
+    4,
+    77.6
+   ],
+   [
+    "2026-11-08T02:19:11Z",
+    4,
+    77.0
+   ],
+   [
+    "2026-11-08T03:19:11Z",
+    4,
+    75.8
+   ],
+   [
+    "2026-11-08T04:19:13Z",
+    4,
+    74.8
+   ],
+   [
+    "2026-11-08T05:19:12Z",
+    4,
+    72.3
+   ],
+   [
+    "2026-11-08T06:19:12Z",
+    4,
+    69.6
+   ],
+   [
+    "2026-11-08T07:19:12Z",
+    4,
+    64.5
+   ],
+   [
+    "2026-11-08T08:19:13Z",
+    4,
+    64.9
+   ],
+   [
+    "2026-11-08T09:19:12Z",
+    4,
+    64.3
+   ],
+   [
+    "2026-11-08T10:19:12Z",
+    4,
+    55.3
+   ],
+   [
+    "2026-11-08T11:19:12Z",
+    4,
+    46.4
+   ],
+   [
+    "2026-11-08T12:19:13Z",
+    4,
+    44.9
+   ],
+   [
+    "2026-11-08T13:19:12Z",
+    4,
+    41.6
+   ],
+   [
+    "2026-11-08T14:19:13Z",
+    4,
+    38.4
+   ],
+   [
+    "2026-11-08T15:19:13Z",
+    4,
+    37.8
+   ],
+   [
+    "2026-11-08T16:19:14Z",
+    4,
+    36.8
+   ],
+   [
+    "2026-11-08T17:19:13Z",
+    5,
+    34.4
+   ],
+   [
+    "2026-11-08T18:19:12Z",
+    5,
+    30.8
+   ],
+   [
+    "2026-11-08T19:19:15Z",
+    5,
+    29.7
+   ],
+   [
+    "2026-11-08T20:19:13Z",
+    5,
+    30.3
+   ],
+   [
+    "2026-11-08T21:19:13Z",
+    5,
+    25.8
+   ],
+   [
+    "2026-11-08T22:19:13Z",
+    5,
+    25.2
+   ],
+   [
+    "2026-11-08T23:19:13Z",
+    5,
+    25.0
+   ]
+  ],
+  "hours_at_level": {
+   "4": 17,
+   "5": 7
+  },
+  "highest": 4,
+  "lowest": 5
+ },
+ "first_seen": {
+  "count": 28,
+  "by_severity": {
+   "medium": 26,
+   "high": 1,
+   "low": 1
+  },
+  "by_type": {
+   "ransomware": 24,
+   "news": 4
+  }
+ },
+ "situations": [
+  {
+   "name": "Artex",
+   "severity": "high",
+   "outlets": 5,
+   "reports": 5,
+   "cves": [],
+   "lead": {
+    "title": "No need to hack when it’s leaking: Artex edition",
+    "url": "https://databreaches.net/2026/11/07/no-need-to-hack-when-its-leaking-artex-edition/",
+    "source": "DataBreaches.net",
+    "published": "2026-11-07T15:06:41Z"
+   }
+  },
+  {
+   "name": "SSHole",
+   "severity": "critical",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [
+    "CVE-2026-123158"
+   ],
+   "lead": {
+    "title": "OpenSSH flaw exploited in the wild just hours after disclosure (CVE-2026-123158)",
+    "url": "https://www.helpnetsecurity.com/2026/11/06/openssh-sshole-cve-2026-123158-exploitation/",
+    "source": "Help Net Security",
+    "published": "2026-11-06T12:49:41Z"
+   }
+  },
+  {
+   "name": "DigiCert",
+   "severity": "high",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [],
+   "lead": {
+    "title": "Certificate authority DigiCert reports data breach involving business customer info",
+    "url": "https://therecord.media/digicert-certificate-authority-reports-data-breach",
+    "source": "The Record",
+    "published": "2026-11-06T18:56:00Z"
+   }
+  },
+  {
+   "name": "SonicOS",
+   "severity": "critical",
+   "outlets": 2,
+   "reports": 2,
+   "cves": [
+    "CVE-2026-19868"
+   ],
+   "lead": {
+    "title": "SonicWall Patches Exploited SonicOS Vulnerability That Weakens VPN Logins",
+    "url": "https://www.securityweek.com/sonicwall-patches-exploited-sonicos-bug-that-weakens-vpn-logins/",
+    "source": "SecurityWeek",
+    "published": "2026-11-07T10:16:23Z"
+   }
+  }
+ ],
+ "top_reports": [
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Iris Ohyama data cloud breach exposes info of 7.7 million customers",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/iris-ohyama-data-cloud-breach-exposes-info-of-77-million-customers/",
+   "published": "2026-11-08T15:43:08Z",
+   "first_seen": "2026-11-08T16:19:51Z",
+   "cves": []
+  }
+ ],
+ "kev_added": [],
+ "breaches": [],
+ "ransomware_claims": {
+  "count": 25,
+  "groups": [
+   [
+    "deadlock",
+    4
+   ],
+   [
+    "lockbit5",
+    4
+   ],
+   [
+    "majinahanashi",
+    3
+   ],
+   [
+    "incransom",
+    3
+   ],
+   [
+    "Deadlock",
+    2
+   ],
+   [
+    "BYOD",
+    2
+   ],
+   [
+    "Barracuda",
+    1
+   ],
+   [
+    "cloak",
+    1
+   ],
+   [
+    "akira",
+    1
+   ],
+   [
+    "Eclipse",
+    1
+   ]
+  ]
+ },
+ "archive_counts": {
+  "date": "2026-11-08",
+  "exploited": 0.0,
+  "ransomware": 6.25,
+  "breaches": 0.0,
+  "community": 0.0,
+  "kev": 0,
+  "claims": 25,
+  "breach_count": 0,
+  "accounts": 0,
+  "stories": 0,
+  "top": "",
+  "top_url": ""
+ },
+ "sitreps": [
+  "sitreps/2026-11-08/001955Z.json",
+  "sitreps/2026-11-08/071941Z.json",
+  "sitreps/2026-11-08/141956Z.json",
+  "sitreps/2026-11-08/161943Z.json",
+  "sitreps/2026-11-08/171937Z.json",
+  "sitreps/2026-11-08/231953Z.json"
+ ],
+ "note": "Backfilled on 2026-11-11 from the sweep memory kept on the analyst's Mac and the public board. Reports drop off the board 14 days after publication, so early days list fewer reports than were seen; the archive_counts come from the full CISA KEV, ransomware-claim, Have I Been Pwned and Hacker News archives. The Mac's clock ran 3.0 h fast from about 2026-11-03T16:20:14Z; its stamps in that period have been corrected."
+}

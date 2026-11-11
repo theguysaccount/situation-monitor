@@ -1,0 +1,42 @@
+{
+ "written_at": "2026-11-04T22:22:09Z",
+ "by": "Claude",
+ "headline": "Critical Rails flaw allows server file writes; Zyxel zero-day hit nearly 1,000 switches; DreamHost breach details grow",
+ "bullets": [
+  {
+   "text": "New, high: The Hacker News reports a critical Rails flaw lets attackers write server files through crafted ImageMagick uploads. Dark Reading also warns that vulnerable servers are at risk.",
+   "url": "https://thehackernews.com/2026/11/critical-rails-flaw-lets-attackers.html"
+  },
+  {
+   "text": "Still active, critical: BleepingComputer reports Zyxel has fixed a zero-day that was exploited to hack nearly 1,000 network switches.",
+   "url": "https://www.bleepingcomputer.com/news/security/zyxel-fixes-zero-day-exploited-to-hack-nearly-1-000-network-switches/"
+  },
+  {
+   "text": "Developing, DreamHost: TechCrunch reports hackers stole customer files and inboxes during a months-long attack. BleepingComputer says DreamHost confirmed the breach exposed FTP logins and webmail sessions.",
+   "url": "https://techcrunch.com/2026/11/04/hackers-stole-dreamhost-customer-files-and-inboxes-during-months-long-attack/"
+  },
+  {
+   "text": "Still active, critical: The Hacker News reports APT29-linked hackers hijacked a web analytics script to deliver iOS and Android exploits. Help Net Security describes the exploits as n-day.",
+   "url": "https://thehackernews.com/2026/11/apt29-linked-hackers-hijack-web.html"
+  },
+  {
+   "text": "Still active, cPGuard, 4 outlets: SecurityWeek reports malicious updates served in an OpsShield supply chain attack. BleepingComputer says the hijacked autoupdate deployed a backdoor and stole data.",
+   "url": "https://www.securityweek.com/malicious-cpguard-updates-served-in-opsshield-supply-chain-attack/"
+  },
+  {
+   "text": "Still active, WordPress Core, 3 outlets: BleepingComputer reports CISA flags a WordPress RCE flaw as actively exploited. CISA KEV lists CVE-2026-119977, a race condition added 2026-11-03, with a federal due date of 2026-11-06.",
+   "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-wordpress-rce-flaw-as-actively-exploited-in-attacks/"
+  }
+ ],
+ "actions": [
+  "Check Rails advisories and patch apps that accept ImageMagick uploads. Apply Debian and Ubuntu APT fixes as they become available.",
+  "Apply Zyxel's fix for the exploited zero-day on your network switches and check them for signs of compromise.",
+  "Patch Apple devices for CVE-2024-27834 (KEV due 2026-11-18) and keep managed iOS and Android devices on current releases.",
+  "If you host at DreamHost, change FTP passwords, end webmail sessions and treat customer files and inboxes as potentially stolen.",
+  "If you use mSecure, change the master password and rotate stored credentials. If you run cPGuard, check servers for the backdoor.",
+  "Patch WordPress Core for CVE-2026-119977 (KEV due 2026-11-06) and Ivanti Connect Secure for CVE-2026-111357 and CVE-2026-118527."
+ ],
+ "commit": "50d8d7902e21e8dd30b90a8e57582c629b8d7b48",
+ "pushed_at": "2026-11-04T22:22:09Z",
+ "written_at_as_recorded": "2026-11-05T01:22:00Z"
+}

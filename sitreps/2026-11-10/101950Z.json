@@ -1,0 +1,42 @@
+{
+ "written_at": "2026-11-10T10:19:50Z",
+ "by": "Claude",
+ "headline": "SITCON 2 (SEVERE): Barracuda ESG flaws now exploited for root access; SAP patches four CVSS 10.0 flaws; OpenSSH SSHole attacks continue",
+ "bullets": [
+  {
+   "text": "Changed: attackers are now exploiting critical Barracuda Email Security Gateway flaws to gain root access on the appliances. The reporting in the brief names no CVEs or fixed releases yet. SITCON holds at 2 (SEVERE).",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-barracuda-email-security-gateway-flaws-to-get-root-access/"
+  },
+  {
+   "text": "Changed: SAP patched four flaws rated CVSS 10.0, two of which enable remote code execution. No exploitation is reported in the brief.",
+   "url": "https://thehackernews.com/2026/11/sap-patches-four-cvss-100-flaws.html"
+  },
+  {
+   "text": "Changed: the N-able story now spans 3 outlets. N-able took hosted N-central offline after a researcher published more than 30 zero-days (33 by one count) with proof-of-concept exploits. No fixes are named in the reporting yet.",
+   "url": "https://www.securityweek.com/n-able-takes-n-central-offline-as-researcher-drops-over-30-zero-days/"
+  },
+  {
+   "text": "SSHole (OpenSSH CVE-2026-123158, an authentication bypass) is still being used to breach Linux systems, covered by 6 outlets. In CISA KEV since 11-09 alongside GPUStack CVE-2026-102895, FreeSwitch CVE-2026-116779 and IBM Aspera Faspex CVE-2026-123218; all four are due 11-12.",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-sshole-openssh-flaw-to-breach-linux-systems/"
+  },
+  {
+   "text": "Google patched the eighth Chrome zero-day exploited in attacks this year (CVE-2026-125350); critical reports stand at 4 in 48 hours. France blames Iran for a sabotage attack on refrigeration controllers at about 700 retail sites, a story now on 4 outlets.",
+   "url": "https://thehackernews.com/2026/11/google-issues-chrome-security-update.html"
+  },
+  {
+   "text": "Still developing: Fireworks AI disclosed a new breach after a hack of its cloud provider, and attackers used Qubole's trusted AWS access to breach customer accounts. 300 malicious packages were listed in 7 days, mostly npm. The last 7 days ran 0.85x the 90-day average.",
+   "url": "https://www.bleepingcomputer.com/news/security/fireworks-ai-discloses-new-breach-after-cloud-provider-hack/"
+  }
+ ],
+ "actions": [
+  "Barracuda ESG: check Barracuda's advisory, apply available fixes, restrict management access and review appliances for signs of root compromise.",
+  "Apply SAP's November security patches, starting with the four CVSS 10.0 flaws on internet-reachable systems.",
+  "Patch OpenSSH for CVE-2026-123158 on every internet-facing host; restrict SSH exposure and review auth logs for unexpected logins.",
+  "Patch or isolate GPUStack (CVE-2026-102895), FreeSwitch (CVE-2026-116779) and IBM Aspera Faspex (CVE-2026-123218) before the 11-12 KEV deadline.",
+  "Update Chrome on all endpoints to the latest release (fixes CVE-2026-125350) and restart browsers; VMware ESX CVE-2026-41709 is due in KEV 11-11.",
+  "N-central users: plan for the hosted outage, limit network exposure of N-central servers and agents, and watch N-able for fixes."
+ ],
+ "commit": "554d36d29e61fc358c53f82c6cb80221125934c8",
+ "pushed_at": "2026-11-10T10:19:50Z",
+ "written_at_as_recorded": "2026-11-10T13:19:35Z"
+}

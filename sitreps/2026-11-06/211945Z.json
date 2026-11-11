@@ -1,0 +1,42 @@
+{
+ "written_at": "2026-11-06T21:19:45Z",
+ "by": "Claude",
+ "headline": "Zyxel GS1900 patch bypassed, OpenSSH CVE-2026-123158 exploited, SonicWall SSLVPN flaw in CISA KEV; Perry Johnson breach settlement",
+ "bullets": [
+  {
+   "text": "New: state attorneys general secured up to $10 million and a corrective action plan from the Perry Johnson companies over their 2023 breach. Nothing else new at high severity this run; SITCON holds at 3 (ELEVATED), last 7 days at 0.66x the 90-day average.",
+   "url": "https://databreaches.net/2026/11/06/state-attorneys-general-secure-up-to-10-million-and-corrective-action-plan-from-perry-johnson-companies-after-2023-breach/"
+  },
+  {
+   "text": "Still active, Zyxel GS1900, 4 outlets and top story: Zyxel's fix did not block the in-the-wild exploit (CVE-2026-107441) used to hack nearly 1,000 switches, which allows root command execution. D-Link separately warned of multiple zero-days in DGS-3130 Series switches.",
+   "url": "https://thehackernews.com/2026/11/zyxel-gs1900-patch-fails-to-block-zero.html"
+  },
+  {
+   "text": "Still active, OpenSSH, 5 outlets: CVE-2026-123158 is exploited in the wild hours after disclosure. Related: OpenSSH's emergency fix for long passwords bypassing SSH auth on Alpine Linux, which also reaches routers.",
+   "url": "https://www.helpnetsecurity.com/2026/11/06/openssh-sshole-cve-2026-123158-exploitation/"
+  },
+  {
+   "text": "Still active, SonicWall, 4 outlets: CISA added SonicOS SSLVPN CVE-2026-19868 (use of single-factor authentication) to KEV on 2026-11-06, federal due date 2026-11-20. SecurityWeek also reports SonicWall won't fix flaws in GMS.",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-19868"
+  },
+  {
+   "text": "Exposed secrets, 3 outlets: hackers are using Artex to scan GitHub repositories for exposed secrets; Microsoft reports threat actors using agentic AI tooling to find and abuse them, and Truffle Security launched a program to revoke nearly 1.5 million live secrets.",
+   "url": "https://www.cybersecuritydive.com/news/hackers-artex-github-repositories-exposed-secrets/874007/"
+  },
+  {
+   "text": "Breaches still on the board: Chainalysis says credentials for all customers were exposed and it shut down key services; DigiCert exposed business customer information and identity documents; DreamHost exposed FTP logins and webmail sessions (3 outlets).",
+   "url": "https://www.bleepingcomputer.com/news/security/chainalysis-says-breach-exposed-credentials-for-all-customers/"
+  }
+ ],
+ "actions": [
+  "Treat Zyxel GS1900 and D-Link DGS-3130 switches as exposed: restrict management access, check for compromise, apply fixes as they ship.",
+  "Patch OpenSSH on every internet-facing host now for CVE-2026-123158; restrict SSH exposure and review auth logs for exploitation.",
+  "SonicWall SSLVPN users: patch or mitigate CVE-2026-19868 before 2026-11-20, enforce MFA on VPN access, and review VPN logs for unusual logins.",
+  "Scan your GitHub repos and their history for committed secrets; revoke and rotate anything found and turn on secret scanning with push protection.",
+  "Chainalysis, DigiCert and DreamHost customers: reset passwords, rotate API keys and FTP credentials, and watch for phishing.",
+  "WordPress Core CVE-2026-119977 is past its KEV due date: patch now; schedule Ivanti CVE-2026-104935 (due 11-13) and Apple CVE-2024-27834 (due 11-18)."
+ ],
+ "commit": "5c4881a32f921784a1f5eaef4fe974758bd9455c",
+ "pushed_at": "2026-11-06T21:19:45Z",
+ "written_at_as_recorded": "2026-11-07T00:19:00Z"
+}

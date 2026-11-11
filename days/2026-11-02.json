@@ -1,0 +1,526 @@
+{
+ "schema": 1,
+ "date": "2026-11-02",
+ "source": "backfill",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-11-02T00:18:57Z",
+    4,
+    42.4
+   ],
+   [
+    "2026-11-02T01:18:58Z",
+    4,
+    41.6
+   ],
+   [
+    "2026-11-02T02:18:57Z",
+    4,
+    41.6
+   ],
+   [
+    "2026-11-02T03:18:57Z",
+    4,
+    41.6
+   ],
+   [
+    "2026-11-02T04:18:58Z",
+    4,
+    41.6
+   ],
+   [
+    "2026-11-02T05:18:58Z",
+    4,
+    41.5
+   ],
+   [
+    "2026-11-02T06:18:58Z",
+    4,
+    45.9
+   ],
+   [
+    "2026-11-02T07:19:01Z",
+    4,
+    45.9
+   ],
+   [
+    "2026-11-02T08:18:58Z",
+    4,
+    48.2
+   ],
+   [
+    "2026-11-02T09:18:59Z",
+    4,
+    54.1
+   ],
+   [
+    "2026-11-02T10:19:00Z",
+    4,
+    62.8
+   ],
+   [
+    "2026-11-02T11:18:58Z",
+    4,
+    63.6
+   ],
+   [
+    "2026-11-02T12:18:58Z",
+    4,
+    67.7
+   ],
+   [
+    "2026-11-02T13:18:58Z",
+    4,
+    69.1
+   ],
+   [
+    "2026-11-02T14:18:59Z",
+    4,
+    74.2
+   ],
+   [
+    "2026-11-02T15:18:59Z",
+    3,
+    81.5
+   ],
+   [
+    "2026-11-02T16:18:59Z",
+    3,
+    84.5
+   ],
+   [
+    "2026-11-02T17:18:59Z",
+    3,
+    87.9
+   ],
+   [
+    "2026-11-02T18:18:59Z",
+    3,
+    85.5
+   ],
+   [
+    "2026-11-02T19:18:59Z",
+    3,
+    86.5
+   ],
+   [
+    "2026-11-02T20:18:59Z",
+    3,
+    86.5
+   ],
+   [
+    "2026-11-02T21:18:59Z",
+    3,
+    86.5
+   ],
+   [
+    "2026-11-02T22:19:37Z",
+    3,
+    90.2
+   ],
+   [
+    "2026-11-02T23:22:47Z",
+    3,
+    91.4
+   ]
+  ],
+  "hours_at_level": {
+   "4": 15,
+   "3": 9
+  },
+  "highest": 3,
+  "lowest": 4
+ },
+ "first_seen": {
+  "count": 125,
+  "by_severity": {
+   "critical": 3,
+   "high": 38,
+   "medium": 63,
+   "low": 21
+  },
+  "by_type": {
+   "news": 72,
+   "ransomware": 52,
+   "advisory": 1
+  }
+ },
+ "situations": [
+  {
+   "name": "TraderTraitor",
+   "severity": "high",
+   "outlets": 7,
+   "reports": 7,
+   "cves": [],
+   "lead": {
+    "title": "One Compromised Laptop, Billions Lost: The Binance Attack-Path Warning",
+    "url": "https://www.darkreading.com/cyberattacks-data-breaches/binance-hack-test-attack-paths",
+    "source": "Dark Reading",
+    "published": "2026-11-02T22:27:24Z"
+   }
+  },
+  {
+   "name": "Ivanti Patches Two More Zero-Days Exploited in Connect Secure Attack…",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [
+    "CVE-2026-111357",
+    "CVE-2026-118527"
+   ],
+   "lead": {
+    "title": "Ivanti Patches Two More Zero-Days Exploited in Connect Secure Attack Chain",
+    "url": "https://www.securityweek.com/ivanti-patches-two-more-zero-days-exploited-in-connect-secure-attack-chain/",
+    "source": "SecurityWeek",
+    "published": "2026-11-02T07:57:49Z"
+   }
+  },
+  {
+   "name": "Europe",
+   "severity": "high",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [],
+   "lead": {
+    "title": "Supermarket freezers across Europe hit by second suspected cyber-attack",
+    "url": "https://databreaches.net/2026/11/02/supermarket-freezers-across-europe-hit-by-second-suspected-cyber-attack/",
+    "source": "DataBreaches.net",
+    "published": "2026-11-02T23:26:13Z"
+   }
+  }
+ ],
+ "top_reports": [
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Max-severity bug in widely used OT programming tool exploited to deliver Linux malware",
+   "source": "The Register",
+   "url": "https://www.theregister.com/security/2026/11/02/max-severity-bug-in-widely-used-ot-programming-tool-exploited-to-deliver-linux-malware/5307086",
+   "published": "2026-11-02T22:55:17Z",
+   "first_seen": "2026-11-02T23:23:11Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Critical Langflow Flaws Could Let Unauthenticated Attackers Run Code on Servers",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/critical-langflow-flaws-could-let.html",
+   "published": "2026-11-02T11:50:00Z",
+   "first_seen": "2026-11-02T14:19:53Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Ivanti Patches Two More Zero-Days Exploited in Connect Secure Attack Chain",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/ivanti-patches-two-more-zero-days-exploited-in-connect-secure-attack-chain/",
+   "published": "2026-11-02T07:57:49Z",
+   "first_seen": "2026-11-02T08:19:43Z",
+   "cves": [
+    "CVE-2026-111357",
+    "CVE-2026-118527"
+   ]
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "One Compromised Laptop, Billions Lost: The Binance Attack-Path Warning",
+   "source": "Dark Reading",
+   "url": "https://www.darkreading.com/cyberattacks-data-breaches/binance-hack-test-attack-paths",
+   "published": "2026-11-02T22:27:24Z",
+   "first_seen": "2026-11-02T23:23:11Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Largest crypto exchange in Brazil confirms cyberattack as millions flow out of platform",
+   "source": "The Record",
+   "url": "https://therecord.media/mercado-bitcoin-brazil-cryptocurrency-heist",
+   "published": "2026-11-02T21:42:00Z",
+   "first_seen": "2026-11-02T22:20:25Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Chinese hackers use ARTEX AI in automated attacks against 200 orgs",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/chinese-hackers-use-artex-ai-in-automated-attacks-against-200-orgs/",
+   "published": "2026-11-02T21:40:14Z",
+   "first_seen": "2026-11-02T22:20:25Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Michigan State cyber incident claimed by ransomware gang behind recent hospital attack",
+   "source": "The Record",
+   "url": "https://therecord.media/michigan-state-university-byod-gang-cyber-incident",
+   "published": "2026-11-02T19:54:00Z",
+   "first_seen": "2026-11-02T20:19:48Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Fintech platform Sageworks taken offline after suspected cyberattack",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/fintech-platform-sageworks-taken-offline-after-suspected-cyberattack/",
+   "published": "2026-11-02T19:00:45Z",
+   "first_seen": "2026-11-02T19:19:24Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Polymarket pledges to give $3.9 million back to victims after site compromise",
+   "source": "The Record",
+   "url": "https://therecord.media/polymarket-returning-funds-to-customers-after-site-compromise",
+   "published": "2026-11-02T17:05:20Z",
+   "first_seen": "2026-11-02T17:19:24Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Thieves pilfer environment variables from Trigger AI workflow tool",
+   "source": "The Register",
+   "url": "https://www.theregister.com/security/2026/11/02/thieves-pilfer-environment-variables-from-trigger-ai-workflow-tool/5306998",
+   "published": "2026-11-02T16:44:30Z",
+   "first_seen": "2026-11-02T17:19:24Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Russia's statistics agency confirms cyberattack claimed by Belarusian and Ukrainian hackers",
+   "source": "The Record",
+   "url": "https://therecord.media/hackers-ukraine-belarus-russia",
+   "published": "2026-11-02T16:30:00Z",
+   "first_seen": "2026-11-02T17:19:24Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "CISA to federal agencies: Remediate exploited Ivanti Connect Secure vulnerabilities (CVE-2026-111357, CVE-2026-118527)",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/11/02/cisa-to-federal-agencies-remediate-exploited-ivanti-connect-secure-vulnerabilities-cve-2026-111357-cve-2026-118527/",
+   "published": "2026-11-02T15:58:08Z",
+   "first_seen": "2026-11-02T16:19:25Z",
+   "cves": [
+    "CVE-2026-111357",
+    "CVE-2026-118527"
+   ]
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "BTCPay Server warns of hot wallet crypto thefts on outdated instances",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/btcpay-server-warns-of-hot-wallet-thefts-targeting-outdated-instances/",
+   "published": "2026-11-02T15:03:07Z",
+   "first_seen": "2026-11-02T15:19:59Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "DarkBlinders Compromises Israeli Target and Iraqi Kurdish Government Cloud Environment",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/darkblinders-compromises-israeli-target.html",
+   "published": "2026-11-02T14:46:05Z",
+   "first_seen": "2026-11-02T15:19:59Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Nuclear threats and street brawls: Russia, Ukraine report attacks on their emergency alert apps",
+   "source": "The Register",
+   "url": "https://www.theregister.com/security/2026/11/02/nuclear-threats-and-street-brawls-russia-ukraine-report-attacks-on-their-emergency-alert-apps/5306901",
+   "published": "2026-11-02T14:45:00Z",
+   "first_seen": "2026-11-02T15:19:59Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Florida Student Aid Website Hack Puts Data of 4.9 Million People at Risk",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/florida-student-aid-website-hack-puts-data-of-4-9-million-people-at-risk/",
+   "published": "2026-11-02T14:44:18Z",
+   "first_seen": "2026-11-02T15:19:59Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Apple warns users in 99 countries of mercenary spyware",
+   "source": "The Record",
+   "url": "https://therecord.media/apple-warns-users-99-countries-mercenary-spyware",
+   "published": "2026-11-02T14:42:00Z",
+   "first_seen": "2026-11-02T15:19:59Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Russian and Ukrainian hackers hijack emergency apps to spread fake nuclear attack warnings",
+   "source": "The Record",
+   "url": "https://therecord.media/ukraine-hackers-russia-alert-system",
+   "published": "2026-11-02T14:30:00Z",
+   "first_seen": "2026-11-02T15:19:59Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Hackers disrupt refrigeration systems at European supermarkets",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-disrupt-refrigeration-systems-at-european-supermarkets/",
+   "published": "2026-11-02T14:28:39Z",
+   "first_seen": "2026-11-02T15:19:59Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Second wave of refrigeration cyberattacks hits European supermarkets",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/11/02/european-supermarkets-refrigeration-units-cyberattacks/",
+   "published": "2026-11-02T14:28:25Z",
+   "first_seen": "2026-11-02T15:19:59Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Agentic pen-testing tool employed in multiple espionage campaigns around the globe",
+   "source": "Cybersecurity Dive",
+   "url": "https://www.cybersecuritydive.com/news/agentic-pen-testing-tool-espionage-campaigns/873427/",
+   "published": "2026-11-02T14:13:27Z",
+   "first_seen": "2026-11-02T17:19:24Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "A fresh wave of cyberattacks has hit Europe’s supermarket refrigerators, destroying food across countries",
+   "source": "TechCrunch Security",
+   "url": "https://techcrunch.com/2026/11/02/a-fresh-wave-of-cyberattacks-has-hit-europes-supermarket-refrigerators-destroying-food-across-countries/",
+   "published": "2026-11-02T14:08:52Z",
+   "first_seen": "2026-11-02T14:19:53Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "PapRAT Cyber-Espionage Campaign Leaves a 'Bitter' Taste in South Asia",
+   "source": "Dark Reading",
+   "url": "https://www.darkreading.com/cyberattacks-data-breaches/paprat-cyberespionage-campaign-bitter-south-asia",
+   "published": "2026-11-02T14:00:00Z",
+   "first_seen": "2026-11-02T14:19:53Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Revolve Data Breach Impacts at Least 200,000 People",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/revolve-data-breach-impacts-at-least-180000-people/",
+   "published": "2026-11-02T13:35:21Z",
+   "first_seen": "2026-11-02T14:19:53Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Second wave of suspected cyberattacks hits supermarket freezers across Europe",
+   "source": "The Record",
+   "url": "https://therecord.media/cyberattack-grocery-freezers-europe",
+   "published": "2026-11-02T13:00:00Z",
+   "first_seen": "2026-11-02T13:19:53Z",
+   "cves": []
+  }
+ ],
+ "kev_added": [],
+ "breaches": [],
+ "ransomware_claims": {
+  "count": 53,
+  "groups": [
+   [
+    "the gentlemen",
+    24
+   ],
+   [
+    "n0n",
+    5
+   ],
+   [
+    "orova",
+    4
+   ],
+   [
+    "akira",
+    3
+   ],
+   [
+    "qilin",
+    2
+   ],
+   [
+    "ransomhouse",
+    2
+   ],
+   [
+    "everstake",
+    2
+   ],
+   [
+    "interlock",
+    2
+   ],
+   [
+    "leakeddata",
+    1
+   ],
+   [
+    "SilentRansomGroup",
+    1
+   ]
+  ]
+ },
+ "archive_counts": {
+  "date": "2026-11-02",
+  "exploited": 0.0,
+  "ransomware": 4.5,
+  "breaches": 0.0,
+  "community": 0.6,
+  "kev": 0,
+  "claims": 18,
+  "breach_count": 0,
+  "accounts": 0,
+  "stories": 1,
+  "top": "WorkOS reports security breach",
+  "top_url": "https://news.ycombinator.com/item?id=50345712"
+ },
+ "sitreps": [
+  "sitreps/2026-11-02/031927Z.json",
+  "sitreps/2026-11-02/061922Z.json",
+  "sitreps/2026-11-02/081905Z.json",
+  "sitreps/2026-11-02/091930Z.json",
+  "sitreps/2026-11-02/101916Z.json",
+  "sitreps/2026-11-02/122000Z.json",
+  "sitreps/2026-11-02/131900Z.json",
+  "sitreps/2026-11-02/141918Z.json",
+  "sitreps/2026-11-02/151928Z.json",
+  "sitreps/2026-11-02/201927Z.json",
+  "sitreps/2026-11-02/221949Z.json"
+ ],
+ "note": "Backfilled on 2026-11-11 from the sweep memory kept on the analyst's Mac and the public board. Reports drop off the board 14 days after publication, so early days list fewer reports than were seen; the archive_counts come from the full CISA KEV, ransomware-claim, Have I Been Pwned and Hacker News archives. The Mac's clock ran 3.0 h fast from about 2026-11-03T16:20:14Z; its stamps in that period have been corrected."
+}

@@ -1,0 +1,41 @@
+{
+ "written_at": "2026-10-30T22:19:00Z",
+ "by": "Claude",
+ "headline": "Critical Linux kernel MPTCP remote-root flaw; trojanized Claude Code extension and record $6.3B Binance theft stay on the board",
+ "bullets": [
+  {
+   "text": "New: BleepingComputer reports a critical Linux kernel flaw that allows remote root attacks on servers using MPTCP (Multipath TCP).",
+   "url": "https://www.bleepingcomputer.com/news/security/critical-linux-kernel-flaw-allows-remote-root-attacks-on-mptcp-servers/"
+  },
+  {
+   "text": "WIRED reports the supply-chain attack that trojanized the Claude Code extension on the Cursor Marketplace reached thousands of developer devices. The extension planted persistent SSH backdoors.",
+   "url": "https://www.wired.com/story/trojan-malware-targets-thousands-of-anthropic-claude-developer-systems/"
+  },
+  {
+   "text": "North Korea-linked hackers are blamed for the record $6.3 billion Binance theft. Binance links it to a compromised DevOps laptop; nearly $3 billion has been frozen.",
+   "url": "https://www.bleepingcomputer.com/news/security/binance-links-63-billion-crypto-theft-to-compromised-devops-laptop/"
+  },
+  {
+   "text": "CISA added the exploited max-severity GitLab CE/EE flaw CVE-2026-97229 and the Cisco ASA/FTD firewall DoS zero-day CVE-2026-76418 to KEV, both with a federal due date of 2026-11-01.",
+   "url": "https://thehackernews.com/2026/10/cisa-adds-actively-exploited-gitlab-rce.html"
+  },
+  {
+   "text": "Cisco SD-WAN flaw CVE-2026-20127 is being exploited to deploy custom KeyDrift malware.",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-cisco-sd-wan-flaw-to-deploy-custom-keydrift-malware/"
+  },
+  {
+   "text": "China-linked attackers used VMware ESX zero-day CVE-2026-41709 and chained PHP2Shell and Fragnesia to root Palo Alto firewalls.",
+   "url": "https://www.helpnetsecurity.com/2026/10/29/php2shell-fragnesia-vmware-esx-zero-day/"
+  }
+ ],
+ "actions": [
+  "Inventory Linux servers with MPTCP enabled and apply your distribution's kernel fix for the MPTCP remote-root flaw as soon as it ships.",
+  "If developers use the Claude Code extension in Cursor, check it against the vendor advisory and look for unexpected SSH keys or services.",
+  "Patch self-managed GitLab CE/EE for CVE-2026-97229 and Cisco ASA/FTD for CVE-2026-76418 before 2026-11-01.",
+  "Patch Ivanti Connect Secure for the two flaws CISA added to KEV on 2026-10-30 (due 2026-11-02 and 2026-11-13) and review appliance logs.",
+  "Patch Cisco SD-WAN for CVE-2026-20127 and hunt for KeyDrift malware; patch VMware ESX for CVE-2026-41709.",
+  "Apply Linux kernel fixes for CVE-2026-46300 (KEV due 2026-10-31) and patch Drupal Commerce for CVE-2026-118539."
+ ],
+ "commit": "8aaaac1a76a5ae3b37fb6a2c8e60092740c3602a",
+ "pushed_at": "2026-10-30T22:20:15Z"
+}

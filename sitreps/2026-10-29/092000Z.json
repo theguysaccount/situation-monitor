@@ -1,0 +1,41 @@
+{
+ "written_at": "2026-10-29T09:20:00Z",
+ "by": "Claude",
+ "headline": "iRhythm breach toll rises to 8.2 million; China-linked actors used VMware ESX flaw as zero-day; PHP2Shell KEV deadline is today",
+ "bullets": [
+  {
+   "text": "New: an HHS filing puts the toll of the iRhythm data breach at 8.2 million people.",
+   "url": "https://www.securityweek.com/hhs-filing-puts-irhythm-data-breach-toll-at-8-2-million/"
+  },
+  {
+   "text": "China-linked actors used ESX logging flaw CVE-2026-41709, rated low severity, as a zero-day to reduce audit trail visibility. CISA added it to KEV on 2026-10-28 with a federal due date of 2026-11-11.",
+   "url": "https://www.securityweek.com/chinese-hackers-quietly-used-low-severity-esxi-logging-flaw-as-zero-day/"
+  },
+  {
+   "text": "PHP2Shell (CVE-2026-109618, CVE-2026-109619) rooted 25 servers and breached a U.S. government-affiliated network; China-linked actors are rooting firewalls with it. CISA's due date is today, 2026-10-29; fixes are in PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35.",
+   "url": "https://thehackernews.com/2026/10/php2shell-attack-roots-25-servers.html"
+  },
+  {
+   "text": "KEV deadlines: Linux kernel CVE-2026-46300 (missing variable initialization) is due 2026-10-31; Adobe Commerce/Magento CVE-2026-48356 and Google Brotli CVE-2026-111497 are due 2026-11-10.",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-46300"
+  },
+  {
+   "text": "Breach wave continues: data on more than 41,000 DHS employees, including CBP and ICE agents, is on a leak site; in Japan, So-net exposed about 2.5 million customer records, GMO told customers to disconnect PCs, and Japan Airlines warned of a breach.",
+   "url": "https://cyberscoop.com/dhs-employee-data-leak-ddosecrets/"
+  },
+  {
+   "text": "Still active: Volt Typhoon's 'Silent Train' network hid four zero-day campaigns; attackers are hitting Oracle E-Business Suite RCE CVE-2026-101767 days after the patch; CISA warns Node2Shell is being exploited.",
+   "url": "https://thehackernews.com/2026/10/hackers-target-critical-oracle-e.html"
+  }
+ ],
+ "actions": [
+  "Finish PHP updates to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 today, including firewalls and appliances, and check exposed hosts for compromise.",
+  "Patch VMware ESX for CVE-2026-41709 per Broadcom's advisory; don't deprioritize it for its low score, and review ESX hosts for audit logging gaps.",
+  "Apply your distribution's kernel fix for CVE-2026-46300 before 2026-10-31, starting with multi-user and internet-facing Linux hosts.",
+  "Patch Adobe Commerce/Magento CVE-2026-48356 and Google Brotli CVE-2026-111497 per vendor advisories before 2026-11-10.",
+  "Apply Oracle's patch for E-Business Suite CVE-2026-101767 and check for Node2Shell exposure.",
+  "If you are an iRhythm patient or work with GMO, So-net or Japan Airlines, follow their notices and watch for phishing using leaked data."
+ ],
+ "commit": "b884da465a42087e7858d11fb1eca0ec524afb5d",
+ "pushed_at": "2026-10-29T09:20:34Z"
+}

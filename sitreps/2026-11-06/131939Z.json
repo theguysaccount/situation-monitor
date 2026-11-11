@@ -1,0 +1,42 @@
+{
+ "written_at": "2026-11-06T13:19:39Z",
+ "by": "Claude",
+ "headline": "OpenSSH CVE-2026-123158 exploited hours after disclosure; D-Link DGS-3130 zero-days; Zyxel GS1900 patch still bypassed",
+ "bullets": [
+  {
+   "text": "New: an OpenSSH flaw, CVE-2026-123158, is being exploited in the wild just hours after disclosure (5 outlets on the board). This follows the emergency OpenSSH fix for long passwords bypassing SSH auth on Alpine Linux. SITCON holds at 3 (ELEVATED); last 7 days at 0.7x the 90-day average.",
+   "url": "https://www.helpnetsecurity.com/2026/11/06/openssh-sshole-cve-2026-123158-exploitation/"
+  },
+  {
+   "text": "New: D-Link warned of multiple zero-days in its DGS-3130 Series switches.",
+   "url": "https://www.bleepingcomputer.com/news/security/d-link-warns-of-multiple-zero-days-in-dgs-3130-series-switches/"
+  },
+  {
+   "text": "Still active, Zyxel GS1900, 4 outlets: Zyxel's fix for a zero-day used to hack nearly 1,000 switches did not block the in-the-wild exploit (CVE-2026-107441), which allows root command execution. Top story on the board.",
+   "url": "https://thehackernews.com/2026/11/zyxel-gs1900-patch-fails-to-block-zero.html"
+  },
+  {
+   "text": "Breaches: Chainalysis disclosed a breach exposing all users' credentials and shut down key services. Ahold Delhaize put a financial estimate on its October cyberattack. DreamHost (FTP logins, webmail sessions) and DigiCert (customer info, identity documents) also confirmed breaches.",
+   "url": "https://thehackernews.com/2026/11/chainalysis-breach-exposes-all-users.html"
+  },
+  {
+   "text": "CISA KEV: WordPress Core CVE-2026-119977 (TOCTOU race, exploited for RCE) is due today, 2026-11-06. Ivanti Connect Secure CVE-2026-104935 is due 2026-11-13 and Apple CVE-2024-27834, used to deliver info-stealing malware, is due 2026-11-18.",
+   "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-wordpress-rce-flaw-as-actively-exploited-in-attacks/"
+  },
+  {
+   "text": "Still active, supply chain: cPGuard autoupdate was hijacked in the OpsShield attack to serve malicious updates (3 outlets). The NIKKE PC game launcher was also hacked to spread remote-access and data-stealing malware.",
+   "url": "https://www.securityweek.com/malicious-cpguard-updates-served-in-opsshield-supply-chain-attack/"
+  }
+ ],
+ "actions": [
+  "Patch OpenSSH on every internet-facing host now for CVE-2026-123158; restrict SSH exposure and review auth logs for exploitation.",
+  "Inventory D-Link DGS-3130 switches, cut management-plane exposure, and apply D-Link's fixes or mitigations as they ship.",
+  "Treat Zyxel GS1900 switches as exposed even after patching: restrict management access, check for compromise, watch for a new fix.",
+  "Patch WordPress Core for CVE-2026-119977 today (KEV due 2026-11-06); schedule Ivanti and Apple KEV fixes before their due dates.",
+  "Chainalysis, DreamHost and DigiCert customers: reset passwords, rotate API keys and FTP credentials, and watch for phishing.",
+  "cPGuard users: check servers for malicious updates and rotate credentials; NIKKE launcher users should scan for malware."
+ ],
+ "commit": "e395a90c70ba0be41b57ddacae9fcac12ab494b2",
+ "pushed_at": "2026-11-06T13:19:39Z",
+ "written_at_as_recorded": "2026-11-06T16:20:00Z"
+}

@@ -1,0 +1,599 @@
+{
+ "schema": 1,
+ "date": "2026-11-04",
+ "source": "backfill",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-11-04T00:08:12Z",
+    2,
+    189.6
+   ],
+   [
+    "2026-11-04T01:09:56Z",
+    2,
+    189.6
+   ],
+   [
+    "2026-11-04T02:30:11Z",
+    2,
+    190.2
+   ],
+   [
+    "2026-11-04T03:36:01Z",
+    2,
+    187.1
+   ],
+   [
+    "2026-11-04T04:15:26Z",
+    2,
+    187.1
+   ],
+   [
+    "2026-11-04T05:22:48Z",
+    2,
+    184.6
+   ],
+   [
+    "2026-11-04T06:17:06Z",
+    2,
+    182.1
+   ],
+   [
+    "2026-11-04T07:10:00Z",
+    2,
+    178.4
+   ],
+   [
+    "2026-11-04T09:02:01Z",
+    2,
+    166.4
+   ],
+   [
+    "2026-11-04T09:25:03Z",
+    2,
+    169.0
+   ],
+   [
+    "2026-11-04T10:10:39Z",
+    2,
+    165.9
+   ],
+   [
+    "2026-11-04T11:08:53Z",
+    2,
+    169.9
+   ],
+   [
+    "2026-11-04T12:37:09Z",
+    2,
+    171.8
+   ],
+   [
+    "2026-11-04T13:18:17Z",
+    2,
+    173.9
+   ],
+   [
+    "2026-11-04T14:18:40Z",
+    2,
+    173.1
+   ],
+   [
+    "2026-11-04T15:17:39Z",
+    2,
+    180.4
+   ],
+   [
+    "2026-11-04T16:21:15Z",
+    2,
+    183.1
+   ],
+   [
+    "2026-11-04T17:16:59Z",
+    2,
+    186.0
+   ],
+   [
+    "2026-11-04T18:08:50Z",
+    2,
+    190.8
+   ],
+   [
+    "2026-11-04T19:22:05Z",
+    2,
+    193.3
+   ],
+   [
+    "2026-11-04T20:16:15Z",
+    2,
+    192.7
+   ],
+   [
+    "2026-11-04T21:10:05Z",
+    2,
+    190.3
+   ],
+   [
+    "2026-11-04T22:21:29Z",
+    2,
+    194.0
+   ]
+  ],
+  "hours_at_level": {
+   "2": 23
+  },
+  "highest": 2,
+  "lowest": 2
+ },
+ "first_seen": {
+  "count": 160,
+  "by_severity": {
+   "medium": 96,
+   "low": 28,
+   "critical": 9,
+   "high": 27
+  },
+  "by_type": {
+   "ransomware": 84,
+   "news": 74,
+   "community": 1,
+   "kev": 1
+  }
+ },
+ "situations": [
+  {
+   "name": "6.3B Binance",
+   "severity": "critical",
+   "outlets": 10,
+   "reports": 15,
+   "cves": [],
+   "lead": {
+    "title": "Rigged Coding Assignment, Abused AI Tool Opened Path to $6 Billion Binance Heist",
+    "url": "https://www.securityweek.com/rigged-coding-assignment-abused-ai-tool-opened-path-to-6-billion-binance-heist/",
+    "source": "SecurityWeek",
+    "published": "2026-11-04T10:36:32Z"
+   }
+  },
+  {
+   "name": "WordPress Core",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [
+    "CVE-2026-119977"
+   ],
+   "lead": {
+    "title": "CISA flags WordPress RCE flaw as actively exploited in attacks",
+    "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-wordpress-rce-flaw-as-actively-exploited-in-attacks/",
+    "source": "BleepingComputer",
+    "published": "2026-11-04T12:11:05Z"
+   }
+  },
+  {
+   "name": "French",
+   "severity": "high",
+   "outlets": 5,
+   "reports": 6,
+   "cves": [],
+   "lead": {
+    "title": "French bank confirms cyber heist, hackers suspected to have stolen an estimated $133 million",
+    "url": "https://therecord.media/french-bank-confirms-cyber-heist",
+    "source": "The Record",
+    "published": "2026-11-04T18:58:00Z"
+   }
+  },
+  {
+   "name": "Ukraine and Russia both report fake emergency alerts after…",
+   "severity": "high",
+   "outlets": 3,
+   "reports": 5,
+   "cves": [],
+   "lead": {
+    "title": "Ukraine and Russia both report fake emergency alerts after cyberattacks target apps as limited ceasefire ends",
+    "url": "https://wordpress-1685287-6764806.cloudwaysapps.com/2026/11/03/ukraine-and-russia-both-report-fake-emergency-alerts-after-cyberattacks-target-apps-as-limited-ceasefire-ends/",
+    "source": "DataBreaches.net",
+    "published": "2026-11-03T20:07:11Z"
+   }
+  },
+  {
+   "name": "cPGuard",
+   "severity": "high",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [],
+   "lead": {
+    "title": "Poisoned cPGuard update hits thousands of web hosting servers",
+    "url": "https://www.helpnetsecurity.com/2026/11/04/cpguard-update-supply-chain-compromised/",
+    "source": "Help Net Security",
+    "published": "2026-11-04T11:18:23Z"
+   }
+  },
+  {
+   "name": "Europe",
+   "severity": "high",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [],
+   "lead": {
+    "title": "New Wave of Refrigeration Cyberattacks Hits Supermarkets Across Europe, Forcing Stores to Pull Food",
+    "url": "https://thehackernews.com/2026/11/second-wave-of-cyberattacks-hits.html",
+    "source": "The Hacker News",
+    "published": "2026-11-03T07:27:07Z"
+   }
+  },
+  {
+   "name": "Barracuda",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [],
+   "lead": {
+    "title": "Barracuda warns of critical flaws allowing root access to devices",
+    "url": "https://www.bleepingcomputer.com/news/security/barracuda-warns-of-critical-flaws-allowing-root-access-to-devices/",
+    "source": "BleepingComputer",
+    "published": "2026-11-03T15:06:16Z"
+   }
+  },
+  {
+   "name": "Ivanti Patches Two More Zero-Days Exploited in Connect Secure Attack…",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [
+    "CVE-2026-111357",
+    "CVE-2026-118527"
+   ],
+   "lead": {
+    "title": "Ivanti Patches Two More Zero-Days Exploited in Connect Secure Attack Chain",
+    "url": "https://www.securityweek.com/ivanti-patches-two-more-zero-days-exploited-in-connect-secure-attack-chain/",
+    "source": "SecurityWeek",
+    "published": "2026-11-02T07:57:49Z"
+   }
+  }
+ ],
+ "top_reports": [
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Critical Rails Bug Threatens to Derail Vulnerable Servers",
+   "source": "Dark Reading",
+   "url": "https://www.darkreading.com/application-security/critical-rails-bug-derail-vulnerable-servers",
+   "published": "2026-11-04T21:48:18Z",
+   "first_seen": "2026-11-04T22:14:50Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Zyxel fixes zero-day exploited to hack nearly 1,000 network switches",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/zyxel-fixes-zero-day-exploited-to-hack-nearly-1-000-network-switches/",
+   "published": "2026-11-04T20:58:19Z",
+   "first_seen": "2026-11-04T21:10:58Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Russian hackers target iOS and Android users with n-day exploits",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/11/04/apt29-watering-hole-mobile-devices-n-day-exploits/",
+   "published": "2026-11-04T14:38:37Z",
+   "first_seen": "2026-11-04T15:23:47Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "APT29-Linked Hackers Hijack Web Analytics Script to Deliver iOS and Android Exploits",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/apt29-linked-hackers-hijack-web.html",
+   "published": "2026-11-04T14:27:52Z",
+   "first_seen": "2026-11-04T15:23:47Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "CISA flags WordPress RCE flaw as actively exploited in attacks",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-wordpress-rce-flaw-as-actively-exploited-in-attacks/",
+   "published": "2026-11-04T12:11:05Z",
+   "first_seen": "2026-11-04T12:38:29Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Critical Rails Flaw Lets Attackers Write Server Files via Crafted ImageMagick Uploads",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/critical-rails-flaw-lets-attackers.html",
+   "published": "2026-11-04T12:07:04Z",
+   "first_seen": "2026-11-04T12:38:29Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Hackers use n-day exploits in zero-click attacks on iOS, Android devices",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-use-n-day-exploits-in-zero-click-attacks-on-ios-android-devices/",
+   "published": "2026-11-04T09:39:54Z",
+   "first_seen": "2026-11-04T10:11:04Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Google Issues Patches for Critical Android Flaw That Could Allow RCE Without User Interaction",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/google-patches-critical-android-flaw.html",
+   "published": "2026-11-04T07:46:15Z",
+   "first_seen": "2026-11-04T09:25:50Z",
+   "cves": [
+    "CVE-2026-58868"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "CISA Confirms Hackers Exploiting WordPress Core Flaw During Software Upgrades",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/cisa-confirms-hackers-exploiting.html",
+   "published": "2026-11-04T05:43:11Z",
+   "first_seen": "2026-11-04T08:02:22Z",
+   "cves": [
+    "CVE-2026-119977"
+   ]
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "More Asian airlines announce data breaches after attack on Spanish IT provider Amadeus",
+   "source": "The Record",
+   "url": "https://therecord.media/asian-airlines-announce-data-breach-it-provider-incident",
+   "published": "2026-11-04T21:30:00Z",
+   "first_seen": "2026-11-04T22:14:50Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Hackers stole DreamHost customer files and inboxes during months-long attack",
+   "source": "TechCrunch Security",
+   "url": "https://techcrunch.com/2026/11/04/hackers-stole-dreamhost-customer-files-and-inboxes-during-months-long-attack/",
+   "published": "2026-11-04T20:36:57Z",
+   "first_seen": "2026-11-04T21:10:58Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "DreamHost confirms data breach exposed FTP logins and webmail sessions",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/dreamhost-confirms-data-breach-exposed-ftp-logins-and-webmail-sessions/",
+   "published": "2026-11-04T19:05:19Z",
+   "first_seen": "2026-11-04T19:22:54Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "French bank confirms cyber heist, hackers suspected to have stolen an estimated $133 million",
+   "source": "The Record",
+   "url": "https://therecord.media/french-bank-confirms-cyber-heist",
+   "published": "2026-11-04T18:58:00Z",
+   "first_seen": "2026-11-04T19:22:54Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Hackers steal 320,000 UK school files and publish them on dark web",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/04/hackers-steal-320000-uk-school-files-and-publish-them-on-dark-web/",
+   "published": "2026-11-04T18:15:35Z",
+   "first_seen": "2026-11-04T19:22:54Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Cyberattack wipes cloud data at major Russian hosting provider Beget",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/04/cyberattack-wipes-cloud-data-at-major-russian-hosting-provider-beget/",
+   "published": "2026-11-04T18:13:39Z",
+   "first_seen": "2026-11-04T19:22:54Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Cyberattack disrupts blood storage refrigeration systems in France",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/cyberattack-disrupts-blood-storage-refrigeration-systems-in-france/",
+   "published": "2026-11-04T18:02:56Z",
+   "first_seen": "2026-11-04T18:09:41Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Debian and Ubuntu APT Flaw Lets MitM Attackers Swap Verified Packages and Run Code as Root",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/debian-and-ubuntu-apt-flaw-lets-mitm.html",
+   "published": "2026-11-04T17:00:46Z",
+   "first_seen": "2026-11-04T18:09:41Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "SonicWall Won't Patch EoL GMS Flaws That Could Expose Files, Alter Database Records",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/sonicwall-wont-patch-eol-gms-flaws-that.html",
+   "published": "2026-11-04T17:00:38Z",
+   "first_seen": "2026-11-04T18:09:41Z",
+   "cves": [
+    "CVE-2026-109593"
+   ]
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "NIKKE PC game launcher hacked to spread remote access, data-stealing malware",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/nikke-pc-game-launcher-hacked-to-spread-remote-access-data-stealing-malware/",
+   "published": "2026-11-04T16:58:46Z",
+   "first_seen": "2026-11-04T17:19:11Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Attacker abuses Microsoft Entra ID to target downstream MSP clients",
+   "source": "Cybersecurity Dive",
+   "url": "https://www.cybersecuritydive.com/news/attacker-microsoft-entra-id-downstream-msp/873744/",
+   "published": "2026-11-04T16:20:17Z",
+   "first_seen": "2026-11-04T17:19:11Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Ukrainian news outlet Kyiv Independent hit by suspected Russian cyberattack",
+   "source": "The Record",
+   "url": "https://therecord.media/ukraine-kyiv-independent-cyberattack",
+   "published": "2026-11-04T16:15:00Z",
+   "first_seen": "2026-11-04T16:24:05Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "mSecure password manager hack prompts password reset warnings",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/msecure-password-manager-hack-prompts-password-reset-warnings/",
+   "published": "2026-11-04T16:00:18Z",
+   "first_seen": "2026-11-04T16:24:05Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Google Calendar phishing campaign hijacks sessions, bypasses MFA",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/google-calendar-phishing-campaign-hijacks-sessions-bypasses-mfa/",
+   "published": "2026-11-04T15:00:10Z",
+   "first_seen": "2026-11-04T15:23:47Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Barracuda ESG Authentication Bypass Flaw Opens Path to Root",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/barracuda-email-security-gateway-authentication-bypass-opens-path-to-root/",
+   "published": "2026-11-04T14:24:54Z",
+   "first_seen": "2026-11-04T15:23:47Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Cyberattack wipes cloud data at major Russian hosting provider Beget",
+   "source": "The Record",
+   "url": "https://therecord.media/russia-cyberattack-beget-cloud",
+   "published": "2026-11-04T14:00:00Z",
+   "first_seen": "2026-11-04T14:19:06Z",
+   "cves": []
+  }
+ ],
+ "kev_added": [
+  {
+   "cve": "CVE-2024-27834",
+   "vendor": "Apple",
+   "product": "Multiple Products",
+   "title": "CVE-2024-27834: Apple Multiple Products Improper Authentication Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-27834",
+   "due": "2026-11-18",
+   "ransomware": false
+  }
+ ],
+ "breaches": [],
+ "ransomware_claims": {
+  "count": 98,
+  "groups": [
+   [
+    "soul",
+    25
+   ],
+   [
+    "medusalocker",
+    17
+   ],
+   [
+    "brain cipher",
+    11
+   ],
+   [
+    "safepay",
+    8
+   ],
+   [
+    "play",
+    5
+   ],
+   [
+    "n0n",
+    5
+   ],
+   [
+    "Aoqin",
+    4
+   ],
+   [
+    "dark project",
+    3
+   ],
+   [
+    "leakeddata",
+    2
+   ],
+   [
+    "SilentRansomGroup",
+    2
+   ]
+  ]
+ },
+ "archive_counts": {
+  "date": "2026-11-04",
+  "exploited": 4.0,
+  "ransomware": 10.0,
+  "breaches": 0.0,
+  "community": 0.6,
+  "kev": 1,
+  "claims": 65,
+  "breach_count": 0,
+  "accounts": 0,
+  "stories": 1,
+  "top": "Hackers hit French national blood bank",
+  "top_url": "https://www.telegraph.co.uk/world-news/2026/11/04/hackers-hit-french-blood-bank/"
+ },
+ "sitreps": [
+  "sitreps/2026-11-04/052328Z.json",
+  "sitreps/2026-11-04/092538Z.json",
+  "sitreps/2026-11-04/110939Z.json",
+  "sitreps/2026-11-04/123819Z.json",
+  "sitreps/2026-11-04/131856Z.json",
+  "sitreps/2026-11-04/152336Z.json",
+  "sitreps/2026-11-04/162155Z.json",
+  "sitreps/2026-11-04/171858Z.json",
+  "sitreps/2026-11-04/180929Z.json",
+  "sitreps/2026-11-04/192241Z.json",
+  "sitreps/2026-11-04/211048Z.json",
+  "sitreps/2026-11-04/222209Z.json"
+ ],
+ "note": "Backfilled on 2026-11-11 from the sweep memory kept on the analyst's Mac and the public board. Reports drop off the board 14 days after publication, so early days list fewer reports than were seen; the archive_counts come from the full CISA KEV, ransomware-claim, Have I Been Pwned and Hacker News archives. The Mac's clock ran 3.0 h fast from about 2026-11-03T16:20:14Z; its stamps in that period have been corrected."
+}

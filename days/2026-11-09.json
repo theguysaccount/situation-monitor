@@ -1,0 +1,788 @@
+{
+ "schema": 1,
+ "date": "2026-11-09",
+ "source": "backfill",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-11-09T00:19:13Z",
+    5,
+    24.2
+   ],
+   [
+    "2026-11-09T01:19:14Z",
+    5,
+    24.2
+   ],
+   [
+    "2026-11-09T02:53:50Z",
+    5,
+    24.8
+   ],
+   [
+    "2026-11-09T03:19:31Z",
+    5,
+    25.0
+   ],
+   [
+    "2026-11-09T04:19:32Z",
+    5,
+    24.4
+   ],
+   [
+    "2026-11-09T05:19:35Z",
+    5,
+    25.6
+   ],
+   [
+    "2026-11-09T06:19:35Z",
+    5,
+    27.1
+   ],
+   [
+    "2026-11-09T07:19:32Z",
+    5,
+    26.5
+   ],
+   [
+    "2026-11-09T08:19:34Z",
+    5,
+    26.9
+   ],
+   [
+    "2026-11-09T09:18:56Z",
+    5,
+    26.9
+   ],
+   [
+    "2026-11-09T10:18:57Z",
+    5,
+    30.7
+   ],
+   [
+    "2026-11-09T11:18:57Z",
+    5,
+    33.4
+   ],
+   [
+    "2026-11-09T12:18:56Z",
+    4,
+    37.1
+   ],
+   [
+    "2026-11-09T13:18:57Z",
+    4,
+    42.7
+   ],
+   [
+    "2026-11-09T14:18:56Z",
+    4,
+    49.5
+   ],
+   [
+    "2026-11-09T23:18:57Z",
+    3,
+    134.7
+   ]
+  ],
+  "hours_at_level": {
+   "5": 12,
+   "4": 3,
+   "3": 1
+  },
+  "highest": 3,
+  "lowest": 5
+ },
+ "first_seen": {
+  "count": 246,
+  "by_severity": {
+   "low": 26,
+   "high": 40,
+   "medium": 166,
+   "critical": 14
+  },
+  "by_type": {
+   "news": 77,
+   "vuln": 6,
+   "ransomware": 130,
+   "advisory": 2,
+   "community": 1,
+   "breach": 26,
+   "kev": 4
+  }
+ },
+ "situations": [
+  {
+   "name": "SSHole",
+   "severity": "critical",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [
+    "CVE-2026-123158"
+   ],
+   "lead": {
+    "title": "Hackers exploit SSHole OpenSSH flaw to breach Linux systems",
+    "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-sshole-openssh-flaw-to-breach-linux-systems/",
+    "source": "BleepingComputer",
+    "published": "2026-11-09T16:04:57Z"
+   }
+  },
+  {
+   "name": "SonicOS",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [
+    "CVE-2026-19868"
+   ],
+   "lead": {
+    "title": "Exploited SonicWall SSL-VPN flaw lets attackers bypass SAML-enforced MFA (CVE-2026-19868)",
+    "url": "https://www.helpnetsecurity.com/2026/11/09/exploited-sonicwall-ssl-vpn-flaw-lets-attackers-bypass-saml-enforced-mfa-cve-2026-19868/",
+    "source": "Help Net Security",
+    "published": "2026-11-09T10:30:25Z"
+   }
+  },
+  {
+   "name": "ARTEX",
+   "severity": "high",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [],
+   "lead": {
+    "title": "ARTEX goes from pentesting tool to attacker staple in three months",
+    "url": "https://www.helpnetsecurity.com/2026/11/09/artex-goes-from-pentesting-tool-to-attacker-staple-in-three-months/",
+    "source": "Help Net Security",
+    "published": "2026-11-09T14:57:32Z"
+   }
+  },
+  {
+   "name": "France blames Iran for supermarket hack meltdowns",
+   "severity": "high",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [],
+   "lead": {
+    "title": "France blames Iran for supermarket hack meltdowns",
+    "url": "https://www.theregister.com/security/2026/11/09/france-blames-iran-for-supermarket-hack-meltdowns/5308591",
+    "source": "The Register",
+    "published": "2026-11-09T22:45:21Z"
+   }
+  }
+ ],
+ "top_reports": [
+  {
+   "severity": "critical",
+   "type": "vuln",
+   "title": "GPUStack: Authentication bypass via trusted loopback source (reverse-proxy TCP peer or X-GPUStack-Real-IP header) grants unauthenticated admin",
+   "source": "GitHub Advisory DB (critical)",
+   "url": "https://github.com/advisories/GHSA-gj9m-f8ph-pmhr",
+   "published": "2026-11-09T22:15:27Z",
+   "first_seen": "2026-11-09T22:37:02Z",
+   "cves": [
+    "CVE-2026-102895"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "N-able takes cloud platform offline after 30+ \"zero-days\" published",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/n-able-takes-cloud-platform-offline-after-30-plus-zero-days-published/",
+   "published": "2026-11-09T21:26:25Z",
+   "first_seen": "2026-11-09T22:37:02Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Hackers Exploit Qubole's Trusted AWS Access to Breach Customer Accounts and Steal Data",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-quboles-trusted-aws.html",
+   "published": "2026-11-09T17:51:21Z",
+   "first_seen": "2026-11-09T18:48:34Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Hackers exploit SSHole OpenSSH flaw to breach Linux systems",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-sshole-openssh-flaw-to-breach-linux-systems/",
+   "published": "2026-11-09T16:04:57Z",
+   "first_seen": "2026-11-09T18:48:34Z",
+   "cves": [
+    "CVE-2026-123158"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Alleged AI-aided cyberattack exploits assistant interface to breach German web host",
+   "source": "The Record",
+   "url": "https://therecord.media/cyberattack-germany-ai-mittwald",
+   "published": "2026-11-09T14:15:00Z",
+   "first_seen": "2026-11-09T14:19:39Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Plex2Shell Exploited Against QNAP NAS Users",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/plex2shell-exploited-against-qnap-nas-users/",
+   "published": "2026-11-09T13:13:28Z",
+   "first_seen": "2026-11-09T13:19:49Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Hackers Exploiting ‘SSHole’ Authentication Bypass in OpenSSH",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/hackers-exploiting-sshole-authentication-bypass-in-openssh/",
+   "published": "2026-11-09T12:13:32Z",
+   "first_seen": "2026-11-09T13:19:49Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Web3Auth Flaw Exploited to Steal Keplr Crypto, Provider Empties Other Wallets for Safety",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/web3auth-flaw-exploited-to-steal-keplr.html",
+   "published": "2026-11-09T10:56:25Z",
+   "first_seen": "2026-11-09T12:19:37Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Exploited SonicWall SSL-VPN flaw lets attackers bypass SAML-enforced MFA (CVE-2026-19868)",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/11/09/exploited-sonicwall-ssl-vpn-flaw-lets-attackers-bypass-saml-enforced-mfa-cve-2026-19868/",
+   "published": "2026-11-09T10:30:25Z",
+   "first_seen": "2026-11-09T11:19:17Z",
+   "cves": [
+    "CVE-2026-19868"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "$133 million stolen from French bank via exploited service provider",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/11/09/credit-mutuel-arkea-cyberattack-133-million/",
+   "published": "2026-11-09T10:03:01Z",
+   "first_seen": "2026-11-09T10:19:46Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Hotel giant Wyndham exposed customer data after app security lapse",
+   "source": "TechCrunch Security",
+   "url": "https://techcrunch.com/2026/11/09/hotel-giant-wyndham-exposed-customer-data-after-app-security-lapse/",
+   "published": "2026-11-09T23:03:46Z",
+   "first_seen": "2026-11-09T23:20:19Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "France blames Iran for supermarket hack meltdowns",
+   "source": "The Register",
+   "url": "https://www.theregister.com/security/2026/11/09/france-blames-iran-for-supermarket-hack-meltdowns/5308591",
+   "published": "2026-11-09T22:45:21Z",
+   "first_seen": "2026-11-09T23:20:19Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "SEGA newsletter data breach exposes 2.2 million email addresses",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/sega-newsletter-data-breach-exposes-22-million-email-addresses/",
+   "published": "2026-11-09T22:09:33Z",
+   "first_seen": "2026-11-09T22:37:02Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "York University breach exposed personal information dating to 2007",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/york-university-breach-exposed-personal-information-dating-to-2007/",
+   "published": "2026-11-09T21:22:31Z",
+   "first_seen": "2026-11-09T22:37:02Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Microsoft Fixes RCE Bug in Windows Paint After Weeks of Confusion",
+   "source": "Dark Reading",
+   "url": "https://www.darkreading.com/application-security/microsoft-rce-bug-windows-paint-confusion",
+   "published": "2026-11-09T21:12:24Z",
+   "first_seen": "2026-11-09T22:37:02Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Data breach at hearing aid giant Amplifon impacts thousands",
+   "source": "The Record",
+   "url": "https://therecord.media/amplifon-hearing-aid-company-data-breach",
+   "published": "2026-11-09T20:44:00Z",
+   "first_seen": "2026-11-09T22:37:02Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Attackers backdoor trusted AWS integrations to steal secrets",
+   "source": "The Register",
+   "url": "https://www.theregister.com/security/2026/11/09/attackers-backdoor-trusted-aws-integrations-to-steal-secrets/5308553",
+   "published": "2026-11-09T19:59:50Z",
+   "first_seen": "2026-11-09T22:37:02Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "France blames Iran for mass-hacks targeting freezers in grocery stores and blood banks",
+   "source": "TechCrunch Security",
+   "url": "https://techcrunch.com/2026/11/09/france-blames-iran-for-mass-hacks-targeting-freezers-in-grocery-stores-and-blood-banks/",
+   "published": "2026-11-09T19:19:24Z",
+   "first_seen": "2026-11-09T22:37:02Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "France blames Iran for fridge cyberattacks, says some caused fires",
+   "source": "The Record",
+   "url": "https://therecord.media/france-blames-iran-for-fridge-cyberattacks",
+   "published": "2026-11-09T18:45:00Z",
+   "first_seen": "2026-11-09T18:48:34Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "France blames Iranian hackers for supermarket attacks that sparked fires",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/france-blames-iranian-hackers-for-supermarket-attacks-that-sparked-fires/",
+   "published": "2026-11-09T18:32:42Z",
+   "first_seen": "2026-11-09T18:48:34Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Vanderbilt cybersecurity incident impacting campus devices and systems",
+   "source": "The Record",
+   "url": "https://therecord.media/vanderbilt-cyberattack-ransomware-alert",
+   "published": "2026-11-09T18:30:00Z",
+   "first_seen": "2026-11-09T18:48:34Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Attackers Searching for SAP Netweaver Webshells, (Mon, Nov 9th)",
+   "source": "SANS Internet Storm Center",
+   "url": "https://isc.sans.edu/diary/rss/33502",
+   "published": "2026-11-09T18:18:15Z",
+   "first_seen": "2026-11-09T18:48:34Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Attackers Crash Claude's 'Office Party' Flaw to Run Malicious Code on Linux",
+   "source": "Dark Reading",
+   "url": "https://www.darkreading.com/endpoint-security/attackers-claude-office-party-flaw-malicious-code-linux",
+   "published": "2026-11-09T18:08:30Z",
+   "first_seen": "2026-11-09T18:48:34Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Russian cloud firm Beget rebuilds from scratch after data wiper attack",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/russian-cloud-firm-beget-rebuilds-from-scratch-after-data-wiper-attack/",
+   "published": "2026-11-09T17:50:32Z",
+   "first_seen": "2026-11-09T18:48:34Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Hackers Compromise Ethersphere's bee-js and Swarm Desktop to Deliver Wallet-Stealing Malware",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/hackers-compromise-etherspheres-bee-js.html",
+   "published": "2026-11-09T17:36:28Z",
+   "first_seen": "2026-11-09T18:48:34Z",
+   "cves": []
+  }
+ ],
+ "kev_added": [
+  {
+   "cve": "CVE-2026-102895",
+   "vendor": "GPUStack",
+   "product": "GPUStack",
+   "title": "CVE-2026-102895: GPUStack Improper Authentication Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-102895",
+   "due": "2026-11-12",
+   "ransomware": false
+  },
+  {
+   "cve": "CVE-2026-123158",
+   "vendor": "OpenBSD",
+   "product": "OpenSSH",
+   "title": "CVE-2026-123158: OpenBSD OpenSSH Unexpected Status Code or Return Value Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123158",
+   "due": "2026-11-12",
+   "ransomware": false
+  },
+  {
+   "cve": "CVE-2026-116779",
+   "vendor": "SignalWire",
+   "product": "FreeSwitch",
+   "title": "CVE-2026-116779: SignalWire FreeSwitch Code Injection Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116779",
+   "due": "2026-11-12",
+   "ransomware": false
+  },
+  {
+   "cve": "CVE-2026-123218",
+   "vendor": "IBM",
+   "product": "Aspera Faspex",
+   "title": "CVE-2026-123218: IBM Aspera Faspex Incorrect Authorization Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123218",
+   "due": "2026-11-12",
+   "ransomware": false
+  }
+ ],
+ "breaches": [
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "El Gobierno provincial suspendió temporalmente los servicios digitales tras un ciberataque",
+   "source": "ransomware.live disclosures",
+   "url": "https://neahoy.com/2026/10/31/el-gobierno-provincial-suspendio-temporalmente-los-servicios-digitales-tras-un-ciberataque/",
+   "published": "2026-11-09T00:00:00Z",
+   "first_seen": "2026-11-09T12:19:37Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Llano School District in Texas reports cyber incident after internet and phone outages",
+   "source": "ransomware.live disclosures",
+   "url": "https://dysruptionhub.com/llano-isd-texas-internet-phone-outages/",
+   "published": "2026-11-09T00:00:00Z",
+   "first_seen": "2026-11-09T14:19:39Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "WHIZ in the midst of recovery from a cyber attack - WHIZ - Fox 5 / Marquee Broadcasting",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.whiznews.com/whiz-in-the-midst-of-recovery-from-a-cyber-attack/",
+   "published": "2026-11-09T00:00:00Z",
+   "first_seen": "2026-11-09T14:19:39Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "図研[6947]：海外子会社に対するサイバー攻撃に関するお知らせ 2026年10月28日(適時開示) ：日経会社情報DIGITAL：日本経済新聞",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.nikkei.com/nkd/disclosure/tdnr/20261027557047/",
+   "published": "2026-11-09T00:00:00Z",
+   "first_seen": "2026-11-09T18:48:34Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "404 Not Found お探しのページ(URL)が見つかりません",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.jumonji-u.ac.jp/important/systemfailure_20261028/",
+   "published": "2026-11-09T00:00:00Z",
+   "first_seen": "2026-11-09T18:48:34Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "ドン・キホーテなど4社、顧客情報漏えいの可能性 時計修理の委託先にランサムウェア攻撃（アスキー） - Yahoo!ニュース",
+   "source": "ransomware.live disclosures",
+   "url": "https://news.yahoo.co.jp/articles/8cdfa52994d8c8f48e14ef0889b75294f0673bc9",
+   "published": "2026-11-09T00:00:00Z",
+   "first_seen": "2026-11-09T18:48:34Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "게임덤, 1500만 달러 비트코인 요구 랜섬웨어 공격...데이터 유출 우려 (BTC, Gamdom, Whitearmor, 1500만 달러)",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.minsimnews.com/news/articleView.html?idxno=96125",
+   "published": "2026-11-09T00:00:00Z",
+   "first_seen": "2026-11-09T18:48:34Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Cyberangriff beim Paritätischen - sensible Daten betroffen",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.wz.de/nrw/cyberangriff-beim-paritaetischen-sensible-daten-betroffen_aid-157336287",
+   "published": "2026-11-09T00:00:00Z",
+   "first_seen": "2026-11-09T18:48:34Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Un atac cibernetic blochează de trei săptămâni plata facturilor pe site-ul operatorului de salubritate Retim - Actualitati-Arad",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.actualitati-arad.ro/un-atac-cibernetic-blocheaza-de-trei-saptamani-plata-facturilor-pe-site-ul-operatorului-de-salubritate-retim/",
+   "published": "2026-11-09T00:00:00Z",
+   "first_seen": "2026-11-09T18:48:34Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Video | संभाजीनगरच्या बजाज हॉस्पिटलवर सायबर हल्ला, रुग्णांचे अतोनात हाल | Cyber Attack",
+   "source": "ransomware.live disclosures",
+   "url": "https://marathi.ndtv.com/videos/cyber-attack-on-bajaj-hospital-in-sambhajinagar-severely-affects-patients-condition-1181204",
+   "published": "2026-11-09T00:00:00Z",
+   "first_seen": "2026-11-09T18:48:34Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Cyberattack mot Embracer-bolag",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.privataaffarer.se/placeringar/aktier/cyberattack-mot-embracer-bolag/",
+   "published": "2026-11-09T00:00:00Z",
+   "first_seen": "2026-11-09T18:48:34Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "First 48 hours: What ransomware attack taught family business about cybersecurity, trusted partnerships",
+   "source": "ransomware.live disclosures",
+   "url": "https://siouxfalls.business/first-48-hours-what-ransomware-attack-taught-family-business-about-cybersecurity-trusted-partnerships/",
+   "published": "2026-11-09T00:00:00Z",
+   "first_seen": "2026-11-09T18:48:34Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "आगरा के नामी पैथोलाजी सेंटर पर साइबर हमला, 14 लाख मरीजों का संवेदनशील डाटा हैक - agra pankaj mahendru scanning pathology research centre data hacked cyber criminals",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.jagran.com/uttar-pradesh/agra-city-agra-pankaj-mahendru-scanning-pathology-research-centre-data-hacked-cyber-criminals-40417771.html",
+   "published": "2026-11-09T00:00:00Z",
+   "first_seen": "2026-11-09T18:48:34Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Garanka victime d'une cyberattaque : des interventions chez les clients perturbées",
+   "source": "ransomware.live disclosures",
+   "url": "https://frenchbreaches.com/alertes/garanka-cyberattaque-piratage-fuite-de-donnees-systemes-informatiques-mvp5u5169z0jw96lm8e",
+   "published": "2026-11-09T00:00:00Z",
+   "first_seen": "2026-11-09T18:48:34Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Exclusive: Bathurst RSL says cyber incident contained after Qilin ransomware attack",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.cyberdaily.au/security/14349-exclusive-bathurst-rsl-says-cyber-incident-contained-after-qilin-ransomware-attack",
+   "published": "2026-11-09T00:00:00Z",
+   "first_seen": "2026-11-09T18:48:34Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "מתקפת הסייבר על כלמוביל היא רק ההתחלה: הסכנה האמיתית נמצאת על הכביש | כלכליסט",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.calcalist.co.il/local_news/car/article/rj5pdxj2zg",
+   "published": "2026-11-09T00:00:00Z",
+   "first_seen": "2026-11-09T18:48:34Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "టీజీ ఐపాస్ సర్వర్పై ర్యాన్సమ్వేర్ దాడి.. రంగంలోకి సీఎస్బీ",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.v6velugu.com/ransomware-attack-on-telangana’s-tg-ipass-portal",
+   "published": "2026-11-09T00:00:00Z",
+   "first_seen": "2026-11-09T18:48:34Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Inwoners van Damme kunnen na een cyberaanval geen aanvragen meer doen via de website van de stad",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.lokaalnieuws.online/2026/10/24/damme-cyberaanval-e-loket-offline/",
+   "published": "2026-11-09T00:00:00Z",
+   "first_seen": "2026-11-09T18:48:34Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "BOJ monitoring JETS cyber incident, urges public to be vigilant",
+   "source": "ransomware.live disclosures",
+   "url": "https://jamaica-gleaner.com/article/news/20261023/boj-monitoring-jets-cyber-incident-urges-customers-be-vigilant",
+   "published": "2026-11-09T00:00:00Z",
+   "first_seen": "2026-11-09T18:48:34Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Coordinador Eléctrico registró ciberataque en planta solar Huatacondo | Diario Financiero",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.df.cl/senal-df/datos-de-sobremesa/coordinador-electrico-registro-ciberataque-en-planta-solar-huatacondo",
+   "published": "2026-11-09T00:00:00Z",
+   "first_seen": "2026-11-09T18:48:34Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Carlos Paz, afectada por un ciberataque que golpea a municipios de todo el país",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.carlospazvivo.com/carlos-paz-afectada-por-un-ciberataque-que-golpea-a-municipios-de-todo-el-pais/",
+   "published": "2026-11-09T00:00:00Z",
+   "first_seen": "2026-11-09T18:48:34Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Zwischen Datensicherung und Erpressung – Unternehmen ringen mit Cyberbedrohungen",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.suedkurier.de/bodenseekreis/cyberangriffe-zwingen-mittelstand-zum-handeln-erfahrungen-und-konsequenzen-fuer-betriebe-115524787",
+   "published": "2026-11-09T00:00:00Z",
+   "first_seen": "2026-11-09T18:48:34Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "[단독] 한진그룹 IT 서비스 전문기업 한진정보통신 해킹…항공·물류 공급망 보안 위협 우려 - 데일리시큐",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.dailysecu.com/news/articleView.html?idxno=209036",
+   "published": "2026-11-09T00:00:00Z",
+   "first_seen": "2026-11-09T18:48:34Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "アンドエスティHDにサイバー攻撃、顧客約250万件の個人情報漏えいの恐れーアンドエスティは営業継続|セキュリティニュースのセキュリティ対策Lab",
+   "source": "ransomware.live disclosures",
+   "url": "https://rocket-boys.co.jp/security-measures-lab/andst_hd_cyberattack_customer_2500000_privacy_risk_20261023/",
+   "published": "2026-11-09T00:00:00Z",
+   "first_seen": "2026-11-09T18:48:34Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Thurgauer Medienwerkstatt meldet Cybervorfall",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.inside-it.ch/thurgauer-medienwerkstatt-meldet-cybervorfall-20261023",
+   "published": "2026-11-09T00:00:00Z",
+   "first_seen": "2026-11-09T18:48:34Z",
+   "cves": []
+  }
+ ],
+ "ransomware_claims": {
+  "count": 132,
+  "groups": [
+   [
+    "n0n",
+    66
+   ],
+   [
+    "climax",
+    14
+   ],
+   [
+    "vortex",
+    11
+   ],
+   [
+    "krybit",
+    5
+   ],
+   [
+    "audit team",
+    4
+   ],
+   [
+    "black x",
+    3
+   ],
+   [
+    "byod",
+    3
+   ],
+   [
+    "Aoqin",
+    2
+   ],
+   [
+    "leakeddata",
+    2
+   ],
+   [
+    "SilentRansomGroup",
+    2
+   ]
+  ]
+ },
+ "archive_counts": {
+  "date": "2026-11-09",
+  "exploited": 16.0,
+  "ransomware": 10.0,
+  "breaches": 0.0,
+  "community": 0.6,
+  "kev": 4,
+  "claims": 132,
+  "breach_count": 0,
+  "accounts": 0,
+  "stories": 1,
+  "top": "More than 400k Russians killed fighting in Ukraine war, leaked data suggests",
+  "top_url": "https://www.theguardian.com/world/2026/nov/09/russians-killed-ukraine-war-leaked-data"
+ },
+ "sitreps": [
+  "sitreps/2026-11-09/052247Z.json",
+  "sitreps/2026-11-09/101937Z.json",
+  "sitreps/2026-11-09/121926Z.json",
+  "sitreps/2026-11-09/131937Z.json",
+  "sitreps/2026-11-09/141926Z.json",
+  "sitreps/2026-11-09/232007Z.json"
+ ],
+ "note": "Backfilled on 2026-11-11 from the sweep memory kept on the analyst's Mac and the public board. Reports drop off the board 14 days after publication, so early days list fewer reports than were seen; the archive_counts come from the full CISA KEV, ransomware-claim, Have I Been Pwned and Hacker News archives. The Mac's clock ran 3.0 h fast from about 2026-11-03T16:20:14Z; its stamps in that period have been corrected."
+}

@@ -1,0 +1,41 @@
+{
+ "written_at": "2026-10-28T07:21:00Z",
+ "by": "Claude",
+ "headline": "Brotli exploit traffic emerges as PolyShell breaches hundreds of Magento stores; PHP2Shell CISA deadline is tomorrow",
+ "bullets": [
+  {
+   "text": "New: PolyShell attacks on Adobe Commerce have breached hundreds of stores, and exploit traffic for the Brotli 'HTTP2Shell' flaw has emerged. Both CVE-2026-48356 (Magento) and CVE-2026-111497 (Brotli) are in CISA KEV, due 2026-11-10; Microsoft shipped emergency .NET patches.",
+   "url": "https://thehackernews.com/2026/10/adobe-commerce-polyshell-attacks-breach.html"
+  },
+  {
+   "text": "PHP2Shell (CVE-2026-109618, CVE-2026-109619) is exploited in the wild and covered by 8 outlets. CISA's federal due date is tomorrow, 2026-10-29. Fixes are in PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35.",
+   "url": "https://techcrunch.com/2026/10/27/us-government-says-hackers-are-now-exploiting-critical-php-web-bugs/"
+  },
+  {
+   "text": "New: the Oracle PeopleSoft zero-day exploited by ShinyHunters (CVE-2026-35273) turns out to be three chained flaws.",
+   "url": "https://thehackernews.com/2026/10/shinyhunters-exploited-oracle.html"
+  },
+  {
+   "text": "New: Japan's GMO is offering a $1 million bounty to catch the hackers behind a breach of its FX trading cloud, after urging customers to shut down PCs amid a ransomware threat. Ransomware is still disrupting care at UNM Health and hit Bajaj Hospital in India.",
+   "url": "https://thehackernews.com/2026/10/japans-gmo-offers-1-million-bounty-to.html"
+  },
+  {
+   "text": "Supply chain: the LiteLLM 1.107.0 compromise on PyPI and Docker began with an exposed master key. Attackers also hijacked the Convertr analytics script to steal card data, a worm armed 42 GitHub repos, and 'Gheist' uses stolen GitHub tokens to steal cloud secrets.",
+   "url": "https://www.theregister.com/security/2026/10/26/litellm-supply-chain-attack-started-with-an-exposed-master-key/5305544"
+  },
+  {
+   "text": "Changed: Tailscale has now patched SSH flaws that could let a hacked device gain root on other servers. Still active: HPE's critical networking fixes and Apple's CoreGraphics zero-day backports for older iPhones. Last 7 days at 1.01x the 90-day average.",
+   "url": "https://thehackernews.com/2026/10/tailscale-patches-ssh-flaws-that-could.html"
+  }
+ ],
+ "actions": [
+  "Update PHP to 8.5.12, 8.4.27, 8.3.36 or 8.2.35 before CISA's 2026-10-29 due date, rebuild images that bundle PHP, and check exposed PHP hosts for compromise.",
+  "Patch Adobe Commerce and Magento for CVE-2026-48356 now and check stores for webshells and unexpected uploaded files.",
+  "Apply Microsoft's emergency .NET patches for Brotli CVE-2026-111497 and track fixes from other software that bundles Brotli.",
+  "Apply Oracle's fixes for the PeopleSoft chain (CVE-2026-35273) and review PeopleSoft access logs for signs of data theft.",
+  "Search lockfiles, images and CI caches for litellm 1.107.0; if it ran, treat the host as compromised and rotate every credential it could read.",
+  "Update Tailscale to the patched release, apply HPE and Apple updates, and audit payment-page scripts and GitHub tokens."
+ ],
+ "commit": "146eadf54a4f6821680bb33634fd44c19bc8f21a",
+ "pushed_at": "2026-10-28T07:20:04Z"
+}

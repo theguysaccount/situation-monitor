@@ -1,0 +1,42 @@
+{
+ "written_at": "2026-11-04T16:21:55Z",
+ "by": "Claude",
+ "headline": "mSecure password manager hack prompts reset warnings; APT29 mobile exploit campaign and cPGuard supply chain attack stay on top",
+ "bullets": [
+  {
+   "text": "New, mSecure, 3 outlets: BleepingComputer reports a hack of the mSecure password manager has prompted password reset warnings. The Register says mSecure told users to change their passwords and would not say why.",
+   "url": "https://www.bleepingcomputer.com/news/security/msecure-password-manager-hack-prompts-password-reset-warnings/"
+  },
+  {
+   "text": "Still active, critical: The Hacker News reports APT29-linked hackers hijacked a web analytics script to deliver iOS and Android exploits. BleepingComputer and Help Net Security describe the exploits as n-day, and BleepingComputer calls the attacks zero-click.",
+   "url": "https://thehackernews.com/2026/11/apt29-linked-hackers-hijack-web.html"
+  },
+  {
+   "text": "Still active: The Hacker News reports Google issued patches for a critical Android flaw, CVE-2026-58868, that could allow remote code execution without user interaction.",
+   "url": "https://thehackernews.com/2026/11/google-patches-critical-android-flaw.html"
+  },
+  {
+   "text": "Still active, cPGuard, 4 outlets: SecurityWeek reports malicious updates served in an OpsShield supply chain attack. Help Net Security says the poisoned update hit thousands of web hosting servers, and BleepingComputer says it deployed a backdoor and stole data.",
+   "url": "https://www.securityweek.com/malicious-cpguard-updates-served-in-opsshield-supply-chain-attack/"
+  },
+  {
+   "text": "Still active, WordPress Core, 3 outlets: BleepingComputer reports CISA flags a WordPress RCE flaw as actively exploited. CISA KEV lists CVE-2026-119977, a race condition added 2026-11-03, with a federal due date of 2026-11-06.",
+   "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-wordpress-rce-flaw-as-actively-exploited-in-attacks/"
+  },
+  {
+   "text": "Still active, Connect Secure, 4 outlets: Ivanti patched two more zero-days chained in attacks, CVE-2026-111357 and CVE-2026-118527. CISA KEV lists CVE-2026-104935 in the same product, with federal due dates of 2026-11-02 and 2026-11-13.",
+   "url": "https://www.bleepingcomputer.com/news/security/ivanti-patches-two-more-connect-secure-zero-days-chained-in-attacks/"
+  }
+ ],
+ "actions": [
+  "If you or your staff use mSecure, change the master password and rotate the credentials stored in it, starting with the most sensitive.",
+  "Update managed iOS and Android devices to current releases, and apply Google's patch for CVE-2026-58868 as it reaches your fleet.",
+  "If you run cPGuard, check servers for the backdoor reported by BleepingComputer and treat data on affected hosts as exposed.",
+  "Update WordPress Core for CVE-2026-119977 per vendor guidance; the KEV federal due date is 2026-11-06.",
+  "Apply Ivanti's latest Connect Secure patches, covering CVE-2026-111357 and CVE-2026-118527, and check appliances for compromise.",
+  "If you use WorkOS, Northflank or Trigger.dev, read their disclosures and review the access and tokens you share with them."
+ ],
+ "commit": "a247c843d6dc053b9aa50746be762507093d142f",
+ "pushed_at": "2026-11-04T16:21:55Z",
+ "written_at_as_recorded": "2026-11-04T19:22:00Z"
+}

@@ -1,0 +1,41 @@
+{
+ "written_at": "2026-11-10T16:19:19Z",
+ "by": "Claude",
+ "headline": "Xen Orchestra auth bypass and AhsayCBS flaws exploited; N-able keeps N-central offline after dozens of zero-days published",
+ "bullets": [
+  {
+   "text": "Changed: attackers are exploiting a critical authentication bypass in Xen Orchestra to hijack VM servers (BleepingComputer). The brief names no CVE or fixed release yet.",
+   "url": "https://www.bleepingcomputer.com/news/security/critical-xen-orchestra-auth-bypass-flaw-exploited-to-hijack-vm-servers/"
+  },
+  {
+   "text": "Changed: attackers are exploiting AhsayCBS flaws CVE-2026-105133 and CVE-2026-105134 to deploy a sandbox-evading Python backdoor (The Hacker News).",
+   "url": "https://thehackernews.com/2026/11/attackers-exploit-ahsaycbs-flaws-to.html"
+  },
+  {
+   "text": "N-able has taken its hosted N-central remote access service offline after a researcher published dozens of zero-days; the story now spans 4 outlets. No fixes are named yet.",
+   "url": "https://techcrunch.com/2026/11/10/n-able-takes-its-remote-access-service-offline-after-researcher-publishes-dozens-of-zero-day-bugs/"
+  },
+  {
+   "text": "Changed: AI company Fireworks says hackers stole data and billing information in October breaches; other reports say the exposure widened to incomplete model weights (5 outlets).",
+   "url": "https://therecord.media/ai-company-fireworks-says-hackers-stole-data-in-oct-attacks"
+  },
+  {
+   "text": "SSHole (OpenSSH CVE-2026-123158) exploitation continues (4 outlets). It is in CISA KEV with GPUStack CVE-2026-102895, FreeSwitch CVE-2026-116779 and IBM Aspera Faspex CVE-2026-123218, all due 11-12.",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-sshole-openssh-flaw-to-breach-linux-systems/"
+  },
+  {
+   "text": "Still active: Barracuda Email Security Gateway flaws are being exploited for root access; the brief names no CVEs or fixed releases. 300 malicious packages were listed in 7 days, mostly npm; the week ran 0.94x the 90-day average.",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-barracuda-email-security-gateway-flaws-to-get-root-access/"
+  }
+ ],
+ "actions": [
+  "Xen Orchestra: check the vendor advisory, update now, and restrict its web interface to admin networks until patched.",
+  "AhsayCBS: patch CVE-2026-105133 and CVE-2026-105134 and look for unexpected Python processes on backup servers.",
+  "Patch OpenSSH (CVE-2026-123158), GPUStack, FreeSwitch and IBM Aspera Faspex before the 11-12 KEV deadline.",
+  "N-central users: limit network exposure of N-central servers and agents, and watch N-able for fixes.",
+  "Fireworks and Qubole customers: rotate API keys and credentials shared with those services and review access logs.",
+  "Barracuda ESG: apply available fixes, restrict management access and check appliances for signs of root compromise."
+ ],
+ "commit": "5c046f4c77d1f28eb2eff55556c0863af55222ed",
+ "pushed_at": "2026-11-10T16:20:03Z"
+}

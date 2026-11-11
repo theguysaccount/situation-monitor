@@ -1,0 +1,42 @@
+{
+ "written_at": "2026-11-06T09:19:27Z",
+ "by": "Claude",
+ "headline": "Chainalysis breach exposes all users' credentials; Zyxel GS1900 patch still bypassed; WordPress KEV deadline is today",
+ "bullets": [
+  {
+   "text": "New: Chainalysis disclosed a breach that exposed all users' credentials and forced it to shut down key services. SITCON holds at 3 (ELEVATED); the last 7 days scored 0.69x the 90-day average.",
+   "url": "https://thehackernews.com/2026/11/chainalysis-breach-exposes-all-users.html"
+  },
+  {
+   "text": "New: the UK warned that its critical infrastructure faces grave risk. Separately, FBI and CISA urged operators to harden refrigeration and cooling systems amid ongoing attacks.",
+   "url": "https://www.darkreading.com/cybersecurity-operations/uk-warns-critical-infrastructure-grave-risk"
+  },
+  {
+   "text": "Still active, Zyxel GS1900, 4 outlets: Zyxel's fix for a zero-day used to hack nearly 1,000 switches did not block the in-the-wild exploit (CVE-2026-107441), which allows root command execution. Top story on the board.",
+   "url": "https://thehackernews.com/2026/11/zyxel-gs1900-patch-fails-to-block-zero.html"
+  },
+  {
+   "text": "Due today, WordPress Core: CISA KEV lists CVE-2026-119977, a TOCTOU race condition exploited for RCE, federal due date 2026-11-06. Also in KEV: Ivanti Connect Secure CVE-2026-104935 (due 2026-11-13) and Apple CVE-2024-27834 (due 2026-11-18).",
+   "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-wordpress-rce-flaw-as-actively-exploited-in-attacks/"
+  },
+  {
+   "text": "Still active, supply chain: cPGuard autoupdate was hijacked in the OpsShield attack to serve malicious updates (4 outlets). The NIKKE PC game launcher was also hacked to spread remote-access and data-stealing malware.",
+   "url": "https://www.securityweek.com/malicious-cpguard-updates-served-in-opsshield-supply-chain-attack/"
+  },
+  {
+   "text": "Also on the board: OpenSSH emergency fix for long-password auth bypass on Alpine Linux; Barracuda critical root-access flaws; mSecure and DreamHost breaches; three charged over a $129 million AI CEO-impersonation scheme.",
+   "url": "https://thehackernews.com/2026/11/openssh-issues-emergency-fix-for-flaw.html"
+  }
+ ],
+ "actions": [
+  "Chainalysis users: reset passwords and rotate any API keys or credentials tied to the account; watch for related phishing.",
+  "Patch WordPress Core for CVE-2026-119977 today (KEV due 2026-11-06).",
+  "Treat Zyxel GS1900 switches as exposed even after patching: restrict management access, check for compromise, watch for a new fix.",
+  "cPGuard users: check servers for malicious updates and rotate credentials; NIKKE launcher users should scan for malware.",
+  "Apply the OpenSSH emergency fix on Alpine Linux hosts and Barracuda's fixes for the critical root-access flaws.",
+  "Operators of refrigeration and cooling systems: follow the FBI/CISA hardening guidance and remove internet exposure."
+ ],
+ "commit": "489a9ca0ab7630f172275f2aaef31dc4445afdd9",
+ "pushed_at": "2026-11-06T09:19:27Z",
+ "written_at_as_recorded": "2026-11-06T12:20:00Z"
+}

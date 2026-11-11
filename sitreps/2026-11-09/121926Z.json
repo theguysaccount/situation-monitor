@@ -1,0 +1,38 @@
+{
+ "written_at": "2026-11-09T12:19:26Z",
+ "by": "Claude",
+ "headline": "SITCON rises to 4 (GUARDED): Amplifon Americas breach hits 1.3M; GitHub secret abuse and exploited OpenSSH flaw still lead",
+ "bullets": [
+  {
+   "text": "New since the 13:19 SITREP: 21 new reports (1 high, 20 medium). SITCON moved from 5 (QUIET) to 4 (GUARDED), driven by the GitHub story. The high one: an Amplifon Americas data breach impacts 1.3 million people. The last 7 days scored 0.83x the 90-day average.",
+   "url": "https://www.securityweek.com/amplifon-americas-data-breach-impacts-1-3-million/"
+  },
+  {
+   "text": "GitHub, 4 outlets and the only developing situation: hackers are using Artex to scan GitHub repositories for exposed secrets; Microsoft reports threat actors using agentic AI tooling to find and abuse them; Truffle Security is revoking nearly 1.5 million live secrets.",
+   "url": "https://www.cybersecuritydive.com/news/hackers-artex-github-repositories-exposed-secrets/874007/"
+  },
+  {
+   "text": "OpenSSH: CVE-2026-123158 was exploited in the wild hours after disclosure. OpenSSH issued an emergency fix for the flaw, which lets long passwords bypass SSH auth on Alpine Linux and also reaches routers.",
+   "url": "https://www.helpnetsecurity.com/2026/11/06/openssh-sshole-cve-2026-123158-exploitation/"
+  },
+  {
+   "text": "Network gear: Zyxel GS1900 switches were hacked through a zero-day (CVE-2026-107441) that an earlier patch failed to block; D-Link warned of multiple zero-days in DGS-3130 Series switches.",
+   "url": "https://www.securityweek.com/zyxel-switch-hacks-blamed-on-patched-flaw-actually-exploited-a-zero-day/"
+  },
+  {
+   "text": "Other breaches this week: Frontline Education (3M+ people), Iris Ohyama (7.7 million customers), Chainalysis (credentials for all customers exposed), a $133 million French bank heist via a service provider, and breaches at DigiCert and WorkOS.",
+   "url": "https://www.securityweek.com/3-million-people-hit-by-frontline-education-data-breach/"
+  }
+ ],
+ "actions": [
+  "Clear KEV items due tomorrow: Adobe Commerce/Magento CVE-2026-48356 and Brotli CVE-2026-111497 (11-10), then VMware ESX CVE-2026-41709 (11-11).",
+  "Patch OpenSSH on every internet-facing host for CVE-2026-123158, prioritising Alpine Linux and routers; restrict SSH exposure and review auth logs.",
+  "Scan GitHub repos and their history for committed secrets; revoke and rotate anything found and enable secret scanning with push protection.",
+  "Zyxel GS1900 and D-Link DGS-3130 owners: apply the vendors' latest fixes or mitigations and check switches for signs of compromise.",
+  "Patch Ivanti Connect Secure CVE-2026-104935 (KEV due 11-13) and SonicWall SSL-VPN CVE-2026-19868 (due 11-20); review VPN logs for logins that skipped MFA.",
+  "Amplifon, Frontline Education, Iris Ohyama, Chainalysis, DigiCert and WorkOS customers: reset passwords, rotate API keys and credentials, watch for phishing."
+ ],
+ "commit": "6dc12e05bfe5ab0e3f667faeb61e732e60da32fc",
+ "pushed_at": "2026-11-09T12:19:26Z",
+ "written_at_as_recorded": "2026-11-09T15:20:00Z"
+}

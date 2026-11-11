@@ -1,0 +1,593 @@
+{
+ "schema": 1,
+ "date": "2026-11-05",
+ "source": "backfill",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-11-05T00:20:08Z",
+    2,
+    196.5
+   ],
+   [
+    "2026-11-05T01:22:12Z",
+    2,
+    196.5
+   ],
+   [
+    "2026-11-05T02:19:50Z",
+    2,
+    196.5
+   ],
+   [
+    "2026-11-05T03:26:14Z",
+    2,
+    187.4
+   ],
+   [
+    "2026-11-05T04:37:10Z",
+    2,
+    186.2
+   ],
+   [
+    "2026-11-05T05:17:54Z",
+    2,
+    184.3
+   ],
+   [
+    "2026-11-05T06:19:55Z",
+    2,
+    184.3
+   ],
+   [
+    "2026-11-05T07:20:54Z",
+    2,
+    178.1
+   ],
+   [
+    "2026-11-05T08:08:30Z",
+    2,
+    176.9
+   ],
+   [
+    "2026-11-05T09:17:02Z",
+    2,
+    173.8
+   ],
+   [
+    "2026-11-05T10:22:24Z",
+    2,
+    169.4
+   ],
+   [
+    "2026-11-05T11:46:56Z",
+    2,
+    168.2
+   ],
+   [
+    "2026-11-05T12:10:30Z",
+    2,
+    169.4
+   ],
+   [
+    "2026-11-05T13:31:33Z",
+    2,
+    166.9
+   ],
+   [
+    "2026-11-05T14:15:37Z",
+    2,
+    167.5
+   ],
+   [
+    "2026-11-05T15:09:01Z",
+    2,
+    164.5
+   ],
+   [
+    "2026-11-05T16:14:43Z",
+    2,
+    162.6
+   ],
+   [
+    "2026-11-05T17:19:10Z",
+    3,
+    137.2
+   ],
+   [
+    "2026-11-05T18:08:50Z",
+    3,
+    139.6
+   ],
+   [
+    "2026-11-05T19:08:34Z",
+    3,
+    138.4
+   ],
+   [
+    "2026-11-05T20:19:02Z",
+    2,
+    140.9
+   ],
+   [
+    "2026-11-05T21:19:39Z",
+    3,
+    136.9
+   ],
+   [
+    "2026-11-05T22:16:32Z",
+    2,
+    143.1
+   ],
+   [
+    "2026-11-05T23:25:11Z",
+    2,
+    141.9
+   ]
+  ],
+  "hours_at_level": {
+   "2": 20,
+   "3": 4
+  },
+  "highest": 2,
+  "lowest": 3
+ },
+ "first_seen": {
+  "count": 135,
+  "by_severity": {
+   "medium": 64,
+   "high": 27,
+   "low": 37,
+   "critical": 7
+  },
+  "by_type": {
+   "ransomware": 46,
+   "news": 80,
+   "community": 2,
+   "vuln": 1,
+   "advisory": 6
+  }
+ },
+ "situations": [
+  {
+   "name": "6.3B Binance",
+   "severity": "critical",
+   "outlets": 9,
+   "reports": 10,
+   "cves": [],
+   "lead": {
+    "title": "Rigged Coding Assignment, Abused AI Tool Opened Path to $6 Billion Binance Heist",
+    "url": "https://www.securityweek.com/rigged-coding-assignment-abused-ai-tool-opened-path-to-6-billion-binance-heist/",
+    "source": "SecurityWeek",
+    "published": "2026-11-04T10:36:32Z"
+   }
+  },
+  {
+   "name": "French",
+   "severity": "high",
+   "outlets": 7,
+   "reports": 8,
+   "cves": [],
+   "lead": {
+    "title": "French authorities probe cyberattack targeting nation’s blood supply",
+    "url": "https://www.cybersecuritydive.com/news/french-probe-cyberattack-blood-supply/873871/",
+    "source": "Cybersecurity Dive",
+    "published": "2026-11-05T15:52:25Z"
+   }
+  },
+  {
+   "name": "Zyxel GS1900",
+   "severity": "critical",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [
+    "CVE-2026-107441",
+    "CVE-2026-7273"
+   ],
+   "lead": {
+    "title": "Zyxel Switch Hacks Blamed on Patched Flaw Actually Exploited a Zero-Day",
+    "url": "https://www.securityweek.com/zyxel-switch-hacks-blamed-on-patched-flaw-actually-exploited-a-zero-day/",
+    "source": "SecurityWeek",
+    "published": "2026-11-05T10:56:41Z"
+   }
+  },
+  {
+   "name": "WordPress Core",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [
+    "CVE-2026-119977"
+   ],
+   "lead": {
+    "title": "CISA flags WordPress RCE flaw as actively exploited in attacks",
+    "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-wordpress-rce-flaw-as-actively-exploited-in-attacks/",
+    "source": "BleepingComputer",
+    "published": "2026-11-04T12:11:05Z"
+   }
+  },
+  {
+   "name": "cPGuard",
+   "severity": "high",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [],
+   "lead": {
+    "title": "Poisoned cPGuard update hits thousands of web hosting servers",
+    "url": "https://www.helpnetsecurity.com/2026/11/04/cpguard-update-supply-chain-compromised/",
+    "source": "Help Net Security",
+    "published": "2026-11-04T11:18:23Z"
+   }
+  },
+  {
+   "name": "Barracuda",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [],
+   "lead": {
+    "title": "Barracuda warns of critical flaws allowing root access to devices",
+    "url": "https://www.bleepingcomputer.com/news/security/barracuda-warns-of-critical-flaws-allowing-root-access-to-devices/",
+    "source": "BleepingComputer",
+    "published": "2026-11-03T15:06:16Z"
+   }
+  },
+  {
+   "name": "Apple CVE-2024-27834",
+   "severity": "critical",
+   "outlets": 2,
+   "reports": 2,
+   "cves": [
+    "CVE-2024-27834"
+   ],
+   "lead": {
+    "title": "Hackers Exploit Patched Apple Flaw to Deliver Info-Stealing Malware, CISA Says",
+    "url": "https://thehackernews.com/2026/11/hackers-exploit-patched-apple-flaw-to.html",
+    "source": "The Hacker News",
+    "published": "2026-11-05T05:17:04Z"
+   }
+  },
+  {
+   "name": "mSecure",
+   "severity": "high",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [],
+   "lead": {
+    "title": "mSecure password manager hack prompts password reset warnings",
+    "url": "https://www.bleepingcomputer.com/news/security/msecure-password-manager-hack-prompts-password-reset-warnings/",
+    "source": "BleepingComputer",
+    "published": "2026-11-04T16:00:18Z"
+   }
+  }
+ ],
+ "top_reports": [
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Harden cooling systems now, feds warn critical infrastructure operators amid attacks",
+   "source": "The Record",
+   "url": "https://therecord.media/cyberattacks-refrigeration-cisa-fbi",
+   "published": "2026-11-05T19:15:00Z",
+   "first_seen": "2026-11-05T20:21:07Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Hackers backdoor Linux servers using trojanized CWP web server",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-backdoor-linux-servers-using-trojanized-cwp-web-server/",
+   "published": "2026-11-05T16:24:26Z",
+   "first_seen": "2026-11-05T17:20:24Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Zyxel Switch Hacks Blamed on Patched Flaw Actually Exploited a Zero-Day",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/zyxel-switch-hacks-blamed-on-patched-flaw-actually-exploited-a-zero-day/",
+   "published": "2026-11-05T10:56:41Z",
+   "first_seen": "2026-11-05T11:47:45Z",
+   "cves": [
+    "CVE-2026-107441"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "GhostMap Android flaw lets malicious app trigger persistent boot loop",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/ghostmap-android-flaw-lets-malicious-app-trigger-persistent-boot-loop/",
+   "published": "2026-11-05T09:18:29Z",
+   "first_seen": "2026-11-05T09:26:59Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "CERT-In Flags AI-Driven Attacks as Backdoored ARTEX Exposes 62 Consoles to Root Access",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/backdoored-docker-image-for-artex-ai.html",
+   "published": "2026-11-05T08:42:03Z",
+   "first_seen": "2026-11-05T10:22:53Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Zyxel GS1900 Patch Fails to Block Zero-Day Exploit Allowing Root Command Execution",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/zyxel-gs1900-patch-fails-to-block-zero.html",
+   "published": "2026-11-05T07:06:33Z",
+   "first_seen": "2026-11-05T09:26:59Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Hackers Exploit Patched Apple Flaw to Deliver Info-Stealing Malware, CISA Says",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-patched-apple-flaw-to.html",
+   "published": "2026-11-05T05:17:04Z",
+   "first_seen": "2026-11-05T06:25:45Z",
+   "cves": [
+    "CVE-2024-27834"
+   ]
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Queens Public Library says ransomware attack disrupted Wi-Fi, on-site computers",
+   "source": "The Record",
+   "url": "https://therecord.media/queens-library-ransomware-causes-disruptions",
+   "published": "2026-11-05T22:08:00Z",
+   "first_seen": "2026-11-05T22:24:49Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Fake OpenAI, SpaceX events used to steal Microsoft, Google accounts",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/fake-openai-spacex-events-used-to-steal-microsoft-google-accounts/",
+   "published": "2026-11-05T21:30:30Z",
+   "first_seen": "2026-11-05T22:24:49Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "community",
+   "title": "MS Paint Remote Code Execution Vulnerability",
+   "source": "Hacker News",
+   "url": "https://www.cve.org/CVERecord?id=CVE-2026-83844",
+   "published": "2026-11-05T20:43:42Z",
+   "first_seen": "2026-11-05T22:24:49Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Nearly 1.5 million exposed secrets targeted in new revocation program",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/truffle-security-launches-program-to-revoke-14-million-live-secrets/",
+   "published": "2026-11-05T20:15:08Z",
+   "first_seen": "2026-11-05T20:21:07Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "APT29's Watering Holes Target Thousands of Mobile Users",
+   "source": "Dark Reading",
+   "url": "https://www.darkreading.com/mobile-security/apt29-watering-holes-target-mobile-users",
+   "published": "2026-11-05T20:05:39Z",
+   "first_seen": "2026-11-05T20:21:07Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "US government warns of ‘ongoing cyber threat’ amid mass hacks of industrial retail and military freezers",
+   "source": "TechCrunch Security",
+   "url": "https://techcrunch.com/2026/11/05/u-s-government-warns-of-ongoing-cyber-threat-amid-mass-hacks-of-industrial-retail-and-military-freezers/",
+   "published": "2026-11-05T18:48:34Z",
+   "first_seen": "2026-11-05T19:08:59Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "October crypto-tracker hack: Access cracked, law enforcement tokens packed",
+   "source": "The Register",
+   "url": "https://www.theregister.com/cyber-crime/2026/11/05/october-crypto-tracker-hack-access-cracked-law-enforcement-tokens-packed/5307852",
+   "published": "2026-11-05T18:03:00Z",
+   "first_seen": "2026-11-05T18:10:15Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "OpenSSH flaw lets attackers log into password-disabled Linux accounts",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/openssh-flaw-lets-attackers-log-into-password-disabled-linux-accounts/",
+   "published": "2026-11-05T17:45:29Z",
+   "first_seen": "2026-11-05T18:10:15Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Russian state-linked hackers target iPhone, Android devices in zero-click espionage campaign",
+   "source": "The Record",
+   "url": "https://therecord.media/russia-hackers-smartphone-cyberattacks",
+   "published": "2026-11-05T17:00:00Z",
+   "first_seen": "2026-11-05T17:20:24Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Ninth Circuit: Breach Of Confidence Confers Standing In Health Data Security Case",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/05/ninth-circuit-breach-of-confidence-confers-standing-in-health-data-security-case/",
+   "published": "2026-11-05T16:48:53Z",
+   "first_seen": "2026-11-05T17:20:24Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "OpenSSH Issues Emergency Fix for Flaw Letting Long Passwords Bypass SSH Auth on Alpine Linux",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/openssh-issues-emergency-fix-for-flaw.html",
+   "published": "2026-11-05T16:42:46Z",
+   "first_seen": "2026-11-05T22:24:49Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "DigiCert data breach exposes customer information, identity documents",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/digicert-data-breach-exposes-customer-information-identity-documents/",
+   "published": "2026-11-05T16:12:46Z",
+   "first_seen": "2026-11-05T17:20:24Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "UK: Royal Cornwall Hospitals Trust data breach exposed health details of 7,715 staff",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/05/uk-royal-cornwall-hospitals-trust-data-breach-exposed-health-details-of-7715-staff/",
+   "published": "2026-11-05T16:04:19Z",
+   "first_seen": "2026-11-05T17:20:24Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "French authorities probe cyberattack targeting nation’s blood supply",
+   "source": "Cybersecurity Dive",
+   "url": "https://www.cybersecuritydive.com/news/french-probe-cyberattack-blood-supply/873871/",
+   "published": "2026-11-05T15:52:25Z",
+   "first_seen": "2026-11-05T17:20:24Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Cyberattack on Norway’s aid agency may have swept up all user data",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/11/05/norad-grants-portal-breach/",
+   "published": "2026-11-05T13:56:49Z",
+   "first_seen": "2026-11-05T14:15:56Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Anthropic won’t fix a Claude Dispatch flaw that could let attackers execute remote commands across corporate boundaries",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/05/anthropic-wont-fix-a-claude-dispatch-flaw-that-could-let-attackers-execute-remote-commands-across-corporate-boundaries/",
+   "published": "2026-11-05T13:45:12Z",
+   "first_seen": "2026-11-05T14:15:56Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Anthropic won't fix a Claude Dispatch flaw that could let attackers execute remote commands across corporate boundaries",
+   "source": "The Register",
+   "url": "https://www.theregister.com/research/2026/11/05/anthropic-wont-fix-a-claude-dispatch-flaw-that-could-let-attackers-execute-remote-commands-across-corporate-boundaries/5307684",
+   "published": "2026-11-05T13:00:00Z",
+   "first_seen": "2026-11-05T13:31:56Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Cyberattack Hits French Blood Bank Site but No Blood Products Are Compromised",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/cyberattack-hits-french-blood-bank-site-but-no-blood-products-are-compromised/",
+   "published": "2026-11-05T12:58:32Z",
+   "first_seen": "2026-11-05T13:31:56Z",
+   "cves": []
+  }
+ ],
+ "kev_added": [],
+ "breaches": [],
+ "ransomware_claims": {
+  "count": 29,
+  "groups": [
+   [
+    "n0n",
+    7
+   ],
+   [
+    "akira",
+    4
+   ],
+   [
+    "leakeddata",
+    2
+   ],
+   [
+    "SilentRansomGroup",
+    2
+   ],
+   [
+    "qilin",
+    2
+   ],
+   [
+    "Vexy Ransomware",
+    1
+   ],
+   [
+    "redact",
+    1
+   ],
+   [
+    "beast",
+    1
+   ],
+   [
+    "pear",
+    1
+   ],
+   [
+    "Aoqin",
+    1
+   ]
+  ]
+ },
+ "archive_counts": {
+  "date": "2026-11-05",
+  "exploited": 0.0,
+  "ransomware": 10.0,
+  "breaches": 0.0,
+  "community": 3.1,
+  "kev": 0,
+  "claims": 50,
+  "breach_count": 0,
+  "accounts": 0,
+  "stories": 2,
+  "top": "MS Paint Remote Code Execution Vulnerability",
+  "top_url": "https://www.cve.org/CVERecord?id=CVE-2026-83844"
+ },
+ "sitreps": [
+  "sitreps/2026-11-05/002150Z.json",
+  "sitreps/2026-11-05/062532Z.json",
+  "sitreps/2026-11-05/092650Z.json",
+  "sitreps/2026-11-05/114736Z.json",
+  "sitreps/2026-11-05/121105Z.json",
+  "sitreps/2026-11-05/172011Z.json",
+  "sitreps/2026-11-05/202056Z.json",
+  "sitreps/2026-11-05/212339Z.json",
+  "sitreps/2026-11-05/222439Z.json"
+ ],
+ "note": "Backfilled on 2026-11-11 from the sweep memory kept on the analyst's Mac and the public board. Reports drop off the board 14 days after publication, so early days list fewer reports than were seen; the archive_counts come from the full CISA KEV, ransomware-claim, Have I Been Pwned and Hacker News archives. The Mac's clock ran 3.0 h fast from about 2026-11-03T16:20:14Z; its stamps in that period have been corrected."
+}

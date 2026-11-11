@@ -1,0 +1,619 @@
+{
+ "schema": 1,
+ "date": "2026-10-29",
+ "source": "backfill",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-10-29T00:10:38Z",
+    2,
+    200.8
+   ],
+   [
+    "2026-10-29T01:18:52Z",
+    2,
+    200.8
+   ],
+   [
+    "2026-10-29T02:18:49Z",
+    2,
+    200.2
+   ],
+   [
+    "2026-10-29T03:18:49Z",
+    2,
+    200.2
+   ],
+   [
+    "2026-10-29T04:18:48Z",
+    2,
+    200.8
+   ],
+   [
+    "2026-10-29T05:18:48Z",
+    2,
+    200.2
+   ],
+   [
+    "2026-10-29T06:19:51Z",
+    2,
+    199.0
+   ],
+   [
+    "2026-10-29T07:19:47Z",
+    2,
+    201.0
+   ],
+   [
+    "2026-10-29T08:18:59Z",
+    2,
+    204.1
+   ],
+   [
+    "2026-10-29T09:18:59Z",
+    2,
+    206.3
+   ],
+   [
+    "2026-10-29T10:19:02Z",
+    2,
+    203.1
+   ],
+   [
+    "2026-10-29T11:19:01Z",
+    2,
+    221.7
+   ],
+   [
+    "2026-10-29T12:18:59Z",
+    2,
+    217.6
+   ],
+   [
+    "2026-10-29T13:18:59Z",
+    2,
+    217.6
+   ],
+   [
+    "2026-10-29T14:19:01Z",
+    2,
+    225.8
+   ],
+   [
+    "2026-10-29T15:19:01Z",
+    2,
+    221.3
+   ],
+   [
+    "2026-10-29T16:19:01Z",
+    2,
+    219.2
+   ],
+   [
+    "2026-10-29T17:18:59Z",
+    2,
+    223.1
+   ],
+   [
+    "2026-10-29T18:18:59Z",
+    2,
+    219.0
+   ],
+   [
+    "2026-10-29T19:19:01Z",
+    2,
+    211.8
+   ],
+   [
+    "2026-10-29T20:19:04Z",
+    2,
+    229.5
+   ],
+   [
+    "2026-10-29T21:18:59Z",
+    2,
+    227.7
+   ],
+   [
+    "2026-10-29T22:18:59Z",
+    2,
+    228.1
+   ],
+   [
+    "2026-10-29T23:27:06Z",
+    2,
+    231.5
+   ]
+  ],
+  "hours_at_level": {
+   "2": 24
+  },
+  "highest": 2,
+  "lowest": 2
+ },
+ "first_seen": {
+  "count": 145,
+  "by_severity": {
+   "medium": 59,
+   "low": 32,
+   "high": 42,
+   "critical": 12
+  },
+  "by_type": {
+   "ransomware": 50,
+   "news": 86,
+   "community": 4,
+   "advisory": 3,
+   "kev": 2
+  }
+ },
+ "situations": [
+  {
+   "name": "PHP2Shell",
+   "severity": "critical",
+   "outlets": 7,
+   "reports": 9,
+   "cves": [],
+   "lead": {
+    "title": "Chinese hackers used VMware ESX zero-day; PHP2Shell and Fragnesia chained to root firewalls",
+    "url": "https://www.helpnetsecurity.com/2026/10/29/php2shell-fragnesia-vmware-esx-zero-day/",
+    "source": "Help Net Security",
+    "published": "2026-10-29T16:25:10Z"
+   }
+  },
+  {
+   "name": "Volt Typhoon",
+   "severity": "critical",
+   "outlets": 5,
+   "reports": 5,
+   "cves": [],
+   "lead": {
+    "title": "Cisco SD-WAN Zero-Day Exploitation Tied to Volt Typhoon’s ‘Silent Train’ Network",
+    "url": "https://www.securityweek.com/cisco-sd-wan-zero-day-exploitation-tied-to-volt-typhoons-silent-train-network/",
+    "source": "SecurityWeek",
+    "published": "2026-10-29T10:29:25Z"
+   }
+  },
+  {
+   "name": "Cisco SD-WAN",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [
+    "CVE-2026-20127"
+   ],
+   "lead": {
+    "title": "Hackers exploit Cisco SD-WAN flaw to deploy custom KeyDrift malware",
+    "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-cisco-sd-wan-flaw-to-deploy-custom-keydrift-malware/",
+    "source": "BleepingComputer",
+    "published": "2026-10-29T18:38:26Z"
+   }
+  },
+  {
+   "name": "DHS",
+   "severity": "high",
+   "outlets": 6,
+   "reports": 6,
+   "cves": [],
+   "lead": {
+    "title": "DHS personnel leak exposes contact details and sensitive job information",
+    "url": "https://databreaches.net/2026/10/29/dhs-personnel-leak-exposes-contact-details-and-sensitive-job-information/",
+    "source": "DataBreaches.net",
+    "published": "2026-10-29T19:41:47Z"
+   }
+  },
+  {
+   "name": "EBS",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [
+    "CVE-2026-101767"
+   ],
+   "lead": {
+    "title": "Exploitation attempts against recently patched Oracle EBS flaw have begun (CVE-2026-101767)",
+    "url": "https://www.helpnetsecurity.com/2026/10/29/oracle-e-business-suite-cve-2026-101767-exploitation/",
+    "source": "Help Net Security",
+    "published": "2026-10-29T13:12:24Z"
+   }
+  },
+  {
+   "name": "GitLab CVE-2026-97229",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [
+    "CVE-2026-97229"
+   ],
+   "lead": {
+    "title": "Attacker Tried to Exploit Alpine Linux’s GitLab via CVSS 10.0 Flaw Its Ruby Left Open",
+    "url": "https://thehackernews.com/2026/10/attacker-tried-to-exploit-alpine-linuxs.html",
+    "source": "The Hacker News",
+    "published": "2026-10-29T09:05:39Z"
+   }
+  },
+  {
+   "name": "Attackers turn GitHub issues into supply chain campaign against 61…",
+   "severity": "critical",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [],
+   "lead": {
+    "title": "Attackers turn GitHub issues into supply chain campaign against 61 public repos in less than an hour",
+    "url": "https://www.theregister.com/security/2026/10/29/attackers-turn-github-issues-into-supply-chain-campaign-against-61-public-repos-in-less-than-an-hour/5306153",
+    "source": "The Register",
+    "published": "2026-10-29T12:00:00Z"
+   }
+  },
+  {
+   "name": "Binance",
+   "severity": "high",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [],
+   "lead": {
+    "title": "Binance probes potential $5.8 billion crypto-theft hack",
+    "url": "https://www.bleepingcomputer.com/news/security/binance-probes-potential-58-billion-crypto-theft-hack/",
+    "source": "BleepingComputer",
+    "published": "2026-10-29T22:45:23Z"
+   }
+  }
+ ],
+ "top_reports": [
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Hackers exploit Cisco SD-WAN flaw to deploy custom KeyDrift malware",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-cisco-sd-wan-flaw-to-deploy-custom-keydrift-malware/",
+   "published": "2026-10-29T18:38:26Z",
+   "first_seen": "2026-10-29T19:20:17Z",
+   "cves": [
+    "CVE-2026-20127"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Chinese hackers used VMware ESX zero-day; PHP2Shell and Fragnesia chained to root firewalls",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/10/29/php2shell-fragnesia-vmware-esx-zero-day/",
+   "published": "2026-10-29T16:25:10Z",
+   "first_seen": "2026-10-29T17:19:41Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Exploitation attempts against recently patched Oracle EBS flaw have begun (CVE-2026-101767)",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/10/29/oracle-e-business-suite-cve-2026-101767-exploitation/",
+   "published": "2026-10-29T13:12:24Z",
+   "first_seen": "2026-10-29T13:19:46Z",
+   "cves": [
+    "CVE-2026-101767"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Attackers turn GitHub issues into supply chain campaign against 61 public repos in less than an hour",
+   "source": "The Register",
+   "url": "https://www.theregister.com/security/2026/10/29/attackers-turn-github-issues-into-supply-chain-campaign-against-61-public-repos-in-less-than-an-hour/5306153",
+   "published": "2026-10-29T12:00:00Z",
+   "first_seen": "2026-10-29T12:19:43Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "New Cisco firewall zero-day exploited to crash SSL VPN devices",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/cisco-warns-of-firewall-zero-day-exploited-to-crash-ssl-vpn-devices/",
+   "published": "2026-10-29T11:10:13Z",
+   "first_seen": "2026-10-29T11:20:16Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Cisco SD-WAN Zero-Day Exploitation Tied to Volt Typhoon’s ‘Silent Train’ Network",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/cisco-sd-wan-zero-day-exploitation-tied-to-volt-typhoons-silent-train-network/",
+   "published": "2026-10-29T10:29:25Z",
+   "first_seen": "2026-10-29T11:20:16Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Attackers Exploit Second Cisco Firewall VPN Zero-Day Since August",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/attackers-exploit-second-cisco-firewall-vpn-zero-day-since-august/",
+   "published": "2026-10-29T09:47:10Z",
+   "first_seen": "2026-10-29T10:19:55Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Attacker Tried to Exploit Alpine Linux’s GitLab via CVSS 10.0 Flaw Its Ruby Left Open",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/10/attacker-tried-to-exploit-alpine-linuxs.html",
+   "published": "2026-10-29T09:05:39Z",
+   "first_seen": "2026-10-29T11:20:16Z",
+   "cves": [
+    "CVE-2026-97229"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Hackers Exploited Cisco SD-WAN Flaw to Plant Malware Built to Steal Encryption Keys",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/10/hackers-exploited-cisco-sd-wan-flaw-to.html",
+   "published": "2026-10-29T08:24:22Z",
+   "first_seen": "2026-10-29T09:20:46Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Chinese Hackers Quietly Used Low-Severity ESXi Logging Flaw as Zero-Day",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/chinese-hackers-quietly-used-low-severity-esxi-logging-flaw-as-zero-day/",
+   "published": "2026-10-29T08:01:05Z",
+   "first_seen": "2026-10-29T08:19:40Z",
+   "cves": [
+    "CVE-2026-41709"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "China-Linked Hackers Exploited VMware ESX Zero-Day to Reduce Audit Trail Visibility",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/10/china-linked-hackers-exploited-vmware.html",
+   "published": "2026-10-29T06:22:33Z",
+   "first_seen": "2026-10-29T07:20:28Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Attackers Exploit PHP2Shell Flaws in Internet-Exposed Palo Alto Networks Management Interfaces",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/10/attackers-exploit-php2shell-flaws-in.html",
+   "published": "2026-10-29T05:50:17Z",
+   "first_seen": "2026-10-29T07:20:28Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Binance probes potential $5.8 billion crypto-theft hack",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/binance-probes-potential-58-billion-crypto-theft-hack/",
+   "published": "2026-10-29T22:45:23Z",
+   "first_seen": "2026-10-29T23:28:04Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Binance pauses withdrawals as hackers suspected of stealing billions in crypto",
+   "source": "TechCrunch Security",
+   "url": "https://techcrunch.com/2026/10/29/binance-pauses-withdrawals-as-hackers-suspected-of-stealing-billions-in-crypto/",
+   "published": "2026-10-29T22:27:23Z",
+   "first_seen": "2026-10-29T23:28:04Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Hugging Face malware campaign returns to hijack GPUs for crypto mining",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/hugging-face-malware-campaign-returns-to-hijack-gpus-for-crypto-mining/",
+   "published": "2026-10-29T22:09:24Z",
+   "first_seen": "2026-10-29T22:19:45Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Japan Airlines suffers third-party data breach exposing passenger info",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/japan-airlines-suffers-third-party-data-breach-exposing-passenger-info/",
+   "published": "2026-10-29T22:08:04Z",
+   "first_seen": "2026-10-29T22:19:45Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Extent of Crime Stoppers data breach unknown: Sault Police chief",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/10/29/extent-of-crime-stoppers-data-breach-unknown-sault-police-chief/",
+   "published": "2026-10-29T22:06:26Z",
+   "first_seen": "2026-10-29T22:19:45Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Polymarket halts trading after crypto-draining script breach, $2.5M traced",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/polymarket-halts-trading-after-crypto-draining-script-breach-25m-traced/",
+   "published": "2026-10-29T21:47:25Z",
+   "first_seen": "2026-10-29T22:19:45Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "community",
+   "title": "Binance-hacker-1029 – $5.6B stolen from Binance",
+   "source": "Hacker News",
+   "url": "https://arkm.com/explorer/entity/21a94755-f604-45e5-9501-6542e23005e8",
+   "published": "2026-10-29T21:38:59Z",
+   "first_seen": "2026-10-29T22:19:45Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Leaked DHS employee archive, Icepick, faces challenges to stay online",
+   "source": "CyberScoop",
+   "url": "https://cyberscoop.com/dhs-employee-breach-icepick-database-takedown/",
+   "published": "2026-10-29T20:58:28Z",
+   "first_seen": "2026-10-29T21:20:09Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "UNM Health addresses cyberattack in New Mexico after ransomware group claims responsibility",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/10/29/unm-health-addresses-cyberattack-in-new-mexico-after-ransomware-group-claims-responsibility/",
+   "published": "2026-10-29T20:10:54Z",
+   "first_seen": "2026-10-29T20:19:53Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Florida education department says data breach may affect 4.9 million people",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/10/29/florida-education-department-says-data-breach-may-affect-4-9-million-people/",
+   "published": "2026-10-29T20:07:52Z",
+   "first_seen": "2026-10-29T20:19:53Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Limited reports of PHP bug exploitation emerge",
+   "source": "The Record",
+   "url": "https://therecord.media/php2shell-successful-exploitation-reports-emerge",
+   "published": "2026-10-29T20:01:25Z",
+   "first_seen": "2026-10-29T20:19:53Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Student SSNs and Medicaid IDs Exposed in Frontline School Software Breach",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/10/29/student-ssns-and-medicaid-ids-exposed-in-frontline-school-software-breach/",
+   "published": "2026-10-29T19:45:40Z",
+   "first_seen": "2026-10-29T20:19:53Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "DHS personnel leak exposes contact details and sensitive job information",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/10/29/dhs-personnel-leak-exposes-contact-details-and-sensitive-job-information/",
+   "published": "2026-10-29T19:41:47Z",
+   "first_seen": "2026-10-29T20:19:53Z",
+   "cves": []
+  }
+ ],
+ "kev_added": [
+  {
+   "cve": "CVE-2026-97229",
+   "vendor": "GitLab",
+   "product": "Community Edition and Enterprise Edition",
+   "title": "CVE-2026-97229: GitLab Community Edition and Enterprise Edition Integer Overflow or Wraparound Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-97229",
+   "due": "2026-11-01",
+   "ransomware": false
+  },
+  {
+   "cve": "CVE-2026-76418",
+   "vendor": "Cisco",
+   "product": "Secure Firewall ASA Software and Cisco Secure FTD Software",
+   "title": "CVE-2026-76418: Cisco Secure Firewall ASA Software and Cisco Secure FTD Software Unchecked Return Value to NULL Pointer Dereference Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76418",
+   "due": "2026-11-01",
+   "ransomware": false
+  }
+ ],
+ "breaches": [],
+ "ransomware_claims": {
+  "count": 39,
+  "groups": [
+   [
+    "booba team",
+    7
+   ],
+   [
+    "Booba Project",
+    6
+   ],
+   [
+    "everstake",
+    4
+   ],
+   [
+    "qilin",
+    4
+   ],
+   [
+    "Shiba",
+    3
+   ],
+   [
+    "emperador",
+    2
+   ],
+   [
+    "Scarlettgroup",
+    2
+   ],
+   [
+    "rhysida",
+    2
+   ],
+   [
+    "leakeddata",
+    1
+   ],
+   [
+    "global secret group",
+    1
+   ]
+  ]
+ },
+ "archive_counts": {
+  "date": "2026-10-29",
+  "exploited": 8.0,
+  "ransomware": 7.5,
+  "breaches": 0.0,
+  "community": 6.2,
+  "kev": 2,
+  "claims": 30,
+  "breach_count": 0,
+  "accounts": 0,
+  "stories": 4,
+  "top": "Binance-hacker-1029 – $5.6B stolen from Binance",
+  "top_url": "https://arkm.com/explorer/entity/21a94755-f604-45e5-9501-6542e23005e8"
+ },
+ "sitreps": [
+  "sitreps/2026-10-29/042000Z.json",
+  "sitreps/2026-10-29/072200Z.json",
+  "sitreps/2026-10-29/082100Z.json",
+  "sitreps/2026-10-29/092000Z.json",
+  "sitreps/2026-10-29/101900Z.json",
+  "sitreps/2026-10-29/112000Z.json",
+  "sitreps/2026-10-29/122000Z.json",
+  "sitreps/2026-10-29/132100Z.json",
+  "sitreps/2026-10-29/142100Z.json",
+  "sitreps/2026-10-29/171900Z.json",
+  "sitreps/2026-10-29/191900Z.json",
+  "sitreps/2026-10-29/202100Z.json",
+  "sitreps/2026-10-29/221900Z.json",
+  "sitreps/2026-10-29/233000Z.json"
+ ],
+ "note": "Backfilled on 2026-11-11 from the sweep memory kept on the analyst's Mac and the public board. Reports drop off the board 14 days after publication, so early days list fewer reports than were seen; the archive_counts come from the full CISA KEV, ransomware-claim, Have I Been Pwned and Hacker News archives. The Mac's clock ran 3.0 h fast from about 2026-11-03T16:20:14Z; its stamps in that period have been corrected."
+}

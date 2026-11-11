@@ -1,0 +1,173 @@
+{
+ "schema": 1,
+ "date": "2026-10-25",
+ "source": "backfill",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-10-25T00:19:30Z",
+    3,
+    121.2
+   ],
+   [
+    "2026-10-25T01:19:30Z",
+    3,
+    121.2
+   ],
+   [
+    "2026-10-25T02:19:30Z",
+    3,
+    121.2
+   ],
+   [
+    "2026-10-25T03:19:30Z",
+    3,
+    121.2
+   ],
+   [
+    "2026-10-25T04:19:30Z",
+    3,
+    118.1
+   ],
+   [
+    "2026-10-25T05:29:19Z",
+    3,
+    118.3
+   ],
+   [
+    "2026-10-25T06:19:07Z",
+    3,
+    118.6
+   ],
+   [
+    "2026-10-25T07:19:02Z",
+    3,
+    118.0
+   ],
+   [
+    "2026-10-25T08:19:03Z",
+    3,
+    111.0
+   ],
+   [
+    "2026-10-25T09:19:02Z",
+    3,
+    99.8
+   ],
+   [
+    "2026-10-25T10:19:04Z",
+    3,
+    94.8
+   ],
+   [
+    "2026-10-25T11:19:07Z",
+    3,
+    92.6
+   ],
+   [
+    "2026-10-25T12:19:02Z",
+    3,
+    81.7
+   ],
+   [
+    "2026-10-25T13:19:03Z",
+    4,
+    75.4
+   ],
+   [
+    "2026-10-25T14:19:04Z",
+    4,
+    71.1
+   ],
+   [
+    "2026-10-25T15:19:02Z",
+    4,
+    67.2
+   ],
+   [
+    "2026-10-25T16:19:03Z",
+    4,
+    65.1
+   ],
+   [
+    "2026-10-25T17:19:03Z",
+    4,
+    62.1
+   ],
+   [
+    "2026-10-25T18:19:04Z",
+    4,
+    55.4
+   ],
+   [
+    "2026-10-25T19:19:03Z",
+    4,
+    55.6
+   ],
+   [
+    "2026-10-25T20:19:03Z",
+    4,
+    52.1
+   ],
+   [
+    "2026-10-25T21:19:07Z",
+    4,
+    50.3
+   ],
+   [
+    "2026-10-25T22:19:02Z",
+    4,
+    46.4
+   ],
+   [
+    "2026-10-25T23:19:04Z",
+    4,
+    45.9
+   ]
+  ],
+  "hours_at_level": {
+   "3": 13,
+   "4": 11
+  },
+  "highest": 3,
+  "lowest": 4
+ },
+ "first_seen": {
+  "count": 1,
+  "by_severity": {
+   "low": 1
+  },
+  "by_type": {
+   "news": 1
+  }
+ },
+ "situations": [],
+ "top_reports": [],
+ "kev_added": [],
+ "breaches": [],
+ "ransomware_claims": {
+  "count": 0,
+  "groups": []
+ },
+ "archive_counts": {
+  "date": "2026-10-25",
+  "exploited": 0.0,
+  "ransomware": 5.25,
+  "breaches": 0.0,
+  "community": 0.0,
+  "kev": 0,
+  "claims": 21,
+  "breach_count": 0,
+  "accounts": 0,
+  "stories": 0,
+  "top": "",
+  "top_url": ""
+ },
+ "sitreps": [
+  "sitreps/2026-10-25/032000Z.json",
+  "sitreps/2026-10-25/102200Z.json",
+  "sitreps/2026-10-25/131900Z.json",
+  "sitreps/2026-10-25/192100Z.json"
+ ],
+ "note": "Backfilled on 2026-11-11 from the sweep memory kept on the analyst's Mac and the public board. Reports drop off the board 14 days after publication, so early days list fewer reports than were seen; the archive_counts come from the full CISA KEV, ransomware-claim, Have I Been Pwned and Hacker News archives. The Mac's clock ran 3.0 h fast from about 2026-11-03T16:20:14Z; its stamps in that period have been corrected."
+}

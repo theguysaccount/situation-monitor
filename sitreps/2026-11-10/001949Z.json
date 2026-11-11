@@ -1,0 +1,42 @@
+{
+ "written_at": "2026-11-10T00:19:49Z",
+ "by": "Claude",
+ "headline": "SITCON 3 (ELEVATED): OpenSSH SSHole still exploited; Vanderbilt hit by ransomware; Qubole AWS trust abused",
+ "bullets": [
+  {
+   "text": "New: Vanderbilt University was hit in a ransomware attack via BYOD devices, with data theft claimed; campus devices and systems are affected. Russian cloud firm Beget is rebuilding from scratch after a data wiper attack. Binance denies a breach after alleged ShinyHunters claims.",
+   "url": "https://www.bleepingcomputer.com/news/security/vanderbilt-university-hit-in-byod-ransomware-attack-data-theft-claimed/"
+  },
+  {
+   "text": "SITCON holds at 3. SSHole (OpenSSH CVE-2026-123158) remains the top story across 5 outlets, with attackers using it to breach Linux systems. CISA added it to KEV on 11-09 with a federal due date of 11-12.",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-sshole-openssh-flaw-to-breach-linux-systems/"
+  },
+  {
+   "text": "Also in KEV on 11-09, all due 11-12: GPUStack CVE-2026-102895 (a trusted-loopback check fooled by a reverse-proxy peer or the X-GPUStack-Real-IP header grants unauthenticated admin), SignalWire FreeSwitch CVE-2026-116779 (code injection) and IBM Aspera Faspex CVE-2026-123218.",
+   "url": "https://github.com/advisories/GHSA-gj9m-f8ph-pmhr"
+  },
+  {
+   "text": "Cloud trust abuse: attackers used Qubole's trusted access into customer AWS accounts to steal data, and trusted AWS integrations are being backdoored to steal secrets. Attackers also use ARTEX to scan GitHub repositories for exposed secrets.",
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-quboles-trusted-aws.html"
+  },
+  {
+   "text": "N-able has taken its cloud platform offline after 30+ \"zero-days\" were published. Supply chain: Ethersphere's bee-js and Swarm Desktop were compromised to deliver wallet-stealing malware; 300 malicious packages hit the GitHub Advisory Database in 7 days, almost all npm.",
+   "url": "https://www.bleepingcomputer.com/news/security/n-able-takes-cloud-platform-offline-after-30-plus-zero-days-published/"
+  },
+  {
+   "text": "Breaches still developing: Iris Ohyama (7.7M), Frontline Education (3M+), Revolve (1.5M), Amplifon Americas (1.3M), Wyndham app exposure, York University. France blames Iran for supermarket freezer attacks that caused fires. 7 days ran 0.84x the 90-day average.",
+   "url": "https://www.securityweek.com/iris-plaza-breach-may-have-exposed-data-of-7-7-million-customers/"
+  }
+ ],
+ "actions": [
+  "Patch OpenSSH for CVE-2026-123158 on every internet-facing host and router; restrict SSH exposure and review auth logs for unexpected logins.",
+  "Patch or isolate GPUStack (CVE-2026-102895), FreeSwitch (CVE-2026-116779) and IBM Aspera Faspex (CVE-2026-123218) before the 11-12 KEV deadline.",
+  "Audit IAM roles that trust third-party AWS accounts; remove unused integrations such as Qubole and rotate secrets they could reach.",
+  "Scan your GitHub repos and history for committed secrets and rotate any found; treat machines with bee-js or Swarm Desktop as compromised.",
+  "Review BYOD access to internal networks: require managed or posture-checked devices for VPN and Wi-Fi, and segment unmanaged devices.",
+  "Clear remaining KEV deadlines: VMware ESX CVE-2026-41709 (11-11), Ivanti Connect Secure CVE-2026-104935 (11-13), SonicWall SSL-VPN CVE-2026-19868 (11-20)."
+ ],
+ "commit": "06ba0e4e43b7de04c61883f4ff108569bb4d2a5e",
+ "pushed_at": "2026-11-10T00:19:49Z",
+ "written_at_as_recorded": "2026-11-10T03:20:00Z"
+}

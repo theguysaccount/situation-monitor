@@ -1,0 +1,498 @@
+{
+ "schema": 1,
+ "date": "2026-10-28",
+ "source": "backfill",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-10-28T06:33:47Z",
+    2,
+    148.4
+   ],
+   [
+    "2026-10-28T07:19:28Z",
+    2,
+    154.6
+   ],
+   [
+    "2026-10-28T08:19:28Z",
+    2,
+    154.0
+   ],
+   [
+    "2026-10-28T09:19:28Z",
+    2,
+    155.2
+   ],
+   [
+    "2026-10-28T10:19:27Z",
+    2,
+    155.2
+   ],
+   [
+    "2026-10-28T11:19:28Z",
+    2,
+    159.6
+   ],
+   [
+    "2026-10-28T12:19:29Z",
+    2,
+    166.4
+   ],
+   [
+    "2026-10-28T13:19:32Z",
+    2,
+    180.7
+   ],
+   [
+    "2026-10-28T14:19:29Z",
+    2,
+    185.7
+   ],
+   [
+    "2026-10-28T15:19:28Z",
+    2,
+    189.4
+   ],
+   [
+    "2026-10-28T16:19:29Z",
+    2,
+    193.1
+   ],
+   [
+    "2026-10-28T17:19:28Z",
+    2,
+    196.8
+   ],
+   [
+    "2026-10-28T18:19:28Z",
+    2,
+    193.7
+   ],
+   [
+    "2026-10-28T19:19:32Z",
+    2,
+    208.9
+   ],
+   [
+    "2026-10-28T20:08:26Z",
+    2,
+    210.1
+   ],
+   [
+    "2026-10-28T21:16:16Z",
+    2,
+    208.8
+   ],
+   [
+    "2026-10-28T22:21:55Z",
+    2,
+    211.9
+   ],
+   [
+    "2026-10-28T23:22:17Z",
+    2,
+    209.4
+   ]
+  ],
+  "hours_at_level": {
+   "2": 18
+  },
+  "highest": 2,
+  "lowest": 2
+ },
+ "first_seen": {
+  "count": 120,
+  "by_severity": {
+   "low": 42,
+   "high": 31,
+   "medium": 39,
+   "critical": 8
+  },
+  "by_type": {
+   "news": 92,
+   "vuln": 3,
+   "ransomware": 20,
+   "advisory": 2,
+   "community": 3
+  }
+ },
+ "situations": [
+  {
+   "name": "ShinyHunters-Exploited Oracle PeopleSoft Zero-Day Turns Out to Be…",
+   "severity": "critical",
+   "outlets": 4,
+   "reports": 5,
+   "cves": [
+    "CVE-2026-101767",
+    "CVE-2026-35273"
+   ],
+   "lead": {
+    "title": "ShinyHunters-Exploited Oracle PeopleSoft Zero-Day Turns Out to Be Three Chained Flaws",
+    "url": "https://thehackernews.com/2026/10/shinyhunters-exploited-oracle.html",
+    "source": "The Hacker News",
+    "published": "2026-10-28T06:04:58Z"
+   }
+  },
+  {
+   "name": "Volt Typhoon",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [],
+   "lead": {
+    "title": "Volt Typhoon Used Covert Silent Train Network in Four Zero-Day Exploitation Campaigns",
+    "url": "https://thehackernews.com/2026/10/volt-typhoon-used-covert-silent-train.html",
+    "source": "The Hacker News",
+    "published": "2026-10-28T18:08:33Z"
+   }
+  },
+  {
+   "name": "PHP2Shell",
+   "severity": "critical",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [],
+   "lead": {
+    "title": "China-Linked Hackers Exploit PHP2Shell to Root Firewalls",
+    "url": "https://www.securityweek.com/china-linked-hackers-exploit-php2shell-to-root-firewalls/",
+    "source": "SecurityWeek",
+    "published": "2026-10-28T12:00:59Z"
+   }
+  }
+ ],
+ "top_reports": [
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Volt Typhoon Used Covert Silent Train Network in Four Zero-Day Exploitation Campaigns",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/10/volt-typhoon-used-covert-silent-train.html",
+   "published": "2026-10-28T18:08:33Z",
+   "first_seen": "2026-10-28T19:20:30Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "InfraTrust report warns of exploited flaws in critical network infrastructure",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/infratrust-report-warns-of-exploited-flaws-in-critical-network-infrastructure/",
+   "published": "2026-10-28T14:00:00Z",
+   "first_seen": "2026-10-28T14:20:11Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "China-Linked Hackers Exploit PHP2Shell to Root Firewalls",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/china-linked-hackers-exploit-php2shell-to-root-firewalls/",
+   "published": "2026-10-28T12:00:59Z",
+   "first_seen": "2026-10-28T12:20:33Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Critical 16-Year-Old UEFI Flaw Can Run Code Before Secure Boot on Network-Booting Servers",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/10/critical-16-year-old-uefi-flaw-can-run.html",
+   "published": "2026-10-28T11:50:00Z",
+   "first_seen": "2026-10-28T14:20:11Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Adobe Fixes 8 Critical Campaign Classic Flaws Allowing Code Execution and Security Bypass",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/10/adobe-fixes-8-critical-campaign-classic.html",
+   "published": "2026-10-28T11:15:51Z",
+   "first_seen": "2026-10-28T11:20:08Z",
+   "cves": [
+    "CVE-2026-104351"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "CISA warns of hackers now exploiting critical Node2Shell flaw",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-hackers-now-exploiting-critical-node2shell-flaw/",
+   "published": "2026-10-28T10:46:23Z",
+   "first_seen": "2026-10-28T11:20:08Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "CISA Warns of Node2Shell Exploitation as Honeypots Log Attack Attempts",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/cisa-warns-of-node2shell-exploitation-as-honeypots-log-attack-attempts/",
+   "published": "2026-10-28T08:37:24Z",
+   "first_seen": "2026-10-28T09:19:51Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "ShinyHunters-Exploited Oracle PeopleSoft Zero-Day Turns Out to Be Three Chained Flaws",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/10/shinyhunters-exploited-oracle.html",
+   "published": "2026-10-28T06:04:58Z",
+   "first_seen": "2026-10-28T07:20:16Z",
+   "cves": [
+    "CVE-2026-35273"
+   ]
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Leak site publishes data on more than 41,000 DHS employees obtained by hacktivists",
+   "source": "CyberScoop",
+   "url": "https://cyberscoop.com/dhs-employee-data-leak-ddosecrets/",
+   "published": "2026-10-28T21:33:00Z",
+   "first_seen": "2026-10-28T21:54:04Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Japan Airlines warns of data breach as country grapples with multiple cyber incidents",
+   "source": "The Record",
+   "url": "https://therecord.media/japan-airlines-warns-of-breach-country-grapples-with-incidents",
+   "published": "2026-10-28T20:33:00Z",
+   "first_seen": "2026-10-28T21:19:02Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Most Servers on the Planet Are Vulnerable to This Firmware Code-Execution Flaw",
+   "source": "WIRED Security",
+   "url": "https://www.wired.com/story/most-servers-on-the-planet-are-vulnerable-to-a-code-execution-flaw-in-uefi-firmware/",
+   "published": "2026-10-28T20:30:00Z",
+   "first_seen": "2026-10-28T21:19:02Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Hacker stole personnel data about thousands of Homeland Security employees, including CBP and ICE agents",
+   "source": "TechCrunch Security",
+   "url": "https://techcrunch.com/2026/10/28/hacker-stole-personnel-data-about-thousands-of-homeland-security-employees-including-cbp-and-ice-agents/",
+   "published": "2026-10-28T20:01:00Z",
+   "first_seen": "2026-10-28T20:09:32Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Massive Leak Exposes 41,000 Homeland Security Workers—Including Undercover ICE Agents",
+   "source": "WIRED Security",
+   "url": "https://www.wired.com/story/massive-leak-exposes-41000-homeland-security-workers-including-undercover-ice-agents/",
+   "published": "2026-10-28T20:00:00Z",
+   "first_seen": "2026-10-28T20:09:32Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "GhostAction Hacking Wave Fizzles, but Attackers Lurk on in GitHub",
+   "source": "Dark Reading",
+   "url": "https://www.darkreading.com/application-security/ghostaction-hacking-wave-fizzles-attackers-github",
+   "published": "2026-10-28T19:39:00Z",
+   "first_seen": "2026-10-28T23:23:18Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Sony ISP subsidiary data breach exposes 2.5 million customer records",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/sony-isp-subsidiary-data-breach-exposes-25-million-customer-records/",
+   "published": "2026-10-28T16:45:47Z",
+   "first_seen": "2026-10-28T17:20:10Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Moldova investigates possible foreign involvement in major government cyberattack",
+   "source": "The Record",
+   "url": "https://therecord.media/moldova-investigates-possible-foreign-involvement-cyberattacks",
+   "published": "2026-10-28T16:37:00Z",
+   "first_seen": "2026-10-28T17:20:10Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "PHP2Shell Attack Roots 25 Servers, Breaches U.S. Government-Affiliated Network",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/10/php2shell-attack-roots-25-servers.html",
+   "published": "2026-10-28T16:02:45Z",
+   "first_seen": "2026-10-28T17:20:10Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Volt Typhoon hides zero-day attacks using 'Silent Train' framework",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/volt-typhoon-hides-zero-day-attacks-using-silent-train-framework/",
+   "published": "2026-10-28T16:00:00Z",
+   "first_seen": "2026-10-28T16:20:38Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Researchers uncover Volt Typhoon’s covert, ephemeral network",
+   "source": "CyberScoop",
+   "url": "https://cyberscoop.com/volt-typhoon-silent-train-covert-ephemeral-network-black-lotus-labs/",
+   "published": "2026-10-28T16:00:00Z",
+   "first_seen": "2026-10-28T16:20:38Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "South Korea’s financial industry hit by fresh wave of cyberattacks",
+   "source": "TechCrunch Security",
+   "url": "https://techcrunch.com/2026/10/28/south-koreas-financial-industry-hit-by-fresh-wave-of-cyberattacks/",
+   "published": "2026-10-28T15:41:18Z",
+   "first_seen": "2026-10-28T16:20:38Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "JPN: Times Car reporting ¥5.5 billion loss has firms bracing for data breach fallout",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/10/28/jpn-times-car-reporting-%c2%a55-5-billion-loss-has-firms-bracing-for-data-breach-fallout/",
+   "published": "2026-10-28T15:22:48Z",
+   "first_seen": "2026-10-28T16:20:38Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Compromised camera management software gives attackers a way into corporate networks",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/10/28/compromised-camera-management-software-initial-access/",
+   "published": "2026-10-28T14:43:23Z",
+   "first_seen": "2026-10-28T15:20:16Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Attacker Relentlessly Scans for Credentials by Impersonating AI Bots",
+   "source": "Dark Reading",
+   "url": "https://www.darkreading.com/cyber-risk/attacker-impersonates-ai-bots-scans-credentials",
+   "published": "2026-10-28T14:37:52Z",
+   "first_seen": "2026-10-28T15:20:16Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "345,000 email addresses stolen in cyberattack on Germany’s far-right party AfD",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/10/28/afd-data-breach-email-leak/",
+   "published": "2026-10-28T14:28:43Z",
+   "first_seen": "2026-10-28T15:20:16Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Hackers Target Critical Oracle E-Business Suite RCE Flaw Days After Security Patch",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/10/hackers-target-critical-oracle-e.html",
+   "published": "2026-10-28T12:48:03Z",
+   "first_seen": "2026-10-28T14:20:11Z",
+   "cves": [
+    "CVE-2026-101767"
+   ]
+  }
+ ],
+ "kev_added": [],
+ "breaches": [],
+ "ransomware_claims": {
+  "count": 34,
+  "groups": [
+   [
+    "the gentlemen",
+    6
+   ],
+   [
+    "SilentRansomGroup",
+    5
+   ],
+   [
+    "leakeddata",
+    5
+   ],
+   [
+    "rhysida",
+    3
+   ],
+   [
+    "akira",
+    3
+   ],
+   [
+    "lockbit5",
+    2
+   ],
+   [
+    "payload",
+    2
+   ],
+   [
+    "aurora",
+    2
+   ],
+   [
+    "wallstreet",
+    1
+   ],
+   [
+    "pear",
+    1
+   ]
+  ]
+ },
+ "archive_counts": {
+  "date": "2026-10-28",
+  "exploited": 8.0,
+  "ransomware": 5.75,
+  "breaches": 0.0,
+  "community": 4.3,
+  "kev": 2,
+  "claims": 23,
+  "breach_count": 0,
+  "accounts": 0,
+  "stories": 4,
+  "top": "Apple's git still trusts the compromised eMudhra certificates",
+  "top_url": "https://emudhra.we-have-a-problem.com/apple.html"
+ },
+ "sitreps": [
+  "sitreps/2026-10-28/063600Z.json",
+  "sitreps/2026-10-28/072100Z.json",
+  "sitreps/2026-10-28/102100Z.json",
+  "sitreps/2026-10-28/111900Z.json",
+  "sitreps/2026-10-28/121900Z.json",
+  "sitreps/2026-10-28/132200Z.json",
+  "sitreps/2026-10-28/142100Z.json",
+  "sitreps/2026-10-28/152100Z.json",
+  "sitreps/2026-10-28/161900Z.json",
+  "sitreps/2026-10-28/172100Z.json",
+  "sitreps/2026-10-28/192300Z.json",
+  "sitreps/2026-10-28/212000Z.json"
+ ],
+ "note": "Backfilled on 2026-11-11 from the sweep memory kept on the analyst's Mac and the public board. Reports drop off the board 14 days after publication, so early days list fewer reports than were seen; the archive_counts come from the full CISA KEV, ransomware-claim, Have I Been Pwned and Hacker News archives. The Mac's clock ran 3.0 h fast from about 2026-11-03T16:20:14Z; its stamps in that period have been corrected."
+}
