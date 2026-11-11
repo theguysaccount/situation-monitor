@@ -1,39 +1,39 @@
 {
- "written_at": "2026-11-10T16:19:19Z",
+ "written_at": "2026-11-11T03:01:03Z",
  "by": "Claude",
- "headline": "Xen Orchestra auth bypass and AhsayCBS flaws exploited; N-able keeps N-central offline after dozens of zero-days published",
+ "headline": "Barracuda ESG, Chrome and Outlook flaws join CISA KEV; trusted AWS access abused in cloud breaches; Xen Orchestra exploitation continues",
  "bullets": [
   {
-   "text": "Changed: attackers are exploiting a critical authentication bypass in Xen Orchestra to hijack VM servers (BleepingComputer). The brief names no CVE or fixed release yet.",
-   "url": "https://www.bleepingcomputer.com/news/security/critical-xen-orchestra-auth-bypass-flaw-exploited-to-hijack-vm-servers/"
+   "text": "Changed: CISA added six exploited flaws on 11-10: Barracuda CVE-2026-116606 (ESG auth bypass) and CVE-2026-111560 (command injection), due 11-13; Chrome CVE-2026-125350, Outlook CVE-2026-124194, Cisco BroadWorks CVE-2026-20320 and Openwave CVE-2026-111793, due 11-24.",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-116606"
   },
   {
-   "text": "Changed: attackers are exploiting AhsayCBS flaws CVE-2026-105133 and CVE-2026-105134 to deploy a sandbox-evading Python backdoor (The Hacker News).",
-   "url": "https://thehackernews.com/2026/11/attackers-exploit-ahsaycbs-flaws-to.html"
+   "text": "Changed: attackers are abusing trusted AWS access to breach multiple cloud environments (BleepingComputer). The brief gives no product or CVE; this is an access-trust problem, not a patchable bug.",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-trusted-aws-access-to-breach-multiple-cloud-environments/"
   },
   {
-   "text": "N-able has taken its hosted N-central remote access service offline after a researcher published dozens of zero-days; the story now spans 4 outlets. No fixes are named yet.",
+   "text": "Changed: an SGLang RCE exploit was used to breach NEAR AI, stealing data from 18 agents and about 100 users. Separately, Git patched a flaw that lets malicious repositories run code during recursive clones.",
+   "url": "https://thehackernews.com/2026/11/sglang-rce-exploit-breaches-near-ai.html"
+  },
+  {
+   "text": "Still active: Xen Orchestra critical auth bypass is being exploited for admin access (now reported by two outlets); the brief names no CVE or fixed release.",
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-xen-orchestra.html"
+  },
+  {
+   "text": "Still active: N-able keeps hosted N-central offline after dozens of published zero-days (4 outlets). SSHole (OpenSSH CVE-2026-123158), GPUStack, FreeSwitch and IBM Aspera Faspex KEV deadlines fall on 11-12.",
    "url": "https://techcrunch.com/2026/11/10/n-able-takes-its-remote-access-service-offline-after-researcher-publishes-dozens-of-zero-day-bugs/"
   },
   {
-   "text": "Changed: AI company Fireworks says hackers stole data and billing information in October breaches; other reports say the exposure widened to incomplete model weights (5 outlets).",
-   "url": "https://therecord.media/ai-company-fireworks-says-hackers-stole-data-in-oct-attacks"
-  },
-  {
-   "text": "SSHole (OpenSSH CVE-2026-123158) exploitation continues (4 outlets). It is in CISA KEV with GPUStack CVE-2026-102895, FreeSwitch CVE-2026-116779 and IBM Aspera Faspex CVE-2026-123218, all due 11-12.",
-   "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-sshole-openssh-flaw-to-breach-linux-systems/"
-  },
-  {
-   "text": "Still active: Barracuda Email Security Gateway flaws are being exploited for root access; the brief names no CVEs or fixed releases. 300 malicious packages were listed in 7 days, mostly npm; the week ran 0.94x the 90-day average.",
-   "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-barracuda-email-security-gateway-flaws-to-get-root-access/"
+   "text": "Breaches: Nitori says 37.6M customer records were stolen; Vanderbilt University hit by BYOD ransomware (5 outlets). 300 malicious packages listed in 7 days, mostly npm; the week ran 1.05x the 90-day average.",
+   "url": "https://www.bleepingcomputer.com/news/security/japanese-furniture-giant-nitori-says-hackers-stole-376m-customer-records/"
   }
  ],
  "actions": [
-  "Xen Orchestra: check the vendor advisory, update now, and restrict its web interface to admin networks until patched.",
-  "AhsayCBS: patch CVE-2026-105133 and CVE-2026-105134 and look for unexpected Python processes on backup servers.",
+  "Barracuda ESG: patch CVE-2026-116606 and CVE-2026-111560 before the 11-13 KEV deadline and check appliances for root compromise.",
+  "Update Chrome (CVE-2026-125350) and Outlook (CVE-2026-124194) across the fleet now; patch Cisco BroadWorks CVE-2026-20320.",
+  "AWS: review cross-account roles and third-party trust relationships, and look for unexpected AssumeRole activity in CloudTrail.",
   "Patch OpenSSH (CVE-2026-123158), GPUStack, FreeSwitch and IBM Aspera Faspex before the 11-12 KEV deadline.",
-  "N-central users: limit network exposure of N-central servers and agents, and watch N-able for fixes.",
-  "Fireworks and Qubole customers: rotate API keys and credentials shared with those services and review access logs.",
-  "Barracuda ESG: apply available fixes, restrict management access and check appliances for signs of root compromise."
+  "Update Git, avoid recursive clones of untrusted repositories, and patch or isolate SGLang servers.",
+  "Xen Orchestra and N-central: restrict management interfaces to admin networks and watch vendors for fixes."
  ]
 }
