@@ -1,21 +1,21 @@
 {
- "written_at": "2026-11-11T10:19:48Z",
+ "written_at": "2026-11-11T11:19:51Z",
  "by": "Claude",
- "headline": "CISA flags exploited Cisco BroadWorks flaw (now 4 outlets); OpenSSH SSHole due 11-12; Barracuda ESG due 11-13; two school districts hit",
+ "headline": "California hospital takes systems offline; OpenSSH SSHole due 11-12; Barracuda ESG due 11-13; Cisco BroadWorks exploited",
  "bullets": [
-  {"text": "Changed: CISA has flagged Cisco BroadWorks CVE-2026-20320 (XXE) as actively exploited, alongside Openwave Webtop Media Transcoder CVE-2026-111793; the story is now at 4 outlets. Both are in KEV with a federal due date of 11-24.", "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-cisco-broadworks-flaw-as-actively-exploited-in-attacks/"},
-  {"text": "New: Barbour County Schools (West Virginia) cut internet during a suspected cyber incident, and Seminole County schools (Georgia) shut systems after one. Vanderbilt remains on lockdown after a BYOD-claimed ransomware attack (6 outlets).", "url": "https://dysruptionhub.com/barbour-west-virginia-schools-cyber-incident/"},
+  {"text": "New: Ridgecrest Regional Hospital in California has taken systems offline after a cyber incident. It joins Vanderbilt (lockdown after a BYOD-claimed ransomware attack, 6 outlets) and the Barbour County (WV) and Seminole County (GA) school districts hit this week.", "url": "https://dysruptionhub.com/ridgecrest-california-hospital-cyber-incident/"},
   {"text": "Due tomorrow, 11-12: OpenSSH SSHole CVE-2026-123158 (exploited to breach Linux systems, 4 outlets), GPUStack CVE-2026-102895, FreeSwitch CVE-2026-116779 and IBM Aspera Faspex CVE-2026-123218.", "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-sshole-openssh-flaw-to-breach-linux-systems/"},
-  {"text": "Barracuda ESG CVE-2026-116606 (auth bypass) and CVE-2026-111560 (OS command injection) are exploited in attacks (4 outlets); KEV due 11-13.", "url": "https://www.securityweek.com/recently-patched-barracuda-vulnerabilities-exploited-in-attacks/"},
+  {"text": "Barracuda ESG CVE-2026-116606 (auth bypass) and CVE-2026-111560 (OS command injection) are exploited in attacks (4 outlets); KEV due 11-13. Ivanti Connect Secure CVE-2026-104935 is also due 11-13.", "url": "https://www.securityweek.com/recently-patched-barracuda-vulnerabilities-exploited-in-attacks/"},
+  {"text": "Cisco BroadWorks CVE-2026-20320 (XXE) and Openwave Webtop Media Transcoder CVE-2026-111793 are exploited despite available patches (4 outlets); KEV due 11-24.", "url": "https://www.securityweek.com/threat-actors-exploit-openwave-cisco-broadworks-vulnerabilities/"},
   {"text": "Microsoft patched 1,259 flaws, including exploited Outlook CVE-2026-124194 that may expose NTLMv2 hashes (KEV due 11-24). Chrome zero-day CVE-2026-125350 is also due 11-24. Git patched a code-execution flaw in recursive clones.", "url": "https://thehackernews.com/2026/11/microsoft-patches-1259-flaws-including.html"},
-  {"text": "Still active: N-able keeps hosted N-central offline after dozens of published zero-days; SAP patched four CVSS 10.0 flaws (ICM2SHELL); AhsayCBS and Xen Orchestra flaws are exploited; France blames Iran for sabotage at ~700 retail sites. The week ran 1.11x the 90-day average.", "url": "https://techcrunch.com/2026/11/10/n-able-takes-its-remote-access-service-offline-after-researcher-publishes-dozens-of-zero-day-bugs/"}
+  {"text": "Still active: N-able keeps hosted N-central offline after dozens of published zero-days; SAP patched four CVSS 10.0 flaws (ICM2SHELL); Xen Orchestra auth bypass is exploited; France blames Iran for sabotage at ~700 retail sites. The week ran 1.09x the 90-day average.", "url": "https://techcrunch.com/2026/11/10/n-able-takes-its-remote-access-service-offline-after-researcher-publishes-dozens-of-zero-day-bugs/"}
  ],
  "actions": [
   "Patch OpenSSH (CVE-2026-123158), GPUStack, FreeSwitch and IBM Aspera Faspex today; their KEV deadline is 11-12.",
-  "Patch Cisco BroadWorks (CVE-2026-20320) and Openwave Webtop (CVE-2026-111793) and check for compromise; CISA confirms exploitation.",
-  "Barracuda ESG: apply fixes for CVE-2026-116606 and CVE-2026-111560 (due 11-13) and hunt for compromise.",
+  "Barracuda ESG: apply fixes for CVE-2026-116606 and CVE-2026-111560 (due 11-13) and hunt for compromise; patch Ivanti Connect Secure too.",
+  "Patch Cisco BroadWorks (CVE-2026-20320) and Openwave Webtop (CVE-2026-111793) and check for compromise.",
   "Roll out Microsoft's November updates with priority on Outlook CVE-2026-124194, update Chrome, and update Git on build hosts.",
-  "Apply SAP's patches for the four CVSS 10.0 flaws, and patch or isolate AhsayCBS and Xen Orchestra servers.",
-  "N-central customers: follow N-able's guidance while the hosted service is offline and review remote-access logs."
+  "Apply SAP's patches for the four CVSS 10.0 flaws and patch or isolate Xen Orchestra servers.",
+  "Healthcare and education IT: review remote access and backups given this week's hospital, university and school incidents."
  ]
 }
