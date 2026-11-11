@@ -1,0 +1,39 @@
+{
+ "written_at": "2026-11-11T16:19:48Z",
+ "by": "Claude",
+ "headline": "Xen Orchestra flaws exploited; York University breach exposes 19 years of data; OpenSSH SSHole due 11-12, Barracuda ESG due 11-13",
+ "bullets": [
+  {
+   "text": "New: critical Xen Orchestra flaws are being exploited in attacks (SecurityWeek; 3 outlets now covering it). The brief gives no CVEs or fixed releases yet.",
+   "url": "https://www.securityweek.com/critical-xen-orchestra-flaws-exploited-in-attacks/"
+  },
+  {
+   "text": "New: Canada's York University says a breach exposed 19 years of student health and financial data. Earlier today Credit Mutuel Arkea reported €100m missing after a cyberattack; Wyndham, Fullerton Health and hundreds of Dutch sports clubs also reported breaches.",
+   "url": "https://databreaches.net/2026/11/11/ca-york-university-breach-exposes-19-years-of-student-health-and-financial-data/"
+  },
+  {
+   "text": "Qlik Sense servers are being hit with reverse shells while attackers stage ActiveMQ and Veeam exploits (The Hacker News). AntiFox AI agents are used in AWS credential-theft attacks. Git fixed six flaws, including code execution during recursive clones.",
+   "url": "https://thehackernews.com/2026/11/hackers-target-qlik-sense-servers-with.html"
+  },
+  {
+   "text": "Due tomorrow, 11-12: OpenSSH SSHole CVE-2026-123158 (exploited to breach Linux systems, 3 outlets), GPUStack CVE-2026-102895, FreeSwitch CVE-2026-116779 and IBM Aspera Faspex CVE-2026-123218.",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-sshole-openssh-flaw-to-breach-linux-systems/"
+  },
+  {
+   "text": "Barracuda ESG CVE-2026-116606 (auth bypass) and CVE-2026-111560 (OS command injection) are exploited (4 outlets); KEV due 11-13, as is Ivanti Connect Secure CVE-2026-104935. Cisco BroadWorks CVE-2026-20320 and Openwave Webtop CVE-2026-111793 are due 11-24.",
+   "url": "https://www.securityweek.com/recently-patched-barracuda-vulnerabilities-exploited-in-attacks/"
+  },
+  {
+   "text": "Still active: N-able released hotfixes for the published N-central zero-days (4 outlets); Vanderbilt on lockdown after ransomware (6 outlets); Maersk probing data theft; Poland's ePUAP shut down. The week ran 1.15x the 90-day average.",
+   "url": "https://www.bleepingcomputer.com/news/security/n-able-releases-security-hotfixes-for-zero-day-vulnerabilities/"
+  }
+ ],
+ "actions": [
+  "Inventory Xen Orchestra instances, keep their web interfaces off the internet, and apply vendor fixes as soon as they are available.",
+  "Patch OpenSSH (CVE-2026-123158), GPUStack, FreeSwitch and IBM Aspera Faspex today; their KEV deadline is 11-12.",
+  "Barracuda ESG: apply fixes for CVE-2026-116606 and CVE-2026-111560 (due 11-13) and hunt for compromise; patch Citrix and Ivanti Connect Secure.",
+  "Check internet-facing Qlik Sense servers for reverse shells, patch ActiveMQ and Veeam hosts, and update Git on developer machines and CI runners.",
+  "N-central customers: apply the hotfixes. Patch Cisco BroadWorks, Openwave Webtop, Outlook (CVE-2026-124194) and Chrome before 11-24.",
+  "Review AWS access keys and CloudTrail for unusual use, and rotate any credentials that may be exposed."
+ ]
+}
