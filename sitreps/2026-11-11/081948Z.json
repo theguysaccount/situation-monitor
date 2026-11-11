@@ -1,0 +1,39 @@
+{
+ "written_at": "2026-11-11T08:19:48Z",
+ "by": "Claude",
+ "headline": "Barracuda flaws now exploited in attacks with KEV deadline 11-13; OpenSSH SSHole due 11-12; Vanderbilt on ransomware lockdown",
+ "bullets": [
+  {
+   "text": "Changed: SecurityWeek reports the recently patched Barracuda flaws are being exploited in attacks (4 outlets). CISA lists Barracuda ESG CVE-2026-116606 (auth bypass) and CVE-2026-111560 (OS command injection) in KEV, due 11-13.",
+   "url": "https://www.securityweek.com/recently-patched-barracuda-vulnerabilities-exploited-in-attacks/"
+  },
+  {
+   "text": "Due 11-12: OpenSSH SSHole CVE-2026-123158 (exploited to breach Linux systems, 4 outlets), GPUStack CVE-2026-102895, FreeSwitch CVE-2026-116779 and IBM Aspera Faspex CVE-2026-123218.",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-sshole-openssh-flaw-to-breach-linux-systems/"
+  },
+  {
+   "text": "Due 11-24: Cisco BroadWorks CVE-2026-20320 and Openwave Webtop CVE-2026-111793 (exploited despite patches), Chrome's eighth exploited zero-day CVE-2026-125350 and Outlook CVE-2026-124194. Leaked exploit kits are hitting iPhones via an Instagram ad; no CVE named.",
+   "url": "https://thehackernews.com/2026/11/cisco-broadworks-and-openwave-flaws.html"
+  },
+  {
+   "text": "Still active: N-able keeps hosted N-central offline after dozens of published zero-days; SAP patched four CVSS 10.0 flaws (ICM2SHELL); AhsayCBS CVE-2026-105133/105134 and a Xen Orchestra auth bypass are exploited.",
+   "url": "https://techcrunch.com/2026/11/10/n-able-takes-its-remote-access-service-offline-after-researcher-publishes-dozens-of-zero-day-bugs/"
+  },
+  {
+   "text": "Ransomware and breaches: Vanderbilt is on lockdown after a BYOD-claimed attack (6 outlets); Kinnarps stopped production at three sites; YouHack's 7,160,849 accounts added to Have I Been Pwned; Nitori says 37.6M customer records stolen.",
+   "url": "https://www.nashvillescene.com/news/pithinthewind/vanderbilt-university-cyber-attack-lockdown/article_c7136f1f-a103-4e75-93bc-826ca02e894e.html"
+  },
+  {
+   "text": "AI and cloud supply chain: Fireworks AI breach widened to datasets, model weights and Notion AI chats; SGLang RCE breached NEAR AI; trusted AWS access abused across clouds. 300 malicious packages in 7 days, mostly npm; the week ran 1.11x the 90-day average.",
+   "url": "https://thehackernews.com/2026/11/fireworks-ai-breach-widens-to-expose.html"
+  }
+ ],
+ "actions": [
+  "Barracuda ESG: apply fixes for CVE-2026-116606 and CVE-2026-111560 now (due 11-13) and hunt for compromise, since exploitation is confirmed.",
+  "Patch OpenSSH (CVE-2026-123158), GPUStack, FreeSwitch and IBM Aspera Faspex today; their KEV deadline is 11-12.",
+  "Patch Cisco BroadWorks and Openwave Webtop (CVE-2026-20320, CVE-2026-111793) and update Chrome and Outlook fleet-wide.",
+  "Apply SAP's November patches for the four CVSS 10.0 flaws, and patch or isolate AhsayCBS and Xen Orchestra servers.",
+  "N-central customers: follow N-able's guidance while the hosted service is offline and review remote-access logs.",
+  "If you use Fireworks AI or Qubole, rotate API keys; review AWS cross-account trust and AssumeRole activity."
+ ]
+}
