@@ -1,0 +1,39 @@
+{
+ "written_at": "2026-11-11T22:19:49Z",
+ "by": "Claude",
+ "headline": "Maersk: WhiteArmor claims 100GB stolen, demands $5M; OpenSSH SSHole and GPUStack KEV due 11-12, Barracuda ESG 11-13",
+ "bullets": [
+  {
+   "text": "New: WhiteArmor now claims it stole 100GB of data from Maersk and is demanding $5 million (DataBreaches.net); Maersk has confirmed a breach (BleepingComputer). Vanderbilt University remains on lockdown after ransomware (6 outlets).",
+   "url": "https://databreaches.net/2026/11/11/whitearmor-demands-5-million-from-maersk-claims-theft-of-100gb-of-data/"
+  },
+  {
+   "text": "KEV due tomorrow, 11-12: OpenSSH SSHole CVE-2026-123158 (exploited on Linux, 3 outlets), GPUStack CVE-2026-102895, FreeSwitch CVE-2026-116779, IBM Aspera Faspex CVE-2026-123218. Due 11-13: Barracuda ESG CVE-2026-116606 and CVE-2026-111560, Ivanti CVE-2026-104935.",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-sshole-openssh-flaw-to-breach-linux-systems/"
+  },
+  {
+   "text": "Notion says a breach at Fireworks exposed customer AI chat transcripts (BleepingComputer). Microsoft reports threat actors abusing GSocket for stealthy command-and-control, and AntiFox AI agents are being used to steal AWS credentials.",
+   "url": "https://www.bleepingcomputer.com/news/security/notion-says-fireworks-breach-exposed-customer-ai-chat-transcripts/"
+  },
+  {
+   "text": "Critical Zoom Workplace flaw CVE-2026-108186 allows unauthenticated remote privilege escalation; patches are out. Critical Xen Orchestra flaws are exploited (3 outlets; no CVEs in the brief), and Qlik Sense servers are hit with reverse shells.",
+   "url": "https://thehackernews.com/2026/11/critical-zoom-workplace-flaw-could.html"
+  },
+  {
+   "text": "Still active: N-able hotfixes for the published N-central zero-days (6 outlets); Cisco BroadWorks and Openwave exploited (KEV due 11-24). The week ran 1.17x the 90-day average.",
+   "url": "https://www.bleepingcomputer.com/news/security/n-able-releases-security-hotfixes-for-zero-day-vulnerabilities/"
+  },
+  {
+   "text": "Other breaches today: a $26 million cyber heist in a small New Jersey town; York University (19 years of student data), Credit Mutuel Arkea (€100m missing), Fullerton Health, Wyndham, and hundreds of Dutch sports clubs.",
+   "url": "https://databreaches.net/2026/11/11/the-26-million-cyber-heist-rocking-a-small-new-jersey-town/"
+  }
+ ],
+ "actions": [
+  "Patch OpenSSH (CVE-2026-123158), GPUStack, FreeSwitch and IBM Aspera Faspex today; their KEV deadline is 11-12.",
+  "Barracuda ESG: apply fixes for CVE-2026-116606 and CVE-2026-111560 (due 11-13) and hunt for compromise; patch Ivanti Connect Secure and Citrix.",
+  "If you work with Maersk or use Fireworks-hosted models, watch for vendor notices about your data; hunt for GSocket use on Linux hosts.",
+  "Update Zoom Workplace for CVE-2026-108186; keep Xen Orchestra off the internet and check Qlik Sense servers for reverse shells.",
+  "N-central customers: apply the hotfixes. Patch Cisco BroadWorks, Openwave Webtop, Outlook (CVE-2026-124194) and Chrome before 11-24.",
+  "Review AWS access keys and CloudTrail for unusual use, and update Git on developer machines and CI."
+ ]
+}
