@@ -1,0 +1,39 @@
+{
+ "written_at": "2026-11-11T05:19:47Z",
+ "by": "Claude",
+ "headline": "Leaked iPhone exploit kits spread via Instagram ads; Barracuda ESG and OpenSSH KEV deadlines this week; SAP patches four CVSS 10 flaws",
+ "bullets": [
+  {
+   "text": "Changed: leaked exploit kits are hitting employees' iPhones, delivered through an Instagram ad (Help Net Security, iVerify report). The brief names no CVE or fixed iOS release. Binance separately warned of an iOS flaw that could leak crypto wallet secrets.",
+   "url": "https://www.helpnetsecurity.com/2026/11/11/iverify-iphone-exploit-kit-attacks-report/"
+  },
+  {
+   "text": "Changed: SAP patched four CVSS 10.0 flaws, two enabling remote code execution (ICM2SHELL, 4 outlets). AhsayCBS flaws CVE-2026-105133 and CVE-2026-105134 are being exploited to deploy a Python backdoor.",
+   "url": "https://thehackernews.com/2026/11/sap-patches-four-cvss-100-flaws.html"
+  },
+  {
+   "text": "Still active: Barracuda ESG CVE-2026-116606 and CVE-2026-111560 are exploited for root access, KEV due 11-13. OpenSSH SSHole CVE-2026-123158, GPUStack CVE-2026-102895, FreeSwitch and IBM Aspera Faspex are due 11-12. Chrome CVE-2026-125350 and Outlook CVE-2026-124194 are due 11-24.",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-barracuda-email-security-gateway-flaws-to-get-root-access/"
+  },
+  {
+   "text": "Still active: Xen Orchestra auth bypass exploited to hijack VM servers (no CVE or fix named in the brief); N-able keeps hosted N-central offline after dozens of published zero-days (4 outlets); trusted AWS access abused to breach multiple cloud environments.",
+   "url": "https://www.bleepingcomputer.com/news/security/critical-xen-orchestra-auth-bypass-flaw-exploited-to-hijack-vm-servers/"
+  },
+  {
+   "text": "AI supply chain: Fireworks AI says its breach widened to customer datasets, model weights and Notion AI chats; SGLang RCE used to breach NEAR AI; over a dozen organizations hit in the Qubole supply-chain attack; Git patched a recursive-clone code execution flaw.",
+   "url": "https://thehackernews.com/2026/11/fireworks-ai-breach-widens-to-expose.html"
+  },
+  {
+   "text": "Breaches: SberSpasibo's 3,288,711 accounts added to Have I Been Pwned; Nitori says 37.6M customer records stolen; Vanderbilt hit by BYOD ransomware (5 outlets). 300 malicious packages in 7 days, mostly npm; the week ran 1.08x the 90-day average.",
+   "url": "https://haveibeenpwned.com/Breach/SberSpasibo"
+  }
+ ],
+ "actions": [
+  "Patch OpenSSH (CVE-2026-123158), GPUStack, FreeSwitch and IBM Aspera Faspex today; their KEV deadline is 11-12.",
+  "Barracuda ESG: apply fixes for CVE-2026-116606 and CVE-2026-111560 before 11-13 and check appliances for root compromise.",
+  "Keep corporate iPhones on the latest iOS, enforce MDM update policies, and warn staff about malicious ads on Instagram.",
+  "Apply SAP's November patches for the four CVSS 10.0 flaws, and patch or isolate AhsayCBS servers.",
+  "Update Chrome (CVE-2026-125350) and Outlook (CVE-2026-124194) fleet-wide; update Git and avoid recursive clones of untrusted repos.",
+  "If you use Fireworks AI or Qubole, rotate API keys and review access logs; review AWS cross-account trust and AssumeRole activity."
+ ]
+}
