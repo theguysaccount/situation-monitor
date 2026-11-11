@@ -95,6 +95,42 @@ class Gate(unittest.TestCase):
         (self.site / f"{KEY}.txt").unlink()
         self.assertEqual(self.gate(), 1)
 
+    def rows(self):
+        out = io.StringIO()
+        with redirect_stdout(out):
+            code = check_build.run(self.site)
+        return code, out.getvalue()
+
+    def write_more(self, generated_at=None, items=None):
+        self.data["more"] = {"url": "data/more.json", "items": 2, "packages": 0, "priority": 1, "counts": {"priority": 1}}
+        self.write_data()
+        (self.site / "data" / "more.json").write_text(json.dumps(
+            {"generated_at": generated_at or self.data["generated_at"], "items": items if items is not None else [{"id": "b"}, {"id": "c"}],
+             "packages": []}))
+
+    def test_rest_of_the_board_must_match(self):
+        self.write_more()
+        self.assertEqual(self.gate(), 0)
+        self.write_more(generated_at=stamp(minutes_ago=60))
+        self.assertEqual(self.gate(), 1)
+        self.write_more(items=[{"id": "b"}])
+        self.assertEqual(self.gate(), 1)
+        (self.site / "data" / "more.json").unlink()
+        self.assertEqual(self.gate(), 1)
+
+    def test_page_without_static_content_only_warns(self):
+        self.data["items"] = [{"id": "a", "severity": "high"}]
+        self.write_data()
+        code, out = self.rows()
+        self.assertEqual(code, 0)
+        self.assertNotIn("ok    page content without JavaScript", out)
+        (self.site / "index.html").write_text(
+            '<head><link rel="canonical" href="https://x.test/"><title>The Situation Monitor</title></head>'
+            '<ul id="feed-list"><li><a href="https://a.test/" class="row-title">A</a></li></ul>' + "x" * 12000)
+        code, out = self.rows()
+        self.assertIn("ok    page content without JavaScript 1 report links", out)
+        self.assertIn("ok    first load", out)
+
     def test_repo_ships_an_indexnow_key(self):
         keys = [p for p in (ROOT / "site").glob("*.txt") if len(p.stem) == 32]
         self.assertEqual(len(keys), 1)
