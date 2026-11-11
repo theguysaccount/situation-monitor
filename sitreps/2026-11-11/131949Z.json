@@ -1,0 +1,39 @@
+{
+ "written_at": "2026-11-11T13:19:49Z",
+ "by": "Claude",
+ "headline": "N-able ships N-central zero-day hotfixes; OpenSSH SSHole due 11-12; Barracuda ESG due 11-13; Maersk probes data theft",
+ "bullets": [
+  {
+   "text": "New: N-able has released security hotfixes for the zero-day vulnerabilities that a researcher published, after keeping hosted N-central offline (4 outlets).",
+   "url": "https://www.bleepingcomputer.com/news/security/n-able-releases-security-hotfixes-for-zero-day-vulnerabilities/"
+  },
+  {
+   "text": "New: over 35,000 apps built with Grok are exposed online, some leaking confidential data and passwords. Also today: Maersk is investigating an IT security incident with data theft, and eMudhra revoked 8 more CAs after its key compromise.",
+   "url": "https://thehackernews.com/2026/11/over-35000-grok-built-apps-exposed.html"
+  },
+  {
+   "text": "Due tomorrow, 11-12: OpenSSH SSHole CVE-2026-123158 (exploited to breach Linux systems, 4 outlets), GPUStack CVE-2026-102895, FreeSwitch CVE-2026-116779 and IBM Aspera Faspex CVE-2026-123218.",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-sshole-openssh-flaw-to-breach-linux-systems/"
+  },
+  {
+   "text": "Barracuda ESG CVE-2026-116606 (auth bypass) and CVE-2026-111560 (OS command injection) are exploited in attacks (4 outlets); KEV due 11-13. Ivanti Connect Secure CVE-2026-104935 is also due 11-13.",
+   "url": "https://www.securityweek.com/recently-patched-barracuda-vulnerabilities-exploited-in-attacks/"
+  },
+  {
+   "text": "Cisco BroadWorks CVE-2026-20320 (XXE) and Openwave Webtop CVE-2026-111793 are exploited despite patches; Outlook CVE-2026-124194 and Chrome CVE-2026-125350 are also in KEV, all due 11-24.",
+   "url": "https://www.securityweek.com/threat-actors-exploit-openwave-cisco-broadworks-vulnerabilities/"
+  },
+  {
+   "text": "Still active: Vanderbilt on lockdown after ransomware (6 outlets), Ridgecrest Regional Hospital offline, two US school districts shut systems; SAP patched four CVSS 10.0 flaws (ICM2SHELL). The week ran 1.13x the 90-day average.",
+   "url": "https://www.nashvillescene.com/news/pithinthewind/vanderbilt-university-cyber-attack-lockdown/article_c7136f1f-a103-4e75-93bc-826ca02e894e.html"
+  }
+ ],
+ "actions": [
+  "N-able N-central customers: apply N-able's zero-day hotfixes now and review RMM activity for misuse.",
+  "Patch OpenSSH (CVE-2026-123158), GPUStack, FreeSwitch and IBM Aspera Faspex today; their KEV deadline is 11-12.",
+  "Barracuda ESG: apply fixes for CVE-2026-116606 and CVE-2026-111560 (due 11-13) and hunt for compromise; patch Ivanti Connect Secure too.",
+  "Inventory any Grok-built or other AI-generated apps exposed to the internet; lock down access and rotate any secrets they hold.",
+  "Patch Cisco BroadWorks and Openwave Webtop, roll out Microsoft's November updates (Outlook CVE-2026-124194 first), and update Chrome.",
+  "Replace certificates chaining to eMudhra's revoked CAs and apply SAP's patches for the four CVSS 10.0 flaws."
+ ]
+}
