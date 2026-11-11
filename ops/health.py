@@ -14,6 +14,7 @@ deploy is never touched.
 from __future__ import annotations
 
 import argparse
+import gzip
 import json
 import os
 import sys
@@ -35,6 +36,8 @@ WARN_AFTER_HOURS, FAIL_AFTER_HOURS = 2, 6
 WARN_SOURCE_SHARE, FAIL_SOURCE_SHARE = 0.8, 0.6
 SITREP_WARN_HOURS = 36   # the site drops an analyst SITREP older than this
 TLS_WARN_DAYS, TLS_FAIL_DAYS = 21, 10
+STATIC_REPORTS = 20             # report links the build writes into the page
+FIRST_LOAD_BUDGET = 150_000     # gzip bytes for the page plus data/situation.json
 
 
 def site_url() -> str:
@@ -81,8 +84,11 @@ def check(heal: bool) -> int:
     c = Checks(f"{host} health")
 
     status, _, _, body, err = fetch(site, tries=3)
+    home = body if status == 200 else b""
     if status == 200 and b"The Situation Monitor" in body:
         c.ok("home page")
+        reports = body.split(b"<script>")[0].count(b'class="row-title"')
+        (c.ok if reports >= STATIC_REPORTS else c.warn)("reports readable without JavaScript", f"{reports} report links in the page")
     else:
         c.fail("home page", f"HTTP {status} {err}".strip() if status != 200 else "200 but the page lacks its title")
 
@@ -119,6 +125,21 @@ def check(heal: bool) -> int:
         else:
             c.ok("sources answering", f"{ok}/{total}")
         (c.ok if data.get("items") else c.fail)("board has items", f"{len(data.get('items') or [])} items")
+        first = len(gzip.compress(home, 6)) + len(gzip.compress(body, 6))
+        (c.ok if first <= FIRST_LOAD_BUDGET else c.warn)(
+            "first load", f"{first / 1000:.0f} KB compressed for the page and data/situation.json (budget {FIRST_LOAD_BUDGET // 1000} KB)")
+        if data.get("more"):  # the rest of the board, which the page fetches when a view needs it
+            status, _, _, more, err = fetch(site + "data/more.json", tries=3, limit=20_000_000)
+            try:
+                rest = json.loads(more) if status == 200 else None
+            except ValueError:
+                rest = None
+            if rest is None:
+                c.fail("data/more.json", f"HTTP {status} {err}".strip() if status != 200 else "not JSON")
+            elif rest.get("generated_at") != data["generated_at"]:
+                c.warn("data/more.json", f"from the {rest.get('generated_at')} sweep, not {data['generated_at']} (a deploy may be landing)")
+            else:
+                c.ok("data/more.json", f"{len(rest.get('items') or [])} more items")
 
         sitrep = data.get("sitrep")
         if sitrep and sitrep.get("written_at"):

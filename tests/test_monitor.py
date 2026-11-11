@@ -354,7 +354,10 @@ class Clock(unittest.TestCase):
     def test_the_page_takes_now_from_the_server(self):
         page = (ROOT / "site" / "app.html").read_text(encoding="utf-8")
         self.assertEqual(page.count("Date.now()"), 2)  # only inside nowMs() and syncClock()
-        self.assertEqual(page.count("syncClock(r);"), 2)
+        # Every download of the board goes through fetchBoard(), which reads the server's clock.
+        self.assertEqual(page.count('fetch("data/situation.json"'), 1)
+        self.assertEqual(page.count("syncClock(r);"), 1)
+        self.assertEqual(page.count("await fetchBoard("), 3)  # first load, the five-minute refresh, a retry for the rest
         self.assertIn("(nowMs() - t) / 36e5", page)
 
 
@@ -399,7 +402,8 @@ class Analyst(unittest.TestCase):
                 "stats": {"sources_ok": 1, "sources_total": 2},
                 "level": {"value": level, "name": m.LEVELS[level][0], "changed_from": None, "reason": "r", "heat": 300.0},
                 "sitrep": {"written_at": sitrep_at, "by": "Claude", "headline": "h", "bullets": [], "actions": []} if sitrep_at else None}
-        self.site = {"situation.json": data, "changes.json": m.changes_doc(data),
+        board, rest = m.split_board(data, budget=10**9)  # published in two files since P3-1
+        self.site = {"situation.json": board, "more.json": rest, "changes.json": m.changes_doc(data),
                      "live.json": dict(data, trimmed_for_store=True)}
 
     def run_analyst(self, **kw):
@@ -458,6 +462,36 @@ class Analyst(unittest.TestCase):
         out = self.run_analyst(wait=60, sleep=lambda s: None)
         self.assertFalse(out["fresh"])
         self.assertEqual(out["data_age_minutes"], 47)
+
+    def test_mirrors_the_whole_board_from_both_files(self):
+        items = [self.item(f"h{i}", "high", f"2026-11-1{i % 2}T0{i % 10}:00:00Z") for i in range(160)]
+        items += [self.item(f"l{i}", "low", "2026-11-10T01:00:00Z") for i in range(5)]
+        items.sort(key=lambda it: it["published"], reverse=True)
+        self.publish("2026-11-11T03:00:00Z", items)
+        self.assertGreater(self.site["more.json"]["items"].__len__(), 0)
+        out = self.run_analyst()
+        self.assertEqual(out["counts"]["items"], 165)
+        mirror = json.loads((m.DATA / "situation.json").read_text())
+        self.assertNotIn("more", mirror)
+        self.assertEqual(len(mirror["items"]), 165)
+
+    def test_retries_when_a_deploy_lands_between_the_two_files(self):
+        self.publish("2026-11-11T03:00:00Z", [self.item("a", "low", "2026-11-11T03:00:00Z")])
+        old_rest = dict(self.site["more.json"], generated_at="2026-11-11T02:00:00Z")
+        new_rest, calls = self.site["more.json"], []
+
+        def sleep(s):
+            calls.append(s)
+            self.site["more.json"] = new_rest
+        self.site["more.json"] = old_rest
+        out = self.run_analyst(sleep=sleep)
+        self.assertEqual(calls, [5])
+        self.assertEqual(out["counts"]["items"], 1)
+
+    def test_works_before_the_board_was_split(self):
+        self.publish("2026-11-11T03:00:00Z", [self.item("a", "low", "2026-11-11T03:00:00Z")])
+        self.site["situation.json"] = m.join_board(self.site.pop("situation.json"), self.site.pop("more.json"))
+        self.assertEqual(self.run_analyst()["counts"]["items"], 1)
 
     def test_works_before_changes_json_is_published(self):
         self.publish("2026-11-11T03:00:00Z", [])

@@ -253,6 +253,7 @@ a.chip:hover { color: var(--ink); border-color: var(--ink-2); }
 
 /* Charts */
 .chart { position: relative; }
+#trend-chart { min-height: 240px; } #cve-chart { min-height: 220px; } #activity-chart { min-height: 160px; }
 .chart svg { display: block; width: 100%; height: auto; overflow: visible; }
 .chart .gridline { stroke: var(--grid); stroke-width: 1; }
 .chart .baseline { stroke: var(--axis); stroke-width: 1; }
@@ -759,7 +760,13 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
     team: Object.assign({ name: "", stack: "", env: [], mode: "code" }, store.get("sm:team", {})),
     hay: new Map(), watch: new Map(), sample: null, planCtl: null, notify: store.get("sm:notify", false),
     done: store.get("sm:done", {}),
+    // data/situation.json holds what the page shows on arrival; data/more.json the rest of the board (ransomware
+    // claims, low-severity and older reports, older packages). full: the rest is in S.data; wantFull: a view has
+    // needed it, so refreshes fetch both files.
+    full: true, wantFull: false, moreLoading: null, moreFailed: false,
   };
+  // The markup the build wrote into the page (static-HTML render), which the script replaces once data arrives.
+  const PRERENDERED = !!document.querySelector("#feed-list > li");
 
   function watchTerms() {
     return [...new Set(S.team.stack.split(/[,\n;]+/).map((t) => t.trim().toLowerCase()).filter((t) => t.length >= 2))].slice(0, 60);
@@ -791,6 +798,7 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
     d.ransomware = d.ransomware || { groups_7d: [] };
     const before = S.data ? new Set(S.data.items.map((it) => it.id)) : null;
     S.data = d; S.origin = origin;
+    S.full = !d.more || !(d.more.items || d.more.packages);
     S.hay = new Map(d.items.map((it) => [it.id, itemHay(it)]));
     recomputeWatch();
     renderAll();
@@ -798,18 +806,75 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
       const fresh = d.items.filter((it) => !before.has(it.id) && it.type !== "ransomware");
       if (fresh.length) announce(fresh);
     }
+    ensureMore();
   }
+
+  // ------------------------------------------------------------ the rest of the board, on demand
+  const newestFirst = (a, b) => (a.published < b.published ? 1 : a.published > b.published ? -1 : 0);
+  function joinRest(d, rest) {
+    d.items = d.items.concat(Array.isArray(rest.items) ? rest.items : []).sort(newestFirst);
+    d.packages = (d.packages || []).concat(Array.isArray(rest.packages) ? rest.packages : []).sort(newestFirst);
+    delete d.more;
+    return d;
+  }
+  async function fetchRest(d, fresh) {
+    const r = await fetch("data/more.json?v=" + encodeURIComponent(d.generated_at), { cache: fresh ? "no-store" : "default" });
+    if (!r.ok) throw new Error("data/more.json: HTTP " + r.status);
+    const rest = await r.json();
+    return rest && rest.generated_at === d.generated_at ? rest : null; // null: from another sweep
+  }
+  // The published board. With full, the rest too (when it can't be had, the first file alone).
+  async function fetchBoard(full) {
+    const r = await fetch("data/situation.json", { cache: "no-store" });
+    syncClock(r);
+    if (!r.ok) return null;
+    const d = await r.json();
+    if (full && d.more) {
+      try { const rest = await fetchRest(d, true); if (rest) joinRest(d, rest); } catch (e) { /* first file only */ }
+    }
+    return d;
+  }
+  // Whether the rows of the current view are all in hand: the first file has the newest critical and high
+  // reports (more.priority of them) and every report in a developing situation, nothing else for certain.
+  function rowsNeedRest() {
+    const m = S.data && S.data.more;
+    if (!m || S.full) return false;
+    if (S.q.trim() || S.watchOnly) return true;
+    if (S.situation) return S.situation.items.some((id) => !S.hay.has(id));
+    if (S.filter !== "priority") return true;
+    return S.shown > (m.priority || 0) && !(m.counts && m.counts.priority <= (m.priority || 0));
+  }
+  // A watchlist also needs everything: badges, the Your stack count and the prompt's matches cover the whole board.
+  function viewNeedsRest() { return rowsNeedRest() || (!S.full && !!S.data && !!S.data.more && (watchTerms().length > 0 || impliedTerms().length > 0)); }
+  function ensureMore() {
+    if (S.moreLoading || S.moreFailed || !viewNeedsRest()) return;
+    S.wantFull = true;
+    const d = S.data;
+    S.moreLoading = (async () => {
+      const rest = await fetchRest(d, false);
+      if (rest && S.data === d && !S.full) {
+        joinRest(S.data, rest); S.full = true;
+        S.hay = new Map(S.data.items.map((it) => [it.id, itemHay(it)]));
+        recomputeWatch(); renderAll();
+      } else if (!rest) {
+        const whole = await fetchBoard(true); // a deploy landed in between: take the newer board, both files
+        if (whole && !whole.more) setData(whole, S.origin || "file"); else throw new Error("the two data files disagree");
+      }
+    })().catch(() => { S.moreFailed = true; if (S.data) { renderTabs(); renderFeed(); renderHero(); } })
+      .finally(() => { S.moreLoading = null; if (S.data !== d) ensureMore(); }); // new data arrived meanwhile
+  }
+  // A new request from the viewer gets another try at the rest after a failed one.
+  function retryRest() { S.moreFailed = false; }
 
   async function boot() {
     renderClock(); setInterval(renderClock, 20000);
     setInterval(() => { if (S.data) { renderTimes(); renderStatus(); } }, 60000);
     hydrateForm();
     try {
-      const r = await fetch("data/situation.json", { cache: "no-store" });
-      syncClock(r);
-      if (r.ok) setData(await r.json(), window.claude ? "snapshot" : "file");
+      const d = await fetchBoard(false);
+      if (d) setData(d, window.claude ? "snapshot" : "file");
     } catch (e) { /* no file: wait for the live store */ }
-    if (!S.data) renderEmpty();
+    if (!S.data && !PRERENDERED) renderEmpty();
     use("db").then((db) => {
       if (!db) return;
       try {
@@ -826,9 +891,8 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
     if (!window.claude) {
       setInterval(async () => {
         try {
-          const r = await fetch("data/situation.json", { cache: "no-store" });
-          syncClock(r);
-          if (r.ok) { const d = await r.json(); if (!S.data || d.generated_at !== S.data.generated_at) setData(d, "file"); }
+          const d = await fetchBoard(S.wantFull);
+          if (d && (!S.data || d.generated_at !== S.data.generated_at)) setData(d, "file");
         } catch (e) { /* offline */ }
       }, 5 * 60 * 1000);
     }
@@ -900,7 +964,7 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
       h("div", { class: "tile-label" }, label), h("div", { class: "tile-value" + (hot ? " is-hot" : "") }, fmtInt(value)), h("div", { class: "tile-sub" }, sub))));
     const hasStack = watchTerms().length || impliedTerms().length;
     box.append(h("div", { class: "tile" }, h("div", { class: "tile-label" }, "Your stack · 14d"),
-      h("div", { class: "tile-value" + (watchCount ? " is-hot" : "") }, hasStack ? fmtInt(watchCount) : "—"),
+      h("div", { class: "tile-value" + (watchCount && S.full ? " is-hot" : "") }, !hasStack ? "—" : S.full ? fmtInt(watchCount) : S.moreFailed ? "?" : "…"),
       h("div", { class: "tile-sub" }, hasStack ? "matching reports" : h("a", { href: "#protect" }, "Add what you run"))));
   }
 
@@ -945,7 +1009,7 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
   }
 
   function focusSituation(st) {
-    S.situation = st; S.filter = "all"; S.shown = 40;
+    S.situation = st; S.filter = "all"; S.shown = 40; retryRest();
     renderTabs(); renderFeed();
     $("#feed").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
   }
@@ -961,8 +1025,16 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
     const tabs = $("#tabs");
     tabs.replaceChildren(...FILTERS.map((f) => h("button", {
       class: "tab", type: "button", "aria-pressed": String(S.filter === f.id),
-      onclick: () => { S.filter = f.id; S.shown = 40; renderTabs(); renderFeed(); },
-    }, f.label, h("span", { class: "n" }, S.data ? fmtInt(visibleItems(f.id).length) : ""))));
+      onclick: () => { S.filter = f.id; S.shown = 40; retryRest(); renderTabs(); renderFeed(); },
+    }, f.label, h("span", { class: "n" }, tabCount(f)))));
+  }
+
+  function tabCount(f) {
+    if (!S.data) return "";
+    const m = S.data.more, inHand = S.situation && !S.situation.items.some((id) => !S.hay.has(id));
+    if (S.full || (inHand && !S.q.trim() && !S.watchOnly)) return fmtInt(visibleItems(f.id).length);
+    if (!S.q.trim() && !S.watchOnly && !S.situation && m && m.counts && m.counts[f.id] != null) return fmtInt(m.counts[f.id]);
+    return "…";
   }
 
   function renderFeed() {
@@ -974,14 +1046,37 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
       af.replaceChildren(h("span", null, "Showing reports on ", h("strong", null, S.situation.name)),
         h("button", { class: "linkish", type: "button", onclick: () => { S.situation = null; S.filter = "priority"; renderTabs(); renderFeed(); } }, "Clear"));
     } else af.hidden = true;
+    let waiting = false;
+    if (rowsNeedRest()) {
+      ensureMore();
+      const m = S.data.more || {};
+      if (S.filter !== "priority" || S.q.trim() || S.watchOnly || S.situation) {
+        list.replaceChildren(h("li", { class: "row" }, h("div"), h("div", { class: "row-sum" }, S.moreFailed
+          ? "Couldn't load the rest of the board. Check your connection, then pick the tab or search again."
+          : "Loading every report from the last " + (S.data.window_days || 14) + " days…")));
+        $("#more-wrap").hidden = true; return;
+      }
+      waiting = true; // Priority past the newest m.priority reports: show those, and the rest when it arrives
+      items.length = Math.min(items.length, m.priority || 0);
+    }
     if (!items.length) {
       list.replaceChildren(h("li", { class: "row" }, h("div"), h("div", { class: "row-sum" },
         S.watchOnly && !S.watch.size ? "Nothing matches your stack yet. Add what you run under Protect your team." : "No reports match these filters.")));
       $("#more-wrap").hidden = true; return;
     }
     list.replaceChildren(...items.slice(0, S.shown).map(row));
-    $("#more-wrap").hidden = items.length <= S.shown;
-    $("#more-btn").textContent = "Show " + Math.min(40, items.length - S.shown) + " more of " + fmtInt(items.length - S.shown);
+    const btn = $("#more-btn");
+    if (waiting) {
+      $("#more-wrap").hidden = false; btn.disabled = !S.moreFailed;
+      btn.textContent = S.moreFailed ? "Couldn't load more. Try again" : "Loading more…";
+      return;
+    }
+    btn.disabled = false;
+    // Priority before the rest has loaded: the first file's count of these reports is the whole board's.
+    const plain = !S.full && S.data.more && S.filter === "priority" && !S.situation && !S.q.trim() && !S.watchOnly;
+    const left = (plain ? Math.max(items.length, (S.data.more.counts || {}).priority || 0) : items.length) - S.shown;
+    $("#more-wrap").hidden = left <= 0;
+    btn.textContent = "Show " + Math.min(40, left) + " more of " + fmtInt(left);
   }
 
   function row(it) {
@@ -1423,6 +1518,7 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
     };
     store.set("sm:team", S.team);
     if (!S.data) return;
+    retryRest(); ensureMore();
     recomputeWatch();
     renderHero(); renderSituations(); renderTabs(); renderFeed(); renderKev(); renderRansomware(); renderBreaches(); renderPackages(); renderPrompt(); renderAlerts();
   }
@@ -1672,9 +1768,9 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
 
   // ------------------------------------------------------------ controls
   let qTimer = null;
-  $("#feed-search").addEventListener("input", (e) => { clearTimeout(qTimer); const v = e.target.value; qTimer = setTimeout(() => { S.q = v; S.shown = 40; if (S.data) { renderTabs(); renderFeed(); } }, 180); });
-  $("#watch-only").addEventListener("change", (e) => { S.watchOnly = e.target.checked; S.shown = 40; if (S.data) { renderTabs(); renderFeed(); } });
-  $("#more-btn").addEventListener("click", () => { S.shown += 40; renderFeed(); });
+  $("#feed-search").addEventListener("input", (e) => { clearTimeout(qTimer); const v = e.target.value; qTimer = setTimeout(() => { S.q = v; S.shown = 40; retryRest(); if (S.data) { renderTabs(); renderFeed(); } }, 180); });
+  $("#watch-only").addEventListener("change", (e) => { S.watchOnly = e.target.checked; S.shown = 40; retryRest(); if (S.data) { renderTabs(); renderFeed(); } });
+  $("#more-btn").addEventListener("click", () => { if (S.moreFailed) retryRest(); else S.shown += 40; renderFeed(); });
   let rTimer = null;
   const charted = ["#activity-chart", "#trend-chart", "#cve-chart"], widths = {};
   const ro = new ResizeObserver(() => {

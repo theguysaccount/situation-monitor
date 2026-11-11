@@ -13,6 +13,8 @@ Standard library only; Python 3.9+.
 from __future__ import annotations
 
 import argparse
+import gzip
+import html
 import json
 import sys
 import xml.etree.ElementTree as ET
@@ -26,6 +28,8 @@ ROOT = Path(__file__).resolve().parent.parent
 MAX_AGE_MINUTES = 30      # the sweep that just ran must have produced the data
 MIN_SOURCE_SHARE = 0.6    # below this, too much of the board would be stale or missing
 STORE_LIMIT = 256 * 1024  # the claude.ai live store refuses documents over 256 KiB
+FIRST_LOAD_BUDGET = 150_000  # gzip bytes for index.html plus data/situation.json (monitor.py fits the data to it)
+STATIC_REPORTS = 20       # report links monitor.py writes into index.html
 
 
 def age_minutes(stamp: str, skew_seconds: float = 0.0) -> float:
@@ -77,6 +81,36 @@ def run(site: Path) -> int:
         c.ok("data/changes.json", f"{len(changes['items'])} critical and high items")
     except (OSError, ValueError) as e:
         c.fail("data/changes.json", f"missing or unusable: {e}")
+    more = data.get("more")
+    if more:  # the page fetches the rest of the board from here the first time a view needs it
+        try:
+            rest = json.loads((site / "data" / "more.json").read_text(encoding="utf-8"))
+            if rest.get("generated_at") != data.get("generated_at") or not isinstance(rest.get("items"), list):
+                raise ValueError("not from this sweep")
+            if len(rest["items"]) != more.get("items") or len(rest.get("packages") or []) != more.get("packages"):
+                raise ValueError("its item or package count differs from what data/situation.json says it holds")
+            c.ok("data/more.json", f"{len(rest['items'])} more items")
+        except (OSError, ValueError) as e:
+            c.fail("data/more.json", f"missing or unusable: {e}")
+
+    # Warnings only: the page still works without these, and an older deploy would be worse.
+    board = (site / "data" / "situation.json").read_bytes()
+    first = len(gzip.compress(page.encode("utf-8"), 6)) + len(gzip.compress(board, 6))
+    (c.ok if first <= FIRST_LOAD_BUDGET else c.warn)(
+        "first load", f"{first / 1000:.0f} KB compressed for the page and data/situation.json (budget {FIRST_LOAD_BUDGET // 1000} KB)")
+    markup = page.split("<script>")[0]
+    reports = markup.count('class="row-title"')
+    priority = ((more or {}).get("counts") or {}).get("priority")
+    if priority is None:
+        priority = sum(1 for it in items if it.get("severity") in ("critical", "high"))
+    want = min(STATIC_REPORTS, priority)
+    sitrep = (data.get("sitrep") or {}).get("headline")
+    if reports < want:
+        c.warn("page content without JavaScript", f"{reports} report links in index.html; expected {want}")
+    elif sitrep and html.escape(sitrep, quote=True) not in markup:
+        c.warn("page content without JavaScript", "the analyst briefing is missing from index.html")
+    else:
+        c.ok("page content without JavaScript", f"{reports} report links" + (" and the briefing" if sitrep else ""))
 
     for name, root_tag in (("data/feed.xml", "rss"), ("sitemap.xml", "urlset")):
         try:

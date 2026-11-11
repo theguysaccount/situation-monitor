@@ -20,7 +20,7 @@ into a master prompt your team can paste into Claude to check its own exposure.
 | `sources.json` | The source list. Add or remove feeds here. |
 | `config.json` | Alert channels, watchlist, SITCON thresholds, public site URL. |
 | `MASTER_PROMPT.md` | The master prompt template that the site and the sweep fill with live data. |
-| `site/app.html` | The website, one file. `site/index.html` is generated from it for static hosting. |
+| `site/app.html` | The website, one file. Each sweep generates `site/index.html` from it, with the sweep's content written into the page (see [The page](#the-page)). |
 | `.github/workflows/situation-monitor.yml` | Public deploy: sweep every 30 minutes and publish to GitHub Pages. |
 | `sitrep.json` | The latest analyst briefing, committed by the scheduled task so the public site shows it. |
 | `state/` | The monitor's memory: what it has seen and alerted on. Not committed; the workflow keeps it in the Actions cache, with a daily copy on the `data` branch. |
@@ -45,12 +45,35 @@ analyst's `--from-site [--wait SECONDS]` and `--apply-sitrep` (below).
 
 Each sweep writes:
 
-- `site/data/situation.json`: everything the website shows
-- `site/data/live.json`: the same, trimmed to fit the live site's 256 KB store
+- `site/index.html`: the page, with the level, the SITREP, the developing situations, the top 20 reports and the latest exploited CVEs already in the HTML
+- `site/data/situation.json`: what the page shows on arrival: everything on the board except the reports in `more.json`, plus `more` (what was left out, and each feed tab's count over the whole board)
+- `site/data/more.json`: the rest of the board: ransomware claims, low-severity and older reports, older malicious packages. The page loads it only when a view needs it
+- `site/data/live.json`: the whole board, trimmed to fit the live site's 256 KB store
 - `site/data/feed.xml`: RSS of critical and high-severity reports
 - `site/data/master-prompt.md`: the master prompt filled with the latest data, ready to paste
 - `site/data/new.json`: what is new since the previous sweep
 - `site/data/changes.json`: the level and every critical or high report first seen in the last 7 days, with first-seen times (small; the analyst polls it)
+
+## The page
+
+The page is one file with no build step, but each sweep writes its content into the copy it publishes.
+`monitor.py` fills the elements of `site/app.html` that the page script would fill (the SITCON board and
+its reason, the stat tiles, the SITREP, the developing situations, the feed tabs, the 20 newest critical
+and high reports, the CISA KEV panel and the CVE monitor's latest additions) and saves the result as
+`site/index.html`. So the page reads without JavaScript, for search engines, link previews and slow phones.
+The script then downloads the data and replaces that markup with the live, interactive version. Feed text
+is escaped and only `http(s)` links are written; if rendering ever fails, the sweep publishes the plain
+template and logs a warning.
+
+The data comes in two files. `data/situation.json` holds what the page shows on arrival: the 150 newest
+critical and high reports (fewer if the page and this file would pass 150 KB compressed), every KEV
+addition, the newest ransomware claims and breach disclosures for the side panels, every report in a
+developing situation, and the 20 newest malicious packages. `data/more.json` holds the rest, about nine
+reports in ten, and the page fetches it the first time a view needs it: another feed tab, a search, "Your
+stack only", a watchlist, or scrolling past the reports already loaded. A first visit transfers about
+100 KB (the page and `situation.json`, compressed) instead of 355 KB. To read the whole board from a
+script, download both files and join their `items` and `packages` lists (newest first), as
+`monitor.py --from-site` does.
 
 ## Sources
 
@@ -124,7 +147,7 @@ The maintainer's Claude scheduled task **The Situation Monitor: hourly sweep** r
 once an hour while the Claude app is open. It sweeps nothing itself: there is one
 pipeline (the GitHub sweep) and one memory (its Actions cache). Each run:
 
-1. starts the GitHub sweep, then runs `monitor.py --from-site --wait 150`, which waits for that sweep to go live, downloads the published `changes.json`, `situation.json` and `live.json`, and reports as JSON what was first seen since the analyst last looked (its only memory is `state/analyst.json`)
+1. starts the GitHub sweep, then runs `monitor.py --from-site --wait 150`, which waits for that sweep to go live, downloads the published `changes.json`, `situation.json` with `more.json` (joined back into the whole board) and `live.json`, and reports as JSON what was first seen since the analyst last looked (its only memory is `state/analyst.json`)
 2. rewrites the SITREP from `monitor.py --brief` (the published board as text) when there are new critical or high reports, the level changes, or the SITREP is over 6 hours old, and commits it here as `sitrep.json` (the push redeploys the site)
 3. runs `monitor.py --apply-sitrep` and pushes the published `live.json`, carrying the new SITREP, into a private live copy of the site on claude.ai
 4. sends the maintainer a push notification when something new is critical or on the watchlist

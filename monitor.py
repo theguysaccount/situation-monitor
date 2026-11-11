@@ -19,6 +19,7 @@ Standard library only; Python 3.9+.
 from __future__ import annotations
 
 import argparse
+import gzip
 import hashlib
 import html
 import json
@@ -1775,9 +1776,378 @@ def scrub(obj):
     return obj
 
 
+# ---------------------------------------------------------------- the page: first load and static HTML
+
+FIRST_LOAD_BUDGET = 150_000  # bytes over the wire (gzip) for the page plus data/situation.json
+FIRST_LOAD_SLACK = 8_000     # of which this is left for the favicon and response headers
+BOARD_PRIORITY = (150, 120, 90, 60, 40)  # newest critical and high reports kept in the first file, tried in turn
+BOARD_PACKAGES = 20          # newest malicious packages kept in the first file (plus any in the news)
+RAIL_CLAIMS, RAIL_BREACHES = 6, 7  # what the Ransomware and Breach disclosures panels list
+STATIC_REPORTS = 20          # reports written into index.html
+
+
+def _has(it: dict, tag: str) -> bool:
+    return tag in (it.get("tags") or [])
+
+
+def breach_panel(it: dict) -> bool:
+    """An item the Breach disclosures panel lists (renderBreaches in site/app.html)."""
+    return it["type"] == "breach" or (it["type"] == "news" and _has(it, "breach") and SEV_RANK[it["severity"]] >= 2)
+
+
+# The feed's filter tabs, exactly as FILTERS in site/app.html defines them. data/situation.json carries each tab's
+# count over the whole board, so the tabs read right before data/more.json has loaded. A test keeps the two in step.
+FEED_FILTERS = (
+    ("priority", "Priority", lambda it: it["severity"] in ("critical", "high")),
+    ("all", "Everything", lambda it: True),
+    ("exploited", "Exploited", lambda it: it["type"] == "kev" or _has(it, "actively-exploited") or _has(it, "zero-day")),
+    ("breach", "Breaches", lambda it: it["type"] == "breach" or (it["type"] == "news" and _has(it, "breach") and it["severity"] != "low")),
+    ("ransomware", "Ransomware", lambda it: it["type"] == "ransomware" or _has(it, "ransomware")),
+    ("supply", "Supply chain", lambda it: it["type"] == "supply-chain" or _has(it, "supply-chain")),
+    ("vulns", "Advisories", lambda it: it["type"] in ("advisory", "vuln")),
+    ("community", "Hacker News", lambda it: it["type"] == "community" or bool((it.get("extra") or {}).get("hn"))),
+)
+
+
+def gzip_size(obj) -> int:
+    text = obj if isinstance(obj, str) else json.dumps(obj, ensure_ascii=False, separators=(",", ":"))
+    return len(gzip.compress(text.encode("utf-8"), 6))
+
+
+def split_board(data: dict, budget: int) -> tuple[dict, dict]:
+    """Split the board between data/situation.json, which the page loads first, and data/more.json, which it loads
+    the first time a view needs it (another tab, a search, a watchlist, a situation's reports, or scrolling past
+    the newest critical and high reports).
+
+    The first file keeps everything the page shows on arrival: the newest critical and high reports (as many of
+    BOARD_PRIORITY as fit in budget gzip bytes), every CISA KEV addition, the newest ransomware claims and breach
+    disclosures for the side panels, every report in a developing situation, and the newest malicious packages.
+    Its "more" key says what was left out. Everything else (the ransomware claims, low-severity and older reports)
+    goes to the second file. Both keep the board's newest-first order."""
+    items, packages = data["items"], data["packages"]
+    priority = [it for it in items if it["severity"] in ("critical", "high")]
+    always = {it["id"] for it in items if it["type"] == "kev"}
+    always |= {it["id"] for it in [i for i in items if i["type"] == "ransomware"][:RAIL_CLAIMS]}
+    always |= {it["id"] for it in [i for i in items if breach_panel(i)][:RAIL_BREACHES]}
+    always |= {i for s in data.get("situations") or [] for i in s.get("items", [])}
+    first_pk = [p for i, p in enumerate(packages) if i < BOARD_PACKAGES or p.get("in_news")]
+    rest_pk = [p for i, p in enumerate(packages) if not (i < BOARD_PACKAGES or p.get("in_news"))]
+    counts = {fid: sum(1 for it in items if test(it)) for fid, _, test in FEED_FILTERS}
+    for n in BOARD_PRIORITY:
+        keep = always | {it["id"] for it in priority[:n]}
+        first = [it for it in items if it["id"] in keep]
+        rest = [it for it in items if it["id"] not in keep]
+        board = dict(data, items=first, packages=first_pk, more={
+            "url": "data/more.json", "items": len(rest), "packages": len(rest_pk),
+            "priority": min(n, len(priority)),  # the newest this many critical and high reports are all in this file
+            "counts": counts})
+        if gzip_size(board) <= budget:
+            break
+    return board, {"schema": 1, "generated_at": data["generated_at"], "items": rest, "packages": rest_pk}
+
+
+def join_board(board: dict, rest: dict | None) -> dict:
+    """The whole board again from data/situation.json and data/more.json, newest first."""
+    if not board.get("more"):
+        return board
+    if not rest or rest.get("generated_at") != board.get("generated_at"):
+        raise ValueError("data/more.json is missing or from a different sweep than data/situation.json")
+
+    def newest_first(a, b):
+        return sorted(a + b, key=lambda x: x.get("published") or "", reverse=True)
+    out = dict(board, items=newest_first(board["items"], rest.get("items") or []),
+               packages=newest_first(board.get("packages") or [], rest.get("packages") or []))
+    out.pop("more")
+    return out
+
+
+SSR_KIND = {"news": "News", "kev": "Exploited vuln", "ransomware": "Ransomware claim", "breach": "Breach",
+            "supply-chain": "Supply chain", "vuln": "Vulnerability", "advisory": "Advisory", "community": "Hacker News"}
+SSR_TAGS = {"actively-exploited": "Exploited", "zero-day": "Zero-day", "supply-chain": "Supply chain", "worm": "Worm",
+            "emergency": "Emergency", "nation-state": "Nation-state", "ransomware": "Ransomware", "rce": "RCE",
+            "credentials": "Credentials", "malware": "Malware", "phishing": "Phishing", "ddos": "DDoS",
+            "healthcare": "Healthcare", "critical-infra": "Critical infra", "crypto": "Crypto", "ai": "AI",
+            "cloud": "Cloud", "identity": "Identity", "law-enforcement": "Law enforcement", "government": "Government",
+            "education": "Education", "finance": "Finance"}
+SSR_SEV = {"critical": "Critical", "high": "High", "medium": "Medium", "low": "Low"}
+
+
+class StaticPage:
+    """Writes this sweep's content into the page template (site/app.html), so the page reads without JavaScript:
+    for search engines, link previews and slow phones. The markup mirrors what the page script renders into the
+    same elements, and the script replaces it once the data has loaded. All feed text is escaped, and only
+    http(s) links are written."""
+
+    def __init__(self, data: dict):
+        self.d = data
+        self.now = parse_iso(data["generated_at"]) or now_utc()
+
+    # -- formatting, as the page script does it
+    @staticmethod
+    def e(s) -> str:
+        return html.escape(str(s if s is not None else ""), quote=True)
+
+    @staticmethod
+    def day(stamp: str) -> str:
+        dt = parse_iso(stamp)
+        return f"{dt.astimezone(timezone.utc):%b} {dt.astimezone(timezone.utc).day}" if dt else ""
+
+    @staticmethod
+    def utc(stamp: str) -> str:
+        dt = parse_iso(stamp)
+        return f"{dt.astimezone(timezone.utc):%H:%M} UTC" if dt else ""
+
+    @staticmethod
+    def num(n) -> str:
+        return f"{int(n or 0):,}"
+
+    @staticmethod
+    def compact(n) -> str:
+        n = int(n or 0)
+        for div, unit in ((1e9, "B"), (1e6, "M")):
+            if n >= div:
+                return f"{n / div:.1f}".removesuffix(".0") + unit
+        return f"{int(n / 1e3 + 0.5)}K" if n >= 1e3 else str(n)
+
+    def ago(self, stamp: str) -> str:
+        sec = max(0.0, hours_since(stamp, self.now) * 3600)
+        if sec < 90:
+            return "just now"
+        if sec < 3600:
+            return f"{int(sec / 60 + 0.5)} min ago"
+        if sec < 86400:
+            return f"{int(sec / 3600 + 0.5)} h ago"
+        d = int(sec / 86400 + 0.5)
+        return f"{d} day ago" if d == 1 else f"{d} days ago"
+
+    def short_ago(self, it: dict) -> str:
+        if (it.get("extra") or {}).get("date_only"):
+            return self.day(it["published"])
+        sec = max(0.0, hours_since(it["published"], self.now) * 3600)
+        if sec < 3600:
+            return f"{max(1, int(sec / 60 + 0.5))}m"
+        return f"{int(sec / 3600 + 0.5)}h" if sec < 86400 else f"{int(sec / 86400 + 0.5)}d"
+
+    def link(self, url, cls: str | None, inner: str) -> str:
+        c = f' class="{cls}"' if cls else ""
+        if isinstance(url, str) and re.match(r"https?://", url, re.I):
+            return f'<a href="{self.e(url)}"{c} target="_blank" rel="noopener noreferrer">{inner}</a>'
+        return f"<span{c}>{inner}</span>"
+
+    def sev(self, sev: str) -> str:
+        return f'<span class="sev sev-{self.e(sev)}"><i aria-hidden="true"></i>{self.e(SSR_SEV.get(sev, sev))}</span>'
+
+    def code(self, text: str) -> str:
+        parts = re.split(r"(`[^`]+`)", str(text))
+        return "".join(f"<code>{self.e(p[1:-1])}</code>" if len(p) > 2 and p[0] == p[-1] == "`" else self.e(p) for p in parts)
+
+    def tile(self, label: str, value, sub: str, hot: bool = False) -> str:
+        return (f'<div class="tile"><div class="tile-label">{self.e(label)}</div>'
+                f'<div class="tile-value{" is-hot" if hot else ""}">{value}</div><div class="tile-sub">{sub}</div></div>')
+
+    def nvd(self, cve: str, cls: str) -> str:
+        return self.link("https://nvd.nist.gov/vuln/detail/" + urllib.parse.quote(str(cve)), cls, self.e(cve))
+
+    # -- the blocks
+    def fills(self) -> dict:
+        d, lv, st, e = self.d, self.d["level"], self.d.get("stats") or {}, self.e
+        out = {
+            "sweep-status": (f'<b>Swept {e(self.utc(d["generated_at"]))}</b> · '
+                             f'{self.num(st.get("sources_ok"))}/{self.num(st.get("sources_total"))} sources'),
+            "scale": ("".join(f'<div class="cell lv{v}{" on" if v == lv["value"] else ""}">{v}</div>' for v in (5, 4, 3, 2, 1)),
+                      {"aria-label": f'SITCON {lv["value"]} of 5: {lv["name"]}'}),
+            "board-since": e(f'since {self.day(lv["since"])} {self.utc(lv["since"])}') if lv.get("since") else "",
+            "board-name": e(lv["name"]),
+            "board-blurb": e(lv.get("blurb") or ""),
+            "eyebrow": (f'<b>Situation as of {e(self.utc(d["generated_at"]))}</b> · {e(self.day(d["generated_at"]))} · '
+                        f'{self.num(st.get("sources_ok"))} of {self.num(st.get("sources_total"))} sources reporting'),
+            "reason": e(lv.get("reason") or ""),
+            "tiles": self.hero_tiles(),
+            "sit-grid": self.situations(),
+            "tabs": self.tabs(),
+            "feed-list": "".join(self.row(it) for it in [i for i in d["items"] if i["severity"] in ("critical", "high")][:STATIC_REPORTS]),
+            "kev-meta": e(f'{self.num(sum(i["type"] == "kev" for i in d["items"]))} added · 14 days'),
+            "kev-list": self.kev_list(),
+            "foot-meta": self.foot(),
+        }
+        sr = d.get("sitrep")
+        if sr and sr.get("headline"):
+            stale = " · may be out of date" if hours_since(sr["written_at"], self.now) > 12 else ""
+            out["sitrep"] = (None, {"hidden": None})
+            out["sitrep-head"] = e(sr["headline"])
+            out["sitrep-meta"] = e(f'Written by {sr.get("by") or "Claude"} · {self.day(sr["written_at"])} {self.utc(sr["written_at"])}{stale}')
+            out["sitrep-points"] = "".join(
+                f'<li><p>{self.code(b["text"])} {self.link(b.get("url"), "src-link", "Source ↗") if b.get("url") else ""}</p></li>'
+                for b in sr.get("bullets") or [])
+            out["sitrep-actions"] = "".join(
+                f'<li><label for="todo-{i}"><input type="checkbox" id="todo-{i}"><span>{self.code(a)}</span></label></li>'
+                for i, a in enumerate(sr.get("actions") or []))
+        if d.get("cves"):
+            out["cve-tiles"], out["cve-table"] = self.cve_tiles(), self.cve_table()
+        return out
+
+    def hero_tiles(self) -> str:
+        st, n = self.d.get("stats") or {}, self.num
+        eco = sorted((st.get("packages_ecosystems") or {}).items(), key=lambda kv: -kv[1])
+        eco_text = " · ".join(f'{"PyPI" if k == "pip" else k} {v}' for k, v in eco) or "npm and PyPI"
+        rw = st.get("kev_ransomware_7d")
+        tiles = [("Critical · 24h", st.get("critical_24h"), f'{n(st.get("high_24h"))} high of {n(st.get("reports_24h"))} reports',
+                  bool(st.get("critical_24h"))),
+                 ("Exploited vulns · 7d", st.get("kev_7d"), "added to CISA KEV" + (f", {rw} used by ransomware" if rw else ""), False),
+                 ("Ransomware claims · 24h", st.get("ransomware_24h"), f'{n(st.get("ransomware_7d"))} this week', False),
+                 ("Breaches · 7d", st.get("breaches_7d"), "disclosed or added to HIBP", False),
+                 ("Malicious packages · 72h", st.get("packages_72h"), eco_text, False)]
+        return ("".join(self.tile(label, n(v), self.e(sub), hot) for label, v, sub, hot in tiles)
+                + self.tile("Your stack · 14d", "—", '<a href="#protect">Add what you run</a>'))
+
+    def situations(self) -> str:
+        sits = self.d.get("situations") or []
+        if not sits:
+            return '<div class="empty">No story has three or more outlets on it right now. That\'s good news.</div>'
+        e, out = self.e, []
+        for s in sits:
+            ld = s["lead"]
+            chips = "".join(f'<span class="chip">{e(c)}</span>' for c in (s.get("cves") or [])[:3])
+            out.append(
+                '<article class="sit"><div class="sit-top"><span class="chip-dev">Developing</span>'
+                f'<span class="sit-count">{s["source_count"]} outlets · {s["count"]} reports</span></div>'
+                f'<h3 class="sit-name">{e(s["name"])}</h3>{self.link(ld.get("url"), "sit-lead", e(ld.get("title")))}'
+                f'<div class="sit-meta">{self.sev(s["severity"])}{chips}</div>'
+                f'<div class="sit-foot"><span>First reported {e(self.day(s["first"]))} · latest {e(self.ago(s["last"]))}</span></div></article>')
+        return "".join(out)
+
+    def tabs(self) -> str:
+        items = self.d["items"]
+        return "".join(f'<button class="tab" type="button" aria-pressed="{"true" if fid == "priority" else "false"}">{self.e(label)}'
+                       f'<span class="n">{self.num(sum(1 for it in items if test(it)))}</span></button>'
+                       for fid, label, test in FEED_FILTERS)
+
+    def row(self, it: dict) -> str:
+        e, ex = self.e, it.get("extra") or {}
+        meta = [self.sev(it["severity"]), f'<span class="kind">{e(SSR_KIND.get(it["type"], it["type"]))}</span>',
+                f'<span>{e(it["source"])}</span>']
+        if ex.get("also"):
+            meta.append(f'<span>also {e(", ".join(map(str, ex["also"])))}</span>')
+        chips = [self.nvd(c, "chip") for c in (it.get("cves") or [])[:4]]
+        if it["type"] == "kev":
+            if ex.get("due"):
+                chips.append(f'<span class="chip">Federal due {e(self.day(ex["due"]))}</span>')
+            if ex.get("ransomware"):
+                chips.append('<span class="chip">Used by ransomware</span>')
+        if it["type"] == "ransomware":
+            chips += [f'<span class="chip">{e(ex[k])}</span>' for k in ("country", "sector") if ex.get(k)]
+        if ex.get("accounts"):
+            chips.append(f'<span class="chip">{self.compact(ex["accounts"])} accounts</span>')
+        chips += [f'<span class="chip">{e(p)}</span>' for p in (ex.get("packages") or [])[:3]]
+        hn = ex.get("hn") if isinstance(ex.get("hn"), dict) else {}
+        if hn.get("hn_url"):
+            chips.append(self.link(hn["hn_url"], "chip", f'HN · {self.num(hn.get("points"))} pts'))
+        if it["type"] == "community" and ex.get("hn_url"):
+            chips.append(self.link(ex["hn_url"], "chip", f'Discussion · {self.num(ex.get("comments"))} comments'))
+        tags = [t for t in it.get("tags") or [] if t in SSR_TAGS and not (it["type"] == "ransomware" and t == "ransomware")]
+        chips += [f'<span class="chip">{SSR_TAGS[t]}</span>' for t in tags[:3]]
+        summary = "" if it["type"] == "community" else it.get("summary") or ""
+        pub, date_only = e(it["published"]), ' data-date-only="1"' if ex.get("date_only") else ""
+        return (f'<li class="row s-{e(it["severity"])}"><div class="row-time"><time datetime="{pub}" title="{pub}" data-ts="{pub}"'
+                f'{date_only}>{e(self.short_ago(it))}</time></div>'
+                f'<div style="min-width:0"><div class="row-meta">{"".join(meta)}</div>{self.link(it.get("url"), "row-title", e(it["title"]))}'
+                + (f'<p class="row-sum">{e(summary)}</p>' if summary else "")
+                + (f'<div class="row-chips">{"".join(chips)}</div>' if chips else "") + "</div></li>")
+
+    def kev_list(self) -> str:
+        kev = [it for it in self.d["items"] if it["type"] == "kev"][:8]
+        if not kev:
+            return "<li>No additions in the last 14 days.</li>"
+        e, out = self.e, []
+        for it in kev:
+            ex = it.get("extra") or {}
+            cve = (it.get("cves") or [""])[0]
+            sub = [f'<span>Added {e(self.day(it["published"]))}</span>']
+            if ex.get("due"):
+                sub.append(f'<span>Due {e(self.day(ex["due"]))}</span>')
+            if ex.get("ransomware"):
+                sub.append("<span>Used by ransomware</span>")
+            out.append(f'<li><div class="s">{self.sev(it["severity"])}</div>'
+                       + self.link(it.get("url"), "t", f'<span class="cve">{e(cve)}</span> {e(ex.get("vendor") or "")} {e(ex.get("product") or "")}')
+                       + f'<div class="s">{"".join(sub)}</div></li>')
+        return "".join(out)
+
+    def cve_tiles(self) -> str:
+        c, n = self.d["cves"], self.num
+        sub = ""
+        if c.get("added_prev_30d"):
+            delta = math_round((c["added_30d"] - c["added_prev_30d"]) / c["added_prev_30d"] * 100)
+            sub = (f'<span class="{"up" if delta > 0 else "down"}">{"▲ " if delta > 0 else "▼ "}{abs(delta)}%</span>'
+                   " vs the 30 days before")
+        since = parse_iso(f'{c["since"]}T00:00:00Z')
+        return (self.tile("Added · 30 days", n(c["added_30d"]), sub)
+                + self.tile(f'Added in {c["year"]}', n(c["added_ytd"]), "so far this year")
+                + self.tile("Used by ransomware", n(c["ransomware"]), f'{math_round(c["ransomware"] / max(1, c["total"]) * 100)}% of the catalog')
+                + self.tile("In the catalog", n(c["total"]), f'since {since:%B %Y}' if since else ""))
+
+    def cve_table(self) -> str:
+        e, rows = self.e, []
+        for cve, vendor, product, name, added, due, rw in (self.d["cves"].get("recent") or [])[:15]:
+            rows.append(f'<tr><td class="nowrap">{e(self.day(added))}</td><td class="nowrap">{self.nvd(cve, "cve")}</td>'
+                        f'<td>{e(f"{vendor} {product}")}</td><td>{e(name)}</td><td class="nowrap">{e(self.day(due)) if due else ""}</td>'
+                        f'<td>{"Known" if rw else "Unknown"}</td></tr>')
+        return ("<table><thead><tr><th>Added</th><th>CVE</th><th>Vendor and product</th><th>Vulnerability</th>"
+                "<th>Federal due</th><th>Ransomware</th></tr></thead><tbody>" + "".join(rows) + "</tbody></table>")
+
+    def foot(self) -> str:
+        d = self.d
+        repo = d.get("repo_url") or ""
+        src = f' · {self.link(repo, None, "Source on GitHub")}' if re.match(r"https?://", repo, re.I) else ""
+        return self.e(f'Data window: {d.get("window_days") or 14} days · Sweep {d["generated_at"]} · Built with Claude') + src + "."
+
+    def render(self, page: str) -> str:
+        """The template with every block filled. Only the markup before the page script is touched."""
+        cut = page.find("<script>")
+        head, tail = (page, "") if cut < 0 else (page[:cut], page[cut:])
+        for el_id, fill in self.fills().items():
+            inner, attrs = fill if isinstance(fill, tuple) else (fill, None)
+            head = fill_element(head, el_id, inner, attrs)
+        return head + tail
+
+
+def math_round(x: float) -> int:
+    """JavaScript's Math.round (halves round up), so numbers match what the page script shows."""
+    return int(x // 1 + (1 if x % 1 >= 0.5 else 0))
+
+
+def fill_element(page: str, el_id: str, inner: str | None, attrs: dict | None = None) -> str:
+    """Replace the contents of the element with this id (None keeps them) and set attributes on it (None drops one)."""
+    found = list(re.finditer(r'<([a-z][a-z0-9]*)\b[^>]*\sid="' + re.escape(el_id) + r'"[^>]*>', page))
+    if len(found) != 1:
+        raise ValueError(f'the page has {len(found)} elements with id="{el_id}"')
+    m = found[0]
+    tag, open_tag, depth = m.group(1), m.group(0), 1
+    for t in re.finditer(r"<(/?)" + tag + r"\b[^>]*>", page[m.end():]):
+        depth += -1 if t.group(1) else 1
+        if depth == 0:
+            close = m.end() + t.start()
+            break
+    else:
+        raise ValueError(f'no closing </{tag}> for id="{el_id}"')
+    for name, value in (attrs or {}).items():
+        open_tag = re.sub(r"\s" + re.escape(name) + r'(="[^"]*")?(?=[\s>])', "", open_tag)
+        if value is not None:
+            open_tag = open_tag[:-1] + f' {name}="{html.escape(str(value), quote=True)}">'
+    return page[:m.start()] + open_tag + (page[m.end():close] if inner is None else inner) + page[close:]
+
+
+def static_page(template: str, data: dict) -> str:
+    """site/app.html with this sweep's content written in. A rendering error leaves the template as it was (the
+    page script still fills it in) instead of stopping the sweep."""
+    try:
+        return StaticPage(data).render(template)
+    except Exception as e:  # noqa: BLE001 — the board must still publish
+        print(f"warning: could not write the static page content: {type(e).__name__}: {e}", file=sys.stderr)
+        return template
+
+
 def write_outputs(data: dict, new_items: list[dict], alert_items: list[dict]) -> None:
     data = scrub(data)
-    save_json(DATA / "situation.json", data, compact=True)
     save_json(DATA / "live.json", compact_for_store(data), compact=True)
     save_text(DATA / "feed.xml", rss(data))
     save_text(DATA / "master-prompt.md", generic_prompt(data))
@@ -1786,9 +2156,15 @@ def write_outputs(data: dict, new_items: list[dict], alert_items: list[dict]) ->
                                   "alerts": [summary_row(it) for it in alert_items],
                                   "items": [summary_row(it) for it in new_items[:100]]})
     save_json(DATA / "changes.json", changes_doc(data))
+    page = ""
     app = SITE / "app.html"
     if app.exists():
-        save_text(SITE / "index.html", page_head(data, load_config()) + app.read_text(encoding="utf-8") + "</body></html>\n")
+        page = page_head(data, load_config()) + static_page(app.read_text(encoding="utf-8"), data) + "</body></html>\n"
+        save_text(SITE / "index.html", page)
+    # The page and its first data file share the first-load budget; whatever doesn't fit waits in more.json.
+    board, rest = split_board(data, FIRST_LOAD_BUDGET - FIRST_LOAD_SLACK - gzip_size(page))
+    save_json(DATA / "situation.json", board, compact=True)
+    save_json(DATA / "more.json", rest, compact=True)
     if data.get("site_url"):
         save_text(SITE / "sitemap.xml", sitemap(data))
         save_text(SITE / "robots.txt", f"User-agent: *\nAllow: /\nDisallow: /app.html\n\nSitemap: {data['site_url']}sitemap.xml\n")
@@ -1830,8 +2206,9 @@ def site_base(cfg: dict) -> str:
 
 
 def read_published(base: str, wait: float = 0, sleep=time.sleep) -> tuple[dict, dict, dict, float]:
-    """Download the published changes, board and live-store copy. With wait, poll changes.json (small)
-    until a sweep generated after this call started is live, for at most that many seconds."""
+    """Download the published changes, board (data/situation.json joined with data/more.json) and live-store
+    copy. With wait, poll changes.json (small) until a sweep generated after this call started is live, for at
+    most that many seconds."""
     def changes():
         try:
             return json.loads(fetch(base + "data/changes.json", "application/json"))
@@ -1848,7 +2225,17 @@ def read_published(base: str, wait: float = 0, sleep=time.sleep) -> tuple[dict, 
             break
         sleep(15)
         ch = changes()
-    data = json.loads(fetch(base + "data/situation.json", "application/json"))
+    for attempt in range(3):  # the board comes in two files; a deploy landing between the downloads means retry
+        data = json.loads(fetch(base + "data/situation.json", "application/json"))
+        if not data.get("more"):
+            break  # published before the board was split in two
+        try:
+            data = join_board(data, json.loads(fetch(base + "data/more.json", "application/json")))
+            break
+        except ValueError:
+            if attempt == 2:
+                raise
+            sleep(5)
     if ch is None or ch["generated_at"] != data["generated_at"]:
         ch = changes_doc(data)  # a deploy landed between the two downloads, or there was no changes.json
     live = json.loads(fetch(base + "data/live.json", "application/json"))
