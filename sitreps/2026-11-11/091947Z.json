@@ -1,0 +1,39 @@
+{
+ "written_at": "2026-11-11T09:19:47Z",
+ "by": "Claude",
+ "headline": "Cisco BroadWorks and Openwave exploitation spreads to 3 outlets; Barracuda ESG due 11-13; OpenSSH SSHole due 11-12",
+ "bullets": [
+  {
+   "text": "Changed: SecurityWeek confirms threat actors are exploiting Cisco BroadWorks CVE-2026-20320 (XXE) and Openwave Webtop Media Transcoder CVE-2026-111793, now 3 outlets. Both are in CISA KEV with a federal due date of 11-24.",
+   "url": "https://www.securityweek.com/threat-actors-exploit-openwave-cisco-broadworks-vulnerabilities/"
+  },
+  {
+   "text": "Barracuda ESG CVE-2026-116606 (auth bypass) and CVE-2026-111560 (OS command injection) are exploited in attacks (4 outlets); KEV due 11-13.",
+   "url": "https://www.securityweek.com/recently-patched-barracuda-vulnerabilities-exploited-in-attacks/"
+  },
+  {
+   "text": "Due 11-12: OpenSSH SSHole CVE-2026-123158 (exploited to breach Linux systems, 4 outlets), GPUStack CVE-2026-102895, FreeSwitch CVE-2026-116779 and IBM Aspera Faspex CVE-2026-123218.",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-sshole-openssh-flaw-to-breach-linux-systems/"
+  },
+  {
+   "text": "Microsoft patched 1,259 flaws, including exploited Outlook CVE-2026-124194 that may expose NTLMv2 hashes (KEV due 11-24). Chrome's exploited zero-day CVE-2026-125350 is also due 11-24. Git patched a code-execution flaw in recursive clones.",
+   "url": "https://thehackernews.com/2026/11/microsoft-patches-1259-flaws-including.html"
+  },
+  {
+   "text": "Still active: N-able keeps hosted N-central offline after dozens of published zero-days; SAP patched four CVSS 10.0 flaws (ICM2SHELL); AhsayCBS CVE-2026-105133/105134 and a Xen Orchestra auth bypass are exploited; France blames Iran for sabotage of refrigeration controllers at ~700 retail sites.",
+   "url": "https://techcrunch.com/2026/11/10/n-able-takes-its-remote-access-service-offline-after-researcher-publishes-dozens-of-zero-day-bugs/"
+  },
+  {
+   "text": "Ransomware and breaches: Vanderbilt is on lockdown after a BYOD-claimed attack (6 outlets); Kinnarps stopped production at three sites; YouHack (7.16M) and SberSpasibo (3.29M) accounts added to Have I Been Pwned; Nitori says 37.6M records stolen. The week ran 1.11x the 90-day average.",
+   "url": "https://www.nashvillescene.com/news/pithinthewind/vanderbilt-university-cyber-attack-lockdown/article_c7136f1f-a103-4e75-93bc-826ca02e894e.html"
+  }
+ ],
+ "actions": [
+  "Patch Cisco BroadWorks (CVE-2026-20320) and Openwave Webtop (CVE-2026-111793) now and check for compromise; exploitation is confirmed.",
+  "Barracuda ESG: apply fixes for CVE-2026-116606 and CVE-2026-111560 (due 11-13) and hunt for compromise.",
+  "Patch OpenSSH (CVE-2026-123158), GPUStack, FreeSwitch and IBM Aspera Faspex today; their KEV deadline is 11-12.",
+  "Roll out Microsoft's November updates with priority on Outlook CVE-2026-124194, update Chrome, and update Git on build hosts.",
+  "Apply SAP's patches for the four CVSS 10.0 flaws, and patch or isolate AhsayCBS and Xen Orchestra servers.",
+  "N-central customers: follow N-able's guidance while the hosted service is offline and review remote-access logs."
+ ]
+}
