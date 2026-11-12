@@ -1,39 +1,39 @@
 {
- "written_at": "2026-11-12T12:19:52Z",
+ "written_at": "2026-11-12T13:19:51Z",
  "by": "Claude",
- "headline": "GPUStack auth bypass under exploit attempts; Fireworks AI breach exposes Notion data; N-central zero-days targeted",
+ "headline": "N-central exploits work on patched servers; ScreenConnect plugin flaw spreads malware; GPUStack auth bypass under attack",
  "bullets": [
   {
-   "text": "New: SANS ISC reports exploit attempts against the GPUStack authentication bypass CVE-2026-102895. It is in CISA KEV with a federal due date of today, 11-12.",
+   "text": "New: The Hacker News reports new N-central exploits that work against patched servers, giving root RCE and Windows SYSTEM access. This follows attacks on N-central zero-days as N-able rushed patches (3 outlets).",
+   "url": "https://thehackernews.com/2026/11/new-n-central-exploits-work-against.html"
+  },
+  {
+   "text": "New: The Register reports a ScreenConnect plugin flaw being exploited to spread malware across hundreds of PCs. Earlier rogue-client attacks hit at least 288 endpoints across 48 organizations and breached MSPs (5 outlets).",
+   "url": "https://www.theregister.com/security/2026/11/12/hackers-exploiting-screenconnect-plugin-flaw-to-spread-malware-across-hundreds-of-pcs/5309361"
+  },
+  {
+   "text": "SANS ISC sees exploit attempts against the GPUStack authentication bypass CVE-2026-102895. KEV due today (11-12), along with OpenSSH CVE-2026-123158, FreeSwitch CVE-2026-116779 and IBM Aspera Faspex CVE-2026-123218.",
    "url": "https://isc.sans.edu/diary/rss/33514"
   },
   {
-   "text": "SecurityWeek reports Notion customer data was compromised in the Fireworks AI hack (6 outlets); BleepingComputer says exposed data includes customer AI chat transcripts.",
-   "url": "https://www.securityweek.com/notion-customer-data-compromised-in-fireworks-ai-hack/"
-  },
-  {
-   "text": "ScreenConnect: a fresh campaign is deploying malware, on top of rogue-client attacks that hit at least 288 endpoints across 48 organizations and breached MSPs.",
-   "url": "https://www.securityweek.com/hackers-deploy-malware-in-fresh-screenconnect-campaign/"
-  },
-  {
-   "text": "Still active: hackers target N-central zero-days as N-able rushes patches (3 outlets); 4,837 hijacked GitHub accounts ran a CI secret stealer in 1,806+ repos; Apache HTTP/2 RCE CVE-2026-119618, no fixed release in the brief.",
-   "url": "https://www.securityweek.com/hackers-target-n-central-zero-days-as-n-able-rushes-patches/"
-  },
-  {
-   "text": "KEV due 11-13: Barracuda ESG CVE-2026-116606 and CVE-2026-111560 (exploited, 4 outlets) and Ivanti Connect Secure CVE-2026-104935. Due today 11-12: OpenSSH CVE-2026-123158, GPUStack, FreeSwitch, IBM Aspera Faspex.",
+   "text": "KEV due 11-13: Barracuda ESG CVE-2026-116606 and CVE-2026-111560 (exploited, 4 outlets) and Ivanti Connect Secure CVE-2026-104935. Due 11-24: Outlook CVE-2026-124194, Chromium CVE-2026-125350, Cisco BroadWorks CVE-2026-20320.",
    "url": "https://www.securityweek.com/recently-patched-barracuda-vulnerabilities-exploited-in-attacks/"
   },
   {
-   "text": "Also on the board: Maersk data theft amid $5M WhiteArmor demand; Xen Orchestra flaws exploited; Vanderbilt ransomware lockdown (6 outlets); Cisco BroadWorks and Openwave exploited. SITCON 3 holds at 1.07x the 90-day average.",
-   "url": "https://www.securityweek.com/maersk-confirms-data-theft-amid-5-million-extortion-attempt/"
+   "text": "Notion customer data was compromised in the Fireworks AI hack (6 outlets). Separately, 4,837 hijacked GitHub accounts ran a CI secret stealer in 1,806+ repos. PTC patched critical Windchill/FlexPLM RCE CVE-2026-126325.",
+   "url": "https://www.securityweek.com/notion-customer-data-compromised-in-fireworks-ai-hack/"
+  },
+  {
+   "text": "Also on the board: Xen Orchestra flaws exploited; Apache HTTP/2 RCE CVE-2026-119618; Maersk data theft; Vanderbilt ransomware lockdown (6 outlets). SITCON 3 holds at 1.07x the 90-day average.",
+   "url": "https://www.securityweek.com/critical-xen-orchestra-flaws-exploited-in-attacks/"
   }
  ],
  "actions": [
-  "GPUStack: patch CVE-2026-102895 today, take any internet-exposed GPUStack servers offline until patched, and check logs for auth bypass attempts.",
-  "If you use Notion AI or Fireworks AI, check vendor notices and review what data and chat content you sent through them.",
-  "Inventory ScreenConnect instances, remove unknown or rogue clients, patch, and hunt for malware dropped via remote sessions.",
-  "N-central: apply N-able's patches as they ship and keep the console off the internet; rotate CI secrets in repos with unfamiliar workflow runs.",
-  "Find internet-facing Apache HTTP Server hosts with HTTP/2; restrict exposure and patch once a fixed release or distro package ships.",
-  "Barracuda ESG and Ivanti Connect Secure fixes by 11-13; OpenSSH, FreeSwitch, Aspera Faspex today; keep Xen Orchestra off the internet."
+  "N-central: do not rely on patches alone; take consoles off the internet now and hunt for root or SYSTEM-level compromise on N-central hosts.",
+  "ScreenConnect: inventory instances and plugins, remove unknown clients and plugins, and hunt for malware pushed through remote sessions.",
+  "GPUStack, OpenSSH, FreeSwitch and Aspera Faspex KEV fixes are due today; take exposed GPUStack servers offline until patched.",
+  "Patch Barracuda ESG and Ivanti Connect Secure by 11-13; schedule Outlook, Chromium and Cisco BroadWorks fixes before 11-24.",
+  "Rotate CI secrets in repos with unfamiliar workflow runs; review data sent through Fireworks AI or Notion AI.",
+  "Patch PTC Windchill/FlexPLM for CVE-2026-126325 and keep Xen Orchestra and Apache HTTP/2 hosts off the open internet."
  ]
 }
