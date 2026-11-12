@@ -1,19 +1,19 @@
 {
- "written_at": "2026-11-12T11:19:51Z",
+ "written_at": "2026-11-12T12:19:52Z",
  "by": "Claude",
- "headline": "Fireworks AI breach exposes Notion customer data; N-central zero-days targeted; fresh ScreenConnect malware campaign",
+ "headline": "GPUStack auth bypass under exploit attempts; Fireworks AI breach exposes Notion data; N-central zero-days targeted",
  "bullets": [
   {
-   "text": "New: SecurityWeek reports Notion customer data was compromised in the Fireworks AI hack (6 outlets); BleepingComputer says exposed data includes customer AI chat transcripts.",
+   "text": "New: SANS ISC reports exploit attempts against the GPUStack authentication bypass CVE-2026-102895. It is in CISA KEV with a federal due date of today, 11-12.",
+   "url": "https://isc.sans.edu/diary/rss/33514"
+  },
+  {
+   "text": "SecurityWeek reports Notion customer data was compromised in the Fireworks AI hack (6 outlets); BleepingComputer says exposed data includes customer AI chat transcripts.",
    "url": "https://www.securityweek.com/notion-customer-data-compromised-in-fireworks-ai-hack/"
   },
   {
-   "text": "New: SecurityWeek reports a fresh ScreenConnect campaign deploying malware, on top of rogue-client attacks that hit at least 288 endpoints across 48 organizations and breached MSPs.",
+   "text": "ScreenConnect: a fresh campaign is deploying malware, on top of rogue-client attacks that hit at least 288 endpoints across 48 organizations and breached MSPs.",
    "url": "https://www.securityweek.com/hackers-deploy-malware-in-fresh-screenconnect-campaign/"
-  },
-  {
-   "text": "New: Help Net Security reports stolen Claude API keys can turn Claude Code into a remote-controlled implant. Dark Reading also details an AI-driven attack against a US retailer.",
-   "url": "https://www.helpnetsecurity.com/2026/11/12/stolen-claude-api-keys-remote-controlled-implant/"
   },
   {
    "text": "Still active: hackers target N-central zero-days as N-able rushes patches (3 outlets); 4,837 hijacked GitHub accounts ran a CI secret stealer in 1,806+ repos; Apache HTTP/2 RCE CVE-2026-119618, no fixed release in the brief.",
@@ -29,11 +29,11 @@
   }
  ],
  "actions": [
+  "GPUStack: patch CVE-2026-102895 today, take any internet-exposed GPUStack servers offline until patched, and check logs for auth bypass attempts.",
   "If you use Notion AI or Fireworks AI, check vendor notices and review what data and chat content you sent through them.",
   "Inventory ScreenConnect instances, remove unknown or rogue clients, patch, and hunt for malware dropped via remote sessions.",
-  "Treat Claude and other LLM API keys as high-value secrets: rotate any exposed in repos or CI and watch usage for anomalies.",
   "N-central: apply N-able's patches as they ship and keep the console off the internet; rotate CI secrets in repos with unfamiliar workflow runs.",
   "Find internet-facing Apache HTTP Server hosts with HTTP/2; restrict exposure and patch once a fixed release or distro package ships.",
-  "Barracuda ESG and Ivanti Connect Secure fixes by 11-13; OpenSSH, GPUStack, FreeSwitch, Aspera Faspex today; keep Xen Orchestra off the internet."
+  "Barracuda ESG and Ivanti Connect Secure fixes by 11-13; OpenSSH, FreeSwitch, Aspera Faspex today; keep Xen Orchestra off the internet."
  ]
 }
