@@ -1,21 +1,21 @@
 {
- "written_at": "2026-11-12T05:19:53Z",
+ "written_at": "2026-11-12T06:19:49Z",
  "by": "Claude",
- "headline": "ScreenConnect rogue-client campaign widens to 288 endpoints; Wiz reports critical Apache HTTP Server RCE; Barracuda ESG KEV due 11-13",
+ "headline": "Apache HTTP/2 RCE CVE-2026-119618 now widely reported; ScreenConnect rogue clients hit 288 endpoints; Barracuda ESG KEV due 11-13",
  "bullets": [
-  {"text": "New: ScreenConnect attacks using rogue clients have reached at least 288 endpoints across 48 organizations, building on earlier reports of MSPs breached through ScreenConnect. N-central remains offline after a researcher published dozens of zero-days (6 outlets).", "url": "https://thehackernews.com/2026/11/screenconnect-attacks-target-at-least.html"},
-  {"text": "New: Wiz describes a critical remote code execution vulnerability in Apache HTTP Server, surfaced on Hacker News. The brief gives no fixed release; watch Apache httpd advisories and your distribution's packages.", "url": "https://www.wiz.io/blog/cve-2026-119618-rce-apache-http-server-vulnerability"},
-  {"text": "KEV due 11-13: Barracuda ESG CVE-2026-116606 and CVE-2026-111560 (exploited, 4 outlets) and Ivanti Connect Secure CVE-2026-104935. The 11-12 deadline for OpenSSH CVE-2026-123158, GPUStack, FreeSwitch and IBM Aspera Faspex has arrived.", "url": "https://www.securityweek.com/recently-patched-barracuda-vulnerabilities-exploited-in-attacks/"},
-  {"text": "Still exploited: critical Xen Orchestra flaws (3 outlets); Qlik Sense servers hit with reverse shells while attackers stage ActiveMQ and Veeam exploits; Cisco BroadWorks CVE-2026-20320 and Openwave CVE-2026-111793 (KEV due 11-24).", "url": "https://www.securityweek.com/critical-xen-orchestra-flaws-exploited-in-attacks/"},
+  {"text": "New: The Hacker News now reports the critical Apache HTTP Server flaw CVE-2026-119618 as an HTTP/2 issue that could let unauthenticated attackers execute code remotely, following Wiz's write-up. The brief gives no fixed release.", "url": "https://thehackernews.com/2026/11/critical-apache-http2-flaw-could-let.html"},
+  {"text": "ScreenConnect attacks using rogue clients have reached at least 288 endpoints across 48 organizations, after earlier reports of MSPs breached through ScreenConnect. N-central remains offline after a researcher published dozens of zero-days (6 outlets).", "url": "https://thehackernews.com/2026/11/screenconnect-attacks-target-at-least.html"},
+  {"text": "KEV due 11-13: Barracuda ESG CVE-2026-116606 and CVE-2026-111560 (exploited, 4 outlets) and Ivanti Connect Secure CVE-2026-104935. The 11-12 deadline for OpenSSH CVE-2026-123158, GPUStack, FreeSwitch and IBM Aspera Faspex is today.", "url": "https://www.securityweek.com/recently-patched-barracuda-vulnerabilities-exploited-in-attacks/"},
+  {"text": "Still exploited: critical Xen Orchestra flaws (3 outlets); Cisco BroadWorks CVE-2026-20320 and Openwave CVE-2026-111793 (4 outlets, KEV due 11-24). Outlook CVE-2026-124194 and Chromium CVE-2026-125350 are also due 11-24.", "url": "https://www.securityweek.com/critical-xen-orchestra-flaws-exploited-in-attacks/"},
   {"text": "Breaches and ransomware: Maersk confirmed a breach as WhiteArmor demands $5 million; Vanderbilt University on lockdown after ransomware (6 outlets); Credit Mutuel Arkea says €100m missing; Notion says a Fireworks breach exposed customer AI chat transcripts.", "url": "https://www.bleepingcomputer.com/news/security/maersk-confirms-data-breach-as-whitearmor-ransomware-demands-5-million/"},
-  {"text": "State and cloud activity: France blames Iran for sabotage of refrigeration controllers at about 700 retail sites (5 outlets); ESET links Cereal to Turla (5 outlets); AntiFox AI agents used to steal AWS credentials. Level holds at SITCON 3; week runs 1.06x the 90-day average.", "url": "https://thehackernews.com/2026/11/france-blames-iran-for-sabotage-attack.html"}
+  {"text": "State and cloud activity: France blames Iran for sabotage of refrigeration controllers at about 700 retail sites (5 outlets); ESET links Cereal to Turla (5 outlets); AntiFox AI agents used to steal AWS credentials. SITCON 3 holds; week runs 1.06x the 90-day average.", "url": "https://thehackernews.com/2026/11/france-blames-iran-for-sabotage-attack.html"}
  ],
  "actions": [
+  "Find internet-facing Apache HTTP Server hosts with HTTP/2 enabled; restrict exposure and patch as soon as a fixed release or distro package ships.",
   "Inventory ScreenConnect instances, remove unknown or rogue clients, patch, and review session and access logs; keep N-central access restricted.",
-  "Identify internet-facing Apache HTTP Server hosts and be ready to patch as soon as a fixed release ships; restrict exposure meanwhile.",
   "Barracuda ESG: apply fixes for CVE-2026-116606 and CVE-2026-111560 by 11-13 and hunt for compromise; patch Ivanti Connect Secure.",
-  "Confirm OpenSSH, GPUStack, FreeSwitch and IBM Aspera Faspex patches are done; their KEV deadline was 11-12.",
-  "Keep Xen Orchestra off the internet; check Qlik Sense, ActiveMQ and Veeam servers for reverse shells and unexpected processes.",
-  "Review AWS keys and CloudTrail for unusual use; patch Outlook, Chrome, Cisco BroadWorks and Openwave by 11-24."
+  "Confirm OpenSSH, GPUStack, FreeSwitch and IBM Aspera Faspex patches are done today, their KEV deadline.",
+  "Keep Xen Orchestra off the internet; patch Outlook, Chrome, Cisco BroadWorks and Openwave by 11-24.",
+  "Review AWS keys and CloudTrail for unusual use given the AntiFox credential-theft reports."
  ]
 }
