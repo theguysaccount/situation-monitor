@@ -1,0 +1,39 @@
+{
+ "written_at": "2026-11-12T17:19:42Z",
+ "by": "Claude",
+ "headline": "ScreenConnect breaches reach ~50 organizations; critical Red Hat Quay flaw; Windows SignDrop zero-day and Apache httpd RCE",
+ "bullets": [
+  {
+   "text": "New: ConnectWise is investigating ScreenConnect breaches after reports of incidents at nearly 50 organizations. This adds to the exploited plugin flaw spreading malware across hundreds of PCs and the SCKit malware targeting MSP support sessions (6 outlets).",
+   "url": "https://therecord.media/connectwise-screenconnect-breaches-third-party-tool"
+  },
+  {
+   "text": "New: The Hacker News reports a critical Red Hat Quay flaw that lets attackers read and overwrite all private container images in a registry. No CVE or fixed release is listed on the board yet.",
+   "url": "https://thehackernews.com/2026/11/critical-red-hat-quay-flaw-lets.html"
+  },
+  {
+   "text": "Still active: a Windows zero-day dubbed SignDrop gives attackers SYSTEM privileges (no CVE or fix on the board), and Apache has patched a critical HTTP Server RCE, CVE-2026-119618.",
+   "url": "https://www.bleepingcomputer.com/news/security/new-windows-signdrop-zero-day-gives-hackers-system-privileges/"
+  },
+  {
+   "text": "N-central: new exploits work against patched servers, giving root RCE and Windows SYSTEM access, following earlier zero-day attacks (3 outlets).",
+   "url": "https://thehackernews.com/2026/11/new-n-central-exploits-work-against.html"
+  },
+  {
+   "text": "Still developing: the Fireworks AI hack exposed Notion customers' chat transcripts (7 outlets); Apify is rotating API tokens and prompting 2FA resets; an attacker targeted 60,000 GitHub repositories in a credential theft campaign.",
+   "url": "https://techcrunch.com/2026/11/12/cyberattack-on-fireworks-ai-allowed-hackers-to-access-notion-customers-chat-transcripts/"
+  },
+  {
+   "text": "KEV due 11-13: Barracuda CVE-2026-116606 and CVE-2026-111560 (exploited, 4 outlets) and Ivanti Connect Secure CVE-2026-104935. Cisco BroadWorks CVE-2026-20320 and Outlook CVE-2026-124194 are due 11-24. SITCON 3, 1.09x the 90-day average.",
+   "url": "https://www.securityweek.com/recently-patched-barracuda-vulnerabilities-exploited-in-attacks/"
+  }
+ ],
+ "actions": [
+  "ScreenConnect: inventory instances and plugins, remove unknown clients and plugins, and hunt for SCKit or other malware pushed through support sessions.",
+  "Red Hat Quay: find your registries, restrict access to trusted networks, and watch Red Hat for a fix; audit private images for unexpected changes.",
+  "Apache HTTP Server: patch every httpd instance, including in containers and appliances, for CVE-2026-119618 today.",
+  "Windows: until Microsoft ships a SignDrop fix, prioritise detection of local privilege escalation to SYSTEM on exposed hosts.",
+  "N-central: keep consoles off the internet and hunt for root or SYSTEM-level compromise; do not rely on patches alone.",
+  "Patch Barracuda ESG and Ivanti Connect Secure by 11-13; rotate Apify tokens and secrets shared in Notion AI chats."
+ ]
+}
