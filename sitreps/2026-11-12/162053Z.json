@@ -1,0 +1,39 @@
+{
+ "written_at": "2026-11-12T16:20:53Z",
+ "by": "Claude",
+ "headline": "Windows SignDrop zero-day grants SYSTEM; Apache HTTP Server critical RCE patched; N-central and ScreenConnect attacks continue",
+ "bullets": [
+  {
+   "text": "New: BleepingComputer reports a Windows zero-day dubbed SignDrop that gives attackers SYSTEM privileges. No CVE or fix is listed on the board yet.",
+   "url": "https://www.bleepingcomputer.com/news/security/new-windows-signdrop-zero-day-gives-hackers-system-privileges/"
+  },
+  {
+   "text": "New: SecurityWeek reports Apache has patched a critical HTTP Server remote code execution flaw, CVE-2026-119618, found by researchers at Anthropic and Google.",
+   "url": "https://www.securityweek.com/apache-patches-critical-http-server-rce-found-by-anthropic-google/"
+  },
+  {
+   "text": "The Hacker News reports new N-central exploits that work against patched servers, giving root RCE and Windows SYSTEM access, following attacks on N-central zero-days as N-able rushed patches (3 outlets).",
+   "url": "https://thehackernews.com/2026/11/new-n-central-exploits-work-against.html"
+  },
+  {
+   "text": "ScreenConnect: a plugin flaw is being exploited to spread malware across hundreds of PCs and MSPs have been breached (5 outlets). New: The Hacker News describes SCKit malware that turns ScreenConnect support sessions into MSP attack paths.",
+   "url": "https://thehackernews.com/2026/11/sckit-malware-targets-screenconnect.html"
+  },
+  {
+   "text": "Still developing: the Fireworks AI hack let attackers access Notion customers' chat transcripts (7 outlets); Apify is rotating API tokens and prompting 2FA resets after a breach. New: Hong Kong Sogo reports a breach affecting 820,000 members.",
+   "url": "https://techcrunch.com/2026/11/12/cyberattack-on-fireworks-ai-allowed-hackers-to-access-notion-customers-chat-transcripts/"
+  },
+  {
+   "text": "KEV due 11-13: Barracuda ESG CVE-2026-116606 and CVE-2026-111560 (exploited, 4 outlets), Ivanti Connect Secure CVE-2026-104935. GPUStack, OpenSSH, FreeSwitch and Aspera Faspex were due 11-12. SITCON 3 at 1.09x the 90-day average.",
+   "url": "https://www.securityweek.com/recently-patched-barracuda-vulnerabilities-exploited-in-attacks/"
+  }
+ ],
+ "actions": [
+  "Windows: watch for Microsoft guidance on SignDrop; until a fix ships, prioritise detection of local privilege escalation to SYSTEM on exposed hosts.",
+  "Apache HTTP Server: find every httpd instance, including in containers and appliances, and apply the fix for CVE-2026-119618 today.",
+  "N-central: do not rely on patches alone; keep consoles off the internet and hunt for root or SYSTEM-level compromise.",
+  "ScreenConnect: inventory instances and plugins, remove unknown clients and plugins, and hunt for SCKit or other malware pushed through sessions.",
+  "Fireworks AI / Notion AI and Apify users: rotate secrets that appeared in chats and Apify API tokens; reset 2FA as prompted.",
+  "Patch Barracuda ESG and Ivanti Connect Secure by 11-13; close out any overdue GPUStack, OpenSSH, FreeSwitch and Aspera Faspex KEV fixes."
+ ]
+}
