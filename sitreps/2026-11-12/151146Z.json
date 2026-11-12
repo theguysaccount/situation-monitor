@@ -1,0 +1,39 @@
+{
+ "written_at": "2026-11-12T15:11:46Z",
+ "by": "Claude",
+ "headline": "Fireworks AI hack exposed Notion chat transcripts; Apify rotates tokens after breach; N-central and ScreenConnect attacks continue",
+ "bullets": [
+  {
+   "text": "New: TechCrunch reports the Fireworks AI cyberattack let hackers access Notion customers' chat transcripts, widening earlier reports that Notion customer data was compromised (7 outlets).",
+   "url": "https://techcrunch.com/2026/11/12/cyberattack-on-fireworks-ai-allowed-hackers-to-access-notion-customers-chat-transcripts/"
+  },
+  {
+   "text": "New: Apify is rotating API tokens and prompting 2FA resets after a breach (BleepingComputer). Separately, SecurityWeek reports an attacker targeting 60,000 GitHub repositories in a credential theft campaign.",
+   "url": "https://www.bleepingcomputer.com/news/security/apify-rotates-api-tokens-prompts-2fa-resets-after-breach/"
+  },
+  {
+   "text": "The Hacker News reports new N-central exploits that work against patched servers, giving root RCE and Windows SYSTEM access. This follows attacks on N-central zero-days as N-able rushed patches (3 outlets).",
+   "url": "https://thehackernews.com/2026/11/new-n-central-exploits-work-against.html"
+  },
+  {
+   "text": "The Register reports a ScreenConnect plugin flaw being exploited to spread malware across hundreds of PCs; related ScreenConnect attacks breached MSPs and affected dozens of organizations (5 outlets).",
+   "url": "https://www.theregister.com/security/2026/11/12/hackers-exploiting-screenconnect-plugin-flaw-to-spread-malware-across-hundreds-of-pcs/5309361"
+  },
+  {
+   "text": "KEV due today (11-12): GPUStack CVE-2026-102895 (SANS sees exploit attempts), OpenSSH CVE-2026-123158, FreeSwitch CVE-2026-116779, Aspera Faspex CVE-2026-123218. Due 11-13: Barracuda ESG CVE-2026-116606 and CVE-2026-111560, Ivanti Connect Secure CVE-2026-104935.",
+   "url": "https://isc.sans.edu/diary/rss/33514"
+  },
+  {
+   "text": "New: The Record says hijacked email accounts are complicating investigations into European bomb hoaxes. Also on the board: Xen Orchestra and Cisco BroadWorks exploitation, Vanderbilt ransomware lockdown (6 outlets). SITCON 3 at 1.09x the 90-day average.",
+   "url": "https://therecord.media/europe-hoax-email-threats"
+  }
+ ],
+ "actions": [
+  "Fireworks AI / Notion AI users: review what data was sent through these services and rotate any secrets that appeared in chats.",
+  "Apify users: rotate API tokens, reset 2FA as prompted, and review recent actor runs; check GitHub CI secrets for signs of theft.",
+  "N-central: do not rely on patches alone; take consoles off the internet now and hunt for root or SYSTEM-level compromise.",
+  "ScreenConnect: inventory instances and plugins, remove unknown clients and plugins, and hunt for malware pushed through sessions.",
+  "Finish GPUStack, OpenSSH, FreeSwitch and Aspera Faspex KEV fixes today; patch Barracuda ESG and Ivanti Connect Secure by 11-13.",
+  "Schedule Outlook, Chromium and Cisco BroadWorks KEV fixes before 11-24; keep Xen Orchestra management off the open internet."
+ ]
+}
