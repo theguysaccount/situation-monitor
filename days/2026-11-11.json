@@ -1,0 +1,915 @@
+{
+ "schema": 1,
+ "date": "2026-11-11",
+ "source": "sweep",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-11-11T01:21:34Z",
+    2,
+    465.0
+   ],
+   [
+    "2026-11-11T03:03:54Z",
+    2,
+    467.5
+   ],
+   [
+    "2026-11-11T03:19:37Z",
+    2,
+    470.0
+   ],
+   [
+    "2026-11-11T04:10:32Z",
+    2,
+    470.0
+   ],
+   [
+    "2026-11-11T04:15:20Z",
+    2,
+    470.0
+   ],
+   [
+    "2026-11-11T04:19:22Z",
+    2,
+    470.0
+   ],
+   [
+    "2026-11-11T04:22:46Z",
+    2,
+    470.0
+   ],
+   [
+    "2026-11-11T05:19:27Z",
+    2,
+    471.3
+   ],
+   [
+    "2026-11-11T05:20:26Z",
+    2,
+    471.3
+   ],
+   [
+    "2026-11-11T06:19:27Z",
+    2,
+    470.7
+   ],
+   [
+    "2026-11-11T06:20:28Z",
+    2,
+    470.7
+   ],
+   [
+    "2026-11-11T06:35:30Z",
+    2,
+    470.7
+   ],
+   [
+    "2026-11-11T07:19:26Z",
+    2,
+    471.3
+   ],
+   [
+    "2026-11-11T08:19:27Z",
+    2,
+    487.2
+   ],
+   [
+    "2026-11-11T08:20:42Z",
+    2,
+    487.2
+   ],
+   [
+    "2026-11-11T09:19:25Z",
+    2,
+    491.9
+   ],
+   [
+    "2026-11-11T09:20:27Z",
+    2,
+    491.9
+   ],
+   [
+    "2026-11-11T10:19:27Z",
+    2,
+    489.0
+   ],
+   [
+    "2026-11-11T10:20:24Z",
+    2,
+    489.0
+   ],
+   [
+    "2026-11-11T10:58:02Z",
+    2,
+    477.0
+   ],
+   [
+    "2026-11-11T11:19:29Z",
+    2,
+    486.1
+   ],
+   [
+    "2026-11-11T11:20:31Z",
+    2,
+    483.6
+   ],
+   [
+    "2026-11-11T12:19:24Z",
+    2,
+    488.7
+   ],
+   [
+    "2026-11-11T12:20:24Z",
+    2,
+    488.7
+   ],
+   [
+    "2026-11-11T13:19:27Z",
+    2,
+    477.7
+   ],
+   [
+    "2026-11-11T13:20:39Z",
+    2,
+    477.7
+   ],
+   [
+    "2026-11-11T14:19:26Z",
+    2,
+    479.0
+   ],
+   [
+    "2026-11-11T14:21:12Z",
+    2,
+    479.0
+   ],
+   [
+    "2026-11-11T15:19:45Z",
+    2,
+    507.5
+   ],
+   [
+    "2026-11-11T15:20:47Z",
+    2,
+    507.5
+   ],
+   [
+    "2026-11-11T16:19:27Z",
+    2,
+    501.9
+   ],
+   [
+    "2026-11-11T16:21:02Z",
+    2,
+    501.9
+   ],
+   [
+    "2026-11-11T17:19:27Z",
+    2,
+    517.5
+   ],
+   [
+    "2026-11-11T17:20:37Z",
+    2,
+    517.5
+   ],
+   [
+    "2026-11-11T18:19:27Z",
+    2,
+    502.1
+   ],
+   [
+    "2026-11-11T18:42:46Z",
+    2,
+    497.1
+   ],
+   [
+    "2026-11-11T19:19:30Z",
+    2,
+    490.9
+   ],
+   [
+    "2026-11-11T21:19:31Z",
+    2,
+    487.8
+   ],
+   [
+    "2026-11-11T21:20:43Z",
+    2,
+    487.8
+   ],
+   [
+    "2026-11-11T22:19:30Z",
+    2,
+    474.5
+   ],
+   [
+    "2026-11-11T22:20:41Z",
+    2,
+    474.5
+   ],
+   [
+    "2026-11-11T23:19:28Z",
+    2,
+    473.9
+   ],
+   [
+    "2026-11-11T23:20:29Z",
+    2,
+    473.9
+   ]
+  ],
+  "hours_at_level": {
+   "2": 43
+  },
+  "highest": 2,
+  "lowest": 2
+ },
+ "first_seen": {
+  "count": 158,
+  "by_severity": {
+   "high": 39,
+   "medium": 80,
+   "low": 33,
+   "critical": 6
+  },
+  "by_type": {
+   "news": 77,
+   "advisory": 4,
+   "ransomware": 54,
+   "breach": 22,
+   "community": 1
+  }
+ },
+ "situations": [
+  {
+   "name": "N-central",
+   "severity": "critical",
+   "outlets": 6,
+   "reports": 7,
+   "cves": [],
+   "lead": {
+    "title": "N-able takes its remote access service offline after researcher publishes dozens of zero-day bugs",
+    "url": "https://techcrunch.com/2026/11/10/n-able-takes-its-remote-access-service-offline-after-researcher-publishes-dozens-of-zero-day-bugs/",
+    "source": "TechCrunch Security",
+    "published": "2026-11-10T15:45:27Z"
+   }
+  },
+  {
+   "name": "Barracuda",
+   "severity": "critical",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [
+    "CVE-2026-116606"
+   ],
+   "lead": {
+    "title": "Recently Patched Barracuda Vulnerabilities Exploited in Attacks",
+    "url": "https://www.securityweek.com/recently-patched-barracuda-vulnerabilities-exploited-in-attacks/",
+    "source": "SecurityWeek",
+    "published": "2026-11-11T07:53:51Z"
+   }
+  },
+  {
+   "name": "Vanderbilt University",
+   "severity": "high",
+   "outlets": 6,
+   "reports": 6,
+   "cves": [],
+   "lead": {
+    "title": "Ransomware Attack Puts Vanderbilt on Lockdown",
+    "url": "https://www.nashvillescene.com/news/pithinthewind/vanderbilt-university-cyber-attack-lockdown/article_c7136f1f-a103-4e75-93bc-826ca02e894e.html",
+    "source": "ransomware.live disclosures",
+    "published": "2026-11-11T00:00:00Z"
+   }
+  },
+  {
+   "name": "Cisco BroadWorks",
+   "severity": "critical",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [
+    "CVE-2026-111793",
+    "CVE-2026-20320"
+   ],
+   "lead": {
+    "title": "Threat Actors Exploit Openwave, Cisco BroadWorks Vulnerabilities",
+    "url": "https://www.securityweek.com/threat-actors-exploit-openwave-cisco-broadworks-vulnerabilities/",
+    "source": "SecurityWeek",
+    "published": "2026-11-11T09:01:07Z"
+   }
+  },
+  {
+   "name": "Xen Orchestra",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [],
+   "lead": {
+    "title": "Critical Xen Orchestra Flaws Exploited in Attacks",
+    "url": "https://www.securityweek.com/critical-xen-orchestra-flaws-exploited-in-attacks/",
+    "source": "SecurityWeek",
+    "published": "2026-11-11T15:42:47Z"
+   }
+  },
+  {
+   "name": "France Blames Iran for Sabotage Attack on Refrigeration Controllers…",
+   "severity": "high",
+   "outlets": 5,
+   "reports": 5,
+   "cves": [],
+   "lead": {
+    "title": "France Blames Iran for Sabotage Attack on Refrigeration Controllers at About 700 Retail Sites",
+    "url": "https://thehackernews.com/2026/11/france-blames-iran-for-sabotage-attack.html",
+    "source": "The Hacker News",
+    "published": "2026-11-10T09:08:20Z"
+   }
+  },
+  {
+   "name": "Turla",
+   "severity": "high",
+   "outlets": 5,
+   "reports": 5,
+   "cves": [],
+   "lead": {
+    "title": "ESET Links Cereal to Turla in Romanian Server Breach Case — Defense News",
+    "url": "https://databreaches.net/2026/11/11/eset-links-cereal-to-turla-in-romanian-server-breach-case-defense-news/",
+    "source": "DataBreaches.net",
+    "published": "2026-11-11T14:11:25Z"
+   }
+  },
+  {
+   "name": "SSHole",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [
+    "CVE-2026-123158"
+   ],
+   "lead": {
+    "title": "Hackers exploit SSHole OpenSSH flaw to breach Linux systems",
+    "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-sshole-openssh-flaw-to-breach-linux-systems/",
+    "source": "BleepingComputer",
+    "published": "2026-11-09T16:04:57Z"
+   }
+  }
+ ],
+ "top_reports": [
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Critical Xen Orchestra Flaws Exploited in Attacks",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/critical-xen-orchestra-flaws-exploited-in-attacks/",
+   "published": "2026-11-11T15:42:47Z",
+   "first_seen": "2026-11-11T16:19:27Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Hackers Target Qlik Sense Servers With Reverse Shells, Stage ActiveMQ and Veeam Exploits",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/hackers-target-qlik-sense-servers-with.html",
+   "published": "2026-11-11T14:01:00Z",
+   "first_seen": "2026-11-11T15:19:45Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Citrix, Ivanti Patch Critical and High-Severity Vulnerabilities",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/citrix-ivanti-patch-critical-and-high-severity-vulnerabilities/",
+   "published": "2026-11-11T13:37:19Z",
+   "first_seen": "2026-11-11T14:19:26Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Threat Actors Exploit Openwave, Cisco BroadWorks Vulnerabilities",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/threat-actors-exploit-openwave-cisco-broadworks-vulnerabilities/",
+   "published": "2026-11-11T09:01:07Z",
+   "first_seen": "2026-11-11T09:19:25Z",
+   "cves": [
+    "CVE-2026-111793",
+    "CVE-2026-20320"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Recently Patched Barracuda Vulnerabilities Exploited in Attacks",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/recently-patched-barracuda-vulnerabilities-exploited-in-attacks/",
+   "published": "2026-11-11T07:53:51Z",
+   "first_seen": "2026-11-11T08:19:27Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "breach",
+   "title": "Ridgecrest Regional Hospital in California takes systems offline after cyber incident",
+   "source": "ransomware.live disclosures",
+   "url": "https://dysruptionhub.com/ridgecrest-california-hospital-cyber-incident/",
+   "published": "2026-11-11T00:00:00Z",
+   "first_seen": "2026-11-11T11:19:29Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Baker Tilly notifies clients of data breach at third-party provider",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/baker-tilly-notifies-clients-of-data-breach-at-third-party-provider/",
+   "published": "2026-11-11T23:01:31Z",
+   "first_seen": "2026-11-11T23:19:28Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Active ScreenConnect attacks breach MSPs, impact dozens of organizations",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/active-screenconnect-attacks-breach-msps-impact-dozens-of-organizations/",
+   "published": "2026-11-11T22:56:21Z",
+   "first_seen": "2026-11-11T23:19:28Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "WhiteArmor Demands $5 Million from Maersk, Claims Theft of 100GB of Data",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/11/whitearmor-demands-5-million-from-maersk-claims-theft-of-100gb-of-data/",
+   "published": "2026-11-11T21:45:18Z",
+   "first_seen": "2026-11-11T22:19:30Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Notion says Fireworks breach exposed customer AI chat transcripts",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/notion-says-fireworks-breach-exposed-customer-ai-chat-transcripts/",
+   "published": "2026-11-11T20:54:20Z",
+   "first_seen": "2026-11-11T21:19:31Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "advisory",
+   "title": "The global socket: how threat actors are weaponizing GSocket for stealthy C2",
+   "source": "Microsoft Security Blog",
+   "url": "https://www.microsoft.com/en-us/security/blog/2026/11/11/global-socket-how-threat-actors-weaponizing-gsocket-stealthy-c2/",
+   "published": "2026-11-11T19:49:57Z",
+   "first_seen": "2026-11-11T21:19:31Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "The $26 Million Cyber Heist Rocking a Small New Jersey Town",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/11/the-26-million-cyber-heist-rocking-a-small-new-jersey-town/",
+   "published": "2026-11-11T16:55:59Z",
+   "first_seen": "2026-11-11T17:19:27Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Maersk confirms data breach as WhiteArmor ransomware demands $5 million",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/maersk-confirms-data-breach-as-whitearmor-ransomware-demands-5-million/",
+   "published": "2026-11-11T16:24:18Z",
+   "first_seen": "2026-11-11T17:19:27Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Critical Zoom Workplace Flaw Could Allow Unauthenticated Remote Privilege Escalation",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/critical-zoom-workplace-flaw-could.html",
+   "published": "2026-11-11T16:12:46Z",
+   "first_seen": "2026-11-11T17:19:27Z",
+   "cves": [
+    "CVE-2026-108186"
+   ]
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Ca: York University Breach Exposes 19 Years of Student Health and Financial Data",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/11/ca-york-university-breach-exposes-19-years-of-student-health-and-financial-data/",
+   "published": "2026-11-11T15:21:34Z",
+   "first_seen": "2026-11-11T16:19:27Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Hackers use AntiFox AI agents in AWS credential-theft attacks",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-use-antifox-ai-agents-in-aws-credential-theft-attacks/",
+   "published": "2026-11-11T15:12:59Z",
+   "first_seen": "2026-11-11T15:19:45Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Hotel giant Wyndham exposed customer data after app security lapse",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/11/hotel-giant-wyndham-exposed-customer-data-after-app-security-lapse/",
+   "published": "2026-11-11T15:04:50Z",
+   "first_seen": "2026-11-11T15:19:45Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "eBPF Rootkits: Why Underground Actors Are Taking Notice",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/ebpf-rootkits-why-underground-actors-are-taking-notice/",
+   "published": "2026-11-11T15:01:11Z",
+   "first_seen": "2026-11-11T15:19:45Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Git fixes six vulnerabilities, including code execution during recursive clones",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/11/11/git-project-security-updates/",
+   "published": "2026-11-11T14:26:12Z",
+   "first_seen": "2026-11-11T15:19:45Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Grok’s security blind spot exposed users and Musk’s company secrets",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/11/groks-security-blind-spot-exposed-users-and-musks-company-secrets/",
+   "published": "2026-11-11T14:12:26Z",
+   "first_seen": "2026-11-11T15:19:45Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "2013 breach at Russian cybercrime forum resurfaces with millions of victims’ credentials",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/11/2013-breach-at-russian-cybercrime-forum-resurfaces-with-millions-of-victims-credentials/",
+   "published": "2026-11-11T14:12:09Z",
+   "first_seen": "2026-11-11T15:19:45Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "SG: Fullerton Health server hit by cyberattack; personal data of migrant workers affected",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/11/sg-fullerton-health-server-hit-by-cyberattack-personal-data-of-migrant-workers-affected/",
+   "published": "2026-11-11T14:11:49Z",
+   "first_seen": "2026-11-11T15:19:45Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "French bank Credit Mutuel Arkea says €100m missing after cyberattack",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/11/french-bank-credit-mutuel-arkea-says-e100m-missing-after-cyberattack/",
+   "published": "2026-11-11T14:11:41Z",
+   "first_seen": "2026-11-11T15:19:45Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Hundreds of Dutch sports clubs report cyberattack exposing members’ personal data",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/11/hundreds-of-dutch-sports-clubs-report-cyberattack-exposing-members-personal-data/",
+   "published": "2026-11-11T14:11:34Z",
+   "first_seen": "2026-11-11T15:19:45Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "ESET Links Cereal to Turla in Romanian Server Breach Case — Defense News",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/11/eset-links-cereal-to-turla-in-romanian-server-breach-case-defense-news/",
+   "published": "2026-11-11T14:11:25Z",
+   "first_seen": "2026-11-11T15:19:45Z",
+   "cves": []
+  }
+ ],
+ "kev_added": [],
+ "breaches": [
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "YouHack: 7,160,849 accounts added to Have I Been Pwned",
+   "source": "Have I Been Pwned",
+   "url": "https://haveibeenpwned.com/Breach/YouHack",
+   "published": "2026-11-11T07:29:19Z",
+   "first_seen": "2026-11-11T08:19:27Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "СберСпасибо (SberSpasibo): 3,288,711 accounts added to Have I Been Pwned",
+   "source": "Have I Been Pwned",
+   "url": "https://haveibeenpwned.com/Breach/SberSpasibo",
+   "published": "2026-11-11T01:44:58Z",
+   "first_seen": "2026-11-11T03:03:54Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "한일네트웍스 랜섬웨어 공격받아... “즉시 차단, 유출 피해 없어” - 보안뉴스",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.boannews.com/news/articleView.html?idxno=147152",
+   "published": "2026-11-11T00:00:00Z",
+   "first_seen": "2026-11-11T08:19:27Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Chambourcy : cyberattaque à la mairie",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.infosyvelines.fr/articles/chambourcy-mairie-victime-cyberattaque-services-mode",
+   "published": "2026-11-11T00:00:00Z",
+   "first_seen": "2026-11-11T08:19:27Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Attacco informatico alla galleria del Brennero, aperto un fascicolo",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.altoadige.it/cronaca/galleria-del-brennero-sotto-attacco-informatico-violati-dati-riservati-omgvr3y8",
+   "published": "2026-11-11T00:00:00Z",
+   "first_seen": "2026-11-11T08:19:27Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Porto de Santos investiga suspeita de ataque cibernético após falhas em sistema",
+   "source": "ransomware.live disclosures",
+   "url": "https://g1.globo.com/sp/santos-regiao/videos-bom-dia-regiao/video/porto-de-santos-investiga-suspeita-de-ataque-cibernetico-apos-falhas-em-sistema-15174613.ghtml",
+   "published": "2026-11-11T00:00:00Z",
+   "first_seen": "2026-11-11T08:19:27Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Ransomware Attack Puts Vanderbilt on Lockdown",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.nashvillescene.com/news/pithinthewind/vanderbilt-university-cyber-attack-lockdown/article_c7136f1f-a103-4e75-93bc-826ca02e894e.html",
+   "published": "2026-11-11T00:00:00Z",
+   "first_seen": "2026-11-11T08:19:27Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Cyberattack tvingade Kinnarps att stoppa produktionen på tre orter",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.borskollen.se/nyheter/27/cyberattack-tvingade-kinnarps-att-stoppa-produktionen-pa-tre-orter",
+   "published": "2026-11-11T00:00:00Z",
+   "first_seen": "2026-11-11T08:19:27Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Barbour County Schools in West Virginia cuts internet during suspected cyber incident",
+   "source": "ransomware.live disclosures",
+   "url": "https://dysruptionhub.com/barbour-west-virginia-schools-cyber-incident/",
+   "published": "2026-11-11T00:00:00Z",
+   "first_seen": "2026-11-11T10:19:27Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Seminole County schools in Georgia shut systems after cyber incident",
+   "source": "ransomware.live disclosures",
+   "url": "https://dysruptionhub.com/seminole-georgia-schools-cyber-incident/",
+   "published": "2026-11-11T00:00:00Z",
+   "first_seen": "2026-11-11T10:19:27Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "纽约皇后区公共图书馆对抗勒索软件罪犯：Wi-Fi、借还服务和网站陷入瘫痪",
+   "source": "ransomware.live disclosures",
+   "url": "https://news.lavx.hu/zh-Hans/article/niu-yue-huang-hou-qu-gong-gong-tu-shu-guan-dui-kang-le-suo-ruan-jian-zui-fan-wi-fi-jie-hai-fu-wu-he-wang-zhan-xian-ru-tan-huan",
+   "published": "2026-11-11T00:00:00Z",
+   "first_seen": "2026-11-11T10:19:27Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Cybersecurity investigation shuts down computers at Los Angeles Homeless Services Authority",
+   "source": "ransomware.live disclosures",
+   "url": "https://dysruptionhub.com/lahsa-los-angeles-cybersecurity-shutdown/",
+   "published": "2026-11-11T00:00:00Z",
+   "first_seen": "2026-11-11T11:19:29Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "breach",
+   "title": "Ridgecrest Regional Hospital in California takes systems offline after cyber incident",
+   "source": "ransomware.live disclosures",
+   "url": "https://dysruptionhub.com/ridgecrest-california-hospital-cyber-incident/",
+   "published": "2026-11-11T00:00:00Z",
+   "first_seen": "2026-11-11T11:19:29Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Le géant français de l'affichage publicitaire Next One paralysé par une cyberattaque",
+   "source": "ransomware.live disclosures",
+   "url": "https://frenchbreaches.com/blog/le-geant-francais-de-laffichage-publicitaire-next-one-paralyse-par-une-cyberattaque",
+   "published": "2026-11-11T00:00:00Z",
+   "first_seen": "2026-11-11T12:19:24Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "黒金化成にランサムウェア攻撃 調査結果公表1年後 | ScanNetSecurity",
+   "source": "ransomware.live disclosures",
+   "url": "https://scan.netsecurity.ne.jp/article/2026/11/10/56718.html",
+   "published": "2026-11-11T00:00:00Z",
+   "first_seen": "2026-11-11T12:19:24Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "技研製作所にランサムウェアを伴う不正アクセス、約3,200人の個人情報漏えいのおそれ 顧客支援システムのID・暗号化パスワードも対象|セキュリティニュースのセキュリティ対策Lab",
+   "source": "ransomware.live disclosures",
+   "url": "https://rocket-boys.co.jp/security-measures-lab/giken_ransomware_3200_potential_data_leak_20261109/",
+   "published": "2026-11-11T00:00:00Z",
+   "first_seen": "2026-11-11T12:19:24Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Attacco informatico al Comune di Narni. I dati messi in sicurezza prima dell’intrusione vera e propria",
+   "source": "ransomware.live disclosures",
+   "url": "https://terninrete.it/notizie-di-terni-attacco-informatico-al-comune-di-narni-i-dati-messi-in-sicurezza-prima-dellintrusione-vera-e-propria-dellhater/",
+   "published": "2026-11-11T00:00:00Z",
+   "first_seen": "2026-11-11T12:19:24Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Второй за неделю российский хостинг стал жертвой атаки хакеров",
+   "source": "ransomware.live disclosures",
+   "url": "https://korrespondent.net/world/russia/4927425-vtoroi-za-nedelui-rossyiskyi-khostynh-stal-zhertvoi-ataky-khakerov",
+   "published": "2026-11-11T00:00:00Z",
+   "first_seen": "2026-11-11T12:19:24Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "[단독] \"병원도 뚫렸다\"‥랜섬웨어 해킹에 진료 마비",
+   "source": "ransomware.live disclosures",
+   "url": "https://imnews.imbc.com/replay/2026/nwdesk/article/6863510_37004.html",
+   "published": "2026-11-11T00:00:00Z",
+   "first_seen": "2026-11-11T12:19:24Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Cyberangriff auf die AWO: Unbekannte Täter kopieren Daten vom Server",
+   "source": "ransomware.live disclosures",
+   "url": "https://www1.wdr.de/nrw/ruhrgebiet/kreis-unna/awo-cyberangriff-ruhr-lippe-ems-100.html",
+   "published": "2026-11-11T00:00:00Z",
+   "first_seen": "2026-11-11T12:19:24Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Кибератаку на польскую систему ePUAP остановили — Polsat News",
+   "source": "ransomware.live disclosures",
+   "url": "https://ua.news/ru/dovkolo-svitu/u-polshchi-zupinili-kiberataku-na-derzhavnu-sistemu-epuap-polsat-news",
+   "published": "2026-11-11T00:00:00Z",
+   "first_seen": "2026-11-11T15:19:45Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Fullerton Health hit by cyber attack, personal data of migrant workers exposed",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.asiaone.com/singapore/fullerton-health-data-breach-migrant-workers",
+   "published": "2026-11-11T00:00:00Z",
+   "first_seen": "2026-11-11T17:19:27Z",
+   "cves": []
+  }
+ ],
+ "ransomware_claims": {
+  "count": 47,
+  "groups": [
+   [
+    "the gentlemen",
+    22
+   ],
+   [
+    "Curious Worm",
+    9
+   ],
+   [
+    "N0n",
+    4
+   ],
+   [
+    "akira",
+    3
+   ],
+   [
+    "osiris",
+    2
+   ],
+   [
+    "Doommageddon",
+    1
+   ],
+   [
+    "everstake",
+    1
+   ],
+   [
+    "qilin",
+    1
+   ],
+   [
+    "Aoqin",
+    1
+   ],
+   [
+    "inc ransom",
+    1
+   ]
+  ]
+ },
+ "archive_counts": {
+  "date": "2026-11-11",
+  "exploited": 0.0,
+  "ransomware": 10.0,
+  "breaches": 5.0,
+  "community": 0.0,
+  "kev": 0,
+  "claims": 47,
+  "breach_count": 2,
+  "accounts": 10449560,
+  "stories": 0,
+  "top": "YouHack: 7,160,849 accounts",
+  "top_url": "https://haveibeenpwned.com/Breach/YouHack"
+ },
+ "sitreps": [
+  "sitreps/2026-11-11/030103Z.json",
+  "sitreps/2026-11-11/051947Z.json",
+  "sitreps/2026-11-11/061950Z.json",
+  "sitreps/2026-11-11/081948Z.json",
+  "sitreps/2026-11-11/091947Z.json",
+  "sitreps/2026-11-11/101948Z.json",
+  "sitreps/2026-11-11/111951Z.json",
+  "sitreps/2026-11-11/121945Z.json",
+  "sitreps/2026-11-11/131949Z.json",
+  "sitreps/2026-11-11/142019Z.json",
+  "sitreps/2026-11-11/152005Z.json",
+  "sitreps/2026-11-11/161948Z.json",
+  "sitreps/2026-11-11/171947Z.json",
+  "sitreps/2026-11-11/211950Z.json",
+  "sitreps/2026-11-11/221949Z.json",
+  "sitreps/2026-11-11/231949Z.json"
+ ]
+}

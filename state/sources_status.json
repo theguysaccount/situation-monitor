@@ -8,8 +8,8 @@
   "ok": true,
   "count": 15,
   "error": null,
-  "fetched_at": "2026-11-11T04:22:46Z",
-  "ms": 118
+  "fetched_at": "2026-11-12T00:19:28Z",
+  "ms": 101
  },
  {
   "id": "thehackernews",
@@ -20,8 +20,8 @@
   "ok": true,
   "count": 50,
   "error": null,
-  "fetched_at": "2026-11-11T04:22:46Z",
-  "ms": 254
+  "fetched_at": "2026-11-12T00:19:28Z",
+  "ms": 293
  },
  {
   "id": "therecord",
@@ -32,8 +32,8 @@
   "ok": true,
   "count": 5,
   "error": null,
-  "fetched_at": "2026-11-11T04:22:46Z",
-  "ms": 238
+  "fetched_at": "2026-11-12T00:19:28Z",
+  "ms": 142
  },
  {
   "id": "krebs",
@@ -44,8 +44,8 @@
   "ok": true,
   "count": 10,
   "error": null,
-  "fetched_at": "2026-11-11T04:22:46Z",
-  "ms": 158
+  "fetched_at": "2026-11-12T00:19:28Z",
+  "ms": 253
  },
  {
   "id": "databreaches",
@@ -56,8 +56,8 @@
   "ok": true,
   "count": 10,
   "error": null,
-  "fetched_at": "2026-11-11T04:22:46Z",
-  "ms": 134
+  "fetched_at": "2026-11-12T00:19:28Z",
+  "ms": 120
  },
  {
   "id": "securityweek",
@@ -68,8 +68,8 @@
   "ok": true,
   "count": 10,
   "error": null,
-  "fetched_at": "2026-11-11T04:22:46Z",
-  "ms": 121
+  "fetched_at": "2026-11-12T00:19:28Z",
+  "ms": 111
  },
  {
   "id": "darkreading",
@@ -80,8 +80,8 @@
   "ok": true,
   "count": 50,
   "error": null,
-  "fetched_at": "2026-11-11T04:22:46Z",
-  "ms": 884
+  "fetched_at": "2026-11-12T00:19:28Z",
+  "ms": 473
  },
  {
   "id": "theregister",
@@ -92,8 +92,8 @@
   "ok": true,
   "count": 50,
   "error": null,
-  "fetched_at": "2026-11-11T04:22:46Z",
-  "ms": 586
+  "fetched_at": "2026-11-12T00:19:28Z",
+  "ms": 868
  },
  {
   "id": "cyberscoop",
@@ -104,8 +104,8 @@
   "ok": true,
   "count": 10,
   "error": null,
-  "fetched_at": "2026-11-11T04:22:46Z",
-  "ms": 115
+  "fetched_at": "2026-11-12T00:19:28Z",
+  "ms": 106
  },
  {
   "id": "techcrunch",
@@ -116,8 +116,8 @@
   "ok": true,
   "count": 20,
   "error": null,
-  "fetched_at": "2026-11-11T04:22:46Z",
-  "ms": 100
+  "fetched_at": "2026-11-12T00:19:28Z",
+  "ms": 102
  },
  {
   "id": "helpnetsecurity",
@@ -128,8 +128,8 @@
   "ok": true,
   "count": 10,
   "error": null,
-  "fetched_at": "2026-11-11T04:22:46Z",
-  "ms": 89
+  "fetched_at": "2026-11-12T00:19:28Z",
+  "ms": 74
  },
  {
   "id": "cybersecuritydive",
@@ -140,8 +140,8 @@
   "ok": true,
   "count": 10,
   "error": null,
-  "fetched_at": "2026-11-11T04:22:46Z",
-  "ms": 116
+  "fetched_at": "2026-11-12T00:19:28Z",
+  "ms": 165
  },
  {
   "id": "wired",
@@ -152,8 +152,8 @@
   "ok": true,
   "count": 20,
   "error": null,
-  "fetched_at": "2026-11-11T04:22:46Z",
-  "ms": 151
+  "fetched_at": "2026-11-12T00:19:28Z",
+  "ms": 127
  },
  {
   "id": "sans-isc",
@@ -164,8 +164,8 @@
   "ok": true,
   "count": 10,
   "error": null,
-  "fetched_at": "2026-11-11T04:22:46Z",
-  "ms": 262
+  "fetched_at": "2026-11-12T00:19:28Z",
+  "ms": 301
  },
  {
   "id": "cisa-advisories",
@@ -176,8 +176,8 @@
   "ok": true,
   "count": 5,
   "error": null,
-  "fetched_at": "2026-11-11T04:22:46Z",
-  "ms": 1051,
+  "fetched_at": "2026-11-12T00:19:28Z",
+  "ms": 956,
   "via": "CISA's CSAF repository on GitHub (ICS and IT advisories)"
  },
  {
@@ -189,8 +189,8 @@
   "ok": true,
   "count": 20,
   "error": null,
-  "fetched_at": "2026-11-11T04:22:46Z",
-  "ms": 125
+  "fetched_at": "2026-11-12T00:19:28Z",
+  "ms": 153
  },
  {
   "id": "microsoft-security",
@@ -201,8 +201,8 @@
   "ok": true,
   "count": 10,
   "error": null,
-  "fetched_at": "2026-11-11T04:22:46Z",
-  "ms": 292
+  "fetched_at": "2026-11-12T00:19:28Z",
+  "ms": 145
  },
  {
   "id": "cisa-kev",
@@ -211,10 +211,10 @@
   "type": "kev",
   "home": "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
   "ok": true,
-  "count": 17,
+  "count": 15,
   "error": null,
-  "fetched_at": "2026-11-11T04:22:46Z",
-  "ms": 204
+  "fetched_at": "2026-11-12T00:19:28Z",
+  "ms": 212
  },
  {
   "id": "ransomware-live",
@@ -225,8 +225,8 @@
   "ok": true,
   "count": 100,
   "error": null,
-  "fetched_at": "2026-11-11T04:22:46Z",
-  "ms": 927
+  "fetched_at": "2026-11-12T00:19:28Z",
+  "ms": 811
  },
  {
   "id": "ransomlook",
@@ -237,8 +237,8 @@
   "ok": true,
   "count": 100,
   "error": null,
-  "fetched_at": "2026-11-11T04:22:46Z",
-  "ms": 1267
+  "fetched_at": "2026-11-12T00:19:28Z",
+  "ms": 1174
  },
  {
   "id": "ransomware-live-press",
@@ -247,10 +247,10 @@
   "type": "breach",
   "home": "https://www.ransomware.live",
   "ok": true,
-  "count": 71,
+  "count": 91,
   "error": null,
-  "fetched_at": "2026-11-11T04:22:46Z",
-  "ms": 1010
+  "fetched_at": "2026-11-12T00:19:28Z",
+  "ms": 972
  },
  {
   "id": "hibp",
@@ -259,10 +259,10 @@
   "type": "breach",
   "home": "https://haveibeenpwned.com",
   "ok": true,
-  "count": 2,
+  "count": 3,
   "error": null,
-  "fetched_at": "2026-11-11T04:22:46Z",
-  "ms": 494
+  "fetched_at": "2026-11-12T00:19:28Z",
+  "ms": 384
  },
  {
   "id": "github-malware",
@@ -271,10 +271,10 @@
   "type": "supply-chain",
   "home": "https://github.com/advisories?query=type%3Amalware",
   "ok": true,
-  "count": 214,
+  "count": 177,
   "error": null,
-  "fetched_at": "2026-11-11T04:22:46Z",
-  "ms": 491
+  "fetched_at": "2026-11-12T00:19:28Z",
+  "ms": 417
  },
  {
   "id": "github-critical",
@@ -285,8 +285,8 @@
   "ok": true,
   "count": 50,
   "error": null,
-  "fetched_at": "2026-11-11T04:22:46Z",
-  "ms": 893
+  "fetched_at": "2026-11-12T00:19:28Z",
+  "ms": 739
  },
  {
   "id": "hackernews",
@@ -297,7 +297,7 @@
   "ok": true,
   "count": 6,
   "error": null,
-  "fetched_at": "2026-11-11T04:22:46Z",
-  "ms": 2851
+  "fetched_at": "2026-11-12T00:19:28Z",
+  "ms": 3236
  }
 ]
