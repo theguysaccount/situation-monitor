@@ -1,0 +1,39 @@
+{
+ "written_at": "2026-11-12T14:19:52Z",
+ "by": "Claude",
+ "headline": "GitHub secret-stealing campaign widens to 60,000 repos; N-central exploits beat patches; ScreenConnect plugin flaw spreads malware",
+ "bullets": [
+  {
+   "text": "New: SecurityWeek reports an attacker targeting 60,000 GitHub repositories in a credential theft campaign. Earlier reports: 4,837 hijacked GitHub accounts ran a CI secret stealer in 1,806+ repos, and Help Net Security says tens of thousands of repos were hit.",
+   "url": "https://www.securityweek.com/attacker-targets-60000-github-repositories-in-credential-theft-campaign/"
+  },
+  {
+   "text": "The Hacker News reports new N-central exploits that work against patched servers, giving root RCE and Windows SYSTEM access. This follows attacks on N-central zero-days as N-able rushed patches (3 outlets).",
+   "url": "https://thehackernews.com/2026/11/new-n-central-exploits-work-against.html"
+  },
+  {
+   "text": "The Register reports a ScreenConnect plugin flaw being exploited to spread malware across hundreds of PCs. Related ScreenConnect attacks breached MSPs and affected dozens of organizations (5 outlets).",
+   "url": "https://www.theregister.com/security/2026/11/12/hackers-exploiting-screenconnect-plugin-flaw-to-spread-malware-across-hundreds-of-pcs/5309361"
+  },
+  {
+   "text": "KEV due today (11-12): GPUStack CVE-2026-102895 (SANS sees exploit attempts), OpenSSH CVE-2026-123158, FreeSwitch CVE-2026-116779, Aspera Faspex CVE-2026-123218. Due 11-13: Barracuda ESG CVE-2026-116606 and CVE-2026-111560, Ivanti Connect Secure CVE-2026-104935.",
+   "url": "https://isc.sans.edu/diary/rss/33514"
+  },
+  {
+   "text": "Notion customer data was compromised in the Fireworks AI hack (6 outlets). PTC patched critical Windchill/FlexPLM RCE CVE-2026-126325. Xen Orchestra and Cisco BroadWorks flaws are being exploited; BroadWorks CVE-2026-20320 is KEV-due 11-24.",
+   "url": "https://www.securityweek.com/notion-customer-data-compromised-in-fireworks-ai-hack/"
+  },
+  {
+   "text": "New: Romania says it stopped a Russian cyberattack on government email. Also on the board: Maersk data theft, Vanderbilt ransomware lockdown (6 outlets). SITCON 3 holds at 1.07x the 90-day average.",
+   "url": "https://therecord.media/romania-russia-cyberattack-emails"
+  }
+ ],
+ "actions": [
+  "GitHub: review recent workflow runs and commits from unfamiliar accounts, then rotate any CI secrets and tokens those repos can reach.",
+  "N-central: do not rely on patches alone; take consoles off the internet now and hunt for root or SYSTEM-level compromise on N-central hosts.",
+  "ScreenConnect: inventory instances and plugins, remove unknown clients and plugins, and hunt for malware pushed through remote sessions.",
+  "Finish GPUStack, OpenSSH, FreeSwitch and Aspera Faspex KEV fixes today; patch Barracuda ESG and Ivanti Connect Secure by 11-13.",
+  "Review data sent through Fireworks AI or Notion AI; patch PTC Windchill/FlexPLM for CVE-2026-126325.",
+  "Schedule Outlook, Chromium and Cisco BroadWorks KEV fixes before 11-24; keep Xen Orchestra management off the open internet."
+ ]
+}
