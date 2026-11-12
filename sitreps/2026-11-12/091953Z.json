@@ -1,0 +1,39 @@
+{
+ "written_at": "2026-11-12T09:19:53Z",
+ "by": "Claude",
+ "headline": "Maersk confirms data theft amid $5M extortion; CI secret stealer hit 1,806+ GitHub repos; Apache HTTP/2 RCE CVE-2026-119618",
+ "bullets": [
+  {
+   "text": "New: SecurityWeek reports Maersk has confirmed data theft amid a $5 million extortion attempt; WhiteArmor claims 100GB stolen. Also new: Help Net Security on .NET 11 security changes aimed at the software supply chain.",
+   "url": "https://www.securityweek.com/maersk-confirms-data-theft-amid-5-million-extortion-attempt/"
+  },
+  {
+   "text": "An attacker used 4,837 hijacked GitHub accounts to run a CI secret stealer in more than 1,806 repositories, per The Hacker News. Treat CI secrets exposed to workflows in affected repos as at risk.",
+   "url": "https://thehackernews.com/2026/11/4837-hijacked-github-accounts-ran-ci.html"
+  },
+  {
+   "text": "Critical Apache HTTP Server flaw CVE-2026-119618 in HTTP/2 could let unauthenticated attackers execute code remotely, per Wiz and The Hacker News. The brief gives no fixed release.",
+   "url": "https://thehackernews.com/2026/11/critical-apache-http2-flaw-could-let.html"
+  },
+  {
+   "text": "ScreenConnect attacks with rogue clients have hit at least 288 endpoints across 48 organizations, breaching MSPs. N-central remains offline after a researcher published dozens of zero-days (6 outlets).",
+   "url": "https://thehackernews.com/2026/11/screenconnect-attacks-target-at-least.html"
+  },
+  {
+   "text": "KEV due 11-13: Barracuda ESG CVE-2026-116606 and CVE-2026-111560 (exploited, 4 outlets) and Ivanti Connect Secure CVE-2026-104935. Due today 11-12: OpenSSH CVE-2026-123158, GPUStack, FreeSwitch, IBM Aspera Faspex. Due 11-24: Cisco BroadWorks, Openwave, Outlook, Chromium.",
+   "url": "https://www.securityweek.com/recently-patched-barracuda-vulnerabilities-exploited-in-attacks/"
+  },
+  {
+   "text": "Also active: critical Xen Orchestra flaws exploited (3 outlets); Vanderbilt on lockdown after ransomware (6 outlets); France blames Iran for sabotage at about 700 retail sites (5 outlets). SITCON 3 holds; the week runs 1.07x the 90-day average.",
+   "url": "https://www.securityweek.com/critical-xen-orchestra-flaws-exploited-in-attacks/"
+  }
+ ],
+ "actions": [
+  "Review GitHub audit logs and recent workflow runs for unfamiliar accounts; rotate secrets exposed to CI and limit workflows from outside contributors.",
+  "Find internet-facing Apache HTTP Server hosts with HTTP/2 enabled; restrict exposure and patch as soon as a fixed release or distro package ships.",
+  "Inventory ScreenConnect instances, remove unknown or rogue clients, patch, and review session logs; keep N-central access restricted.",
+  "Barracuda ESG: apply fixes for CVE-2026-116606 and CVE-2026-111560 by 11-13 and hunt for compromise; patch Ivanti Connect Secure.",
+  "Confirm OpenSSH, GPUStack, FreeSwitch and IBM Aspera Faspex patches are done today, their KEV deadline.",
+  "Keep Xen Orchestra off the internet; patch Outlook, Chrome, Cisco BroadWorks and Openwave by 11-24."
+ ]
+}
