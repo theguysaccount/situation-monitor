@@ -1,26 +1,26 @@
 {
- "written_at": "2026-11-12T19:20:10Z",
+ "written_at": "2026-11-12T20:19:55Z",
  "by": "Claude",
- "headline": "Apache httpd HTTP/2 RCE patched; ScreenConnect breaches hit ~50 orgs; SignDrop Windows zero-day gives SYSTEM",
+ "headline": "N-able \"4EverAble2Shell\" zero-day exploited hours after PoC; Apache httpd HTTP/2 RCE patched; ScreenConnect breaches hit ~50 orgs",
  "bullets": [
   {
-   "text": "New: BleepingComputer reports the critical Apache HTTP Server RCE patched today, CVE-2026-119618, is in HTTP/2 handling. SecurityWeek says Anthropic and Google found it (4 outlets).",
-   "url": "https://www.bleepingcomputer.com/news/security/apache-http-server-patches-critical-http-2-remote-code-execution-flaw/"
+   "text": "New: BleepingComputer reports an N-able zero-day dubbed \"4EverAble2Shell\" was exploited within hours of a public PoC; no CVE or fix is on the board yet. Separately, new N-central exploits work against patched servers, giving root RCE and Windows SYSTEM access.",
+   "url": "https://www.bleepingcomputer.com/news/security/new-n-able-4everable2shell-zero-day-exploited-hours-after-poc-released/"
   },
   {
-   "text": "New: Maersk says its recent cyber incident affected a legacy system (The Record). Microsoft also warns that post-training supply chain attacks can hijack coding agents.",
-   "url": "https://therecord.media/shipping-giant-maersk-says-recent-incident-affected-legacy-system"
+   "text": "Apache HTTP Server patched a critical RCE, CVE-2026-119618, in its HTTP/2 handling. SecurityWeek says Anthropic and Google found it (4 outlets).",
+   "url": "https://www.securityweek.com/apache-patches-critical-http-server-rce-found-by-anthropic-google/"
   },
   {
    "text": "ConnectWise is investigating ScreenConnect breaches at nearly 50 organizations, alongside an exploited plugin flaw spreading malware across hundreds of PCs and SCKit malware targeting MSP support sessions (6 outlets).",
    "url": "https://therecord.media/connectwise-screenconnect-breaches-third-party-tool"
   },
   {
-   "text": "The SignDrop Windows zero-day turns a CLFS security feature into SYSTEM access; no CVE or fix is on the board yet. N-central: new exploits work against patched servers, giving root RCE and SYSTEM access (3 outlets).",
+   "text": "The SignDrop Windows zero-day turns a CLFS security feature into SYSTEM access; no CVE or fix is on the board yet. Microsoft warns post-training supply chain attacks can hijack coding agents.",
    "url": "https://www.bleepingcomputer.com/news/security/new-windows-signdrop-zero-day-gives-hackers-system-privileges/"
   },
   {
-   "text": "Still developing: a critical Red Hat Quay flaw exposes all private images in a registry; the Fireworks AI hack exposed Notion chat transcripts (7 outlets); Apify is rotating API tokens; 60,000 GitHub repos targeted for credentials.",
+   "text": "Still developing: a critical Red Hat Quay flaw exposes all private images in a registry; the Fireworks AI hack exposed Notion chat transcripts (7 outlets); Apify is rotating API tokens; Maersk says its incident hit a legacy system.",
    "url": "https://thehackernews.com/2026/11/critical-red-hat-quay-flaw-lets.html"
   },
   {
@@ -29,11 +29,11 @@
   }
  ],
  "actions": [
+  "N-able / N-central: take consoles off the internet now, watch N-able for a 4EverAble2Shell fix, and hunt for new admin accounts and unexpected agent commands.",
   "Apache HTTP Server: patch every httpd instance for CVE-2026-119618 today; where you cannot, consider disabling HTTP/2 until patched.",
   "ScreenConnect: inventory instances and plugins, remove unknown clients and plugins, and hunt for SCKit or other malware pushed through support sessions.",
-  "Windows: until a SignDrop fix ships, hunt for CLFS abuse and privilege escalation to SYSTEM; keep N-central consoles off the internet.",
-  "Coding agents: review where your AI coding tools and models come from, and limit the credentials and repos agents can reach.",
+  "Windows: until a SignDrop fix ships, hunt for CLFS abuse and unexpected privilege escalation to SYSTEM.",
   "Patch Barracuda ESG and Ivanti Connect Secure by 11-13; restrict Red Hat Quay registries to trusted networks pending a fix.",
-  "Rotate Apify tokens and any secrets shared in Notion AI chats; review GitHub repo secrets and Actions access."
+  "Rotate Apify tokens and any secrets shared in Notion AI chats; limit the credentials and repos coding agents can reach."
  ]
 }
