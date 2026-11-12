@@ -1,21 +1,21 @@
 {
- "written_at": "2026-11-11T23:19:49Z",
+ "written_at": "2026-11-12T01:19:49Z",
  "by": "Claude",
- "headline": "ScreenConnect attacks breach MSPs; Maersk extortion; OpenSSH SSHole and GPUStack KEV due 11-12, Barracuda ESG 11-13",
+ "headline": "Level eases to SITCON 3; MSP remote access under attack (N-central, ScreenConnect); OpenSSH SSHole KEV due today, Barracuda ESG 11-13",
  "bullets": [
-  {"text": "New: active attacks on ScreenConnect have breached managed service providers and affected dozens of organizations (BleepingComputer). With N-central zero-days also in play (6 outlets), MSP remote-access tooling is the main target this week.", "url": "https://www.bleepingcomputer.com/news/security/active-screenconnect-attacks-breach-msps-impact-dozens-of-organizations/"},
-  {"text": "New: Baker Tilly is notifying clients of a data breach at a third-party provider (BleepingComputer). WhiteArmor claims 100GB stolen from Maersk and demands $5 million; Maersk has confirmed a breach. Vanderbilt University remains on lockdown after ransomware (6 outlets).", "url": "https://www.bleepingcomputer.com/news/security/baker-tilly-notifies-clients-of-data-breach-at-third-party-provider/"},
-  {"text": "KEV due tomorrow, 11-12: OpenSSH SSHole CVE-2026-123158 (exploited on Linux, 3 outlets), GPUStack CVE-2026-102895, FreeSwitch CVE-2026-116779, IBM Aspera Faspex CVE-2026-123218. Due 11-13: Barracuda ESG CVE-2026-116606 and CVE-2026-111560, Ivanti CVE-2026-104935.", "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-sshole-openssh-flaw-to-breach-linux-systems/"},
-  {"text": "Critical Xen Orchestra flaws are exploited (3 outlets; no CVEs in the brief); Qlik Sense servers are hit with reverse shells; Zoom Workplace CVE-2026-108186 allows unauthenticated remote privilege escalation and is patched.", "url": "https://www.securityweek.com/critical-xen-orchestra-flaws-exploited-in-attacks/"},
-  {"text": "Cloud and AI: Notion says a Fireworks breach exposed customer AI chat transcripts; AntiFox AI agents are used to steal AWS credentials; Microsoft reports GSocket abuse for stealthy command-and-control.", "url": "https://www.bleepingcomputer.com/news/security/hackers-use-antifox-ai-agents-in-aws-credential-theft-attacks/"},
-  {"text": "Still active: Cisco BroadWorks and Openwave exploited (KEV due 11-24). Other breaches: York University, Credit Mutuel Arkea (€100m missing), Wyndham, Fullerton Health. The week ran 1.17x the 90-day average.", "url": "https://www.securityweek.com/threat-actors-exploit-openwave-cisco-broadworks-vulnerabilities/"}
+  {"text": "Changed: SITCON eased from 2 to 3 (ELEVATED) with no new reports since the last sweep; the week now runs 1.05x the 90-day average, down from 1.17x. Six exploited flaws reached CISA KEV in three working days.", "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-sshole-openssh-flaw-to-breach-linux-systems/"},
+  {"text": "MSP tooling remains the top target: N-able took its N-central remote access service offline after a researcher published dozens of zero-days (6 outlets), and active ScreenConnect attacks have breached MSPs and dozens of organizations.", "url": "https://techcrunch.com/2026/11/10/n-able-takes-its-remote-access-service-offline-after-researcher-publishes-dozens-of-zero-day-bugs/"},
+  {"text": "KEV due today, 11-12: OpenSSH SSHole CVE-2026-123158 (exploited on Linux), GPUStack CVE-2026-102895, FreeSwitch CVE-2026-116779, IBM Aspera Faspex CVE-2026-123218. Due 11-13: recently patched Barracuda ESG CVE-2026-116606 and CVE-2026-111560 (exploited, 4 outlets), Ivanti CVE-2026-104935.", "url": "https://www.securityweek.com/recently-patched-barracuda-vulnerabilities-exploited-in-attacks/"},
+  {"text": "Also exploited: critical Xen Orchestra flaws (3 outlets; no CVEs in the brief); Qlik Sense servers hit with reverse shells while attackers stage ActiveMQ and Veeam exploits; Cisco BroadWorks CVE-2026-20320 and Openwave CVE-2026-111793 (KEV due 11-24).", "url": "https://thehackernews.com/2026/11/hackers-target-qlik-sense-servers-with.html"},
+  {"text": "Breaches and ransomware: Maersk confirmed a breach as WhiteArmor demands $5 million; Vanderbilt University on lockdown after ransomware (6 outlets); Baker Tilly third-party breach; Credit Mutuel Arkea says €100m missing; Poland shut down its ePUAP platform after a cyberattack.", "url": "https://www.bleepingcomputer.com/news/security/maersk-confirms-data-breach-as-whitearmor-ransomware-demands-5-million/"},
+  {"text": "State activity: France blames Iran for sabotage of refrigeration controllers at about 700 retail sites (5 outlets); ESET links Cereal to Turla in a Romanian server breach (5 outlets). Cloud: AntiFox AI agents used to steal AWS credentials; GSocket abused for stealthy C2.", "url": "https://thehackernews.com/2026/11/france-blames-iran-for-sabotage-attack.html"}
  ],
  "actions": [
-  "MSPs and their customers: patch ScreenConnect, review its access logs and sessions, and apply the N-central hotfixes.",
   "Patch OpenSSH (CVE-2026-123158), GPUStack, FreeSwitch and IBM Aspera Faspex today; their KEV deadline is 11-12.",
-  "Barracuda ESG: apply fixes for CVE-2026-116606 and CVE-2026-111560 (due 11-13) and hunt for compromise; patch Ivanti Connect Secure and Citrix.",
-  "Keep Xen Orchestra off the internet, check Qlik Sense servers for reverse shells, and update Zoom Workplace for CVE-2026-108186.",
-  "Review AWS access keys and CloudTrail for unusual use; hunt for GSocket on Linux hosts.",
-  "Patch Cisco BroadWorks, Openwave Webtop, Outlook (CVE-2026-124194) and Chrome before 11-24; update Git on developer machines and CI."
+  "MSPs and customers: keep N-central access restricted until N-able's fixes land, patch ScreenConnect and review its sessions and access logs.",
+  "Barracuda ESG: apply fixes for CVE-2026-116606 and CVE-2026-111560 by 11-13 and hunt for compromise; patch Ivanti Connect Secure and Citrix.",
+  "Keep Xen Orchestra off the internet; check Qlik Sense, ActiveMQ and Veeam servers for reverse shells and unexpected processes.",
+  "Audit internet-exposed OT controllers such as refrigeration and building systems; change default credentials and remove direct exposure.",
+  "Review AWS keys and CloudTrail for unusual use, hunt for GSocket on Linux, and patch Outlook, Chrome, Cisco BroadWorks and Openwave by 11-24."
  ]
 }
