@@ -1,0 +1,39 @@
+{
+ "written_at": "2026-11-13T18:21:47Z",
+ "by": "Claude",
+ "headline": "German military drone ops disrupted by cyberattack; Check Point PHP2Shell attacks wipe ESXi; N-central zero-day hits patched servers",
+ "bullets": [
+  {
+   "text": "New: a cyberattack disrupted German military drone operations; separately, Quantum Systems drones are back in the air after a malware scare. University of Texas at Arlington warns personal information was stolen in a cyberattack.",
+   "url": "https://www.bleepingcomputer.com/news/security/german-military-drone-operations-disrupted-by-cyberattack/"
+  },
+  {
+   "text": "PHP2Shell (5 outlets): attackers exploiting Check Point gateway zero-day CVE-2026-123039 gain root, plant a TSGA backdoor and deploy a VMware ESXi wiper. The attacks are destructive. No fixed release version is on the board.",
+   "url": "https://www.bleepingcomputer.com/news/security/check-point-gateways-hacked-via-php2shell-to-deploy-vmware-esxi-wiper/"
+  },
+  {
+   "text": "N-central (PoC, 5 outlets): the N-able zero-day was exploited hours after a PoC; 21 servers infected, 19 on Hotfix 2, so patched servers are not safe. MSPs (8 outlets): worm-like SCKit spreads through ScreenConnect support sessions.",
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-n-central-flaws-to.html"
+  },
+  {
+   "text": "Law enforcement disrupted Gootloader, CastleRAT and StealC infrastructure; DOJ ties Gootloader to 44+ ransomware attacks costing $29M. FBI says North Korean hackers stole $400M+ in crypto via deepfake video calls. SilentAir intercepts SMS 2FA codes inside Asian mobile networks.",
+   "url": "https://www.securityweek.com/law-enforcement-disrupts-gootloader-castlerat-and-stealc-infrastructure/"
+  },
+  {
+   "text": "Breaches: Uber (drivers' license data), TSMC (employees, via a cloud provider), 144,000+ Norwegian and Widerøe passengers, Apify customers. Ransomware disrupted cloud firm ActiveCloud for days; Trezor confirms implants in CryptoBilis-sold wallets that steal recovery phrases.",
+   "url": "https://techcrunch.com/2026/11/13/uber-confirms-hackers-stole-thousands-of-drivers-license-information-in-data-breach/"
+  },
+  {
+   "text": "Still active: Apache httpd CVE-2026-119618, SignDrop Windows SYSTEM zero-day, Cisco BroadWorks CVE-2026-20320. KEV due 11-24: BroadWorks, Outlook CVE-2026-124194, Chromium CVE-2026-125350; Barracuda ESG due 11-13. Last 7 days run 1.14x the 90-day average.",
+   "url": "https://www.securityweek.com/apache-patches-critical-http-server-rce-found-by-anthropic-google/"
+  }
+ ],
+ "actions": [
+  "Check Point: apply the vendor fix for CVE-2026-123039, restrict gateway management access, hunt for TSGA backdoors, and confirm ESXi backups are offline.",
+  "N-central: treat servers as exposed even on Hotfix 2; take consoles off the internet and hunt for new admin accounts and unexpected agent commands.",
+  "ScreenConnect: inventory instances and extensions and hunt for SCKit spreading from support sessions.",
+  "Check endpoints for Gootloader, CastleRAT and StealC infections now that their infrastructure is down; prefer app or hardware-key MFA over SMS.",
+  "Warn finance and crypto staff about deepfake video-call lures and buy hardware wallets only from the vendor directly.",
+  "Patch Apache httpd for CVE-2026-119618; finish Barracuda ESG now (KEV due 11-13) and queue BroadWorks, Outlook and Chromium before 11-24."
+ ]
+}
