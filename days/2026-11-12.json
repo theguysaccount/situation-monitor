@@ -1,0 +1,791 @@
+{
+ "schema": 1,
+ "date": "2026-11-12",
+ "source": "sweep",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-11-12T00:19:28Z",
+    2,
+    398.8
+   ],
+   [
+    "2026-11-12T01:03:41Z",
+    3,
+    399.4
+   ],
+   [
+    "2026-11-12T01:19:26Z",
+    3,
+    399.4
+   ],
+   [
+    "2026-11-12T01:20:32Z",
+    3,
+    399.4
+   ],
+   [
+    "2026-11-12T02:19:27Z",
+    3,
+    399.4
+   ],
+   [
+    "2026-11-12T03:19:27Z",
+    3,
+    399.4
+   ],
+   [
+    "2026-11-12T04:19:29Z",
+    3,
+    399.4
+   ],
+   [
+    "2026-11-12T05:19:31Z",
+    3,
+    405.0
+   ],
+   [
+    "2026-11-12T05:20:41Z",
+    3,
+    405.0
+   ],
+   [
+    "2026-11-12T06:19:28Z",
+    3,
+    401.5
+   ],
+   [
+    "2026-11-12T06:20:34Z",
+    3,
+    401.5
+   ],
+   [
+    "2026-11-12T07:19:30Z",
+    3,
+    384.5
+   ],
+   [
+    "2026-11-12T08:19:34Z",
+    3,
+    380.8
+   ],
+   [
+    "2026-11-12T08:20:21Z",
+    3,
+    380.8
+   ],
+   [
+    "2026-11-12T08:21:00Z",
+    3,
+    380.8
+   ],
+   [
+    "2026-11-12T09:19:31Z",
+    3,
+    377.3
+   ],
+   [
+    "2026-11-12T09:20:46Z",
+    3,
+    377.3
+   ],
+   [
+    "2026-11-12T10:19:30Z",
+    3,
+    353.4
+   ],
+   [
+    "2026-11-12T10:20:38Z",
+    3,
+    353.4
+   ],
+   [
+    "2026-11-12T11:19:30Z",
+    3,
+    366.5
+   ],
+   [
+    "2026-11-12T11:20:40Z",
+    3,
+    366.5
+   ],
+   [
+    "2026-11-12T12:19:35Z",
+    3,
+    365.2
+   ],
+   [
+    "2026-11-12T12:20:40Z",
+    3,
+    365.2
+   ],
+   [
+    "2026-11-12T13:19:30Z",
+    3,
+    379.7
+   ],
+   [
+    "2026-11-12T13:20:29Z",
+    3,
+    380.3
+   ],
+   [
+    "2026-11-12T14:19:31Z",
+    3,
+    380.9
+   ],
+   [
+    "2026-11-12T14:20:41Z",
+    3,
+    380.9
+   ],
+   [
+    "2026-11-12T15:08:48Z",
+    3,
+    390.0
+   ],
+   [
+    "2026-11-12T15:12:24Z",
+    3,
+    390.0
+   ],
+   [
+    "2026-11-12T16:19:45Z",
+    3,
+    377.2
+   ],
+   [
+    "2026-11-12T16:21:44Z",
+    3,
+    377.2
+   ],
+   [
+    "2026-11-12T17:06:03Z",
+    3,
+    385.3
+   ],
+   [
+    "2026-11-12T17:19:11Z",
+    3,
+    386.5
+   ],
+   [
+    "2026-11-12T17:22:26Z",
+    3,
+    386.5
+   ],
+   [
+    "2026-11-12T18:19:32Z",
+    3,
+    378.6
+   ],
+   [
+    "2026-11-12T18:20:42Z",
+    3,
+    378.6
+   ],
+   [
+    "2026-11-12T19:19:43Z",
+    3,
+    374.9
+   ],
+   [
+    "2026-11-12T19:21:01Z",
+    3,
+    374.3
+   ],
+   [
+    "2026-11-12T20:19:37Z",
+    3,
+    378.0
+   ],
+   [
+    "2026-11-12T20:20:33Z",
+    3,
+    378.0
+   ],
+   [
+    "2026-11-12T22:19:37Z",
+    3,
+    369.8
+   ],
+   [
+    "2026-11-12T22:21:56Z",
+    3,
+    369.2
+   ],
+   [
+    "2026-11-12T22:43:55Z",
+    3,
+    364.5
+   ],
+   [
+    "2026-11-12T23:19:10Z",
+    3,
+    372.2
+   ],
+   [
+    "2026-11-12T23:20:24Z",
+    3,
+    372.2
+   ]
+  ],
+  "hours_at_level": {
+   "2": 1,
+   "3": 44
+  },
+  "highest": 2,
+  "lowest": 3
+ },
+ "first_seen": {
+  "count": 131,
+  "by_severity": {
+   "high": 44,
+   "low": 37,
+   "critical": 8,
+   "medium": 42
+  },
+  "by_type": {
+   "news": 100,
+   "ransomware": 8,
+   "vuln": 2,
+   "advisory": 10,
+   "community": 1,
+   "breach": 10
+  }
+ },
+ "situations": [
+  {
+   "name": "MSPs",
+   "severity": "critical",
+   "outlets": 7,
+   "reports": 9,
+   "cves": [],
+   "lead": {
+    "title": "New worm-like 'SCKit' malware targets MSPs in ScreenConnect attacks",
+    "url": "https://www.bleepingcomputer.com/news/security/new-worm-like-sckit-malware-targets-msps-in-screenconnect-attacks/",
+    "source": "BleepingComputer",
+    "published": "2026-11-12T22:53:10Z"
+   }
+  },
+  {
+   "name": "N-central",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 5,
+   "cves": [],
+   "lead": {
+    "title": "New N-central Exploits Work Against Patched Servers, Enable Root RCE and Windows SYSTEM Access",
+    "url": "https://thehackernews.com/2026/11/new-n-central-exploits-work-against.html",
+    "source": "The Hacker News",
+    "published": "2026-11-12T11:51:43Z"
+   }
+  },
+  {
+   "name": "Fireworks",
+   "severity": "high",
+   "outlets": 7,
+   "reports": 8,
+   "cves": [],
+   "lead": {
+    "title": "Cyberattack on Fireworks AI allowed hackers to access Notion customers’ chat transcripts",
+    "url": "https://techcrunch.com/2026/11/12/cyberattack-on-fireworks-ai-allowed-hackers-to-access-notion-customers-chat-transcripts/",
+    "source": "TechCrunch Security",
+    "published": "2026-11-12T15:02:28Z"
+   }
+  },
+  {
+   "name": "Apache HTTP",
+   "severity": "critical",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [
+    "CVE-2026-119618"
+   ],
+   "lead": {
+    "title": "Apache Patches Critical HTTP Server RCE Found by Anthropic, Google",
+    "url": "https://www.securityweek.com/apache-patches-critical-http-server-rce-found-by-anthropic-google/",
+    "source": "SecurityWeek",
+    "published": "2026-11-12T15:38:31Z"
+   }
+  },
+  {
+   "name": "Xen Orchestra",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [],
+   "lead": {
+    "title": "Critical Xen Orchestra Flaws Exploited in Attacks",
+    "url": "https://www.securityweek.com/critical-xen-orchestra-flaws-exploited-in-attacks/",
+    "source": "SecurityWeek",
+    "published": "2026-11-11T15:42:47Z"
+   }
+  },
+  {
+   "name": "Turla",
+   "severity": "high",
+   "outlets": 6,
+   "reports": 6,
+   "cves": [],
+   "lead": {
+    "title": "ESET Links Cereal to Turla in Romanian Server Breach Case — Defense News",
+    "url": "https://databreaches.net/2026/11/11/eset-links-cereal-to-turla-in-romanian-server-breach-case-defense-news/",
+    "source": "DataBreaches.net",
+    "published": "2026-11-11T14:11:25Z"
+   }
+  },
+  {
+   "name": "Barracuda",
+   "severity": "critical",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [
+    "CVE-2026-116606"
+   ],
+   "lead": {
+    "title": "Recently Patched Barracuda Vulnerabilities Exploited in Attacks",
+    "url": "https://www.securityweek.com/recently-patched-barracuda-vulnerabilities-exploited-in-attacks/",
+    "source": "SecurityWeek",
+    "published": "2026-11-11T07:53:51Z"
+   }
+  },
+  {
+   "name": "WhiteArmor",
+   "severity": "high",
+   "outlets": 5,
+   "reports": 5,
+   "cves": [],
+   "lead": {
+    "title": "Shipping giant Maersk says recent cyber incident affected legacy system",
+    "url": "https://therecord.media/shipping-giant-maersk-says-recent-incident-affected-legacy-system",
+    "source": "The Record",
+    "published": "2026-11-12T18:28:00Z"
+   }
+  }
+ ],
+ "top_reports": [
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "New worm-like 'SCKit' malware targets MSPs in ScreenConnect attacks",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/new-worm-like-sckit-malware-targets-msps-in-screenconnect-attacks/",
+   "published": "2026-11-12T22:53:10Z",
+   "first_seen": "2026-11-12T23:19:10Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "New N-able \"4EverAble2Shell\" zero-day exploited hours after PoC released",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/new-n-able-4everable2shell-zero-day-exploited-hours-after-poc-released/",
+   "published": "2026-11-12T19:51:16Z",
+   "first_seen": "2026-11-12T20:19:37Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "New Windows SignDrop zero-day gives hackers SYSTEM privileges",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/new-windows-signdrop-zero-day-gives-hackers-system-privileges/",
+   "published": "2026-11-12T16:04:00Z",
+   "first_seen": "2026-11-12T16:19:45Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Apache Patches Critical HTTP Server RCE Found by Anthropic, Google",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/apache-patches-critical-http-server-rce-found-by-anthropic-google/",
+   "published": "2026-11-12T15:38:31Z",
+   "first_seen": "2026-11-12T16:19:45Z",
+   "cves": [
+    "CVE-2026-119618"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Hackers exploiting ScreenConnect plugin flaw to spread malware across hundreds of PCs",
+   "source": "The Register",
+   "url": "https://www.theregister.com/security/2026/11/12/hackers-exploiting-screenconnect-plugin-flaw-to-spread-malware-across-hundreds-of-pcs/5309361",
+   "published": "2026-11-12T13:02:00Z",
+   "first_seen": "2026-11-12T13:19:30Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "New N-central Exploits Work Against Patched Servers, Enable Root RCE and Windows SYSTEM Access",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/new-n-central-exploits-work-against.html",
+   "published": "2026-11-12T11:51:43Z",
+   "first_seen": "2026-11-12T13:19:30Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Hackers Target N-central Zero-Days as N-able Rushes Patches",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/hackers-target-n-central-zero-days-as-n-able-rushes-patches/",
+   "published": "2026-11-12T09:39:55Z",
+   "first_seen": "2026-11-12T10:19:30Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "community",
+   "title": "Critical RCE Vulnerability in Apache HTTP Server",
+   "source": "Hacker News",
+   "url": "https://www.wiz.io/blog/cve-2026-119618-rce-apache-http-server-vulnerability",
+   "published": "2026-11-12T02:11:11Z",
+   "first_seen": "2026-11-12T05:19:31Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Fake Zillow pages use ClickFix NetSupport RAT to target apartment hunters",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/11/13/fake-zillow-clickfix-netsupport-rat/",
+   "published": "2026-11-12T23:15:23Z",
+   "first_seen": "2026-11-12T23:19:10Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Hackers compromise 4,800 GitHub accounts to steal cloud credentials",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-compromise-4-800-github-accounts-to-steal-cloud-credentials/",
+   "published": "2026-11-12T22:25:30Z",
+   "first_seen": "2026-11-12T22:43:55Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "TSMC has reportedly leaked the personal data of 46,000 employees, but emphasized that no evidence of intrusion was found in the system.",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/12/tsmc-has-reportedly-leaked-the-personal-data-of-46000-employees-but-emphasized-that-no-evidence-of-intrusion-was-found-in-the-system/",
+   "published": "2026-11-12T21:26:33Z",
+   "first_seen": "2026-11-12T22:19:37Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Resource: DysruptionHub’s Cyber Incident Registry completes its historical backfill",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/12/resource-dysruptionhubs-cyber-incident-registry-completes-its-historical-backfill/",
+   "published": "2026-11-12T21:25:56Z",
+   "first_seen": "2026-11-12T22:19:37Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Apache HTTP Server patches critical HTTP/2 remote code execution flaw",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/apache-http-server-patches-critical-http-2-remote-code-execution-flaw/",
+   "published": "2026-11-12T19:12:55Z",
+   "first_seen": "2026-11-12T19:19:43Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Shipping giant Maersk says recent cyber incident affected legacy system",
+   "source": "The Record",
+   "url": "https://therecord.media/shipping-giant-maersk-says-recent-incident-affected-legacy-system",
+   "published": "2026-11-12T18:28:00Z",
+   "first_seen": "2026-11-12T19:19:43Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "New SignDrop Zero-Day Exploit Turns Windows CLFS Security Feature Into SYSTEM Access",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/new-signdrop-zero-day-exploit-turns.html",
+   "published": "2026-11-12T17:50:27Z",
+   "first_seen": "2026-11-12T18:19:32Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "advisory",
+   "title": "Trained to betray: How post-training supply chain attacks hijack coding agents",
+   "source": "Microsoft Security Blog",
+   "url": "https://www.microsoft.com/en-us/security/blog/2026/11/12/trained-to-betray-how-post-training-supply-chain-attacks-hijack-coding-agents/",
+   "published": "2026-11-12T17:00:00Z",
+   "first_seen": "2026-11-12T19:19:43Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Critical Red Hat Quay Flaw Lets Attackers Read and Overwrite All Private Container Images in a Registry",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/critical-red-hat-quay-flaw-lets.html",
+   "published": "2026-11-12T16:27:01Z",
+   "first_seen": "2026-11-12T17:06:03Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "ConnectWise investigates ScreenConnect breaches after reports of incidents at nearly 50 organizations",
+   "source": "The Record",
+   "url": "https://therecord.media/connectwise-screenconnect-breaches-third-party-tool",
+   "published": "2026-11-12T16:16:00Z",
+   "first_seen": "2026-11-12T17:06:03Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Hong Kong Sogo data breach puts personal information of 820,000 members at risk",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/12/hong-kong-sogo-data-breach-puts-personal-information-of-820000-members-at-risk/",
+   "published": "2026-11-12T15:42:32Z",
+   "first_seen": "2026-11-12T16:19:45Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Cyberattack on Fireworks AI allowed hackers to access Notion customers’ chat transcripts",
+   "source": "TechCrunch Security",
+   "url": "https://techcrunch.com/2026/11/12/cyberattack-on-fireworks-ai-allowed-hackers-to-access-notion-customers-chat-transcripts/",
+   "published": "2026-11-12T15:02:28Z",
+   "first_seen": "2026-11-12T15:08:48Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Hijacked email accounts complicate investigations into European bomb hoaxes",
+   "source": "The Record",
+   "url": "https://therecord.media/europe-hoax-email-threats",
+   "published": "2026-11-12T14:45:00Z",
+   "first_seen": "2026-11-12T15:08:48Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Apify rotates API tokens, prompts 2FA resets after breach",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/apify-rotates-api-tokens-prompts-2fa-resets-after-breach/",
+   "published": "2026-11-12T14:36:47Z",
+   "first_seen": "2026-11-12T15:08:48Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Attacker Targets 60,000 GitHub Repositories in Credential Theft Campaign",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/attacker-targets-60000-github-repositories-in-credential-theft-campaign/",
+   "published": "2026-11-12T13:39:03Z",
+   "first_seen": "2026-11-12T14:19:31Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Romania says it stopped Russian cyberattack targeting government emails",
+   "source": "The Record",
+   "url": "https://therecord.media/romania-russia-cyberattack-emails",
+   "published": "2026-11-12T13:30:00Z",
+   "first_seen": "2026-11-12T14:19:31Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "SCKit Malware Turns ScreenConnect Support Sessions Into Potential MSP Attack Paths",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/sckit-malware-targets-screenconnect.html",
+   "published": "2026-11-12T13:08:28Z",
+   "first_seen": "2026-11-12T16:19:45Z",
+   "cves": []
+  }
+ ],
+ "kev_added": [],
+ "breaches": [
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Cyberangriff auf Zentrum Gleis D in Chur",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.srf.ch/news/schweiz/it-sicherheit-cyberangriff-auf-churer-gesundheitszentrum",
+   "published": "2026-11-12T00:00:00Z",
+   "first_seen": "2026-11-12T12:19:35Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "医疗集团Minmed 远程医疗和体检服务系统遭恶意网袭",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.zaobao.com.sg/news/singapore/story20261111-9982881",
+   "published": "2026-11-12T00:00:00Z",
+   "first_seen": "2026-11-12T12:19:35Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Cyberangriff auf Achimer Stadtwerke: IT-Systeme lahmgelegt",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.weser-kurier.de/landkreis-verden/stadt-achim/cyberangriff-auf-achimer-stadtwerke-it-systeme-lahmgelegt-doc88feidafgmdhl0xoarw",
+   "published": "2026-11-12T00:00:00Z",
+   "first_seen": "2026-11-12T12:19:35Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Worten alvo de ataque informático. Dados pessoais de clientes afetados",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.jornaldenegocios.pt/empresas/comercio/detalhe/worten-alvo-de-ataque-informatico",
+   "published": "2026-11-12T00:00:00Z",
+   "first_seen": "2026-11-12T12:19:35Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Patiëntgegevens betrokken bij de cyberaanval op Proclin Utrecht | Nieuws030 - Nieuws030",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.nieuws030.nl/nieuws/pati-ntgegevens-betrokken-bij-cyberaanval-op-proclin-utrecht/",
+   "published": "2026-11-12T00:00:00Z",
+   "first_seen": "2026-11-12T13:19:30Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "ClicAM: ciberataque a Cancillería, paro camionero y rechazo del presupuesto de Interior | El Mostrador",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.elmostrador.cl/noticias/multimedia/clic-am/2026/11/11/clicam-ciberataque-a-cancilleria-paro-camionero-y-rechazo-del-presupuesto-de-interior/",
+   "published": "2026-11-12T00:00:00Z",
+   "first_seen": "2026-11-12T13:19:30Z",
+   "cves": []
+  },
+  {
+   "severity": "low",
+   "type": "breach",
+   "title": "Gurs po varnostnem incidentu ponovno vklaplja baze. Je šlo za kibernetski napad?",
+   "source": "ransomware.live disclosures",
+   "url": "https://n1info.si/novice/slovenija/gurs-po-varnostnem-incidentu-ponovno-vklaplja-baze-je-slo-za-kibernetski-napad/",
+   "published": "2026-11-12T00:00:00Z",
+   "first_seen": "2026-11-12T13:19:30Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Wilmington College closes Ohio campus early over possible cyber incident",
+   "source": "ransomware.live disclosures",
+   "url": "https://dysruptionhub.com/wilmington-college-ohio-cyber-incident-campus-closure/",
+   "published": "2026-11-12T00:00:00Z",
+   "first_seen": "2026-11-12T16:19:45Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Today's Information",
+   "source": "ransomware.live disclosures",
+   "url": "https://emops.twse.com.tw/server-java/t05sr01_1_e?isNew=Y&seq_no=2&spoke_time=182348&spoke_date=20261112&co_id=2607",
+   "published": "2026-11-12T00:00:00Z",
+   "first_seen": "2026-11-12T16:19:45Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Monadnock Community Hospital in New Hampshire diverts ambulances amid suspected cyber incident",
+   "source": "ransomware.live disclosures",
+   "url": "https://dysruptionhub.com/monadnock-community-hospital-suspected-cyber-incident/",
+   "published": "2026-11-12T00:00:00Z",
+   "first_seen": "2026-11-12T17:06:03Z",
+   "cves": []
+  }
+ ],
+ "ransomware_claims": {
+  "count": 8,
+  "groups": [
+   [
+    "qilin",
+    2
+   ],
+   [
+    "Curious Worm",
+    1
+   ],
+   [
+    "Aoqin",
+    1
+   ],
+   [
+    "Panzer",
+    1
+   ],
+   [
+    "krybit",
+    1
+   ],
+   [
+    "metaencryptor",
+    1
+   ],
+   [
+    "Barracuda",
+    1
+   ]
+  ]
+ },
+ "archive_counts": {
+  "date": "2026-11-12",
+  "exploited": 0.0,
+  "ransomware": 2.0,
+  "breaches": 0.0,
+  "community": 2.5,
+  "kev": 0,
+  "claims": 8,
+  "breach_count": 0,
+  "accounts": 0,
+  "stories": 1,
+  "top": "Critical RCE Vulnerability in Apache HTTP Server",
+  "top_url": "https://www.wiz.io/blog/cve-2026-119618-rce-apache-http-server-vulnerability"
+ },
+ "sitreps": [
+  "sitreps/2026-11-12/011949Z.json",
+  "sitreps/2026-11-12/051953Z.json",
+  "sitreps/2026-11-12/061949Z.json",
+  "sitreps/2026-11-12/081951Z.json",
+  "sitreps/2026-11-12/091953Z.json",
+  "sitreps/2026-11-12/101951Z.json",
+  "sitreps/2026-11-12/111951Z.json",
+  "sitreps/2026-11-12/121952Z.json",
+  "sitreps/2026-11-12/131951Z.json",
+  "sitreps/2026-11-12/141952Z.json",
+  "sitreps/2026-11-12/151146Z.json",
+  "sitreps/2026-11-12/162053Z.json",
+  "sitreps/2026-11-12/171942Z.json",
+  "sitreps/2026-11-12/181953Z.json",
+  "sitreps/2026-11-12/192010Z.json",
+  "sitreps/2026-11-12/201955Z.json",
+  "sitreps/2026-11-12/222102Z.json",
+  "sitreps/2026-11-12/231930Z.json"
+ ]
+}

@@ -2792,11 +2792,11 @@
   "CVE-2026-97229"
  ],
  "level": {
-  "value": 2,
-  "since": "2026-11-10T06:19:56Z",
-  "pending": 3
+  "value": 3,
+  "since": "2026-11-12T01:03:41Z",
+  "pending": null
  },
- "last_sweep_at": "2026-11-12T00:19:28Z",
+ "last_sweep_at": "2026-11-13T00:19:09Z",
  "clock": {
   "skew_seconds": 0,
   "source": "server Date headers"
