@@ -1,39 +1,39 @@
 {
- "written_at": "2026-11-12T23:19:30Z",
+ "written_at": "2026-11-13T02:58:26Z",
  "by": "Claude",
- "headline": "Worm-like SCKit malware spreads via ScreenConnect at MSPs; N-able 4EverAble2Shell zero-day; 4,800 GitHub accounts hijacked",
+ "headline": "ConnectWise disables ScreenConnect extensions amid SCKit MSP attacks; N-able 4EverAble2Shell zero-day; 4,800 GitHub accounts hijacked",
  "bullets": [
   {
-   "text": "New: worm-like SCKit malware is targeting MSPs through ScreenConnect, now the lead report in the MSPs story (7 outlets). ConnectWise is investigating breaches at nearly 50 organizations, and a ScreenConnect plugin flaw is being exploited to spread malware across hundreds of PCs.",
-   "url": "https://www.bleepingcomputer.com/news/security/new-worm-like-sckit-malware-targets-msps-in-screenconnect-attacks/"
-  },
-  {
-   "text": "New: hackers compromised 4,800 GitHub accounts to steal cloud credentials. This follows an attacker targeting 60,000 GitHub repositories in a credential theft campaign.",
-   "url": "https://www.bleepingcomputer.com/news/security/hackers-compromise-4-800-github-accounts-to-steal-cloud-credentials/"
+   "text": "New: ConnectWise has disabled third-party ScreenConnect extensions while it investigates the attacks. The MSPs story (8 outlets) covers worm-like SCKit malware, a plugin flaw exploited to spread malware across hundreds of PCs, and breaches at nearly 50 organizations.",
+   "url": "https://www.cybersecuritydive.com/news/connectwise-disables-third-party-extensions-cyberattack-ScreenConnect/874490/"
   },
   {
    "text": "Still active: the N-able \"4EverAble2Shell\" zero-day was exploited within hours of a public PoC; no CVE or fix is on the board. New N-central exploits also work against patched servers, giving root RCE and Windows SYSTEM access.",
-   "url": "https://www.bleepingcomputer.com/news/security/new-n-able-4everable2shell-zero-day-exploited-hours-after-poc-released/"
+   "url": "https://thehackernews.com/2026/11/new-n-central-exploits-work-against.html"
   },
   {
-   "text": "Apache HTTP Server patched a critical HTTP/2 RCE, CVE-2026-119618 (4 outlets). The SignDrop Windows zero-day turns a CLFS security feature into SYSTEM access; no CVE or fix is on the board. Xen Orchestra critical flaws are exploited (3 outlets).",
+   "text": "Hackers compromised 4,800 GitHub accounts to steal cloud credentials (5 outlets), alongside a campaign targeting 60,000 GitHub repositories. Apify is rotating API tokens and prompting 2FA resets after a breach.",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-compromise-4-800-github-accounts-to-steal-cloud-credentials/"
+  },
+  {
+   "text": "Apache HTTP Server patched a critical HTTP/2 RCE, CVE-2026-119618 (4 outlets). The SignDrop Windows zero-day abuses CLFS for SYSTEM access; no CVE or fix is on the board. Critical Xen Orchestra flaws are exploited (3 outlets).",
    "url": "https://www.securityweek.com/apache-patches-critical-http-server-rce-found-by-anthropic-google/"
   },
   {
-   "text": "Also new: fake Zillow pages use ClickFix to install NetSupport RAT on apartment hunters. Still developing: Fireworks AI hack exposed Notion chat transcripts (7 outlets), Red Hat Quay flaw exposes private images, Apify token rotation, TSMC 46,000-employee leak.",
-   "url": "https://www.helpnetsecurity.com/2026/11/13/fake-zillow-clickfix-netsupport-rat/"
+   "text": "Also developing: Fireworks AI hack exposed Notion chat transcripts (7 outlets); Maersk says a cyber incident hit a legacy system (WhiteArmor, 5 outlets); Red Hat Quay flaw exposes private images; US seized $1.2B in crypto stolen from Binance.",
+   "url": "https://techcrunch.com/2026/11/12/cyberattack-on-fireworks-ai-allowed-hackers-to-access-notion-customers-chat-transcripts/"
   },
   {
-   "text": "KEV due 11-13: Barracuda CVE-2026-116606 and CVE-2026-111560 (exploited, 4 outlets) and Ivanti Connect Secure CVE-2026-104935. Cisco BroadWorks CVE-2026-20320, Outlook CVE-2026-124194 and Chromium CVE-2026-125350 are due 11-24. SITCON 3, 1.1x the 90-day average.",
+   "text": "KEV due today (11-13): Barracuda CVE-2026-116606 and CVE-2026-111560. Due 11-24: Cisco BroadWorks CVE-2026-20320, Outlook CVE-2026-124194, Chromium CVE-2026-125350. SITCON 3; the last 7 days run 1.01x the 90-day average.",
    "url": "https://www.securityweek.com/recently-patched-barracuda-vulnerabilities-exploited-in-attacks/"
   }
  ],
  "actions": [
-  "ScreenConnect: inventory instances and plugins, remove unknown clients and plugins, and hunt for SCKit spreading from support sessions to client machines.",
+  "ScreenConnect: inventory instances and extensions, confirm third-party extensions are disabled, and hunt for SCKit spreading from support sessions to client machines.",
   "N-able / N-central: keep consoles off the internet, watch for a 4EverAble2Shell fix, and hunt for new admin accounts and unexpected agent commands.",
-  "GitHub: review org members' recent sign-ins, PATs and Actions secrets; rotate cloud credentials stored in repos or workflows.",
+  "GitHub: review org members' recent sign-ins, PATs and Actions secrets; rotate cloud credentials stored in repos or workflows, and Apify tokens if you use it.",
   "Patch every Apache httpd instance for CVE-2026-119618 today; where you cannot, consider disabling HTTP/2 until patched.",
-  "Patch Barracuda ESG and Ivanti Connect Secure by 11-13; restrict Xen Orchestra to trusted networks.",
-  "Warn users about ClickFix pages that ask them to paste commands; hunt for unexpected NetSupport RAT installs and CLFS-based SYSTEM escalation."
+  "Patch Barracuda ESG today (KEV deadline 11-13) and restrict Xen Orchestra and Red Hat Quay to trusted networks.",
+  "Hunt for unexpected CLFS-based SYSTEM escalation on Windows and for NetSupport RAT installs from ClickFix pages."
  ]
 }
