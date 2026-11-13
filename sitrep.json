@@ -1,18 +1,18 @@
 {
- "written_at": "2026-11-13T09:19:28Z",
+ "written_at": "2026-11-13T11:20:17Z",
  "by": "Claude",
- "headline": "PHP2Shell attacks on Check Point gateways drop TSGA backdoor and wipe ESXi files; N-central zero-day; SCKit hits MSPs",
+ "headline": "Check Point confirms PHP2Shell zero-day gives root; N-central zero-day hits patched servers; SCKit worm spreads among MSPs",
  "bullets": [
   {
-   "text": "New: PHP2Shell (CVE-2026-123039, 5 outlets) attacks on Check Point gateways now deploy a TSGA backdoor and wipe ESXi files, per The Hacker News. No fixed release is on the board.",
-   "url": "https://thehackernews.com/2026/11/hackers-exploit-php2shell-flaws-in.html"
+   "text": "New: Check Point now warns that the PHP2Shell zero-day (CVE-2026-123039, 5 outlets) is exploited for root access on gateways; attackers deploy a TSGA backdoor and wipe ESXi files. No fixed release version is on the board.",
+   "url": "https://www.bleepingcomputer.com/news/security/check-point-patches-zero-day-that-lets-hackers-get-root-access/"
   },
   {
-   "text": "New: Nightmare Eclipse has dropped SignDrop, a Windows zero-day exploit that abuses CLFS to gain SYSTEM privileges (SecurityWeek, BleepingComputer, The Hacker News). No fix is on the board.",
-   "url": "https://www.securityweek.com/nightmare-eclipse-drops-windows-zero-day-exploit-signdrop/"
+   "text": "New: law enforcement disrupted Gootloader, CastleRAT and StealC infrastructure; Have I Been Pwned added 179,745 CastleRAT accounts. US also seized North Korean infrastructure and $1.2B stolen from Binance.",
+   "url": "https://www.securityweek.com/law-enforcement-disrupts-gootloader-castlerat-and-stealc-infrastructure/"
   },
   {
-   "text": "N-central (PoC, 6 outlets): the N-able '4EverAble2Shell' zero-day was exploited hours after a PoC; attackers infected 21 servers, 19 of them on Hotfix 2, so patched servers are not safe. No CVE or fix is on the board.",
+   "text": "N-central (PoC, 6 outlets): the N-able '4EverAble2Shell' zero-day was exploited hours after a PoC; 21 servers infected, 19 on Hotfix 2, so patched servers are not safe. No CVE or fix is on the board.",
    "url": "https://thehackernews.com/2026/11/hackers-exploit-n-central-flaws-to.html"
   },
   {
@@ -20,20 +20,20 @@
    "url": "https://www.bleepingcomputer.com/news/security/new-worm-like-sckit-malware-targets-msps-in-screenconnect-attacks/"
   },
   {
-   "text": "Still active: 4,800 GitHub accounts compromised to steal cloud credentials; Apache httpd patched critical HTTP/2 RCE CVE-2026-119618; critical Xen Orchestra flaws exploited; critical Red Hat Quay flaw exposes private images. Also: Fireworks AI/Notion, Turla, Maersk.",
-   "url": "https://www.bleepingcomputer.com/news/security/hackers-compromise-4-800-github-accounts-to-steal-cloud-credentials/"
+   "text": "Still active: SignDrop Windows CLFS zero-day gives SYSTEM (no fix on board); 4,800 GitHub accounts hijacked for cloud credentials; Apache httpd HTTP/2 RCE CVE-2026-119618 patched; Xen Orchestra flaws exploited; Red Hat Quay flaw.",
+   "url": "https://www.securityweek.com/nightmare-eclipse-drops-windows-zero-day-exploit-signdrop/"
   },
   {
-   "text": "KEV due today (11-13): Barracuda CVE-2026-116606 and CVE-2026-111560. Due 11-24: Cisco BroadWorks CVE-2026-20320, Outlook CVE-2026-124194, Chromium CVE-2026-125350. SITCON 3; the last 7 days run 1.09x the 90-day average.",
+   "text": "KEV due today (11-13): Barracuda CVE-2026-116606 and CVE-2026-111560. Due 11-24: Cisco BroadWorks CVE-2026-20320, Outlook CVE-2026-124194, Chromium CVE-2026-125350. SITCON 3; last 7 days run 1.09x the 90-day average.",
    "url": "https://www.securityweek.com/recently-patched-barracuda-vulnerabilities-exploited-in-attacks/"
   }
  ],
  "actions": [
-  "Check Point: limit gateway management to trusted networks, hunt for TSGA backdoor indicators, and back up ESXi hosts offline; await for a CVE-2026-123039 fix.",
-  "N-central: treat servers as exposed even on Hotfix 2; take consoles off the internet and hunt for new admin accounts, unexpected agent commands and implants.",
+  "Check Point: check its advisory for a CVE-2026-123039 fix and apply it, limit gateway management to trusted networks, and hunt for TSGA backdoor indicators.",
+  "Back up ESXi hosts offline and check Check Point gateways for signs of root compromise before and after patching.",
+  "N-central: treat servers as exposed even on Hotfix 2; take consoles off the internet and hunt for new admin accounts and unexpected agent commands.",
   "ScreenConnect: inventory instances and extensions, confirm third-party extensions are disabled, and hunt for SCKit spreading from support sessions.",
-  "Windows: watch for unexpected SYSTEM-level activity tied to CLFS and apply Microsoft's SignDrop fix as soon as one ships.",
-  "GitHub: review recent sign-ins, PATs and Actions secrets and rotate cloud credentials; patch Apache httpd for CVE-2026-119618.",
-  "Patch Barracuda ESG today (KEV deadline 11-13) and restrict Xen Orchestra and Red Hat Quay to trusted networks until patched."
+  "Check hosts for Gootloader, CastleRAT and StealC infections and rotate credentials on any machine that had them.",
+  "Patch Barracuda ESG today (KEV deadline 11-13) and Apache httpd for CVE-2026-119618; review GitHub sign-ins, PATs and Actions secrets."
  ]
 }
