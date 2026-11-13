@@ -1,39 +1,39 @@
 {
- "written_at": "2026-11-13T14:20:42Z",
+ "written_at": "2026-11-13T16:20:12Z",
  "by": "Claude",
- "headline": "Nitori breach may expose 37.6M member records; Check Point PHP2Shell and N-central zero-days still exploited",
+ "headline": "Uber, TSMC and Norwegian confirm breaches; Check Point PHP2Shell and N-central zero-days still exploited",
  "bullets": [
   {
-   "text": "New: Japanese retailer Nitori reports unauthorized access; data on 37.62 million members may have leaked. Also new: hackers stole patient-record data from MKG Bremen, and Louisiana's Acadia Parish School System shut down computers over a suspected cyber incident.",
-   "url": "https://tw.news.yahoo.com/%E6%97%A5%E6%9C%AC%E5%AE%9C%E5%BE%97%E5%88%A9%E9%81%AD%E9%9D%9E%E6%B3%95%E5%AD%98%E5%8F%96-3762%E8%90%AC%E7%AD%86%E6%9C%83%E5%93%A1%E8%B3%87%E6%96%99%E6%81%90%E5%A4%96%E6%B4%A9-%E4%BB%A3%E7%90%86%E5%BC%8Fai%E5%8A%A0%E5%8A%87%E7%B6%B2%E8%B7%AF%E6%94%BB%E6%93%8A-093900472.html"
+   "text": "New breaches: Uber says hackers stole thousands of drivers' license records; TSMC confirms an employee data breach tied to a cloud service provider; over 144,000 Norwegian and Wideroe passengers are affected. Belarusian cloud firm ActiveCloud was hit by ransomware, disrupting customers for days.",
+   "url": "https://techcrunch.com/2026/11/13/uber-confirms-hackers-stole-thousands-of-drivers-license-information-in-data-breach/"
   },
   {
-   "text": "Operation Endgame took down Gootloader, CastleRAT and StealC servers and seized 6.4 million stolen logins; 179,745 CastleRAT accounts were added to Have I Been Pwned.",
-   "url": "https://thehackernews.com/2026/11/operation-endgame-takes-down-gootloader.html"
+   "text": "FBI: North Korean hackers stole over $400 million in crypto using deepfake video calls built from stolen webcam clips of 900+ victims in a fake Zoom scheme. Separately, Trezor confirms hidden implants in CryptoBilis-sold wallets that can steal recovery phrases.",
+   "url": "https://thehackernews.com/2026/11/fbi-says-north-korean-hackers-stole.html"
   },
   {
    "text": "PHP2Shell (5 outlets): Check Point zero-day CVE-2026-123039 is exploited for root on gateways; attackers deploy a TSGA backdoor and wipe ESXi files. No fixed release version is on the board.",
    "url": "https://www.bleepingcomputer.com/news/security/check-point-patches-zero-day-that-lets-hackers-get-root-access/"
   },
   {
-   "text": "N-central (PoC, 6 outlets): the N-able '4EverAble2Shell' zero-day was exploited hours after a PoC; 21 servers infected, 19 on Hotfix 2, so patched servers are not safe. No CVE or fix is on the board.",
+   "text": "N-central (PoC, 5 outlets): the N-able zero-day was exploited hours after a PoC; 21 servers infected, 19 on Hotfix 2, so patched servers are not safe. MSPs (8 outlets): worm-like SCKit spreads through ScreenConnect support sessions.",
    "url": "https://thehackernews.com/2026/11/hackers-exploit-n-central-flaws-to.html"
   },
   {
-   "text": "MSPs (8 outlets): worm-like SCKit spreads through ScreenConnect support sessions. Still active: Apify customer data accessed, SilentAir SMS 2FA interception in Asia, SignDrop Windows CLFS zero-day, 4,800 GitHub accounts hijacked, Apache httpd CVE-2026-119618, Fireworks AI breach.",
-   "url": "https://www.bleepingcomputer.com/news/security/new-worm-like-sckit-malware-targets-msps-in-screenconnect-attacks/"
+   "text": "Still active: Nitori may have leaked 37.62M member records; Operation Endgame hit Gootloader, CastleRAT and StealC (DOJ ties Gootloader to 44+ ransomware attacks); Apache httpd CVE-2026-119618; SignDrop Windows zero-day; Apify and Fireworks AI breaches.",
+   "url": "https://therecord.media/gootloader-ransomware-doj-details"
   },
   {
-   "text": "KEV due today (11-13): Barracuda CVE-2026-116606 and CVE-2026-111560. Due 11-24: Cisco BroadWorks CVE-2026-20320, Outlook CVE-2026-124194, Chromium CVE-2026-125350. SITCON 3; last 7 days run 1.09x the 90-day average.",
+   "text": "KEV due today (11-13): Barracuda CVE-2026-116606 and CVE-2026-111560. Due 11-24: Cisco BroadWorks CVE-2026-20320, Outlook CVE-2026-124194, Chromium CVE-2026-125350. SITCON 3; last 7 days run 1.13x the 90-day average.",
    "url": "https://www.securityweek.com/recently-patched-barracuda-vulnerabilities-exploited-in-attacks/"
   }
  ],
  "actions": [
-  "Check Have I Been Pwned for CastleRAT stealer logins on your domains and reset any affected credentials and sessions.",
   "Check Point: apply the vendor fix for CVE-2026-123039, limit gateway management to trusted networks, and hunt for TSGA backdoor indicators.",
   "N-central: treat servers as exposed even on Hotfix 2; take consoles off the internet and hunt for new admin accounts and unexpected agent commands.",
-  "ScreenConnect: inventory instances and extensions, confirm third-party extensions are disabled, and hunt for SCKit spreading from support sessions.",
-  "Apify users: rotate API tokens and stored secrets; move admin accounts off SMS 2FA to app-based or hardware keys.",
-  "Patch Barracuda ESG today (KEV deadline 11-13) and Apache httpd for CVE-2026-119618; review GitHub sign-ins, PATs and Actions secrets."
+  "ScreenConnect: inventory instances and extensions and hunt for SCKit spreading from support sessions.",
+  "Warn finance and crypto staff about deepfake video-call lures; verify payment or wallet requests out of band.",
+  "Patch Barracuda ESG today (KEV deadline 11-13) and Apache httpd for CVE-2026-119618; queue BroadWorks, Outlook and Chromium before 11-24.",
+  "Check Have I Been Pwned for CastleRAT stealer logins on your domains and reset affected credentials and sessions."
  ]
 }
