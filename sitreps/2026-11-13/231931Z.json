@@ -1,0 +1,39 @@
+{
+ "written_at": "2026-11-13T23:19:31Z",
+ "by": "Claude",
+ "headline": "SCKit ScreenConnect worm now top story (9 outlets); Check Point PHP2Shell and UnrealIRCd KEV due 11-16; N-central zero-day",
+ "bullets": [
+  {
+   "text": "New: Microsoft details SCKit abusing ScreenConnect to deploy remote access and target technician sessions; the worm-like malware aimed at MSPs is now the top story at 9 outlets. Dark Reading reports the ArcticRAT gang uses AI to profile victims' finances.",
+   "url": "https://www.microsoft.com/en-us/security/blog/2026/11/13/sckit-abuses-screenconnect-deploy-remote-access-target-technician-sessions/"
+  },
+  {
+   "text": "CISA added Check Point CVE-2026-123039 (PHP2Shell) and UnrealIRCd CVE-2026-114713 to KEV on 11-13, federal due date 11-16. Attackers use the Check Point flaw to gain root, plant a TSGA backdoor and wipe VMware ESXi. No fixed release version is on the board.",
+   "url": "https://www.bleepingcomputer.com/news/security/check-point-gateways-hacked-via-php2shell-to-deploy-vmware-esxi-wiper/"
+  },
+  {
+   "text": "N-central (PoC, 5 outlets): the N-able zero-day was exploited hours after a PoC; 21 servers infected, 19 on Hotfix 2, so patched servers are not safe.",
+   "url": "https://www.securityweek.com/hackers-exploit-new-n-central-zero-day-hours-after-poc-publication/"
+  },
+  {
+   "text": "Breaches: City of Osaka (1 million people), Uber (drivers' license data), TSMC (employees, via a cloud provider), 144,000+ Norwegian and Widerøe passengers, Apify, UT Arlington. Trezor confirms implants in CryptoBilis-sold wallets and released a fix. German military drone operations were disrupted.",
+   "url": "https://therecord.media/city-of-osaka-japan-email-data-breach"
+  },
+  {
+   "text": "Law enforcement disrupted Gootloader, CastleRAT and StealC infrastructure; DOJ ties Gootloader to 44+ ransomware attacks costing $29M. FBI says North Korean hackers stole $400M+ in crypto via deepfake video calls. SilentAir intercepts SMS 2FA codes in Asian mobile networks.",
+   "url": "https://www.securityweek.com/law-enforcement-disrupts-gootloader-castlerat-and-stealc-infrastructure/"
+  },
+  {
+   "text": "Still active: Apache httpd CVE-2026-119618, SignDrop Windows SYSTEM zero-day, Cisco BroadWorks CVE-2026-20320. KEV due 11-24: BroadWorks, Openwave CVE-2026-111793, Outlook CVE-2026-124194, Chromium CVE-2026-125350. Last 7 days run 1.26x the 90-day average.",
+   "url": "https://www.securityweek.com/apache-patches-critical-http-server-rce-found-by-anthropic-google/"
+  }
+ ],
+ "actions": [
+  "ScreenConnect: inventory instances and extensions, review technician sessions and hunt for SCKit remote-access deployments using Microsoft's guidance.",
+  "Check Point: apply the vendor fix for CVE-2026-123039 before 11-16, restrict gateway management access, hunt for TSGA backdoors and keep ESXi backups offline.",
+  "UnrealIRCd: patch or take internet-facing servers offline for CVE-2026-114713 before the 11-16 KEV due date.",
+  "N-central: treat servers as exposed even on Hotfix 2; take consoles off the internet and hunt for new admin accounts and unexpected agent commands.",
+  "Trezor users: apply Trezor's fix and treat recovery phrases on CryptoBilis-sourced wallets as exposed.",
+  "Patch Apache httpd for CVE-2026-119618 and queue BroadWorks, Openwave, Outlook and Chromium before 11-24."
+ ]
+}
