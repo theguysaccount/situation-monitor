@@ -1,0 +1,38 @@
+{
+ "written_at": "2026-11-13T12:20:12Z",
+ "by": "Claude",
+ "headline": "Check Point PHP2Shell zero-day gives root; N-central zero-day hits patched servers; SilentAir intercepts SMS 2FA codes in telecoms",
+ "bullets": [
+  {
+   "text": "New: a campaign dubbed SilentAir hijacks Asian telecom networks to intercept SMS two-factor codes and spy on Taiwanese users. Accounts that rely on SMS codes in the region should be treated as exposed.",
+   "url": "https://thehackernews.com/2026/11/silentair-hijacks-asian-telecom.html"
+  },
+  {
+   "text": "PHP2Shell (5 outlets): the Check Point zero-day CVE-2026-123039 is exploited for root access on gateways; attackers deploy a TSGA backdoor and wipe ESXi files. No fixed release version is on the board.",
+   "url": "https://www.bleepingcomputer.com/news/security/check-point-patches-zero-day-that-lets-hackers-get-root-access/"
+  },
+  {
+   "text": "N-central (PoC, 6 outlets): the N-able '4EverAble2Shell' zero-day was exploited hours after a PoC; 21 servers infected, 19 on Hotfix 2, so patched servers are not safe. No CVE or fix is on the board.",
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-n-central-flaws-to.html"
+  },
+  {
+   "text": "MSPs (8 outlets): worm-like SCKit malware spreads through ScreenConnect support sessions, nearly 50 organizations report breaches, and ConnectWise has disabled third-party extensions.",
+   "url": "https://www.bleepingcomputer.com/news/security/new-worm-like-sckit-malware-targets-msps-in-screenconnect-attacks/"
+  },
+  {
+   "text": "Still active: SignDrop Windows CLFS zero-day gives SYSTEM (no fix on board); 4,800 GitHub accounts hijacked for cloud credentials; Apache httpd HTTP/2 RCE CVE-2026-119618 patched; Xen Orchestra flaws exploited; Gootloader, CastleRAT and StealC infrastructure disrupted.",
+   "url": "https://www.securityweek.com/nightmare-eclipse-drops-windows-zero-day-exploit-signdrop/"
+  },
+  {
+   "text": "KEV due today (11-13): Barracuda CVE-2026-116606 and CVE-2026-111560. Due 11-24: Cisco BroadWorks CVE-2026-20320, Outlook CVE-2026-124194, Chromium CVE-2026-125350. SITCON 3; last 7 days run 1.09x the 90-day average.",
+   "url": "https://www.securityweek.com/recently-patched-barracuda-vulnerabilities-exploited-in-attacks/"
+  }
+ ],
+ "actions": [
+  "Move admin and high-value accounts off SMS 2FA to app-based or hardware keys, starting with users in Taiwan and Asian telecom regions.",
+  "Check Point: check its advisory for a CVE-2026-123039 fix and apply it, limit gateway management to trusted networks, and hunt for TSGA backdoor indicators.",
+  "N-central: treat servers as exposed even on Hotfix 2; take consoles off the internet and hunt for new admin accounts and unexpected agent commands.",
+  "ScreenConnect: inventory instances and extensions, confirm third-party extensions are disabled, and hunt for SCKit spreading from support sessions.",
+  "Patch Barracuda ESG today (KEV deadline 11-13) and Apache httpd for CVE-2026-119618; review GitHub sign-ins, PATs and Actions secrets."
+ ]
+}
