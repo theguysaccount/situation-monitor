@@ -1,0 +1,39 @@
+{
+ "written_at": "2026-11-13T13:20:13Z",
+ "by": "Claude",
+ "headline": "Check Point PHP2Shell and N-central zero-days exploited; Apify confirms customer data accessed; SilentAir intercepts SMS",
+ "bullets": [
+  {
+   "text": "New: Apify confirms customer data was accessed in a cyberattack. Dark Reading reports the Binance breach attackers used a known weakness and missing controls; the US says it seized $1.2 billion in stolen crypto. Quantum Systems drones are flying again after a malware scare.",
+   "url": "https://www.securityweek.com/apify-confirms-customer-data-accessed-in-cyberattack/"
+  },
+  {
+   "text": "SilentAir intercepts calls and SMS from inside Asian mobile networks, including SMS two-factor codes, and spies on Taiwanese users. Accounts relying on SMS codes in the region should be treated as exposed.",
+   "url": "https://www.securityweek.com/silentair-hackers-intercept-calls-sms-from-inside-mobile-networks/"
+  },
+  {
+   "text": "PHP2Shell (5 outlets): Check Point zero-day CVE-2026-123039 is exploited for root on gateways; attackers deploy a TSGA backdoor and wipe ESXi files. No fixed release version is on the board.",
+   "url": "https://www.bleepingcomputer.com/news/security/check-point-patches-zero-day-that-lets-hackers-get-root-access/"
+  },
+  {
+   "text": "N-central (PoC, 6 outlets): the N-able '4EverAble2Shell' zero-day was exploited hours after a PoC; 21 servers infected, 19 on Hotfix 2, so patched servers are not safe. No CVE or fix is on the board.",
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-n-central-flaws-to.html"
+  },
+  {
+   "text": "MSPs (8 outlets): worm-like SCKit spreads through ScreenConnect support sessions; nearly 50 organizations report breaches. Still active: SignDrop Windows CLFS zero-day, 4,800 GitHub accounts hijacked, Apache httpd CVE-2026-119618, Xen Orchestra exploits, Fireworks AI breach.",
+   "url": "https://www.bleepingcomputer.com/news/security/new-worm-like-sckit-malware-targets-msps-in-screenconnect-attacks/"
+  },
+  {
+   "text": "KEV due today (11-13): Barracuda CVE-2026-116606 and CVE-2026-111560. Due 11-24: Cisco BroadWorks CVE-2026-20320, Outlook CVE-2026-124194, Chromium CVE-2026-125350. SITCON 3; last 7 days run 1.09x the 90-day average.",
+   "url": "https://www.securityweek.com/recently-patched-barracuda-vulnerabilities-exploited-in-attacks/"
+  }
+ ],
+ "actions": [
+  "Apify users: rotate API tokens and integration secrets stored with Apify and watch for follow-up notices from the vendor.",
+  "Check Point: apply the vendor fix for CVE-2026-123039, limit gateway management to trusted networks, and hunt for TSGA backdoor indicators.",
+  "N-central: treat servers as exposed even on Hotfix 2; take consoles off the internet and hunt for new admin accounts and unexpected agent commands.",
+  "ScreenConnect: inventory instances and extensions, confirm third-party extensions are disabled, and hunt for SCKit spreading from support sessions.",
+  "Move admin and high-value accounts off SMS 2FA to app-based or hardware keys, starting with users in Taiwan and Asian telecom regions.",
+  "Patch Barracuda ESG today (KEV deadline 11-13) and Apache httpd for CVE-2026-119618; review GitHub sign-ins, PATs and Actions secrets."
+ ]
+}
