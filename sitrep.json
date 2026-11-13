@@ -1,14 +1,18 @@
 {
- "written_at": "2026-11-13T06:20:10Z",
+ "written_at": "2026-11-13T07:19:28Z",
  "by": "Claude",
- "headline": "N-central flaws exploited on 21 servers, most on Hotfix 2; SCKit ScreenConnect MSP attacks; 4,800 GitHub accounts hijacked",
+ "headline": "FBI details North Korea's $400M fake Zoom scheme; N-central flaws hit patched servers; SCKit ScreenConnect MSP attacks",
  "bullets": [
   {
-   "text": "New: attackers exploited N-central flaws to infect 21 servers, 19 of them running Hotfix 2, so patched servers are not safe. This follows the N-able \"4EverAble2Shell\" zero-day exploited hours after a PoC; no CVE or fix is on the board.",
+   "text": "New: the FBI says stolen webcam clips of 900+ victims feed North Korea's $400 million fake Zoom scheme. Separately, the US seized North Korean hacking infrastructure and $1.2 billion in crypto stolen from Binance.",
+   "url": "https://www.helpnetsecurity.com/2026/11/13/fbi-north-korean-fake-zoom-calls/"
+  },
+  {
+   "text": "Still active: attackers exploited N-central flaws to infect 21 servers, 19 of them on Hotfix 2, so patched servers are not safe. This follows the N-able \"4EverAble2Shell\" zero-day exploited hours after a PoC; no CVE or fix is on the board.",
    "url": "https://thehackernews.com/2026/11/hackers-exploit-n-central-flaws-to.html"
   },
   {
-   "text": "Still active: the MSPs story (8 outlets). Worm-like SCKit malware spreads through ScreenConnect support sessions, a plugin flaw spread malware to hundreds of PCs, nearly 50 organizations report breaches, and ConnectWise has disabled third-party extensions.",
+   "text": "MSPs (8 outlets): worm-like SCKit malware spreads through ScreenConnect support sessions, a plugin flaw spread malware to hundreds of PCs, nearly 50 organizations report breaches, and ConnectWise has disabled third-party extensions.",
    "url": "https://www.bleepingcomputer.com/news/security/new-worm-like-sckit-malware-targets-msps-in-screenconnect-attacks/"
   },
   {
@@ -16,12 +20,8 @@
    "url": "https://www.bleepingcomputer.com/news/security/hackers-compromise-4-800-github-accounts-to-steal-cloud-credentials/"
   },
   {
-   "text": "Apache HTTP Server patched a critical HTTP/2 RCE, CVE-2026-119618 (4 outlets). The SignDrop Windows zero-day abuses CLFS for SYSTEM access; no CVE or fix is on the board. Critical Xen Orchestra flaws are exploited (3 outlets).",
+   "text": "Apache httpd patched a critical HTTP/2 RCE, CVE-2026-119618 (4 outlets). Critical Xen Orchestra flaws are exploited. SignDrop Windows zero-day abuses CLFS for SYSTEM; no CVE or fix on the board. Also: Fireworks AI/Notion (7 outlets), Maersk (5), Turla (6).",
    "url": "https://www.securityweek.com/apache-patches-critical-http-server-rce-found-by-anthropic-google/"
-  },
-  {
-   "text": "Also developing: Fireworks AI hack exposed Notion chat transcripts (7 outlets); Maersk cyber incident hit a legacy system (WhiteArmor, 5 outlets); Red Hat Quay flaw exposes private images; Turla linked to a Romanian server breach (6 outlets).",
-   "url": "https://techcrunch.com/2026/11/12/cyberattack-on-fireworks-ai-allowed-hackers-to-access-notion-customers-chat-transcripts/"
   },
   {
    "text": "KEV due today (11-13): Barracuda CVE-2026-116606 and CVE-2026-111560. Due 11-24: Cisco BroadWorks CVE-2026-20320, Outlook CVE-2026-124194, Chromium CVE-2026-125350. SITCON 3; the last 7 days run 1.08x the 90-day average.",
@@ -29,11 +29,11 @@
   }
  ],
  "actions": [
+  "Warn staff that unexpected Zoom or video-call invites can be North Korean lures; verify the sender and never install software a call link asks for.",
   "N-central: treat servers as exposed even on Hotfix 2; take consoles off the internet and hunt for new admin accounts, unexpected agent commands and implants.",
-  "ScreenConnect: inventory instances and extensions, confirm third-party extensions are disabled, and hunt for SCKit spreading from support sessions to client machines.",
-  "GitHub: review org members' recent sign-ins, PATs and Actions secrets; rotate cloud credentials stored in repos or workflows, and Apify tokens if you use it.",
+  "ScreenConnect: inventory instances and extensions, confirm third-party extensions are disabled, and hunt for SCKit spreading from support sessions.",
+  "GitHub: review org members' recent sign-ins, PATs and Actions secrets; rotate cloud credentials in repos or workflows, and Apify tokens if you use it.",
   "Patch every Apache httpd instance for CVE-2026-119618; where you cannot, consider disabling HTTP/2 until patched.",
-  "Patch Barracuda ESG today (KEV deadline 11-13) and restrict Xen Orchestra and Red Hat Quay to trusted networks.",
-  "Hunt for unexpected CLFS-based SYSTEM escalation on Windows and for NetSupport RAT installs from ClickFix pages."
+  "Patch Barracuda ESG today (KEV deadline 11-13) and restrict Xen Orchestra and Red Hat Quay to trusted networks."
  ]
 }
