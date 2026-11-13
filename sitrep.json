@@ -1,27 +1,27 @@
 {
- "written_at": "2026-11-13T08:19:27Z",
+ "written_at": "2026-11-13T09:19:28Z",
  "by": "Claude",
- "headline": "PHP2Shell hits Check Point gateways in destructive attacks; N-central zero-day exploited after PoC; SCKit ScreenConnect MSP attacks",
+ "headline": "PHP2Shell attacks on Check Point gateways drop TSGA backdoor and wipe ESXi files; N-central zero-day; SCKit hits MSPs",
  "bullets": [
   {
-   "text": "New: PHP2Shell (CVE-2026-123039) is being exploited in destructive attacks on Check Point gateways, per SecurityWeek. No fixed release is on the board.",
-   "url": "https://www.securityweek.com/php2shell-exploited-in-destructive-check-point-gateway-attacks/"
+   "text": "New: PHP2Shell (CVE-2026-123039, 5 outlets) attacks on Check Point gateways now deploy a TSGA backdoor and wipe ESXi files, per The Hacker News. No fixed release is on the board.",
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-php2shell-flaws-in.html"
   },
   {
-   "text": "N-central (PoC, 6 outlets): the new N-able zero-day was exploited hours after a PoC was published, and attackers infected 21 servers, 19 of them on Hotfix 2, so patched servers are not safe. No CVE or fix is on the board.",
-   "url": "https://www.securityweek.com/hackers-exploit-new-n-central-zero-day-hours-after-poc-publication/"
+   "text": "New: Nightmare Eclipse has dropped SignDrop, a Windows zero-day exploit that abuses CLFS to gain SYSTEM privileges (SecurityWeek, BleepingComputer, The Hacker News). No fix is on the board.",
+   "url": "https://www.securityweek.com/nightmare-eclipse-drops-windows-zero-day-exploit-signdrop/"
+  },
+  {
+   "text": "N-central (PoC, 6 outlets): the N-able '4EverAble2Shell' zero-day was exploited hours after a PoC; attackers infected 21 servers, 19 of them on Hotfix 2, so patched servers are not safe. No CVE or fix is on the board.",
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-n-central-flaws-to.html"
   },
   {
    "text": "MSPs (8 outlets): worm-like SCKit malware spreads through ScreenConnect support sessions, nearly 50 organizations report breaches, and ConnectWise has disabled third-party extensions.",
    "url": "https://www.bleepingcomputer.com/news/security/new-worm-like-sckit-malware-targets-msps-in-screenconnect-attacks/"
   },
   {
-   "text": "Still active: hackers compromised 4,800 GitHub accounts to steal cloud credentials (5 outlets), and Apify is rotating API tokens after a breach. The FBI details North Korea's $400M fake Zoom scheme; the US seized $1.2B in crypto stolen from Binance.",
+   "text": "Still active: 4,800 GitHub accounts compromised to steal cloud credentials; Apache httpd patched critical HTTP/2 RCE CVE-2026-119618; critical Xen Orchestra flaws exploited; critical Red Hat Quay flaw exposes private images. Also: Fireworks AI/Notion, Turla, Maersk.",
    "url": "https://www.bleepingcomputer.com/news/security/hackers-compromise-4-800-github-accounts-to-steal-cloud-credentials/"
-  },
-  {
-   "text": "Apache httpd patched a critical HTTP/2 RCE, CVE-2026-119618 (4 outlets). Critical Xen Orchestra flaws are exploited. SignDrop Windows zero-day abuses CLFS for SYSTEM; no fix on the board. Also: Fireworks AI/Notion (6 outlets), Turla (6), Maersk (5).",
-   "url": "https://www.securityweek.com/apache-patches-critical-http-server-rce-found-by-anthropic-google/"
   },
   {
    "text": "KEV due today (11-13): Barracuda CVE-2026-116606 and CVE-2026-111560. Due 11-24: Cisco BroadWorks CVE-2026-20320, Outlook CVE-2026-124194, Chromium CVE-2026-125350. SITCON 3; the last 7 days run 1.09x the 90-day average.",
@@ -29,11 +29,11 @@
   }
  ],
  "actions": [
-  "Check Point: restrict gateway management interfaces to trusted networks, back up configs, and watch vendor advisories for a CVE-2026-123039 fix.",
+  "Check Point: limit gateway management to trusted networks, hunt for TSGA backdoor indicators, and back up ESXi hosts offline; await for a CVE-2026-123039 fix.",
   "N-central: treat servers as exposed even on Hotfix 2; take consoles off the internet and hunt for new admin accounts, unexpected agent commands and implants.",
   "ScreenConnect: inventory instances and extensions, confirm third-party extensions are disabled, and hunt for SCKit spreading from support sessions.",
-  "GitHub: review org members' recent sign-ins, PATs and Actions secrets; rotate cloud credentials in repos or workflows, and Apify tokens if you use it.",
-  "Patch every Apache httpd instance for CVE-2026-119618; where you cannot, consider disabling HTTP/2 until patched.",
-  "Patch Barracuda ESG today (KEV deadline 11-13) and restrict Xen Orchestra to trusted networks."
+  "Windows: watch for unexpected SYSTEM-level activity tied to CLFS and apply Microsoft's SignDrop fix as soon as one ships.",
+  "GitHub: review recent sign-ins, PATs and Actions secrets and rotate cloud credentials; patch Apache httpd for CVE-2026-119618.",
+  "Patch Barracuda ESG today (KEV deadline 11-13) and restrict Xen Orchestra and Red Hat Quay to trusted networks until patched."
  ]
 }
