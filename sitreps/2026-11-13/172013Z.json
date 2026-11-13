@@ -1,0 +1,38 @@
+{
+ "written_at": "2026-11-13T17:20:13Z",
+ "by": "Claude",
+ "headline": "Check Point PHP2Shell attacks now wipe ESXi; N-central zero-day hits patched servers; US moves on North Korean crypto theft",
+ "bullets": [
+  {
+   "text": "PHP2Shell (5 outlets): attackers exploiting Check Point gateway zero-day CVE-2026-123039 now deploy a VMware ESXi wiper, after gaining root and planting a TSGA backdoor. The attacks are destructive. No fixed release version is on the board.",
+   "url": "https://www.bleepingcomputer.com/news/security/check-point-gateways-hacked-via-php2shell-to-deploy-vmware-esxi-wiper/"
+  },
+  {
+   "text": "North Korea (Binance, 5 outlets): the US moved against a North Korean crypto-theft scheme and recovered more Binance funds. The FBI says North Korean hackers stole over $400M using deepfake video calls built from stolen webcam clips of 900+ victims.",
+   "url": "https://www.cybersecuritydive.com/news/north-korea-cyberattacks-cryptocurrency-seizure-seizure-facestealer-binance/874622/"
+  },
+  {
+   "text": "N-central (PoC, 5 outlets): the N-able zero-day was exploited hours after a PoC; 21 servers infected, 19 on Hotfix 2, so patched servers are not safe. MSPs (8 outlets): worm-like SCKit spreads through ScreenConnect support sessions.",
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-n-central-flaws-to.html"
+  },
+  {
+   "text": "SilentAir hijacks Asian telecom networks to intercept calls and SMS, including 2FA codes. Also new: a China-nexus actor uses an AI tool against US defense and semiconductor firms; Mior and Skyfall attacks let rogue cloud hosts steal secrets from AMD SEV-SNP VMs.",
+   "url": "https://thehackernews.com/2026/11/silentair-hijacks-asian-telecom.html"
+  },
+  {
+   "text": "Breaches: Uber (drivers' license data), TSMC (employees, via a cloud provider), 144,000+ Norwegian and Widerøe passengers, Apify customer data. Ransomware disrupted Belarusian cloud firm ActiveCloud for days; Maersk says a recent incident hit a legacy system.",
+   "url": "https://techcrunch.com/2026/11/13/uber-confirms-hackers-stole-thousands-of-drivers-license-information-in-data-breach/"
+  },
+  {
+   "text": "Still active: Apache httpd CVE-2026-119618, SignDrop Windows SYSTEM zero-day, Cisco BroadWorks CVE-2026-20320. KEV due 11-24: BroadWorks, Outlook CVE-2026-124194, Chromium CVE-2026-125350; Barracuda ESG was due 11-13. Last 7 days run 1.14x the 90-day average.",
+   "url": "https://www.securityweek.com/apache-patches-critical-http-server-rce-found-by-anthropic-google/"
+  }
+ ],
+ "actions": [
+  "Check Point: apply the vendor fix for CVE-2026-123039, restrict gateway management access, hunt for TSGA backdoors, and confirm ESXi backups are offline.",
+  "N-central: treat servers as exposed even on Hotfix 2; take consoles off the internet and hunt for new admin accounts and unexpected agent commands.",
+  "ScreenConnect: inventory instances and extensions and hunt for SCKit spreading from support sessions.",
+  "Prefer app or hardware-key MFA over SMS for high-value accounts; warn finance and crypto staff about deepfake video-call lures.",
+  "Patch Apache httpd for CVE-2026-119618; finish Barracuda ESG now (KEV due 11-13) and queue BroadWorks, Outlook and Chromium before 11-24."
+ ]
+}
