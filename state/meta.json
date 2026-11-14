@@ -909,6 +909,7 @@
   "unitronics",
   "unraid",
   "unrar",
+  "unrealircd",
   "usaherds",
   "utah",
   "utility",
@@ -2606,11 +2607,13 @@
   "CVE-2026-111560",
   "CVE-2026-111793",
   "CVE-2026-114625",
+  "CVE-2026-114713",
   "CVE-2026-11645",
   "CVE-2026-116606",
   "CVE-2026-116779",
   "CVE-2026-118527",
   "CVE-2026-119977",
+  "CVE-2026-123039",
   "CVE-2026-123158",
   "CVE-2026-123218",
   "CVE-2026-124194",
@@ -2796,7 +2799,7 @@
   "since": "2026-11-12T01:03:41Z",
   "pending": null
  },
- "last_sweep_at": "2026-11-13T00:19:09Z",
+ "last_sweep_at": "2026-11-14T00:19:22Z",
  "clock": {
   "skew_seconds": 0,
   "source": "server Date headers"

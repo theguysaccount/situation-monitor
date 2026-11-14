@@ -1,0 +1,767 @@
+{
+ "schema": 1,
+ "date": "2026-11-13",
+ "source": "sweep",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-11-13T00:19:09Z",
+    3,
+    330.5
+   ],
+   [
+    "2026-11-13T02:00:24Z",
+    3,
+    328.4
+   ],
+   [
+    "2026-11-13T02:58:06Z",
+    3,
+    332.1
+   ],
+   [
+    "2026-11-13T02:59:15Z",
+    3,
+    332.1
+   ],
+   [
+    "2026-11-13T03:19:45Z",
+    3,
+    332.1
+   ],
+   [
+    "2026-11-13T03:25:38Z",
+    3,
+    332.9
+   ],
+   [
+    "2026-11-13T04:19:46Z",
+    3,
+    333.5
+   ],
+   [
+    "2026-11-13T05:19:47Z",
+    3,
+    331.0
+   ],
+   [
+    "2026-11-13T06:19:48Z",
+    3,
+    335.0
+   ],
+   [
+    "2026-11-13T07:19:06Z",
+    3,
+    341.9
+   ],
+   [
+    "2026-11-13T07:20:10Z",
+    3,
+    341.9
+   ],
+   [
+    "2026-11-13T08:19:05Z",
+    3,
+    344.2
+   ],
+   [
+    "2026-11-13T08:20:05Z",
+    3,
+    344.2
+   ],
+   [
+    "2026-11-13T09:19:07Z",
+    3,
+    346.7
+   ],
+   [
+    "2026-11-13T09:20:30Z",
+    3,
+    346.7
+   ],
+   [
+    "2026-11-13T10:19:27Z",
+    3,
+    340.2
+   ],
+   [
+    "2026-11-13T11:19:56Z",
+    3,
+    345.9
+   ],
+   [
+    "2026-11-13T11:20:57Z",
+    3,
+    345.9
+   ],
+   [
+    "2026-11-13T11:36:26Z",
+    3,
+    345.9
+   ],
+   [
+    "2026-11-13T12:19:54Z",
+    3,
+    340.9
+   ],
+   [
+    "2026-11-13T12:21:13Z",
+    3,
+    340.9
+   ],
+   [
+    "2026-11-13T13:19:57Z",
+    3,
+    346.9
+   ],
+   [
+    "2026-11-13T13:21:41Z",
+    3,
+    346.9
+   ],
+   [
+    "2026-11-13T14:19:53Z",
+    3,
+    319.6
+   ],
+   [
+    "2026-11-13T14:21:26Z",
+    3,
+    319.6
+   ],
+   [
+    "2026-11-13T16:19:51Z",
+    3,
+    322.4
+   ],
+   [
+    "2026-11-13T16:21:05Z",
+    3,
+    322.4
+   ],
+   [
+    "2026-11-13T17:19:55Z",
+    3,
+    329.5
+   ],
+   [
+    "2026-11-13T17:21:01Z",
+    3,
+    330.1
+   ],
+   [
+    "2026-11-13T18:21:31Z",
+    3,
+    334.9
+   ],
+   [
+    "2026-11-13T18:22:31Z",
+    3,
+    334.9
+   ],
+   [
+    "2026-11-13T18:47:22Z",
+    3,
+    345.5
+   ],
+   [
+    "2026-11-13T19:19:05Z",
+    3,
+    346.1
+   ],
+   [
+    "2026-11-13T19:20:09Z",
+    3,
+    346.1
+   ],
+   [
+    "2026-11-13T20:17:28Z",
+    3,
+    350.5
+   ],
+   [
+    "2026-11-13T20:45:28Z",
+    3,
+    351.5
+   ],
+   [
+    "2026-11-13T21:19:13Z",
+    3,
+    349.6
+   ],
+   [
+    "2026-11-13T22:19:10Z",
+    3,
+    347.3
+   ],
+   [
+    "2026-11-13T23:19:10Z",
+    3,
+    347.8
+   ],
+   [
+    "2026-11-13T23:20:29Z",
+    3,
+    347.8
+   ]
+  ],
+  "hours_at_level": {
+   "3": 40
+  },
+  "highest": 3,
+  "lowest": 3
+ },
+ "first_seen": {
+  "count": 142,
+  "by_severity": {
+   "medium": 77,
+   "low": 27,
+   "high": 30,
+   "critical": 8
+  },
+  "by_type": {
+   "ransomware": 46,
+   "news": 78,
+   "advisory": 3,
+   "community": 3,
+   "breach": 7,
+   "vuln": 3,
+   "kev": 2
+  }
+ },
+ "situations": [
+  {
+   "name": "SCKit",
+   "severity": "critical",
+   "outlets": 9,
+   "reports": 11,
+   "cves": [],
+   "lead": {
+    "title": "New worm-like 'SCKit' malware targets MSPs in ScreenConnect attacks",
+    "url": "https://www.bleepingcomputer.com/news/security/new-worm-like-sckit-malware-targets-msps-in-screenconnect-attacks/",
+    "source": "BleepingComputer",
+    "published": "2026-11-12T22:53:10Z"
+   }
+  },
+  {
+   "name": "PHP2Shell",
+   "severity": "critical",
+   "outlets": 5,
+   "reports": 9,
+   "cves": [
+    "CVE-2026-123039"
+   ],
+   "lead": {
+    "title": "Check Point gateways hacked via PHP2Shell to deploy VMware ESXi wiper",
+    "url": "https://www.bleepingcomputer.com/news/security/check-point-gateways-hacked-via-php2shell-to-deploy-vmware-esxi-wiper/",
+    "source": "BleepingComputer",
+    "published": "2026-11-13T16:21:43Z"
+   }
+  },
+  {
+   "name": "PoC",
+   "severity": "critical",
+   "outlets": 5,
+   "reports": 8,
+   "cves": [],
+   "lead": {
+    "title": "Hackers Exploit New N-central Zero-Day Hours After PoC Publication",
+    "url": "https://www.securityweek.com/hackers-exploit-new-n-central-zero-day-hours-after-poc-publication/",
+    "source": "SecurityWeek",
+    "published": "2026-11-13T07:20:50Z"
+   }
+  },
+  {
+   "name": "Apache HTTP",
+   "severity": "critical",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [
+    "CVE-2026-119618"
+   ],
+   "lead": {
+    "title": "Apache Patches Critical HTTP Server RCE Found by Anthropic, Google",
+    "url": "https://www.securityweek.com/apache-patches-critical-http-server-rce-found-by-anthropic-google/",
+    "source": "SecurityWeek",
+    "published": "2026-11-12T15:38:31Z"
+   }
+  },
+  {
+   "name": "WhiteArmor",
+   "severity": "high",
+   "outlets": 5,
+   "reports": 5,
+   "cves": [],
+   "lead": {
+    "title": "Shipping giant Maersk says recent cyber incident affected legacy system",
+    "url": "https://therecord.media/shipping-giant-maersk-says-recent-incident-affected-legacy-system",
+    "source": "The Record",
+    "published": "2026-11-12T18:28:00Z"
+   }
+  },
+  {
+   "name": "Cisco BroadWorks",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [
+    "CVE-2026-111793",
+    "CVE-2026-20320"
+   ],
+   "lead": {
+    "title": "Threat Actors Exploit Openwave, Cisco BroadWorks Vulnerabilities",
+    "url": "https://www.securityweek.com/threat-actors-exploit-openwave-cisco-broadworks-vulnerabilities/",
+    "source": "SecurityWeek",
+    "published": "2026-11-11T09:01:07Z"
+   }
+  },
+  {
+   "name": "SignDrop",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [],
+   "lead": {
+    "title": "New Windows SignDrop zero-day gives hackers SYSTEM privileges",
+    "url": "https://www.bleepingcomputer.com/news/security/new-windows-signdrop-zero-day-gives-hackers-system-privileges/",
+    "source": "BleepingComputer",
+    "published": "2026-11-12T16:04:00Z"
+   }
+  },
+  {
+   "name": "Binance",
+   "severity": "high",
+   "outlets": 5,
+   "reports": 5,
+   "cves": [],
+   "lead": {
+    "title": "US cracks down on North Korean cryptocurrency-theft scheme, recovers more Binance funds",
+    "url": "https://www.cybersecuritydive.com/news/north-korea-cyberattacks-cryptocurrency-seizure-seizure-facestealer-binance/874622/",
+    "source": "Cybersecurity Dive",
+    "published": "2026-11-13T15:54:13Z"
+   }
+  }
+ ],
+ "top_reports": [
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Check Point gateways hacked via PHP2Shell to deploy VMware ESXi wiper",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/check-point-gateways-hacked-via-php2shell-to-deploy-vmware-esxi-wiper/",
+   "published": "2026-11-13T16:21:43Z",
+   "first_seen": "2026-11-13T17:19:55Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Check Point warns of zero-day flaw exploited for root access",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/check-point-patches-zero-day-that-lets-hackers-get-root-access/",
+   "published": "2026-11-13T10:44:22Z",
+   "first_seen": "2026-11-13T11:19:56Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Hackers Exploit PHP2Shell Flaws in Check Point Gateways to Deploy TSGA Backdoor and Wipe ESXi Files",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-php2shell-flaws-in.html",
+   "published": "2026-11-13T08:05:49Z",
+   "first_seen": "2026-11-13T09:19:07Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "PHP2Shell Exploited in Destructive Check Point Gateway Attacks",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/php2shell-exploited-in-destructive-check-point-gateway-attacks/",
+   "published": "2026-11-13T07:39:04Z",
+   "first_seen": "2026-11-13T08:19:05Z",
+   "cves": [
+    "CVE-2026-123039"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Hackers Exploit New N-central Zero-Day Hours After PoC Publication",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/hackers-exploit-new-n-central-zero-day-hours-after-poc-publication/",
+   "published": "2026-11-13T07:20:50Z",
+   "first_seen": "2026-11-13T08:19:05Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Hackers Exploit N-central Flaws to Infect 21 Servers, Including 19 Running Hotfix 2",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-n-central-flaws-to.html",
+   "published": "2026-11-13T05:43:28Z",
+   "first_seen": "2026-11-13T06:19:48Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "advisory",
+   "title": "SCKit abuses ScreenConnect to deploy remote access and target technician sessions",
+   "source": "Microsoft Security Blog",
+   "url": "https://www.microsoft.com/en-us/security/blog/2026/11/13/sckit-abuses-screenconnect-deploy-remote-access-target-technician-sessions/",
+   "published": "2026-11-13T21:31:44Z",
+   "first_seen": "2026-11-13T23:19:10Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "ArcticRAT Cybercrime Gang Profiles Victim Finances With AI",
+   "source": "Dark Reading",
+   "url": "https://www.darkreading.com/mobile-security/arcticrat-cybercrime-gang-profiles-victim-finances-ai",
+   "published": "2026-11-13T20:20:27Z",
+   "first_seen": "2026-11-13T23:19:10Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Curious about “Curious Worm”",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/13/curious-about-curious-worm/",
+   "published": "2026-11-13T19:59:35Z",
+   "first_seen": "2026-11-13T20:17:28Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "City of Osaka warns of data breach impacting 1 million as Japan reels from dozens of cyber incidents",
+   "source": "The Record",
+   "url": "https://therecord.media/city-of-osaka-japan-email-data-breach",
+   "published": "2026-11-13T19:43:00Z",
+   "first_seen": "2026-11-13T20:17:28Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Trezor confirms crypto-stealing implants in three wallets, releases fix",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/cryptocurrency/trezor-confirms-crypto-stealing-implants-in-three-wallets-releases-fix/",
+   "published": "2026-11-13T19:38:36Z",
+   "first_seen": "2026-11-13T20:17:28Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "German military drone operations disrupted by cyberattack",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/german-military-drone-operations-disrupted-by-cyberattack/",
+   "published": "2026-11-13T17:31:56Z",
+   "first_seen": "2026-11-13T18:21:31Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "University of Texas at Arlington warns personal information stolen during cyberattack",
+   "source": "The Record",
+   "url": "https://therecord.media/university-of-texas-arlington-warns-data-breach",
+   "published": "2026-11-13T17:26:00Z",
+   "first_seen": "2026-11-13T18:21:31Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "DOJ: Gootloader used in at least 44 ransomware attacks costing $29 million since 2018",
+   "source": "The Record",
+   "url": "https://therecord.media/gootloader-ransomware-doj-details",
+   "published": "2026-11-13T15:59:00Z",
+   "first_seen": "2026-11-13T16:19:51Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "US cracks down on North Korean cryptocurrency-theft scheme, recovers more Binance funds",
+   "source": "Cybersecurity Dive",
+   "url": "https://www.cybersecuritydive.com/news/north-korea-cyberattacks-cryptocurrency-seizure-seizure-facestealer-binance/874622/",
+   "published": "2026-11-13T15:54:13Z",
+   "first_seen": "2026-11-13T17:19:55Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "China-nexus actor uses AI tool in campaign targeting US defense, semiconductor industries",
+   "source": "Cybersecurity Dive",
+   "url": "https://www.cybersecuritydive.com/news/china-hacker-ai-tool-campaign-us-defense-semiconductor/874619/",
+   "published": "2026-11-13T15:38:10Z",
+   "first_seen": "2026-11-13T16:19:51Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "New Mior and Skyfall Attacks Let Rogue Cloud Hosts Steal Secrets From AMD SEV-SNP VMs",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/new-mior-and-skyfall-attacks-let-rogue.html",
+   "published": "2026-11-13T15:27:05Z",
+   "first_seen": "2026-11-13T16:19:51Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "TSMC confirms employee data breach tied to cloud service provider",
+   "source": "The Record",
+   "url": "https://therecord.media/tsmc-confirms-employee-data-breach-cloud-provider",
+   "published": "2026-11-13T15:06:00Z",
+   "first_seen": "2026-11-13T16:19:51Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Uber confirms hackers stole thousands of drivers’ license information in data breach",
+   "source": "TechCrunch Security",
+   "url": "https://techcrunch.com/2026/11/13/uber-confirms-hackers-stole-thousands-of-drivers-license-information-in-data-breach/",
+   "published": "2026-11-13T14:57:55Z",
+   "first_seen": "2026-11-13T16:19:51Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Hospitals, airlines and governments hit by Microsoft outage as employee risk warnings mount",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/13/hospitals-airlines-and-governments-hit-by-microsoft-outage-as-employee-risk-warnings-mount/",
+   "published": "2026-11-13T14:48:05Z",
+   "first_seen": "2026-11-13T16:19:51Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Over 144,000 Norwegian and Widerøe passengers affected by data breach",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/13/over-144000-norwegian-and-wideroe-passengers-affected-by-data-breach/",
+   "published": "2026-11-13T14:46:54Z",
+   "first_seen": "2026-11-13T16:19:51Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "FBI Says North Korean Hackers Stole Over $400 Million in Crypto Using Deepfake Video Calls",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/fbi-says-north-korean-hackers-stole.html",
+   "published": "2026-11-13T14:28:58Z",
+   "first_seen": "2026-11-13T16:19:51Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Ransomware attack on Belarusian cloud firm disrupts businesses for days",
+   "source": "The Record",
+   "url": "https://therecord.media/belarus-cloud-provider-activecloud-ransomware-attack",
+   "published": "2026-11-13T14:28:00Z",
+   "first_seen": "2026-11-13T16:19:51Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Trezor Confirms Hidden Implants in CryptoBilis-Sold Wallets That Can Steal Recovery Phrases",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/trezor-confirms-hidden-hardware.html",
+   "published": "2026-11-13T13:54:20Z",
+   "first_seen": "2026-11-13T16:19:51Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Quantum Systems drones back in the air after malware scare",
+   "source": "The Register",
+   "url": "https://www.theregister.com/security/2026/11/13/quantum-systems-drones-back-in-the-air-after-malware-scare/5309658",
+   "published": "2026-11-13T13:14:00Z",
+   "first_seen": "2026-11-13T13:19:57Z",
+   "cves": []
+  }
+ ],
+ "kev_added": [
+  {
+   "cve": "CVE-2026-114713",
+   "vendor": "UnrealIRCd",
+   "product": "UnrealIRCd",
+   "title": "CVE-2026-114713: UnrealIRCd Improper Neutralization of Delimiters Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-114713",
+   "due": "2026-11-16",
+   "ransomware": false
+  },
+  {
+   "cve": "CVE-2026-123039",
+   "vendor": "Check Point",
+   "product": "Multiple Products",
+   "title": "CVE-2026-123039: Check Point Multiple Products Incorrect Permission Assignment for Critical Resource Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123039",
+   "due": "2026-11-16",
+   "ransomware": false
+  }
+ ],
+ "breaches": [
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "CastleRAT: 179,745 accounts added to Have I Been Pwned",
+   "source": "Have I Been Pwned",
+   "url": "https://haveibeenpwned.com/Breach/CastleRAT",
+   "published": "2026-11-13T05:41:32Z",
+   "first_seen": "2026-11-13T06:19:48Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "日本宜得利遭非法存取！3762萬筆會員資料恐外洩 代理式AI加劇網路攻擊",
+   "source": "ransomware.live disclosures",
+   "url": "https://tw.news.yahoo.com/%E6%97%A5%E6%9C%AC%E5%AE%9C%E5%BE%97%E5%88%A9%E9%81%AD%E9%9D%9E%E6%B3%95%E5%AD%98%E5%8F%96-3762%E8%90%AC%E7%AD%86%E6%9C%83%E5%93%A1%E8%B3%87%E6%96%99%E6%81%90%E5%A4%96%E6%B4%A9-%E4%BB%A3%E7%90%86%E5%BC%8Fai%E5%8A%A0%E5%8A%87%E7%B6%B2%E8%B7%AF%E6%94%BB%E6%93%8A-093900472.html",
+   "published": "2026-11-13T00:00:00Z",
+   "first_seen": "2026-11-13T14:19:53Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "滋賀県甲賀市の音声放送システムサーバーにサイバー攻撃 復旧の見通し立たず｜京都新聞デジタル 京都・滋賀のニュースサイト",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.kyoto-np.co.jp/articles/-/1825071",
+   "published": "2026-11-13T00:00:00Z",
+   "first_seen": "2026-11-13T14:19:53Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Cyberangriff bei MKG Bremen: Hacker stehlen Daten aus Patientenakten",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.weser-kurier.de/bremen/cyberangriff-bei-mkg-bremen-hacker-stehlen-daten-aus-patientenakten-doc88eyaphsi2b3ezx8jpm",
+   "published": "2026-11-13T00:00:00Z",
+   "first_seen": "2026-11-13T14:19:53Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Acadia Parish School System in Louisiana shuts down computers amid suspected cyber incident",
+   "source": "ransomware.live disclosures",
+   "url": "https://dysruptionhub.com/acadia-parish-louisiana-schools-cyber-shutdown/",
+   "published": "2026-11-13T00:00:00Z",
+   "first_seen": "2026-11-13T14:19:53Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Белорусский облачный провайдер ActiveCloud сообщил о серьезном сбое из-за кибератаки",
+   "source": "ransomware.live disclosures",
+   "url": "https://nashaniva.com/ru/408915",
+   "published": "2026-11-13T00:00:00Z",
+   "first_seen": "2026-11-13T16:19:51Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Univerzita Karlova řeší kybernetický útok, útočník získal i osobní údaje | ČeskéNoviny.cz",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.ceskenoviny.cz/zpravy/univerzita-karlova-resi-kyberneticky-utok-utocnik-ziskal-osobni-udaje/2901579",
+   "published": "2026-11-13T00:00:00Z",
+   "first_seen": "2026-11-13T16:19:51Z",
+   "cves": []
+  }
+ ],
+ "ransomware_claims": {
+  "count": 39,
+  "groups": [
+   [
+    "pixelleaks",
+    13
+   ],
+   [
+    "n0n",
+    4
+   ],
+   [
+    "aoqin leaks",
+    3
+   ],
+   [
+    "akira",
+    3
+   ],
+   [
+    "play",
+    2
+   ],
+   [
+    "inc ransom",
+    2
+   ],
+   [
+    "everest",
+    1
+   ],
+   [
+    "wallstreet",
+    1
+   ],
+   [
+    "hyflock",
+    1
+   ],
+   [
+    "interlock",
+    1
+   ]
+  ]
+ },
+ "archive_counts": {
+  "date": "2026-11-13",
+  "exploited": 8.0,
+  "ransomware": 9.75,
+  "breaches": 0.6,
+  "community": 1.8,
+  "kev": 2,
+  "claims": 39,
+  "breach_count": 1,
+  "accounts": 179745,
+  "stories": 3,
+  "top": "Brazil's Caixa insurer breach exposes names and tax IDs of all 7.6M customers",
+  "top_url": "https://filemanager-cdn.mziq.com/published/3972906b-e50b-4f74-ab74-4d0d32125d11/9567a559-d20a-486e-a7ae-5c6bbc030c5e"
+ },
+ "sitreps": [
+  "sitreps/2026-11-13/025826Z.json",
+  "sitreps/2026-11-13/062010Z.json",
+  "sitreps/2026-11-13/071928Z.json",
+  "sitreps/2026-11-13/081927Z.json",
+  "sitreps/2026-11-13/091928Z.json",
+  "sitreps/2026-11-13/112017Z.json",
+  "sitreps/2026-11-13/122012Z.json",
+  "sitreps/2026-11-13/132013Z.json",
+  "sitreps/2026-11-13/142042Z.json",
+  "sitreps/2026-11-13/162012Z.json",
+  "sitreps/2026-11-13/172013Z.json",
+  "sitreps/2026-11-13/182147Z.json",
+  "sitreps/2026-11-13/191927Z.json",
+  "sitreps/2026-11-13/201949Z.json",
+  "sitreps/2026-11-13/231931Z.json"
+ ]
+}
