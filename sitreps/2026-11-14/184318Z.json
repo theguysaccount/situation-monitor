@@ -1,0 +1,39 @@
+{
+ "written_at": "2026-11-14T18:43:18Z",
+ "by": "Claude",
+ "headline": "UnrealIRCd flaw exploited (KEV due 11-16); Cursor breach led to malicious Claude Code extension; SCKit still top story",
+ "bullets": [
+  {
+   "text": "New: The Hacker News reports attackers exploiting the UnrealIRCd flaw that enables server-level command injection. CISA added it to KEV as CVE-2026-114713 on 11-13 with a federal due date of 11-16.",
+   "url": "https://thehackernews.com/2026/11/attackers-exploit-unrealircd-flaw-that.html"
+  },
+  {
+   "text": "New: Cursor confirms a security breach led to a malicious Claude Code extension (BleepingComputer). The board carries no further detail on affected versions or a clean release yet.",
+   "url": "https://www.bleepingcomputer.com/news/security/cursor-confirms-security-breach-led-to-malicious-claude-code-extension/"
+  },
+  {
+   "text": "SCKit remains the top story at 9 outlets: worm-like malware aimed at MSPs that abuses ScreenConnect to deploy remote access and target technician sessions. Microsoft has published details.",
+   "url": "https://www.microsoft.com/en-us/security/blog/2026/11/13/sckit-abuses-screenconnect-deploy-remote-access-target-technician-sessions/"
+  },
+  {
+   "text": "Check Point CVE-2026-123039 (PHP2Shell, 5 outlets) is on KEV, due 11-16: attackers gain root, plant a TSGA backdoor and wipe VMware ESXi. The N-central zero-day was exploited hours after a PoC, including servers on Hotfix 2.",
+   "url": "https://www.bleepingcomputer.com/news/security/check-point-gateways-hacked-via-php2shell-to-deploy-vmware-esxi-wiper/"
+  },
+  {
+   "text": "Breaches and crime: Uber driver license data stolen via Fireworks AI (4 outlets); US disrupts North Korean campaign behind $400M crypto theft; City of Osaka (1 million people), TSMC, 144,000+ Norwegian and Widerøe passengers, UT Arlington.",
+   "url": "https://databreaches.net/2026/11/14/uber-data-breach-driver-licenses-stolen-via-fireworks-ai/"
+  },
+  {
+   "text": "Still active: Apache httpd CVE-2026-119618 and the SignDrop Windows SYSTEM zero-day. KEV due 11-24: Cisco BroadWorks CVE-2026-20320, Openwave CVE-2026-111793, Outlook CVE-2026-124194, Chromium CVE-2026-125350. Last 7 days run 1.19x the 90-day average.",
+   "url": "https://www.securityweek.com/apache-patches-critical-http-server-rce-found-by-anthropic-google/"
+  }
+ ],
+ "actions": [
+  "UnrealIRCd: patch or take internet-facing servers offline for CVE-2026-114713 before the 11-16 KEV due date, and check them for injected commands.",
+  "Cursor and Claude Code users: review installed extensions against Cursor's disclosure and remove any you cannot verify.",
+  "ScreenConnect: inventory instances and extensions, review technician sessions and hunt for SCKit using Microsoft's guidance.",
+  "Check Point: apply the vendor fix for CVE-2026-123039 before 11-16, restrict management access, hunt for TSGA backdoors, keep ESXi backups offline.",
+  "N-central: treat servers as exposed even on Hotfix 2; take consoles off the internet and hunt for new admin accounts and unexpected agent commands.",
+  "Patch Apache httpd for CVE-2026-119618 and queue BroadWorks, Openwave, Outlook and Chromium before 11-24."
+ ]
+}
