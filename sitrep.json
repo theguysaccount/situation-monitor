@@ -1,21 +1,21 @@
 {
- "written_at": "2026-11-13T23:19:31Z",
+ "written_at": "2026-11-14T18:43:18Z",
  "by": "Claude",
- "headline": "SCKit ScreenConnect worm now top story (9 outlets); Check Point PHP2Shell and UnrealIRCd KEV due 11-16; N-central zero-day",
+ "headline": "UnrealIRCd flaw exploited (KEV due 11-16); Cursor breach led to malicious Claude Code extension; SCKit still top story",
  "bullets": [
-  {"text": "New: Microsoft details SCKit abusing ScreenConnect to deploy remote access and target technician sessions; the worm-like malware aimed at MSPs is now the top story at 9 outlets. Dark Reading reports the ArcticRAT gang uses AI to profile victims' finances.", "url": "https://www.microsoft.com/en-us/security/blog/2026/11/13/sckit-abuses-screenconnect-deploy-remote-access-target-technician-sessions/"},
-  {"text": "CISA added Check Point CVE-2026-123039 (PHP2Shell) and UnrealIRCd CVE-2026-114713 to KEV on 11-13, federal due date 11-16. Attackers use the Check Point flaw to gain root, plant a TSGA backdoor and wipe VMware ESXi. No fixed release version is on the board.", "url": "https://www.bleepingcomputer.com/news/security/check-point-gateways-hacked-via-php2shell-to-deploy-vmware-esxi-wiper/"},
-  {"text": "N-central (PoC, 5 outlets): the N-able zero-day was exploited hours after a PoC; 21 servers infected, 19 on Hotfix 2, so patched servers are not safe.", "url": "https://www.securityweek.com/hackers-exploit-new-n-central-zero-day-hours-after-poc-publication/"},
-  {"text": "Breaches: City of Osaka (1 million people), Uber (drivers' license data), TSMC (employees, via a cloud provider), 144,000+ Norwegian and Widerøe passengers, Apify, UT Arlington. Trezor confirms implants in CryptoBilis-sold wallets and released a fix. German military drone operations were disrupted.", "url": "https://therecord.media/city-of-osaka-japan-email-data-breach"},
-  {"text": "Law enforcement disrupted Gootloader, CastleRAT and StealC infrastructure; DOJ ties Gootloader to 44+ ransomware attacks costing $29M. FBI says North Korean hackers stole $400M+ in crypto via deepfake video calls. SilentAir intercepts SMS 2FA codes in Asian mobile networks.", "url": "https://www.securityweek.com/law-enforcement-disrupts-gootloader-castlerat-and-stealc-infrastructure/"},
-  {"text": "Still active: Apache httpd CVE-2026-119618, SignDrop Windows SYSTEM zero-day, Cisco BroadWorks CVE-2026-20320. KEV due 11-24: BroadWorks, Openwave CVE-2026-111793, Outlook CVE-2026-124194, Chromium CVE-2026-125350. Last 7 days run 1.26x the 90-day average.", "url": "https://www.securityweek.com/apache-patches-critical-http-server-rce-found-by-anthropic-google/"}
+  {"text": "New: The Hacker News reports attackers exploiting the UnrealIRCd flaw that enables server-level command injection. CISA added it to KEV as CVE-2026-114713 on 11-13 with a federal due date of 11-16.", "url": "https://thehackernews.com/2026/11/attackers-exploit-unrealircd-flaw-that.html"},
+  {"text": "New: Cursor confirms a security breach led to a malicious Claude Code extension (BleepingComputer). The board carries no further detail on affected versions or a clean release yet.", "url": "https://www.bleepingcomputer.com/news/security/cursor-confirms-security-breach-led-to-malicious-claude-code-extension/"},
+  {"text": "SCKit remains the top story at 9 outlets: worm-like malware aimed at MSPs that abuses ScreenConnect to deploy remote access and target technician sessions. Microsoft has published details.", "url": "https://www.microsoft.com/en-us/security/blog/2026/11/13/sckit-abuses-screenconnect-deploy-remote-access-target-technician-sessions/"},
+  {"text": "Check Point CVE-2026-123039 (PHP2Shell, 5 outlets) is on KEV, due 11-16: attackers gain root, plant a TSGA backdoor and wipe VMware ESXi. The N-central zero-day was exploited hours after a PoC, including servers on Hotfix 2.", "url": "https://www.bleepingcomputer.com/news/security/check-point-gateways-hacked-via-php2shell-to-deploy-vmware-esxi-wiper/"},
+  {"text": "Breaches and crime: Uber driver license data stolen via Fireworks AI (4 outlets); US disrupts North Korean campaign behind $400M crypto theft; City of Osaka (1 million people), TSMC, 144,000+ Norwegian and Widerøe passengers, UT Arlington.", "url": "https://databreaches.net/2026/11/14/uber-data-breach-driver-licenses-stolen-via-fireworks-ai/"},
+  {"text": "Still active: Apache httpd CVE-2026-119618 and the SignDrop Windows SYSTEM zero-day. KEV due 11-24: Cisco BroadWorks CVE-2026-20320, Openwave CVE-2026-111793, Outlook CVE-2026-124194, Chromium CVE-2026-125350. Last 7 days run 1.19x the 90-day average.", "url": "https://www.securityweek.com/apache-patches-critical-http-server-rce-found-by-anthropic-google/"}
  ],
  "actions": [
-  "ScreenConnect: inventory instances and extensions, review technician sessions and hunt for SCKit remote-access deployments using Microsoft's guidance.",
-  "Check Point: apply the vendor fix for CVE-2026-123039 before 11-16, restrict gateway management access, hunt for TSGA backdoors and keep ESXi backups offline.",
-  "UnrealIRCd: patch or take internet-facing servers offline for CVE-2026-114713 before the 11-16 KEV due date.",
+  "UnrealIRCd: patch or take internet-facing servers offline for CVE-2026-114713 before the 11-16 KEV due date, and check them for injected commands.",
+  "Cursor and Claude Code users: review installed extensions against Cursor's disclosure and remove any you cannot verify.",
+  "ScreenConnect: inventory instances and extensions, review technician sessions and hunt for SCKit using Microsoft's guidance.",
+  "Check Point: apply the vendor fix for CVE-2026-123039 before 11-16, restrict management access, hunt for TSGA backdoors, keep ESXi backups offline.",
   "N-central: treat servers as exposed even on Hotfix 2; take consoles off the internet and hunt for new admin accounts and unexpected agent commands.",
-  "Trezor users: apply Trezor's fix and treat recovery phrases on CryptoBilis-sourced wallets as exposed.",
   "Patch Apache httpd for CVE-2026-119618 and queue BroadWorks, Openwave, Outlook and Chromium before 11-24."
  ]
 }
