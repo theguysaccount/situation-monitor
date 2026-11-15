@@ -1,11 +1,11 @@
 {
- "written_at": "2026-11-15T19:19:29Z",
+ "written_at": "2026-11-15T21:19:43Z",
  "by": "Claude",
- "headline": "FBI warns ARTEX AI hacking tool powers global attacks; Check Point and UnrealIRCd KEV deadlines hit 11-16; TSMC breach tied to cloud",
+ "headline": "FBI ARTEX AI attack tool now a 3-outlet story; Check Point and UnrealIRCd KEV deadlines hit 11-16; TSMC breach tied to cloud",
  "bullets": [
   {
-   "text": "New: the FBI warns that the ARTEX AI hacking tool is powering cyberattacks worldwide (BleepingComputer). The Record covered the FBI flash alert on 11-13, which describes attacks automated at machine speed.",
-   "url": "https://www.bleepingcomputer.com/news/security/fbi-warns-artex-ai-hacking-tool-is-powering-global-cyberattacks/"
+   "text": "Developing: the FBI warning that the ARTEX AI hacking tool is powering cyberattacks worldwide is now reported by 3 outlets (BleepingComputer, DataBreaches.net, The Record). The FBI flash alert of 11-13 describes attacks automated at machine speed.",
+   "url": "https://therecord.media/artex-ai-tool-fbi-flash-alert"
   },
   {
    "text": "KEV deadlines arrive tomorrow, 11-16: Check Point CVE-2026-123039 (PHP2Shell, 4 outlets), where attackers gain root on gateways and deploy a VMware ESXi wiper; and UnrealIRCd CVE-2026-114713 (server-level command injection).",
@@ -20,7 +20,7 @@
    "url": "https://thehackernews.com/2026/11/stolen-fireworks-ai-key-led-to-cursor.html"
   },
   {
-   "text": "SCKit (3 outlets): worm-like malware aimed at MSPs that abuses ScreenConnect to deploy remote access and target technician sessions. Microsoft has published details. The last 7 days score 1.23x the 90-day average.",
+   "text": "SCKit: worm-like malware aimed at MSPs that abuses ScreenConnect to deploy remote access and target technician sessions; Microsoft has published details. The last 7 days score 1.23x the 90-day average.",
    "url": "https://www.microsoft.com/en-us/security/blog/2026/11/13/sckit-abuses-screenconnect-deploy-remote-access-target-technician-sessions/"
   }
  ],
