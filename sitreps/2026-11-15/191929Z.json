@@ -1,0 +1,35 @@
+{
+ "written_at": "2026-11-15T19:19:29Z",
+ "by": "Claude",
+ "headline": "FBI warns ARTEX AI hacking tool powers global attacks; Check Point and UnrealIRCd KEV deadlines hit 11-16; TSMC breach tied to cloud",
+ "bullets": [
+  {
+   "text": "New: the FBI warns that the ARTEX AI hacking tool is powering cyberattacks worldwide (BleepingComputer). The Record covered the FBI flash alert on 11-13, which describes attacks automated at machine speed.",
+   "url": "https://www.bleepingcomputer.com/news/security/fbi-warns-artex-ai-hacking-tool-is-powering-global-cyberattacks/"
+  },
+  {
+   "text": "KEV deadlines arrive tomorrow, 11-16: Check Point CVE-2026-123039 (PHP2Shell, 4 outlets), where attackers gain root on gateways and deploy a VMware ESXi wiper; and UnrealIRCd CVE-2026-114713 (server-level command injection).",
+   "url": "https://www.bleepingcomputer.com/news/security/check-point-gateways-hacked-via-php2shell-to-deploy-vmware-esxi-wiper/"
+  },
+  {
+   "text": "Breaches: TSMC's employee data breach is linked to a cloud service provider (4 outlets), and a hack at a French postal unit exposed data on 22 million people.",
+   "url": "https://www.bleepingcomputer.com/news/security/tsmc-employee-data-breach-linked-to-cloud-provider/"
+  },
+  {
+   "text": "Still active: Cursor says a stolen Fireworks AI key led to the trojanized Claude Code extension incident; Uber separately reports driver licenses stolen via Fireworks AI.",
+   "url": "https://thehackernews.com/2026/11/stolen-fireworks-ai-key-led-to-cursor.html"
+  },
+  {
+   "text": "SCKit (3 outlets): worm-like malware aimed at MSPs that abuses ScreenConnect to deploy remote access and target technician sessions. Microsoft has published details. The last 7 days score 1.23x the 90-day average.",
+   "url": "https://www.microsoft.com/en-us/security/blog/2026/11/13/sckit-abuses-screenconnect-deploy-remote-access-target-technician-sessions/"
+  }
+ ],
+ "actions": [
+  "Check Point: apply the vendor fix for CVE-2026-123039 before 11-16, restrict management access, hunt for backdoors, keep ESXi backups offline.",
+  "UnrealIRCd: patch or take internet-facing servers offline for CVE-2026-114713 before 11-16, and check them for injected commands.",
+  "Read the FBI ARTEX alert and confirm patching and alerting on internet-facing systems can keep pace with automated attacks.",
+  "Cursor and Claude Code users: review installed extensions against Cursor's disclosure and rotate any Fireworks AI API keys.",
+  "ScreenConnect: inventory instances and extensions, review technician sessions and hunt for SCKit using Microsoft's guidance.",
+  "Queue Cisco BroadWorks, Openwave, Outlook and Chromium fixes before the 11-24 KEV due date."
+ ]
+}
