@@ -1,21 +1,39 @@
 {
- "written_at": "2026-11-15T01:19:51Z",
+ "written_at": "2026-11-15T12:23:00Z",
  "by": "Claude",
- "headline": "Quiet overnight: UnrealIRCd and Check Point KEV deadlines hit 11-16; SCKit still top story; Cursor extension breach",
+ "headline": "Cursor ties trojanized Claude Code extension to a stolen Fireworks AI key; Check Point and UnrealIRCd KEV deadlines hit 11-16",
  "bullets": [
-  {"text": "No new reports since the last briefing. KEV deadlines arrive 11-16 for two exploited flaws: UnrealIRCd CVE-2026-114713 (server-level command injection) and Check Point CVE-2026-123039.", "url": "https://thehackernews.com/2026/11/attackers-exploit-unrealircd-flaw-that.html"},
-  {"text": "Check Point PHP2Shell (CVE-2026-123039, 5 outlets): attackers gain root on gateways, plant a TSGA backdoor and deploy a VMware ESXi wiper.", "url": "https://www.bleepingcomputer.com/news/security/check-point-gateways-hacked-via-php2shell-to-deploy-vmware-esxi-wiper/"},
-  {"text": "SCKit remains the top story at 9 outlets: worm-like malware aimed at MSPs that abuses ScreenConnect to deploy remote access and target technician sessions. Microsoft has published details.", "url": "https://www.microsoft.com/en-us/security/blog/2026/11/13/sckit-abuses-screenconnect-deploy-remote-access-target-technician-sessions/"},
-  {"text": "Cursor confirms a security breach led to a malicious Claude Code extension (BleepingComputer). The board carries no further detail on affected versions or a clean release yet.", "url": "https://www.bleepingcomputer.com/news/security/cursor-confirms-security-breach-led-to-malicious-claude-code-extension/"},
-  {"text": "Trezor confirms crypto-stealing implants in three wallets sold via CryptoBilis and has released a fix. Breaches also on the board: Uber driver licenses via Fireworks AI, City of Osaka (1 million), TSMC, Norwegian/Widerøe, UT Arlington.", "url": "https://www.bleepingcomputer.com/news/cryptocurrency/trezor-confirms-crypto-stealing-implants-in-three-wallets-releases-fix/"},
-  {"text": "Still active: Apache httpd CVE-2026-119618 and the SignDrop Windows SYSTEM zero-day. KEV due 11-24: Cisco BroadWorks CVE-2026-20320, Openwave CVE-2026-111793, Outlook CVE-2026-124194, Chromium CVE-2026-125350. Last 7 days run 1.15x the 90-day average.", "url": "https://www.securityweek.com/apache-patches-critical-http-server-rce-found-by-anthropic-google/"}
+  {
+   "text": "New: Cursor says a stolen Fireworks AI key led to the trojanized Claude Code extension incident (The Hacker News). Fireworks is now a developing situation across 3 outlets, alongside Uber's report that driver licenses were stolen via Fireworks AI.",
+   "url": "https://thehackernews.com/2026/11/stolen-fireworks-ai-key-led-to-cursor.html"
+  },
+  {
+   "text": "KEV deadlines arrive tomorrow, 11-16, for two exploited flaws: UnrealIRCd CVE-2026-114713 (server-level command injection) and Check Point CVE-2026-123039.",
+   "url": "https://thehackernews.com/2026/11/attackers-exploit-unrealircd-flaw-that.html"
+  },
+  {
+   "text": "Check Point PHP2Shell (CVE-2026-123039, 4 outlets): attackers gain root on gateways, plant a backdoor and deploy a VMware ESXi wiper.",
+   "url": "https://www.bleepingcomputer.com/news/security/check-point-gateways-hacked-via-php2shell-to-deploy-vmware-esxi-wiper/"
+  },
+  {
+   "text": "SCKit remains the top story at 8 outlets: worm-like malware aimed at MSPs that abuses ScreenConnect to deploy remote access and target technician sessions. Microsoft has published details.",
+   "url": "https://www.microsoft.com/en-us/security/blog/2026/11/13/sckit-abuses-screenconnect-deploy-remote-access-target-technician-sessions/"
+  },
+  {
+   "text": "Still active: the SignDrop Windows zero-day giving SYSTEM privileges (3 outlets), and Trezor's confirmed crypto-stealing implants in wallets sold via CryptoBilis, with a fix released.",
+   "url": "https://www.bleepingcomputer.com/news/security/new-windows-signdrop-zero-day-gives-hackers-system-privileges/"
+  },
+  {
+   "text": "Apache httpd CVE-2026-119618 remains open. KEV due 11-24: Cisco BroadWorks CVE-2026-20320, Openwave CVE-2026-111793, Outlook CVE-2026-124194, Chromium CVE-2026-125350. Last 7 days run 1.16x the 90-day average.",
+   "url": "https://www.securityweek.com/apache-patches-critical-http-server-rce-found-by-anthropic-google/"
+  }
  ],
  "actions": [
-  "UnrealIRCd: patch or take internet-facing servers offline for CVE-2026-114713 before the 11-16 KEV due date, and check them for injected commands.",
-  "Check Point: apply the vendor fix for CVE-2026-123039 before 11-16, restrict management access, hunt for TSGA backdoors, keep ESXi backups offline.",
-  "ScreenConnect: inventory instances and extensions, review technician sessions and hunt for SCKit using Microsoft's guidance.",
   "Cursor and Claude Code users: review installed extensions against Cursor's disclosure and remove any you cannot verify.",
-  "Trezor owners who bought via CryptoBilis: follow Trezor's advisory and apply its fix; move funds if the recovery phrase may be exposed.",
-  "Patch Apache httpd for CVE-2026-119618 and queue BroadWorks, Openwave, Outlook and Chromium before 11-24."
+  "Rotate any Fireworks AI API keys and review their recent usage for activity you do not recognize.",
+  "UnrealIRCd: patch or take internet-facing servers offline for CVE-2026-114713 before 11-16, and check them for injected commands.",
+  "Check Point: apply the vendor fix for CVE-2026-123039 before 11-16, restrict management access, hunt for backdoors, keep ESXi backups offline.",
+  "ScreenConnect: inventory instances and extensions, review technician sessions and hunt for SCKit using Microsoft's guidance.",
+  "Patch Apache httpd for CVE-2026-119618 and queue BroadWorks, Openwave, Outlook and Chromium before the 11-24 KEV due date."
  ]
 }
