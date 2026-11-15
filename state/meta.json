@@ -2799,7 +2799,7 @@
   "since": "2026-11-12T01:03:41Z",
   "pending": null
  },
- "last_sweep_at": "2026-11-14T00:19:22Z",
+ "last_sweep_at": "2026-11-15T00:09:04Z",
  "clock": {
   "skew_seconds": 0,
   "source": "server Date headers"

@@ -1,0 +1,314 @@
+{
+ "schema": 1,
+ "date": "2026-11-14",
+ "source": "sweep",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-11-14T00:19:22Z",
+    3,
+    347.8
+   ],
+   [
+    "2026-11-14T00:20:19Z",
+    3,
+    347.8
+   ],
+   [
+    "2026-11-14T06:51:08Z",
+    3,
+    349.8
+   ],
+   [
+    "2026-11-14T07:03:32Z",
+    3,
+    349.8
+   ],
+   [
+    "2026-11-14T14:09:21Z",
+    3,
+    348.2
+   ],
+   [
+    "2026-11-14T18:42:56Z",
+    3,
+    355.9
+   ],
+   [
+    "2026-11-14T18:44:06Z",
+    3,
+    355.9
+   ],
+   [
+    "2026-11-14T19:11:45Z",
+    3,
+    355.9
+   ],
+   [
+    "2026-11-14T19:19:44Z",
+    3,
+    355.9
+   ],
+   [
+    "2026-11-14T20:20:19Z",
+    3,
+    355.7
+   ],
+   [
+    "2026-11-14T21:20:18Z",
+    3,
+    355.7
+   ],
+   [
+    "2026-11-14T22:08:44Z",
+    3,
+    355.2
+   ],
+   [
+    "2026-11-14T23:01:17Z",
+    3,
+    355.2
+   ],
+   [
+    "2026-11-14T23:19:23Z",
+    3,
+    354.7
+   ]
+  ],
+  "hours_at_level": {
+   "3": 14
+  },
+  "highest": 3,
+  "lowest": 3
+ },
+ "first_seen": {
+  "count": 26,
+  "by_severity": {
+   "medium": 14,
+   "low": 7,
+   "high": 4,
+   "critical": 1
+  },
+  "by_type": {
+   "ransomware": 13,
+   "news": 12,
+   "community": 1
+  }
+ },
+ "situations": [
+  {
+   "name": "SCKit",
+   "severity": "critical",
+   "outlets": 9,
+   "reports": 10,
+   "cves": [],
+   "lead": {
+    "title": "New worm-like 'SCKit' malware targets MSPs in ScreenConnect attacks",
+    "url": "https://www.bleepingcomputer.com/news/security/new-worm-like-sckit-malware-targets-msps-in-screenconnect-attacks/",
+    "source": "BleepingComputer",
+    "published": "2026-11-12T22:53:10Z"
+   }
+  },
+  {
+   "name": "PHP2Shell",
+   "severity": "critical",
+   "outlets": 5,
+   "reports": 9,
+   "cves": [
+    "CVE-2026-123039"
+   ],
+   "lead": {
+    "title": "Check Point gateways hacked via PHP2Shell to deploy VMware ESXi wiper",
+    "url": "https://www.bleepingcomputer.com/news/security/check-point-gateways-hacked-via-php2shell-to-deploy-vmware-esxi-wiper/",
+    "source": "BleepingComputer",
+    "published": "2026-11-13T16:21:43Z"
+   }
+  },
+  {
+   "name": "Apache HTTP",
+   "severity": "critical",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [
+    "CVE-2026-119618"
+   ],
+   "lead": {
+    "title": "Apache Patches Critical HTTP Server RCE Found by Anthropic, Google",
+    "url": "https://www.securityweek.com/apache-patches-critical-http-server-rce-found-by-anthropic-google/",
+    "source": "SecurityWeek",
+    "published": "2026-11-12T15:38:31Z"
+   }
+  },
+  {
+   "name": "SignDrop",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [],
+   "lead": {
+    "title": "New Windows SignDrop zero-day gives hackers SYSTEM privileges",
+    "url": "https://www.bleepingcomputer.com/news/security/new-windows-signdrop-zero-day-gives-hackers-system-privileges/",
+    "source": "BleepingComputer",
+    "published": "2026-11-12T16:04:00Z"
+   }
+  },
+  {
+   "name": "UnrealIRCd",
+   "severity": "critical",
+   "outlets": 2,
+   "reports": 2,
+   "cves": [
+    "CVE-2026-114713"
+   ],
+   "lead": {
+    "title": "Attackers Exploit UnrealIRCd Flaw That Enables Server-Level Command Injection",
+    "url": "https://thehackernews.com/2026/11/attackers-exploit-unrealircd-flaw-that.html",
+    "source": "The Hacker News",
+    "published": "2026-11-14T12:38:35Z"
+   }
+  },
+  {
+   "name": "Binance",
+   "severity": "high",
+   "outlets": 5,
+   "reports": 5,
+   "cves": [],
+   "lead": {
+    "title": "US cracks down on North Korean cryptocurrency-theft scheme, recovers more Binance funds",
+    "url": "https://www.cybersecuritydive.com/news/north-korea-cyberattacks-cryptocurrency-seizure-seizure-facestealer-binance/874622/",
+    "source": "Cybersecurity Dive",
+    "published": "2026-11-13T15:54:13Z"
+   }
+  },
+  {
+   "name": "Fireworks",
+   "severity": "high",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [],
+   "lead": {
+    "title": "Uber Data Breach: Driver Licenses Stolen via Fireworks AI",
+    "url": "https://databreaches.net/2026/11/14/uber-data-breach-driver-licenses-stolen-via-fireworks-ai/",
+    "source": "DataBreaches.net",
+    "published": "2026-11-14T15:55:27Z"
+   }
+  },
+  {
+   "name": "TSMC",
+   "severity": "high",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [],
+   "lead": {
+    "title": "TSMC confirms employee data breach tied to cloud service provider",
+    "url": "https://therecord.media/tsmc-confirms-employee-data-breach-cloud-provider",
+    "source": "The Record",
+    "published": "2026-11-13T15:06:00Z"
+   }
+  }
+ ],
+ "top_reports": [
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Attackers Exploit UnrealIRCd Flaw That Enables Server-Level Command Injection",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/attackers-exploit-unrealircd-flaw-that.html",
+   "published": "2026-11-14T12:38:35Z",
+   "first_seen": "2026-11-14T14:09:21Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Cursor confirms security breach led to malicious Claude Code extension",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/cursor-confirms-security-breach-led-to-malicious-claude-code-extension/",
+   "published": "2026-11-14T17:27:25Z",
+   "first_seen": "2026-11-14T18:42:56Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Uber Data Breach: Driver Licenses Stolen via Fireworks AI",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/14/uber-data-breach-driver-licenses-stolen-via-fireworks-ai/",
+   "published": "2026-11-14T15:55:27Z",
+   "first_seen": "2026-11-14T18:42:56Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "US disrupts North Korean campaign behind $400 million crypto theft",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/us-disrupts-north-korean-campaign-behind-400-million-crypto-theft/",
+   "published": "2026-11-14T15:15:49Z",
+   "first_seen": "2026-11-14T18:42:56Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Beware the New AI-Fueled Ransomware Boom",
+   "source": "WIRED Security",
+   "url": "https://www.wired.com/story/beware-the-new-ai-fueled-ransomware-boom/",
+   "published": "2026-11-14T13:00:00Z",
+   "first_seen": "2026-11-14T14:09:21Z",
+   "cves": []
+  }
+ ],
+ "kev_added": [],
+ "breaches": [],
+ "ransomware_claims": {
+  "count": 10,
+  "groups": [
+   [
+    "anubis",
+    2
+   ],
+   [
+    "EndZone",
+    2
+   ],
+   [
+    "qilin",
+    2
+   ],
+   [
+    "everest",
+    1
+   ],
+   [
+    "pixelleaks",
+    1
+   ],
+   [
+    "payoutsking",
+    1
+   ],
+   [
+    "netrunner",
+    1
+   ]
+  ]
+ },
+ "archive_counts": {
+  "date": "2026-11-14",
+  "exploited": 0.0,
+  "ransomware": 2.5,
+  "breaches": 0.0,
+  "community": 0.6,
+  "kev": 0,
+  "claims": 10,
+  "breach_count": 0,
+  "accounts": 0,
+  "stories": 1,
+  "top": "Project Zero will disclose vulnerabilities 90 days after reporting",
+  "top_url": "https://projectzero.google/2026/11/disclosure-policy.html"
+ },
+ "sitreps": [
+  "sitreps/2026-11-14/184318Z.json"
+ ]
+}
