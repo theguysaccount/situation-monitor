@@ -1,0 +1,39 @@
+{
+ "written_at": "2026-11-15T16:19:29Z",
+ "by": "Claude",
+ "headline": "French postal unit hack exposes 22M people; TSMC breach tied to cloud provider; Check Point and UnrealIRCd KEV deadlines hit 11-16",
+ "bullets": [
+  {
+   "text": "New: a hack at a French postal unit exposed the data of 22 million people (DataBreaches.net).",
+   "url": "https://databreaches.net/2026/11/15/hack-at-french-postal-unit-exposes-22-million-peoples-data/"
+  },
+  {
+   "text": "New: TSMC's employee data breach is linked to a cloud service provider (BleepingComputer). TSMC is now a developing situation across 4 outlets.",
+   "url": "https://www.bleepingcomputer.com/news/security/tsmc-employee-data-breach-linked-to-cloud-provider/"
+  },
+  {
+   "text": "KEV deadlines arrive tomorrow, 11-16: Check Point CVE-2026-123039 (PHP2Shell, 4 outlets), where attackers gain root on gateways, plant a backdoor and deploy a VMware ESXi wiper; and UnrealIRCd CVE-2026-114713 (server-level command injection).",
+   "url": "https://www.bleepingcomputer.com/news/security/check-point-gateways-hacked-via-php2shell-to-deploy-vmware-esxi-wiper/"
+  },
+  {
+   "text": "Still active: Cursor says a stolen Fireworks AI key led to the trojanized Claude Code extension incident; Uber separately reports driver licenses stolen via Fireworks AI.",
+   "url": "https://thehackernews.com/2026/11/stolen-fireworks-ai-key-led-to-cursor.html"
+  },
+  {
+   "text": "SCKit (3 outlets): worm-like malware aimed at MSPs that abuses ScreenConnect to deploy remote access and target technician sessions. Microsoft has published details.",
+   "url": "https://www.microsoft.com/en-us/security/blog/2026/11/13/sckit-abuses-screenconnect-deploy-remote-access-target-technician-sessions/"
+  },
+  {
+   "text": "Apache httpd CVE-2026-119618 remains open. KEV due 11-24: Cisco BroadWorks CVE-2026-20320, Openwave CVE-2026-111793, Outlook CVE-2026-124194, Chromium CVE-2026-125350. Last 7 days run 1.16x the 90-day average.",
+   "url": "https://www.securityweek.com/apache-patches-critical-http-server-rce-found-by-anthropic-google/"
+  }
+ ],
+ "actions": [
+  "Check Point: apply the vendor fix for CVE-2026-123039 before 11-16, restrict management access, hunt for backdoors, keep ESXi backups offline.",
+  "UnrealIRCd: patch or take internet-facing servers offline for CVE-2026-114713 before 11-16, and check them for injected commands.",
+  "Review which cloud providers hold employee data, and confirm their access logging and breach-notification terms in light of the TSMC incident.",
+  "Cursor and Claude Code users: review installed extensions against Cursor's disclosure and rotate any Fireworks AI API keys.",
+  "ScreenConnect: inventory instances and extensions, review technician sessions and hunt for SCKit using Microsoft's guidance.",
+  "Patch Apache httpd for CVE-2026-119618 and queue BroadWorks, Openwave, Outlook and Chromium before the 11-24 KEV due date."
+ ]
+}
