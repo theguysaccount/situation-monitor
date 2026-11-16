@@ -1,10 +1,14 @@
 {
- "written_at": "2026-11-16T22:20:18Z",
+ "written_at": "2026-11-16T23:20:31Z",
  "by": "Claude",
- "headline": "Infoblox confirms SharePoint breach of customer and staff data; Barracuda ties cloud breach to ARTEX; PHP2Shell hits Check Point gateways",
+ "headline": "Google reports first fully automated AI cyberattack; Infoblox SharePoint breach; PHP2Shell hits Check Point gateways",
  "bullets": [
   {
-   "text": "New: Infoblox confirms a security incident in which hackers accessed company information, per TechCrunch. The Register reports customer and staff data was exposed through a SharePoint breach. No CVE or attack vector beyond SharePoint is given yet.",
+   "text": "New: Google says Russian-speaking hackers ran the first fully automated AI cyberattack, per CyberScoop. Separately, Google reports an AI agent turned a security patch into a working exploit with no human help.",
+   "url": "https://cyberscoop.com/google-fully-automated-ai-cyberattack/"
+  },
+  {
+   "text": "Still active: Infoblox confirms hackers accessed company information (TechCrunch); The Register reports customer and staff data was exposed through a SharePoint breach. No CVE or wider attack vector is given yet.",
    "url": "https://www.theregister.com/security/2026/11/16/infoblox-customer-and-staff-data-exposed-in-sharepoint-breach/5310280"
   },
   {
@@ -16,24 +20,20 @@
    "url": "https://www.cybersecuritydive.com/news/php2shell-exploited-chained-attacks-check-point/874751/"
   },
   {
-   "text": "Breaches: Uber says hackers stole information on close to 150,000 driver's licenses, per TechCrunch. Also on the board: Fandango checkout card theft, Douglas County, Nevada SSN leak, Coles, and Lithuania's customs agency.",
+   "text": "Breaches: Uber says hackers stole information on close to 150,000 driver's licenses. Also on the board: Fandango checkout card theft, a Douglas County, Nevada SSN leak, Coles, and Lithuania's customs agency.",
    "url": "https://techcrunch.com/2026/11/16/uber-confirms-hackers-stole-thousands-of-drivers-license-information-in-data-breach/"
   },
   {
-   "text": "Still active: SANS sees scans for LiteLLM/Starlette CVE-2026-42271 and CVE-2026-48710; China-nexus actors breached 10 organizations in AI-driven attacks (Dark Reading). The Cursor supply chain attack started at Fireworks AI, per SecurityWeek.",
-   "url": "https://isc.sans.edu/diary/rss/33522"
-  },
-  {
-   "text": "Context: SITCON 3 (ELEVATED), unchanged; the last 7 days score 1.05x the 90-day average. n0n (80), INC Ransom (51) and The Gentlemen (40) led leak-site claims, and 300 malicious npm and PyPI packages were listed this week.",
+   "text": "Context: SITCON 3 (ELEVATED), unchanged; the last 7 days score 1.06x the 90-day average. n0n (80), INC Ransom (53) and The Gentlemen (40) led leak-site claims, and 300 malicious npm and PyPI packages were listed this week.",
    "url": "https://www.darkreading.com/threat-intelligence/ransomware-attacks-increase-ai-payments-decline"
   }
  ],
  "actions": [
-  "Infoblox customers: watch for Infoblox breach notices, treat unexpected Infoblox-themed mail as phishing, and review credentials or contacts shared with them.",
+  "Assume faster patch-to-exploit times: shorten emergency patch windows for internet-facing systems and put KEV-listed fixes first.",
+  "Infoblox customers: watch for breach notices, treat unexpected Infoblox-themed mail as phishing, and review credentials or contacts shared with them.",
   "Barracuda customers: patch CVE-2026-111560 and ESG CVE-2026-116606 now, review cloud account access and follow Barracuda's breach advisory.",
   "Check Point gateways: apply all current fixes including CVE-2026-123039, restrict management access and hunt for PHP2Shell chained compromise.",
-  "LiteLLM and Starlette: patch CVE-2026-42271 and CVE-2026-48710, keep admin endpoints private and rotate stored API keys.",
-  "Audit SharePoint and other document stores for overshared customer and staff data, and confirm access logging is on.",
+  "LiteLLM and Starlette: patch CVE-2026-42271 and CVE-2026-48710 (SANS sees scans), keep admin endpoints private and rotate stored API keys.",
   "Queue KEV fixes: Apple CVE-2024-27834 due 11-18, SonicWall SSLVPN 11-20, Outlook, Cisco BroadWorks, Openwave and Chromium 11-24."
  ]
 }
