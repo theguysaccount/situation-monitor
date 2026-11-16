@@ -1,39 +1,39 @@
 {
- "written_at": "2026-11-16T16:20:48Z",
+ "written_at": "2026-11-16T17:20:46Z",
  "by": "Claude",
- "headline": "Cursor supply chain attack traced to Fireworks AI; Fandango checkout skimming; Barracuda hacked amid ARTEX-powered attack surge",
+ "headline": "PHP2Shell chained attacks hit unpatched Check Point gateways; China-nexus AI-driven breaches; Cursor supply chain attack traced to Fireworks AI",
  "bullets": [
   {
-   "text": "New: SecurityWeek reports the Cursor supply chain attack started at Fireworks AI. The brief gives no affected versions; teams using Cursor or Fireworks AI should follow vendor guidance as it lands. 300 malicious npm and PyPI packages were also listed in the last 7 days.",
+   "text": "New, critical: Cybersecurity Dive reports a PHP2Shell flaw being exploited in chained attacks against unpatched Check Point gateways. The brief gives no CVE for it; separately, Check Point CVE-2026-123039 hit its KEV deadline today (11-16).",
+   "url": "https://www.cybersecuritydive.com/news/php2shell-exploited-chained-attacks-check-point/874751/"
+  },
+  {
+   "text": "New: Dark Reading reports China-nexus actors breached 10 organizations in AI-driven attacks. Separately, Amazon found an AI agent campaign hunting LiteLLM, Dify and other apps for API keys, and SANS sees scans for CVE-2026-42271 and CVE-2026-48710.",
+   "url": "https://www.darkreading.com/cyberattacks-data-breaches/china-nexus-actors-breach-10-organizations-ai-driven-attacks"
+  },
+  {
+   "text": "Still active: the Cursor supply chain attack started at Fireworks AI, per SecurityWeek. No affected versions are given; 300 malicious npm and PyPI packages were also listed in the last 7 days.",
    "url": "https://www.securityweek.com/cursor-supply-chain-attack-started-at-fireworks/"
   },
   {
-   "text": "New: Fandango says hackers stole payment card details from its checkout pages. Coles is investigating an incident, Uber's breach impacts 150,000 people and Qilin claims UT Arlington; Lithuania's customs agency restored services after a cyberattack.",
-   "url": "https://www.bleepingcomputer.com/news/security/fandango-says-hackers-stole-payment-card-details-from-checkout-pages/"
-  },
-  {
-   "text": "Still active: Barracuda was hacked amid a surge in ARTEX-powered cyberattacks; the FBI's ARTEX warning remains the only 3-outlet story. Barracuda CVE-2026-111560 and ESG CVE-2026-116606 went on KEV 11-10 with an 11-13 deadline.",
+   "text": "Still active: Barracuda was hacked amid a surge in ARTEX-powered attacks; ARTEX is the only 3-outlet story. Barracuda CVE-2026-111560 and ESG CVE-2026-116606 went on KEV 11-10 and are past their 11-13 deadline.",
    "url": "https://www.securityweek.com/barracuda-hacked-amid-surge-in-artex-powered-cyberattacks/"
   },
   {
-   "text": "Due today: UnrealIRCd CVE-2026-114713 is exploited in attacks and Check Point CVE-2026-123039 shares the 11-16 KEV deadline. BO Team exploited Log4Shell in VMware vCenter to compromise a code-signing server.",
-   "url": "https://www.securityweek.com/recent-unrealircd-vulnerability-exploited-in-attacks/"
+   "text": "Breaches: Fandango says card details were stolen from its checkout pages; Coles is investigating an incident, Uber's breach impacts 150,000 people and Qilin claims UT Arlington. UnrealIRCd CVE-2026-114713 is exploited and was due on KEV today.",
+   "url": "https://www.bleepingcomputer.com/news/security/fandango-says-hackers-stole-payment-card-details-from-checkout-pages/"
   },
   {
-   "text": "AI-driven attacks: Amazon uncovered an AI agent campaign hunting LiteLLM, Dify and other apps for API keys, SANS sees scans for CVE-2026-42271 and CVE-2026-48710, and Google says an AI agent turned a patch into a working exploit unaided.",
-   "url": "https://thehackernews.com/2026/11/amazon-uncovers-ai-agent-campaign.html"
-  },
-  {
-   "text": "Trend: SITCON 3 (ELEVATED), unchanged. The last 7 days score 1.01x the 90-day average; INC Ransom led leak-site claims with 51 this week.",
+   "text": "Trend: SITCON 3 (ELEVATED), unchanged. The last 7 days score 1.05x the 90-day average; n0n (80) and INC Ransom (51) led leak-site claims this week.",
    "url": "https://databreaches.net/2026/11/15/fbi-warns-artex-ai-hacking-tool-is-powering-global-cyberattacks/"
   }
  ],
  "actions": [
-  "Cursor and Fireworks AI users: review vendor advisories, check installed extensions and builds, and rotate tokens or API keys those tools can reach.",
+  "Check Point gateways: apply all current fixes including CVE-2026-123039, restrict management access and hunt for signs of PHP2Shell chained compromise.",
+  "AI gateways (LiteLLM, Dify): patch CVE-2026-42271 and CVE-2026-48710, keep admin endpoints private and rotate stored API keys.",
+  "Cursor and Fireworks AI users: follow vendor advisories, review installed extensions and rotate tokens or keys those tools can reach.",
+  "UnrealIRCd and Barracuda: patch CVE-2026-114713, CVE-2026-111560 and ESG CVE-2026-116606 now or take exposed systems offline.",
   "E-commerce teams: audit checkout page scripts for unauthorized changes and enforce a strict script allowlist or CSP.",
-  "UnrealIRCd and Check Point: patch CVE-2026-114713 and CVE-2026-123039 today or pull exposed systems offline, then hunt for backdoors.",
-  "Barracuda: confirm CVE-2026-111560 and ESG CVE-2026-116606 are fixed and review appliances for signs of compromise.",
-  "LiteLLM, Dify and other AI gateways: patch CVE-2026-42271 and CVE-2026-48710, keep admin endpoints private and rotate stored API keys.",
   "Queue KEV fixes: Apple CVE-2024-27834 due 11-18, SonicWall SSLVPN 11-20, Outlook, Cisco BroadWorks, Openwave and Chromium 11-24."
  ]
 }
