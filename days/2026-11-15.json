@@ -1,0 +1,323 @@
+{
+ "schema": 1,
+ "date": "2026-11-15",
+ "source": "sweep",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-11-15T00:09:04Z",
+    3,
+    354.4
+   ],
+   [
+    "2026-11-15T01:19:38Z",
+    3,
+    354.7
+   ],
+   [
+    "2026-11-15T01:20:50Z",
+    3,
+    354.7
+   ],
+   [
+    "2026-11-15T02:19:30Z",
+    3,
+    354.7
+   ],
+   [
+    "2026-11-15T02:39:27Z",
+    3,
+    354.9
+   ],
+   [
+    "2026-11-15T03:19:37Z",
+    3,
+    354.9
+   ],
+   [
+    "2026-11-15T04:19:32Z",
+    3,
+    355.7
+   ],
+   [
+    "2026-11-15T09:57:18Z",
+    3,
+    357.2
+   ],
+   [
+    "2026-11-15T11:20:06Z",
+    3,
+    357.2
+   ],
+   [
+    "2026-11-15T12:22:34Z",
+    3,
+    357.4
+   ],
+   [
+    "2026-11-15T12:23:39Z",
+    3,
+    357.4
+   ],
+   [
+    "2026-11-15T13:19:07Z",
+    3,
+    357.4
+   ],
+   [
+    "2026-11-15T14:19:06Z",
+    3,
+    357.4
+   ],
+   [
+    "2026-11-15T15:19:07Z",
+    3,
+    351.6
+   ],
+   [
+    "2026-11-15T16:19:11Z",
+    3,
+    356.6
+   ],
+   [
+    "2026-11-15T17:11:18Z",
+    3,
+    353.4
+   ],
+   [
+    "2026-11-15T17:19:08Z",
+    3,
+    353.4
+   ],
+   [
+    "2026-11-15T18:19:13Z",
+    3,
+    352.9
+   ],
+   [
+    "2026-11-15T19:19:10Z",
+    3,
+    354.6
+   ],
+   [
+    "2026-11-15T19:20:24Z",
+    3,
+    354.6
+   ],
+   [
+    "2026-11-15T20:19:20Z",
+    3,
+    355.9
+   ],
+   [
+    "2026-11-15T21:19:15Z",
+    3,
+    357.6
+   ],
+   [
+    "2026-11-15T21:51:42Z",
+    3,
+    352.9
+   ],
+   [
+    "2026-11-15T22:19:12Z",
+    3,
+    352.6
+   ],
+   [
+    "2026-11-15T23:19:17Z",
+    3,
+    352.1
+   ]
+  ],
+  "hours_at_level": {
+   "3": 25
+  },
+  "highest": 3,
+  "lowest": 3
+ },
+ "first_seen": {
+  "count": 33,
+  "by_severity": {
+   "medium": 25,
+   "high": 4,
+   "low": 3,
+   "critical": 1
+  },
+  "by_type": {
+   "ransomware": 23,
+   "news": 10
+  }
+ },
+ "situations": [
+  {
+   "name": "PHP2Shell",
+   "severity": "critical",
+   "outlets": 4,
+   "reports": 5,
+   "cves": [
+    "CVE-2026-123039"
+   ],
+   "lead": {
+    "title": "Check Point gateways hacked via PHP2Shell to deploy VMware ESXi wiper",
+    "url": "https://www.bleepingcomputer.com/news/security/check-point-gateways-hacked-via-php2shell-to-deploy-vmware-esxi-wiper/",
+    "source": "BleepingComputer",
+    "published": "2026-11-13T16:21:43Z"
+   }
+  },
+  {
+   "name": "UnrealIRCd",
+   "severity": "critical",
+   "outlets": 2,
+   "reports": 2,
+   "cves": [
+    "CVE-2026-114713"
+   ],
+   "lead": {
+    "title": "Attackers Exploit UnrealIRCd Flaw That Enables Server-Level Command Injection",
+    "url": "https://thehackernews.com/2026/11/attackers-exploit-unrealircd-flaw-that.html",
+    "source": "The Hacker News",
+    "published": "2026-11-14T12:38:35Z"
+   }
+  },
+  {
+   "name": "Binance",
+   "severity": "high",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [],
+   "lead": {
+    "title": "US cracks down on North Korean cryptocurrency-theft scheme, recovers more Binance funds",
+    "url": "https://www.cybersecuritydive.com/news/north-korea-cyberattacks-cryptocurrency-seizure-seizure-facestealer-binance/874622/",
+    "source": "Cybersecurity Dive",
+    "published": "2026-11-13T15:54:13Z"
+   }
+  },
+  {
+   "name": "ARTEX",
+   "severity": "high",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [],
+   "lead": {
+    "title": "FBI warns ARTEX AI hacking tool is powering global cyberattacks",
+    "url": "https://databreaches.net/2026/11/15/fbi-warns-artex-ai-hacking-tool-is-powering-global-cyberattacks/",
+    "source": "DataBreaches.net",
+    "published": "2026-11-15T20:56:08Z"
+   }
+  },
+  {
+   "name": "TSMC",
+   "severity": "high",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [],
+   "lead": {
+    "title": "TSMC employee data breach linked to cloud provider",
+    "url": "https://www.bleepingcomputer.com/news/security/tsmc-employee-data-breach-linked-to-cloud-provider/",
+    "source": "BleepingComputer",
+    "published": "2026-11-15T15:23:48Z"
+   }
+  }
+ ],
+ "top_reports": [
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Cursor Says Stolen Fireworks AI Key Led to Trojanized Claude Code Extension Incident",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/stolen-fireworks-ai-key-led-to-cursor.html",
+   "published": "2026-11-15T08:22:04Z",
+   "first_seen": "2026-11-15T09:57:18Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "FBI warns ARTEX AI hacking tool is powering global cyberattacks",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/15/fbi-warns-artex-ai-hacking-tool-is-powering-global-cyberattacks/",
+   "published": "2026-11-15T20:56:08Z",
+   "first_seen": "2026-11-15T21:19:15Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "FBI warns ARTEX AI hacking tool is powering global cyberattacks",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/fbi-warns-artex-ai-hacking-tool-is-powering-global-cyberattacks/",
+   "published": "2026-11-15T18:29:53Z",
+   "first_seen": "2026-11-15T19:19:10Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Hack at French postal unit exposes 22 million people’s data",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/15/hack-at-french-postal-unit-exposes-22-million-peoples-data/",
+   "published": "2026-11-15T15:49:15Z",
+   "first_seen": "2026-11-15T16:19:11Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "TSMC employee data breach linked to cloud provider",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/tsmc-employee-data-breach-linked-to-cloud-provider/",
+   "published": "2026-11-15T15:23:48Z",
+   "first_seen": "2026-11-15T16:19:11Z",
+   "cves": []
+  }
+ ],
+ "kev_added": [],
+ "breaches": [],
+ "ransomware_claims": {
+  "count": 19,
+  "groups": [
+   [
+    "n0n",
+    10
+   ],
+   [
+    "qilin",
+    6
+   ],
+   [
+    "inc ransom",
+    1
+   ],
+   [
+    "pixelleaks",
+    1
+   ],
+   [
+    "lockbit5",
+    1
+   ]
+  ]
+ },
+ "archive_counts": {
+  "date": "2026-11-15",
+  "exploited": 0.0,
+  "ransomware": 5.0,
+  "breaches": 0.0,
+  "community": 0.0,
+  "kev": 0,
+  "claims": 20,
+  "breach_count": 0,
+  "accounts": 0,
+  "stories": 0,
+  "top": "",
+  "top_url": ""
+ },
+ "sitreps": [
+  "sitreps/2026-11-15/011951Z.json",
+  "sitreps/2026-11-15/122300Z.json",
+  "sitreps/2026-11-15/161929Z.json",
+  "sitreps/2026-11-15/191929Z.json",
+  "sitreps/2026-11-15/211943Z.json"
+ ]
+}
