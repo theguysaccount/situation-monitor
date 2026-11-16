@@ -1,35 +1,39 @@
 {
- "written_at": "2026-11-16T04:19:30Z",
+ "written_at": "2026-11-16T13:33:43Z",
  "by": "Claude",
- "headline": "Check Point PHP2Shell and UnrealIRCd KEV deadlines fall today; FBI ARTEX AI tool warning and TSMC cloud-linked breach still lead",
+ "headline": "UnrealIRCd flaw now exploited on its KEV due date; LiteLLM scans and an AI-agent API key theft campaign; FBI ARTEX warning still leads",
  "bullets": [
   {
-   "text": "Due today, 11-16: the federal KEV deadline for Check Point CVE-2026-123039 (PHP2Shell, now the top developing story), where attackers gained root on gateways and deployed a VMware ESXi wiper, and for UnrealIRCd CVE-2026-114713 (server-level command injection).",
-   "url": "https://www.bleepingcomputer.com/news/security/check-point-gateways-hacked-via-php2shell-to-deploy-vmware-esxi-wiper/"
+   "text": "New: UnrealIRCd CVE-2026-114713 is now being exploited in attacks (SecurityWeek). Its federal KEV deadline is today, 11-16, the same day as Check Point CVE-2026-123039 (PHP2Shell), used to gain root on gateways and deploy an ESXi wiper.",
+   "url": "https://www.securityweek.com/recent-unrealircd-vulnerability-exploited-in-attacks/"
   },
   {
-   "text": "Developing: the FBI warning that the ARTEX AI hacking tool is powering cyberattacks worldwide remains a 3-outlet story; the FBI flash alert of 11-13 describes attacks automated at machine speed.",
-   "url": "https://therecord.media/artex-ai-tool-fbi-flash-alert"
+   "text": "New: SANS reports scans for LiteLLM/Starlette CVE-2026-42271 and CVE-2026-48710, and Amazon uncovered an AI agent campaign targeting LiteLLM, Dify and other apps for API keys.",
+   "url": "https://isc.sans.edu/diary/rss/33522"
   },
   {
-   "text": "Breaches: TSMC's employee data breach, tied to a cloud service provider, is a 3-outlet story; a hack at a French postal unit exposed data on 22 million people.",
-   "url": "https://www.bleepingcomputer.com/news/security/tsmc-employee-data-breach-linked-to-cloud-provider/"
+   "text": "New: BO Team exploited Log4Shell in VMware vCenter and compromised a Russian firm's code-signing server. Separately, hackers are probing newly disclosed Copeland refrigeration controller flaws, and six unpatched Danfoss controller flaws allow takeover without login.",
+   "url": "https://thehackernews.com/2026/11/bo-team-exploits-log4shell-in-vmware.html"
   },
   {
-   "text": "Still active: Cursor says a stolen Fireworks AI key led to the trojanized Claude Code extension incident; Uber separately reports driver licenses stolen via Fireworks AI.",
+   "text": "Breaches: Australian retailer Coles is investigating a cybersecurity incident; Uber's breach impacts 150,000 people; Qilin claims UT Arlington. TSMC's cloud-provider-linked employee data breach and the 22 million-person French postal hack remain on the board.",
+   "url": "https://www.bleepingcomputer.com/news/security/australian-retail-giant-coles-investigates-cybersecurity-incident/"
+  },
+  {
+   "text": "Developing: the FBI warning that the ARTEX AI hacking tool is powering cyberattacks worldwide remains the only 3-outlet story. The last 7 days score 0.99x the 90-day average.",
+   "url": "https://www.bleepingcomputer.com/news/security/fbi-warns-artex-ai-hacking-tool-is-powering-global-cyberattacks/"
+  },
+  {
+   "text": "Still active: Cursor says a stolen Fireworks AI key led to the trojanized Claude Code extension incident.",
    "url": "https://thehackernews.com/2026/11/stolen-fireworks-ai-key-led-to-cursor.html"
-  },
-  {
-   "text": "SCKit: worm-like malware aimed at MSPs abuses ScreenConnect to deploy remote access and target technician sessions (Microsoft). Nothing new since the last sweep; the last 7 days score 0.99x the 90-day average, down from 1.23x.",
-   "url": "https://www.microsoft.com/en-us/security/blog/2026/11/13/sckit-abuses-screenconnect-deploy-remote-access-target-technician-sessions/"
   }
  ],
  "actions": [
-  "Check Point: if CVE-2026-123039 is not fixed yet, apply the vendor fix today, restrict management access, hunt for backdoors and keep ESXi backups offline.",
-  "UnrealIRCd: patch or take internet-facing servers offline today for CVE-2026-114713, and check them for injected commands.",
-  "Read the FBI ARTEX alert and confirm patching and alerting on internet-facing systems can keep pace with automated attacks.",
-  "Cursor and Claude Code users: review installed extensions against Cursor's disclosure and rotate any Fireworks AI API keys.",
-  "ScreenConnect: inventory instances and extensions, review technician sessions and hunt for SCKit using Microsoft's guidance.",
-  "Queue Cisco BroadWorks, Openwave, Outlook and Chromium fixes before the 11-24 KEV due date; SonicWall SSLVPN is due 11-20."
+  "UnrealIRCd: patch CVE-2026-114713 or take internet-facing servers offline today, and check them for signs of exploitation.",
+  "Check Point: apply the CVE-2026-123039 fix today if not done, restrict management access and hunt for backdoors; keep ESXi backups offline.",
+  "LiteLLM, Dify and similar AI gateways: patch CVE-2026-42271 and CVE-2026-48710, keep admin endpoints off the internet and rotate stored API keys.",
+  "VMware vCenter: confirm Log4Shell is remediated and review access to code-signing servers and keys.",
+  "Copeland and Danfoss refrigeration controllers: remove them from internet exposure and segment them until fixes are available.",
+  "Queue KEV fixes: Apple CVE-2024-27834 due 11-18, SonicWall SSLVPN 11-20, Outlook, Cisco BroadWorks, Openwave and Chromium 11-24."
  ]
 }
