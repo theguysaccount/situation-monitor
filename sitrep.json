@@ -1,27 +1,27 @@
 {
- "written_at": "2026-11-16T19:20:33Z",
+ "written_at": "2026-11-16T20:21:49Z",
  "by": "Claude",
- "headline": "PHP2Shell chained attacks hit unpatched Check Point gateways; China-nexus AI-driven breaches; Cursor supply chain attack traced to Fireworks AI",
+ "headline": "Barracuda ties its cloud breach to ARTEX; Uber breach exposed ~150,000 driver's licenses; PHP2Shell chained attacks on Check Point gateways",
  "bullets": [
   {
-   "text": "New since the last update: Douglas County, Nevada leaked Social Security numbers after a public records request, per DataBreaches.net. Breaches still on the board: Fandango checkout card theft, a Coles incident and Uber (150,000 people).",
-   "url": "https://databreaches.net/2026/11/16/nv-douglas-county-data-leak-exposes-social-security-numbers-after-public-records-request/"
+   "text": "New: Barracuda links its cloud breach to the ARTEX AI-powered attack tool, per BleepingComputer. ARTEX is the only 3-outlet story. Barracuda CVE-2026-111560 and ESG CVE-2026-116606 went on KEV 11-10 and are past their 11-13 deadline.",
+   "url": "https://www.bleepingcomputer.com/news/security/barracuda-links-cloud-breach-to-artex-ai-powered-cyberattack/"
   },
   {
-   "text": "New, critical: Cybersecurity Dive reports a PHP2Shell flaw being exploited in chained attacks against unpatched Check Point gateways. The brief gives no CVE for it; separately, Check Point CVE-2026-123039 hit its KEV deadline today (11-16).",
+   "text": "New: Uber says hackers stole information on close to 150,000 driver's licenses, per TechCrunch. Other breaches on the board: Douglas County, Nevada SSN leak, Fandango checkout card theft, Coles, and Lithuania's customs agency.",
+   "url": "https://techcrunch.com/2026/11/16/uber-confirms-hackers-stole-thousands-of-drivers-license-information-in-data-breach/"
+  },
+  {
+   "text": "Still active, critical: a PHP2Shell flaw is exploited in chained attacks on unpatched Check Point gateways (no CVE given). Check Point CVE-2026-123039 and UnrealIRCd CVE-2026-114713 hit their KEV deadline today (11-16).",
    "url": "https://www.cybersecuritydive.com/news/php2shell-exploited-chained-attacks-check-point/874751/"
   },
   {
-   "text": "New: Dark Reading reports China-nexus actors breached 10 organizations in AI-driven attacks. Separately, Amazon found an AI agent campaign hunting LiteLLM, Dify and other apps for API keys, and SANS sees scans for CVE-2026-42271 and CVE-2026-48710.",
+   "text": "Still active: China-nexus actors breached 10 organizations in AI-driven attacks (Dark Reading). Amazon found an AI agent campaign hunting LiteLLM and Dify for API keys, and SANS sees scans for CVE-2026-42271 and CVE-2026-48710.",
    "url": "https://www.darkreading.com/cyberattacks-data-breaches/china-nexus-actors-breach-10-organizations-ai-driven-attacks"
   },
   {
-   "text": "Still active: the Cursor supply chain attack started at Fireworks AI, per SecurityWeek. No affected versions are given; 300 malicious npm and PyPI packages were also listed in the last 7 days.",
+   "text": "Still active: the Cursor supply chain attack started at Fireworks AI, per SecurityWeek; no affected versions given. 300 malicious npm and PyPI packages were listed in the last 7 days.",
    "url": "https://www.securityweek.com/cursor-supply-chain-attack-started-at-fireworks/"
-  },
-  {
-   "text": "Still active: Barracuda was hacked amid a surge in ARTEX-powered attacks; ARTEX is the only 3-outlet story. Barracuda CVE-2026-111560 and ESG CVE-2026-116606 went on KEV 11-10 and are past their 11-13 deadline.",
-   "url": "https://www.securityweek.com/barracuda-hacked-amid-surge-in-artex-powered-cyberattacks/"
   },
   {
    "text": "Trend: SITCON 3 (ELEVATED), unchanged. The last 7 days score 1.05x the 90-day average; n0n (80) and INC Ransom (51) led leak-site claims this week.",
@@ -29,11 +29,11 @@
   }
  ],
  "actions": [
-  "Check Point gateways: apply all current fixes including CVE-2026-123039, restrict management access and hunt for signs of PHP2Shell chained compromise.",
+  "Barracuda customers: patch CVE-2026-111560 and ESG CVE-2026-116606 now, review cloud account access and follow Barracuda's breach advisory.",
+  "Check Point gateways: apply all current fixes including CVE-2026-123039, restrict management access and hunt for PHP2Shell chained compromise.",
   "AI gateways (LiteLLM, Dify): patch CVE-2026-42271 and CVE-2026-48710, keep admin endpoints private and rotate stored API keys.",
   "Cursor and Fireworks AI users: follow vendor advisories, review installed extensions and rotate tokens or keys those tools can reach.",
-  "UnrealIRCd and Barracuda: patch CVE-2026-114713, CVE-2026-111560 and ESG CVE-2026-116606 now or take exposed systems offline.",
-  "E-commerce and records teams: audit checkout page scripts, enforce a strict CSP, and scrub SSNs from files before releasing public records.",
+  "Identity teams: expect phishing that reuses leaked Uber driver's license details and tighten checks on license-based verification.",
   "Queue KEV fixes: Apple CVE-2024-27834 due 11-18, SonicWall SSLVPN 11-20, Outlook, Cisco BroadWorks, Openwave and Chromium 11-24."
  ]
 }
