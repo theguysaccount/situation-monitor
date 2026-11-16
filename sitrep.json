@@ -1,18 +1,18 @@
 {
- "written_at": "2026-11-15T21:19:43Z",
+ "written_at": "2026-11-16T04:19:30Z",
  "by": "Claude",
- "headline": "FBI ARTEX AI attack tool now a 3-outlet story; Check Point and UnrealIRCd KEV deadlines hit 11-16; TSMC breach tied to cloud",
+ "headline": "Check Point PHP2Shell and UnrealIRCd KEV deadlines fall today; FBI ARTEX AI tool warning and TSMC cloud-linked breach still lead",
  "bullets": [
   {
-   "text": "Developing: the FBI warning that the ARTEX AI hacking tool is powering cyberattacks worldwide is now reported by 3 outlets (BleepingComputer, DataBreaches.net, The Record). The FBI flash alert of 11-13 describes attacks automated at machine speed.",
-   "url": "https://therecord.media/artex-ai-tool-fbi-flash-alert"
-  },
-  {
-   "text": "KEV deadlines arrive tomorrow, 11-16: Check Point CVE-2026-123039 (PHP2Shell, 4 outlets), where attackers gain root on gateways and deploy a VMware ESXi wiper; and UnrealIRCd CVE-2026-114713 (server-level command injection).",
+   "text": "Due today, 11-16: the federal KEV deadline for Check Point CVE-2026-123039 (PHP2Shell, now the top developing story), where attackers gained root on gateways and deployed a VMware ESXi wiper, and for UnrealIRCd CVE-2026-114713 (server-level command injection).",
    "url": "https://www.bleepingcomputer.com/news/security/check-point-gateways-hacked-via-php2shell-to-deploy-vmware-esxi-wiper/"
   },
   {
-   "text": "Breaches: TSMC's employee data breach is linked to a cloud service provider (4 outlets), and a hack at a French postal unit exposed data on 22 million people.",
+   "text": "Developing: the FBI warning that the ARTEX AI hacking tool is powering cyberattacks worldwide remains a 3-outlet story; the FBI flash alert of 11-13 describes attacks automated at machine speed.",
+   "url": "https://therecord.media/artex-ai-tool-fbi-flash-alert"
+  },
+  {
+   "text": "Breaches: TSMC's employee data breach, tied to a cloud service provider, is a 3-outlet story; a hack at a French postal unit exposed data on 22 million people.",
    "url": "https://www.bleepingcomputer.com/news/security/tsmc-employee-data-breach-linked-to-cloud-provider/"
   },
   {
@@ -20,16 +20,16 @@
    "url": "https://thehackernews.com/2026/11/stolen-fireworks-ai-key-led-to-cursor.html"
   },
   {
-   "text": "SCKit: worm-like malware aimed at MSPs that abuses ScreenConnect to deploy remote access and target technician sessions; Microsoft has published details. The last 7 days score 1.23x the 90-day average.",
+   "text": "SCKit: worm-like malware aimed at MSPs abuses ScreenConnect to deploy remote access and target technician sessions (Microsoft). Nothing new since the last sweep; the last 7 days score 0.99x the 90-day average, down from 1.23x.",
    "url": "https://www.microsoft.com/en-us/security/blog/2026/11/13/sckit-abuses-screenconnect-deploy-remote-access-target-technician-sessions/"
   }
  ],
  "actions": [
-  "Check Point: apply the vendor fix for CVE-2026-123039 before 11-16, restrict management access, hunt for backdoors, keep ESXi backups offline.",
-  "UnrealIRCd: patch or take internet-facing servers offline for CVE-2026-114713 before 11-16, and check them for injected commands.",
+  "Check Point: if CVE-2026-123039 is not fixed yet, apply the vendor fix today, restrict management access, hunt for backdoors and keep ESXi backups offline.",
+  "UnrealIRCd: patch or take internet-facing servers offline today for CVE-2026-114713, and check them for injected commands.",
   "Read the FBI ARTEX alert and confirm patching and alerting on internet-facing systems can keep pace with automated attacks.",
   "Cursor and Claude Code users: review installed extensions against Cursor's disclosure and rotate any Fireworks AI API keys.",
   "ScreenConnect: inventory instances and extensions, review technician sessions and hunt for SCKit using Microsoft's guidance.",
-  "Queue Cisco BroadWorks, Openwave, Outlook and Chromium fixes before the 11-24 KEV due date."
+  "Queue Cisco BroadWorks, Openwave, Outlook and Chromium fixes before the 11-24 KEV due date; SonicWall SSLVPN is due 11-20."
  ]
 }
