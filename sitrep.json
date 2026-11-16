@@ -1,39 +1,39 @@
 {
- "written_at": "2026-11-16T21:20:17Z",
+ "written_at": "2026-11-16T22:20:18Z",
  "by": "Claude",
- "headline": "Barracuda ties its cloud breach to ARTEX; Uber breach exposed ~150,000 driver's licenses; PHP2Shell chained attacks on Check Point gateways",
+ "headline": "Infoblox confirms SharePoint breach of customer and staff data; Barracuda ties cloud breach to ARTEX; PHP2Shell hits Check Point gateways",
  "bullets": [
   {
-   "text": "New: Dark Reading reports ransomware attacks are increasing with AI help while ransom payments decline. n0n (80), INC Ransom (51) and The Gentlemen (40) led leak-site claims this week. SITCON 3 (ELEVATED), unchanged; the last 7 days score 1.05x the 90-day average.",
-   "url": "https://www.darkreading.com/threat-intelligence/ransomware-attacks-increase-ai-payments-decline"
+   "text": "New: Infoblox confirms a security incident in which hackers accessed company information, per TechCrunch. The Register reports customer and staff data was exposed through a SharePoint breach. No CVE or attack vector beyond SharePoint is given yet.",
+   "url": "https://www.theregister.com/security/2026/11/16/infoblox-customer-and-staff-data-exposed-in-sharepoint-breach/5310280"
   },
   {
-   "text": "Still active: Barracuda links its cloud breach to the ARTEX AI-powered attack tool, per BleepingComputer; ARTEX is the only 3-outlet story. Barracuda CVE-2026-111560 and ESG CVE-2026-116606 went on KEV 11-10 and are past their 11-13 deadline.",
+   "text": "Still active: Barracuda links its cloud breach to the ARTEX AI-powered attack tool, per BleepingComputer. Barracuda CVE-2026-111560 and ESG CVE-2026-116606 went on KEV 11-10 and are past their 11-13 deadline.",
    "url": "https://www.bleepingcomputer.com/news/security/barracuda-links-cloud-breach-to-artex-ai-powered-cyberattack/"
   },
   {
-   "text": "Still active, critical: a PHP2Shell flaw is exploited in chained attacks on unpatched Check Point gateways (no CVE given). Check Point CVE-2026-123039 and UnrealIRCd CVE-2026-114713 hit their KEV deadline today (11-16).",
+   "text": "Still active, critical: a PHP2Shell flaw is exploited in chained attacks on unpatched Check Point gateways (no CVE given). Check Point CVE-2026-123039 and exploited UnrealIRCd CVE-2026-114713 reached their KEV deadline on 11-16.",
    "url": "https://www.cybersecuritydive.com/news/php2shell-exploited-chained-attacks-check-point/874751/"
   },
   {
-   "text": "Breaches: Uber says hackers stole information on close to 150,000 driver's licenses, per TechCrunch. Also on the board: Douglas County, Nevada SSN leak, Fandango checkout card theft, Coles, and Lithuania's customs agency.",
+   "text": "Breaches: Uber says hackers stole information on close to 150,000 driver's licenses, per TechCrunch. Also on the board: Fandango checkout card theft, Douglas County, Nevada SSN leak, Coles, and Lithuania's customs agency.",
    "url": "https://techcrunch.com/2026/11/16/uber-confirms-hackers-stole-thousands-of-drivers-license-information-in-data-breach/"
   },
   {
-   "text": "Still active: China-nexus actors breached 10 organizations in AI-driven attacks (Dark Reading). Amazon found an AI agent campaign hunting LiteLLM and Dify for API keys, and SANS sees scans for CVE-2026-42271 and CVE-2026-48710.",
-   "url": "https://www.darkreading.com/cyberattacks-data-breaches/china-nexus-actors-breach-10-organizations-ai-driven-attacks"
+   "text": "Still active: SANS sees scans for LiteLLM/Starlette CVE-2026-42271 and CVE-2026-48710; China-nexus actors breached 10 organizations in AI-driven attacks (Dark Reading). The Cursor supply chain attack started at Fireworks AI, per SecurityWeek.",
+   "url": "https://isc.sans.edu/diary/rss/33522"
   },
   {
-   "text": "Still active: the Cursor supply chain attack started at Fireworks AI, per SecurityWeek; no affected versions given. 300 malicious npm and PyPI packages were listed in the last 7 days.",
-   "url": "https://www.securityweek.com/cursor-supply-chain-attack-started-at-fireworks/"
+   "text": "Context: SITCON 3 (ELEVATED), unchanged; the last 7 days score 1.05x the 90-day average. n0n (80), INC Ransom (51) and The Gentlemen (40) led leak-site claims, and 300 malicious npm and PyPI packages were listed this week.",
+   "url": "https://www.darkreading.com/threat-intelligence/ransomware-attacks-increase-ai-payments-decline"
   }
  ],
  "actions": [
+  "Infoblox customers: watch for Infoblox breach notices, treat unexpected Infoblox-themed mail as phishing, and review credentials or contacts shared with them.",
   "Barracuda customers: patch CVE-2026-111560 and ESG CVE-2026-116606 now, review cloud account access and follow Barracuda's breach advisory.",
   "Check Point gateways: apply all current fixes including CVE-2026-123039, restrict management access and hunt for PHP2Shell chained compromise.",
-  "AI gateways (LiteLLM, Dify): patch CVE-2026-42271 and CVE-2026-48710, keep admin endpoints private and rotate stored API keys.",
-  "Cursor and Fireworks AI users: follow vendor advisories, review installed extensions and rotate tokens or keys those tools can reach.",
-  "Ransomware readiness: confirm offline backups and restore tests, and watch for phishing that reuses leaked Uber driver's license details.",
+  "LiteLLM and Starlette: patch CVE-2026-42271 and CVE-2026-48710, keep admin endpoints private and rotate stored API keys.",
+  "Audit SharePoint and other document stores for overshared customer and staff data, and confirm access logging is on.",
   "Queue KEV fixes: Apple CVE-2024-27834 due 11-18, SonicWall SSLVPN 11-20, Outlook, Cisco BroadWorks, Openwave and Chromium 11-24."
  ]
 }
