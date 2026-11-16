@@ -1,0 +1,39 @@
+{
+ "written_at": "2026-11-16T13:33:43Z",
+ "by": "Claude",
+ "headline": "UnrealIRCd flaw now exploited on its KEV due date; LiteLLM scans and an AI-agent API key theft campaign; FBI ARTEX warning still leads",
+ "bullets": [
+  {
+   "text": "New: UnrealIRCd CVE-2026-114713 is now being exploited in attacks (SecurityWeek). Its federal KEV deadline is today, 11-16, the same day as Check Point CVE-2026-123039 (PHP2Shell), used to gain root on gateways and deploy an ESXi wiper.",
+   "url": "https://www.securityweek.com/recent-unrealircd-vulnerability-exploited-in-attacks/"
+  },
+  {
+   "text": "New: SANS reports scans for LiteLLM/Starlette CVE-2026-42271 and CVE-2026-48710, and Amazon uncovered an AI agent campaign targeting LiteLLM, Dify and other apps for API keys.",
+   "url": "https://isc.sans.edu/diary/rss/33522"
+  },
+  {
+   "text": "New: BO Team exploited Log4Shell in VMware vCenter and compromised a Russian firm's code-signing server. Separately, hackers are probing newly disclosed Copeland refrigeration controller flaws, and six unpatched Danfoss controller flaws allow takeover without login.",
+   "url": "https://thehackernews.com/2026/11/bo-team-exploits-log4shell-in-vmware.html"
+  },
+  {
+   "text": "Breaches: Australian retailer Coles is investigating a cybersecurity incident; Uber's breach impacts 150,000 people; Qilin claims UT Arlington. TSMC's cloud-provider-linked employee data breach and the 22 million-person French postal hack remain on the board.",
+   "url": "https://www.bleepingcomputer.com/news/security/australian-retail-giant-coles-investigates-cybersecurity-incident/"
+  },
+  {
+   "text": "Developing: the FBI warning that the ARTEX AI hacking tool is powering cyberattacks worldwide remains the only 3-outlet story. The last 7 days score 0.99x the 90-day average.",
+   "url": "https://www.bleepingcomputer.com/news/security/fbi-warns-artex-ai-hacking-tool-is-powering-global-cyberattacks/"
+  },
+  {
+   "text": "Still active: Cursor says a stolen Fireworks AI key led to the trojanized Claude Code extension incident.",
+   "url": "https://thehackernews.com/2026/11/stolen-fireworks-ai-key-led-to-cursor.html"
+  }
+ ],
+ "actions": [
+  "UnrealIRCd: patch CVE-2026-114713 or take internet-facing servers offline today, and check them for signs of exploitation.",
+  "Check Point: apply the CVE-2026-123039 fix today if not done, restrict management access and hunt for backdoors; keep ESXi backups offline.",
+  "LiteLLM, Dify and similar AI gateways: patch CVE-2026-42271 and CVE-2026-48710, keep admin endpoints off the internet and rotate stored API keys.",
+  "VMware vCenter: confirm Log4Shell is remediated and review access to code-signing servers and keys.",
+  "Copeland and Danfoss refrigeration controllers: remove them from internet exposure and segment them until fixes are available.",
+  "Queue KEV fixes: Apple CVE-2024-27834 due 11-18, SonicWall SSLVPN 11-20, Outlook, Cisco BroadWorks, Openwave and Chromium 11-24."
+ ]
+}
