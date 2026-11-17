@@ -1,0 +1,39 @@
+{
+ "written_at": "2026-11-17T02:19:43Z",
+ "by": "Claude",
+ "headline": "Optimizely supply chain attack plants malware on brand sites; Uber third-party breach hits ~150,000; PHP2Shell hits Check Point",
+ "bullets": [
+  {
+   "text": "New, critical: an Optimizely supply chain attack has infected major brands' websites with malware, per BleepingComputer. No CVE, affected versions or fix are given yet.",
+   "url": "https://www.bleepingcomputer.com/news/security/optimizely-supply-chain-attack-infects-major-brands-sites-with-malware/"
+  },
+  {
+   "text": "New: Uber says nearly 150,000 people were impacted by a third-party breach (The Record); TechCrunch reports hackers stole driver's license information.",
+   "url": "https://therecord.media/uber-says-150000-impacted-third-party-breach"
+  },
+  {
+   "text": "Still active: Microsoft warns of a high-volume phishing campaign that uses Microsoft 365 outage lures against organizations across multiple sectors.",
+   "url": "https://www.microsoft.com/en-us/security/blog/2026/11/16/high-volume-phishing-campaign-uses-microsoft-365-outage-lures-target-multiple-industry-sectors-2/"
+  },
+  {
+   "text": "Still active, critical: a PHP2Shell flaw is exploited in chained attacks on unpatched Check Point gateways (no CVE given). Check Point CVE-2026-123039 and exploited UnrealIRCd CVE-2026-114713 passed their KEV deadline on 11-16.",
+   "url": "https://www.cybersecuritydive.com/news/php2shell-exploited-chained-attacks-check-point/874751/"
+  },
+  {
+   "text": "Still active: Infoblox customer and staff data was exposed through a SharePoint breach (The Register). Barracuda links its cloud breach to ARTEX; Barracuda CVE-2026-111560 and ESG CVE-2026-116606 are past their 11-13 KEV deadline.",
+   "url": "https://www.theregister.com/security/2026/11/16/infoblox-customer-and-staff-data-exposed-in-sharepoint-breach/5310280"
+  },
+  {
+   "text": "Context: Google says Russian-speaking hackers ran the first fully automated AI cyberattack. SITCON 3 unchanged; 7-day score is 0.72x the 90-day average; n0n (79) and INC Ransom (53) lead leak-site claims.",
+   "url": "https://cyberscoop.com/google-fully-automated-ai-cyberattack/"
+  }
+ ],
+ "actions": [
+  "Optimizely users: audit third-party scripts and Optimizely snippets on your sites for unexpected changes, and follow Optimizely's guidance as it is published.",
+  "Expect Uber-themed phishing after the breach; tell staff to verify any breach notice through official Uber channels before acting on it.",
+  "Warn staff that Microsoft 365 outage notices may be phishing; check the official service health page and report outage-themed lures.",
+  "Check Point gateways: apply all current fixes including CVE-2026-123039, restrict management access and hunt for PHP2Shell chained compromise.",
+  "Barracuda customers: patch CVE-2026-111560 and ESG CVE-2026-116606 now and review cloud account access.",
+  "Queue KEV fixes: Apple CVE-2024-27834 due 11-18, SonicWall SSLVPN CVE-2026-19868 due 11-20, Outlook, Cisco BroadWorks, Openwave and Chromium 11-24."
+ ]
+}
