@@ -1,0 +1,39 @@
+{
+ "written_at": "2026-11-17T04:12:22Z",
+ "by": "Claude",
+ "headline": "Optimizely supply chain malware reached CNN, Fox News, BBC and Salesforce sites; Uber and Legoland breaches; PHP2Shell hits Check Point",
+ "bullets": [
+  {
+   "text": "New: BleepingComputer reports the Optimizely supply chain attack delivered malware to sites including CNN, Fox News, BBC and Salesforce. No CVE, affected versions or fix are given yet.",
+   "url": "https://www.bleepingcomputer.com/news/security/optimizely-supply-chain-attack-delivers-malware-to-cnn-fox-news-bbc-salesforce-sites/"
+  },
+  {
+   "text": "Still active: Legoland customer personal information has leaked, including annual pass barcodes, per DataBreaches.net. No details on scope or cause are given yet.",
+   "url": "https://databreaches.net/2026/11/16/customer-personal-information-leak-at-legoland-even-annual-pass-barcodes-stolen/"
+  },
+  {
+   "text": "Still active: Uber says nearly 150,000 people were impacted by a third-party breach (The Record); TechCrunch reports hackers stole driver's license information.",
+   "url": "https://therecord.media/uber-says-150000-impacted-third-party-breach"
+  },
+  {
+   "text": "Still active: Microsoft warns of a high-volume phishing campaign that uses Microsoft 365 outage lures against organizations across multiple sectors.",
+   "url": "https://www.microsoft.com/en-us/security/blog/2026/11/16/high-volume-phishing-campaign-uses-microsoft-365-outage-lures-target-multiple-industry-sectors-2/"
+  },
+  {
+   "text": "Still active, critical: a PHP2Shell flaw is exploited in chained attacks on unpatched Check Point gateways (no CVE given). Check Point CVE-2026-123039 and exploited UnrealIRCd CVE-2026-114713 passed their KEV deadline on 11-16.",
+   "url": "https://www.cybersecuritydive.com/news/php2shell-exploited-chained-attacks-check-point/874751/"
+  },
+  {
+   "text": "Context: Infoblox data was exposed via SharePoint and Barracuda links its cloud breach to ARTEX. SITCON 3 unchanged; 7-day score is 0.72x the 90-day average; n0n (78) and INC Ransom (53) lead leak-site claims.",
+   "url": "https://www.theregister.com/security/2026/11/16/infoblox-customer-and-staff-data-exposed-in-sharepoint-breach/5310280"
+  }
+ ],
+ "actions": [
+  "Optimizely users: audit third-party scripts and Optimizely snippets on your sites for unexpected changes, and follow Optimizely's guidance as it is published.",
+  "Expect breach-themed phishing after the Uber and Legoland leaks; verify any breach notice through the company's official channels before acting on it.",
+  "Warn staff that Microsoft 365 outage notices may be phishing; check the official service health page and report outage-themed lures.",
+  "Check Point gateways: apply all current fixes including CVE-2026-123039, restrict management access and hunt for PHP2Shell chained compromise.",
+  "Barracuda customers: patch CVE-2026-111560 and ESG CVE-2026-116606 now and review cloud account access.",
+  "Queue KEV fixes: Apple CVE-2024-27834 due 11-18, SonicWall SSLVPN CVE-2026-19868 due 11-20, Outlook, Cisco BroadWorks, Openwave and Chromium 11-24."
+ ]
+}
