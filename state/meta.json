@@ -2797,9 +2797,9 @@
  "level": {
   "value": 3,
   "since": "2026-11-12T01:03:41Z",
-  "pending": null
+  "pending": 4
  },
- "last_sweep_at": "2026-11-16T00:19:07Z",
+ "last_sweep_at": "2026-11-17T00:20:04Z",
  "clock": {
   "skew_seconds": 0,
   "source": "server Date headers"

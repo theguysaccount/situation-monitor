@@ -1,0 +1,616 @@
+{
+ "schema": 1,
+ "date": "2026-11-16",
+ "source": "sweep",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-11-16T00:19:07Z",
+    3,
+    340.7
+   ],
+   [
+    "2026-11-16T01:19:07Z",
+    3,
+    340.1
+   ],
+   [
+    "2026-11-16T02:08:21Z",
+    3,
+    340.4
+   ],
+   [
+    "2026-11-16T02:19:08Z",
+    3,
+    334.4
+   ],
+   [
+    "2026-11-16T03:19:18Z",
+    3,
+    334.1
+   ],
+   [
+    "2026-11-16T04:19:16Z",
+    3,
+    334.1
+   ],
+   [
+    "2026-11-16T04:20:04Z",
+    3,
+    334.1
+   ],
+   [
+    "2026-11-16T05:19:18Z",
+    3,
+    328.8
+   ],
+   [
+    "2026-11-16T09:44:09Z",
+    3,
+    328.1
+   ],
+   [
+    "2026-11-16T11:51:48Z",
+    3,
+    329.6
+   ],
+   [
+    "2026-11-16T13:33:22Z",
+    3,
+    312.7
+   ],
+   [
+    "2026-11-16T13:34:30Z",
+    3,
+    312.1
+   ],
+   [
+    "2026-11-16T14:20:06Z",
+    3,
+    310.8
+   ],
+   [
+    "2026-11-16T15:20:03Z",
+    3,
+    308.9
+   ],
+   [
+    "2026-11-16T15:21:17Z",
+    3,
+    308.9
+   ],
+   [
+    "2026-11-16T16:20:05Z",
+    3,
+    298.8
+   ],
+   [
+    "2026-11-16T16:21:40Z",
+    3,
+    304.2
+   ],
+   [
+    "2026-11-16T17:20:12Z",
+    3,
+    311.2
+   ],
+   [
+    "2026-11-16T17:21:39Z",
+    3,
+    311.2
+   ],
+   [
+    "2026-11-16T18:19:54Z",
+    3,
+    308.7
+   ],
+   [
+    "2026-11-16T19:20:15Z",
+    3,
+    306.8
+   ],
+   [
+    "2026-11-16T19:21:10Z",
+    3,
+    306.8
+   ],
+   [
+    "2026-11-16T20:21:15Z",
+    3,
+    304.0
+   ],
+   [
+    "2026-11-16T20:24:16Z",
+    3,
+    304.0
+   ],
+   [
+    "2026-11-16T20:29:18Z",
+    3,
+    304.6
+   ],
+   [
+    "2026-11-16T21:19:56Z",
+    3,
+    305.9
+   ],
+   [
+    "2026-11-16T21:21:05Z",
+    3,
+    305.9
+   ],
+   [
+    "2026-11-16T22:20:00Z",
+    3,
+    305.9
+   ],
+   [
+    "2026-11-16T22:21:08Z",
+    3,
+    305.9
+   ],
+   [
+    "2026-11-16T23:20:08Z",
+    3,
+    298.6
+   ],
+   [
+    "2026-11-16T23:21:30Z",
+    3,
+    298.6
+   ]
+  ],
+  "hours_at_level": {
+   "3": 31
+  },
+  "highest": 3,
+  "lowest": 3
+ },
+ "first_seen": {
+  "count": 225,
+  "by_severity": {
+   "medium": 165,
+   "high": 29,
+   "low": 28,
+   "critical": 3
+  },
+  "by_type": {
+   "ransomware": 131,
+   "news": 83,
+   "community": 1,
+   "breach": 10
+  }
+ },
+ "situations": [],
+ "top_reports": [
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "PHP2Shell flaw exploited in chained attacks targeting unpatched Check Point gateways",
+   "source": "Cybersecurity Dive",
+   "url": "https://www.cybersecuritydive.com/news/php2shell-exploited-chained-attacks-check-point/874751/",
+   "published": "2026-11-16T15:47:25Z",
+   "first_seen": "2026-11-16T16:21:40Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Recent UnrealIRCd Vulnerability Exploited in Attacks",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/recent-unrealircd-vulnerability-exploited-in-attacks/",
+   "published": "2026-11-16T11:15:48Z",
+   "first_seen": "2026-11-16T11:51:48Z",
+   "cves": [
+    "CVE-2026-114713"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "BO Team Exploits Log4Shell in VMware vCenter, Compromises Russian Firm's Code-Signing Server",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/bo-team-exploits-log4shell-in-vmware.html",
+   "published": "2026-11-16T06:53:34Z",
+   "first_seen": "2026-11-16T09:44:09Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Google says Russian-speaking hackers ran the first fully automated AI cyberattack",
+   "source": "CyberScoop",
+   "url": "https://cyberscoop.com/google-fully-automated-ai-cyberattack/",
+   "published": "2026-11-16T22:51:33Z",
+   "first_seen": "2026-11-16T23:20:08Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Cyber giant Infoblox confirms security incident after hackers access ‘company information’",
+   "source": "TechCrunch Security",
+   "url": "https://techcrunch.com/2026/11/16/cyber-giant-infoblox-confirms-security-incident-after-hackers-access-company-information/",
+   "published": "2026-11-16T22:12:31Z",
+   "first_seen": "2026-11-16T22:20:00Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Infoblox customer and staff data exposed in Sharepoint breach",
+   "source": "The Register",
+   "url": "https://www.theregister.com/security/2026/11/16/infoblox-customer-and-staff-data-exposed-in-sharepoint-breach/5310280",
+   "published": "2026-11-16T21:53:28Z",
+   "first_seen": "2026-11-16T22:20:00Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Barracuda links cloud breach to ARTEX AI-powered cyberattack",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/barracuda-links-cloud-breach-to-artex-ai-powered-cyberattack/",
+   "published": "2026-11-16T19:57:13Z",
+   "first_seen": "2026-11-16T20:21:15Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Ransomware Attacks Increase Behind AI, But Payments Decline",
+   "source": "Dark Reading",
+   "url": "https://www.darkreading.com/threat-intelligence/ransomware-attacks-increase-ai-payments-decline",
+   "published": "2026-11-16T19:56:05Z",
+   "first_seen": "2026-11-16T21:19:56Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Uber says hackers stole information on close to 150,000 driver’s licenses during data breach",
+   "source": "TechCrunch Security",
+   "url": "https://techcrunch.com/2026/11/16/uber-confirms-hackers-stole-thousands-of-drivers-license-information-in-data-breach/",
+   "published": "2026-11-16T19:53:00Z",
+   "first_seen": "2026-11-16T20:21:15Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "NV: Douglas County data leak exposes Social Security numbers after public records request",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/16/nv-douglas-county-data-leak-exposes-social-security-numbers-after-public-records-request/",
+   "published": "2026-11-16T18:53:52Z",
+   "first_seen": "2026-11-16T19:20:15Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "China-Nexus Actors Breach 10 Organizations in AI-Driven Attacks",
+   "source": "Dark Reading",
+   "url": "https://www.darkreading.com/cyberattacks-data-breaches/china-nexus-actors-breach-10-organizations-ai-driven-attacks",
+   "published": "2026-11-16T16:36:55Z",
+   "first_seen": "2026-11-16T17:20:12Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Cursor Supply Chain Attack Started at Fireworks AI",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/cursor-supply-chain-attack-started-at-fireworks/",
+   "published": "2026-11-16T15:45:43Z",
+   "first_seen": "2026-11-16T16:20:05Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Fandango says hackers stole payment card details from checkout pages",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/fandango-says-hackers-stole-payment-card-details-from-checkout-pages/",
+   "published": "2026-11-16T15:44:21Z",
+   "first_seen": "2026-11-16T16:20:05Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Barracuda Hacked Amid Surge in Artex-Powered Cyberattacks",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/barracuda-hacked-amid-surge-in-artex-powered-cyberattacks/",
+   "published": "2026-11-16T15:07:32Z",
+   "first_seen": "2026-11-16T15:20:03Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Google: AI agent turned a security patch into a working exploit with no human help",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/16/google-ai-agent-turned-a-security-patch-into-a-working-exploit-with-no-human-help/",
+   "published": "2026-11-16T14:29:05Z",
+   "first_seen": "2026-11-16T15:20:03Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "FBI Says North Korean Hackers Stole Over $400 Million in Crypto Using Deepfake Video Calls",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/16/fbi-says-north-korean-hackers-stole-over-400-million-in-crypto-using-deepfake-video-calls/",
+   "published": "2026-11-16T14:28:37Z",
+   "first_seen": "2026-11-16T15:20:03Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Lithuanian customs agency restores services after cyberattack, possible data breach",
+   "source": "The Record",
+   "url": "https://therecord.media/lithuania-customs-agency-cyberattack",
+   "published": "2026-11-16T14:06:00Z",
+   "first_seen": "2026-11-16T15:20:03Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Scans for LiteLLM/Starlette (CVE-2026-42271, CVE-2026-48710), (Mon, Nov 16th)",
+   "source": "SANS Internet Storm Center",
+   "url": "https://isc.sans.edu/diary/rss/33522",
+   "published": "2026-11-16T13:11:04Z",
+   "first_seen": "2026-11-16T13:33:22Z",
+   "cves": [
+    "CVE-2026-42271",
+    "CVE-2026-48710"
+   ]
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Five Boston U. alumni sue University over reported data breach",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/16/five-boston-u-alumni-sue-university-over-reported-data-breach/",
+   "published": "2026-11-16T13:00:42Z",
+   "first_seen": "2026-11-16T13:33:22Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Six Unpatched Danfoss Refrigeration Controller Flaws Could Allow Remote Takeover Without Login",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/six-unpatched-danfoss-refrigeration.html",
+   "published": "2026-11-16T12:34:21Z",
+   "first_seen": "2026-11-16T13:33:22Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Microsoft previews remote lock for lost or stolen Windows devices",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/11/16/microsoft-remote-lock-feature-preview/",
+   "published": "2026-11-16T11:57:54Z",
+   "first_seen": "2026-11-16T13:33:22Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Australian retail giant Coles investigates cybersecurity incident",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/australian-retail-giant-coles-investigates-cybersecurity-incident/",
+   "published": "2026-11-16T11:18:09Z",
+   "first_seen": "2026-11-16T11:51:48Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Hackers Probe Newly Disclosed Flaws in Copeland Refrigeration Controllers",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/hackers-probe-newly-disclosed-flaws-in-copeland-refrigeration-controllers/",
+   "published": "2026-11-16T11:05:42Z",
+   "first_seen": "2026-11-16T11:51:48Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Uber Data Breach Impacts 150,000 People",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/uber-data-breach-impacts-150000-people/",
+   "published": "2026-11-16T11:02:48Z",
+   "first_seen": "2026-11-16T11:51:48Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Unpatched GeoVision camera software gave cryptojackers a side door into 13 organizations",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/11/16/geovision-camera-software-vulnerabilities/",
+   "published": "2026-11-16T10:07:57Z",
+   "first_seen": "2026-11-16T11:51:48Z",
+   "cves": []
+  }
+ ],
+ "kev_added": [],
+ "breaches": [
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Un ciberataque obligó a desconectar sistemas de Salvamento Marítimo en plena crisis migratoria",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.eldiario.es/tecnologia/ciberataque-obligo-desconectar-sistemas-salvamento-maritimo-plena-crisis-migratoria_1_13651742.html",
+   "published": "2026-11-16T00:00:00Z",
+   "first_seen": "2026-11-16T09:44:09Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Supermarket giant Coles hit by cyber hack",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.couriermail.com.au/business/economy/retail/coles-calls-in-cyber-experts-after-security-incident-with-stores-operating-as-normal/news-story/cea0ee0788e896bc77887f2d48b4d689",
+   "published": "2026-11-16T00:00:00Z",
+   "first_seen": "2026-11-16T09:44:09Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Perry Local Schools closed Monday, Nov. 16, due to ‘cyber incident’",
+   "source": "ransomware.live disclosures",
+   "url": "https://fox8.com/news/stark-co-school-district-closed-due-to-cyber-incident/",
+   "published": "2026-11-16T00:00:00Z",
+   "first_seen": "2026-11-16T09:44:09Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Walliser KMU wird Opfer einer weltbekannten Hackergruppe",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.blick.ch/wirtschaft/weltbekannte-gentlemen-hacker-greifen-bringhen-group-im-wallis-an/vsqlnzn",
+   "published": "2026-11-16T00:00:00Z",
+   "first_seen": "2026-11-16T09:44:09Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "UT Arlington Breached by Qilin Ransomware as Campus MachForms Data Leaks",
+   "source": "ransomware.live disclosures",
+   "url": "https://homeland411.com/ut-arlington-breached-qilin-ransomware-machforms-data-leak/",
+   "published": "2026-11-16T00:00:00Z",
+   "first_seen": "2026-11-16T09:44:09Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Autopay заявила о кибератаке и доступе к данным о платежах — RMF24",
+   "source": "ransomware.live disclosures",
+   "url": "https://ua.news/ru/world/u-polshchi-autopay-zaiavila-pro-kiberataku-ta-dostup-do-danikh-pro-platezhi-rmf24",
+   "published": "2026-11-16T00:00:00Z",
+   "first_seen": "2026-11-16T11:51:48Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "広島ガス、電気契約情報約3,200件に漏えいのおそれ 両毛システムズへのランサムウェア攻撃で判明|セキュリティニュースのセキュリティ対策Lab",
+   "source": "ransomware.live disclosures",
+   "url": "https://rocket-boys.co.jp/security-measures-lab/hiroshima-gas-ryomo-electric-customer-data-3200-risk-2026/",
+   "published": "2026-11-16T00:00:00Z",
+   "first_seen": "2026-11-16T11:51:48Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "TJMG: Vazamento de dados após ataque cibernético é investigado | G1",
+   "source": "ransomware.live disclosures",
+   "url": "https://g1.globo.com/mg/minas-gerais/noticia/2026/11/15/tjmg-apura-vazamento-de-arquivos-apos-ataque-cibernetico.ghtml",
+   "published": "2026-11-16T00:00:00Z",
+   "first_seen": "2026-11-16T11:51:48Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "エイコー、ランサムウェア被害を公表 11月9日に一部システムで不正アクセス確認、振込先変更を装う連絡に注意喚起|セキュリティニュースのセキュリティ対策Lab",
+   "source": "ransomware.live disclosures",
+   "url": "https://rocket-boys.co.jp/security-measures-lab/eicoh-ransomware-unauthorized-access-payment-change-2026/",
+   "published": "2026-11-16T00:00:00Z",
+   "first_seen": "2026-11-16T11:51:48Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Muitinei patyrus kibernetinį incidentą, sustabdyta vartotojų valdymo portalo prieiga",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.lrt.lt/naujienos/lietuvoje/2/3110453/lietuvos-muitine-patyre-kibernetini-incidenta",
+   "published": "2026-11-16T00:00:00Z",
+   "first_seen": "2026-11-16T16:20:05Z",
+   "cves": []
+  }
+ ],
+ "ransomware_claims": {
+  "count": 127,
+  "groups": [
+   [
+    "n0n",
+    46
+   ],
+   [
+    "the gentlemen",
+    17
+   ],
+   [
+    "qilin",
+    14
+   ],
+   [
+    "N0n",
+    13
+   ],
+   [
+    "ShadowByt3$",
+    5
+   ],
+   [
+    "metaencryptor",
+    4
+   ],
+   [
+    "vortex",
+    3
+   ],
+   [
+    "vexy",
+    3
+   ],
+   [
+    "inc ransom",
+    2
+   ],
+   [
+    "aoqin leaks",
+    2
+   ]
+  ]
+ },
+ "archive_counts": {
+  "date": "2026-11-16",
+  "exploited": 0.0,
+  "ransomware": 10.0,
+  "breaches": 0.0,
+  "community": 1.2,
+  "kev": 0,
+  "claims": 127,
+  "breach_count": 0,
+  "accounts": 0,
+  "stories": 2,
+  "top": "World's Largest Brands Infected With Malware Via Optimizely",
+  "top_url": "https://blog.report-uri.com/worlds-largest-brands-infected-with-malware-via-optimizely/"
+ },
+ "sitreps": [
+  "sitreps/2026-11-16/041930Z.json",
+  "sitreps/2026-11-16/133343Z.json",
+  "sitreps/2026-11-16/152017Z.json",
+  "sitreps/2026-11-16/162048Z.json",
+  "sitreps/2026-11-16/172046Z.json",
+  "sitreps/2026-11-16/192033Z.json",
+  "sitreps/2026-11-16/202149Z.json",
+  "sitreps/2026-11-16/212017Z.json",
+  "sitreps/2026-11-16/222018Z.json",
+  "sitreps/2026-11-16/232031Z.json"
+ ]
+}
