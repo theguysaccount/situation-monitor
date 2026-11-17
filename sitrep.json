@@ -1,15 +1,15 @@
 {
- "written_at": "2026-11-17T03:19:43Z",
+ "written_at": "2026-11-17T04:12:22Z",
  "by": "Claude",
- "headline": "Optimizely supply chain attack plants malware on brand sites; Uber and Legoland customer data breaches; PHP2Shell hits Check Point",
+ "headline": "Optimizely supply chain malware reached CNN, Fox News, BBC and Salesforce sites; Uber and Legoland breaches; PHP2Shell hits Check Point",
  "bullets": [
   {
-   "text": "New: Legoland customer personal information has leaked, including annual pass barcodes, per DataBreaches.net. No details on scope or cause are given yet.",
-   "url": "https://databreaches.net/2026/11/16/customer-personal-information-leak-at-legoland-even-annual-pass-barcodes-stolen/"
+   "text": "New: BleepingComputer reports the Optimizely supply chain attack delivered malware to sites including CNN, Fox News, BBC and Salesforce. No CVE, affected versions or fix are given yet.",
+   "url": "https://www.bleepingcomputer.com/news/security/optimizely-supply-chain-attack-delivers-malware-to-cnn-fox-news-bbc-salesforce-sites/"
   },
   {
-   "text": "Still active, critical: an Optimizely supply chain attack has infected major brands' websites with malware, per BleepingComputer. No CVE, affected versions or fix are given yet.",
-   "url": "https://www.bleepingcomputer.com/news/security/optimizely-supply-chain-attack-infects-major-brands-sites-with-malware/"
+   "text": "Still active: Legoland customer personal information has leaked, including annual pass barcodes, per DataBreaches.net. No details on scope or cause are given yet.",
+   "url": "https://databreaches.net/2026/11/16/customer-personal-information-leak-at-legoland-even-annual-pass-barcodes-stolen/"
   },
   {
    "text": "Still active: Uber says nearly 150,000 people were impacted by a third-party breach (The Record); TechCrunch reports hackers stole driver's license information.",
