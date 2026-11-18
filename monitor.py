@@ -393,6 +393,17 @@ def _rx(p: str):
 # Rules in the "event" group describe that something happened (a breach, an attack,
 # a malicious release). A story usually says so several ways, so the group counts
 # once, at its strongest rule; every other rule adds up.
+OUTAGE = _rx(
+    r"\boutages?\b(?! lures?)|\b(?:goes|went|is|was|are|were) (?:down|offline)\b|\bground stop\b|\bground(?:s|ed|ing)? (?:all |\w+ )?(?:flights|planes|aircraft)\b"
+    r"|\bflights? (?:were |are )?(?:grounded|halted|suspended)|\bdisruptions?\b|\bdisrupt(?:s|ed|ing)? (?:\w+ ){0,3}(?:services|operations|flights|systems|email|outlook|teams|businesses|production|internal)\b"
+    r"|\b(?:services?|operations|systems|flights|networks?) (?:were |was |are |is )?(?:disrupted|unavailable|knocked out)\b|\brestor(?:es|ed|ing) (?:\w+ )?(?:services|systems|operations)\b"
+    r"|\boffl+ine\b|\bknock(?:s|ed)? (?:\w+ ){0,2}offline\b|\bhalt(?:s|ed)? (?:operations|production|flights|work)\b")
+# An outage that stops a country, a government or a platform millions depend on is news in itself.
+OUTAGE_SCALE = _rx(
+    r"global|worldwide|nationwide|massive|across the (?:us|u\.s\.|united states|country)|all flights|\bfaa\b|air traffic|airports?|airlines?|flights|planes"
+    r"|classified|\bnsa\b|national security agency|pentagon|military|government|federal|hospitals?|\bbanks?\b|banking|jpmorgan"
+    r"|microsoft|office 365|outlook|azure|\baws\b|amazon web services|google cloud|gmail|icloud|apple|cloudflare|crowdstrike|github|slack|okta")
+
 RULES = [  # (pattern, points, tag, group)
     (_rx(r"actively exploit|exploited in the wild|in-the-wild|under active (?:attack|exploitation)|mass[- ]exploit|being exploited|(?<!be )(?<!if )\bexploited\b|\bexploitation\b|\bexploit(?:s|ing)\b|(?:hackers?|attackers?|threat actors?|criminals|gangs?|groups?|apts?)\s+(?:\w+\s+){0,2}exploit\b"), 3, "actively-exploited", None),
     (_rx(r"\bzero[- ]?days?\b|\b0[- ]?days?\b"), 3, "zero-day", None),
@@ -401,6 +412,9 @@ RULES = [  # (pattern, points, tag, group)
     (_rx(r"data breach|\bbreach(?:ed|es|ing)?\b|\bhack(?:ed|s)?\b|\bpwned\b|\bstol(?:e|en)\b|\bsteal(?:s|ing)?\b|\btheft\b|\bheists?\b|\bpilfer|\bleak(?:s|ed)?\b|\bexpos(?:e|ed|es|ing)\b|exfiltrat|unauthori[sz]ed (?:access|party|actor)|suspicious activity|(?:change|reset) (?:their |your )?passwords|security incident|cyber[- ]?(?:incident|intrusion)|\bintrusions?\b|\bcompromis(?:e|ed|es|ing)\b|\bdrain(?:s|ed|ing)\b|\bdoxx?(?:ed|ing)?\b"), 3, "breach", "event"),
     (_rx(r"cyber[- ]?attack\b|\battacks? (?:on|against)\b|amid attacks|\bhit(?:s|ting)?\b(?! (?:a )?(?:record|new|high|low|\d))|\bsabotage|\broots\b|\b(?:push(?:es|ing)?|spread(?:s|ing)?|deliver(?:s|ing|ed)?|deploy(?:s|ing|ed)?|drop(?:s|ping)?|serv(?:e|es|ed|ing)) (?:\S+ ){0,2}(?:malware|backdoors?|infostealers?|stealers?|ransomware|trojans?|rats?|spyware|loaders?|web ?shells?)\b|mercenary spyware|commercial spyware|(?:school|hospital|university|bank|airline|retail|supermarket|government|council|city|county) (?:\w+ )?attacks?\b|\btarget(?:s|ed|ing)?\b|\bvictims?\b|\binfect(?:s|ed|ions?)\b|\brooted\b|\bhijack(?:s|ed|ing)?\b|\bdefac(?:e|ed|ement)\b|(?:phishing|malware|espionage|cyberespionage|hacking|spam|smishing|extortion|attack|influence|exploitation) (?:campaigns?|waves?|spree|attempts|incident)|\bwaves? of (?:cyber)?attacks"), 3, "attack", "event"),
     (_rx(r"cyber[- ]?attacks\b"), 2, "attack", "event"),
+    # Outages: a service, network or flights going down, whatever the cause (OUTAGE_SCALE below raises the big ones).
+    # Police "disrupting" a malware campaign and phishing that uses outage lures are not outages.
+    (OUTAGE, 2, "outage", "event"),
     (_rx(r"\bworm\b|self-propagat|\bwiper\b"), 3, "worm", None),
     (_rx(r"emergency (?:patch|fix|directive|update)|out-of-band|patch now|urgent(?:ly)? patch|shut (?:them |it )?down"), 2, "emergency", None),
     (_rx(r"nation[- ]state|state-sponsored|state-backed|\bapt ?\d*\b|china-(?:linked|nexus|backed|aligned)|russia-(?:linked|aligned|backed)|pro-russian|north korean?|iranian|\biran\b|\bchinese (?:hackers|attackers|threat|state|apt|spies)|\brussian (?:hackers|threat|state|apt|military|intelligence|turla|gru)|lazarus|typhoon|sandworm|kimsuky|turla|fancy bear|cozy bear|\bgru\b|espionage|threat (?:actors?|groups?|clusters?)"), 2, "nation-state", None),
@@ -409,7 +423,7 @@ RULES = [  # (pattern, points, tag, group)
     (_rx(r"credential|password|api keys?|secrets?\b|tokens?\b|environment variables|session cookies|private keys|passkeys?"), 1, "credentials", None),
     (_rx(r"backdoor|web ?shells?|infostealer|info-stealer|stealer|trojan|botnet|rootkit|malware|spyware|\brat\b|loader"), 1, "malware", None),
     (_rx(r"phishing|smishing|vishing|social engineering|impersonat|help ?desk"), 1, "phishing", None),
-    (_rx(r"\bddos\b|denial[- ]of[- ]service|\boutage\b|offline"), 1, "ddos", None),
+    (_rx(r"\bddos\b|denial[- ]of[- ]service"), 1, "ddos", None),
     (_rx(r"critical(?:\s+[\w.'-]+){0,2}?\s+(?:flaws?|vulnerabilit|bugs?|security|infrastructure|rce)|cvss(?: v?\d(?:\.\d)?)?(?: score)?(?: of)? (?:9\.\d|10)|\b(?:9\.\d|10\.0)(?:[- ]rated| cvss)|max(?:imum)?[- ]severity"), 2, "critical", None),
     (_rx(r"vulnerabilit|\bflaws?\b|\bbugs?\b|\bpatch(?:es|ed)?\b|security update|advisory|\bcve-"), 1, "vuln", None),
     (_rx(r"hospital|healthcare|health system|patients?\b|medical|pharma"), 1, "healthcare", None),
@@ -428,7 +442,7 @@ NOT_AN_EVENT = _rx(
     r"|\blaunch(?:es|ed)?\b|\bunveil|\bintroduc(?:e|es|ed|ing)\b|\bannounces (?!(?:a |a new )?(?:data|security|cyber))|valued at|\braise\b|raises|exits stealth|out of stealth|\bhelps (?:\w+ ){0,3}(?:teams|organi[sz]ations|companies|defenders|businesses)|open[- ]sources?|\brolls? out\b|\bdebuts?\b|startup|valuation|\bipo\b|earnings|in talks to|\bto buy\b|shell out|bug bount|\bbounty\b|product (?:launch|showcase)"
     # advice, opinion, explainers and research findings
     r"|\bhow to\b|\bguide\b|review:|best .{0,30}(?:apps|tools|vpns?)|\binterview(?:ed)? with\b|interview:|opinion|\blessons\b|\btips\b|best practices|explained|what (?:to|you) (?:know|need)"
-    r"|the rise of|the future of|the case for|wake-up call|emerges as|\bthriving\b|\bgrowing\b|on the rise|\brise in\b|\bmore (?:companies|organi[sz]ations|firms|businesses) (?:are|seek|seeking|turn|turning|adopt|adopting|plan|say|want)\b|\b(?:hackers|attackers|criminals) (?:could|may|might)\b|\bplans? to\b|financial (?:toll|impact|hit|fallout)|\bcosts? of\b|(?:investigates|disciplines?|fire[sd]|sack(?:s|ed)) (?:staff|employees?|workers)|\bsnoop|emotional|sleepless|grieving|\bhaunts?\b|disrupts? (?:\S+ ){0,4}botnet|found (?:\w+ )?exposed|\b(?:researchers?|academics|white hats?) (?:\w+ )?(?:pwn|hack|bypass|crack|show|demonstrate|reveal|break|exfiltrate|trick|jailbreak)|pwn2own|hackathon|\bctf\b|publicly exposed|\bin public (?:\w+ )?(?:repos|repositories|copies|buckets)\b|\bfaces? (?:\w+ ){0,2}risks?\b|severs? (?:\S+ ){0,3}access|benchmark|\byour\b(?!.*\b(?:patch|update)\b)|(?:model|pipeline|ai agents?)\b.{0,40}\b(?:builds?|built|generates?|chains?|writes?|finds?)\b|\b(?:finds?|found|discover(?:s|ed)?|uncover(?:s|ed)?)\b.{0,40}\b(?:bugs|flaws|vulnerabilities)\b|\bvs\.? |\bmyths?\b|checklist|\bplaybook\b|\bstrateg(?:y|ies)\b|\bjobs? (?:market|report)|careers?\b|predictions"
+    r"|the rise of|the future of|the case for|wake-up call|new normal|is a warning|emerges as|\bthriving\b|\bgrowing\b|on the rise|\brise in\b|\bmore (?:companies|organi[sz]ations|firms|businesses) (?:are|seek|seeking|turn|turning|adopt|adopting|plan|say|want)\b|\b(?:hackers|attackers|criminals) (?:could|may|might)\b|\bplans? to\b|financial (?:toll|impact|hit|fallout)|\bcosts? of\b|(?:investigates|disciplines?|fire[sd]|sack(?:s|ed)) (?:staff|employees?|workers)|\bsnoop|emotional|sleepless|grieving|\bhaunts?\b|disrupts? (?:\S+ ){0,4}botnet|found (?:\w+ )?exposed|\b(?:researchers?|academics|white hats?) (?:\w+ )?(?:pwn|hack|bypass|crack|show|demonstrate|reveal|break|exfiltrate|trick|jailbreak)|pwn2own|hackathon|\bctf\b|publicly exposed|\bin public (?:\w+ )?(?:repos|repositories|copies|buckets)\b|\bfaces? (?:\w+ ){0,2}risks?\b|severs? (?:\S+ ){0,3}access|benchmark|\byour\b(?!.*\b(?:patch|update)\b)|(?:model|pipeline|ai agents?)\b.{0,40}\b(?:builds?|built|generates?|chains?|writes?|finds?)\b|\b(?:finds?|found|discover(?:s|ed)?|uncover(?:s|ed)?)\b.{0,40}\b(?:bugs|flaws|vulnerabilities)\b|\bvs\.? |\bmyths?\b|checklist|\bplaybook\b|\bstrateg(?:y|ies)\b|\bjobs? (?:market|report)|careers?\b|predictions"
     r"|survey|report finds|\bstudy\b|\d+(?:\.\d+)?%|\bpercent\b|\bon average\b|\ban average of\b|\bq[1-4]\b|\bby 20\d\d\b|coming (?:months|years)|\bwill (?:face|see)\b|\bmost (?:companies|organi[sz]ations|firms|businesses|consumers|cisos|enterprises|developers)\b|increasingly|\bcoupon|\bsale\b"
     r"|\b(?:patch(?:es|ed)?|fix(?:es|ed)?|address(?:es)?)\s+(?:over |more than |nearly |about |around )?\d{2,}\b|patch tuesday|\b\d{2,}\s+(?:\w+\s+)?(?:vulnerabilities|flaws|bugs)\b"
     # courts, police and policy
@@ -457,6 +471,8 @@ def keyword_score(title: str, summary: str = "") -> tuple[float, list[str]]:
     tl, sl = title.lower(), summary.lower()
     score, tags, headline, groups, urgent = 0.0, [], 0.0, {}, False
     for rx, pts, tag, group in RULES:
+        if rx is OUTAGE and not rx.search(tl):
+            continue  # an outage only counts when the headline says so; summaries mention them in passing
         got = pts if rx.search(tl) else pts / 2 if rx.search(sl) else 0
         if not got and not (pts == 0 and (rx.search(tl) or rx.search(sl))):
             continue
@@ -475,6 +491,8 @@ def keyword_score(title: str, summary: str = "") -> tuple[float, list[str]]:
             continue
         biggest = max(biggest, float(num) * (1e9 if unit.lower().startswith("b") else 1e6))
     score += 2 if biggest >= 50e6 else 1 if biggest >= 1e6 else 0
+    if OUTAGE.search(tl) and OUTAGE_SCALE.search(tl):
+        score += 2
     not_event = NOT_AN_EVENT.search(tl) or ROUNDUP.search(tl) or QUESTION.search(tl)
     if not_event:
         score -= 3
@@ -1478,6 +1496,56 @@ def update_history(ctx: dict, items: list[dict], now: datetime, sources: list[di
     save_json(STATE / "history.json", hist, compact=True)
 
 
+EVENT_TYPES = ("news", "advisory", "breach", "supply-chain")
+EVENTS_PER_DAY = 3
+EXTRA_OUTAGES = 2  # outage lines a day can add beyond the top stories
+EVENT_DAYS = 90  # how long the chart keeps each day's top stories
+
+
+def story_words(title: str) -> set:
+    return {w for w in re.findall(r"[a-z0-9]{4,}", title.lower()) if w not in STOP}
+
+
+def day_events(items: list[dict], day: str) -> list[list]:
+    """The day's biggest stories for the trend chart's hover: the three biggest critical and high reports, the
+    most widely covered first, one per story (headlines sharing three or more words count as one), plus up to two
+    of the day's outages. Each is [title, url, source, severity, "outage" or ""]."""
+    pool = [it for it in items if it["type"] in EVENT_TYPES and (it.get("published") or "")[:10] == day
+            and (SEV_RANK[it["severity"]] >= 2 or (_has(it, "outage") and SEV_RANK[it["severity"]] >= 1))]
+    words = {it["id"]: story_words(it["title"]) for it in pool}
+    reach = {it["id"]: sum(len(words[it["id"]] & words[o["id"]]) >= 3 for o in pool) for it in pool}
+    pool.sort(key=lambda it: (SEV_RANK[it["severity"]], reach[it["id"]], _has(it, "outage"), it.get("published") or ""),
+              reverse=True)
+
+    def pick(cands, picked, limit):
+        for it in cands:
+            if len(picked) >= limit:
+                break
+            if all(len(words[it["id"]] & words[q["id"]]) < 3 for q in picked):
+                picked.append(it)
+        return picked
+
+    picked = pick(pool, [], EVENTS_PER_DAY)
+    # Up to two more lines for the day's outages, the ones that stopped a country, a government or a big platform first.
+    outages = sorted((it for it in pool if _has(it, "outage")), reverse=True,
+                     key=lambda it: (SEV_RANK[it["severity"]], bool(OUTAGE_SCALE.search(it["title"])), reach[it["id"]]))
+    picked = pick(outages, picked, EVENTS_PER_DAY + EXTRA_OUTAGES)
+    return [[clean(it["title"], 140), it["url"] if str(it.get("url", "")).startswith("https://") else "", it["source"],
+             it["severity"], "outage" if _has(it, "outage") else ""] for it in picked]
+
+
+def update_events(hist: dict, items: list[dict], now: datetime) -> None:
+    """Recompute each day the board still fully covers; days that have left the board keep what was recorded."""
+    ev = hist.setdefault("events", {})
+    for back in range(WINDOW_DAYS):
+        day = (now - timedelta(days=back)).date().isoformat()
+        got = day_events(items, day)
+        if got:
+            ev[day] = got
+    keep = (now - timedelta(days=EVENT_DAYS)).date().isoformat()
+    hist["events"] = {d: v for d, v in sorted(ev.items()) if d >= keep}
+
+
 def history_series(hist: dict, now: datetime) -> dict:
     kev, hibp, claims = hist.get("kev", {}), hist.get("hibp", {}), hist.get("claims", {})
     covered = set(hist.get("claims_fetched", {}))
@@ -1518,6 +1586,7 @@ def history_series(hist: dict, now: datetime) -> dict:
         "peak30": [rows[peak][0], round(totals[peak], 1), rows[peak][10]] if peak is not None else None,
         "claims_from": min((d for d in claims), default=None),
         "sitcon": changes[-300:], "sitcon_since": readings[0][0] if readings else None,
+        "events": {r[0]: hist["events"][r[0]] for r in rows if r[0] in (hist.get("events") or {})},
     }
 
 
@@ -1646,6 +1715,7 @@ def build(items: list[dict], packages: list[dict], status: list[dict], cfg: dict
     if meta.get("record_reading"):  # sweeps record the live level; rebuilds don't
         hist.setdefault("sitcon", []).append([iso(now), level["value"], level["heat"]])
         hist["sitcon"] = hist["sitcon"][-6000:]
+        update_events(hist, items, now)
         save_json(STATE / "history.json", hist, compact=True)
     data["history"] = history_series(hist, now)
     data["cves"] = hist.get("cves")
@@ -1803,6 +1873,7 @@ FEED_FILTERS = (
     ("all", "Everything", lambda it: True),
     ("exploited", "Exploited", lambda it: it["type"] == "kev" or _has(it, "actively-exploited") or _has(it, "zero-day")),
     ("breach", "Breaches", lambda it: it["type"] == "breach" or (it["type"] == "news" and _has(it, "breach") and it["severity"] != "low")),
+    ("outage", "Outages", lambda it: _has(it, "outage")),
     ("ransomware", "Ransomware", lambda it: it["type"] == "ransomware" or _has(it, "ransomware")),
     ("supply", "Supply chain", lambda it: it["type"] == "supply-chain" or _has(it, "supply-chain")),
     ("vulns", "Advisories", lambda it: it["type"] in ("advisory", "vuln")),

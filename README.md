@@ -95,6 +95,8 @@ A source that fails keeps its last items on the board, and the Sources table on 
 - The rules are measured against 300 hand-labelled headlines in `tests/fixtures/scoring_gold.json`: on the 30% held out, high-or-critical has precision 0.85 and recall 0.89 (November 2026). `python3 tests/test_scoring.py` prints the current numbers and the mistakes on the tuning part; the checks fail if held-out precision or recall drops below 0.85.
 - **CISA KEV entries** are critical for 72 hours after they're added, or for as long as they're tied to ransomware; high after that.
 - **Have I Been Pwned breaches** are critical at 10M+ accounts and high at 1M+.
+- **Outages** count too: a headline saying a service, network or flights went down, was disrupted or was taken offline is tagged `outage` and listed under the **Outages** tab, whatever the cause. One that names a country, a government, the military, an airline or airport, a bank, a hospital or a platform millions use (Microsoft 365, AWS, iCloud, Cloudflare and the like) scores high: the FAA ground stop, the NSA's classified network going down and the global Microsoft 365 outage of November 2026 all did. Police "disrupting" a malware campaign and phishing that uses outage lures are not outages.
+- **The trend chart's hover** lists each day's biggest stories (the three biggest critical or high reports, the most widely covered first, plus up to two of the day's outages, national and global ones first), kept for 90 days; older days show the archive's top item.
 - **Developing situations** are names and CVEs that at least three outlets carried in the last 72 hours (two, if one is CISA KEV), merged when they share most of their reports.
   - Roundups and headlines that list several products ("OpenSSH, GPUStack, FreeSWITCH, and IBM") join no story. Generic words (Secure, Firewall, University, SSH) and platform names (Microsoft, Claude) never link reports on their own.
   - A CISA KEV entry links only through its CVE and its product's name, and two KEV entries for different products never share a story.
@@ -143,8 +145,8 @@ The first sweep only records a baseline and alerts on nothing.
 
 ## The analyst (a Claude scheduled task)
 
-The maintainer's Claude scheduled task **The Situation Monitor: hourly sweep** runs
-once an hour while the Claude app is open. It sweeps nothing itself: there is one
+The maintainer's Claude scheduled task **The Situation Monitor: daily briefing** runs
+once a day (a run missed while the Mac sleeps happens when it wakes). It sweeps nothing itself: there is one
 pipeline (the GitHub sweep) and one memory (its Actions cache). Each run:
 
 1. starts the GitHub sweep, then runs `monitor.py --from-site --wait 150`, which waits for that sweep to go live, downloads the published `changes.json`, `situation.json` with `more.json` (joined back into the whole board) and `live.json`, and reports as JSON what was first seen since the analyst last looked (its only memory is `state/analyst.json`)

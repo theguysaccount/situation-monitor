@@ -32,7 +32,7 @@ from common import UA, Checks, fetch, github_api, sitemap_locs, tls_days_left  #
 ROOT = Path(__file__).resolve().parent.parent
 WORKFLOW = "situation-monitor.yml"
 HEAL_AFTER_MINUTES = 75
-WARN_AFTER_HOURS, FAIL_AFTER_HOURS = 2, 6
+WARN_AFTER_HOURS, FAIL_AFTER_HOURS = 8, 12  # GitHub runs the 30-minute schedule a few times a day
 WARN_SOURCE_SHARE, FAIL_SOURCE_SHARE = 0.8, 0.6
 SITREP_WARN_HOURS = 36   # the site drops an analyst SITREP older than this
 TLS_WARN_DAYS, TLS_FAIL_DAYS = 21, 10

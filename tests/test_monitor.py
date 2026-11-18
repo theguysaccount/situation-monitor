@@ -160,6 +160,65 @@ class Level(unittest.TestCase):
         self.assertEqual(m.settle_level(want2, {}, now, sweep=True)["value"], 2)  # first sweep ever
 
 
+class Outages(unittest.TestCase):
+    """Outages are tracked whatever their cause; the big ones (Nov 2026: FAA ground stop, NSA network, Microsoft 365) score high."""
+    def sev(self, title):
+        score, tags = m.keyword_score(title)
+        return m.sev_from_score(score), "outage" in tags
+
+    def test_national_and_global_outages_score_high(self):
+        for title in ("Classified Communications Network at the National Security Agency Goes Down, Defense Official Says",
+                      "US government grounds all flights across the United States 'due to extraordinary circumstances'",
+                      "FAA Ground Stop Issued Due to 'Extraordinary Circumstances'",
+                      "Massive Microsoft 365 outage disrupts Outlook, Teams, Copilot worldwide",
+                      "NSA Net, agency's classified internal network, faces unspecified disruptions"):
+            self.assertEqual(self.sev(title), ("high", True), title)
+
+    def test_smaller_outages_are_tagged_but_not_raised(self):
+        self.assertEqual(self.sev("Lego marketplace BrickLink offline for almost a day"), ("medium", True))
+
+    def test_takedowns_lures_and_commentary_are_not_outages(self):
+        self.assertFalse(self.sev("Law Enforcement Disrupts Gootloader, CastleRAT, and StealC Infrastructure")[1])
+        self.assertFalse(self.sev("High volume phishing campaign uses Microsoft 365 outage lures")[1])
+        self.assertEqual(self.sev("Daily disruptive outages that ground planes and halt work - welcome to the new normal")[0], "medium")
+
+    def test_only_the_headline_makes_an_outage(self):
+        self.assertNotIn("outage", m.keyword_score("Statement from Microsoft", "the outage last week was a bug")[1])
+
+    def test_outages_tab_exists(self):
+        self.assertIn(("outage", "Outages"), [(f, label) for f, label, _ in m.FEED_FILTERS])
+
+
+class ChartEvents(unittest.TestCase):
+    NOW = datetime(2026, 11, 18, 14, 0, tzinfo=timezone.utc)
+
+    def it(self, id_, title, sev, day="2026-11-13", tags=()):
+        return {"id": id_, "type": "news", "title": title, "url": f"https://example.com/{id_}", "source": "Example",
+                "severity": sev, "published": day + "T10:00:00Z", "tags": list(tags)}
+
+    def test_top_stories_one_per_story_with_the_outage(self):
+        items = [self.it("a", "Hackers exploit Fortinet zero-day in mass attacks", "critical"),
+                 self.it("b", "Fortinet zero-day exploited in mass attacks on firewalls", "critical"),
+                 self.it("c", "Ransomware gang claims attack on Belarusian cloud firm", "high"),
+                 self.it("d", "Botnet hits Brazilian telecoms", "high"),
+                 self.it("e", "FAA ground stop grounds all flights", "high", tags=["outage"]),
+                 self.it("f", "Minor bug in a library", "low")]
+        items[4]["severity"] = "medium"
+        ev = m.day_events(items, "2026-11-13")
+        self.assertEqual(len(ev), 4)  # three top stories and the day's outage
+        self.assertEqual(ev[0][0], "Hackers exploit Fortinet zero-day in mass attacks")  # covered twice, so first
+        self.assertNotIn("Fortinet zero-day exploited in mass attacks on firewalls", [e[0] for e in ev])  # same story
+        self.assertEqual(ev[-1][4], "outage")  # the day's outage always makes the list
+
+    def test_history_keeps_events_after_reports_leave_the_board(self):
+        hist = {"events": {"2026-11-01": [["Old story", "https://example.com/o", "Example", "high", ""]]}}
+        m.update_events(hist, [self.it("e", "Massive Microsoft 365 outage", "high", tags=["outage"])], self.NOW)
+        self.assertIn("2026-11-01", hist["events"])
+        self.assertEqual(hist["events"]["2026-11-13"][0][4], "outage")
+        series = m.history_series(hist, self.NOW)
+        self.assertEqual(series["events"]["2026-11-13"][0][0], "Massive Microsoft 365 outage")
+
+
 class PromotedPackages(unittest.TestCase):
     """A malicious package named in the news goes on the board; on Nov 18 2026 one arrived without a
     severity and crashed every sweep in the story grouping."""
