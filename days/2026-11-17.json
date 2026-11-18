@@ -1,0 +1,568 @@
+{
+ "schema": 1,
+ "date": "2026-11-17",
+ "source": "sweep",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-11-17T00:20:04Z",
+    3,
+    288.7
+   ],
+   [
+    "2026-11-17T01:20:01Z",
+    3,
+    291.2
+   ],
+   [
+    "2026-11-17T01:22:18Z",
+    3,
+    291.2
+   ],
+   [
+    "2026-11-17T02:19:21Z",
+    3,
+    299.7
+   ],
+   [
+    "2026-11-17T02:20:37Z",
+    3,
+    299.7
+   ],
+   [
+    "2026-11-17T03:11:57Z",
+    3,
+    299.1
+   ],
+   [
+    "2026-11-17T03:19:21Z",
+    3,
+    302.2
+   ],
+   [
+    "2026-11-17T03:20:29Z",
+    3,
+    302.2
+   ],
+   [
+    "2026-11-17T04:12:00Z",
+    3,
+    304.1
+   ],
+   [
+    "2026-11-17T04:13:03Z",
+    3,
+    304.1
+   ],
+   [
+    "2026-11-17T11:59:49Z",
+    3,
+    296.7
+   ],
+   [
+    "2026-11-17T14:46:01Z",
+    3,
+    308.8
+   ],
+   [
+    "2026-11-17T20:55:21Z",
+    3,
+    314.4
+   ],
+   [
+    "2026-11-17T23:02:40Z",
+    3,
+    326.9
+   ]
+  ],
+  "hours_at_level": {
+   "3": 14
+  },
+  "highest": 3,
+  "lowest": 3
+ },
+ "first_seen": {
+  "count": 185,
+  "by_severity": {
+   "medium": 96,
+   "high": 40,
+   "low": 45,
+   "critical": 4
+  },
+  "by_type": {
+   "ransomware": 59,
+   "news": 98,
+   "vuln": 1,
+   "advisory": 15,
+   "community": 3,
+   "breach": 8,
+   "kev": 1
+  }
+ },
+ "situations": [
+  {
+   "name": "Optimizely",
+   "severity": "critical",
+   "outlets": 6,
+   "reports": 7,
+   "cves": [],
+   "lead": {
+    "title": "Optimizely Vulnerability Exploited to Serve Malware on Major Websites",
+    "url": "https://www.securityweek.com/optimizely-vulnerability-exploited-to-serve-malware-on-major-websites/",
+    "source": "SecurityWeek",
+    "published": "2026-11-17T10:22:20Z"
+   }
+  },
+  {
+   "name": "Uber",
+   "severity": "high",
+   "outlets": 5,
+   "reports": 5,
+   "cves": [],
+   "lead": {
+    "title": "Uber says nearly 150,000 impacted by third-party breach",
+    "url": "https://therecord.media/uber-says-150000-impacted-third-party-breach",
+    "source": "The Record",
+    "published": "2026-11-17T20:55:21Z"
+   }
+  },
+  {
+   "name": "Java4Shell",
+   "severity": "critical",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [
+    "CVE-2026-114938"
+   ],
+   "lead": {
+    "title": "Critical Java4Shell flaw allows RCE attacks on major Java applications",
+    "url": "https://www.bleepingcomputer.com/news/security/critical-java4shell-flaw-allows-rce-attacks-on-major-java-applications/",
+    "source": "BleepingComputer",
+    "published": "2026-11-17T23:04:21Z"
+   }
+  },
+  {
+   "name": "Fugaku",
+   "severity": "high",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [],
+   "lead": {
+    "title": "Japan takes Fugaku supercomputer offlline after cyberattack",
+    "url": "https://www.bleepingcomputer.com/news/security/japan-takes-fugaku-supercomputer-offlline-after-cyberattack/",
+    "source": "BleepingComputer",
+    "published": "2026-11-17T20:51:21Z"
+   }
+  }
+ ],
+ "top_reports": [
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Optimizely Vulnerability Exploited to Serve Malware on Major Websites",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/optimizely-vulnerability-exploited-to-serve-malware-on-major-websites/",
+   "published": "2026-11-17T10:22:20Z",
+   "first_seen": "2026-11-17T11:59:49Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Google finds AI agent writing and launching exploits with no human in the loop",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/11/17/ai-powered-cyberattacks-gtig-report/",
+   "published": "2026-11-17T08:45:24Z",
+   "first_seen": "2026-11-17T11:59:49Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Optimizely supply chain attack infects major brands' sites with malware",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/optimizely-supply-chain-attack-infects-major-brands-sites-with-malware/",
+   "published": "2026-11-17T02:12:17Z",
+   "first_seen": "2026-11-17T02:19:21Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "A vulnpocalypse bug worthy of attention: Researchers disclose critical flaw in Java with help of AI",
+   "source": "CyberScoop",
+   "url": "https://cyberscoop.com/java4shell-critical-java-flaw-openjdk/",
+   "published": "2026-11-17T22:24:39Z",
+   "first_seen": "2026-11-17T23:02:40Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Cloud keys leaked in Docker Hub images are stolen within seconds",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/cloud-keys-leaked-in-docker-hub-images-are-stolen-within-seconds/",
+   "published": "2026-11-17T21:27:17Z",
+   "first_seen": "2026-11-17T23:02:40Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Website management platform Optimizely confirms hackers put malicious code into customer sites",
+   "source": "The Record",
+   "url": "https://therecord.media/optimizely-malicious-code-customer-sites",
+   "published": "2026-11-17T21:20:00Z",
+   "first_seen": "2026-11-17T23:02:40Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "'TheMailer' Phishing Kit Puts AI in the Driver's Seat",
+   "source": "Dark Reading",
+   "url": "https://www.darkreading.com/perimeter/themailer-phishing-kit-ai-drivers-seat",
+   "published": "2026-11-17T20:58:13Z",
+   "first_seen": "2026-11-17T23:02:40Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Uber says nearly 150,000 impacted by third-party breach",
+   "source": "The Record",
+   "url": "https://therecord.media/uber-says-150000-impacted-third-party-breach",
+   "published": "2026-11-17T20:55:21Z",
+   "first_seen": "2026-11-17T02:19:21Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Japan takes Fugaku supercomputer offlline after cyberattack",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/japan-takes-fugaku-supercomputer-offlline-after-cyberattack/",
+   "published": "2026-11-17T20:51:21Z",
+   "first_seen": "2026-11-17T20:55:21Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Cyberattack or no, parade of tech outages highlight need for resilient systems, CISA acting director says",
+   "source": "CyberScoop",
+   "url": "https://cyberscoop.com/cisa-nick-andersen-cyber-resilience-outages/",
+   "published": "2026-11-17T19:58:05Z",
+   "first_seen": "2026-11-17T20:55:21Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Researchers Claim Two RCE Exploits That Bypass Telegram’s New Android Defenses",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/researchers-claim-two-rce-exploits-that.html",
+   "published": "2026-11-17T19:34:20Z",
+   "first_seen": "2026-11-17T20:55:21Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Chinese state group developing automated attack tool for cyber espionage, Google says",
+   "source": "The Record",
+   "url": "https://therecord.media/chinese-state-group-developing-automated-attack-tool-espionage",
+   "published": "2026-11-17T18:50:00Z",
+   "first_seen": "2026-11-17T20:55:21Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Cursor Traces Malicious Claude Code Extension to Third-Party Breach",
+   "source": "Dark Reading",
+   "url": "https://www.darkreading.com/application-security/cursor-malicious-claude-code-extension-third-party-breach",
+   "published": "2026-11-17T18:38:37Z",
+   "first_seen": "2026-11-17T20:55:21Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "IE: Suspected data breach at 43 credit unions could affect hundreds of thousands of members",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/17/ie-suspected-data-breach-at-43-credit-unions-could-affect-hundreds-of-thousands-of-members/",
+   "published": "2026-11-17T18:28:55Z",
+   "first_seen": "2026-11-17T20:55:21Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Researchers hijack Hugging Face account for popular Kokoro AI model",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/researchers-hijack-hugging-face-account-for-popular-kokoro-ai-model/",
+   "published": "2026-11-17T18:21:24Z",
+   "first_seen": "2026-11-17T20:55:21Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "AI Framework Autonomously Weaponized Flaws in Real Attacks, Google Says",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/ai-framework-autonomously-weaponized-flaws-in-real-attacks-google-says/",
+   "published": "2026-11-17T18:16:17Z",
+   "first_seen": "2026-11-17T20:55:21Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Tor releases emergency update amid ongoing DDoS attack",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/tor-releases-emergency-update-amid-ongoing-ddos-attack/",
+   "published": "2026-11-17T18:04:15Z",
+   "first_seen": "2026-11-17T20:55:21Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Hackers smash 'n' grab AI vendor: Take off with license data of Uber drivers",
+   "source": "The Register",
+   "url": "https://www.theregister.com/security/2026/11/17/hackers-smash-n-grab-ai-vendor-take-off-with-license-data-of-uber-drivers/5310464",
+   "published": "2026-11-17T16:15:00Z",
+   "first_seen": "2026-11-17T20:55:21Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Healthcare firms fail to monitor AI tools, even as shadow AI begins leading to breaches",
+   "source": "Cybersecurity Dive",
+   "url": "https://www.cybersecuritydive.com/news/healthcare-ai-cybersecurity-monitoring/874902/",
+   "published": "2026-11-17T16:03:24Z",
+   "first_seen": "2026-11-17T20:55:21Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Trigram Campaign Impersonates About 50 AI and Blockchain Brands to Target Devs with Infostealers",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/trigram-campaign-impersonates-about-50.html",
+   "published": "2026-11-17T15:17:28Z",
+   "first_seen": "2026-11-17T20:55:21Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "​Cyberattack on Japan’s Fugaku Supercomputer Puts Data of 4,597 Users at Risk",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/17/cyberattack-on-japans-fugaku-supercomputer-puts-data-of-4597-users-at-risk/",
+   "published": "2026-11-17T15:13:38Z",
+   "first_seen": "2026-11-17T20:55:21Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Inside Modern Phishing Kits Built to Steal Microsoft 365 Sessions",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/inside-modern-phishing-kits-built-to-steal-microsoft-365-sessions/",
+   "published": "2026-11-17T15:01:11Z",
+   "first_seen": "2026-11-17T20:55:21Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "MA: Andover Withholds Cyberattack Alerts, Four Internal Reviews",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/17/ma-andover-withholds-cyberattack-alerts-four-internal-reviews/",
+   "published": "2026-11-17T14:57:59Z",
+   "first_seen": "2026-11-17T20:55:21Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Market Research Giant Ipsos Investigating Breach of Internal System",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/market-research-giant-ipsos-investigating-breach-of-internal-system/",
+   "published": "2026-11-17T14:55:30Z",
+   "first_seen": "2026-11-17T20:55:21Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "NH: Monadnock Community Hospital server outage due to ‘cyber incident,’ officials say",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/17/nh-monadnock-community-hospital-server-outage-due-to-cyber-incident-officials-say/",
+   "published": "2026-11-17T14:15:58Z",
+   "first_seen": "2026-11-17T14:46:01Z",
+   "cves": []
+  }
+ ],
+ "kev_added": [
+  {
+   "cve": "CVE-2026-115731",
+   "vendor": "Perforce",
+   "product": "Puppet Enterprise",
+   "title": "CVE-2026-115731: Perforce Puppet Enterprise Deserialization of Untrusted Data Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115731",
+   "due": "2026-12-01",
+   "ransomware": false
+  }
+ ],
+ "breaches": [
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "South Portland closes city offices after cybersecurity incident",
+   "source": "ransomware.live disclosures",
+   "url": "https://wgme.com/news/local/south-portland-closes-city-offices-after-cybersecurity-incident-maine",
+   "published": "2026-11-17T00:00:00Z",
+   "first_seen": "2026-11-17T11:59:49Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Hospital Clínico de la Universidad de Chile confirma ciberataque: presenta \"dificultades en procesos de atención y servicios\"",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.t13.cl/noticia/nacional/hospital-clinico-universidad-chile-denuncia-ciberataque-presenta-dificultades-p-16-11-2026",
+   "published": "2026-11-17T00:00:00Z",
+   "first_seen": "2026-11-17T14:46:01Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Cyberangriff auf Kreiskrankenhaus in Greiz",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.kma-online.de/aktuelles/it-digital-health/detail/cyberangriff-auf-kreiskrankenhaus-in-greiz-56516",
+   "published": "2026-11-17T00:00:00Z",
+   "first_seen": "2026-11-17T14:46:01Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "證期權",
+   "source": "ransomware.live disclosures",
+   "url": "https://ww2.money-link.com.tw/RealtimeNews/NewsContent.aspx?SN=2446665002&PU=0010",
+   "published": "2026-11-17T00:00:00Z",
+   "first_seen": "2026-11-17T14:46:01Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Atak na urząd pracy w Zgorzelcu. Nie działa część systemów",
+   "source": "ransomware.live disclosures",
+   "url": "https://cyberdefence24.pl/cyberbezpieczenstwo/cyberataki/atak-na-urzad-pracy-w-zgorzelcu-nie-dziala-czesc-systemow",
+   "published": "2026-11-17T00:00:00Z",
+   "first_seen": "2026-11-17T14:46:01Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Nephrology Associates Data Breach: Ransomware in CT",
+   "source": "ransomware.live disclosures",
+   "url": "https://openclassactions.com/news/data-breaches/nephrology-associates-connecticut-ransomware-data-breach.php",
+   "published": "2026-11-17T00:00:00Z",
+   "first_seen": "2026-11-17T14:46:01Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "驊陞部分資訊系統遭網路攻擊，核心系統未受影響",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.ithome.com.tw/news/180554",
+   "published": "2026-11-17T00:00:00Z",
+   "first_seen": "2026-11-17T14:46:01Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Sans fournir de détail sur \"la nature et l'ampleur de l'incident\", l'institut de sondage Ipsos annonce avoir été victime d'une cyberattaque",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.bfmtv.com/tech/cybersecurite/sans-fournir-de-detail-sur-la-nature-et-l-ampleur-de-l-incident-l-institut-de-sondage-ipsos-annonce-avoir-ete-victime-d-une-cyberattaque_AD-202611160791.html",
+   "published": "2026-11-17T00:00:00Z",
+   "first_seen": "2026-11-17T14:46:01Z",
+   "cves": []
+  }
+ ],
+ "ransomware_claims": {
+  "count": 54,
+  "groups": [
+   [
+    "booba team",
+    6
+   ],
+   [
+    "Booba Project",
+    6
+   ],
+   [
+    "vortex",
+    6
+   ],
+   [
+    "brain cipher",
+    4
+   ],
+   [
+    "Inception",
+    4
+   ],
+   [
+    "Vortex",
+    4
+   ],
+   [
+    "the gentlemen",
+    2
+   ],
+   [
+    "endzone",
+    2
+   ],
+   [
+    "aoqin leaks",
+    2
+   ],
+   [
+    "Aoqin",
+    2
+   ]
+  ]
+ },
+ "archive_counts": {
+  "date": "2026-11-17",
+  "exploited": 4.0,
+  "ransomware": 10.0,
+  "breaches": 0.0,
+  "community": 1.2,
+  "kev": 1,
+  "claims": 54,
+  "breach_count": 0,
+  "accounts": 0,
+  "stories": 2,
+  "top": "Java4Shell: pre-auth RCE flaw in Java 17 puts servers at risk (CVE-2026-114938)",
+  "top_url": "https://www.aikido.dev/blog/java-17-rce-vulnerability-cve-2026-114938"
+ },
+ "sitreps": [
+  "sitreps/2026-11-17/012016Z.json",
+  "sitreps/2026-11-17/021943Z.json",
+  "sitreps/2026-11-17/031943Z.json",
+  "sitreps/2026-11-17/041222Z.json"
+ ]
+}

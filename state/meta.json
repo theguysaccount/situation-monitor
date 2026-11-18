@@ -641,6 +641,7 @@
   "pentaho",
   "peoplesoft",
   "peopletools",
+  "perforce",
   "perl",
   "phones",
   "photo",
@@ -694,6 +695,7 @@
   "ptzoptics",
   "publisher",
   "pulse",
+  "puppet",
   "qlik",
   "qnap",
   "qts",
@@ -2608,6 +2610,7 @@
   "CVE-2026-111793",
   "CVE-2026-114625",
   "CVE-2026-114713",
+  "CVE-2026-115731",
   "CVE-2026-11645",
   "CVE-2026-116606",
   "CVE-2026-116779",
@@ -2799,7 +2802,7 @@
   "since": "2026-11-12T01:03:41Z",
   "pending": 4
  },
- "last_sweep_at": "2026-11-17T00:20:04Z",
+ "last_sweep_at": "2026-11-18T02:54:13Z",
  "clock": {
   "skew_seconds": 0,
   "source": "server Date headers"
