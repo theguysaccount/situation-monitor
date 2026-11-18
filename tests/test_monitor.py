@@ -160,6 +160,20 @@ class Level(unittest.TestCase):
         self.assertEqual(m.settle_level(want2, {}, now, sweep=True)["value"], 2)  # first sweep ever
 
 
+class PromotedPackages(unittest.TestCase):
+    """A malicious package named in the news goes on the board; on Nov 18 2026 one arrived without a
+    severity and crashed every sweep in the story grouping."""
+    def test_promoted_package_is_scored_and_groups_without_error(self):
+        now = datetime(2026, 11, 18, 12, 0, tzinfo=timezone.utc)
+        pkg = {"name": "optimizely-sdk", "ecosystem": "npm", "versions": "9.9.9", "url": "https://github.com/advisories/GHSA-x",
+               "published": "2026-11-18T08:00:00Z", "summary": "Malicious code.", "ghsa": "GHSA-x"}
+        ctx = {"now": now, "news_text": "attackers trojanized optimizely-sdk on npm", "seen": {}, "kev_cves": set(), "vocab": set()}
+        (it,) = m.promote_packages([pkg], ctx)
+        self.assertEqual(it["severity"], "critical")
+        self.assertIn("supply-chain", it["tags"])
+        m.find_situations([it], ctx)  # raised KeyError: 'severity' before the fix
+
+
 class Situations(unittest.TestCase):
     """Story grouping and names on two real boards (tests/fixtures/situations.json)."""
     FIX = None
