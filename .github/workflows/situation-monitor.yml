@@ -73,7 +73,7 @@ jobs:
       - name: Sweep sources and send alerts
         env:
           SM_SITE_URL: ${{ vars.SM_SITE_URL }}
-          SM_SCHEDULE_NOTE: Every 30 minutes, via GitHub Actions
+          SM_SCHEDULE_NOTE: Several times a day via GitHub Actions; analyst briefing daily
           SM_WATCHLIST: ${{ vars.SM_WATCHLIST }}
           SM_MIN_SEVERITY: ${{ vars.SM_MIN_SEVERITY }}
           SM_SLACK_WEBHOOK: ${{ secrets.SM_SLACK_WEBHOOK }}

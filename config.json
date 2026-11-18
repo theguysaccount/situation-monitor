@@ -1,7 +1,7 @@
 {
   "site_url": "https://thesituationmonitor.org/",
   "repo_url": "https://github.com/theguysaccount/situation-monitor",
-  "schedule_note": "Hourly, via a Claude scheduled task on the owner's Mac",
+  "schedule_note": "Several times a day via GitHub Actions; analyst briefing daily",
   "level_thresholds": [
     250,
     290,
