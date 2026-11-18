@@ -1311,6 +1311,7 @@ def promote_packages(packages: list[dict], ctx: dict) -> list[dict]:
                            f"{p['summary']} Flagged in the GitHub Advisory Database and named in this week's coverage.",
                            {"packages": [f"{p['ecosystem']}/{p['name']}"], "versions": p["versions"]}, uid=f"pkg:{p['ghsa']}")
             it["first_seen"] = ctx["seen"].get(it["id"])
+            rescore(it, ctx)  # promoted after build() rescored the rest: it needs a severity and tags too
             out.append(it)
     return out
 
