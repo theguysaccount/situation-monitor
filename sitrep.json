@@ -1,39 +1,39 @@
 {
- "written_at": "2026-11-18T14:08:24Z",
+ "written_at": "2026-11-18T14:09:40Z",
  "by": "Claude",
- "headline": "Java4Shell RCE flaw (CVE-2026-114938) in Java apps; Optimizely confirms malicious code on customer sites; Puppet Enterprise bug added to KEV",
+ "headline": "Puppet RCE now exploited; Java4Shell (CVE-2026-114938) threatens Jira, Jenkins, Keycloak; Microsoft Agent Framework PyPI package poisoned",
  "bullets": [
   {
-   "text": "New, critical: Java4Shell (CVE-2026-114938) allows remote code execution in major Java applications, per BleepingComputer; The Register says Oracle has disclosed it and many third-party apps are exposed. 5 outlets are covering it.",
-   "url": "https://www.bleepingcomputer.com/news/security/critical-java4shell-flaw-allows-rce-attacks-on-major-java-applications/"
+   "text": "New, critical: the Perforce Puppet RCE (CVE-2026-115731) is now exploited in attacks, per SecurityWeek and The Hacker News. It entered CISA KEV on 11-17 with a federal due date of 12-01.",
+   "url": "https://www.securityweek.com/critical-perforce-puppet-rce-exploited-in-attacks/"
   },
   {
-   "text": "Developing, critical: Optimizely confirmed hackers put malicious code into customer sites (The Record). SecurityWeek says a vulnerability was exploited; Krebs reports attackers used Optimizely to A/B test malware on top websites. No CVE or fix is given.",
-   "url": "https://therecord.media/optimizely-malicious-code-customer-sites"
+   "text": "Developing, critical: Java4Shell (CVE-2026-114938), now 8 outlets. The Hacker News says it enables pre-auth RCE in Jira, Jenkins, Keycloak and more; CISA urges immediate patching. Help Net Security says exploitation is tricky and hinges on specific CPUs.",
+   "url": "https://thehackernews.com/2026/11/java4shell-cve-2026-114938-enables-pre.html"
   },
   {
-   "text": "New in CISA KEV: Perforce Puppet Enterprise deserialization flaw CVE-2026-115731, added 11-17 with a federal due date of 12-01.",
-   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-115731"
+   "text": "New supply-chain attack: malicious pip releases agent-framework 1.26.1 and 1.26.2. SecurityWeek and The Hacker News say Microsoft Agent Framework releases were poisoned with a credential stealer targeting cloud credentials.",
+   "url": "https://github.com/advisories/GHSA-764m-3ppc-5m73"
   },
   {
-   "text": "New: Japan took the Fugaku supercomputer offline after a cyberattack; DataBreaches.net says data of 4,597 users is at risk. Google reports an AI agent writing and launching exploits with no human in the loop.",
-   "url": "https://www.bleepingcomputer.com/news/security/japan-takes-fugaku-supercomputer-offlline-after-cyberattack/"
+   "text": "New, critical: Apache warns its Roller RCE vulnerability is exploited in attacks, per BleepingComputer. No CVE or fixed version is given in the brief.",
+   "url": "https://www.bleepingcomputer.com/news/security/apache-warns-of-roller-rce-vulnerability-exploited-in-attacks/"
   },
   {
-   "text": "Still active: Uber says nearly 150,000 people were hit by a third-party breach; The Register says driver license data was taken from an AI vendor. Also new: suspected breach at 43 Irish credit unions and an Ipsos internal system breach.",
-   "url": "https://therecord.media/uber-says-150000-impacted-third-party-breach"
+   "text": "Still active: Optimizely (7 outlets) confirmed malicious code in customer sites; Krebs says attackers used it to A/B test malware on top websites. Uber's third-party breach (~150,000 people) and the Fugaku supercomputer attack remain on the board.",
+   "url": "https://krebsonsecurity.com/2026/11/attackers-used-optimizely-to-a-b-test-malware-on-top-websites/"
   },
   {
-   "text": "Context: cloud keys leaked in Docker Hub images are stolen within seconds (BleepingComputer). SITCON 3 unchanged; 7-day score is 0.76x the 90-day average; n0n (78) and the gentlemen (42) lead leak-site claims.",
-   "url": "https://www.bleepingcomputer.com/news/security/cloud-keys-leaked-in-docker-hub-images-are-stolen-within-seconds/"
+   "text": "Also new: a cyberattack disrupted internal services at Equinor; Russian COLD RELIC used stolen Google Workspace data to breach a second US organization. SITCON 3 unchanged; 7-day score 0.8x the 90-day average; n0n (78) leads leak-site claims.",
+   "url": "https://therecord.media/norway-equinor-cyberattack-energy"
   }
  ],
  "actions": [
-  "Inventory Java runtimes and Java-based apps you run; follow Oracle and vendor guidance for Java4Shell (CVE-2026-114938) and patch as soon as fixes are available.",
-  "Optimizely users: audit Optimizely snippets and third-party scripts on your sites for unexpected changes and follow Optimizely's guidance.",
-  "Puppet Enterprise admins: apply the fix for CVE-2026-115731 (KEV, due 12-01) and restrict access to the Puppet server.",
-  "Scan container images before pushing to Docker Hub for embedded cloud keys; rotate any key that was ever in a public image.",
-  "Expect breach-themed phishing after the Uber and credit union breaches; verify notices through official channels before acting.",
+  "Search environments and lockfiles for pip agent-framework 1.26.1 or 1.26.2; remove them and rotate cloud credentials on any host that installed them.",
+  "Puppet Enterprise admins: apply the fix for CVE-2026-115731 now (exploited, KEV due 12-01) and restrict network access to the Puppet server.",
+  "Inventory Java runtimes and Java apps such as Jira, Jenkins and Keycloak; apply Oracle and vendor fixes for Java4Shell (CVE-2026-114938) as CISA urges.",
+  "Apache Roller users: follow Apache's advisory and restrict internet access to Roller until patched.",
+  "Optimizely users: audit Optimizely snippets and third-party scripts on your sites for unexpected changes.",
   "Queue KEV fixes: SonicWall SSLVPN CVE-2026-19868 due 11-20; Outlook, Cisco BroadWorks, Openwave and Chromium due 11-24."
  ]
 }
