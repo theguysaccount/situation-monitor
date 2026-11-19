@@ -1,0 +1,699 @@
+{
+ "schema": 1,
+ "date": "2026-11-18",
+ "source": "sweep",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-11-18T02:54:13Z",
+    3,
+    281.9
+   ],
+   [
+    "2026-11-18T04:38:06Z",
+    3,
+    291.9
+   ],
+   [
+    "2026-11-18T14:08:42Z",
+    3,
+    312.9
+   ],
+   [
+    "2026-11-18T14:09:56Z",
+    3,
+    312.9
+   ],
+   [
+    "2026-11-18T14:10:57Z",
+    3,
+    312.9
+   ],
+   [
+    "2026-11-18T14:56:02Z",
+    3,
+    322.3
+   ],
+   [
+    "2026-11-18T18:32:14Z",
+    3,
+    350.2
+   ],
+   [
+    "2026-11-18T19:38:15Z",
+    3,
+    367.2
+   ]
+  ],
+  "hours_at_level": {
+   "3": 8
+  },
+  "highest": 3,
+  "lowest": 3
+ },
+ "first_seen": {
+  "count": 135,
+  "by_severity": {
+   "medium": 72,
+   "low": 20,
+   "high": 34,
+   "critical": 9
+  },
+  "by_type": {
+   "ransomware": 44,
+   "news": 75,
+   "vuln": 1,
+   "community": 1,
+   "breach": 14
+  }
+ },
+ "situations": [
+  {
+   "name": "Java4Shell",
+   "severity": "critical",
+   "outlets": 11,
+   "reports": 12,
+   "cves": [
+    "CVE-2026-114938"
+   ],
+   "lead": {
+    "title": "Critical Java vulnerability could help hackers compromise many popular applications",
+    "url": "https://www.cybersecuritydive.com/news/java-vulnerability-oracle-ai-java4shell/875029/",
+    "source": "Cybersecurity Dive",
+    "published": "2026-11-18T14:54:31Z"
+   }
+  },
+  {
+   "name": "Optimizely",
+   "severity": "critical",
+   "outlets": 7,
+   "reports": 8,
+   "cves": [],
+   "lead": {
+    "title": "Optimizely Vulnerability Exploited to Serve Malware on Major Websites",
+    "url": "https://www.securityweek.com/optimizely-vulnerability-exploited-to-serve-malware-on-major-websites/",
+    "source": "SecurityWeek",
+    "published": "2026-11-17T10:22:20Z"
+   }
+  },
+  {
+   "name": "Puppet RCE",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [
+    "CVE-2026-115731"
+   ],
+   "lead": {
+    "title": "Critical Perforce Puppet RCE Exploited in Attacks",
+    "url": "https://www.securityweek.com/critical-perforce-puppet-rce-exploited-in-attacks/",
+    "source": "SecurityWeek",
+    "published": "2026-11-18T10:37:08Z"
+   }
+  },
+  {
+   "name": "Uber",
+   "severity": "high",
+   "outlets": 5,
+   "reports": 5,
+   "cves": [],
+   "lead": {
+    "title": "Uber says nearly 150,000 impacted by third-party breach",
+    "url": "https://therecord.media/uber-says-150000-impacted-third-party-breach",
+    "source": "The Record",
+    "published": "2026-11-17T20:55:21Z"
+   }
+  },
+  {
+   "name": "ScreenConnect",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [
+    "CVE-2026-84869"
+   ],
+   "lead": {
+    "title": "Critical flaw in ScreenConnect exploited to run malicious files on MSP technician accounts",
+    "url": "https://www.cybersecuritydive.com/news/critical-flaw-screenconnect-malicious-files-msp/874900/",
+    "source": "Cybersecurity Dive",
+    "published": "2026-11-17T15:58:03Z"
+   }
+  },
+  {
+   "name": "Equinor",
+   "severity": "high",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [],
+   "lead": {
+    "title": "Energy giant Equinor investigates cyberattack impacting IT systems",
+    "url": "https://www.cybersecuritydive.com/news/energy-equinor-investigates-cyberattack/875035/",
+    "source": "Cybersecurity Dive",
+    "published": "2026-11-18T15:16:00Z"
+   }
+  },
+  {
+   "name": "LiteLLM",
+   "severity": "critical",
+   "outlets": 2,
+   "reports": 2,
+   "cves": [
+    "CVE-2026-40217",
+    "CVE-2026-42271",
+    "CVE-2026-48710"
+   ],
+   "lead": {
+    "title": "Scans for LiteLLM/Starlette (CVE-2026-42271, CVE-2026-48710), (Mon, Nov 16th)",
+    "url": "https://isc.sans.edu/diary/rss/33522",
+    "source": "SANS Internet Storm Center",
+    "published": "2026-11-16T13:11:04Z"
+   }
+  },
+  {
+   "name": "Fugaku",
+   "severity": "high",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [],
+   "lead": {
+    "title": "Japan takes Fugaku supercomputer offlline after cyberattack",
+    "url": "https://www.bleepingcomputer.com/news/security/japan-takes-fugaku-supercomputer-offlline-after-cyberattack/",
+    "source": "BleepingComputer",
+    "published": "2026-11-17T20:51:21Z"
+   }
+  }
+ ],
+ "top_reports": [
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "F5 Warns 6 Critical BIG-IP Flaws Can Crash Traffic in Specific Setups, May Allow RCE",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/f5-warns-6-critical-big-ip-flaws-can.html",
+   "published": "2026-11-18T18:15:39Z",
+   "first_seen": "2026-11-18T19:38:15Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Critical Apache Roller RCE Flaw Under Active Exploitation, No Authentication Required",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/critical-apache-roller-rce-flaw-under.html",
+   "published": "2026-11-18T17:10:45Z",
+   "first_seen": "2026-11-18T19:38:15Z",
+   "cves": [
+    "CVE-2026-129448"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Critical Java vulnerability could help hackers compromise many popular applications",
+   "source": "Cybersecurity Dive",
+   "url": "https://www.cybersecuritydive.com/news/java-vulnerability-oracle-ai-java4shell/875029/",
+   "published": "2026-11-18T14:54:31Z",
+   "first_seen": "2026-11-18T18:32:14Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Java4Shell OpenJDK flaw: Exploitation is tricky and hinges on specific CPUs (CVE-2026-114938)",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/11/18/java4shell-openjdk-vulnerability-cve-2026-114938/",
+   "published": "2026-11-18T11:12:12Z",
+   "first_seen": "2026-11-18T14:08:42Z",
+   "cves": [
+    "CVE-2026-114938"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Critical Perforce Puppet RCE Exploited in Attacks",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/critical-perforce-puppet-rce-exploited-in-attacks/",
+   "published": "2026-11-18T10:37:08Z",
+   "first_seen": "2026-11-18T14:08:42Z",
+   "cves": [
+    "CVE-2026-115731"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Apache warns of Roller RCE vulnerability exploited in attacks",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/apache-warns-of-roller-rce-vulnerability-exploited-in-attacks/",
+   "published": "2026-11-18T10:35:05Z",
+   "first_seen": "2026-11-18T14:08:42Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Hackers Exploiting Critical Puppet RCE Flaw Affecting Enterprise Management Servers",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/hackers-exploiting-critical-puppet-rce.html",
+   "published": "2026-11-18T08:24:31Z",
+   "first_seen": "2026-11-18T14:08:42Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Critical Java4Shell flaw allows RCE attacks on major Java applications",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/critical-java4shell-flaw-allows-rce-attacks-on-major-java-applications/",
+   "published": "2026-11-17T23:04:21Z",
+   "first_seen": "2026-11-18T02:54:13Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Critical flaw in ScreenConnect exploited to run malicious files on MSP technician accounts",
+   "source": "Cybersecurity Dive",
+   "url": "https://www.cybersecuritydive.com/news/critical-flaw-screenconnect-malicious-files-msp/874900/",
+   "published": "2026-11-17T15:58:03Z",
+   "first_seen": "2026-11-18T18:32:14Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Deutsche Bank chair backs CEO after reports expose past lapses; Trump calls tax leak ‘illegal’",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/18/deutsche-bank-chair-backs-ceo-after-reports-expose-past-lapses-trump-calls-tax-leak-illegal/",
+   "published": "2026-11-18T19:14:57Z",
+   "first_seen": "2026-11-18T19:38:15Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "An AI Debt Collection Service Exposed 6.6 Million Accounts and 315,000 Call Recordings",
+   "source": "WIRED Security",
+   "url": "https://www.wired.com/story/ai-debt-collection-service-exposed-66-million-accounts-and-315000-call-recordings/",
+   "published": "2026-11-18T19:00:00Z",
+   "first_seen": "2026-11-18T19:38:15Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "10-Year-Old NGINX HTTP/2 Flaw Lets Unauthenticated Attackers Execute Code on Servers",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/10-year-old-nginx-http2-flaw-lets.html",
+   "published": "2026-11-18T18:31:17Z",
+   "first_seen": "2026-11-18T19:38:15Z",
+   "cves": [
+    "CVE-2026-123007"
+   ]
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "More banks say customers using AI agents are on their own — even if they get hacked",
+   "source": "TechCrunch Security",
+   "url": "https://techcrunch.com/2026/11/18/more-banks-says-customers-using-ai-agents-are-on-their-own-even-if-they-get-hacked/",
+   "published": "2026-11-18T17:32:10Z",
+   "first_seen": "2026-11-18T18:32:14Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Microsoft's official Python agent framework hijacked to distribute malware",
+   "source": "The Register",
+   "url": "https://www.theregister.com/security/2026/11/18/microsofts-official-python-agent-framework-hijacked-to-distribute-malware/5310858",
+   "published": "2026-11-18T17:23:37Z",
+   "first_seen": "2026-11-18T18:32:14Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Microsoft’s Agent Framework PyPI package compromised to steal credentials",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/microsofts-agent-framework-pypi-package-compromised-to-steal-credentials/",
+   "published": "2026-11-18T16:58:42Z",
+   "first_seen": "2026-11-18T18:32:14Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Java4Shell Flaw Threatens Global Enterprises, Java Application Ecosystem",
+   "source": "Dark Reading",
+   "url": "https://www.darkreading.com/vulnerabilities-threats/java4shell-flaw-threatens-global-java-application-ecosystem",
+   "published": "2026-11-18T16:54:52Z",
+   "first_seen": "2026-11-18T18:32:14Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "SC: SLED, Charleston County investigating after ‘cybersecurity incident’ on county network",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/18/sc-sled-charleston-county-investigating-after-cybersecurity-incident-on-county-network/",
+   "published": "2026-11-18T15:33:31Z",
+   "first_seen": "2026-11-18T18:32:14Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Fake GTA 6 PC Downloads Spread Malware Targeting Crypto Wallets and Passwords",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/18/fake-gta-6-pc-downloads-spread-malware-targeting-crypto-wallets-and-passwords/",
+   "published": "2026-11-18T15:32:37Z",
+   "first_seen": "2026-11-18T18:32:14Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "A month after Richmond Public School cyberattack, schools are far from normal",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/18/a-month-after-richmond-public-school-cyberattack-schools-are-far-from-normal/",
+   "published": "2026-11-18T15:32:24Z",
+   "first_seen": "2026-11-18T18:32:14Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "IL: Wilmington School District 209U Reports Ransomware Attack And Possible Data Breach",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/18/il-wilmington-school-district-209u-reports-ransomware-attack-and-possible-data-breach/",
+   "published": "2026-11-18T15:24:24Z",
+   "first_seen": "2026-11-18T18:32:14Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "community",
+   "title": "Pre-auth RCE in Nginx HTTP/2 handling",
+   "source": "Hacker News",
+   "url": "https://www.wiz.io/blog/nginx-http2-rce-vulnerabilities",
+   "published": "2026-11-18T15:19:55Z",
+   "first_seen": "2026-11-18T18:32:14Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Energy giant Equinor investigates cyberattack impacting IT systems",
+   "source": "Cybersecurity Dive",
+   "url": "https://www.cybersecuritydive.com/news/energy-equinor-investigates-cyberattack/875035/",
+   "published": "2026-11-18T15:16:00Z",
+   "first_seen": "2026-11-18T18:32:14Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Russian cyber-espionage group used stolen cloud data to hack into organizations, Google says",
+   "source": "The Record",
+   "url": "https://therecord.media/russia-cyber-espionage-google",
+   "published": "2026-11-18T15:15:00Z",
+   "first_seen": "2026-11-18T18:32:14Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "From Deepfakes to Helpdesk Impersonation: Why Stronger Verification Matters",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/from-deepfakes-to-helpdesk-impersonation-why-stronger-verification-matters/",
+   "published": "2026-11-18T15:00:10Z",
+   "first_seen": "2026-11-18T18:32:14Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Norwegian Gas Giant Equinor Says It’s Under Cyberattack",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/18/norwegian-gas-giant-equinor-says-its-under-cyberattack/",
+   "published": "2026-11-18T14:58:52Z",
+   "first_seen": "2026-11-18T18:32:14Z",
+   "cves": []
+  }
+ ],
+ "kev_added": [
+  {
+   "cve": "CVE-2024-10441",
+   "vendor": "Synology",
+   "product": "DiskStation Manager (DSM)",
+   "title": "CVE-2024-10441: Synology DiskStation Manager (DSM) Improper Encoding or Escaping of Output Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-10441",
+   "due": "2026-11-21",
+   "ransomware": false
+  },
+  {
+   "cve": "CVE-2026-40217",
+   "vendor": "BerriAI",
+   "product": "LiteLLM",
+   "title": "CVE-2026-40217: BerriAI LiteLLM Unprotected Alternate Channel Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-40217",
+   "due": "2026-12-02",
+   "ransomware": false
+  },
+  {
+   "cve": "CVE-2026-90817",
+   "vendor": "Vanderbilt University",
+   "product": "Research Electronic Data Capture (REDCap)",
+   "title": "CVE-2026-90817: Vanderbilt University Research Electronic Data Capture (REDCap) Code Injection Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90817",
+   "due": "2026-11-21",
+   "ransomware": false
+  },
+  {
+   "cve": "CVE-2026-90436",
+   "vendor": "Apache",
+   "product": "Axis",
+   "title": "CVE-2026-90436: Apache Axis Unsafe Reflection Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-90436",
+   "due": "2026-11-21",
+   "ransomware": false
+  }
+ ],
+ "breaches": [
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "大崎電気工業[6644]：ランサムウェアによるサイバー攻撃に伴う生産停止の発生に関するお知らせ（第一報） 2026年11月18日(適時開示) ：日経会社情報DIGITAL：日本経済新聞",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.nikkei.com/nkd/disclosure/tdnr/20261118582902/",
+   "published": "2026-11-18T00:00:00Z",
+   "first_seen": "2026-11-18T14:08:42Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "元太資訊系統遭網路攻擊！對營運無重大影響 | 產業熱點 | 產業 | 經濟日報",
+   "source": "ransomware.live disclosures",
+   "url": "https://money.udn.com/money/story/5612/9887132",
+   "published": "2026-11-18T00:00:00Z",
+   "first_seen": "2026-11-18T14:08:42Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "ด่วน!SPRCโดนโจมตีทางไซเบอร์ เร่งตรวจสอบข้อมูลที่ถูกเข้าถึง-ผลกระทบทางการเงิน",
+   "source": "ransomware.live disclosures",
+   "url": "https://th.headtopics.com/news/36043656362336080046-89947707",
+   "published": "2026-11-18T00:00:00Z",
+   "first_seen": "2026-11-18T14:08:42Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Хакери удариха най-голямата хостинг компания в България",
+   "source": "ransomware.live disclosures",
+   "url": "https://money.bg/internet-it/hakeri-udariha-superhosting.html",
+   "published": "2026-11-18T00:00:00Z",
+   "first_seen": "2026-11-18T14:08:42Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "「銀のさら・釜寅・すし上等」公式サイト・公式アプリにランサムウェア攻撃 | ScanNetSecurity",
+   "source": "ransomware.live disclosures",
+   "url": "https://scan.netsecurity.ne.jp/article/2026/11/18/56817.html",
+   "published": "2026-11-18T00:00:00Z",
+   "first_seen": "2026-11-18T14:08:42Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Choose: Κυβερνοεπίθεση σε σύστημα που διεξάγονταν δοκιμές - Περιείχε ΑΦΜ και ονοματεπώνυμα - Mononews.gr",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.mononews.gr/business/choose-kyvernoepithesi-se-systima-pou-diexagontan-dokimes-perieiche-afm-kai-onomateponyma",
+   "published": "2026-11-18T00:00:00Z",
+   "first_seen": "2026-11-18T14:08:42Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Otter Tail County Notifying Residents of Compromised Data Following Cyber-Attack",
+   "source": "ransomware.live disclosures",
+   "url": "https://fergusnow.com/2026/11/17/otter-tail-county-notifying-residents-of-potentially-compromised-data-following-cyber-attack/",
+   "published": "2026-11-18T00:00:00Z",
+   "first_seen": "2026-11-18T14:08:42Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Contabo victime d'une cyberattaque, l'hébergeur allemand confirme une intrusion dans ses systèmes",
+   "source": "ransomware.live disclosures",
+   "url": "https://frenchbreaches.com/blog/contabo-victime-dune-cyberattaque-lhebergeur-allemand-confirme-une-intrusion-dans-ses-systemes",
+   "published": "2026-11-18T00:00:00Z",
+   "first_seen": "2026-11-18T14:08:42Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Cyberattaque chez Divalto : le distributeur du programme de LFI touché, les commandes des librairies perturbées",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.cyberattaque.org/cyberattaque-chez-divalto-le-distributeur-du-programme-de-lfi-touche-les-commandes-des-librairies-perturbees/",
+   "published": "2026-11-18T00:00:00Z",
+   "first_seen": "2026-11-18T14:08:42Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Neuried: Cyberangriff auf Gemeindeverwaltung",
+   "source": "ransomware.live disclosures",
+   "url": "https://breisgau.live/polizeimeldungen/neuried-cyberangriff-auf-gemeindeverwaltung/",
+   "published": "2026-11-18T00:00:00Z",
+   "first_seen": "2026-11-18T14:08:42Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Dünyanın en hızlı bilgisayarına siber saldırı! Fugaku'nun faaliyetleri durduruldu",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.babaocagi.com.tr/dunyanin-en-hizli-bilgisayarina-siber-saldiri-fugakunun-faaliyetleri-durduruldu",
+   "published": "2026-11-18T00:00:00Z",
+   "first_seen": "2026-11-18T14:08:42Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Equinor utsatt for cyberangrep",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.dn.no/jus/equinor/equinor-bekrefter-pagaende-cyberangrep-rettet-mot-it-systemer/2-1-2075578",
+   "published": "2026-11-18T00:00:00Z",
+   "first_seen": "2026-11-18T14:08:42Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Kantonale Server betroffen: «Heftiger, breit angelegter Angriff»: Seit Sonntag finden Cyberattacken auf die Baselbieter IT-Struktur statt",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.bazonline.ch/cyberangriff-auf-basel-landschaft-server-isoliert-736977549861",
+   "published": "2026-11-18T00:00:00Z",
+   "first_seen": "2026-11-18T18:32:14Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Cyberaanval treft Duitse dronefabrikant, Bundeswehr houdt toestellen aan de grond",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.dronewatch.nl/2026/11/12/cyberaanval-treft-duitse-dronefabrikant-bundeswehr-houdt-toestellen-aan-de-grond/",
+   "published": "2026-11-18T00:00:00Z",
+   "first_seen": "2026-11-18T18:32:14Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Wilmington School District 209U Reports Ransomware Attack And Possible Data Breach - 1340 WJOL",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.wjol.com/wilmington-school-district-209u-reports-ransomware-attack-and-possible-data-breach/",
+   "published": "2026-11-18T00:00:00Z",
+   "first_seen": "2026-11-19T01:30:13Z",
+   "cves": []
+  }
+ ],
+ "ransomware_claims": {
+  "count": 74,
+  "groups": [
+   [
+    "n0n",
+    28
+   ],
+   [
+    "lockbit5",
+    5
+   ],
+   [
+    "the gentlemen",
+    4
+   ],
+   [
+    "hyflock",
+    4
+   ],
+   [
+    "PixelLeaks",
+    4
+   ],
+   [
+    "leakeddata",
+    3
+   ],
+   [
+    "akira",
+    3
+   ],
+   [
+    "pixelleaks",
+    3
+   ],
+   [
+    "HYFLOCK",
+    3
+   ],
+   [
+    "qilin",
+    2
+   ]
+  ]
+ },
+ "archive_counts": {
+  "date": "2026-11-18",
+  "exploited": 16.0,
+  "ransomware": 10.0,
+  "breaches": 0.0,
+  "community": 3.7,
+  "kev": 4,
+  "claims": 74,
+  "breach_count": 0,
+  "accounts": 0,
+  "stories": 3,
+  "top": "Pre-auth RCE in Nginx HTTP/2 handling",
+  "top_url": "https://www.wiz.io/blog/nginx-http2-rce-vulnerabilities"
+ },
+ "sitreps": [
+  "sitreps/2026-11-18/140824Z.json",
+  "sitreps/2026-11-18/140940Z.json"
+ ]
+}
