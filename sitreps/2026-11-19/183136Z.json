@@ -1,0 +1,39 @@
+{
+ "written_at": "2026-11-19T18:31:36Z",
+ "by": "Claude",
+ "headline": "Java4Shell exploitation attempts begin; NGINX2Root PoCs public; Apache Roller and Axis exploited; critical PHP, Drupal, vCenter fixes",
+ "bullets": [
+  {
+   "text": "Developing, critical: Java4Shell (CVE-2026-114938) is now at 11 outlets and SecurityWeek reports exploitation attempts have begun as vendors rush out advisories. Earlier reports name Jira, Jenkins and Keycloak as exposed.",
+   "url": "https://www.securityweek.com/java4shell-exploitation-attempts-begin-as-vendors-rush-out-advisories/"
+  },
+  {
+   "text": "New, critical: F5 patched the NGINX2Root flaws in NGINX (CVE-2026-123007, CVE-2026-123633) and PoC exploits are public, per SecurityWeek; 7 outlets. Separately, F5 warns 6 critical BIG-IP flaws may allow RCE in specific setups.",
+   "url": "https://www.securityweek.com/f5-patches-critical-nginx2root-flaws-as-poc-exploits-go-public/"
+  },
+  {
+   "text": "Exploited: Apache Roller (CVE-2026-129448) and Apache Axis (CVE-2026-90436) are under attack; Axis entered CISA KEV 11-18 with a due date of 11-21. KEV also added Synology DSM CVE-2024-10441, REDCap CVE-2026-90817 (both due 11-21) and LiteLLM CVE-2026-40217 (due 12-02).",
+   "url": "https://www.securityweek.com/critical-apache-roller-axis-vulnerabilities-exploited-in-attacks/"
+  },
+  {
+   "text": "New critical patches: PHP fixed 7 critical flaws including RCE (CVE-2026-115560); Drupal patched a critical installer RCE and warns exploits may surface quickly; VMware vCenter has a CVSS 9.8 auth bypass; Cisco Expressway is exploited soon after a PoC.",
+   "url": "https://www.securityweek.com/php-patches-seven-critical-rce-vulnerabilities/"
+  },
+  {
+   "text": "Still active: Puppet Enterprise RCE (CVE-2026-115731, KEV due 12-01), ScreenConnect CVE-2026-84869 against MSPs, Optimizely malicious code (7 outlets), and poisoned pip agent-framework 1.26.1/1.26.2. N-able confirmed hackers accessed a cloud server.",
+   "url": "https://thehackernews.com/2026/11/n-able-confirms-hackers-accessed-cloud.html"
+  },
+  {
+   "text": "Breaches: TfL Oyster data on 265,000 users exposed; payee data at 40 Irish credit unions exposed via a provider; European Commission confirms a cyberattack using an AI tool; NVIDIA investigating Gentlemen ransomware claims. SITCON 3; 7-day score 1.02x the 90-day average.",
+   "url": "https://www.bleepingcomputer.com/news/security/transport-for-london-breach-exposes-265-000-oyster-card-users-data/"
+  }
+ ],
+ "actions": [
+  "Inventory Java apps such as Jira, Jenkins and Keycloak; apply vendor fixes for Java4Shell (CVE-2026-114938) now that exploitation attempts are reported.",
+  "NGINX users: apply F5's NGINX2Root fixes (CVE-2026-123007, CVE-2026-123633) today; PoCs are public. BIG-IP admins: review the 6 critical flaws.",
+  "Patch or isolate Apache Roller and Apache Axis; Axis, Synology DSM and REDCap KEV entries are due 11-21, SonicWall SSLVPN CVE-2026-19868 is due 11-20.",
+  "Update PHP for CVE-2026-115560 and the other critical fixes; apply Drupal's installer RCE fix before exploits appear; patch VMware vCenter and Cisco Expressway.",
+  "LiteLLM operators: patch CVE-2026-40217 (KEV, due 12-02). Remove pip agent-framework 1.26.1 or 1.26.2 if present and rotate cloud credentials.",
+  "N-able customers: watch vendor notices on the cloud server breach and review email security management settings."
+ ]
+}
