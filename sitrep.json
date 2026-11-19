@@ -1,39 +1,39 @@
 {
- "written_at": "2026-11-18T18:33:04Z",
+ "written_at": "2026-11-19T18:31:36Z",
  "by": "Claude",
- "headline": "ScreenConnect flaw exploited against MSPs; Java4Shell now 10 outlets; Nginx HTTP/2 pre-auth RCE reported; Puppet RCE still under attack",
+ "headline": "Java4Shell exploitation attempts begin; NGINX2Root PoCs public; Apache Roller and Axis exploited; critical PHP, Drupal, vCenter fixes",
  "bullets": [
   {
-   "text": "New, critical: a ScreenConnect flaw (CVE-2026-84869) is exploited to run malicious files on MSP technician accounts, per Cybersecurity Dive; 3 outlets now cover it.",
-   "url": "https://www.cybersecuritydive.com/news/critical-flaw-screenconnect-malicious-files-msp/874900/"
+   "text": "Developing, critical: Java4Shell (CVE-2026-114938) is now at 11 outlets and SecurityWeek reports exploitation attempts have begun as vendors rush out advisories. Earlier reports name Jira, Jenkins and Keycloak as exposed.",
+   "url": "https://www.securityweek.com/java4shell-exploitation-attempts-begin-as-vendors-rush-out-advisories/"
   },
   {
-   "text": "Developing, critical: Java4Shell (CVE-2026-114938) grew from 8 to 10 outlets. The Hacker News says it enables pre-auth RCE in Jira, Jenkins, Keycloak and more and CISA urges immediate patching; Help Net Security says exploitation hinges on specific CPUs.",
-   "url": "https://thehackernews.com/2026/11/java4shell-cve-2026-114938-enables-pre.html"
+   "text": "New, critical: F5 patched the NGINX2Root flaws in NGINX (CVE-2026-123007, CVE-2026-123633) and PoC exploits are public, per SecurityWeek; 7 outlets. Separately, F5 warns 6 critical BIG-IP flaws may allow RCE in specific setups.",
+   "url": "https://www.securityweek.com/f5-patches-critical-nginx2root-flaws-as-poc-exploits-go-public/"
   },
   {
-   "text": "New: Wiz reports pre-auth RCE vulnerabilities in Nginx HTTP/2 handling (via Hacker News). No CVE or fixed version is given in the brief.",
-   "url": "https://www.wiz.io/blog/nginx-http2-rce-vulnerabilities"
+   "text": "Exploited: Apache Roller (CVE-2026-129448) and Apache Axis (CVE-2026-90436) are under attack; Axis entered CISA KEV 11-18 with a due date of 11-21. KEV also added Synology DSM CVE-2024-10441, REDCap CVE-2026-90817 (both due 11-21) and LiteLLM CVE-2026-40217 (due 12-02).",
+   "url": "https://www.securityweek.com/critical-apache-roller-axis-vulnerabilities-exploited-in-attacks/"
   },
   {
-   "text": "Still active: the Perforce Puppet Enterprise RCE (CVE-2026-115731) is exploited and in CISA KEV with a federal due date of 12-01. Apache also warns its Roller RCE is exploited (no CVE in the brief).",
-   "url": "https://www.securityweek.com/critical-perforce-puppet-rce-exploited-in-attacks/"
+   "text": "New critical patches: PHP fixed 7 critical flaws including RCE (CVE-2026-115560); Drupal patched a critical installer RCE and warns exploits may surface quickly; VMware vCenter has a CVSS 9.8 auth bypass; Cisco Expressway is exploited soon after a PoC.",
+   "url": "https://www.securityweek.com/php-patches-seven-critical-rce-vulnerabilities/"
   },
   {
-   "text": "Supply chain: pip agent-framework 1.26.1 and 1.26.2 (Microsoft Agent Framework) were poisoned with a credential stealer; BleepingComputer and The Register now also report it. The Optimizely malicious-code incident remains at 7 outlets.",
-   "url": "https://github.com/advisories/GHSA-764m-3ppc-5m73"
+   "text": "Still active: Puppet Enterprise RCE (CVE-2026-115731, KEV due 12-01), ScreenConnect CVE-2026-84869 against MSPs, Optimizely malicious code (7 outlets), and poisoned pip agent-framework 1.26.1/1.26.2. N-able confirmed hackers accessed a cloud server.",
+   "url": "https://thehackernews.com/2026/11/n-able-confirms-hackers-accessed-cloud.html"
   },
   {
-   "text": "Incidents: the Equinor cyberattack is now at 4 outlets; ransomware hit Wilmington School District 209U; Charleston County is investigating an incident. SITCON 3 unchanged; 7-day score 0.87x the 90-day average; n0n (78) leads leak-site claims.",
-   "url": "https://www.cybersecuritydive.com/news/energy-equinor-investigates-cyberattack/875035/"
+   "text": "Breaches: TfL Oyster data on 265,000 users exposed; payee data at 40 Irish credit unions exposed via a provider; European Commission confirms a cyberattack using an AI tool; NVIDIA investigating Gentlemen ransomware claims. SITCON 3; 7-day score 1.02x the 90-day average.",
+   "url": "https://www.bleepingcomputer.com/news/security/transport-for-london-breach-exposes-265-000-oyster-card-users-data/"
   }
  ],
  "actions": [
-  "ScreenConnect operators and MSPs: apply the vendor fix for CVE-2026-84869 now and review technician accounts for unexpected file execution.",
-  "Inventory Java runtimes and apps such as Jira, Jenkins and Keycloak; apply Oracle and vendor fixes for Java4Shell (CVE-2026-114938) as CISA urges.",
-  "Nginx users: read Wiz's HTTP/2 RCE write-up and watch for fixes; consider limiting HTTP/2 exposure on internet-facing servers until patched.",
-  "Puppet Enterprise admins: patch CVE-2026-115731 (exploited, KEV due 12-01) and restrict network access to the Puppet server.",
-  "Search lockfiles and environments for pip agent-framework 1.26.1 or 1.26.2; remove them and rotate cloud credentials on affected hosts.",
-  "Queue KEV fixes: SonicWall SSLVPN CVE-2026-19868 due 11-20; Outlook, Cisco BroadWorks, Openwave and Chromium due 11-24."
+  "Inventory Java apps such as Jira, Jenkins and Keycloak; apply vendor fixes for Java4Shell (CVE-2026-114938) now that exploitation attempts are reported.",
+  "NGINX users: apply F5's NGINX2Root fixes (CVE-2026-123007, CVE-2026-123633) today; PoCs are public. BIG-IP admins: review the 6 critical flaws.",
+  "Patch or isolate Apache Roller and Apache Axis; Axis, Synology DSM and REDCap KEV entries are due 11-21, SonicWall SSLVPN CVE-2026-19868 is due 11-20.",
+  "Update PHP for CVE-2026-115560 and the other critical fixes; apply Drupal's installer RCE fix before exploits appear; patch VMware vCenter and Cisco Expressway.",
+  "LiteLLM operators: patch CVE-2026-40217 (KEV, due 12-02). Remove pip agent-framework 1.26.1 or 1.26.2 if present and rotate cloud credentials.",
+  "N-able customers: watch vendor notices on the cloud server breach and review email security management settings."
  ]
 }
