@@ -1,39 +1,39 @@
 {
- "written_at": "2026-11-19T18:31:36Z",
+ "written_at": "2026-11-20T15:32:13Z",
  "by": "Claude",
- "headline": "Java4Shell exploitation attempts begin; NGINX2Root PoCs public; Apache Roller and Axis exploited; critical PHP, Drupal, vCenter fixes",
+ "headline": "vCenter zero-day CVE-2026-123890 exploited since September; Cisco Expressway breaches; F5 BIG-IP emergency patches",
  "bullets": [
   {
-   "text": "Developing, critical: Java4Shell (CVE-2026-114938) is now at 11 outlets and SecurityWeek reports exploitation attempts have begun as vendors rush out advisories. Earlier reports name Jira, Jenkins and Keycloak as exposed.",
+   "text": "New, critical: VMware patched vCenter zero-day CVE-2026-123890, exploited in attacks since September. The Hacker News reports a China-linked group used it to gain admin access and steal data; 5 outlets.",
+   "url": "https://www.bleepingcomputer.com/news/security/vmware-patches-vcenter-zero-day-exploited-in-attacks-since-september/"
+  },
+  {
+   "text": "Exploited: attackers used critical Cisco Expressway flaw CVE-2026-76466 to breach four devices and reach an internal network. F5 released emergency patches for critical BIG-IP RCE flaws, following its NGINX2Root fixes (CVE-2026-123007, CVE-2026-123633; PoCs public).",
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-cisco.html"
+  },
+  {
+   "text": "Still developing, critical: Java4Shell (CVE-2026-114938, 9 outlets) with exploitation attempts reported; PHP's 7 critical fixes (CVE-2026-115560); Apache Roller (CVE-2026-129448) and Axis (CVE-2026-90436) exploited, Axis KEV due 11-21.",
    "url": "https://www.securityweek.com/java4shell-exploitation-attempts-begin-as-vendors-rush-out-advisories/"
   },
   {
-   "text": "New, critical: F5 patched the NGINX2Root flaws in NGINX (CVE-2026-123007, CVE-2026-123633) and PoC exploits are public, per SecurityWeek; 7 outlets. Separately, F5 warns 6 critical BIG-IP flaws may allow RCE in specific setups.",
-   "url": "https://www.securityweek.com/f5-patches-critical-nginx2root-flaws-as-poc-exploits-go-public/"
+   "text": "Other new: Ruby patched Ruby2Shell RCE (CVE-2026-132825); an unpatched Windows 0-day, FastUnlock, lets someone holding a locked PC run programs; SonicWall says Gen 6 firewalls will get no more security patches, even for critical flaws.",
+   "url": "https://www.securityweek.com/ruby-patches-ruby2shell-vulnerability-that-could-lead-to-rce/"
   },
   {
-   "text": "Exploited: Apache Roller (CVE-2026-129448) and Apache Axis (CVE-2026-90436) are under attack; Axis entered CISA KEV 11-18 with a due date of 11-21. KEV also added Synology DSM CVE-2024-10441, REDCap CVE-2026-90817 (both due 11-21) and LiteLLM CVE-2026-40217 (due 12-02).",
-   "url": "https://www.securityweek.com/critical-apache-roller-axis-vulnerabilities-exploited-in-attacks/"
+   "text": "N-able says its recent security breach led to a major service outage. A supplier breach hit dozens of credit unions and went unnoticed for six weeks; JPMorgan, Visa and Mastercard cite third-party incidents amid a data leak.",
+   "url": "https://www.bleepingcomputer.com/news/microsoft/n-able-says-recent-security-breach-led-to-major-service-outage/"
   },
   {
-   "text": "New critical patches: PHP fixed 7 critical flaws including RCE (CVE-2026-115560); Drupal patched a critical installer RCE and warns exploits may surface quickly; VMware vCenter has a CVSS 9.8 auth bypass; Cisco Expressway is exploited soon after a PoC.",
-   "url": "https://www.securityweek.com/php-patches-seven-critical-rce-vulnerabilities/"
-  },
-  {
-   "text": "Still active: Puppet Enterprise RCE (CVE-2026-115731, KEV due 12-01), ScreenConnect CVE-2026-84869 against MSPs, Optimizely malicious code (7 outlets), and poisoned pip agent-framework 1.26.1/1.26.2. N-able confirmed hackers accessed a cloud server.",
-   "url": "https://thehackernews.com/2026/11/n-able-confirms-hackers-accessed-cloud.html"
-  },
-  {
-   "text": "Breaches: TfL Oyster data on 265,000 users exposed; payee data at 40 Irish credit unions exposed via a provider; European Commission confirms a cyberattack using an AI tool; NVIDIA investigating Gentlemen ransomware claims. SITCON 3; 7-day score 1.02x the 90-day average.",
-   "url": "https://www.bleepingcomputer.com/news/security/transport-for-london-breach-exposes-265-000-oyster-card-users-data/"
+   "text": "Breaches: SBC Medical Group breach impacts over 2 million; TfL Oyster photocard data on 265,000 exposed; European Commission confirms an AI-assisted attack disrupted services; USDA farmer aid systems disrupted. SITCON 3; 7-day score 0.97x the 90-day average.",
+   "url": "https://www.securityweek.com/sbc-medical-group-data-breach-impacts-over-2-million/"
   }
  ],
  "actions": [
-  "Inventory Java apps such as Jira, Jenkins and Keycloak; apply vendor fixes for Java4Shell (CVE-2026-114938) now that exploitation attempts are reported.",
-  "NGINX users: apply F5's NGINX2Root fixes (CVE-2026-123007, CVE-2026-123633) today; PoCs are public. BIG-IP admins: review the 6 critical flaws.",
-  "Patch or isolate Apache Roller and Apache Axis; Axis, Synology DSM and REDCap KEV entries are due 11-21, SonicWall SSLVPN CVE-2026-19868 is due 11-20.",
-  "Update PHP for CVE-2026-115560 and the other critical fixes; apply Drupal's installer RCE fix before exploits appear; patch VMware vCenter and Cisco Expressway.",
-  "LiteLLM operators: patch CVE-2026-40217 (KEV, due 12-02). Remove pip agent-framework 1.26.1 or 1.26.2 if present and rotate cloud credentials.",
-  "N-able customers: watch vendor notices on the cloud server breach and review email security management settings."
+  "Patch VMware vCenter for CVE-2026-123890 now and hunt for compromise back to September: unexpected admin accounts and data exfiltration.",
+  "Patch Cisco Expressway (CVE-2026-76466) and check for intrusion; apply F5's emergency BIG-IP RCE patches and the NGINX2Root fixes.",
+  "Keep working Java4Shell (CVE-2026-114938) across Java apps such as Jira, Jenkins and Keycloak; update PHP for CVE-2026-115560.",
+  "Patch or isolate Apache Axis, Synology DSM and REDCap before their 11-21 KEV due dates; patch LiteLLM CVE-2026-40217 (due 12-02).",
+  "Plan replacement of SonicWall Gen 6 firewalls; update Ruby for CVE-2026-132825; restrict physical access to locked Windows PCs until FastUnlock is fixed.",
+  "N-able customers: follow vendor notices on the breach and outage; remove pip agent-framework 1.26.1 or 1.26.2 if present and rotate credentials."
  ]
 }
