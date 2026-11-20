@@ -1,0 +1,552 @@
+{
+ "schema": 1,
+ "date": "2026-11-19",
+ "source": "sweep",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-11-19T01:30:13Z",
+    3,
+    372.1
+   ],
+   [
+    "2026-11-19T03:44:08Z",
+    3,
+    358.6
+   ],
+   [
+    "2026-11-19T09:30:28Z",
+    3,
+    361.7
+   ],
+   [
+    "2026-11-19T13:41:25Z",
+    3,
+    380.8
+   ],
+   [
+    "2026-11-19T18:31:15Z",
+    3,
+    385.3
+   ],
+   [
+    "2026-11-19T18:32:18Z",
+    3,
+    385.3
+   ],
+   [
+    "2026-11-19T18:41:17Z",
+    3,
+    382.8
+   ],
+   [
+    "2026-11-19T22:21:36Z",
+    3,
+    389.4
+   ]
+  ],
+  "hours_at_level": {
+   "3": 8
+  },
+  "highest": 3,
+  "lowest": 3
+ },
+ "first_seen": {
+  "count": 221,
+  "by_severity": {
+   "medium": 129,
+   "low": 42,
+   "high": 36,
+   "critical": 14
+  },
+  "by_type": {
+   "ransomware": 99,
+   "news": 96,
+   "vuln": 6,
+   "advisory": 10,
+   "breach": 5,
+   "community": 1,
+   "kev": 4
+  }
+ },
+ "situations": [
+  {
+   "name": "Java4Shell",
+   "severity": "critical",
+   "outlets": 11,
+   "reports": 13,
+   "cves": [
+    "CVE-2026-114938"
+   ],
+   "lead": {
+    "title": "Java4Shell Exploitation Attempts Begin as Vendors Rush Out Advisories",
+    "url": "https://www.securityweek.com/java4shell-exploitation-attempts-begin-as-vendors-rush-out-advisories/",
+    "source": "SecurityWeek",
+    "published": "2026-11-19T09:10:58Z"
+   }
+  },
+  {
+   "name": "NGINX2Root",
+   "severity": "critical",
+   "outlets": 7,
+   "reports": 7,
+   "cves": [
+    "CVE-2026-123007",
+    "CVE-2026-123633"
+   ],
+   "lead": {
+    "title": "F5 Patches Critical NGINX2Root Flaws as PoC Exploits Go Public",
+    "url": "https://www.securityweek.com/f5-patches-critical-nginx2root-flaws-as-poc-exploits-go-public/",
+    "source": "SecurityWeek",
+    "published": "2026-11-19T10:26:51Z"
+   }
+  },
+  {
+   "name": "PHP",
+   "severity": "critical",
+   "outlets": 5,
+   "reports": 9,
+   "cves": [
+    "CVE-2026-115560"
+   ],
+   "lead": {
+    "title": "PHP Patches Seven Critical RCE Vulnerabilities",
+    "url": "https://www.securityweek.com/php-patches-seven-critical-rce-vulnerabilities/",
+    "source": "SecurityWeek",
+    "published": "2026-11-19T15:54:20Z"
+   }
+  },
+  {
+   "name": "Roller RCE",
+   "severity": "critical",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [
+    "CVE-2026-129448",
+    "CVE-2026-90436"
+   ],
+   "lead": {
+    "title": "Critical Apache Roller, Axis Vulnerabilities Exploited in Attacks",
+    "url": "https://www.securityweek.com/critical-apache-roller-axis-vulnerabilities-exploited-in-attacks/",
+    "source": "SecurityWeek",
+    "published": "2026-11-19T12:13:24Z"
+   }
+  },
+  {
+   "name": "Optimizely",
+   "severity": "critical",
+   "outlets": 6,
+   "reports": 6,
+   "cves": [],
+   "lead": {
+    "title": "Optimizely Vulnerability Exploited to Serve Malware on Major Websites",
+    "url": "https://www.securityweek.com/optimizely-vulnerability-exploited-to-serve-malware-on-major-websites/",
+    "source": "SecurityWeek",
+    "published": "2026-11-17T10:22:20Z"
+   }
+  },
+  {
+   "name": "VMware vCenter",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [],
+   "lead": {
+    "title": "Chinese espionage group targets critical flaw in VMware vCenter",
+    "url": "https://www.cybersecuritydive.com/news/chinese-espionage-zero-day-flaw-vmware-vcenter/875273/",
+    "source": "Cybersecurity Dive",
+    "published": "2026-11-19T21:36:46Z"
+   }
+  },
+  {
+   "name": "Puppet RCE",
+   "severity": "critical",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [
+    "CVE-2026-115731"
+   ],
+   "lead": {
+    "title": "Critical Perforce Puppet RCE Exploited in Attacks",
+    "url": "https://www.securityweek.com/critical-perforce-puppet-rce-exploited-in-attacks/",
+    "source": "SecurityWeek",
+    "published": "2026-11-18T10:37:08Z"
+   }
+  },
+  {
+   "name": "Equinor",
+   "severity": "high",
+   "outlets": 5,
+   "reports": 5,
+   "cves": [],
+   "lead": {
+    "title": "Second Norwegian Energy Company Breached in Two Days",
+    "url": "https://www.darkreading.com/cyberattacks-data-breaches/second-norwegian-energy-company-breached",
+    "source": "Dark Reading",
+    "published": "2026-11-19T20:14:15Z"
+   }
+  }
+ ],
+ "top_reports": [
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Newly Patched VMware vCenter Flaw Exploited as Zero-Day by Chinese APT",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/newly-patched-vmware-vcenter-flaw-exploited-as-zero-day-by-chinese-apt/",
+   "published": "2026-11-19T19:21:06Z",
+   "first_seen": "2026-11-19T22:21:36Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "PHP Patches Seven Critical RCE Vulnerabilities",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/php-patches-seven-critical-rce-vulnerabilities/",
+   "published": "2026-11-19T15:54:20Z",
+   "first_seen": "2026-11-19T18:31:15Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Critical VMware vCenter Flaw (CVSS 9.8) Lets Network Attackers Bypass Authentication",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/critical-vmware-vcenter-flaw-cvss-98.html",
+   "published": "2026-11-19T15:11:06Z",
+   "first_seen": "2026-11-19T18:31:15Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Drupal Patches Critical Installer Flaw That Could Give Unauthenticated Attackers Control of Sites",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/drupal-patches-critical-installer-flaw.html",
+   "published": "2026-11-19T14:33:06Z",
+   "first_seen": "2026-11-19T18:31:15Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Hackers Exploit Cisco Expressway Vulnerability Soon After PoC Release",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/hackers-exploit-cisco-expressway-vulnerability-soon-after-poc-release/",
+   "published": "2026-11-19T13:12:20Z",
+   "first_seen": "2026-11-19T13:41:25Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Drupal patches critical RCE flaw, warns exploits may surface quickly",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/drupal-patches-critical-rce-flaw-warns-exploits-may-surface-quickly/",
+   "published": "2026-11-19T13:08:08Z",
+   "first_seen": "2026-11-19T13:41:25Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Critical Apache Roller, Axis Vulnerabilities Exploited in Attacks",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/critical-apache-roller-axis-vulnerabilities-exploited-in-attacks/",
+   "published": "2026-11-19T12:13:24Z",
+   "first_seen": "2026-11-19T13:41:25Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "F5 Patches Critical NGINX2Root Flaws as PoC Exploits Go Public",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/f5-patches-critical-nginx2root-flaws-as-poc-exploits-go-public/",
+   "published": "2026-11-19T10:26:51Z",
+   "first_seen": "2026-11-19T13:41:25Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Java4Shell Exploitation Attempts Begin as Vendors Rush Out Advisories",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/java4shell-exploitation-attempts-begin-as-vendors-rush-out-advisories/",
+   "published": "2026-11-19T09:10:58Z",
+   "first_seen": "2026-11-19T09:30:28Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "CISA Warns of 4 Exploited Flaws Linked to Ransomware, Cryptomining, and LLMjacking Attacks",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/cisa-warns-of-4-exploited-flaws-linked.html",
+   "published": "2026-11-19T08:00:00Z",
+   "first_seen": "2026-11-19T13:41:25Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "ASUS warns of critical hard-coded key flaw in Control Center Express",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/asus-warns-of-critical-hard-coded-key-flaw-in-control-center-express/",
+   "published": "2026-11-19T21:15:59Z",
+   "first_seen": "2026-11-19T22:21:36Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Chase, Visa, Mastercard confirm third-party cyberattacks that may have exposed customers' info",
+   "source": "The Register",
+   "url": "https://www.theregister.com/security/2026/11/19/chase-visa-mastercard-confirm-third-party-cyberattacks-that-may-have-exposed-customers-info/5311175",
+   "published": "2026-11-19T21:12:33Z",
+   "first_seen": "2026-11-19T22:21:36Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Second Norwegian Energy Company Breached in Two Days",
+   "source": "Dark Reading",
+   "url": "https://www.darkreading.com/cyberattacks-data-breaches/second-norwegian-energy-company-breached",
+   "published": "2026-11-19T20:14:15Z",
+   "first_seen": "2026-11-19T22:21:36Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Critical PHP Flaws Allow Code Execution, But Don't Panic 'PHP2Shell'-Style",
+   "source": "Dark Reading",
+   "url": "https://www.darkreading.com/application-security/critical-php-flaws-code-execution-panic-php2shell",
+   "published": "2026-11-19T19:57:31Z",
+   "first_seen": "2026-11-19T22:21:36Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Nvidia adds possible hack to list of very bad things under investigation",
+   "source": "The Register",
+   "url": "https://www.theregister.com/security/2026/11/19/nvidia-adds-possible-hack-to-list-of-very-bad-things-under-investigation/5311153",
+   "published": "2026-11-19T18:52:53Z",
+   "first_seen": "2026-11-19T22:21:36Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "NGINX2Root: F5 patches five critical NGINX vulnerabilities",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/11/19/nginx2root-nginx-vulnerabilities/",
+   "published": "2026-11-19T18:25:50Z",
+   "first_seen": "2026-11-19T18:31:15Z",
+   "cves": [
+    "CVE-2026-123007",
+    "CVE-2026-123633"
+   ]
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Transport for London breach exposes 265,000 Oyster card users' data",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/transport-for-london-breach-exposes-265-000-oyster-card-users-data/",
+   "published": "2026-11-19T18:20:01Z",
+   "first_seen": "2026-11-19T18:31:15Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Visa, Mastercard and JPMorgan Customer Data Leaked by Hackers",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/19/visa-mastercard-and-jpmorgan-customer-data-leaked-by-hackers/",
+   "published": "2026-11-19T17:16:31Z",
+   "first_seen": "2026-11-19T18:31:15Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Google spots first-ever autonomous AI cyberattack by Russian-speaking hackers targeting France",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/19/google-spots-first-ever-autonomous-ai-cyberattack-by-russian-speaking-hackers-targeting-france/",
+   "published": "2026-11-19T17:16:14Z",
+   "first_seen": "2026-11-19T18:31:15Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Critical remote code execution flaws found in Nginx web server",
+   "source": "Cybersecurity Dive",
+   "url": "https://www.cybersecuritydive.com/news/critical-remote-code-execution-flaws-nginx-web-server/875196/",
+   "published": "2026-11-19T16:20:12Z",
+   "first_seen": "2026-11-19T18:31:15Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "PHP Fixes 7 Critical Flaws, Including Bugs That Could Allow Remote Code Execution",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/php-fixes-7-critical-flaws-including.html",
+   "published": "2026-11-19T15:18:07Z",
+   "first_seen": "2026-11-19T18:31:15Z",
+   "cves": [
+    "CVE-2026-115560"
+   ]
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "European Commission confirms cyberattack, says hackers used AI tool",
+   "source": "The Record",
+   "url": "https://therecord.media/european-commission-confirms-cyberattack-using-ai",
+   "published": "2026-11-19T15:15:00Z",
+   "first_seen": "2026-11-19T18:31:15Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Five warning signs of ransomware breach before encryption or data theft",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/five-warning-signs-of-ransomware-breach-before-encryption-or-data-theft/",
+   "published": "2026-11-19T15:00:10Z",
+   "first_seen": "2026-11-19T18:31:15Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Critical NGINX ‘NGINX2Root’ bugs let attackers hijack servers",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/critical-nginx-nginx2root-bugs-let-attackers-hijack-servers/",
+   "published": "2026-11-19T14:57:24Z",
+   "first_seen": "2026-11-19T18:31:15Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Russian spies turn one cloud breach into a stepping stone for the next",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/11/19/russian-spies-impersonation-cloud-breach/",
+   "published": "2026-11-19T14:42:20Z",
+   "first_seen": "2026-11-19T18:31:15Z",
+   "cves": []
+  }
+ ],
+ "kev_added": [],
+ "breaches": [
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Zehn Tage mit Papier und Stift gearbeitet: Klinik nach Cyberattacke wieder online",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.ndr.de/nachrichten/niedersachsen/osnabrueck_emsland/bad-rothenfelde-klinik-technik-nach-cyberangriff-wieder-online,cyberangriff-164.html",
+   "published": "2026-11-19T00:00:00Z",
+   "first_seen": "2026-11-19T09:30:28Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Skagerak Energi utsatt for forsøk på cyberangrep",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.nettavisen.no/nyheter/skagerak-energi-utsatt-for-forsok-pa-cyberangrep/s/30-95-26304",
+   "published": "2026-11-19T00:00:00Z",
+   "first_seen": "2026-11-19T09:30:28Z",
+   "cves": []
+  },
+  {
+   "severity": "low",
+   "type": "breach",
+   "title": "Stadtwerke bestätigen Cyberangriff auf „wittenberg-net“: Sind Kundendaten betroffen?",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.mz.de/lokal/wittenberg/stadtwerke-bestatigen-cyberangriff-auf-wittenberg-net-sind-kundendaten-betroffen-4358794",
+   "published": "2026-11-19T00:00:00Z",
+   "first_seen": "2026-11-19T09:30:28Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Cyberattack hits the Commission",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.politico.eu/newsletter/brussels-playbook/cyberattack-hits-the-commission/",
+   "published": "2026-11-19T00:00:00Z",
+   "first_seen": "2026-11-19T13:41:25Z",
+   "cves": []
+  }
+ ],
+ "ransomware_claims": {
+  "count": 69,
+  "groups": [
+   [
+    "SoulGroup",
+    26
+   ],
+   [
+    "vortex",
+    11
+   ],
+   [
+    "inc ransom",
+    5
+   ],
+   [
+    "rhysida",
+    3
+   ],
+   [
+    "aurora",
+    3
+   ],
+   [
+    "krybit",
+    3
+   ],
+   [
+    "leakeddata",
+    2
+   ],
+   [
+    "Handsome Boy Hacking Club",
+    2
+   ],
+   [
+    "hyflock",
+    2
+   ],
+   [
+    "handsome boy hacking club",
+    1
+   ]
+  ]
+ },
+ "archive_counts": {
+  "date": "2026-11-19",
+  "exploited": 0.0,
+  "ransomware": 10.0,
+  "breaches": 0.0,
+  "community": 0.6,
+  "kev": 0,
+  "claims": 69,
+  "breach_count": 0,
+  "accounts": 0,
+  "stories": 1,
+  "top": "Visa, Mastercard and JPMorgan Customer Data Leaked by Hackers",
+  "top_url": "https://www.wsj.com/finance/banking/visa-mastercard-and-jpmorgan-customer-data-leaked-by-hackers-3b5a0f87"
+ },
+ "sitreps": [
+  "sitreps/2026-11-19/183136Z.json"
+ ]
+}

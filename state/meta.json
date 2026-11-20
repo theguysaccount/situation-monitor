@@ -2815,7 +2815,7 @@
   "since": "2026-11-12T01:03:41Z",
   "pending": null
  },
- "last_sweep_at": "2026-11-19T01:30:13Z",
+ "last_sweep_at": "2026-11-20T00:56:54Z",
  "clock": {
   "skew_seconds": 0,
   "source": "server Date headers"
