@@ -1,0 +1,39 @@
+{
+ "written_at": "2026-11-20T15:32:13Z",
+ "by": "Claude",
+ "headline": "vCenter zero-day CVE-2026-123890 exploited since September; Cisco Expressway breaches; F5 BIG-IP emergency patches",
+ "bullets": [
+  {
+   "text": "New, critical: VMware patched vCenter zero-day CVE-2026-123890, exploited in attacks since September. The Hacker News reports a China-linked group used it to gain admin access and steal data; 5 outlets.",
+   "url": "https://www.bleepingcomputer.com/news/security/vmware-patches-vcenter-zero-day-exploited-in-attacks-since-september/"
+  },
+  {
+   "text": "Exploited: attackers used critical Cisco Expressway flaw CVE-2026-76466 to breach four devices and reach an internal network. F5 released emergency patches for critical BIG-IP RCE flaws, following its NGINX2Root fixes (CVE-2026-123007, CVE-2026-123633; PoCs public).",
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-cisco.html"
+  },
+  {
+   "text": "Still developing, critical: Java4Shell (CVE-2026-114938, 9 outlets) with exploitation attempts reported; PHP's 7 critical fixes (CVE-2026-115560); Apache Roller (CVE-2026-129448) and Axis (CVE-2026-90436) exploited, Axis KEV due 11-21.",
+   "url": "https://www.securityweek.com/java4shell-exploitation-attempts-begin-as-vendors-rush-out-advisories/"
+  },
+  {
+   "text": "Other new: Ruby patched Ruby2Shell RCE (CVE-2026-132825); an unpatched Windows 0-day, FastUnlock, lets someone holding a locked PC run programs; SonicWall says Gen 6 firewalls will get no more security patches, even for critical flaws.",
+   "url": "https://www.securityweek.com/ruby-patches-ruby2shell-vulnerability-that-could-lead-to-rce/"
+  },
+  {
+   "text": "N-able says its recent security breach led to a major service outage. A supplier breach hit dozens of credit unions and went unnoticed for six weeks; JPMorgan, Visa and Mastercard cite third-party incidents amid a data leak.",
+   "url": "https://www.bleepingcomputer.com/news/microsoft/n-able-says-recent-security-breach-led-to-major-service-outage/"
+  },
+  {
+   "text": "Breaches: SBC Medical Group breach impacts over 2 million; TfL Oyster photocard data on 265,000 exposed; European Commission confirms an AI-assisted attack disrupted services; USDA farmer aid systems disrupted. SITCON 3; 7-day score 0.97x the 90-day average.",
+   "url": "https://www.securityweek.com/sbc-medical-group-data-breach-impacts-over-2-million/"
+  }
+ ],
+ "actions": [
+  "Patch VMware vCenter for CVE-2026-123890 now and hunt for compromise back to September: unexpected admin accounts and data exfiltration.",
+  "Patch Cisco Expressway (CVE-2026-76466) and check for intrusion; apply F5's emergency BIG-IP RCE patches and the NGINX2Root fixes.",
+  "Keep working Java4Shell (CVE-2026-114938) across Java apps such as Jira, Jenkins and Keycloak; update PHP for CVE-2026-115560.",
+  "Patch or isolate Apache Axis, Synology DSM and REDCap before their 11-21 KEV due dates; patch LiteLLM CVE-2026-40217 (due 12-02).",
+  "Plan replacement of SonicWall Gen 6 firewalls; update Ruby for CVE-2026-132825; restrict physical access to locked Windows PCs until FastUnlock is fixed.",
+  "N-able customers: follow vendor notices on the breach and outage; remove pip agent-framework 1.26.1 or 1.26.2 if present and rotate credentials."
+ ]
+}
