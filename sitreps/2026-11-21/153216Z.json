@@ -1,0 +1,39 @@
+{
+ "written_at": "2026-11-21T15:32:16Z",
+ "by": "Claude",
+ "headline": "China-linked AI agents exploited a medical-imaging zero-day; vCenter, Cisco, Roller and SAP flaws in KEV due 11-23; FBI reportedly hacked",
+ "bullets": [
+  {
+   "text": "New, critical: Amazon says China-linked hackers used AI agents, including the autonomous tool Cairn, to find and exploit a zero-day in medical-imaging software, gaining root and taking over a university server. No CVE in reports yet; 5 outlets.",
+   "url": "https://www.securityweek.com/amazon-china-linked-hackers-ai-agents-exploited-medical-software-zero-day/"
+  },
+  {
+   "text": "CISA added four exploited flaws on 11-20, all due 11-23: VMware vCenter auth bypass CVE-2026-123890 (exploited since September; 7 outlets), Cisco Expressway hard-coded credentials CVE-2026-76466, Apache Roller CVE-2026-129448 and SAP NetWeaver CVE-2025-42884.",
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-vmware-cisco.html"
+  },
+  {
+   "text": "New, critical: GnuPG warns of a critical GPGME flaw that could expose application data via malicious OpenPGP keys. Still developing: F5 NGINX2Root fixes with public PoCs (CVE-2026-123007, CVE-2026-123633) and PHP's seven critical RCE fixes (CVE-2026-115560).",
+   "url": "https://thehackernews.com/2026/11/gnupg-warns-critical-gpgme-flaw-could.html"
+  },
+  {
+   "text": "Breaches: the FBI was reportedly hacked again, targeting a nationwide police database; Bell Canada says an 'agentic' hacker stole enterprise customer data; officials probe an attempted cyberattack on Algonquin Dam; USDA took multiple systems offline.",
+   "url": "https://www.bleepingcomputer.com/news/security/fbi-reportedly-hacked-again-this-time-targeting-nationwide-police-database/"
+  },
+  {
+   "text": "Third-party: vendor breach exposed Chase, Visa and Mastercard customer info, which researchers say is useful for phishing but not for draining accounts. BADBOX 3.0 botnet returned at 40 billion daily ad requests.",
+   "url": "https://www.bleepingcomputer.com/news/security/vendor-data-breach-exposes-chase-visa-mastercard-customer-info/"
+  },
+  {
+   "text": "SITCON 3 (ELEVATED): 8 KEV additions in three working days and 23 critical reports in two; the last 7 days scored 1.12x the 90-day average. Ransomware leak-site claims led by n0n (102), vortex (28), SoulGroup (26).",
+   "url": "https://www.helpnetsecurity.com/2026/11/20/vmware-vcenter-zero-day-cve-2026-123890-exploited/"
+  }
+ ],
+ "actions": [
+  "Patch VMware vCenter (CVE-2026-123890) and Cisco Expressway (CVE-2026-76466) before the 11-23 KEV deadline; hunt for compromise back to September.",
+  "Patch or isolate Apache Roller (CVE-2026-129448) and SAP NetWeaver (CVE-2025-42884), also due 11-23.",
+  "Medical-imaging and university operators: watch vendor advisories for the AI-found zero-day and limit internet exposure of imaging servers.",
+  "Update GPGME when GnuPG ships a fix; apply F5 NGINX2Root fixes and update PHP for CVE-2026-115560.",
+  "Chase, Visa and Mastercard customers: expect targeted phishing using the leaked vendor data; brief help desks and users.",
+  "Patch LiteLLM CVE-2026-40217 (KEV due 12-02) and Puppet Enterprise CVE-2026-115731 (due 12-01)."
+ ]
+}
