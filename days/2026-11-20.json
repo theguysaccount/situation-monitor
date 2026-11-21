@@ -1,0 +1,636 @@
+{
+ "schema": 1,
+ "date": "2026-11-20",
+ "source": "sweep",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-11-20T00:56:54Z",
+    3,
+    369.5
+   ],
+   [
+    "2026-11-20T08:32:54Z",
+    3,
+    369.5
+   ],
+   [
+    "2026-11-20T13:23:53Z",
+    3,
+    386.4
+   ],
+   [
+    "2026-11-20T15:31:51Z",
+    3,
+    363.3
+   ],
+   [
+    "2026-11-20T15:32:54Z",
+    3,
+    358.3
+   ],
+   [
+    "2026-11-20T17:18:21Z",
+    3,
+    351.1
+   ],
+   [
+    "2026-11-20T21:25:44Z",
+    3,
+    374.8
+   ],
+   [
+    "2026-11-20T23:21:44Z",
+    3,
+    368.6
+   ]
+  ],
+  "hours_at_level": {
+   "3": 8
+  },
+  "highest": 3,
+  "lowest": 3
+ },
+ "first_seen": {
+  "count": 141,
+  "by_severity": {
+   "medium": 69,
+   "low": 28,
+   "high": 31,
+   "critical": 13
+  },
+  "by_type": {
+   "ransomware": 47,
+   "news": 68,
+   "breach": 8,
+   "advisory": 2,
+   "vuln": 10,
+   "community": 2,
+   "kev": 4
+  }
+ },
+ "situations": [
+  {
+   "name": "VMware vCenter",
+   "severity": "critical",
+   "outlets": 7,
+   "reports": 8,
+   "cves": [
+    "CVE-2026-123890"
+   ],
+   "lead": {
+    "title": "VMware vCenter zero-day exploited for months before patch (CVE-2026-123890)",
+    "url": "https://www.helpnetsecurity.com/2026/11/20/vmware-vcenter-zero-day-cve-2026-123890-exploited/",
+    "source": "Help Net Security",
+    "published": "2026-11-20T12:30:19Z"
+   }
+  },
+  {
+   "name": "Java4Shell",
+   "severity": "critical",
+   "outlets": 7,
+   "reports": 8,
+   "cves": [
+    "CVE-2026-114938"
+   ],
+   "lead": {
+    "title": "Java4Shell Exploitation Attempts Begin as Vendors Rush Out Advisories",
+    "url": "https://www.securityweek.com/java4shell-exploitation-attempts-begin-as-vendors-rush-out-advisories/",
+    "source": "SecurityWeek",
+    "published": "2026-11-19T09:10:58Z"
+   }
+  },
+  {
+   "name": "PHP",
+   "severity": "critical",
+   "outlets": 5,
+   "reports": 10,
+   "cves": [
+    "CVE-2026-115560"
+   ],
+   "lead": {
+    "title": "PHP Patches Seven Critical RCE Vulnerabilities",
+    "url": "https://www.securityweek.com/php-patches-seven-critical-rce-vulnerabilities/",
+    "source": "SecurityWeek",
+    "published": "2026-11-19T15:54:20Z"
+   }
+  },
+  {
+   "name": "NGINX2Root",
+   "severity": "critical",
+   "outlets": 7,
+   "reports": 7,
+   "cves": [
+    "CVE-2026-123007",
+    "CVE-2026-123633"
+   ],
+   "lead": {
+    "title": "F5 Patches Critical NGINX2Root Flaws as PoC Exploits Go Public",
+    "url": "https://www.securityweek.com/f5-patches-critical-nginx2root-flaws-as-poc-exploits-go-public/",
+    "source": "SecurityWeek",
+    "published": "2026-11-19T10:26:51Z"
+   }
+  },
+  {
+   "name": "Roller RCE",
+   "severity": "critical",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [
+    "CVE-2026-129448",
+    "CVE-2026-82384"
+   ],
+   "lead": {
+    "title": "Critical Apache Roller, Axis Vulnerabilities Exploited in Attacks",
+    "url": "https://www.securityweek.com/critical-apache-roller-axis-vulnerabilities-exploited-in-attacks/",
+    "source": "SecurityWeek",
+    "published": "2026-11-19T12:13:24Z"
+   }
+  },
+  {
+   "name": "Cisco Expressway",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [
+    "CVE-2026-76466"
+   ],
+   "lead": {
+    "title": "Hackers Exploit Critical Cisco Expressway Flaw, Breach Four Devices and Reach Internal Network",
+    "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-cisco.html",
+    "source": "The Hacker News",
+    "published": "2026-11-20T10:32:50Z"
+   }
+  },
+  {
+   "name": "Equinor",
+   "severity": "high",
+   "outlets": 5,
+   "reports": 5,
+   "cves": [],
+   "lead": {
+    "title": "Second Norwegian Energy Company Breached in 2 Days",
+    "url": "https://www.darkreading.com/cyberattacks-data-breaches/second-norwegian-energy-company-breached",
+    "source": "Dark Reading",
+    "published": "2026-11-19T20:14:15Z"
+   }
+  },
+  {
+   "name": "Puppet RCE",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [
+    "CVE-2026-115731"
+   ],
+   "lead": {
+    "title": "Critical Perforce Puppet RCE Exploited in Attacks",
+    "url": "https://www.securityweek.com/critical-perforce-puppet-rce-exploited-in-attacks/",
+    "source": "SecurityWeek",
+    "published": "2026-11-18T10:37:08Z"
+   }
+  }
+ ],
+ "top_reports": [
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Hackers use autonomous AI tool Cairn to find zero-day, take over server",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-use-autonomous-ai-tool-cairn-to-find-zero-day-take-over-server/",
+   "published": "2026-11-20T17:30:00Z",
+   "first_seen": "2026-11-20T21:25:44Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Amazon says Chinese hackers used Cairn AI tool to discover apparent zero-day during attack on university",
+   "source": "The Record",
+   "url": "https://therecord.media/amazon-research-cairn-ai-university-attacks-possible-zero-day",
+   "published": "2026-11-20T17:30:00Z",
+   "first_seen": "2026-11-20T21:25:44Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "China attackers deployed AI agents that autonomously found and exploited a 0-day to take over a university server",
+   "source": "The Register",
+   "url": "https://www.theregister.com/security/2026/11/20/china-attackers-deployed-ai-agents-that-autonomously-found-and-exploited-a-0-day-to-take-over-a-university-server/5311382",
+   "published": "2026-11-20T17:30:00Z",
+   "first_seen": "2026-11-20T21:25:44Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "VMware vCenter zero-day exploited for months before patch (CVE-2026-123890)",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/11/20/vmware-vcenter-zero-day-cve-2026-123890-exploited/",
+   "published": "2026-11-20T12:30:19Z",
+   "first_seen": "2026-11-20T13:23:53Z",
+   "cves": [
+    "CVE-2026-123890"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "F5 releases emergency patches for critical BIG-IP RCE flaws",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/f5-releases-emergency-patches-for-critical-big-ip-rce-flaws/",
+   "published": "2026-11-20T10:57:43Z",
+   "first_seen": "2026-11-20T13:23:53Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Hackers Exploit Critical Cisco Expressway Flaw, Breach Four Devices and Reach Internal Network",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-cisco.html",
+   "published": "2026-11-20T10:32:50Z",
+   "first_seen": "2026-11-20T13:23:53Z",
+   "cves": [
+    "CVE-2026-76466"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "China-Linked Hackers Exploit Critical VMware vCenter Zero-Day to Gain Admin Access and Steal Data",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/china-linked-hackers-exploit-critical.html",
+   "published": "2026-11-20T09:38:15Z",
+   "first_seen": "2026-11-20T08:32:54Z",
+   "cves": [
+    "CVE-2026-123890"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "VMware patches vCenter zero-day exploited in attacks since September",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/vmware-patches-vcenter-zero-day-exploited-in-attacks-since-september/",
+   "published": "2026-11-20T00:26:25Z",
+   "first_seen": "2026-11-20T00:56:54Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Chinese espionage group targets critical flaw in VMware vCenter",
+   "source": "Cybersecurity Dive",
+   "url": "https://www.cybersecuritydive.com/news/chinese-espionage-zero-day-flaw-vmware-vcenter/875273/",
+   "published": "2026-11-19T21:36:46Z",
+   "first_seen": "2026-11-20T00:56:54Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Visa, Mastercard theft included info useful for phishing, but not draining bank accounts, say researchers",
+   "source": "The Register",
+   "url": "https://www.theregister.com/cyber-crime/2026/11/20/visa-mastercard-theft-included-info-useful-for-phishing-but-not-draining-bank-accounts-say-researchers/5311478",
+   "published": "2026-11-20T21:27:56Z",
+   "first_seen": "2026-11-20T23:21:44Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "China's 'Armory Castle' Lays Siege to VMware vCenter Zero-Day",
+   "source": "Dark Reading",
+   "url": "https://www.darkreading.com/cyberattacks-data-breaches/china-armory-castle-vmware-vcenter-zero-day",
+   "published": "2026-11-20T21:03:27Z",
+   "first_seen": "2026-11-20T21:25:44Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Container Store restores systems after cyberattack",
+   "source": "The Record",
+   "url": "https://therecord.media/container-store-restores-systems-cyberattack",
+   "published": "2026-11-20T19:32:00Z",
+   "first_seen": "2026-11-20T21:25:44Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Bell Canada says ‘agentic’ hacker stole enterprise customer data",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/20/bell-canada-says-agentic-hacker-stole-enterprise-customer-data/",
+   "published": "2026-11-20T18:56:50Z",
+   "first_seen": "2026-11-20T21:25:44Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Bell Canada says 'agentic' hacker stole enterprise customer data",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/bell-canada-says-agentic-hacker-stole-enterprise-customer-data/",
+   "published": "2026-11-20T18:51:43Z",
+   "first_seen": "2026-11-20T21:25:44Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "U.S. Department of Agriculture grapples with security breach as IT staff take multiple systems offline",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/20/u-s-department-of-agriculture-grapples-with-security-breach-as-it-staff-take-multiple-systems-offline/",
+   "published": "2026-11-20T18:44:27Z",
+   "first_seen": "2026-11-20T21:25:44Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Bazuka Android Malware Uses Fake Screen Overlays to Hide Credential Theft and Device Control",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/bazuka-android-malware-uses-fake-screen.html",
+   "published": "2026-11-20T16:58:16Z",
+   "first_seen": "2026-11-20T21:25:44Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "NSA resumes normal operations following internal network disruptions",
+   "source": "The Record",
+   "url": "https://therecord.media/nsa-resumes-normal-operations-following-internal-disruptions",
+   "published": "2026-11-20T16:06:00Z",
+   "first_seen": "2026-11-20T17:18:21Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Vendor data breach exposes Chase, Visa, Mastercard customer info",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/vendor-data-breach-exposes-chase-visa-mastercard-customer-info/",
+   "published": "2026-11-20T15:58:06Z",
+   "first_seen": "2026-11-20T17:18:21Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "JPMorgan, Visa confirm customer data taken in third-party vendor hacks",
+   "source": "Cybersecurity Dive",
+   "url": "https://www.cybersecuritydive.com/news/jpmorgan-visa-customer-data-leaked-third-party-hacks/875333/",
+   "published": "2026-11-20T15:52:41Z",
+   "first_seen": "2026-11-20T17:18:21Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Dozens of credit unions hit by supplier breach that went unnoticed for six weeks",
+   "source": "The Record",
+   "url": "https://therecord.media/dozens-of-credit-unions-hit-by-supplier-breach",
+   "published": "2026-11-20T14:24:00Z",
+   "first_seen": "2026-11-20T15:31:51Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "N-able says recent security breach led to major service outage",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/microsoft/n-able-says-recent-security-breach-led-to-major-service-outage/",
+   "published": "2026-11-20T13:18:36Z",
+   "first_seen": "2026-11-20T15:31:51Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "SBC Medical Group Data Breach Impacts Over 2 Million",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/sbc-medical-group-data-breach-impacts-over-2-million/",
+   "published": "2026-11-20T11:36:51Z",
+   "first_seen": "2026-11-20T13:23:53Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "European Commission Confirms AI-Assisted Cyberattack Disrupted Services",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/european-commission-confirms-ai-assisted-cyberattack-disrupted-services/",
+   "published": "2026-11-20T10:51:42Z",
+   "first_seen": "2026-11-20T13:23:53Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "SonicWall Warns Gen 6 Firewalls Won't Get Security Patches, Even for Critical Flaws",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/sonicwall-warns-gen-6-firewalls-wont.html",
+   "published": "2026-11-20T10:38:22Z",
+   "first_seen": "2026-11-20T13:23:53Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Ruby Patches Ruby2Shell Vulnerability That Could Lead to RCE",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/ruby-patches-ruby2shell-vulnerability-that-could-lead-to-rce/",
+   "published": "2026-11-20T10:34:10Z",
+   "first_seen": "2026-11-20T13:23:53Z",
+   "cves": [
+    "CVE-2026-132825"
+   ]
+  }
+ ],
+ "kev_added": [
+  {
+   "cve": "CVE-2026-129448",
+   "vendor": "Apache",
+   "product": "Roller",
+   "title": "CVE-2026-129448: Apache Roller Deserialization of Untrusted Data Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129448",
+   "due": "2026-11-23",
+   "ransomware": false
+  },
+  {
+   "cve": "CVE-2026-123890",
+   "vendor": "Broadcom",
+   "product": "VMware vCenter",
+   "title": "CVE-2026-123890: VMWare vCenter Authentication Bypass Using an Alternate Path or Channel Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-123890",
+   "due": "2026-11-23",
+   "ransomware": false
+  },
+  {
+   "cve": "CVE-2025-42884",
+   "vendor": "SAP",
+   "product": "NetWeaver",
+   "title": "CVE-2025-42884: SAP NetWeaver Improper Neutralization of Special Elements in Data Query Logic Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-42884",
+   "due": "2026-11-23",
+   "ransomware": false
+  },
+  {
+   "cve": "CVE-2026-76466",
+   "vendor": "Cisco",
+   "product": "Expressway Series",
+   "title": "CVE-2026-76466: Cisco Expressway Series Use of Hard-coded Credentials Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-76466",
+   "due": "2026-11-23",
+   "ransomware": false
+  }
+ ],
+ "breaches": [
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Too Lost: 724,323 accounts added to Have I Been Pwned",
+   "source": "Have I Been Pwned",
+   "url": "https://haveibeenpwned.com/Breach/TooLost",
+   "published": "2026-11-20T19:17:16Z",
+   "first_seen": "2026-11-20T21:25:44Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Careers360: 3,609,421 accounts added to Have I Been Pwned",
+   "source": "Have I Been Pwned",
+   "url": "https://haveibeenpwned.com/Breach/Careers360",
+   "published": "2026-11-20T03:44:54Z",
+   "first_seen": "2026-11-20T08:32:54Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "DonorPerfect cyberattack delays year-end fundraising",
+   "source": "ransomware.live disclosures",
+   "url": "https://dysruptionhub.com/donorperfect-cyberattack-fundraising/",
+   "published": "2026-11-20T00:00:00Z",
+   "first_seen": "2026-11-20T08:32:54Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Falhas no IMT foram provocadas por ataque informático. Site continua inacessível",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.jn.pt/nacional/artigo/falhas-no-imt-foram-provocadas-por-ataque-informatico-site-continua-inacessivel/18150144",
+   "published": "2026-11-20T00:00:00Z",
+   "first_seen": "2026-11-20T08:32:54Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Park Dental Partners canceled appointments after cyberattack",
+   "source": "ransomware.live disclosures",
+   "url": "https://dysruptionhub.com/park-dental-cyberattack-appointments/",
+   "published": "2026-11-20T00:00:00Z",
+   "first_seen": "2026-11-20T08:32:54Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Cleveland schools in Texas limit visitors after attempted cyber intrusion",
+   "source": "ransomware.live disclosures",
+   "url": "https://dysruptionhub.com/cleveland-isd-texas-cyber-intrusion/",
+   "published": "2026-11-20T00:00:00Z",
+   "first_seen": "2026-11-20T08:32:54Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Possible cyber incident disrupts CrossWind dispatch system in Vermont",
+   "source": "ransomware.live disclosures",
+   "url": "https://dysruptionhub.com/crosswind-valcour-vermont-cyber-incident/",
+   "published": "2026-11-20T00:00:00Z",
+   "first_seen": "2026-11-20T08:32:54Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "US Department of Agriculture Hit By Cyber Incident, Farmer Aid Systems Disrupted",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.timesnownews.com/world/us/us-news/usda-cyberattack-us-department-of-agriculture-cyber-incident-systems-taken-offline-article-156539505",
+   "published": "2026-11-20T00:00:00Z",
+   "first_seen": "2026-11-20T08:32:54Z",
+   "cves": []
+  }
+ ],
+ "ransomware_claims": {
+  "count": 45,
+  "groups": [
+   [
+    "everest",
+    10
+   ],
+   [
+    "pixelleaks",
+    4
+   ],
+   [
+    "pear",
+    4
+   ],
+   [
+    "spacebears",
+    4
+   ],
+   [
+    "aurora",
+    3
+   ],
+   [
+    "n0n",
+    3
+   ],
+   [
+    "rhysida",
+    2
+   ],
+   [
+    "majinahanashi",
+    2
+   ],
+   [
+    "whitearmor",
+    1
+   ],
+   [
+    "dark project",
+    1
+   ]
+  ]
+ },
+ "archive_counts": {
+  "date": "2026-11-20",
+  "exploited": 16.0,
+  "ransomware": 10.0,
+  "breaches": 3.1,
+  "community": 0.6,
+  "kev": 4,
+  "claims": 45,
+  "breach_count": 2,
+  "accounts": 4333744,
+  "stories": 1,
+  "top": "UK fridges secured from hackers",
+  "top_url": "https://www.bbc.co.uk/news/articles/c6eq49zyx7p4o"
+ },
+ "sitreps": [
+  "sitreps/2026-11-20/153213Z.json"
+ ]
+}
