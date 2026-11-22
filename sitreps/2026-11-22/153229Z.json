@@ -1,0 +1,39 @@
+{
+ "written_at": "2026-11-22T15:32:29Z",
+ "by": "Claude",
+ "headline": "Entra Connect Health flaw exploited to steal tenant data; vCenter, Cisco, Roller, SAP KEV due 11-23; FBI probes database hack",
+ "bullets": [
+  {
+   "text": "New, critical: a Microsoft Entra Connect Health flaw has been exploited to steal tenant data, BleepingComputer reports. No CVE in the report yet.",
+   "url": "https://www.bleepingcomputer.com/news/security/microsoft-entra-connect-health-flaw-exploited-to-steal-tenant-data/"
+  },
+  {
+   "text": "Still due 11-23 in CISA KEV: VMware vCenter auth bypass CVE-2026-123890 (exploited for months before the patch; 7 outlets), Cisco Expressway hard-coded credentials CVE-2026-76466, Apache Roller CVE-2026-129448 and SAP NetWeaver CVE-2025-42884.",
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-vmware-cisco.html"
+  },
+  {
+   "text": "New: the FBI is investigating an apparent hack of its key national criminal justice database, per an AP source. Separately, a large European telecom leak exposed clients of Swedbank, SEB, airBaltic and dozens of other companies.",
+   "url": "https://www.securityweek.com/fbi-investigating-apparent-hack-of-its-key-national-criminal-justice-database-ap-source-says/"
+  },
+  {
+   "text": "New, cloud and AI: a Rackspace Spot breach let hackers access customer Kubernetes secrets. OpenRouter dropped 3 providers after researchers caught months of prompt theft at AI hosting firms.",
+   "url": "https://www.bleepingcomputer.com/news/security/rackspace-spot-breach-let-hackers-access-customer-kubernetes-secrets/"
+  },
+  {
+   "text": "Still developing: China-linked AI agents exploited a medical-imaging zero-day for root (Amazon; no CVE yet), GnuPG's critical GPGME flaw, and PHP's seven critical RCE fixes (6 outlets).",
+   "url": "https://www.securityweek.com/amazon-china-linked-hackers-ai-agents-exploited-medical-software-zero-day/"
+  },
+  {
+   "text": "SITCON raised to 2 (SEVERE) from 3: 8 KEV additions in three working days and 24 critical reports in two; the last 7 days scored 1.11x the 90-day average. Ransomware leak-site claims led by n0n (103), vortex (28), SoulGroup (27).",
+   "url": "https://www.helpnetsecurity.com/2026/11/20/vmware-vcenter-zero-day-cve-2026-123890-exploited/"
+  }
+ ],
+ "actions": [
+  "Patch VMware vCenter (CVE-2026-123890) and Cisco Expressway (CVE-2026-76466) before the 11-23 KEV deadline; hunt for compromise back to September.",
+  "Patch or isolate Apache Roller (CVE-2026-129448) and SAP NetWeaver (CVE-2025-42884), also due 11-23.",
+  "Entra tenants: follow Microsoft guidance on the exploited Connect Health flaw and review tenant audit logs for unusual data access.",
+  "Rackspace Spot customers: rotate Kubernetes secrets and any credentials stored in affected clusters.",
+  "Check which upstream providers your LLM traffic routes through, and keep secrets out of prompts.",
+  "Update PHP for its critical RCE fixes; patch LiteLLM CVE-2026-40217 (KEV due 12-02) and Puppet Enterprise CVE-2026-115731 (due 12-01)."
+ ]
+}
