@@ -1,0 +1,394 @@
+{
+ "schema": 1,
+ "date": "2026-11-21",
+ "source": "sweep",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-11-21T02:42:11Z",
+    3,
+    362.3
+   ],
+   [
+    "2026-11-21T04:17:46Z",
+    3,
+    362.3
+   ],
+   [
+    "2026-11-21T11:32:28Z",
+    3,
+    375.9
+   ],
+   [
+    "2026-11-21T13:02:10Z",
+    3,
+    395.0
+   ],
+   [
+    "2026-11-21T15:31:53Z",
+    3,
+    398.8
+   ],
+   [
+    "2026-11-21T15:32:54Z",
+    3,
+    398.8
+   ],
+   [
+    "2026-11-21T19:36:34Z",
+    3,
+    403.3
+   ],
+   [
+    "2026-11-21T20:06:04Z",
+    3,
+    403.5
+   ]
+  ],
+  "hours_at_level": {
+   "3": 8
+  },
+  "highest": 3,
+  "lowest": 3
+ },
+ "first_seen": {
+  "count": 42,
+  "by_severity": {
+   "medium": 25,
+   "high": 9,
+   "critical": 5,
+   "low": 3
+  },
+  "by_type": {
+   "ransomware": 21,
+   "news": 20,
+   "community": 1
+  }
+ },
+ "situations": [
+  {
+   "name": "VMware vCenter",
+   "severity": "critical",
+   "outlets": 7,
+   "reports": 8,
+   "cves": [
+    "CVE-2026-123890"
+   ],
+   "lead": {
+    "title": "VMware vCenter zero-day exploited for months before patch (CVE-2026-123890)",
+    "url": "https://www.helpnetsecurity.com/2026/11/20/vmware-vcenter-zero-day-cve-2026-123890-exploited/",
+    "source": "Help Net Security",
+    "published": "2026-11-20T12:30:19Z"
+   }
+  },
+  {
+   "name": "PHP",
+   "severity": "critical",
+   "outlets": 6,
+   "reports": 9,
+   "cves": [
+    "CVE-2026-115560"
+   ],
+   "lead": {
+    "title": "PHP Patches Seven Critical RCE Vulnerabilities",
+    "url": "https://www.securityweek.com/php-patches-seven-critical-rce-vulnerabilities/",
+    "source": "SecurityWeek",
+    "published": "2026-11-19T15:54:20Z"
+   }
+  },
+  {
+   "name": "Cisco Expressway",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [
+    "CVE-2026-76466"
+   ],
+   "lead": {
+    "title": "Hackers Exploit Critical Cisco Expressway Flaw, Breach Four Devices and Reach Internal Network",
+    "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-cisco.html",
+    "source": "The Hacker News",
+    "published": "2026-11-20T10:32:50Z"
+   }
+  },
+  {
+   "name": "NGINX2Root",
+   "severity": "critical",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [
+    "CVE-2026-123007",
+    "CVE-2026-123633"
+   ],
+   "lead": {
+    "title": "F5 Patches Critical NGINX2Root Flaws as PoC Exploits Go Public",
+    "url": "https://www.securityweek.com/f5-patches-critical-nginx2root-flaws-as-poc-exploits-go-public/",
+    "source": "SecurityWeek",
+    "published": "2026-11-19T10:26:51Z"
+   }
+  },
+  {
+   "name": "Commission",
+   "severity": "high",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [],
+   "lead": {
+    "title": "European Commission Confirms AI-Assisted Cyberattack Disrupted Services",
+    "url": "https://www.securityweek.com/european-commission-confirms-ai-assisted-cyberattack-disrupted-services/",
+    "source": "SecurityWeek",
+    "published": "2026-11-20T10:51:42Z"
+   }
+  },
+  {
+   "name": "Roller",
+   "severity": "critical",
+   "outlets": 2,
+   "reports": 2,
+   "cves": [
+    "CVE-2026-129448",
+    "CVE-2026-82384"
+   ],
+   "lead": {
+    "title": "Critical Apache Roller, Axis Vulnerabilities Exploited in Attacks",
+    "url": "https://www.securityweek.com/critical-apache-roller-axis-vulnerabilities-exploited-in-attacks/",
+    "source": "SecurityWeek",
+    "published": "2026-11-19T12:13:24Z"
+   }
+  },
+  {
+   "name": "JPMorgan",
+   "severity": "high",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [],
+   "lead": {
+    "title": "Visa, Mastercard theft included info useful for phishing, but not draining bank accounts, say researchers",
+    "url": "https://www.theregister.com/cyber-crime/2026/11/20/visa-mastercard-theft-included-info-useful-for-phishing-but-not-draining-bank-accounts-say-researchers/5311478",
+    "source": "The Register",
+    "published": "2026-11-20T21:27:56Z"
+   }
+  },
+  {
+   "name": "Oyster",
+   "severity": "high",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [],
+   "lead": {
+    "title": "265,000 Oyster photocard customers’ data exposed in Transport for London breach",
+    "url": "https://www.helpnetsecurity.com/2026/11/20/transport-for-london-oyster-photocard-data-breach/",
+    "source": "Help Net Security",
+    "published": "2026-11-20T10:21:41Z"
+   }
+  }
+ ],
+ "top_reports": [
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Microsoft Entra Connect Health flaw exploited to steal tenant data",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/microsoft-entra-connect-health-flaw-exploited-to-steal-tenant-data/",
+   "published": "2026-11-21T18:01:58Z",
+   "first_seen": "2026-11-21T19:36:34Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Amazon: China-Linked Hackers’ AI Agents Exploited Medical Software Zero-Day",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/amazon-china-linked-hackers-ai-agents-exploited-medical-software-zero-day/",
+   "published": "2026-11-21T12:08:50Z",
+   "first_seen": "2026-11-21T13:02:10Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "GnuPG Warns Critical GPGME Flaw Could Expose App Data via Malicious OpenPGP Keys",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/gnupg-warns-critical-gpgme-flaw-could.html",
+   "published": "2026-11-21T11:05:53Z",
+   "first_seen": "2026-11-21T11:32:28Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Attackers' AI Agents Found a Zero-Day in Medical-Imaging Software and Gained Root Access",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/attackers-ai-agents-found-zero-day-in.html",
+   "published": "2026-11-21T11:03:17Z",
+   "first_seen": "2026-11-21T11:32:28Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Hackers Exploit Critical VMware, Cisco, and Apache Flaws as Espionage Attacks Emerge",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-vmware-cisco.html",
+   "published": "2026-11-21T08:49:13Z",
+   "first_seen": "2026-11-21T11:32:28Z",
+   "cves": [
+    "CVE-2026-129448"
+   ]
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Trump says reported FBI database hack is ‘not good’",
+   "source": "TechCrunch Security",
+   "url": "https://techcrunch.com/2026/11/21/trump-says-reported-fbi-database-hack-is-not-good/",
+   "published": "2026-11-21T18:44:53Z",
+   "first_seen": "2026-11-21T19:36:34Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "BADBOX botnet returns with record-breaking 40 billion daily ad requests",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/badbox-30-botnet-returns-with-record-breaking-40-billion-daily-ad-requests/",
+   "published": "2026-11-21T15:17:27Z",
+   "first_seen": "2026-11-21T15:31:53Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "FBI reportedly hacked again, this time targeting nationwide police database",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/fbi-reportedly-hacked-again-this-time-targeting-nationwide-police-database/",
+   "published": "2026-11-21T14:26:04Z",
+   "first_seen": "2026-11-21T15:31:53Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "The Outages Are Just Getting Started",
+   "source": "WIRED Security",
+   "url": "https://www.wired.com/story/brace-yourself-for-years-of-outage-chaos/",
+   "published": "2026-11-21T13:00:00Z",
+   "first_seen": "2026-11-21T15:31:53Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "FBI hacked again; criminal information database targeted",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/21/fbi-hacked-again-criminal-information-database-targeted/",
+   "published": "2026-11-21T12:37:22Z",
+   "first_seen": "2026-11-21T13:02:10Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Officials probe attempted cyberattack on Algonquin Dam",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/21/officials-probe-attempted-cyberattack-on-algonquin-dam/",
+   "published": "2026-11-21T12:37:13Z",
+   "first_seen": "2026-11-21T13:02:10Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "India: 14-year-old hacker held for trying to sell private data of 4,000 Agniveers on dark web",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/21/india-14-year-old-hacker-held-for-trying-to-sell-private-data-of-4000-agniveers-on-dark-web/",
+   "published": "2026-11-21T12:37:00Z",
+   "first_seen": "2026-11-21T13:02:10Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "SG: YMCA’s Youth For Causes portal, associated database hit by cybersecurity breach",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/21/sg-ymcas-youth-for-causes-portal-associated-database-hit-by-cybersecurity-breach/",
+   "published": "2026-11-21T12:36:54Z",
+   "first_seen": "2026-11-21T13:02:10Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "A Single Malicious Webpage Let Researchers Hijack Meta Muse and Access Private Chats",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/a-single-malicious-webpage-let.html",
+   "published": "2026-11-21T11:53:07Z",
+   "first_seen": "2026-11-21T13:02:10Z",
+   "cves": []
+  }
+ ],
+ "kev_added": [],
+ "breaches": [],
+ "ransomware_claims": {
+  "count": 22,
+  "groups": [
+   [
+    "safepay",
+    9
+   ],
+   [
+    "pear",
+    2
+   ],
+   [
+    "qilin",
+    1
+   ],
+   [
+    "inc ransom",
+    1
+   ],
+   [
+    "osiris",
+    1
+   ],
+   [
+    "soul",
+    1
+   ],
+   [
+    "SoulGroup",
+    1
+   ],
+   [
+    "lockbit5",
+    1
+   ],
+   [
+    "Barracuda",
+    1
+   ],
+   [
+    "Eclipse",
+    1
+   ]
+  ]
+ },
+ "archive_counts": {
+  "date": "2026-11-21",
+  "exploited": 0.0,
+  "ransomware": 5.5,
+  "breaches": 0.0,
+  "community": 0.0,
+  "kev": 0,
+  "claims": 22,
+  "breach_count": 0,
+  "accounts": 0,
+  "stories": 0,
+  "top": "",
+  "top_url": ""
+ },
+ "sitreps": [
+  "sitreps/2026-11-21/153216Z.json"
+ ]
+}
