@@ -1,0 +1,231 @@
+{
+ "schema": 1,
+ "date": "2026-11-22",
+ "source": "sweep",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-11-22T00:20:46Z",
+    3,
+    405.5
+   ],
+   [
+    "2026-11-22T07:28:50Z",
+    2,
+    409.3
+   ],
+   [
+    "2026-11-22T15:32:00Z",
+    2,
+    413.1
+   ],
+   [
+    "2026-11-22T15:33:19Z",
+    2,
+    413.1
+   ],
+   [
+    "2026-11-22T15:41:36Z",
+    2,
+    413.1
+   ],
+   [
+    "2026-11-22T21:18:59Z",
+    2,
+    414.6
+   ],
+   [
+    "2026-11-22T22:39:45Z",
+    2,
+    414.1
+   ]
+  ],
+  "hours_at_level": {
+   "3": 1,
+   "2": 6
+  },
+  "highest": 2,
+  "lowest": 3
+ },
+ "first_seen": {
+  "count": 32,
+  "by_severity": {
+   "medium": 18,
+   "critical": 1,
+   "low": 7,
+   "high": 6
+  },
+  "by_type": {
+   "ransomware": 17,
+   "news": 15
+  }
+ },
+ "situations": [
+  {
+   "name": "VMware vCenter",
+   "severity": "critical",
+   "outlets": 5,
+   "reports": 5,
+   "cves": [
+    "CVE-2026-123890"
+   ],
+   "lead": {
+    "title": "VMware vCenter zero-day exploited for months before patch (CVE-2026-123890)",
+    "url": "https://www.helpnetsecurity.com/2026/11/20/vmware-vcenter-zero-day-cve-2026-123890-exploited/",
+    "source": "Help Net Security",
+    "published": "2026-11-20T12:30:19Z"
+   }
+  },
+  {
+   "name": "Expressway",
+   "severity": "critical",
+   "outlets": 2,
+   "reports": 2,
+   "cves": [
+    "CVE-2026-76466"
+   ],
+   "lead": {
+    "title": "Hackers Exploit Critical Cisco Expressway Flaw, Breach Four Devices and Reach Internal Network",
+    "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-cisco.html",
+    "source": "The Hacker News",
+    "published": "2026-11-20T10:32:50Z"
+   }
+  }
+ ],
+ "top_reports": [
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Hackers exploit GL.iNet cloud flaw to infect routers, KVM devices",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-glinet-cloud-flaw-to-infect-routers-kvm-devices/",
+   "published": "2026-11-22T18:45:37Z",
+   "first_seen": "2026-11-22T21:18:59Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Cleverbridge warns hackers stole credit card numbers, CVVs in data breach",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/cleverbridge-warns-hackers-stole-credit-card-numbers-cvvs-in-data-breach/",
+   "published": "2026-11-22T15:43:04Z",
+   "first_seen": "2026-11-22T21:18:59Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Dialing for Data: Inside the Com’s High-Profile Heists",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/22/dialing-for-data-inside-the-coms-high-profile-heists/",
+   "published": "2026-11-22T13:51:37Z",
+   "first_seen": "2026-11-22T15:32:00Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Huge European telecom leak exposes Swedbank, SEB, airBaltic and dozens of other companies’ clients",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/22/huge-european-telecom-leak-exposes-swedbank-seb-airbaltic-and-dozens-of-other-companies-clients/",
+   "published": "2026-11-22T13:51:01Z",
+   "first_seen": "2026-11-22T15:32:00Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "OpenRouter Drops 3 Providers After Researchers Catch Months of Prompt Theft at AI Hosting Firms",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/openrouter-drops-3-providers-after.html",
+   "published": "2026-11-22T05:06:55Z",
+   "first_seen": "2026-11-22T07:28:50Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "FBI Investigating Apparent Hack of Its Key National Criminal Justice Database, AP Source Says",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/fbi-investigating-apparent-hack-of-its-key-national-criminal-justice-database-ap-source-says/",
+   "published": "2026-11-22T00:53:02Z",
+   "first_seen": "2026-11-22T07:28:50Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Rackspace Spot breach let hackers access customer Kubernetes secrets",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/rackspace-spot-breach-let-hackers-access-customer-kubernetes-secrets/",
+   "published": "2026-11-21T22:59:58Z",
+   "first_seen": "2026-11-22T00:20:46Z",
+   "cves": []
+  }
+ ],
+ "kev_added": [],
+ "breaches": [],
+ "ransomware_claims": {
+  "count": 14,
+  "groups": [
+   [
+    "pixelleaks",
+    2
+   ],
+   [
+    "inc ransom",
+    2
+   ],
+   [
+    "qilin",
+    2
+   ],
+   [
+    "hyflock",
+    2
+   ],
+   [
+    "direwolf",
+    1
+   ],
+   [
+    "n0n",
+    1
+   ],
+   [
+    "rhysida",
+    1
+   ],
+   [
+    "HYFLOCK",
+    1
+   ],
+   [
+    "EndZone",
+    1
+   ],
+   [
+    "the gentlemen",
+    1
+   ]
+  ]
+ },
+ "archive_counts": {
+  "date": "2026-11-22",
+  "exploited": 0.0,
+  "ransomware": 3.5,
+  "breaches": 0.0,
+  "community": 0.0,
+  "kev": 0,
+  "claims": 14,
+  "breach_count": 0,
+  "accounts": 0,
+  "stories": 0,
+  "top": "",
+  "top_url": ""
+ },
+ "sitreps": [
+  "sitreps/2026-11-22/153229Z.json"
+ ]
+}

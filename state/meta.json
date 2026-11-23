@@ -2817,11 +2817,11 @@
   "CVE-2026-97229"
  ],
  "level": {
-  "value": 3,
-  "since": "2026-11-12T01:03:41Z",
-  "pending": 2
+  "value": 2,
+  "since": "2026-11-22T07:28:50Z",
+  "pending": 3
  },
- "last_sweep_at": "2026-11-22T00:20:46Z",
+ "last_sweep_at": "2026-11-23T01:58:40Z",
  "clock": {
   "skew_seconds": 0,
   "source": "server Date headers"
