@@ -21,6 +21,7 @@ on:
       - ".github/workflows/situation-monitor.yml"
       - "ops/check_build.py"
       - "ops/archive.py"
+      - "seed/**"
   workflow_dispatch:
 
 permissions:

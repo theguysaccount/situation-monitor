@@ -35,6 +35,11 @@ data Stale only after 8 hours and the health check fails after 12.
   (ICS and IT advisories; CISA's news items and joint guidance aren't there), and the Sources table says
   "Reporting via CISA's CSAF repository". *CISA KEV* falls back to `cisagov/kev-data` the same way. A
   source fails only when both routes fail.
+- **NVD counts** (the CVE monitor's "Every CVE published" chart) come from NVD's public API, which is slow
+  and sometimes down. A sweep spends at most eight requests on them beside the other sources and gives up at
+  the first failure, so an NVD outage only leaves the counts as they were; the note under the chart says when
+  they were last counted. If that date is more than a few days old, NVD is down or refusing GitHub's runners.
+  An API key (free from NVD) would raise the limit from 5 to 50 requests per 30 seconds; nothing needs it yet.
 - **Failure emails** for scheduled runs go to the account owner. Nothing else alerts.
 - **Clocks.** A sweep takes real time from the `Date` headers of GitHub, Google and Cloudflare, so a wrong
   machine clock can't put timestamps in the future. `data/situation.json` and `monitor.py --summary` carry

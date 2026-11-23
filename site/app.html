@@ -302,6 +302,12 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; font-fam
 .chart text.ref { fill: var(--muted); font: 500 10.5px var(--font-mono); }
 .lvf5 { fill: var(--lv5); } .lvf4 { fill: var(--lv4); } .lvf3 { fill: var(--lv3); } .lvf2 { fill: var(--lv2); } .lvf1 { fill: var(--lv1); stroke: var(--lv2); stroke-width: 1.5; }
 .strip-label { font-size: 12px; color: var(--muted); margin: 10px 0 4px; }
+.cvev { margin-bottom: 22px; }
+.cvev .panel-head { flex-wrap: wrap; align-items: center; }
+.cvev .trend-summary { margin: 2px 0 10px; }
+#cvev-chart { min-height: 260px; }
+.cvev .is-partial { opacity: .6; }
+.cve-kev-head { font-size: 15px; margin: 0 0 10px; }
 .cve-tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 0; }
 @media (max-width: 760px) { .cve-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .cve-grid { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); gap: 16px; margin-top: 16px; align-items: start; }
@@ -518,9 +524,25 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
   <section class="wrap section" id="cves" aria-labelledby="cves-title">
     <div class="section-head">
       <h2 id="cves-title">CVE monitor</h2>
-      <p>Every vulnerability CISA has confirmed attackers are exploiting, from its Known Exploited Vulnerabilities catalog, back to the catalog's start.</p>
+      <p>Every CVE published, as NIST's National Vulnerability Database counts them back to 1999, and every one CISA has confirmed attackers are exploiting, from its Known Exploited Vulnerabilities catalog.</p>
       <button class="btn secondary" type="button" id="cves-link">Copy link to the CVE monitor</button>
     </div>
+    <section class="panel cvev" aria-labelledby="cvev-title">
+      <div class="panel-head"><h3 class="panel-title" id="cvev-title">Every CVE published</h3>
+        <div class="seg" role="group" aria-label="Time range" id="cvev-range">
+          <button type="button" data-range="12w" aria-pressed="false">12 weeks</button>
+          <button type="button" data-range="1y" aria-pressed="false">1 year</button>
+          <button type="button" data-range="all" aria-pressed="true">Since 1999</button>
+        </div>
+      </div>
+      <div class="panel-body">
+        <p class="trend-summary" id="cve-volume-summary"></p>
+        <div class="chart" id="cvev-chart"></div>
+        <p class="chart-note" id="cvev-note"></p>
+        <details class="table-view"><summary>Show as table</summary><div class="table-wrap" id="cvev-table"></div></details>
+      </div>
+    </section>
+    <h3 class="cve-kev-head">Confirmed exploited: CISA's KEV catalog</h3>
     <div class="tiles cve-tiles" id="cve-tiles"></div>
     <div class="cve-grid">
       <section class="panel" aria-labelledby="cve-chart-title">
@@ -1122,6 +1144,8 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
   }
 
   // ------------------------------------------------------------ rail
+  // A closer ceiling than niceMax, so the tallest bar fills the chart: 102,545 gets 120k, not 200k.
+  function tightMax(v) { const p = Math.pow(10, Math.floor(Math.log10(Math.max(1, v)))); return [1, 1.2, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10].find((k) => k * p >= v) * p; }
   function niceMax(v) { const p = Math.pow(10, Math.floor(Math.log10(Math.max(1, v)))); const n = v / p; return (n <= 1 ? 1 : n <= 2 ? 2 : n <= 5 ? 5 : 10) * p; }
 
   function tooltip(container) {
@@ -1268,6 +1292,7 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
   // ------------------------------------------------------------ over time
   S.trendRange = [30, 90, 180].includes(Number(store.get("sm:trendRange", 30))) ? Number(store.get("sm:trendRange", 30)) : 30;
   S.cveRange = ["12w", "1y", "all"].includes(store.get("sm:cveRange", "1y")) ? store.get("sm:cveRange", "1y") : "1y";
+  S.cvevRange = ["12w", "1y", "all"].includes(store.get("sm:cvevRange", "all")) ? store.get("sm:cvevRange", "all") : "all";
   S.cveAll = false;
   const MONTH_FMT = new Intl.DateTimeFormat("en-US", { month: "short", year: "2-digit", timeZone: "UTC" });
   const MONTH_LONG = new Intl.DateTimeFormat("en-US", { month: "long", year: "numeric", timeZone: "UTC" });
@@ -1282,7 +1307,7 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
     const W = Math.max(280, Math.round(box.clientWidth || 640)), H = cfg.height || 220, m = { t: 16, r: 12, b: 24, l: 36 };
     const iw = W - m.l - m.r, ih = H - m.t - m.b;
     const totals = rows.map(sumv);
-    const max = niceMax(Math.max(1, ...totals, cfg.ref || 0, ...(cfg.line || []).filter((v) => v != null)));
+    const max = cfg.max || niceMax(Math.max(1, ...totals, cfg.ref || 0, ...(cfg.line || []).filter((v) => v != null)));
     const y = (v) => m.t + ih - (v / max) * ih;
     const band = iw / n, bw = Math.max(1.5, Math.min(24, band * (band > 8 ? 0.66 : 0.82))), gap = band > 8 ? 2 : 1;
     const cx = (i) => m.l + band * i + band / 2;
@@ -1320,6 +1345,11 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
     for (let i = n - 1; i >= 0; i -= step) {
       const t = s("text", { x: Math.min(cx(i), W - 16), y: H - 6, "text-anchor": "middle" }); t.textContent = cfg.xLabel(rows[i], i); svg.append(t);
     }
+    if (cfg.barLabel) rows.forEach((r, i) => {
+      const txt = cfg.barLabel(r, i); if (!txt) return;
+      const nearEnd = i > n * 0.8, t = s("text", { class: "val", x: nearEnd ? cx(i) + bw / 2 : cx(i), y: y(totals[i]) - 5, "text-anchor": nearEnd ? "end" : "middle" });
+      t.textContent = txt; svg.append(t);
+    });
     rows.forEach((r, i) => {
       const hit = s("rect", { class: "hit", x: m.l + band * i, y: m.t, width: band, height: ih });
       const show = () => tip.show(cx(i), y(totals[i]), cfg.tip(r, i, totals[i]));
@@ -1450,7 +1480,46 @@ footer p { margin: 0 0 6px; max-width: 90ch; }
     box.prepend(svg);
   }
 
+  function renderCveVolume() {
+    const v = S.data.cve_volume, box = $("#cvev-chart");
+    document.querySelectorAll("#cvev-range button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.range === S.cvevRange)));
+    if (!v || !v.yearly) {
+      $("#cve-volume-summary").textContent = "The count of every CVE published appears after the next sweep.";
+      box.replaceChildren(); $("#cvev-table").replaceChildren(); $("#cvev-note").textContent = ""; return;
+    }
+    $("#cve-volume-summary").textContent = v.summary || "";
+    const kind = S.cvevRange === "all" ? "year" : S.cvevRange === "1y" ? "month" : "week";
+    const src = kind === "year" ? v.yearly : kind === "month" ? v.monthly : v.weekly;
+    const cur = String(kind === "year" ? v.year : kind === "month" ? v.month : v.week);
+    const years = new Map(v.yearly.map((r) => [r[0], r[1]]));
+    const rows = src.map((r) => ({ key: r[0], values: [r[1]], total: r[1], before: kind === "year" ? years.get(r[0] - 1) : kind === "month" ? r[2] : null, partial: String(r[0]) === cur }));
+    const short = (r) => (kind === "year" ? String(r.key) : kind === "month" ? MONTH_FMT.format(Date.parse(r.key + "-01T00:00:00Z")) : fmtDay(r.key + "T00:00:00Z"));
+    const long = (r) => (kind === "year" ? String(r.key) : kind === "month" ? MONTH_LONG.format(Date.parse(r.key + "-01T00:00:00Z")) : "Week of " + fmtDay(r.key + "T00:00:00Z"));
+    const vs = (r) => (r.before ? (r.total / r.before).toFixed(1).replace(/\.0$/, "") + "× " + (kind === "year" ? r.key - 1 : "a year earlier") : "");
+    const last = rows.length - 1, peak = rows.reduce((a, r, i) => (r.total > rows[a].total ? i : a), 0);
+    stackedBars(box, {
+      rows, classes: ["c1"], height: 260, max: tightMax(Math.max(...rows.map((r) => r.total))),
+      label: "CVEs published per " + kind + (kind === "year" ? " since " + v.since : ""),
+      xLabel: short,
+      barLabel: (r, i) => (i === last || (i === peak && peak !== last) ? fmtTick(r.total) + (r.partial ? " so far" : "") : null),
+      tip: (r) => [h("b", null, long(r) + (r.partial ? " (so far)" : "")), h("br"), fmtInt(r.total) + " CVEs published",
+        vs(r) ? h("div", null, vs(r)) : null,
+        kind === "week" ? h("div", null, "About " + fmtInt(Math.round(r.total / 7)) + " a day") : null],
+    });
+    $("#cvev-note").textContent = "Counted by the " + v.source + " on the day each CVE was published; rejected CVEs are left out. The faded bar is still filling in." +
+      (v.checked ? " Last counted " + fmtDay(v.checked) + "." : "");
+    $("#cvev-table").replaceChildren(h("table", null,
+      h("thead", null, h("tr", null, h("th", null, kind === "year" ? "Year" : kind === "month" ? "Month" : "Week of"), h("th", { class: "num" }, "CVEs published"), kind === "week" ? null : h("th", { class: "num" }, "A year earlier"))),
+      h("tbody", null, ...rows.slice().reverse().map((r) => h("tr", null, h("td", null, long(r).replace(/^Week of /, "") + (r.partial ? " (so far)" : "")),
+        h("td", { class: "num" }, fmtInt(r.total)), kind === "week" ? null : h("td", { class: "num" }, r.before ? fmtInt(r.before) : ""))))));
+  }
+
+  document.querySelectorAll("#cvev-range button").forEach((b) => b.addEventListener("click", () => {
+    S.cvevRange = b.dataset.range; store.set("sm:cvevRange", S.cvevRange); if (S.data) renderCveVolume();
+  }));
+
   function renderCves() {
+    renderCveVolume();
     const c = S.data.cves;
     document.querySelectorAll("#cve-range button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.range === S.cveRange)));
     if (!c) { $("#cve-tiles").replaceChildren(h("div", { class: "tile" }, "The CVE monitor appears after the next sweep.")); return; }
