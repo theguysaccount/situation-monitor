@@ -1450,10 +1450,189 @@ def cve_history(rows: list, now: datetime) -> dict:
     }
 
 
+# The CVE monitor's other half: every CVE published, not only the exploited ones, as counted by NIST's National
+# Vulnerability Database. NVD gives one count per query, for a window of at most 120 days, so each month since 1999
+# and each of the last twelve weeks is counted once and kept. Open windows are recounted every sweep, closed ones
+# again for two days after they close, and the oldest count is rechecked now and then. seed/nvd_cve_months.json holds the
+# counts made when this started (python3 monitor.py --seed-nvd remakes it with the same queries).
+NVD_API = "https://services.nvd.nist.gov/rest/json/cves/2.0"
+NVD_FIRST_YEAR = 1999
+NVD_WEEKS = 12
+NVD_GAP = 6.2  # NVD allows five requests in any 30 seconds without an API key
+NVD_ASKS = 8  # requests a sweep may make; what's left waits for the next sweep
+NVD_RECHECK_DAYS = 60
+
+
+def nvd_seed_path() -> Path:
+    return ROOT / "seed" / "nvd_cve_months.json"
+
+
+def nvd_count(start: datetime, end: datetime) -> int | None:
+    """How many CVEs NVD published in [start, end), rejected ones left out."""
+    stamp = lambda dt: dt.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.") + f"{dt.microsecond // 1000:03d}Z"  # noqa: E731
+    q = urllib.parse.urlencode({"resultsPerPage": 1, "pubStartDate": stamp(start),
+                                "pubEndDate": stamp(end - timedelta(milliseconds=1))}, safe=":")
+    try:
+        n = fetch_json(f"{NVD_API}?{q}&noRejected").get("totalResults")
+    except Exception:
+        return None
+    return n if isinstance(n, int) and n >= 0 else None
+
+
+def nvd_windows(now: datetime) -> dict:
+    """Every window NVD is asked about, as [start, end): each month since 1999 and the last twelve weeks."""
+    utc, months, weeks = timezone.utc, {}, {}
+    for m in months_between(datetime(NVD_FIRST_YEAR, 1, 1, tzinfo=utc), now):
+        y, mo = map(int, m.split("-"))
+        months[m] = (datetime(y, mo, 1, tzinfo=utc), datetime(y + (mo == 12), mo % 12 + 1, 1, tzinfo=utc))
+    monday = datetime.combine(now.date() - timedelta(days=now.weekday()), datetime.min.time(), utc)
+    for n in range(NVD_WEEKS - 1, -1, -1):
+        s = monday - timedelta(weeks=n)
+        weeks[s.date().isoformat()] = (s, s + timedelta(weeks=1))
+    return {"months": months, "weeks": weeks}
+
+
+def nvd_due(table: dict, windows: dict, now: datetime) -> list[tuple[str, str]]:
+    """What to count next: open windows, then ones not counted since two days after they closed, then missing ones
+    (newest first), then the one count most overdue for a recheck."""
+    open_, settling, missing, stale = [], [], [], []
+    for kind in ("months", "weeks"):
+        have = table.get(kind) or {}
+        for key, (start, end) in windows[kind].items():
+            got = have.get(key)
+            if end > now:
+                open_.append((kind, key))
+            elif not got:
+                missing.append((start, kind, key))
+            elif got[1] < iso(end + timedelta(days=2)):
+                settling.append((kind, key))
+            elif hours_since(got[1], now) > NVD_RECHECK_DAYS * 24:
+                stale.append((got[1], kind, key))
+    missing.sort(reverse=True)
+    return open_ + settling + [(k, key) for _, k, key in missing] + [(k, key) for _, k, key in sorted(stale)[:1]]
+
+
+def update_nvd(table: dict | None, now: datetime, asks: int = NVD_ASKS, gap: float = NVD_GAP,
+               count=None, sleep=time.sleep) -> dict:
+    """The NVD counts with this sweep's share recounted. Stops at the first failure: NVD is down, try next sweep."""
+    count = count or nvd_count
+    windows, table = nvd_windows(now), table or {}
+    out = {"months": dict(table.get("months") or {}), "weeks": {}, "checked": table.get("checked")}
+    out["weeks"] = {w: v for w, v in (table.get("weeks") or {}).items() if w in windows["weeks"]}
+    seed = load_json(nvd_seed_path(), {})
+    for kind in ("months", "weeks"):
+        for key, v in (seed.get(kind) or {}).items():
+            if key in windows[kind] and key not in out[kind]:
+                out[kind][key] = v
+    for i, (kind, key) in enumerate(nvd_due(out, windows, now)[:asks]):
+        if i:
+            sleep(gap)
+        start, end = windows[kind][key]
+        n = count(start, min(end, now))
+        if n is None:
+            break
+        out[kind][key] = [n, iso(now)]
+        if end > now and kind == "months":
+            out["checked"] = iso(now)
+    return out
+
+
+def nvd_seed_text(seed: dict) -> str:
+    """One window per line, so a reseed reads as a short diff."""
+    parts = [f'"note": {json.dumps(seed.get("note") or "")}']
+    for kind in ("months", "weeks"):
+        rows = ",\n".join(f"  {json.dumps(k)}: {json.dumps(v)}" for k, v in sorted((seed.get(kind) or {}).items()))
+        parts.append(f'"{kind}": {{\n{rows}\n}}')
+    return "{\n" + ",\n".join(parts) + "\n}\n"
+
+
+def seed_nvd() -> int:
+    """Fill seed/nvd_cve_months.json with every closed month and week, saving as it goes."""
+    measure_clock()  # real time, as a sweep takes it, not the last sweep's correction for this machine
+    path, now = nvd_seed_path(), now_utc()
+    seed = load_json(path, {})
+    windows = nvd_windows(now)
+    todo = [(k, key) for k in ("months", "weeks") for key, (_, end) in reversed(windows[k].items())
+            if end <= now and key not in (seed.get(k) or {})]
+    print(f"{len(todo)} windows to count, about {len(todo) * NVD_GAP / 60:.0f} minutes.", flush=True)
+    for i, (kind, key) in enumerate(todo):
+        if i:
+            time.sleep(NVD_GAP)
+        start, end = windows[kind][key]
+        n = None
+        for attempt in range(4):
+            n = nvd_count(start, end)
+            if n is not None:
+                break
+            time.sleep(10 * (attempt + 1))
+        if n is None:
+            print(f"NVD did not answer for {key}; run again to resume.", file=sys.stderr)
+            return 1
+        seed.setdefault(kind, {})[key] = [n, iso(now_utc())]
+        seed.setdefault("note", "CVEs NVD published per UTC month and per week (Monday to Sunday), rejected ones left "
+                                "out, from " + NVD_API + "?pubStartDate=...&pubEndDate=...&noRejected.")
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(nvd_seed_text(seed), encoding="utf-8")
+        print(kind, key, n, flush=True)
+    return 0
+
+
+def cve_volume(table: dict | None, now: datetime) -> dict | None:
+    """Every CVE published, per year since 1999, per month for the last year and per week for twelve weeks, with
+    the headline the CVE monitor leads with."""
+    if not table or not table.get("months"):
+        return None
+    windows, months, weeks = nvd_windows(now), table["months"], table.get("weeks") or {}
+    year, this_month = now.year, f"{now:%Y-%m}"
+    yearly = []
+    for y in range(NVD_FIRST_YEAR, year + 1):
+        keys = [m for m in windows["months"] if m.startswith(f"{y}-")]
+        if all(k in months for k in keys):
+            yearly.append([y, sum(months[k][0] for k in keys)])
+    monthly = [[m, months[m][0], (months.get(f"{int(m[:4]) - 1}{m[4:]}") or [None])[0]]
+               for m in list(windows["months"])[-13:] if m in months]
+    weekly = [[w, weeks[w][0]] for w in windows["weeks"] if w in weeks]
+    per_year = dict(yearly)
+
+    def month_name(m: str) -> str:
+        return f"{datetime.strptime(m, '%Y-%m'):%B}"
+
+    def times(a: int, b: int) -> str:
+        r = a / b
+        return "twice" if 1.95 <= r < 2.05 else "three times" if 2.95 <= r < 3.05 else f"{r:.1f}".removesuffix(".0") + " times"
+
+    lines = []
+    ytd, last = per_year.get(year), per_year.get(year - 1)
+    if ytd is not None and last:
+        lines.append(f"{ytd:,} CVEs published so far in {year}"
+                     + (f", already {times(ytd, last)} as many as in all of {year - 1} ({last:,})." if ytd > last
+                        else f", against {last:,} in all of {year - 1}."))
+    prev = monthly[-2] if len(monthly) >= 2 and monthly[-1][0] == this_month else monthly[-1] if monthly else None
+    if prev:
+        m, n = prev[:2]
+        before = months.get(f"{int(m[:4]) - 1}{m[4:]}")
+        record = n >= max(v[0] for v in months.values())
+        bits = [f"{month_name(m)} had {n:,}"]
+        if record:
+            bits.append(f"the most of any month since {NVD_FIRST_YEAR}")
+        if before and before[0] and n >= 1.5 * before[0]:
+            bits.append(f"{times(n, before[0])} {month_name(m)} {int(m[:4]) - 1}")
+        lines.append(", ".join(bits) + ".")
+    if this_month in months:
+        elapsed = max(1.0, (now - windows["months"][this_month][0]).total_seconds() / 86400)
+        lines.append(f"This month so far: {months[this_month][0]:,}, about {round(months[this_month][0] / elapsed):,} a day.")
+    return {"source": "NIST National Vulnerability Database", "checked": table.get("checked"),
+            "since": NVD_FIRST_YEAR, "year": year, "month": this_month, "week": list(windows["weeks"])[-1],
+            "ytd": ytd, "last_year": last, "summary": " ".join(lines),
+            "yearly": yearly, "monthly": monthly, "weekly": weekly}
+
+
 def update_history(ctx: dict, items: list[dict], now: datetime, sources: list[dict]) -> None:
     hist = load_json(STATE / "history.json", {})
     start = now - timedelta(days=HISTORY_DAYS)
     cutoff = start.date().isoformat()
+    if ctx.get("nvd"):
+        hist["nvd"] = ctx["nvd"]
     if ctx.get("kev_all"):
         hist["kev"] = {d: v for d, v in kev_days(ctx["kev_all"]).items() if d >= cutoff}
         hist["cves"] = cve_history(ctx["kev_all"], now)
@@ -1719,6 +1898,7 @@ def build(items: list[dict], packages: list[dict], status: list[dict], cfg: dict
         save_json(STATE / "history.json", hist, compact=True)
     data["history"] = history_series(hist, now)
     data["cves"] = hist.get("cves")
+    data["cve_volume"] = cve_volume(hist.get("nvd"), now)
     data["prompt"] = load_prompt_parts()
     data["prompt_brief"] = make_brief(data, now)
     for it in data["items"]:
@@ -2038,6 +2218,7 @@ class StaticPage:
             "sit-grid": self.situations(),
             "tabs": self.tabs(),
             "feed-list": "".join(self.row(it) for it in [i for i in d["items"] if i["severity"] in ("critical", "high")][:STATIC_REPORTS]),
+            "cve-volume-summary": e((d.get("cve_volume") or {}).get("summary") or ""),
             "kev-meta": e(f'{self.num(sum(i["type"] == "kev" for i in d["items"]))} added · 14 days'),
             "kev-list": self.kev_list(),
             "foot-meta": self.foot(),
@@ -2520,7 +2701,13 @@ def run_sweep(cfg: dict, send: bool) -> dict:
     seen: dict[str, str] = {k: min(v, stamp) for k, v in load_json(STATE / "seen.json", {}).items()}
     baseline = not seen
     ctx = {"now": now, "vocab": set(meta.get("vocab", [])), "kev_cves": set(meta.get("kev_cves", []))}
-    fetched, packages, status = sweep(sources, ctx)
+    with ThreadPoolExecutor(max_workers=1) as side:  # NVD's rate limit makes its counts slow, so they run alongside
+        nvd = side.submit(update_nvd, load_json(STATE / "history.json", {}).get("nvd"), now)
+        fetched, packages, status = sweep(sources, ctx)
+        try:
+            ctx["nvd"] = nvd.result()
+        except Exception as e:  # the board matters more than the counts
+            print(f"warning: NVD counts skipped: {type(e).__name__}: {e}", file=sys.stderr)
 
     previous = load_json(STATE / "items.json", {"items": [], "packages": []})
     items = merge_items(previous.get("items", []), fetched, now)
@@ -2622,6 +2809,9 @@ def main(argv=None) -> int:
                     help="with --from-site, wait up to this long for a sweep that started after the command did")
     ap.add_argument("--apply-sitrep", action="store_true",
                     help="put state/sitrep.json into site/data/live.json (after --from-site) for the live store")
+    ap.add_argument("--seed-nvd", action="store_true",
+                    help="count every closed month and week NVD is missing from seed/nvd_cve_months.json (slow: "
+                         "NVD allows five requests in 30 seconds) and write it back")
     args = ap.parse_args(argv)
     cfg = load_config()
     CLOCK.update(skew=float((load_json(STATE / "meta.json", {}).get("clock") or {}).get("skew_seconds", 0)),
@@ -2634,6 +2824,8 @@ def main(argv=None) -> int:
             print(json.dumps({"ok": False, "error": f"could not read the published site: {type(e).__name__}: {e}"[:300]}))
             return 1
         return 0
+    if args.seed_nvd:
+        return seed_nvd()
     if args.apply_sitrep:
         live = apply_sitrep()
         sr = live.get("sitrep") or {}

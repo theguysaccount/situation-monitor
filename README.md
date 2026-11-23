@@ -26,6 +26,7 @@ into a master prompt your team can paste into Claude to check its own exposure.
 | `state/` | The monitor's memory: what it has seen and alerted on. Not committed; the workflow keeps it in the Actions cache, with a daily copy on the `data` branch. |
 | `data` branch | The permanent record, never deployed: every SITREP, one snapshot per day since Oct 24, 2026, and the sweep's memory. See [The archive](#the-archive). |
 | `ops/` | Unattended operation: the pre-deploy gate, the live health check that also restarts overdue sweeps, and the IndexNow ping. See [OPERATIONS.md](OPERATIONS.md). |
+| `seed/nvd_cve_months.json` | NVD's count of CVEs published per month since 1999, so the CVE monitor's long view is whole from the first sweep. Sweeps keep their own counts after that. |
 | `tests/` | Unit tests: `python3 -m unittest discover -s tests` |
 
 ## Run it
@@ -80,6 +81,7 @@ script, download both files and join their `items` and `packages` lists (newest 
 The monitor builds on public projects that already track this, rather than scraping:
 
 - **Exploited vulnerabilities:** CISA's Known Exploited Vulnerabilities catalog (falls back to the `cisagov/kev-data` GitHub mirror)
+- **Every CVE published:** the count from NIST's National Vulnerability Database API, for the CVE monitor's main chart (see [The CVE monitor](#the-cve-monitor))
 - **Ransomware:** ransomware.live (leak-site victims, plus press and regulator disclosures) and RansomLook
 - **Breaches:** Have I Been Pwned's breach list, ransomware.live disclosures, newsroom coverage
 - **Supply chain:** GitHub Advisory Database malware advisories (npm and PyPI) and critical advisories
@@ -88,6 +90,28 @@ The monitor builds on public projects that already track this, rather than scrap
 - **Community:** Hacker News stories about breaches and exploits (through the Algolia API); a thread about a story already on the board becomes a note on that story
 
 A source that fails keeps its last items on the board, and the Sources table on the site shows it as failing.
+
+## The CVE monitor
+
+The CVE monitor leads with every CVE published, not only the exploited ones, because that's where the growth
+is: NVD published 48,150 CVEs in 2025 and more than twice that in the first eleven months of 2026, with
+October alone at 17,051. The chart shows CVEs per year since 1999, per month for the last year and per week
+for the last twelve weeks, under a one-line headline the sweep writes.
+
+NVD's API answers one count per query, for at most 120 days, and allows five requests in any 30 seconds
+without a key. So the sweep keeps a count for each month and week (in `state/history.json`) and spends at most
+eight requests on them, in a thread beside the other sources. Each sweep recounts the current month and week,
+recounts a closed window until a count from two days after it closed is in, fills anything missing (newest first) and
+rechecks the oldest count every 60 days. It stops at the first failed request and tries again next sweep. A
+CVE is counted in the UTC month NVD published it, rejected CVEs are left out, and years with a month missing
+are left off the chart rather than shown short.
+
+`seed/nvd_cve_months.json` holds the counts for every month and week up to the day this started (the open
+ones as far as they had got), so the chart was whole from the first sweep even if NVD had been down for it.
+`python3 monitor.py --seed-nvd` fills in any closed month or week it's missing with the same queries, about
+six seconds each, and can be stopped and run again.
+
+Below that chart, the KEV half counts what CISA has confirmed attackers are exploiting: a few a week.
 
 ## How it scores
 
@@ -194,5 +218,6 @@ Notes:
 
 - Scoring is keyword-based. It surfaces what to read first; it doesn't replace reading it.
 - Ransomware entries are criminals' leak-site claims, not confirmed breaches.
+- The CVE count is NVD's. A CVE ID is reserved before it is published and counted when it's published, and NVD has had its own processing backlog since 2024, so the count says how many CVEs appeared, not how many are dangerous or analysed.
 - Several feeds keep only a day or two of history, so the days before the first sweep are partial. They fill in as the monitor runs.
 - Confirm with the vendor advisory or the original report before acting.

@@ -590,5 +590,98 @@ class Cli(unittest.TestCase):
         self.assertTrue(out.stdout.strip())
 
 
+class CveVolume(unittest.TestCase):
+    """The CVE monitor's count of every CVE published, from NVD."""
+    NOW = datetime(2026, 11, 23, 12, 0, tzinfo=timezone.utc)  # a Monday
+
+    def full(self, upto="2026-10", per=100):
+        months = {k: [per, "2026-11-20T00:00:00Z"] for k in m.nvd_windows(self.NOW)["months"] if k <= upto}
+        return {"months": months, "weeks": {}, "checked": None}
+
+    def test_windows(self):
+        w = m.nvd_windows(self.NOW)
+        self.assertEqual(list(w["months"])[0], "1999-01")
+        self.assertEqual(list(w["months"])[-1], "2026-11")
+        self.assertEqual(w["months"]["2026-12"] if "2026-12" in w["months"] else None, None)
+        self.assertEqual(w["months"]["2025-12"], (datetime(2025, 12, 1, tzinfo=timezone.utc), datetime(2026, 1, 1, tzinfo=timezone.utc)))
+        self.assertEqual(len(w["weeks"]), m.NVD_WEEKS)
+        self.assertEqual(list(w["weeks"])[-1], "2026-11-23")
+        self.assertEqual(list(w["weeks"])[0], "2026-09-07")
+
+    def test_due_order(self):
+        w = m.nvd_windows(self.NOW)
+        table = self.full(upto="2026-09")
+        table["months"]["2026-09"] = [100, "2026-10-01T03:00:00Z"]  # counted before it settled
+        table["months"]["2001-03"] = [100, "2026-08-01T00:00:00Z"]  # due a recheck
+        due = m.nvd_due(table, w, self.NOW)
+        self.assertEqual(due[:2], [("months", "2026-11"), ("weeks", "2026-11-23")])
+        self.assertEqual(due[2], ("months", "2026-09"))
+        missing = due[3:-1]  # newest first, by when the window starts
+        self.assertEqual(missing[0], ("weeks", "2026-11-16"))
+        self.assertLess(missing.index(("weeks", "2026-10-05")), missing.index(("months", "2026-10")))
+        self.assertLess(missing.index(("months", "2026-10")), missing.index(("weeks", "2026-09-28")))
+        self.assertEqual(due[-1], ("months", "2001-03"))
+
+    def test_update_stops_at_first_failure_and_seeds(self):
+        import tempfile
+        from unittest import mock
+        with tempfile.TemporaryDirectory() as tmp:
+            seed = Path(tmp) / "seed"
+            seed.mkdir()
+            (seed / "nvd_cve_months.json").write_text(json.dumps({"months": {"1999-01": [894, "2026-11-23T00:00:00Z"]},
+                                                                   "weeks": {"2020-01-06": [9, "x"]}}))
+            answers, naps = [5000, None, 1], []
+            with mock.patch.object(m, "ROOT", Path(tmp)):
+                out = m.update_nvd({"weeks": {"2020-01-06": [1, "x"]}}, self.NOW, count=lambda a, b: answers.pop(0),
+                                   sleep=naps.append)
+        self.assertEqual(out["months"]["1999-01"][0], 894)  # from the seed
+        self.assertEqual(out["months"]["2026-11"], [5000, "2026-11-23T12:00:00Z"])
+        self.assertEqual(out["checked"], "2026-11-23T12:00:00Z")
+        self.assertNotIn("2026-11-23", out["weeks"])  # the failure stopped the sweep's share
+        self.assertNotIn("2020-01-06", out["weeks"])  # out of the twelve weeks
+        self.assertEqual(naps, [m.NVD_GAP])
+        self.assertEqual(answers, [1])
+
+    def test_update_respects_asks(self):
+        calls = []
+        m.update_nvd({}, self.NOW, asks=3, count=lambda a, b: calls.append((a, b)) or 7, sleep=lambda s: None)
+        self.assertEqual(len(calls), 3)
+        self.assertEqual(calls[0], (datetime(2026, 11, 1, tzinfo=timezone.utc), self.NOW))  # an open window ends now
+
+    def test_count_query(self):
+        from unittest import mock
+        seen = []
+        with mock.patch.object(m, "fetch_json", lambda url: seen.append(url) or {"totalResults": 17051}):
+            n = m.nvd_count(datetime(2026, 10, 1, tzinfo=timezone.utc), datetime(2026, 11, 1, tzinfo=timezone.utc))
+        self.assertEqual(n, 17051)
+        self.assertIn("pubStartDate=2026-10-01T00:00:00.000Z", seen[0])
+        self.assertIn("pubEndDate=2026-10-31T23:59:59.999Z", seen[0])
+        self.assertTrue(seen[0].endswith("&noRejected"))
+        with mock.patch.object(m, "fetch_json", lambda url: {"message": "busy"}):
+            self.assertIsNone(m.nvd_count(datetime(2026, 10, 1, tzinfo=timezone.utc), self.NOW))
+
+    def test_volume_series_and_headline(self):
+        table = self.full(upto="2026-11")
+        months = table["months"]
+        for k in [k for k in months if k.startswith("2026-")]:
+            months[k] = [1000, "x"]
+        months["2026-10"] = [4000, "x"]
+        months["2026-11"] = [2200, "x"]
+        months["2025-10"] = [1000, "x"]
+        del months["2003-05"]  # a year with a month missing is left out
+        v = m.cve_volume(table, self.NOW)
+        years = dict(v["yearly"])
+        self.assertNotIn(2003, years)
+        self.assertEqual(years[2025], 2100)
+        self.assertEqual(years[2026], 15200)
+        self.assertEqual(v["monthly"][-1], ["2026-11", 2200, 100])
+        self.assertEqual(v["monthly"][-2], ["2026-10", 4000, 1000])
+        self.assertEqual(len(v["monthly"]), 13)
+        self.assertEqual(v["summary"], "15,200 CVEs published so far in 2026, already 7.2 times as many as in all of 2025 (2,100). "
+                                       "October had 4,000, the most of any month since 1999, 4 times October 2025. "
+                                       "This month so far: 2,200, about 98 a day.")
+        self.assertIsNone(m.cve_volume({}, self.NOW))
+
+
 if __name__ == "__main__":
     unittest.main()
