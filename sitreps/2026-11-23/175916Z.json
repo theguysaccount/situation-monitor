@@ -1,0 +1,39 @@
+{
+ "written_at": "2026-11-23T17:59:16Z",
+ "by": "Claude",
+ "headline": "Norway ties energy-firm attacks to Azure API Management flaw; Cisco Expressway exploited in breaches; ScreenConnect and N-able flaws hit MSPs",
+ "bullets": [
+  {
+   "text": "New, critical: Norway says hackers exploited a critical Microsoft Azure API Management flaw to target secrets at energy firms Equinor and Skagerak Energi. Reported by The Record, The Register and SecurityWeek; no CVE in the reports.",
+   "url": "https://therecord.media/norway-microsoft-cyberattack-equinor"
+  },
+  {
+   "text": "Escalated: Cisco Expressway CVE-2026-76466 (hard-coded credentials, KEV due 11-23) is now being used to breach internal networks, and The Register reports a critical Cisco RCE bug under attack. SecurityWeek also reports SAP NetWeaver flaws exploited.",
+   "url": "https://www.helpnetsecurity.com/2026/11/23/cisco-expressway-vulnerability-exploited-cve-2026-76466/"
+  },
+  {
+   "text": "New, critical, MSP tooling: attackers are exploiting a critical ScreenConnect flaw (CVE-2026-84869) to hijack technician PCs. N-able disclosed and patched a critical Mail Assure flaw (CVE-2026-134624) found while investigating a breach.",
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-screenconnect.html"
+  },
+  {
+   "text": "Also exploited: an ASP.NET anti-CSRF library flaw (CVE-2026-131914) allowing unauthenticated RCE; the GL.iNet cloud flaw used to plant malware on routers and KVMs, with older backdoors also found; and the Entra Connect Health flaw used to reach tenant data.",
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-aspnet-anti.html"
+  },
+  {
+   "text": "New breaches: Tower Records Online (Japan) says 11 million customer records may have leaked; Samsung Securities customer details exposed; Austrian Foreign Ministry site breached; Guadeloupe university hospital hit; Cleverbridge card and CVV theft.",
+   "url": "https://databreaches.net/2026/11/23/jpn-tower-records-online-hit-by-cyberattack-11-million-customer-records-potentially-leaked/"
+  },
+  {
+   "text": "SITCON raised to 2 (SEVERE) from 3: 4 KEV additions in three working days and 28 critical reports in two. Last 7 days scored 1.13x the 90-day average. Leak-site claims led by n0n (61), SoulGroup (27), vortex (26), qilin (22).",
+   "url": "https://www.securityweek.com/sap-netweaver-cisco-expressway-flaws-exploited-in-attacks/"
+  }
+ ],
+ "actions": [
+  "Patch Cisco Expressway (CVE-2026-76466) now and hunt for intrusion into internal networks; apply Cisco's fix for the exploited RCE.",
+  "Patch SAP NetWeaver (CVE-2025-42884), VMware vCenter (CVE-2026-123890) and Apache Roller (CVE-2026-129448); KEV due date was today.",
+  "Azure API Management users: follow Microsoft guidance, review gateway logs and rotate secrets reachable through APIM.",
+  "MSPs: patch ScreenConnect (CVE-2026-84869) and N-able Mail Assure (CVE-2026-134624); check technician PCs for hijack signs.",
+  "Update apps using the affected ASP.NET anti-CSRF library (CVE-2026-131914); GL.iNet owners update firmware and check for backdoors.",
+  "Due 11-24: Outlook CVE-2026-124194, Cisco BroadWorks CVE-2026-20320, Chromium CVE-2026-125350. LiteLLM CVE-2026-40217 due 12-02."
+ ]
+}
