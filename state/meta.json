@@ -476,6 +476,7 @@
   "kludex",
   "knx",
   "kylin",
+  "label",
   "labs",
   "langflow",
   "lanscope",
@@ -506,6 +507,7 @@
   "magento",
   "magicinfo",
   "mail",
+  "mailassure",
   "mailer",
   "mali",
   "manageability",
@@ -544,6 +546,7 @@
   "mobileiron",
   "model",
   "mojo",
+  "monai",
   "mongo-express",
   "mongodb",
   "monitor",
@@ -2638,7 +2641,9 @@
   "CVE-2026-12569",
   "CVE-2026-1281",
   "CVE-2026-129448",
+  "CVE-2026-133968",
   "CVE-2026-1340",
+  "CVE-2026-134624",
   "CVE-2026-15409",
   "CVE-2026-15410",
   "CVE-2026-1603",
@@ -2818,10 +2823,10 @@
  ],
  "level": {
   "value": 2,
-  "since": "2026-11-22T07:28:50Z",
+  "since": "2026-11-23T07:48:54Z",
   "pending": 3
  },
- "last_sweep_at": "2026-11-23T01:58:40Z",
+ "last_sweep_at": "2026-11-24T02:27:06Z",
  "clock": {
   "skew_seconds": 0,
   "source": "server Date headers"

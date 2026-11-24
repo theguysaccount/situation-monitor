@@ -1,0 +1,666 @@
+{
+ "schema": 1,
+ "date": "2026-11-23",
+ "source": "sweep",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-11-23T01:58:40Z",
+    2,
+    387.1
+   ],
+   [
+    "2026-11-23T03:52:43Z",
+    3,
+    395.8
+   ],
+   [
+    "2026-11-23T07:47:37Z",
+    3,
+    406.2
+   ],
+   [
+    "2026-11-23T07:48:54Z",
+    2,
+    406.2
+   ],
+   [
+    "2026-11-23T10:46:37Z",
+    2,
+    417.3
+   ],
+   [
+    "2026-11-23T14:02:09Z",
+    2,
+    443.9
+   ],
+   [
+    "2026-11-23T17:58:39Z",
+    2,
+    440.2
+   ],
+   [
+    "2026-11-23T18:00:00Z",
+    2,
+    440.2
+   ],
+   [
+    "2026-11-23T22:39:01Z",
+    2,
+    434.8
+   ]
+  ],
+  "hours_at_level": {
+   "2": 7,
+   "3": 2
+  },
+  "highest": 2,
+  "lowest": 3
+ },
+ "first_seen": {
+  "count": 191,
+  "by_severity": {
+   "high": 35,
+   "medium": 105,
+   "low": 36,
+   "critical": 15
+  },
+  "by_type": {
+   "news": 87,
+   "ransomware": 84,
+   "vuln": 1,
+   "advisory": 1,
+   "breach": 16,
+   "kev": 2
+  }
+ },
+ "situations": [
+  {
+   "name": "Cisco Expressway",
+   "severity": "critical",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [
+    "CVE-2026-76466"
+   ],
+   "lead": {
+    "title": "Cisco Expressway vulnerability exploited to breach internal networks (CVE-2026-76466)",
+    "url": "https://www.helpnetsecurity.com/2026/11/23/cisco-expressway-vulnerability-exploited-cve-2026-76466/",
+    "source": "Help Net Security",
+    "published": "2026-11-23T12:26:10Z"
+   }
+  },
+  {
+   "name": "GL.iNet",
+   "severity": "critical",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [],
+   "lead": {
+    "title": "Hackers Exploited GL.iNet Cloud Flaw to Install Malware on Routers and KVM Devices",
+    "url": "https://thehackernews.com/2026/11/hackers-exploited-glinet-cloud-flaw-to.html",
+    "source": "The Hacker News",
+    "published": "2026-11-23T09:04:08Z"
+   }
+  },
+  {
+   "name": "Azure",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [],
+   "lead": {
+    "title": "Microsoft Azure flaw exploited to steal customers' API credentials",
+    "url": "https://www.bleepingcomputer.com/news/security/microsoft-azure-flaw-exploited-to-steal-customers-api-credentials/",
+    "source": "BleepingComputer",
+    "published": "2026-11-23T19:42:20Z"
+   }
+  },
+  {
+   "name": "Energy",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 4,
+   "cves": [],
+   "lead": {
+    "title": "Azure Flaw Exploited to Target Secrets at Norwegian Energy Firms",
+    "url": "https://www.securityweek.com/azure-flaw-exploited-to-target-secrets-at-norwegian-energy-firms/",
+    "source": "SecurityWeek",
+    "published": "2026-11-23T15:47:40Z"
+   }
+  },
+  {
+   "name": "N-able CVE-2026-134624",
+   "severity": "critical",
+   "outlets": 2,
+   "reports": 2,
+   "cves": [
+    "CVE-2026-134624"
+   ],
+   "lead": {
+    "title": "N-able Discloses Critical Mail Assure Vulnerability Found During Breach Investigation",
+    "url": "https://thehackernews.com/2026/11/n-able-discloses-critical-mail-assure.html",
+    "source": "The Hacker News",
+    "published": "2026-11-23T12:28:09Z"
+   }
+  },
+  {
+   "name": "BADBOX",
+   "severity": "high",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [],
+   "lead": {
+    "title": "Infected TV boxes in BADBOX 3.0 rent out their owners’ home internet",
+    "url": "https://www.helpnetsecurity.com/2026/11/23/badbox-3-0-ad-fraud-operation/",
+    "source": "Help Net Security",
+    "published": "2026-11-23T08:06:18Z"
+   }
+  }
+ ],
+ "top_reports": [
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Microsoft Azure flaw exploited to steal customers' API credentials",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/microsoft-azure-flaw-exploited-to-steal-customers-api-credentials/",
+   "published": "2026-11-23T19:42:20Z",
+   "first_seen": "2026-11-23T22:39:01Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Azure Flaw Exploited to Target Secrets at Norwegian Energy Firms",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/azure-flaw-exploited-to-target-secrets-at-norwegian-energy-firms/",
+   "published": "2026-11-23T15:47:40Z",
+   "first_seen": "2026-11-23T17:58:39Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Norway says hackers exploited Microsoft security flaw to attack energy firms Equinor, Skagerak Energi",
+   "source": "The Record",
+   "url": "https://therecord.media/norway-microsoft-cyberattack-equinor",
+   "published": "2026-11-23T15:45:00Z",
+   "first_seen": "2026-11-23T17:58:39Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "N-able Patches Critical Flaw Disclosed After Mail Assure Cyberattack",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/n-able-patches-critical-flaw-disclosed-after-mail-assure-cyberattack/",
+   "published": "2026-11-23T15:06:49Z",
+   "first_seen": "2026-11-23T17:58:39Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Hackers Exploit Critical ScreenConnect Flaw to Hijack MSP Technician PCs Without Warning",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-screenconnect.html",
+   "published": "2026-11-23T12:41:04Z",
+   "first_seen": "2026-11-23T14:02:09Z",
+   "cves": [
+    "CVE-2026-84869"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "N-able Discloses Critical Mail Assure Vulnerability Found During Breach Investigation",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/n-able-discloses-critical-mail-assure.html",
+   "published": "2026-11-23T12:28:09Z",
+   "first_seen": "2026-11-23T14:02:09Z",
+   "cves": [
+    "CVE-2026-134624"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Cisco Expressway vulnerability exploited to breach internal networks (CVE-2026-76466)",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/11/23/cisco-expressway-vulnerability-exploited-cve-2026-76466/",
+   "published": "2026-11-23T12:26:10Z",
+   "first_seen": "2026-11-23T14:02:09Z",
+   "cves": [
+    "CVE-2026-76466"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "SAP NetWeaver, Cisco Expressway Flaws Exploited in Attacks",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/sap-netweaver-cisco-expressway-flaws-exploited-in-attacks/",
+   "published": "2026-11-23T11:35:15Z",
+   "first_seen": "2026-11-23T14:02:09Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Attackers exploited Microsoft Entra Connect Health flaw to access tenant data",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/11/23/microsoft-entra-connect-health-vulnerability-tenant-data/",
+   "published": "2026-11-23T10:34:01Z",
+   "first_seen": "2026-11-23T10:46:37Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Hackers Exploit Critical ASP.NET Anti-CSRF Library Flaw Allowing Unauthenticated RCE",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-aspnet-anti.html",
+   "published": "2026-11-23T09:11:56Z",
+   "first_seen": "2026-11-23T10:46:37Z",
+   "cves": [
+    "CVE-2026-131914"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Hackers Exploited GL.iNet Cloud Flaw to Install Malware on Routers and KVM Devices",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/hackers-exploited-glinet-cloud-flaw-to.html",
+   "published": "2026-11-23T09:04:08Z",
+   "first_seen": "2026-11-23T10:46:37Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "CISA flags critical Cisco RCE flaw as actively exploited in attacks",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-critical-cisco-expressway-rce-flaw-as-actively-exploited/",
+   "published": "2026-11-23T07:44:19Z",
+   "first_seen": "2026-11-23T07:47:37Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Google claims last week’s critical VMware bug was under attack in September",
+   "source": "The Register",
+   "url": "https://www.theregister.com/virtualization/2026/11/23/google-claims-last-weeks-critical-vmware-bug-was-under-attack-in-september/5311547",
+   "published": "2026-11-23T04:39:19Z",
+   "first_seen": "2026-11-23T07:47:37Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Hackers breach Austrian Foreign Ministry website, access diplomats' contact details",
+   "source": "The Record",
+   "url": "https://therecord.media/austrian-foreign-ministry-says-website-hacked",
+   "published": "2026-11-24T00:00:00Z",
+   "first_seen": "2026-11-23T14:02:09Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Inception - possibly a ShinyHunters reboot - claims seven victims in a week",
+   "source": "The Register",
+   "url": "https://www.theregister.com/security/2026/11/23/inception-possibly-a-shinyhunters-reboot-claims-seven-victims-in-a-week/5311768",
+   "published": "2026-11-23T21:52:23Z",
+   "first_seen": "2026-11-23T22:39:01Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "South Korea’s power giant KEPCO confirms data breach impacting 1.5 million",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/south-koreas-power-giant-kepco-confirms-data-breach-impacting-15-million/",
+   "published": "2026-11-23T20:54:51Z",
+   "first_seen": "2026-11-23T22:39:01Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "OpenRouter drops AI providers over leaked prompts and secrets",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/openrouter-drops-ai-providers-over-leaked-prompts-and-secrets/",
+   "published": "2026-11-23T20:00:20Z",
+   "first_seen": "2026-11-23T22:39:01Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Spanish LaLiga confirms hackers stole soccer fans’ personal data",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/spanish-laliga-confirms-hackers-stole-soccer-fans-personal-data/",
+   "published": "2026-11-23T18:38:40Z",
+   "first_seen": "2026-11-23T22:39:01Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "FBI reportedly facing second data breach involving National Crime Information Center",
+   "source": "The Record",
+   "url": "https://therecord.media/fbi-cyberattack-data-breach",
+   "published": "2026-11-23T18:30:00Z",
+   "first_seen": "2026-11-23T22:39:01Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Critical Cisco remote code execution bug under attack",
+   "source": "The Register",
+   "url": "https://www.theregister.com/security/2026/11/23/critical-cisco-remote-code-execution-bug-under-attack/5311722",
+   "published": "2026-11-23T17:56:56Z",
+   "first_seen": "2026-11-23T17:58:39Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "GTA 6 hacker released on licence with warning ‘don’t let this happen again’",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/23/gta-6-hacker-released-on-licence-with-warning-dont-let-this-happen-again/",
+   "published": "2026-11-23T17:54:13Z",
+   "first_seen": "2026-11-23T22:39:01Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Behind the Alias: How One Researcher Unmasked a Decade of Ransomware Actors",
+   "source": "Dark Reading",
+   "url": "https://www.darkreading.com/cybersecurity-operations/alias-researcher-unmasked-ransomware-actors",
+   "published": "2026-11-23T17:45:52Z",
+   "first_seen": "2026-11-23T17:58:39Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "GlobeTopper loses $2.5 million after hackers steal $70k in gift cards",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/globetopper-loses-25-million-after-hackers-steal-70k-in-gift-cards/",
+   "published": "2026-11-23T16:50:01Z",
+   "first_seen": "2026-11-23T17:58:39Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "AI Agents Zip From Flaw Discovery to Root Access in 11 Minutes",
+   "source": "Dark Reading",
+   "url": "https://www.darkreading.com/cyberattacks-data-breaches/ai-agents-flaw-discovery-root-access-11-minutes",
+   "published": "2026-11-23T16:17:21Z",
+   "first_seen": "2026-11-23T17:58:39Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "GL.iNet cloud compromise hits routers and KVMs, older backdoors also found",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/11/23/gl-inet-cloud-compromise-malware-backdoors/",
+   "published": "2026-11-23T15:05:50Z",
+   "first_seen": "2026-11-23T17:58:39Z",
+   "cves": []
+  }
+ ],
+ "kev_added": [
+  {
+   "cve": "CVE-2026-133968",
+   "vendor": "Project MONAI",
+   "product": "MONAI Label",
+   "title": "CVE-2026-133968: Project MONAI MONAI Label Path Traversal Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133968",
+   "due": "2026-11-26",
+   "ransomware": false
+  },
+  {
+   "cve": "CVE-2026-134624",
+   "vendor": "N-able",
+   "product": "MailAssure",
+   "title": "CVE-2026-134624: N-able MailAssure (SpamExperts) Server-Side Request Forgery (SSRF) Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-134624",
+   "due": "2026-11-26",
+   "ransomware": false
+  }
+ ],
+ "breaches": [
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Bromcom: 355,051 accounts added to Have I Been Pwned",
+   "source": "Have I Been Pwned",
+   "url": "https://haveibeenpwned.com/Breach/Bromcom",
+   "published": "2026-11-23T06:36:04Z",
+   "first_seen": "2026-11-23T07:47:37Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Peninsula Energy warns of disruption after Wyoming cyber incident",
+   "source": "ransomware.live disclosures",
+   "url": "https://dysruptionhub.com/peninsula-energy-wyoming-cyber-incident/",
+   "published": "2026-11-23T00:00:00Z",
+   "first_seen": "2026-11-23T07:47:37Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Le CHU de Guadeloupe victime d'une cyberattaque, une cellule de crise déclenchée",
+   "source": "ransomware.live disclosures",
+   "url": "https://rci.fm/guadeloupe/infos/Sante/Le-CHU-de-Guadeloupe-victime-dune-cyberattaque-une-cellule-de-crise-declenchee",
+   "published": "2026-11-23T00:00:00Z",
+   "first_seen": "2026-11-23T07:47:37Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Hacker legen Hugendubels Onlineshop nach Cyberangriff lahm",
+   "source": "ransomware.live disclosures",
+   "url": "https://suaragarut.id/de/hacker-angriff-hugendubel-onlineshop",
+   "published": "2026-11-23T00:00:00Z",
+   "first_seen": "2026-11-23T10:46:37Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Trump downplays breach into FBI’s crime database while reviving complaints about agency’s Russia probe | CNN Politics",
+   "source": "ransomware.live disclosures",
+   "url": "https://edition.cnn.com/2026/11/20/politics/fbi-hacked-again-target-crime-database",
+   "published": "2026-11-23T00:00:00Z",
+   "first_seen": "2026-11-23T10:46:37Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Cyberangriff auf Hoster netbeat … (22.11.2026)",
+   "source": "ransomware.live disclosures",
+   "url": "https://borncity.com/blog/2026/11/22/cyberangriff-auf-hoster-netbeat-22-11-2026/",
+   "published": "2026-11-23T00:00:00Z",
+   "first_seen": "2026-11-23T10:46:37Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Cranston Police Department in Rhode Island shuts network after suspected cyber intrusion",
+   "source": "ransomware.live disclosures",
+   "url": "https://dysruptionhub.com/cranston-police-suspected-cyber-intrusion/",
+   "published": "2026-11-23T00:00:00Z",
+   "first_seen": "2026-11-23T10:46:37Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "The Container Store back online after cyber attack - Home Furnishings News",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.hfndigital.com/industry-news/the-container-store-back-online-after-cyber-attack/",
+   "published": "2026-11-23T00:00:00Z",
+   "first_seen": "2026-11-23T10:46:37Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Portal holding sensitive records remains offline over Holidays - Court officials repeatedly blamed “Maintenance” despite cyberattack warning",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.westsideseattle.com/robinson-papers/2026/11/21/portal-holding-sensitive-records-remains-offline-over-holidays-court",
+   "published": "2026-11-23T00:00:00Z",
+   "first_seen": "2026-11-23T10:46:37Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "East-West Center cyber incident leaves Hawaii database offline",
+   "source": "ransomware.live disclosures",
+   "url": "https://dysruptionhub.com/east-west-center-hawaii-cyber-incident-database/",
+   "published": "2026-11-23T00:00:00Z",
+   "first_seen": "2026-11-23T10:46:37Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Department of Motor Traffic website hit by cyber attack - Newswire",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.newswire.lk/2026/11/22/department-of-motor-traffic-website-hit-by-cyber-attack/",
+   "published": "2026-11-23T00:00:00Z",
+   "first_seen": "2026-11-23T10:46:37Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Кібератака на Nissan: автовиробник вимкнув глобальну систему діагностики - reNews",
+   "source": "ransomware.live disclosures",
+   "url": "https://renews.com.ua/tehnologiyi/kiberataka-na-nissan-avtovirobnik-vimknyv-globalny-sistemy-diagnostiki/",
+   "published": "2026-11-23T00:00:00Z",
+   "first_seen": "2026-11-23T10:46:37Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Cybersecurity incident disrupts West Virginia Legislature website",
+   "source": "ransomware.live disclosures",
+   "url": "https://dysruptionhub.com/west-virginia-legislature-cybersecurity-website/",
+   "published": "2026-11-23T00:00:00Z",
+   "first_seen": "2026-11-23T10:46:37Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "La Banque Delubac & Cie a maîtrisé une intrusion informatique",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.boursier.com/opcvm/actualites/generales/la-banque-delubac-cie-a-maitrise-une-intrusion-informatique-998678.html",
+   "published": "2026-11-23T00:00:00Z",
+   "first_seen": "2026-11-23T14:02:09Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Suzlon Energy Reports Cyber Incident, Critical Applications Unaffected - BW Businessworld",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.businessworld.in/article/suzlon-energy-reports-cyber-incident-critical-applications-unaffected-634819",
+   "published": "2026-11-23T00:00:00Z",
+   "first_seen": "2026-11-23T14:02:09Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Allarme per l’attacco informatico alle Terme di Salso, Vignali: “La Regione verifichi la sicurezza dei dati sanitari”",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.parmatoday.it/cronaca/Attacco-informatico-Tst-terme-Salsomaggiore-tabiano-forza-Italia-Vignali-interrogazione-regione.html",
+   "published": "2026-11-23T00:00:00Z",
+   "first_seen": "2026-11-23T14:02:09Z",
+   "cves": []
+  }
+ ],
+ "ransomware_claims": {
+  "count": 78,
+  "groups": [
+   [
+    "n0n",
+    27
+   ],
+   [
+    "the gentlemen",
+    12
+   ],
+   [
+    "safepay",
+    9
+   ],
+   [
+    "qilin",
+    4
+   ],
+   [
+    "space bears",
+    4
+   ],
+   [
+    "aurora",
+    3
+   ],
+   [
+    "rhysida",
+    2
+   ],
+   [
+    "inc ransom",
+    2
+   ],
+   [
+    "insomnia",
+    2
+   ],
+   [
+    "aoqin leaks",
+    2
+   ]
+  ]
+ },
+ "archive_counts": {
+  "date": "2026-11-23",
+  "exploited": 8.0,
+  "ransomware": 10.0,
+  "breaches": 0.6,
+  "community": 0.0,
+  "kev": 2,
+  "claims": 78,
+  "breach_count": 1,
+  "accounts": 355051,
+  "stories": 0,
+  "top": "CVE-2026-133968: Project MONAI MONAI Label",
+  "top_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133968"
+ },
+ "sitreps": [
+  "sitreps/2026-11-23/074758Z.json",
+  "sitreps/2026-11-23/175916Z.json"
+ ]
+}
