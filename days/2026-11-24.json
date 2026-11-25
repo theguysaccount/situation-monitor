@@ -1,0 +1,571 @@
+{
+ "schema": 1,
+ "date": "2026-11-24",
+ "source": "sweep",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-11-24T02:27:06Z",
+    2,
+    404.1
+   ],
+   [
+    "2026-11-24T18:20:43Z",
+    2,
+    446.5
+   ],
+   [
+    "2026-11-24T23:10:53Z",
+    2,
+    458.3
+   ]
+  ],
+  "hours_at_level": {
+   "2": 3
+  },
+  "highest": 2,
+  "lowest": 2
+ },
+ "first_seen": {
+  "count": 131,
+  "by_severity": {
+   "medium": 52,
+   "high": 45,
+   "low": 28,
+   "critical": 6
+  },
+  "by_type": {
+   "ransomware": 41,
+   "news": 72,
+   "community": 2,
+   "vuln": 1,
+   "advisory": 6,
+   "kev": 3,
+   "breach": 6
+  }
+ },
+ "situations": [
+  {
+   "name": "Azure",
+   "severity": "critical",
+   "outlets": 5,
+   "reports": 5,
+   "cves": [],
+   "lead": {
+    "title": "Azure API Management vulnerability exploited to steal customers’ secrets",
+    "url": "https://www.helpnetsecurity.com/2026/11/24/azure-apim-vulnerability-credential-theft/",
+    "source": "Help Net Security",
+    "published": "2026-11-24T12:04:37Z"
+   }
+  },
+  {
+   "name": "Cisco Expressway",
+   "severity": "critical",
+   "outlets": 5,
+   "reports": 5,
+   "cves": [
+    "CVE-2026-76466"
+   ],
+   "lead": {
+    "title": "Cisco Expressway vulnerability exploited to breach internal networks (CVE-2026-76466)",
+    "url": "https://www.helpnetsecurity.com/2026/11/23/cisco-expressway-vulnerability-exploited-cve-2026-76466/",
+    "source": "Help Net Security",
+    "published": "2026-11-23T12:26:10Z"
+   }
+  },
+  {
+   "name": "GL.iNet",
+   "severity": "critical",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [],
+   "lead": {
+    "title": "Hackers Exploited GL.iNet Cloud Flaw to Install Malware on Routers and KVM Devices",
+    "url": "https://thehackernews.com/2026/11/hackers-exploited-glinet-cloud-flaw-to.html",
+    "source": "The Hacker News",
+    "published": "2026-11-23T09:04:08Z"
+   }
+  },
+  {
+   "name": "MailAssure",
+   "severity": "critical",
+   "outlets": 2,
+   "reports": 3,
+   "cves": [
+    "CVE-2026-134624"
+   ],
+   "lead": {
+    "title": "Hackers Exploit N-able MailAssure Flaw While AI Agents Exploit MONAI Label Zero-Day",
+    "url": "https://thehackernews.com/2026/11/hackers-exploit-n-able-mailassure-flaw.html",
+    "source": "The Hacker News",
+    "published": "2026-11-24T06:02:45Z"
+   }
+  },
+  {
+   "name": "Energy",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 5,
+   "cves": [],
+   "lead": {
+    "title": "Azure Flaw Exploited to Target Secrets at Norwegian Energy Firms",
+    "url": "https://www.securityweek.com/azure-flaw-exploited-to-target-secrets-at-norwegian-energy-firms/",
+    "source": "SecurityWeek",
+    "published": "2026-11-23T15:47:40Z"
+   }
+  },
+  {
+   "name": "vCenter",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [
+    "CVE-2026-123903"
+   ],
+   "lead": {
+    "title": "VMware vCenter Hit by Another Critical 9.8-Rated Auth Bypass Flaw After Zero-Day Exploitation",
+    "url": "https://thehackernews.com/2026/11/vmware-vcenter-hit-by-another-critical.html",
+    "source": "The Hacker News",
+    "published": "2026-11-24T13:28:26Z"
+   }
+  },
+  {
+   "name": "Idunno CVE-2026-131914",
+   "severity": "critical",
+   "outlets": 2,
+   "reports": 2,
+   "cves": [
+    "CVE-2026-131914"
+   ],
+   "lead": {
+    "title": "Hackers Exploit Critical ASP.NET Anti-CSRF Library Flaw Allowing Unauthenticated RCE",
+    "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-aspnet-anti.html",
+    "source": "The Hacker News",
+    "published": "2026-11-23T09:11:56Z"
+   }
+  },
+  {
+   "name": "MONAI Label",
+   "severity": "critical",
+   "outlets": 2,
+   "reports": 2,
+   "cves": [
+    "CVE-2026-133968",
+    "CVE-2026-134624"
+   ],
+   "lead": {
+    "title": "Hackers Exploit N-able MailAssure Flaw While AI Agents Exploit MONAI Label Zero-Day",
+    "url": "https://thehackernews.com/2026/11/hackers-exploit-n-able-mailassure-flaw.html",
+    "source": "The Hacker News",
+    "published": "2026-11-24T06:02:45Z"
+   }
+  }
+ ],
+ "top_reports": [
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "VMware vCenter Hit by Another Critical 9.8-Rated Auth Bypass Flaw After Zero-Day Exploitation",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/vmware-vcenter-hit-by-another-critical.html",
+   "published": "2026-11-24T13:28:26Z",
+   "first_seen": "2026-11-24T18:20:43Z",
+   "cves": [
+    "CVE-2026-123903"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Azure API Management vulnerability exploited to steal customers’ secrets",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/11/24/azure-apim-vulnerability-credential-theft/",
+   "published": "2026-11-24T12:04:37Z",
+   "first_seen": "2026-11-24T18:20:43Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Hackers Exploit N-able MailAssure Flaw While AI Agents Exploit MONAI Label Zero-Day",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-n-able-mailassure-flaw.html",
+   "published": "2026-11-24T06:02:45Z",
+   "first_seen": "2026-11-24T18:20:43Z",
+   "cves": [
+    "CVE-2026-134624"
+   ]
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "An Unclassified CIA System Was Breached in a Cyberattack, AP Source Says",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/an-unclassified-cia-system-was-breached-in-a-cyberattack-ap-source-says/",
+   "published": "2026-11-24T22:41:58Z",
+   "first_seen": "2026-11-24T23:10:53Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Unclassified intel system hit by hackers, affecting CIA, ODNI",
+   "source": "CyberScoop",
+   "url": "https://cyberscoop.com/cia-odni-osint-data-breach/",
+   "published": "2026-11-24T22:01:23Z",
+   "first_seen": "2026-11-24T23:10:53Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Webworm APT Slithers Into Networks With Customized SoftEther VPN",
+   "source": "Dark Reading",
+   "url": "https://www.darkreading.com/perimeter/webworm-slithers-customized-softether-vpn",
+   "published": "2026-11-24T21:48:06Z",
+   "first_seen": "2026-11-24T23:10:53Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Rackspace shuts down Spot cloud platform after security breach",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/rackspace-shuts-down-spot-cloud-platform-after-security-breach/",
+   "published": "2026-11-24T21:37:30Z",
+   "first_seen": "2026-11-24T23:10:53Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "'God Mode' Flaws Could Wreak Border-Control Havoc",
+   "source": "Dark Reading",
+   "url": "https://www.darkreading.com/vulnerabilities-threats/god-mode-flaws-wreak-border-control-havoc",
+   "published": "2026-11-24T21:36:11Z",
+   "first_seen": "2026-11-24T23:10:53Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Dozens of oil and shipping tankers hacked in recent weeks, per report",
+   "source": "TechCrunch Security",
+   "url": "https://techcrunch.com/2026/11/24/dozens-of-oil-and-shipping-tankers-hacked-in-recent-weeks-per-report/",
+   "published": "2026-11-24T21:09:04Z",
+   "first_seen": "2026-11-24T23:10:53Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Colorado says cyberattack took down myColorado app, warns 150,000 had data stolen",
+   "source": "The Record",
+   "url": "https://therecord.media/mycolorado-app-down-data-breach",
+   "published": "2026-11-24T20:52:00Z",
+   "first_seen": "2026-11-24T23:10:53Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Turnitin discloses cyberattack affecting customer-facing systems",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/turnitin-discloses-cyberattack-affecting-customer-facing-systems/",
+   "published": "2026-11-24T18:59:52Z",
+   "first_seen": "2026-11-24T23:10:53Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "UK warns AI-driven cyberattacks are exposing years of weak security",
+   "source": "TechCrunch Security",
+   "url": "https://techcrunch.com/2026/11/24/uk-warns-ai-driven-cyberattacks-are-exposing-years-of-weak-security/",
+   "published": "2026-11-24T18:02:59Z",
+   "first_seen": "2026-11-24T18:20:43Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Radware discloses breach exposing customer cloud access keys",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/radware-discloses-breach-exposing-customer-cloud-access-keys/",
+   "published": "2026-11-24T17:49:05Z",
+   "first_seen": "2026-11-24T18:20:43Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Patel mum on FBI crime info database hack, citing ongoing investigation",
+   "source": "CyberScoop",
+   "url": "https://cyberscoop.com/kash-patel-fbi-ncic-database-hack/",
+   "published": "2026-11-24T17:48:34Z",
+   "first_seen": "2026-11-24T18:20:43Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Gingko Bioworks Holdings issued a statement on October 8 about a data breach. Getting an update from them has been difficult.",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/24/gingko-bioworks-holdings-issued-a-statement-on-october-8-about-a-data-breach-getting-an-update-from-them-has-been-difficult/",
+   "published": "2026-11-24T17:34:23Z",
+   "first_seen": "2026-11-24T18:20:43Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Iran-Aligned Volant Manticore Uses IPFS-Based KuboShell Backdoor in Espionage Campaigns",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/iran-aligned-volant-manticore-uses-ipfs.html",
+   "published": "2026-11-24T16:54:07Z",
+   "first_seen": "2026-11-24T18:20:43Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "VMware Updates Patch Critical ESX, vCenter Vulnerabilities",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/vmware-updates-patch-critical-esx-vcenter-vulnerabilities/",
+   "published": "2026-11-24T16:32:56Z",
+   "first_seen": "2026-11-24T18:20:43Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "European Commission confirms data theft in EU Academy breach",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/european-commission-confirms-data-theft-in-eu-academy-breach/",
+   "published": "2026-11-24T16:22:44Z",
+   "first_seen": "2026-11-24T18:20:43Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Hackers compromise Check Point Servers in 22 organizations",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-compromise-check-point-servers-in-22-organizations/",
+   "published": "2026-11-24T16:15:23Z",
+   "first_seen": "2026-11-24T18:20:43Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Carnegie Endowment for International Peace says third-party breach leaked donation info",
+   "source": "The Record",
+   "url": "https://therecord.media/carnegie-endowment-data-breach",
+   "published": "2026-11-24T16:00:00Z",
+   "first_seen": "2026-11-24T18:20:43Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "AI-enabled campaign targets Check Point Security Management servers",
+   "source": "Cybersecurity Dive",
+   "url": "https://www.cybersecuritydive.com/news/ai-enabled-campaign-targets-check-point-security-management-servers/875622/",
+   "published": "2026-11-24T15:50:20Z",
+   "first_seen": "2026-11-24T18:20:43Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Police disrupt 57 illegal streaming services with 7.3 million visits",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/police-disrupt-57-illegal-streaming-services-with-73-million-visits/",
+   "published": "2026-11-24T15:10:10Z",
+   "first_seen": "2026-11-24T18:20:43Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "From Vulnerability Noise to Resilience: Rethinking Security in the AI Era",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/from-vulnerability-noise-to-resilience-rethinking-security-in-the-ai-era/",
+   "published": "2026-11-24T15:01:11Z",
+   "first_seen": "2026-11-24T18:20:43Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "CISA warns of exploited N-able bug as company restores email platform",
+   "source": "The Record",
+   "url": "https://therecord.media/cisa-nable-cybersecurity-bug",
+   "published": "2026-11-24T15:00:00Z",
+   "first_seen": "2026-11-24T18:20:43Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "European Commission Uncovers Data Breach in Cyberattack Investigation",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/european-commission-uncovers-data-breach-in-cyberattack-investigation/",
+   "published": "2026-11-24T14:49:59Z",
+   "first_seen": "2026-11-24T18:20:43Z",
+   "cves": []
+  }
+ ],
+ "kev_added": [
+  {
+   "cve": "CVE-2026-132224",
+   "vendor": "Optimizely",
+   "product": "Web Experimentation",
+   "title": "CVE-2026-132224: Optimizely Web Experimentation External Control of Critical State Data Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132224",
+   "due": "2026-11-27",
+   "ransomware": false
+  },
+  {
+   "cve": "CVE-2026-131914",
+   "vendor": "Idunno",
+   "product": "AntiCsrf",
+   "title": "CVE-2026-131914: Idunno AntiCsrf Deserialization of Untrusted Data Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-131914",
+   "due": "2026-11-27",
+   "ransomware": false
+  },
+  {
+   "cve": "CVE-2026-132165",
+   "vendor": "Drupal",
+   "product": "Core",
+   "title": "CVE-2026-132165: Drupal Core Remote Code Execution Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-132165",
+   "due": "2026-11-27",
+   "ransomware": false
+  }
+ ],
+ "breaches": [
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "مخاوف من اختراق سيبراني.. الشرطة الإسرائيلية تعطل تطبيقات الاتصال وتربك عناصرها",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.newsroom.info/488489",
+   "published": "2026-11-24T00:00:00Z",
+   "first_seen": "2026-11-24T18:20:43Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Newspapers delayed as Allied Media hit by cyber attack",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.rnz.co.nz/news/business_media/2762284/newspapers-delayed-as-allied-media-hit-by-cyber-attack",
+   "published": "2026-11-24T00:00:00Z",
+   "first_seen": "2026-11-24T18:20:43Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Cyber Attack On Media House, But… | Cyber Attack On Media House, But…",
+   "source": "ransomware.live disclosures",
+   "url": "https://english.tupaki.com/entertainment/cyber-attack-disrupts-telugu-media-house-1516593",
+   "published": "2026-11-24T00:00:00Z",
+   "first_seen": "2026-11-24T18:20:43Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Cyber incident disrupts Lauderdale County Sheriff's Office systems in Mississippi",
+   "source": "ransomware.live disclosures",
+   "url": "https://dysruptionhub.com/lauderdale-county-sheriff-mississippi-cyber-incident/",
+   "published": "2026-11-24T00:00:00Z",
+   "first_seen": "2026-11-24T18:20:43Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Cyberattaque contre Quimper Bretagne Occidentale et la ville de Quimper : Les services mobilisés pour rétablir les systèmes impactés",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.quimper.bzh/actualite/52991/3-cyberattaque-contre-quimper-bretagne-occidentale-et-la-ville-de-quimper-les-services-mobilises-pour-retablir-les-systemes-impactes.htm",
+   "published": "2026-11-24T00:00:00Z",
+   "first_seen": "2026-11-24T18:20:43Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "ADENE sofre ataque informático e Portal do Sistema de Certificação Energética está temporariamente indisponível | Jornal Económico",
+   "source": "ransomware.live disclosures",
+   "url": "https://jornaleconomico.sapo.pt/noticias/adene-sofre-ataque-informatico-e-portal-do-sistema-de-certificacao-energetica-esta-temporariamente-indisponivel/",
+   "published": "2026-11-24T00:00:00Z",
+   "first_seen": "2026-11-24T18:20:43Z",
+   "cves": []
+  }
+ ],
+ "ransomware_claims": {
+  "count": 48,
+  "groups": [
+   [
+    "leakeddata",
+    9
+   ],
+   [
+    "SilentRansomGroup",
+    7
+   ],
+   [
+    "play",
+    5
+   ],
+   [
+    "scarlettgroup",
+    4
+   ],
+   [
+    "qilin",
+    3
+   ],
+   [
+    "falcon",
+    2
+   ],
+   [
+    "aurora",
+    2
+   ],
+   [
+    "secp0",
+    2
+   ],
+   [
+    "PixelLeaks",
+    2
+   ],
+   [
+    "pixelleaks",
+    1
+   ]
+  ]
+ },
+ "archive_counts": {
+  "date": "2026-11-24",
+  "exploited": 12.0,
+  "ransomware": 10.0,
+  "breaches": 0.0,
+  "community": 1.2,
+  "kev": 3,
+  "claims": 48,
+  "breach_count": 0,
+  "accounts": 0,
+  "stories": 2,
+  "top": "Cyberattack campaign compromising Check Point servers across 22 organizations",
+  "top_url": "https://www.greynoise.io/blog/check-point-security-management-servers-intrusion-campaign"
+ },
+ "sitreps": []
+}
