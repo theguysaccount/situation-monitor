@@ -1975,6 +1975,7 @@ def generic_prompt(data: dict) -> str:
 
 PAGE_RESET = ('<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}'
               'body{margin:0;font:14px/1.4 system-ui,-apple-system,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>')
+PAGE_TITLE = "The Situation Monitor — Live Hacks, Breaches and CVEs"
 SHARE_TITLE = "The Situation Monitor: I am monitoring the situation"
 SHARE_TEXT = ("A live board of the hacks, breaches, exploited vulnerabilities and ransomware attacks happening now, "
               "from 25 public sources, with a master prompt teams use to check their exposure.")
@@ -1984,7 +1985,7 @@ def page_head(data: dict, cfg: dict) -> str:
     """The static site's <head>: search and share tags around the same reset the claude.ai viewer applies."""
     site, e = data.get("site_url") or "", lambda v: html.escape(str(v), quote=True)
     tags = ['<meta charset="utf-8">', '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">',
-            "<title>The Situation Monitor</title>", f'<meta name="description" content="I am monitoring the situation. {e(SHARE_TEXT)}">',
+            f"<title>{e(PAGE_TITLE)}</title>", f'<meta name="description" content="I am monitoring the situation. {e(SHARE_TEXT)}">',
             '<meta name="theme-color" content="#0a2552">', '<link rel="icon" type="image/png" href="favicon.png">',
             '<link rel="apple-touch-icon" href="apple-touch-icon.png">',
             '<link rel="alternate" type="application/rss+xml" title="The Situation Monitor: critical and high reports" href="data/feed.xml">']
@@ -2412,7 +2413,8 @@ def write_outputs(data: dict, new_items: list[dict], alert_items: list[dict]) ->
     page = ""
     app = SITE / "app.html"
     if app.exists():
-        page = page_head(data, load_config()) + static_page(app.read_text(encoding="utf-8"), data) + "</body></html>\n"
+        body = re.sub(r"^\s*<title>.*?</title>\s*", "", static_page(app.read_text(encoding="utf-8"), data), count=1, flags=re.S)
+        page = page_head(data, load_config()) + body + "</body></html>\n"
         save_text(SITE / "index.html", page)
     # The page and its first data file share the first-load budget; whatever doesn't fit waits in more.json.
     board, rest = split_board(data, FIRST_LOAD_BUDGET - FIRST_LOAD_SLACK - gzip_size(page))

@@ -222,6 +222,8 @@ class Outputs(unittest.TestCase):
         self.assertLessEqual(m.gzip_size(page) + m.gzip_size(self.read("situation.json")),
                              m.FIRST_LOAD_BUDGET - m.FIRST_LOAD_SLACK)
         self.assertIn('<link rel="canonical"', page)
+        self.assertEqual(page.count("<title>"), 1)
+        self.assertIn(f"<title>{m.PAGE_TITLE}</title>", page)
         self.assertIn("SSHole is being exploited", page)
 
     def test_feed_changes_and_live_copy_still_cover_the_whole_board(self):

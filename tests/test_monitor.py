@@ -311,6 +311,9 @@ class Rendering(unittest.TestCase):
 
     def test_page_head_has_canonical_and_share_tags(self):
         head = m.page_head(self.data, {})
+        self.assertIn(f"<title>{m.PAGE_TITLE}</title>", head)
+        self.assertGreaterEqual(len(m.PAGE_TITLE), 45)
+        self.assertLessEqual(len(m.PAGE_TITLE), 58)
         self.assertIn('<link rel="canonical" href="https://thesituationmonitor.org/">', head)
         self.assertIn('property="og:image"', head)
 
