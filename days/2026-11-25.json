@@ -1,0 +1,782 @@
+{
+ "schema": 1,
+ "date": "2026-11-25",
+ "source": "sweep",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-11-25T02:47:56Z",
+    2,
+    342.2
+   ],
+   [
+    "2026-11-25T05:34:19Z",
+    3,
+    339.3
+   ],
+   [
+    "2026-11-25T12:55:35Z",
+    3,
+    359.6
+   ],
+   [
+    "2026-11-25T17:29:32Z",
+    3,
+    386.6
+   ],
+   [
+    "2026-11-25T22:32:40Z",
+    3,
+    422.5
+   ]
+  ],
+  "hours_at_level": {
+   "2": 1,
+   "3": 4
+  },
+  "highest": 2,
+  "lowest": 3
+ },
+ "first_seen": {
+  "count": 214,
+  "by_severity": {
+   "medium": 138,
+   "critical": 23,
+   "high": 35,
+   "low": 18
+  },
+  "by_type": {
+   "ransomware": 110,
+   "vuln": 3,
+   "news": 69,
+   "advisory": 3,
+   "breach": 19,
+   "kev": 10
+  }
+ },
+ "situations": [
+  {
+   "name": "Azure",
+   "severity": "critical",
+   "outlets": 6,
+   "reports": 6,
+   "cves": [],
+   "lead": {
+    "title": "Azure API Management vulnerability exploited to steal customers’ secrets",
+    "url": "https://www.helpnetsecurity.com/2026/11/24/azure-apim-vulnerability-credential-theft/",
+    "source": "Help Net Security",
+    "published": "2026-11-24T12:04:37Z"
+   }
+  },
+  {
+   "name": "Drupal",
+   "severity": "critical",
+   "outlets": 5,
+   "reports": 5,
+   "cves": [
+    "CVE-2026-132165"
+   ],
+   "lead": {
+    "title": "Critical Drupal installer flaw under active attack (CVE-2026-132165)",
+    "url": "https://www.helpnetsecurity.com/2026/11/25/drupal-installer-rce-cve-2026-132165-exploited/",
+    "source": "Help Net Security",
+    "published": "2026-11-25T13:37:28Z"
+   }
+  },
+  {
+   "name": "AntiCsrf",
+   "severity": "critical",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [
+    "CVE-2026-131914",
+    "CVE-2026-132224"
+   ],
+   "lead": {
+    "title": "Hackers Exploit Unpatched Flaw in Defunct Idunno AntiCsrf Library",
+    "url": "https://www.securityweek.com/hackers-exploit-unpatched-flaw-in-defunct-idunno-anticsrf-library/",
+    "source": "SecurityWeek",
+    "published": "2026-11-25T09:05:13Z"
+   }
+  },
+  {
+   "name": "Cisco Expressway",
+   "severity": "critical",
+   "outlets": 5,
+   "reports": 5,
+   "cves": [
+    "CVE-2026-76466"
+   ],
+   "lead": {
+    "title": "Cisco Expressway vulnerability exploited to breach internal networks (CVE-2026-76466)",
+    "url": "https://www.helpnetsecurity.com/2026/11/23/cisco-expressway-vulnerability-exploited-cve-2026-76466/",
+    "source": "Help Net Security",
+    "published": "2026-11-23T12:26:10Z"
+   }
+  },
+  {
+   "name": "FinCEN",
+   "severity": "high",
+   "outlets": 7,
+   "reports": 7,
+   "cves": [],
+   "lead": {
+    "title": "US Treasury financial crimes unit becomes latest fed breach victim",
+    "url": "https://www.theregister.com/security/2026/11/25/us-treasury-financial-crimes-unit-becomes-latest-fed-breach-victim/5312165",
+    "source": "The Register",
+    "published": "2026-11-25T16:40:16Z"
+   }
+  },
+  {
+   "name": "Energy",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 5,
+   "cves": [],
+   "lead": {
+    "title": "Azure Flaw Exploited to Target Secrets at Norwegian Energy Firms",
+    "url": "https://www.securityweek.com/azure-flaw-exploited-to-target-secrets-at-norwegian-energy-firms/",
+    "source": "SecurityWeek",
+    "published": "2026-11-23T15:47:40Z"
+   }
+  },
+  {
+   "name": "vCenter",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 4,
+   "cves": [
+    "CVE-2026-123903"
+   ],
+   "lead": {
+    "title": "VMware vCenter Hit by Another Critical 9.8-Rated Auth Bypass Flaw After Zero-Day Exploitation",
+    "url": "https://thehackernews.com/2026/11/vmware-vcenter-hit-by-another-critical.html",
+    "source": "The Hacker News",
+    "published": "2026-11-24T13:28:26Z"
+   }
+  },
+  {
+   "name": "MailAssure",
+   "severity": "critical",
+   "outlets": 2,
+   "reports": 3,
+   "cves": [
+    "CVE-2026-134624"
+   ],
+   "lead": {
+    "title": "Hackers Exploit N-able MailAssure Flaw While AI Agents Exploit MONAI Label Zero-Day",
+    "url": "https://thehackernews.com/2026/11/hackers-exploit-n-able-mailassure-flaw.html",
+    "source": "The Hacker News",
+    "published": "2026-11-24T06:02:45Z"
+   }
+  }
+ ],
+ "top_reports": [
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Palo Alto Networks warns of Fragnesia flaw exploited in PAN-OS attacks",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/palo-alto-networks-warns-of-fragnesia-flaw-exploited-in-pan-os-attacks/",
+   "published": "2026-11-25T22:05:09Z",
+   "first_seen": "2026-11-25T22:32:40Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "InfraTrust warns of exploited supply chain flaws in network appliances",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/infratrust-warns-of-exploited-supply-chain-flaws-in-network-appliances/",
+   "published": "2026-11-25T15:00:00Z",
+   "first_seen": "2026-11-25T17:29:32Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Critical Drupal installer flaw under active attack (CVE-2026-132165)",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/11/25/drupal-installer-rce-cve-2026-132165-exploited/",
+   "published": "2026-11-25T13:37:28Z",
+   "first_seen": "2026-11-25T17:29:32Z",
+   "cves": [
+    "CVE-2026-132165"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Hackers Exploit Two GeoServer Flaws as Researchers Warn of Unauthenticated RCE Chains",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/hackers-exploit-two-geoserver-flaws-as.html",
+   "published": "2026-11-25T12:48:54Z",
+   "first_seen": "2026-11-25T17:29:32Z",
+   "cves": [
+    "CVE-2026-120705",
+    "CVE-2026-129243"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Drupal Fail2Install Exploit Details Emerge as Critical RCE Flaw Faces Active Exploitation",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/drupal-fail2install-exploit-details.html",
+   "published": "2026-11-25T11:23:26Z",
+   "first_seen": "2026-11-25T12:55:35Z",
+   "cves": [
+    "CVE-2026-132165"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Bots exploited leaked AWS key from Docker image in under 8 seconds",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/11/25/docker-aws-key-exposure-bots/",
+   "published": "2026-11-25T11:22:32Z",
+   "first_seen": "2026-11-25T12:55:35Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Hackers now exploit critical Drupal RCE flaw to hijack sites",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/hackers-now-exploit-critical-drupal-rce-flaw-to-hijack-sites/",
+   "published": "2026-11-25T10:10:20Z",
+   "first_seen": "2026-11-25T12:55:35Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Hackers Exploited CVSS 10.0 Hex.pm RCE Flaw to Compromise 6 Package Registry Servers",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/hackers-exploited-cvss-100-hexpm-rce.html",
+   "published": "2026-11-25T09:06:59Z",
+   "first_seen": "2026-11-25T12:55:35Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Hackers Exploit Unpatched Flaw in Defunct Idunno AntiCsrf Library",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/hackers-exploit-unpatched-flaw-in-defunct-idunno-anticsrf-library/",
+   "published": "2026-11-25T09:05:13Z",
+   "first_seen": "2026-11-25T12:55:35Z",
+   "cves": [
+    "CVE-2026-131914"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Exploited: Abandoned Idunno.AntiCsrf library opens legacy ASP.NET apps to RCE (CVE-2026-131914)",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/11/25/idunno-anticsrf-rce-cve-2026-131914-exploited/",
+   "published": "2026-11-25T07:22:32Z",
+   "first_seen": "2026-11-25T12:55:35Z",
+   "cves": [
+    "CVE-2026-131914",
+    "CVE-2026-132224"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Credential harvesting goes from fringe activity to major exploitation trend",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/11/25/vulncheck-credential-harvesting-exploitat-records/",
+   "published": "2026-11-25T06:30:47Z",
+   "first_seen": "2026-11-25T12:55:35Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "WordPress Blocks Six Backdoored WP Connect Plugins Before Malicious Releases Go Live",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/wordpress-blocks-six-backdoored-wp.html",
+   "published": "2026-11-25T06:21:12Z",
+   "first_seen": "2026-11-25T12:55:35Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "breach",
+   "title": "Last week, Systematic was subject to a cyberattack. Our internal systems effectively detected the attack, and we quickly shut down systems and internet access at our offices as a precaution, while we… | Systematic",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.linkedin.com/posts/systematic-logo-share-7531023916836765696-l90x/",
+   "published": "2026-11-25T00:00:00Z",
+   "first_seen": "2026-11-25T12:55:35Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "1Password customer data stolen after employee GitHub account breach",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/1password-customer-data-stolen-after-employee-github-account-breach/",
+   "published": "2026-11-25T21:33:33Z",
+   "first_seen": "2026-11-25T22:32:40Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Microsoft: China’s Salt Typhoon hackers are using Artex",
+   "source": "The Record",
+   "url": "https://therecord.media/microsoft-china-salt-typhoon-using-artex-ai-tool",
+   "published": "2026-11-25T21:18:00Z",
+   "first_seen": "2026-11-25T22:32:40Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "FIFA says hackers accessed ‘limited set of personal and business information’",
+   "source": "The Record",
+   "url": "https://therecord.media/fifa-data-breach-limited",
+   "published": "2026-11-25T20:40:00Z",
+   "first_seen": "2026-11-25T22:32:40Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "1Password says a hacker used an employee’s GitHub account to take customer data",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/25/1password-says-a-hacker-used-an-employees-github-account-to-take-customer-data/",
+   "published": "2026-11-25T20:37:39Z",
+   "first_seen": "2026-11-25T22:32:40Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Italy and Switzerland warn of autonomous AI-driven cyberattacks",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/italy-and-switzerland-warn-of-autonomous-ai-driven-cyberattacks/",
+   "published": "2026-11-25T19:39:31Z",
+   "first_seen": "2026-11-25T22:32:40Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "1Password said hackers broke into its internal systems, but customer passwords are safe",
+   "source": "TechCrunch Security",
+   "url": "https://techcrunch.com/2026/11/25/1password-said-hackers-broke-into-its-internal-systems-but-customer-passwords-are-safe/",
+   "published": "2026-11-25T18:49:52Z",
+   "first_seen": "2026-11-25T22:32:40Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "DOJ accuses former cyber executive of defrauding ransomware victims by secretly paying hackers",
+   "source": "TechCrunch Security",
+   "url": "https://techcrunch.com/2026/11/25/doj-accuses-former-cyber-executive-of-defrauding-ransomware-victims-by-secretly-paying-hackers/",
+   "published": "2026-11-25T17:36:51Z",
+   "first_seen": "2026-11-25T22:32:40Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "US Treasury financial crimes unit becomes latest fed breach victim",
+   "source": "The Register",
+   "url": "https://www.theregister.com/security/2026/11/25/us-treasury-financial-crimes-unit-becomes-latest-fed-breach-victim/5312165",
+   "published": "2026-11-25T16:40:16Z",
+   "first_seen": "2026-11-25T17:29:32Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "CISA warns of critical unpatched flaw in Danfoss refrigeration controllers",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-critical-unpatched-flaw-in-danfoss-refrigeration-controllers/",
+   "published": "2026-11-25T16:13:40Z",
+   "first_seen": "2026-11-25T17:29:32Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Attackers Target .NET Developers With Poisoned Job Assessments",
+   "source": "Dark Reading",
+   "url": "https://www.darkreading.com/threat-intelligence/attackers-net-developers-poisoned-job-assessments",
+   "published": "2026-11-25T15:48:04Z",
+   "first_seen": "2026-11-25T17:29:32Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Microsoft remediates Azure flaw following attacks against Norwegian energy giants",
+   "source": "Cybersecurity Dive",
+   "url": "https://www.cybersecuritydive.com/news/microsoft-remediates-azure-flaw-following-attacks-against-norwegian-energy/875755/",
+   "published": "2026-11-25T15:36:37Z",
+   "first_seen": "2026-11-25T17:29:32Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Two Newly Disclosed GeoServer Vulnerabilities Under Attack",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/two-newly-disclosed-geoserver-vulnerabilities-under-attack/",
+   "published": "2026-11-25T15:27:36Z",
+   "first_seen": "2026-11-25T17:29:32Z",
+   "cves": []
+  }
+ ],
+ "kev_added": [
+  {
+   "cve": "CVE-2026-103406",
+   "vendor": "Hewlett Packard Enterprise (HPE)",
+   "product": "Juniper Session Smart Conductor and Session Smart Router",
+   "title": "CVE-2026-103406: Hewlett Packard Enterprise (HPE) Juniper Session Smart Conductor and Session Smart Router OS Command Injection Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103406",
+   "due": "2026-11-28",
+   "ransomware": false
+  },
+  {
+   "cve": "CVE-2026-133469",
+   "vendor": "Vates",
+   "product": "Xen Orchestra",
+   "title": "CVE-2026-133469: Vates Xen Orchestra Improper Validation of Specified Type of Input Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133469",
+   "due": "2026-11-28",
+   "ransomware": false
+  },
+  {
+   "cve": "CVE-2025-41450",
+   "vendor": "Danfoss",
+   "product": "AK-SM 800A Series",
+   "title": "CVE-2025-41450: Danfoss AK-SM 800A Series Improper Authentication Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-41450",
+   "due": "2026-12-09",
+   "ransomware": false
+  },
+  {
+   "cve": "CVE-2023-25914",
+   "vendor": "Danfoss",
+   "product": "AK-SM 800A Series",
+   "title": "CVE-2023-25914: Danfoss AK-SM 800A Series Path Traversal Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-25914",
+   "due": "2026-11-28",
+   "ransomware": false
+  },
+  {
+   "cve": "CVE-2023-25915",
+   "vendor": "Danfoss",
+   "product": "AK-SM 800A Series",
+   "title": "CVE-2023-25915: Danfoss AK-SM 800A Series Improper Input Validation Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2023-25915",
+   "due": "2026-11-28",
+   "ransomware": false
+  },
+  {
+   "cve": "CVE-2026-133324",
+   "vendor": "Mitel",
+   "product": "MiCollab",
+   "title": "CVE-2026-133324: Mitel MiCollab Not Failing Securely Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133324",
+   "due": "2026-11-28",
+   "ransomware": false
+  },
+  {
+   "cve": "CVE-2026-133275",
+   "vendor": "Mitel",
+   "product": "MiCollab",
+   "title": "CVE-2026-133275: Mitel MiCollab Unrestricted Upload of File with Dangerous Type Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133275",
+   "due": "2026-11-28",
+   "ransomware": false
+  },
+  {
+   "cve": "CVE-2026-133311",
+   "vendor": "Mitel",
+   "product": "MiCollab",
+   "title": "CVE-2026-133311: Mitel MiCollab Weak Authentication Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133311",
+   "due": "2026-12-09",
+   "ransomware": false
+  },
+  {
+   "cve": "CVE-2026-133303",
+   "vendor": "Mitel",
+   "product": "MiCollab",
+   "title": "CVE-2026-133303: Mitel MiCollab XML Injection Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133303",
+   "due": "2026-11-28",
+   "ransomware": false
+  },
+  {
+   "cve": "CVE-2026-133323",
+   "vendor": "Mitel",
+   "product": "MiCollab",
+   "title": "CVE-2026-133323: Mitel MiCollab OS Command Injection Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-133323",
+   "due": "2026-11-28",
+   "ransomware": false
+  }
+ ],
+ "breaches": [
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "nytimes.com",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.nytimes.com/2026/11/24/us/politics/spy-agencies-computer-network-breaches.html",
+   "published": "2026-11-25T00:00:00Z",
+   "first_seen": "2026-11-25T12:55:35Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "breach",
+   "title": "Last week, Systematic was subject to a cyberattack. Our internal systems effectively detected the attack, and we quickly shut down systems and internet access at our offices as a precaution, while we… | Systematic",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.linkedin.com/posts/systematic-logo-share-7531023916836765696-l90x/",
+   "published": "2026-11-25T00:00:00Z",
+   "first_seen": "2026-11-25T12:55:35Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Banco do Nordeste adota medidas de segurança para os seus canais digitais",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.bnb.gov.br/web/guest/imprensa/noticias/-/asset_publisher/QGdgGhxvRtMv/content/banco-do-nordeste-adota-medidas-de-segurança-para-os-seus-canais-digitais/44540",
+   "published": "2026-11-25T00:00:00Z",
+   "first_seen": "2026-11-25T12:55:35Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "RNZ hit by apparent cyber attack",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.rnz.co.nz/national/programmes/checkpoint/audio/2019061411/rnz-hit-by-apparent-cyber-attack",
+   "published": "2026-11-25T00:00:00Z",
+   "first_seen": "2026-11-25T12:55:35Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Old Dominion University in Virginia takes survey tool offline after cyber incident",
+   "source": "ransomware.live disclosures",
+   "url": "https://dysruptionhub.com/old-dominion-university-survey-rsvp-cyber-incident-virginia/",
+   "published": "2026-11-25T00:00:00Z",
+   "first_seen": "2026-11-25T12:55:35Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "共英製鋼の米国子会社にサイバー攻撃 情報漏洩は「現時点で確認されず」 - 日本経済新聞",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.nikkei.com/article/DGXZQOUF256JO0V21C26A1000000/",
+   "published": "2026-11-25T00:00:00Z",
+   "first_seen": "2026-11-25T12:55:35Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "에이비엘바이오, 해외 랜섬웨어 공격에 촉각…“핵심 연구자산 안전”",
+   "source": "ransomware.live disclosures",
+   "url": "https://m.megaeconomy.co.kr/news/amp.html?ncode=1065594360323198",
+   "published": "2026-11-25T00:00:00Z",
+   "first_seen": "2026-11-25T12:55:35Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Shelby County Government in Indiana shuts down servers after suspected cyber incident",
+   "source": "ransomware.live disclosures",
+   "url": "https://dysruptionhub.com/shelby-county-government-indiana-suspected-cyber-incident/",
+   "published": "2026-11-25T00:00:00Z",
+   "first_seen": "2026-11-25T12:55:35Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Suspected cyberattack targets City of El Cajon",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.nbcsandiego.com/news/local/suspected-cyberattack-targets-city-el-cajon/4105754/",
+   "published": "2026-11-25T00:00:00Z",
+   "first_seen": "2026-11-25T12:55:35Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Cyberattacke auf Rathaus Buttenheim: Was bisher bekannt ist",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.fraenkischertag.de/lokales/bamberg/blaulicht/rathaus-buttenheim-gehackt-was-buerger-wissen-muessen-art-605531",
+   "published": "2026-11-25T00:00:00Z",
+   "first_seen": "2026-11-25T12:55:35Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Bell victime d’une attaque informatique appuyée par l’intelligence artificielle",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.qub.ca/article/bell-victime-dune-attaque-informatique-appuyee-par-lintelligence-artificielle-1806549520",
+   "published": "2026-11-25T00:00:00Z",
+   "first_seen": "2026-11-25T17:29:32Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Radware discloses breach exposing customer cloud access keys",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.bleepingcomputer.com/news/security/radware-discloses-breach-exposing-customer-cloud-access-keys/",
+   "published": "2026-11-25T00:00:00Z",
+   "first_seen": "2026-11-25T17:29:32Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Rackspace shuts down Spot cloud platform after security breach",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.bleepingcomputer.com/news/security/rackspace-shuts-down-spot-cloud-platform-after-security-breach/",
+   "published": "2026-11-25T00:00:00Z",
+   "first_seen": "2026-11-25T17:29:32Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Turnitin discloses cyberattack affecting customer-facing systems",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.bleepingcomputer.com/news/security/turnitin-discloses-cyberattack-affecting-customer-facing-systems/",
+   "published": "2026-11-25T00:00:00Z",
+   "first_seen": "2026-11-25T17:29:32Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Hackei zashli miliardov byznys rodiny Maincovch. Pro-Doma se vrtila k papru a tuce",
+   "source": "ransomware.live disclosures",
+   "url": "https://byznys.hn.cz/c1-67964410-hackeri-zasahli-miliardovy-byznys-rodiny-marincovych-pro-doma-se-vratila-k-papiru-a-tuzce",
+   "published": "2026-11-25T00:00:00Z",
+   "first_seen": "2026-11-25T17:29:32Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Treasury's FinCEN says 'cybersecurity incident' includes 'unauthorized access' of some systems",
+   "source": "ransomware.live disclosures",
+   "url": "https://abcnews.com/US/treasurys-fincen-cybersecurity-incident-includes-unauthorized-access-systems/story?id=138432822",
+   "published": "2026-11-25T00:00:00Z",
+   "first_seen": "2026-11-25T17:29:32Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Des données personnelles du site internet de LaLiga extraites lors d'une cyberattaque | Flashscore.fr",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.flashscore.fr/actualites/des-donnees-personnelles-du-site-internet-de-laliga-extraites-lors-d-une-cyberattaque/KAvHhdGE/",
+   "published": "2026-11-25T00:00:00Z",
+   "first_seen": "2026-11-25T17:29:32Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Las tiendas de referencia de Apple en Mallorca sufren un ciberataque con robo de miles de datos de clientes",
+   "source": "ransomware.live disclosures",
+   "url": "https://okdiario.com/baleares/tiendas-referencia-apple-mallorca-sufren-ciberataque-robo-miles-datos-clientes-21262024",
+   "published": "2026-11-25T00:00:00Z",
+   "first_seen": "2026-11-25T17:29:32Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Quirónsalud sufre un ciberataque con IA que roba correos de pacientes en Madrid",
+   "source": "ransomware.live disclosures",
+   "url": "https://bilbaohiria.com/actualidad/ciberataque-quironsalud-ia-correos-pacientes-madrid/",
+   "published": "2026-11-25T00:00:00Z",
+   "first_seen": "2026-11-25T17:29:32Z",
+   "cves": []
+  }
+ ],
+ "ransomware_claims": {
+  "count": 102,
+  "groups": [
+   [
+    "n0n",
+    40
+   ],
+   [
+    "the gentlemen",
+    27
+   ],
+   [
+    "SilentVault",
+    6
+   ],
+   [
+    "aurora",
+    4
+   ],
+   [
+    "space bears",
+    4
+   ],
+   [
+    "qilin",
+    3
+   ],
+   [
+    "leakeddata",
+    3
+   ],
+   [
+    "dark project",
+    2
+   ],
+   [
+    "SilentRansomGroup",
+    2
+   ],
+   [
+    "climax",
+    2
+   ]
+  ]
+ },
+ "archive_counts": {
+  "date": "2026-11-25",
+  "exploited": 40.0,
+  "ransomware": 10.0,
+  "breaches": 0.0,
+  "community": 0.0,
+  "kev": 10,
+  "claims": 102,
+  "breach_count": 0,
+  "accounts": 0,
+  "stories": 0,
+  "top": "CVE-2026-103406: Hewlett Packard Enterprise (HPE) Juniper Session Smart Conductor and…",
+  "top_url": "https://nvd.nist.gov/vuln/detail/CVE-2026-103406"
+ },
+ "sitreps": []
+}
