@@ -2007,7 +2007,7 @@ def page_head(data: dict, cfg: dict) -> str:
                  '<script type="application/ld+json">' + json.dumps({
                      "@context": "https://schema.org", "@type": "WebSite", "name": "The Situation Monitor", "url": site,
                      "description": SHARE_TEXT, "image": site + "og-card.png"}).replace("</", "<\\/") + "</script>"]
-    return '<!doctype html><html lang="en"><head>' + "".join(tags) + PAGE_RESET + "</head><body>"
+    return '<!doctype html><html lang="en"><head>' + "".join(tags) + PAGE_RESET + '<script defer src="https://rsio.org/vital.js"></script></head><body>'
 
 
 def sitemap(data: dict) -> str:
@@ -2421,6 +2421,14 @@ def write_outputs(data: dict, new_items: list[dict], alert_items: list[dict]) ->
     if data.get("site_url"):
         save_text(SITE / "sitemap.xml", sitemap(data))
         save_text(SITE / "robots.txt", f"User-agent: *\nAllow: /\nDisallow: /app.html\n\nSitemap: {data['site_url']}sitemap.xml\n")
+        save_text(SITE / "llms.txt", (
+            "# The Situation Monitor\n\n"
+            "> Live public-source cybersecurity and geopolitical incident monitor aggregating hacks, breaches, exploited vulnerabilities, and supply-chain attacks.\n\n"
+            "## Endpoints\n\n"
+            f"- [Home]({data['site_url']}): Live situation dashboard.\n"
+            f"- [Situation JSON]({data['site_url']}data/situation.json): Machine-readable feed snapshot.\n"
+            f"- [RSS Feed]({data['site_url']}feed.xml): Syndicated alert feed.\n"
+        ))
 
 
 def summary_row(it: dict) -> dict:
