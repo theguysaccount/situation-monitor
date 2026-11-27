@@ -1,0 +1,39 @@
+{
+ "written_at": "2026-11-27T15:33:47Z",
+ "by": "Claude",
+ "headline": "Drupal core flaws exploited for site takeover; Mitel MiCollab and Juniper Session Smart bugs added to KEV; 1Password, SAP and FinCEN report breaches",
+ "bullets": [
+  {
+   "text": "New, critical: Drupal warns of a second site takeover flaw exploited in attacks, after the installer RCE (CVE-2026-132165, KEV due 11-27). SecurityWeek says the installer patch left a gap attackers already use; reports also cite CVE-2026-136716.",
+   "url": "https://www.bleepingcomputer.com/news/security/drupal-warns-of-new-access-bypass-flaw-exploited-in-attacks/"
+  },
+  {
+   "text": "New in KEV 11-25: five Mitel MiCollab zero-days (CVE-2026-133275, -133303, -133311, -133323, -133324), exploited in suspected AI-assisted attacks, plus Juniper Session Smart Conductor/Router CVE-2026-103406, Xen Orchestra CVE-2026-133469 and three Danfoss AK-SM 800A flaws.",
+   "url": "https://www.securityweek.com/mitel-micollab-zero-days-exploited-in-suspected-ai-assisted-attacks/"
+  },
+  {
+   "text": "AI-assisted intrusions: Switzerland confirms AI-assisted attacks breached critical infrastructure operators; 24 Check Point management servers were compromised in a suspected AI-driven campaign; Microsoft says Chinese and North Korean state hackers use the ARTEX AI tool.",
+   "url": "https://thehackernews.com/2026/11/switzerland-confirms-ai-assisted.html"
+  },
+  {
+   "text": "Breaches: The Register reports hackers took 1Password source code and customer data; SAP confirmed an incident after suspicious GitHub activity; US Treasury's FinCEN breached; FIFA and Flight Centre disclosed data theft; UK DWP took services offline.",
+   "url": "https://www.theregister.com/security/2026/11/26/hackers-help-themselves-to-1passwords-source-code-and-customer-data/5312317"
+  },
+  {
+   "text": "Supply chain: a CVSS 10.0 Hex.pm RCE flaw was used to compromise 6 package registry servers and Hex warns of a possible data breach; PolinRider poisoned over 7,600 GitHub repositories; official Q-Dir and DesktopOK downloads were trojanized.",
+   "url": "https://thehackernews.com/2026/11/hackers-exploited-cvss-100-hexpm-rce.html"
+  },
+  {
+   "text": "SITCON lowered to 3 (ELEVATED) from 2: 10 KEV additions in three working days, 10 critical reports in two. Also: unpatched Cacti zero-day RCE via guest access, NFS2ROOT Linux root flaw (CVE-2026-99362), new vCenter auth bypass CVE-2026-123903. Last 7 days: 1.15x the 90-day average.",
+   "url": "https://thehackernews.com/2026/11/unpatched-cacti-zero-day-enables-rce-in.html"
+  }
+ ],
+ "actions": [
+  "Drupal: apply the latest core security release, not only the first installer fix, and check sites for signs of takeover.",
+  "Patch Mitel MiCollab (five KEV CVEs) and Juniper Session Smart Conductor/Router (CVE-2026-103406); KEV due date is 11-28. Hunt for compromise.",
+  "Patch Xen Orchestra (CVE-2026-133469) and Danfoss AK-SM 800A (CVE-2023-25914, CVE-2023-25915); KEV due date is 11-28.",
+  "1Password and SAP customers: follow vendor notices and watch for follow-on phishing. Hex users: review recently pulled packages.",
+  "Cacti: review guest access and limit who can reach the UI until a fix ships. Check Point admins: review management server access.",
+  "Still open: vCenter CVE-2026-123890 and CVE-2026-123903, Idunno AntiCsrf CVE-2026-131914, Optimizely CVE-2026-132224, LiteLLM CVE-2026-40217."
+ ]
+}
