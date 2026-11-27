@@ -1,0 +1,646 @@
+{
+ "schema": 1,
+ "date": "2026-11-26",
+ "source": "sweep",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-11-26T01:43:06Z",
+    2,
+    407.7
+   ],
+   [
+    "2026-11-26T04:25:16Z",
+    2,
+    410.2
+   ],
+   [
+    "2026-11-26T07:59:05Z",
+    2,
+    407.0
+   ],
+   [
+    "2026-11-26T11:15:16Z",
+    2,
+    425.4
+   ],
+   [
+    "2026-11-26T14:29:38Z",
+    2,
+    407.8
+   ],
+   [
+    "2026-11-26T20:21:18Z",
+    2,
+    382.1
+   ]
+  ],
+  "hours_at_level": {
+   "2": 6
+  },
+  "highest": 2,
+  "lowest": 2
+ },
+ "first_seen": {
+  "count": 89,
+  "by_severity": {
+   "medium": 56,
+   "high": 21,
+   "low": 8,
+   "critical": 4
+  },
+  "by_type": {
+   "ransomware": 36,
+   "news": 38,
+   "breach": 15
+  }
+ },
+ "situations": [
+  {
+   "name": "Drupal",
+   "severity": "critical",
+   "outlets": 5,
+   "reports": 7,
+   "cves": [
+    "CVE-2026-132165",
+    "CVE-2026-136716"
+   ],
+   "lead": {
+    "title": "Drupal Installer Patch Left a Gap Attackers Are Already Exploiting",
+    "url": "https://www.securityweek.com/drupal-installer-patch-left-a-gap-attackers-are-already-exploiting/",
+    "source": "SecurityWeek",
+    "published": "2026-11-26T09:12:26Z"
+   }
+  },
+  {
+   "name": "MiCollab",
+   "severity": "critical",
+   "outlets": 2,
+   "reports": 6,
+   "cves": [
+    "CVE-2026-133275",
+    "CVE-2026-133303",
+    "CVE-2026-133311",
+    "CVE-2026-133323",
+    "CVE-2026-133324"
+   ],
+   "lead": {
+    "title": "Mitel MiCollab Zero-Days Exploited in Suspected AI-Assisted Attacks",
+    "url": "https://www.securityweek.com/mitel-micollab-zero-days-exploited-in-suspected-ai-assisted-attacks/",
+    "source": "SecurityWeek",
+    "published": "2026-11-26T11:35:25Z"
+   }
+  },
+  {
+   "name": "1Password",
+   "severity": "high",
+   "outlets": 7,
+   "reports": 7,
+   "cves": [],
+   "lead": {
+    "title": "Hackers help themselves to 1Password's source code and customer data",
+    "url": "https://www.theregister.com/security/2026/11/26/hackers-help-themselves-to-1passwords-source-code-and-customer-data/5312317",
+    "source": "The Register",
+    "published": "2026-11-26T11:02:00Z"
+   }
+  },
+  {
+   "name": "FinCEN",
+   "severity": "high",
+   "outlets": 7,
+   "reports": 7,
+   "cves": [],
+   "lead": {
+    "title": "US Treasury financial crimes unit becomes latest fed breach victim",
+    "url": "https://www.theregister.com/security/2026/11/25/us-treasury-financial-crimes-unit-becomes-latest-fed-breach-victim/5312165",
+    "source": "The Register",
+    "published": "2026-11-25T16:40:16Z"
+   }
+  },
+  {
+   "name": "AntiCsrf",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [
+    "CVE-2026-131914",
+    "CVE-2026-132224"
+   ],
+   "lead": {
+    "title": "Hackers Exploit Unpatched Flaw in Defunct Idunno AntiCsrf Library",
+    "url": "https://www.securityweek.com/hackers-exploit-unpatched-flaw-in-defunct-idunno-anticsrf-library/",
+    "source": "SecurityWeek",
+    "published": "2026-11-25T09:05:13Z"
+   }
+  },
+  {
+   "name": "Check",
+   "severity": "high",
+   "outlets": 5,
+   "reports": 5,
+   "cves": [],
+   "lead": {
+    "title": "Hackers Compromise 24 Check Point Management Servers in Suspected AI-Driven Attack Campaign",
+    "url": "https://thehackernews.com/2026/11/hackers-compromise-24-check-point.html",
+    "source": "The Hacker News",
+    "published": "2026-11-25T06:50:19Z"
+   }
+  },
+  {
+   "name": "AI-Assisted",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 4,
+   "cves": [],
+   "lead": {
+    "title": "Mitel MiCollab Zero-Days Exploited in Suspected AI-Assisted Attacks",
+    "url": "https://www.securityweek.com/mitel-micollab-zero-days-exploited-in-suspected-ai-assisted-attacks/",
+    "source": "SecurityWeek",
+    "published": "2026-11-26T11:35:25Z"
+   }
+  },
+  {
+   "name": "Azure",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 3,
+   "cves": [],
+   "lead": {
+    "title": "Azure API Management vulnerability exploited to steal customers’ secrets",
+    "url": "https://www.helpnetsecurity.com/2026/11/24/azure-apim-vulnerability-credential-theft/",
+    "source": "Help Net Security",
+    "published": "2026-11-24T12:04:37Z"
+   }
+  }
+ ],
+ "top_reports": [
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Critical Juniper Session Smart Conductor Flaw Exploited in Attacks",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/critical-juniper-session-smart-conductor-flaw-exploited-in-attacks/",
+   "published": "2026-11-26T13:04:06Z",
+   "first_seen": "2026-11-26T14:29:38Z",
+   "cves": [
+    "CVE-2026-103406"
+   ]
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Mitel MiCollab Zero-Days Exploited in Suspected AI-Assisted Attacks",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/mitel-micollab-zero-days-exploited-in-suspected-ai-assisted-attacks/",
+   "published": "2026-11-26T11:35:25Z",
+   "first_seen": "2026-11-26T14:29:38Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Drupal Installer Patch Left a Gap Attackers Are Already Exploiting",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/drupal-installer-patch-left-a-gap-attackers-are-already-exploiting/",
+   "published": "2026-11-26T09:12:26Z",
+   "first_seen": "2026-11-26T11:15:16Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Drupal Warns of New Highly Critical Site Takeover Vulnerability Under Active Exploitation",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/drupal-warns-of-new-highly-critical.html",
+   "published": "2026-11-26T07:02:34Z",
+   "first_seen": "2026-11-26T07:59:05Z",
+   "cves": [
+    "CVE-2026-132165",
+    "CVE-2026-136716"
+   ]
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Microsoft: Hackers in China, N Korea using ARTEX AI tool to break into global tech systems",
+   "source": "The Register",
+   "url": "https://www.theregister.com/security/2026/11/26/microsoft-hackers-in-china-n-korea-using-artex-ai-tool-to-break-into-global-tech-systems/5312433",
+   "published": "2026-11-26T19:04:00Z",
+   "first_seen": "2026-11-26T20:21:18Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Fake paid expert interviews impersonate brands to steal Google logins",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/apple/fake-paid-expert-interviews-impersonate-brands-to-steal-google-logins/",
+   "published": "2026-11-26T17:15:27Z",
+   "first_seen": "2026-11-26T20:21:18Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "FIFA Says It Has Been Victim of a Cyberattack Accessing ‘Personal and Business Information’",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/fifa-says-it-has-been-victim-of-a-cyberattack-accessing-personal-and-business-information/",
+   "published": "2026-11-26T17:06:55Z",
+   "first_seen": "2026-11-26T20:21:18Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "'Significant number of customer records' pwned in Flight Centre Travel Group breach",
+   "source": "The Register",
+   "url": "https://www.theregister.com/security/2026/11/26/significant-number-of-customer-records-pwned-in-flight-centre-travel-group-breach/5312360",
+   "published": "2026-11-26T15:29:00Z",
+   "first_seen": "2026-11-26T20:21:18Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Remus malware steals Gmail messages via fake Google Sheets extension",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/remus-malware-steals-gmail-messages-via-fake-google-sheets-extension/",
+   "published": "2026-11-26T15:23:28Z",
+   "first_seen": "2026-11-26T20:21:18Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "North Korea-Linked PolinRider Poisons Over 7,600 GitHub Repositories to Spread Malware",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/north-korea-linked-polinrider-poisons.html",
+   "published": "2026-11-26T15:13:41Z",
+   "first_seen": "2026-11-26T20:21:18Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Wyoming uranium operation shuts down after cyberattack",
+   "source": "The Register",
+   "url": "https://www.theregister.com/security/2026/11/26/wyoming-uranium-operation-shuts-down-after-cyberattack/5312323",
+   "published": "2026-11-26T14:02:00Z",
+   "first_seen": "2026-11-26T14:29:38Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Company was religious about backups but sinned by leaving them exposed",
+   "source": "The Register",
+   "url": "https://www.theregister.com/security/2026/11/26/company-was-religious-about-backups-but-sinned-by-leaving-them-exposed/5312234",
+   "published": "2026-11-26T13:22:00Z",
+   "first_seen": "2026-11-26T14:29:38Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "FIFA says it has been victim of a cyberattack accessing ‘personal and business information’",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/26/fifa-says-it-has-been-victim-of-a-cyberattack-accessing-personal-and-business-information/",
+   "published": "2026-11-26T13:18:58Z",
+   "first_seen": "2026-11-26T14:29:38Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Australia’s Flight Centre Data Breach Exposes Customer Records and Passport Details",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/26/australias-flight-centre-data-breach-exposes-customer-records-and-passport-details/",
+   "published": "2026-11-26T13:18:46Z",
+   "first_seen": "2026-11-26T14:29:38Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "US agency tracking money laundering is latest casualty in string of federal breaches",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/11/26/fincen-breach-systems-offline/",
+   "published": "2026-11-26T11:05:01Z",
+   "first_seen": "2026-11-26T11:15:16Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Hackers help themselves to 1Password's source code and customer data",
+   "source": "The Register",
+   "url": "https://www.theregister.com/security/2026/11/26/hackers-help-themselves-to-1passwords-source-code-and-customer-data/5312317",
+   "published": "2026-11-26T11:02:00Z",
+   "first_seen": "2026-11-26T11:15:16Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "1Password Hacked, Customer Data and Source Code Stolen in GitHub Account Breach",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/1password-hacked-customer-data-and.html",
+   "published": "2026-11-26T10:57:25Z",
+   "first_seen": "2026-11-26T07:59:05Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "1Password breached through hijacked employee GitHub account, customer names and emails stolen",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/11/26/1password-breach-github-customer-records/",
+   "published": "2026-11-26T08:42:32Z",
+   "first_seen": "2026-11-26T11:15:16Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "1Password Breach Exposes Customer Data, Internal Source Code",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/1password-breach-exposes-customer-data-internal-source-code/",
+   "published": "2026-11-26T08:32:10Z",
+   "first_seen": "2026-11-26T11:15:16Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Cyprus Becomes Espionage Target for Iranian Hackers",
+   "source": "Dark Reading",
+   "url": "https://www.darkreading.com/cyberattacks-data-breaches/cyprus-espionage-target-iranian-hackers",
+   "published": "2026-11-26T08:00:00Z",
+   "first_seen": "2026-11-26T11:15:16Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "13 Malicious NuGet Packages Turn Fake .NET Job Assessments Into Malware Delivery Traps",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/13-malicious-nuget-packages-turn-fake.html",
+   "published": "2026-11-26T03:48:52Z",
+   "first_seen": "2026-11-26T04:25:16Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Des pirates informatiques revendiquent une cyberattaque contre le centre hospitalier de Bordeaux",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.sudouest.fr/sciences-et-technologie/des-pirates-informatiques-revendiquent-une-cyberattaque-contre-le-centre-hospitalier-de-bordeaux-31625421.php",
+   "published": "2026-11-26T00:00:00Z",
+   "first_seen": "2026-11-26T11:15:16Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Câmara de Felgueiras alvo de ciberataque. Informáticos terão travado tentativa de ransomware",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.felgueirasmagazine.pt/camara-de-felgueiras-alvo-de-ciberataque-informaticos-terao-travado-tentativa-de-ransomware/",
+   "published": "2026-11-26T00:00:00Z",
+   "first_seen": "2026-11-26T11:15:16Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Clarkesville investigating ransomware incident affecting city systems - Now Georgia",
+   "source": "ransomware.live disclosures",
+   "url": "https://nowgeorgia.com/clarkesville-investigating-ransomware-incident-affecting-city-systems/",
+   "published": "2026-11-26T00:00:00Z",
+   "first_seen": "2026-11-26T11:15:16Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Cyberattaque chez Septeo IT Solutions, des données clients et de facturation compromises",
+   "source": "ransomware.live disclosures",
+   "url": "https://frenchbreaches.com/alertes/cyberattaque-septeo-it-solutions-fuite-donnees-clients-mww7besuaxley58og2k",
+   "published": "2026-11-26T00:00:00Z",
+   "first_seen": "2026-11-26T14:29:38Z",
+   "cves": []
+  }
+ ],
+ "kev_added": [],
+ "breaches": [
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "This site can’t be reached",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.digitec.ch/de/page/cyberangriff-bei-unserem-lieferpartner-planzer-das-musst-du-wissen-44528",
+   "published": "2026-11-26T00:00:00Z",
+   "first_seen": "2026-11-26T07:59:05Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Cyberangriff auf IT-Firma: Daten von Strom-Kunden betroffen - genaues Ausmaß aber noch unklar",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.ndr.de/nachrichten/mecklenburg-vorpommern/cyberangriff-auf-schweriner-it-dienstleister,cyberangriff-170.html",
+   "published": "2026-11-26T00:00:00Z",
+   "first_seen": "2026-11-26T11:15:16Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Des pirates informatiques revendiquent une cyberattaque contre le centre hospitalier de Bordeaux",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.sudouest.fr/sciences-et-technologie/des-pirates-informatiques-revendiquent-une-cyberattaque-contre-le-centre-hospitalier-de-bordeaux-31625421.php",
+   "published": "2026-11-26T00:00:00Z",
+   "first_seen": "2026-11-26T11:15:16Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Câmara de Felgueiras alvo de ciberataque. Informáticos terão travado tentativa de ransomware",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.felgueirasmagazine.pt/camara-de-felgueiras-alvo-de-ciberataque-informaticos-terao-travado-tentativa-de-ransomware/",
+   "published": "2026-11-26T00:00:00Z",
+   "first_seen": "2026-11-26T11:15:16Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Un ciberataque a DomusVi pudo dejar al descubierto datos de 1.105 usuarios del servicio de ayuda a domicilio en Balears",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.diariodemallorca.es/mallorca/2026/11/26/ciberataque-domusvi-pudo-descubierto-datos-136843763.html",
+   "published": "2026-11-26T00:00:00Z",
+   "first_seen": "2026-11-26T11:15:16Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Clarkesville investigating ransomware incident affecting city systems - Now Georgia",
+   "source": "ransomware.live disclosures",
+   "url": "https://nowgeorgia.com/clarkesville-investigating-ransomware-incident-affecting-city-systems/",
+   "published": "2026-11-26T00:00:00Z",
+   "first_seen": "2026-11-26T11:15:16Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "www.inilah.com",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.inilah.com/mekari-talenta-maintanance-di-tanggal-gajian-dinilai-tak-wajar-indikasi-ada-kebocoran-data",
+   "published": "2026-11-26T00:00:00Z",
+   "first_seen": "2026-11-26T11:15:16Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Cyberattaque chez Septeo IT Solutions, des données clients et de facturation compromises",
+   "source": "ransomware.live disclosures",
+   "url": "https://frenchbreaches.com/alertes/cyberattaque-septeo-it-solutions-fuite-donnees-clients-mww7besuaxley58og2k",
+   "published": "2026-11-26T00:00:00Z",
+   "first_seen": "2026-11-26T14:29:38Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Inmac Wstore : cyberattaque en cours, commandes et livraisons perturbées — Fuites Infos",
+   "source": "ransomware.live disclosures",
+   "url": "https://fuitesinfos.fr/article/2026-11-25-inmac-wstore",
+   "published": "2026-11-26T00:00:00Z",
+   "first_seen": "2026-11-26T14:29:38Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "코스닥 상장사 팸텍, 랜섬웨어 공격 당해…주주·임직원 개인정보 유출 KISA 신고 - 데일리시큐",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.dailysecu.com/news/articleView.html?idxno=209775",
+   "published": "2026-11-26T00:00:00Z",
+   "first_seen": "2026-11-26T14:29:38Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Convoy Financial reports cyber incident; no evidence of affected policies or MPF accounts",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.thestandard.com.hk/news/article/349788/Convoy-Financial-reports-cyber-incident-no-evidence-of-affected-policies-or-MPF-accounts",
+   "published": "2026-11-26T00:00:00Z",
+   "first_seen": "2026-11-26T20:21:18Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Κυβερνοεπίθεση σε εταιρεία crypto της Standard Chartered - Διέρρευσαν ονόματα και email πελατών",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.bankingnews.gr/kriptonomismata/articles/913422/kyvernoepithesi-se-etaireia-crypto-tis-standard-chartered-dierrefsan-onomata-kai-email-pelaton",
+   "published": "2026-11-26T00:00:00Z",
+   "first_seen": "2026-11-26T20:21:18Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Cyberattaque chez Opco EP, l'organisme de formation qui accompagne 442 700 entreprises suspend plusieurs services",
+   "source": "ransomware.live disclosures",
+   "url": "https://frenchbreaches.com/alertes/cyberattaque-opco-ep-incident-cybersecurite-mwxj8zy3wjnpievi9j",
+   "published": "2026-11-26T00:00:00Z",
+   "first_seen": "2026-11-26T20:21:18Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "'Sophisticated' hacking attempt 'from outside UK' closes Cumbria school",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.nwemail.co.uk/news/26765340.kirkby-lonsdale-school-closes-cyber-incident/",
+   "published": "2026-11-26T00:00:00Z",
+   "first_seen": "2026-11-26T20:21:18Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Attacco informatico alla rete dell'AdSP - Telegranducato di Toscana",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.telegranducato.it/2026/11/26/attacco-informatico-alla-rete-delladsp/",
+   "published": "2026-11-26T00:00:00Z",
+   "first_seen": "2026-11-26T20:21:18Z",
+   "cves": []
+  }
+ ],
+ "ransomware_claims": {
+  "count": 36,
+  "groups": [
+   [
+    "pixelleaks",
+    6
+   ],
+   [
+    "Inception",
+    4
+   ],
+   [
+    "rhysida",
+    4
+   ],
+   [
+    "orova",
+    3
+   ],
+   [
+    "the gentlemen",
+    2
+   ],
+   [
+    "aurora",
+    2
+   ],
+   [
+    "Orova",
+    2
+   ],
+   [
+    "puppeteer",
+    2
+   ],
+   [
+    "everest",
+    2
+   ],
+   [
+    "whitearmor",
+    1
+   ]
+  ]
+ },
+ "archive_counts": {
+  "date": "2026-11-26",
+  "exploited": 0.0,
+  "ransomware": 9.0,
+  "breaches": 0.0,
+  "community": 0.6,
+  "kev": 0,
+  "claims": 36,
+  "breach_count": 0,
+  "accounts": 0,
+  "stories": 1,
+  "top": "CTO of 'RansomwareHelp' indicted for wire fraud",
+  "top_url": "https://krebsonsecurity.com/2026/11/cto-of-ransomwarehelp-indicted-for-wire-fraud/"
+ },
+ "sitreps": []
+}

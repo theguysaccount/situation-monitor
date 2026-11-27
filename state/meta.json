@@ -2845,11 +2845,11 @@
   "CVE-2026-97229"
  ],
  "level": {
-  "value": 2,
-  "since": "2026-11-26T01:43:06Z",
+  "value": 3,
+  "since": "2026-11-27T03:00:41Z",
   "pending": null
  },
- "last_sweep_at": "2026-11-26T01:43:06Z",
+ "last_sweep_at": "2026-11-27T03:00:41Z",
  "clock": {
   "skew_seconds": 0,
   "source": "server Date headers"
