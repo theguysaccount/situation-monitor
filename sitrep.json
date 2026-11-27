@@ -1,39 +1,39 @@
 {
- "written_at": "2026-11-23T17:59:16Z",
+ "written_at": "2026-11-27T15:33:47Z",
  "by": "Claude",
- "headline": "Norway ties energy-firm attacks to Azure API Management flaw; Cisco Expressway exploited in breaches; ScreenConnect and N-able flaws hit MSPs",
+ "headline": "Drupal core flaws exploited for site takeover; Mitel MiCollab and Juniper Session Smart bugs added to KEV; 1Password, SAP and FinCEN report breaches",
  "bullets": [
   {
-   "text": "New, critical: Norway says hackers exploited a critical Microsoft Azure API Management flaw to target secrets at energy firms Equinor and Skagerak Energi. Reported by The Record, The Register and SecurityWeek; no CVE in the reports.",
-   "url": "https://therecord.media/norway-microsoft-cyberattack-equinor"
+   "text": "New, critical: Drupal warns of a second site takeover flaw exploited in attacks, after the installer RCE (CVE-2026-132165, KEV due 11-27). SecurityWeek says the installer patch left a gap attackers already use; reports also cite CVE-2026-136716.",
+   "url": "https://www.bleepingcomputer.com/news/security/drupal-warns-of-new-access-bypass-flaw-exploited-in-attacks/"
   },
   {
-   "text": "Escalated: Cisco Expressway CVE-2026-76466 (hard-coded credentials, KEV due 11-23) is now being used to breach internal networks, and The Register reports a critical Cisco RCE bug under attack. SecurityWeek also reports SAP NetWeaver flaws exploited.",
-   "url": "https://www.helpnetsecurity.com/2026/11/23/cisco-expressway-vulnerability-exploited-cve-2026-76466/"
+   "text": "New in KEV 11-25: five Mitel MiCollab zero-days (CVE-2026-133275, -133303, -133311, -133323, -133324), exploited in suspected AI-assisted attacks, plus Juniper Session Smart Conductor/Router CVE-2026-103406, Xen Orchestra CVE-2026-133469 and three Danfoss AK-SM 800A flaws.",
+   "url": "https://www.securityweek.com/mitel-micollab-zero-days-exploited-in-suspected-ai-assisted-attacks/"
   },
   {
-   "text": "New, critical, MSP tooling: attackers are exploiting a critical ScreenConnect flaw (CVE-2026-84869) to hijack technician PCs. N-able disclosed and patched a critical Mail Assure flaw (CVE-2026-134624) found while investigating a breach.",
-   "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-screenconnect.html"
+   "text": "AI-assisted intrusions: Switzerland confirms AI-assisted attacks breached critical infrastructure operators; 24 Check Point management servers were compromised in a suspected AI-driven campaign; Microsoft says Chinese and North Korean state hackers use the ARTEX AI tool.",
+   "url": "https://thehackernews.com/2026/11/switzerland-confirms-ai-assisted.html"
   },
   {
-   "text": "Also exploited: an ASP.NET anti-CSRF library flaw (CVE-2026-131914) allowing unauthenticated RCE; the GL.iNet cloud flaw used to plant malware on routers and KVMs, with older backdoors also found; and the Entra Connect Health flaw used to reach tenant data.",
-   "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-aspnet-anti.html"
+   "text": "Breaches: The Register reports hackers took 1Password source code and customer data; SAP confirmed an incident after suspicious GitHub activity; US Treasury's FinCEN breached; FIFA and Flight Centre disclosed data theft; UK DWP took services offline.",
+   "url": "https://www.theregister.com/security/2026/11/26/hackers-help-themselves-to-1passwords-source-code-and-customer-data/5312317"
   },
   {
-   "text": "New breaches: Tower Records Online (Japan) says 11 million customer records may have leaked; Samsung Securities customer details exposed; Austrian Foreign Ministry site breached; Guadeloupe university hospital hit; Cleverbridge card and CVV theft.",
-   "url": "https://databreaches.net/2026/11/23/jpn-tower-records-online-hit-by-cyberattack-11-million-customer-records-potentially-leaked/"
+   "text": "Supply chain: a CVSS 10.0 Hex.pm RCE flaw was used to compromise 6 package registry servers and Hex warns of a possible data breach; PolinRider poisoned over 7,600 GitHub repositories; official Q-Dir and DesktopOK downloads were trojanized.",
+   "url": "https://thehackernews.com/2026/11/hackers-exploited-cvss-100-hexpm-rce.html"
   },
   {
-   "text": "SITCON raised to 2 (SEVERE) from 3: 4 KEV additions in three working days and 28 critical reports in two. Last 7 days scored 1.13x the 90-day average. Leak-site claims led by n0n (61), SoulGroup (27), vortex (26), qilin (22).",
-   "url": "https://www.securityweek.com/sap-netweaver-cisco-expressway-flaws-exploited-in-attacks/"
+   "text": "SITCON lowered to 3 (ELEVATED) from 2: 10 KEV additions in three working days, 10 critical reports in two. Also: unpatched Cacti zero-day RCE via guest access, NFS2ROOT Linux root flaw (CVE-2026-99362), new vCenter auth bypass CVE-2026-123903. Last 7 days: 1.15x the 90-day average.",
+   "url": "https://thehackernews.com/2026/11/unpatched-cacti-zero-day-enables-rce-in.html"
   }
  ],
  "actions": [
-  "Patch Cisco Expressway (CVE-2026-76466) now and hunt for intrusion into internal networks; apply Cisco's fix for the exploited RCE.",
-  "Patch SAP NetWeaver (CVE-2025-42884), VMware vCenter (CVE-2026-123890) and Apache Roller (CVE-2026-129448); KEV due date was today.",
-  "Azure API Management users: follow Microsoft guidance, review gateway logs and rotate secrets reachable through APIM.",
-  "MSPs: patch ScreenConnect (CVE-2026-84869) and N-able Mail Assure (CVE-2026-134624); check technician PCs for hijack signs.",
-  "Update apps using the affected ASP.NET anti-CSRF library (CVE-2026-131914); GL.iNet owners update firmware and check for backdoors.",
-  "Due 11-24: Outlook CVE-2026-124194, Cisco BroadWorks CVE-2026-20320, Chromium CVE-2026-125350. LiteLLM CVE-2026-40217 due 12-02."
+  "Drupal: apply the latest core security release, not only the first installer fix, and check sites for signs of takeover.",
+  "Patch Mitel MiCollab (five KEV CVEs) and Juniper Session Smart Conductor/Router (CVE-2026-103406); KEV due date is 11-28. Hunt for compromise.",
+  "Patch Xen Orchestra (CVE-2026-133469) and Danfoss AK-SM 800A (CVE-2023-25914, CVE-2023-25915); KEV due date is 11-28.",
+  "1Password and SAP customers: follow vendor notices and watch for follow-on phishing. Hex users: review recently pulled packages.",
+  "Cacti: review guest access and limit who can reach the UI until a fix ships. Check Point admins: review management server access.",
+  "Still open: vCenter CVE-2026-123890 and CVE-2026-123903, Idunno AntiCsrf CVE-2026-131914, Optimizely CVE-2026-132224, LiteLLM CVE-2026-40217."
  ]
 }
