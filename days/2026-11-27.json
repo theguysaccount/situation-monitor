@@ -1,0 +1,596 @@
+{
+ "schema": 1,
+ "date": "2026-11-27",
+ "source": "sweep",
+ "sitcon": {
+  "readings": [
+   [
+    "2026-11-27T03:00:41Z",
+    3,
+    319.2
+   ],
+   [
+    "2026-11-27T12:55:00Z",
+    3,
+    280.4
+   ],
+   [
+    "2026-11-27T15:34:54Z",
+    4,
+    277.2
+   ],
+   [
+    "2026-11-27T15:36:58Z",
+    4,
+    274.7
+   ],
+   [
+    "2026-11-27T22:12:41Z",
+    4,
+    280.5
+   ],
+   [
+    "2026-11-27T23:44:45Z",
+    4,
+    279.2
+   ]
+  ],
+  "hours_at_level": {
+   "3": 2,
+   "4": 4
+  },
+  "highest": 3,
+  "lowest": 4
+ },
+ "first_seen": {
+  "count": 93,
+  "by_severity": {
+   "medium": 45,
+   "high": 28,
+   "critical": 7,
+   "low": 13
+  },
+  "by_type": {
+   "ransomware": 38,
+   "news": 43,
+   "community": 1,
+   "advisory": 1,
+   "breach": 7,
+   "kev": 3
+  }
+ },
+ "situations": [
+  {
+   "name": "Drupal",
+   "severity": "critical",
+   "outlets": 5,
+   "reports": 8,
+   "cves": [
+    "CVE-2026-132165",
+    "CVE-2026-136716"
+   ],
+   "lead": {
+    "title": "Drupal warns of new site takeover flaw exploited in attacks",
+    "url": "https://www.bleepingcomputer.com/news/security/drupal-warns-of-new-access-bypass-flaw-exploited-in-attacks/",
+    "source": "BleepingComputer",
+    "published": "2026-11-27T10:10:15Z"
+   }
+  },
+  {
+   "name": "1Password",
+   "severity": "high",
+   "outlets": 7,
+   "reports": 7,
+   "cves": [],
+   "lead": {
+    "title": "Hackers help themselves to 1Password's source code and customer data",
+    "url": "https://www.theregister.com/security/2026/11/26/hackers-help-themselves-to-1passwords-source-code-and-customer-data/5312317",
+    "source": "The Register",
+    "published": "2026-11-26T11:02:00Z"
+   }
+  },
+  {
+   "name": "FinCEN",
+   "severity": "high",
+   "outlets": 7,
+   "reports": 7,
+   "cves": [],
+   "lead": {
+    "title": "US Treasury financial crimes unit becomes latest fed breach victim",
+    "url": "https://www.theregister.com/security/2026/11/25/us-treasury-financial-crimes-unit-becomes-latest-fed-breach-victim/5312165",
+    "source": "The Register",
+    "published": "2026-11-25T16:40:16Z"
+   }
+  },
+  {
+   "name": "GeoServer",
+   "severity": "critical",
+   "outlets": 3,
+   "reports": 4,
+   "cves": [
+    "CVE-2026-120705",
+    "CVE-2026-129243",
+    "CVE-2026-129244"
+   ],
+   "lead": {
+    "title": "Hackers Exploit Two GeoServer Flaws as Researchers Warn of Unauthenticated RCE Chains",
+    "url": "https://thehackernews.com/2026/11/hackers-exploit-two-geoserver-flaws-as.html",
+    "source": "The Hacker News",
+    "published": "2026-11-25T12:48:54Z"
+   }
+  },
+  {
+   "name": "MiCollab",
+   "severity": "critical",
+   "outlets": 2,
+   "reports": 6,
+   "cves": [
+    "CVE-2026-133275",
+    "CVE-2026-133303",
+    "CVE-2026-133311",
+    "CVE-2026-133323",
+    "CVE-2026-133324"
+   ],
+   "lead": {
+    "title": "Mitel MiCollab Zero-Days Exploited in Suspected AI-Assisted Attacks",
+    "url": "https://www.securityweek.com/mitel-micollab-zero-days-exploited-in-suspected-ai-assisted-attacks/",
+    "source": "SecurityWeek",
+    "published": "2026-11-26T11:35:25Z"
+   }
+  },
+  {
+   "name": "ARTEX",
+   "severity": "high",
+   "outlets": 5,
+   "reports": 5,
+   "cves": [],
+   "lead": {
+    "title": "Suspected Vietnam-Linked Hackers Target Southeast Asia in South China Sea Espionage Campaign",
+    "url": "https://thehackernews.com/2026/11/suspected-vietnam-linked-hackers-target.html",
+    "source": "The Hacker News",
+    "published": "2026-11-27T16:36:11Z"
+   }
+  },
+  {
+   "name": "FIFA",
+   "severity": "high",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [],
+   "lead": {
+    "title": "FIFA hacked, cybercriminals claim access to sensitive internal records",
+    "url": "https://www.helpnetsecurity.com/2026/11/27/fifa-cyberattack-data-leak/",
+    "source": "Help Net Security",
+    "published": "2026-11-27T13:21:50Z"
+   }
+  },
+  {
+   "name": "Software giant SAP confirms cyber incident amid reports of source…",
+   "severity": "high",
+   "outlets": 4,
+   "reports": 4,
+   "cves": [],
+   "lead": {
+    "title": "Software giant SAP confirms cyber incident amid reports of source code breach",
+    "url": "https://therecord.media/sap-germany-cyberattack-github",
+    "source": "The Record",
+    "published": "2026-11-27T13:15:00Z"
+   }
+  }
+ ],
+ "top_reports": [
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Unpatched Cacti zero-day with public PoC gives remote code execution",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/unpatched-cacti-zero-day-with-public-poc-gives-remote-code-execution/",
+   "published": "2026-11-27T17:06:13Z",
+   "first_seen": "2026-11-27T22:12:41Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Drupal warns of new site takeover flaw exploited in attacks",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/drupal-warns-of-new-access-bypass-flaw-exploited-in-attacks/",
+   "published": "2026-11-27T10:10:15Z",
+   "first_seen": "2026-11-27T12:55:00Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Switzerland Confirms AI-Assisted Cyberattacks Breached Critical Infrastructure Operators",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/switzerland-confirms-ai-assisted.html",
+   "published": "2026-11-27T06:04:20Z",
+   "first_seen": "2026-11-27T12:55:00Z",
+   "cves": []
+  },
+  {
+   "severity": "critical",
+   "type": "news",
+   "title": "Free e-government platform that serves two billion people in ten countries has critical SQL injection bug",
+   "source": "The Register",
+   "url": "https://www.theregister.com/security/2026/11/27/free-e-government-platform-that-serves-two-billion-people-in-ten-countries-has-critical-sql-injection-bug/5312449",
+   "published": "2026-11-27T01:19:31Z",
+   "first_seen": "2026-11-27T03:00:41Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Department of Health Care Access and Information (HCAI) notifies individuals of data security incident discovered in May.",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/27/department-of-health-care-access-and-information-hcai-notifies-individuals-of-data-security-incident-discovered-in-may/",
+   "published": "2026-11-27T19:41:56Z",
+   "first_seen": "2026-11-27T22:12:41Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "pCloud confirms password manager hack after suspicious login alerts",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/pcloud-confirms-password-manager-hack-after-suspicious-login-alerts/",
+   "published": "2026-11-27T19:26:04Z",
+   "first_seen": "2026-11-27T22:12:41Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "New Boston Scientific data breach exposes personal, medical info",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/new-boston-scientific-data-breach-exposes-personal-medical-info/",
+   "published": "2026-11-27T18:57:42Z",
+   "first_seen": "2026-11-27T22:12:41Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Suspected Vietnam-Linked Hackers Target Southeast Asia in South China Sea Espionage Campaign",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/suspected-vietnam-linked-hackers-target.html",
+   "published": "2026-11-27T16:36:11Z",
+   "first_seen": "2026-11-27T22:12:41Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "US Air Force cloud platform reportedly hacked in latest federal breach",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/us-air-force-cloud-platform-reportedly-hacked-in-latest-federal-breach/",
+   "published": "2026-11-27T15:09:40Z",
+   "first_seen": "2026-11-27T15:34:54Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Japan’s education ministry discloses breach of government procurement system",
+   "source": "The Record",
+   "url": "https://therecord.media/japan-education-ministry-cyberattack",
+   "published": "2026-11-27T14:15:00Z",
+   "first_seen": "2026-11-27T15:34:54Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "The Biggest Data Breach Settlements of 2026",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/27/the-biggest-data-breach-settlements-of-2026/",
+   "published": "2026-11-27T14:14:55Z",
+   "first_seen": "2026-11-27T15:34:54Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "FIFA hacked, cybercriminals claim access to sensitive internal records",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/11/27/fifa-cyberattack-data-leak/",
+   "published": "2026-11-27T13:21:50Z",
+   "first_seen": "2026-11-27T15:34:54Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Software giant SAP confirms cyber incident amid reports of source code breach",
+   "source": "The Record",
+   "url": "https://therecord.media/sap-germany-cyberattack-github",
+   "published": "2026-11-27T13:15:00Z",
+   "first_seen": "2026-11-27T15:34:54Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Hackers breach US Air Force Cloud One platform, putting military data at risk",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/27/hackers-breach-us-air-force-cloud-one-platform-putting-military-data-at-risk/",
+   "published": "2026-11-27T13:02:10Z",
+   "first_seen": "2026-11-27T15:34:54Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Barclays’ US banking arm confirms data breach",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/27/barclays-us-banking-arm-confirms-data-breach/",
+   "published": "2026-11-27T13:02:05Z",
+   "first_seen": "2026-11-27T15:34:54Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Global news agency AFP reports cyberattack, shuts down content platform",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/27/global-news-agency-afp-reports-cyberattack-shuts-down-content-platform/",
+   "published": "2026-11-27T13:01:59Z",
+   "first_seen": "2026-11-27T15:34:54Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Korea Scientists and Engineers Mutual-aid Association Hit by Hack, 210,000 Records Leaked",
+   "source": "DataBreaches.net",
+   "url": "https://databreaches.net/2026/11/27/korea-scientists-and-engineers-mutual-aid-association-hit-by-hack-210000-records-leaked/",
+   "published": "2026-11-27T13:01:43Z",
+   "first_seen": "2026-11-27T15:34:54Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "community",
+   "title": "US Air Force's cloud computing platform hacked",
+   "source": "Hacker News",
+   "url": "https://news.sky.com/story/us-air-forces-cloud-computing-platform-hacked-13617163",
+   "published": "2026-11-27T12:54:11Z",
+   "first_seen": "2026-11-27T15:34:54Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Microsoft Store App Found Delivering Vinci RAT Capable of Remote System Control",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/microsoft-store-app-found-delivering.html",
+   "published": "2026-11-27T11:49:34Z",
+   "first_seen": "2026-11-27T15:34:54Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Chinese and North Korean state hackers add ARTEX AI framework to their arsenal",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/11/27/artex-ai-pentest-framework-china-north-korea-state-hackers/",
+   "published": "2026-11-27T11:06:57Z",
+   "first_seen": "2026-11-27T12:55:00Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "British social security system techies yank services offline following 'cyber incident'",
+   "source": "The Register",
+   "url": "https://www.theregister.com/security/2026/11/27/british-social-security-system-techies-yank-services-offline-following-cyber-incident/5312522",
+   "published": "2026-11-27T10:01:00Z",
+   "first_seen": "2026-11-27T12:55:00Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "SAP confirms security incident after suspicious GitHub activity",
+   "source": "BleepingComputer",
+   "url": "https://www.bleepingcomputer.com/news/security/sap-confirms-security-incident-after-suspicious-github-activity/",
+   "published": "2026-11-27T09:56:36Z",
+   "first_seen": "2026-11-27T12:55:00Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Flight Centre Travel Group warns of customer data breach involving some passport details",
+   "source": "Help Net Security",
+   "url": "https://www.helpnetsecurity.com/2026/11/27/flight-centre-travel-group-data-breach-booking-system/",
+   "published": "2026-11-27T09:31:44Z",
+   "first_seen": "2026-11-27T12:55:00Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "100,000 Potentially Impacted by Colorado Data Breach",
+   "source": "SecurityWeek",
+   "url": "https://www.securityweek.com/100000-potentially-impacted-by-colorado-data-breach/",
+   "published": "2026-11-27T09:30:54Z",
+   "first_seen": "2026-11-27T12:55:00Z",
+   "cves": []
+  },
+  {
+   "severity": "high",
+   "type": "news",
+   "title": "Hackers Trojanize Official Q-Dir and DesktopOK Downloads to Deliver Remote Access Malware",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/11/hackers-trojanize-official-q-dir-and.html",
+   "published": "2026-11-27T09:29:30Z",
+   "first_seen": "2026-11-27T12:55:00Z",
+   "cves": []
+  }
+ ],
+ "kev_added": [
+  {
+   "cve": "CVE-2026-120705",
+   "vendor": "OSGeo",
+   "product": "GeoServer",
+   "title": "CVE-2026-120705: OSGeo GeoServer XML Injection Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-120705",
+   "due": "2026-11-30",
+   "ransomware": false
+  },
+  {
+   "cve": "CVE-2026-120705",
+   "vendor": "OSGeo",
+   "product": "GeoServer",
+   "title": "CVE-2026-129243: OSGeo GeoServer Incorrect Authorization Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-129243",
+   "due": "2026-11-30",
+   "ransomware": false
+  },
+  {
+   "cve": "CVE-2026-136716",
+   "vendor": "Drupal",
+   "product": "Core",
+   "title": "CVE-2026-136716: Drupal Core Improper Check for Unusual or Exceptional Conditions Vulnerability",
+   "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-136716",
+   "due": "2026-11-30",
+   "ransomware": false
+  }
+ ],
+ "breaches": [
+  {
+   "severity": "high",
+   "type": "breach",
+   "title": "Department for Work and Pensions takes some services offline after 'cyber incident'",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.bbc.com/news/articles/c8wy5p6pv2e2o",
+   "published": "2026-11-27T00:00:00Z",
+   "first_seen": "2026-11-27T12:55:00Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Ciberataque a Casinos del Estado obligó a cerrar las salas de Florida y Carmelo",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.elobservador.com.uy/nacional/ciberataque-casinos-del-estado-obligo-cerrar-las-salas-florida-y-carmelo-n6065257",
+   "published": "2026-11-27T00:00:00Z",
+   "first_seen": "2026-11-27T12:55:00Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "幼児活動研究会へのサイバー攻撃、VPNアカウントを悪用されAD管理者の認証情報を窃取 環境寄生型攻撃と判明|セキュリティニュースのセキュリティ対策Lab",
+   "source": "ransomware.live disclosures",
+   "url": "https://rocket-boys.co.jp/security-measures-lab/yoji_katsudo_research_institute_20261127_updated/",
+   "published": "2026-11-27T00:00:00Z",
+   "first_seen": "2026-11-27T12:55:00Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Κυβερνοεπίθεση στην κορυφαία πλατφόρμα cloud της αμερικανικής Πολεμικής Αεροπορίας -«Πάγωσαν» αναβαθμίσεις και μεταφορές συστημάτων - iefimerida.gr",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.iefimerida.gr/kosmos/kybernoepithesi-platforma-cloud-amerikanikis-polemikis-aeroporias",
+   "published": "2026-11-27T00:00:00Z",
+   "first_seen": "2026-11-27T15:34:54Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Gironde : le Centre hospitalier de Cadillac-sur-Garonne victime d’une attaque informatique",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.sudouest.fr/gironde/cadillac/gironde-le-centre-hospitalier-de-cadillac-sur-garonne-victime-d-une-attaque-informatique-31692114.php",
+   "published": "2026-11-27T00:00:00Z",
+   "first_seen": "2026-11-27T15:34:54Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Prefeitura de Taquarivaí sofre ataque cibernético | G1",
+   "source": "ransomware.live disclosures",
+   "url": "https://g1.globo.com/sp/itapetininga-regiao/noticia/2026/11/27/prefeitura-de-taquarivai-sofre-ataque-cibernetico.ghtml",
+   "published": "2026-11-27T00:00:00Z",
+   "first_seen": "2026-11-27T15:34:54Z",
+   "cves": []
+  },
+  {
+   "severity": "medium",
+   "type": "breach",
+   "title": "Napad na tolminsko mesarijo: hladilnike nastavili na 100 stopinj, na zaslonu se je pojavil politik",
+   "source": "ransomware.live disclosures",
+   "url": "https://www.dnevnik.si/novice/slovenija/kibernetski-napad-na-tolminsko-mesarijo-hladilnike-nastavili-na-100-stopinj-celzija-2843538/",
+   "published": "2026-11-27T00:00:00Z",
+   "first_seen": "2026-11-27T22:12:41Z",
+   "cves": []
+  }
+ ],
+ "ransomware_claims": {
+  "count": 35,
+  "groups": [
+   [
+    "iah647",
+    6
+   ],
+   [
+    "iah6477",
+    6
+   ],
+   [
+    "pixelleaks",
+    5
+   ],
+   [
+    "majinahanashi",
+    3
+   ],
+   [
+    "inc ransom",
+    2
+   ],
+   [
+    "soul",
+    2
+   ],
+   [
+    "SoulGroup",
+    2
+   ],
+   [
+    "anubis",
+    1
+   ],
+   [
+    "the gentlemen",
+    1
+   ],
+   [
+    "incransom",
+    1
+   ]
+  ]
+ },
+ "archive_counts": {
+  "date": "2026-11-27",
+  "exploited": 12.0,
+  "ransomware": 8.75,
+  "breaches": 0.0,
+  "community": 3.1,
+  "kev": 3,
+  "claims": 35,
+  "breach_count": 0,
+  "accounts": 0,
+  "stories": 2,
+  "top": "US Air Force's cloud computing platform hacked",
+  "top_url": "https://news.sky.com/story/us-air-forces-cloud-computing-platform-hacked-13617163"
+ },
+ "sitreps": [
+  "sitreps/2026-11-27/153347Z.json"
+ ]
+}
