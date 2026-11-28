@@ -1,39 +1,39 @@
 {
- "written_at": "2026-11-27T15:33:47Z",
+ "written_at": "2026-11-28T15:33:37Z",
  "by": "Claude",
- "headline": "Drupal core flaws exploited for site takeover; Mitel MiCollab and Juniper Session Smart bugs added to KEV; 1Password, SAP and FinCEN report breaches",
+ "headline": "GeoServer and a second Drupal core flaw join CISA KEV; unpatched Cacti zero-day has a public PoC; pCloud confirms password manager hack",
  "bullets": [
   {
-   "text": "New, critical: Drupal warns of a second site takeover flaw exploited in attacks, after the installer RCE (CVE-2026-132165, KEV due 11-27). SecurityWeek says the installer patch left a gap attackers already use; reports also cite CVE-2026-136716.",
+   "text": "New in KEV 11-27 (due 11-30): two exploited OSGeo GeoServer flaws, CVE-2026-120705 (XML injection) and CVE-2026-129243 (incorrect authorization). SecurityWeek reports the two newly disclosed vulnerabilities are under attack.",
+   "url": "https://www.securityweek.com/two-newly-disclosed-geoserver-vulnerabilities-under-attack/"
+  },
+  {
+   "text": "Drupal: CVE-2026-136716, the second core flaw reported as exploited for site takeover, was added to KEV 11-27 (due 11-30). The KEV due date for the earlier core RCE, CVE-2026-132165, passed on 11-27.",
    "url": "https://www.bleepingcomputer.com/news/security/drupal-warns-of-new-access-bypass-flaw-exploited-in-attacks/"
   },
   {
-   "text": "New in KEV 11-25: five Mitel MiCollab zero-days (CVE-2026-133275, -133303, -133311, -133323, -133324), exploited in suspected AI-assisted attacks, plus Juniper Session Smart Conductor/Router CVE-2026-103406, Xen Orchestra CVE-2026-133469 and three Danfoss AK-SM 800A flaws.",
-   "url": "https://www.securityweek.com/mitel-micollab-zero-days-exploited-in-suspected-ai-assisted-attacks/"
+   "text": "Cacti: BleepingComputer reports the zero-day giving remote code execution is still unpatched and now has a public proof of concept.",
+   "url": "https://www.bleepingcomputer.com/news/security/unpatched-cacti-zero-day-with-public-poc-gives-remote-code-execution/"
   },
   {
-   "text": "AI-assisted intrusions: Switzerland confirms AI-assisted attacks breached critical infrastructure operators; 24 Check Point management servers were compromised in a suspected AI-driven campaign; Microsoft says Chinese and North Korean state hackers use the ARTEX AI tool.",
-   "url": "https://thehackernews.com/2026/11/switzerland-confirms-ai-assisted.html"
+   "text": "New breaches: pCloud confirmed a hack of its password manager after suspicious login alerts, with email addresses exposed. Also reported: US Air Force Cloud One platform hacked, Boston Scientific, Barclays' US arm, Japan's education ministry, and a Pacific Blue Cross service disruption.",
+   "url": "https://www.bleepingcomputer.com/news/security/pcloud-confirms-password-manager-hack-after-suspicious-login-alerts/"
   },
   {
-   "text": "Breaches: The Register reports hackers took 1Password source code and customer data; SAP confirmed an incident after suspicious GitHub activity; US Treasury's FinCEN breached; FIFA and Flight Centre disclosed data theft; UK DWP took services offline.",
+   "text": "Still developing: 1Password source code and customer data theft (7 outlets), SAP incident after suspicious GitHub activity, FIFA and Flight Centre data theft, and state hackers' use of the ARTEX AI tool. A Microsoft Store app was found delivering Vinci RAT.",
    "url": "https://www.theregister.com/security/2026/11/26/hackers-help-themselves-to-1passwords-source-code-and-customer-data/5312317"
   },
   {
-   "text": "Supply chain: a CVSS 10.0 Hex.pm RCE flaw was used to compromise 6 package registry servers and Hex warns of a possible data breach; PolinRider poisoned over 7,600 GitHub repositories; official Q-Dir and DesktopOK downloads were trojanized.",
-   "url": "https://thehackernews.com/2026/11/hackers-exploited-cvss-100-hexpm-rce.html"
-  },
-  {
-   "text": "SITCON lowered to 3 (ELEVATED) from 2: 10 KEV additions in three working days, 10 critical reports in two. Also: unpatched Cacti zero-day RCE via guest access, NFS2ROOT Linux root flaw (CVE-2026-99362), new vCenter auth bypass CVE-2026-123903. Last 7 days: 1.15x the 90-day average.",
-   "url": "https://thehackernews.com/2026/11/unpatched-cacti-zero-day-enables-rce-in.html"
+   "text": "SITCON eased to 4 (GUARDED) from 3: 13 KEV additions in three working days, 8 critical reports in two; last 7 days scored 1.32x the 90-day average. KEV entries from 11-25 for Mitel MiCollab, Juniper Session Smart, Xen Orchestra and Danfoss AK-SM 800A are mostly due 11-28.",
+   "url": "https://www.securityweek.com/mitel-micollab-zero-days-exploited-in-suspected-ai-assisted-attacks/"
   }
  ],
  "actions": [
-  "Drupal: apply the latest core security release, not only the first installer fix, and check sites for signs of takeover.",
-  "Patch Mitel MiCollab (five KEV CVEs) and Juniper Session Smart Conductor/Router (CVE-2026-103406); KEV due date is 11-28. Hunt for compromise.",
-  "Patch Xen Orchestra (CVE-2026-133469) and Danfoss AK-SM 800A (CVE-2023-25914, CVE-2023-25915); KEV due date is 11-28.",
-  "1Password and SAP customers: follow vendor notices and watch for follow-on phishing. Hex users: review recently pulled packages.",
-  "Cacti: review guest access and limit who can reach the UI until a fix ships. Check Point admins: review management server access.",
-  "Still open: vCenter CVE-2026-123890 and CVE-2026-123903, Idunno AntiCsrf CVE-2026-131914, Optimizely CVE-2026-132224, LiteLLM CVE-2026-40217."
+  "GeoServer: patch CVE-2026-120705 and CVE-2026-129243 (KEV due 11-30), limit public exposure, and check for signs of compromise.",
+  "Drupal: apply the latest core security release covering CVE-2026-136716 as well as CVE-2026-132165, and check sites for takeover.",
+  "Cacti: no patch yet and a PoC is public. Limit who can reach the UI, review guest access, and watch for a vendor fix.",
+  "pCloud password manager users: review login alerts, follow the vendor notice, and expect phishing to exposed email addresses.",
+  "Due 11-28 in KEV: Mitel MiCollab, Juniper Session Smart CVE-2026-103406, Xen Orchestra CVE-2026-133469, Danfoss AK-SM 800A. Finish patching.",
+  "1Password and SAP customers: keep following vendor notices. Still open: vCenter CVE-2026-123890, LiteLLM CVE-2026-40217 (KEV due 12-02)."
  ]
 }
